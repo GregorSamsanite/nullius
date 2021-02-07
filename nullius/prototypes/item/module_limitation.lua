@@ -1,0 +1,32 @@
+nullius_productivity_modules = {
+  "nullius-yield-module-1",
+  "nullius-yield-module-2",
+  "nullius-yield-module-3",
+  "nullius-yield-module-4",
+  "nullius-productivity-module-1",
+  "nullius-productivity-module-2",
+  "nullius-productivity-module-3"
+}
+
+nullius_non_productivity_categories = {
+  ["nullius-electrolysis"] = true,
+  ["nullius-gas-void"] = true,
+  ["nullius-liquid-void"] = true,
+  ["nullius-barrel"] = true,
+  ["nullius-unbarrel"] = true,
+  ["air-filtration"] = true,
+  ["compression"] = true,
+  ["water-pumping"] = true,
+  ["combustion"] = true
+}
+
+
+for _,recipe in pairs(data.raw.recipe) do
+  if ((string.sub(recipe.name, 1, 8) == "nullius-") and
+      (recipe.no_productivity ~= true) and
+	  nullius_non_productivity_categories[recipe.category] ~= true) then
+    for _,modname in pairs(nullius_productivity_modules) do
+	  table.insert(data.raw.module[modname].limitation, recipe.name)
+	end
+  end
+end

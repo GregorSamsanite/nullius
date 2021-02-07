@@ -1,0 +1,86 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 06.02.2021
+  Modding:
+    - Add compatibility support for Train Supply Manager (TSM) mod.
+    - Add compatibility support for Teleporters mod.
+  Bugfixes:
+    - Fix a problem placing refractory brick with blueprints.
+    - Fix minor issue where Surge Electrolyzers/Compressors share power like accumulators.
+  Balancing:
+    - Allow tier 1 of basic crafting machines to be build in medium assembler.
+  Changes:
+    - Replace FNEI with Recipe Book in the list of recommended optional prereqs.
+	- Make Nullius startup logic more tolerant of game modes other than Freeplay.
+    - Tweak prerequisites for Bob's Adjustable Inserters.
+  Info:
+    - Document steam temperature/compressed gas energy storage topic in Informatron.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 04.02.2021
+  Bugfixes:
+    - Fix a minor issue with vanilla starting recipes appearing.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 03.02.2021
+  Bugfixes:
+    - Workaround an incompatibility in the Squeak_Through mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 03.02.2021
+  Modding:
+    - Add compatibility support for Miniloader mod.
+    - Add compatibility support for Bob's Adjustable Inserters mod.
+    - Add a workaround to stop Nullius from disabling third party recipes.
+  Changes:
+    - Improved placement of wind turbines on top of existing wind turbines.
+  Features:
+    - Add an infinite tier of projection technology.
+  Balancing:
+    - Boost the effect of projection techs on character reach and build distance. 
+  Bugfixes:
+    - Fixed insulated wire to function like copper cable and make electrical connections.
+    - Fix a bug that allowed blueprinted geothermal plants to be placed off fumaroles.
+      Built geothermal plants may no longer be blueprinted, but their ghosts still can be.
+    - Improved a minor issue with redundant entries in upgrade/deconstruction planner.
+  Translation:
+    - Russian translation updated to include Informatron guide (Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 31.01.2021
+  Features:
+    - Informatron mod support with in game information about Nullius.
+  Translation:
+    - Now available in Russian (thanks to Shadow_Man for the translation).
+  Balancing:
+    - Early game techs prior to electrical engineering now ignore tech cost multiplier.
+  Bugfixes:
+    - Fix a problem with wind turbine implementation that was reducing its power output.
+    - Attempt to mitigate a category of mod conflict that may prevent hand crafting.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 30.01.2021
+  Bugfixes:
+    - Make wind turbines buildable on landfill.
+  Modding:
+    - Add a workaround to stop Nullius from disabling third party techs.
+    - Add compatibility support for Factorissimo2 mod.
+    - Add compatibility support for AAI Signal Transmission mod.
+  Changes:
+    - Hide incompatible mod settings in third party prerequisite mods.
+    - Slightly increase hangar construction radius.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 25.01.2021
+  Modding:
+    - Add compatibility support for LTN - Logistic Train Network mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 23.01.2021
+  Bugfixes:
+    - Fixed a similar problem loading with inserter overhaul mod setting disabled.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 23.01.2021
+  Bugfixes:
+    - Fixed a problem loading with auto-barreling mod setting enabled.

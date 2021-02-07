@@ -1,0 +1,30 @@
+{
+  "item":
+  [
+    ["nullius-electrolyzer-1", "nullius-surge-electrolyzer-1"],
+    ["nullius-electrolyzer-2", "nullius-surge-electrolyzer-2"],
+    ["nullius-mirror-electrolyzer-2", "nullius-mirror-surge-electrolyzer-2"],
+    ["nullius-electrolyzer-3", "nullius-surge-electrolyzer-3"],
+    ["nullius-mirror-electrolyzer-3", "nullius-mirror-surge-electrolyzer-3"],
+    ["nullius-priority-electrolyzer", "nullius-priority-electrolyzer-3"],
+    ["nullius-mirror-priority-electrolyzer", "nullius-mirror-priority-electrolyzer-3"],
+    ["nullius-compressor-1", "nullius-surge-compressor-1"],
+    ["nullius-compressor-2", "nullius-surge-compressor-2"],
+    ["nullius-compressor-3", "nullius-surge-compressor-3"],
+    ["nullius-priority-compressor", "nullius-priority-compressor-3"]
+  ],
+  "entity":
+  [
+    ["nullius-electrolyzer-1", "nullius-surge-electrolyzer-1"],
+    ["nullius-electrolyzer-2", "nullius-surge-electrolyzer-2"],
+    ["nullius-mirror-electrolyzer-2", "nullius-mirror-surge-electrolyzer-2"],
+    ["nullius-electrolyzer-3", "nullius-surge-electrolyzer-3"],
+    ["nullius-mirror-electrolyzer-3", "nullius-mirror-surge-electrolyzer-3"],
+    ["nullius-priority-electrolyzer", "nullius-priority-electrolyzer-3"],
+    ["nullius-mirror-priority-electrolyzer", "nullius-mirror-priority-electrolyzer-3"],
+    ["nullius-compressor-1", "nullius-surge-compressor-1"],
+    ["nullius-compressor-2", "nullius-surge-compressor-2"],
+    ["nullius-compressor-3", "nullius-surge-compressor-3"],
+    ["nullius-priority-compressor", "nullius-priority-compressor-3"]
+  ]
+}
