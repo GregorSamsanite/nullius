@@ -1779,6 +1779,20 @@ data:extend({
     stack_size = 100
   },
   {
+    type = "item",
+    name = "nullius-grid-battery-3",
+	icons = {{
+      icon = "__base__/graphics/icons/accumulator.png",
+      icon_size = 64,
+      icon_mipmaps = 4,
+	  tint = {1, 0.85, 1}
+	}},
+    subgroup = "energy",
+    order = "nullius-fd",
+    place_result = "nullius-grid-battery-3",
+    stack_size = 100
+  },
+  {
     type = "recipe",
     name = "nullius-grid-battery-1",
     enabled = false,
@@ -1847,6 +1861,19 @@ data:extend({
 	  {"nullius-box-heat-pipe-2", 2}
     },
     result = "nullius-box-grid-battery-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-grid-battery-3",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 20,
+    ingredients = {
+	  {"nullius-box-grid-battery-2", 1},
+	  {"nullius-battery-3", 3}
+    },
+    result = "nullius-grid-battery-3"
   },
 
   {

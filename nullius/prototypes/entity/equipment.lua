@@ -75,6 +75,31 @@ data:extend(
   },
 
   {
+    type = "battery-equipment",
+    name = "nullius-battery-3",
+	localised_description = {"equipment-description.nullius-battery"},
+    take_result = "nullius-uncharged-battery-3",
+	order = "be",
+    sprite = {
+      filename = "__nullius__/graphics/battery3.png",
+      width = 64,
+      height = 64,
+      priority = "medium"
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "25MJ",
+      usage_priority = "tertiary"
+    },
+    categories = {"cybernetic"}
+  },
+
+  {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-1",
 	order = "cb",
@@ -123,7 +148,7 @@ data:extend(
   {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-3",
-	order = "cc",
+	order = "cd",
     sprite = {
       filename = "__base__/graphics/icons/solar-panel.png",
       width = 64,
@@ -140,6 +165,29 @@ data:extend(
       usage_priority = "primary-output"
     },
     power = "400kW",
+    categories = {"cybernetic"}
+  },
+  {
+    type = "solar-panel-equipment",
+    name = "nullius-solar-panel-4",
+	order = "ce",
+    sprite = {
+      filename = "__base__/graphics/icons/solar-panel.png",
+      width = 64,
+      height = 64,
+      tint = {1, 0.75, 0.85},
+      priority = "medium"
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-output"
+    },
+    power = "800kW",
     categories = {"cybernetic"}
   },
 
@@ -671,6 +719,59 @@ data:extend(
 
     robot_limit = 0,
     construction_radius = 48,
+    spawn_and_station_height = 0.4,
+    spawn_and_station_shadow_height_offset = 0.5,
+    charge_approach_distance = 2.6,
+    robots_shrink_when_entering_and_exiting = true,
+
+    recharging_animation = {
+      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      priority = "high",
+      width = 37,
+      height = 35,
+      frame_count = 16,
+      scale = 1.5,
+      animation_speed = 0.5
+    },
+    recharging_light = {intensity = 0.4, size = 5},
+    stationing_offset = {0, -0.6},
+    charging_station_shift = {0, 0.5},
+    charging_station_count = 0,
+    charging_distance = 1.6,
+    charging_threshold_distance = 5,
+    categories = {"cybernetic"}
+  },
+
+  {
+    type = "roboport-equipment",
+    name = "nullius-relay-4",
+	order = "ie",
+	localised_description = {"equipment-description.nullius-relay"},
+    sprite = {
+      filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
+      width = 32,
+      height = 80,
+	  x = 20,
+	  y = 24,
+	  tint = {0.85, 1, 0.9},
+      priority = "medium"
+    },
+    shape = {
+      width = 1,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "1.5MJ",
+      input_flow_limit = "100kW",
+      usage_priority = "secondary-input",
+	  drain = "75kW"
+    },
+    charging_energy = "0kW",
+
+    robot_limit = 0,
+    construction_radius = 72,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,

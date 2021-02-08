@@ -113,7 +113,21 @@ for _,type in pairs(item_types_list) do
 end
 
 for _, recipe in pairs(data.raw.recipe) do
-  if (string.sub(recipe.name, 1, 8) == "nullius-") then
+  if ((string.sub(recipe.name, 1, 8) ~= "nullius-") and
+	  ((recipe.order == nil) or (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
+	  (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
+	  (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
+	recipe.hidden = true
+	recipe.enabled = false
+	if (recipe.normal ~= nil) then
+	  recipe.normal.enabled = true
+	  recipe.normal.hidden = true
+	end
+	if (recipe.expensive ~= nil) then
+	  recipe.expensive.enabled = true
+	  recipe.expensive.hidden = true
+	end
+  else
     if (recipe.results) then
       for _, product in pairs(recipe.results) do
         if (product.name ~= nil) then
@@ -162,11 +176,14 @@ for _,type in pairs(building_types_list) do
           entity.next_upgrade = nil
         end
       end
-      if entity.minable ~= nil then
-        local item = data.raw.item[entity.minable.result]
-        if (item ~= nil) and table_contains(item.flags, "hidden") then
-          entity.next_upgrade = nil
-        end
+	end
+    if entity.minable ~= nil then
+      local item = data.raw.item[entity.minable.result]
+      if (item ~= nil) and table_contains(item.flags, "hidden") then
+        entity.next_upgrade = nil
+	    if (not table_contains(entity.flags, "hidden")) then
+		  table.insert(entity.flags, "hidden")
+		end
       end
     end
   end

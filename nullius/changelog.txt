@@ -1,18 +1,27 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
-Date: 06.02.2021
+Date: 07.02.2021
+  Features:
+    - Add some new ultra expensive, finite, optional end game techs for megabase builders.
   Modding:
     - Add compatibility support for Train Supply Manager (TSM) mod.
     - Add compatibility support for Teleporters mod.
   Bugfixes:
     - Fix a problem placing refractory brick with blueprints.
     - Fix minor issue where Surge Electrolyzers/Compressors share power like accumulators.
+    - Allow boxing to handle non-standard stack sizes set by other mods.
   Balancing:
-    - Allow tier 1 of basic crafting machines to be build in medium assembler.
+    - Allow tier 1 of basic crafting machines to be built in medium assembler.
+    - Volcanic gas depletes to 25% of max instead of 20% of max.
+    - Shifted time of day effect on wind speed to better complement solar.
+    - Replace some crash site chests with a storage chest.
+    - Removed poison resistance from armor.
   Changes:
+    - Hide disabled recipes that aren't part of Nullius, so they don't appear in Recipe Book.
     - Replace FNEI with Recipe Book in the list of recommended optional prereqs.
-	- Make Nullius startup logic more tolerant of game modes other than Freeplay.
+    - Make Nullius startup logic more tolerant of game modes other than Freeplay.
     - Tweak prerequisites for Bob's Adjustable Inserters.
+    - Changed name of boxing recipe to "... boxing" instead of "... box".
   Info:
     - Document steam temperature/compressed gas energy storage topic in Informatron.
 ---------------------------------------------------------------------------------------------------

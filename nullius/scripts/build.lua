@@ -9,7 +9,7 @@ function entity_added(entity)
     build_geothermal_plant(entity, (string.byte(entity.name, 28) - 48))
   elseif (string.find(entity.name, "nullius%-stirling%-engine%-") == 1) then
     build_stirling_engine(entity, (string.byte(entity.name, 25) - 48))
-  elseif (entity.name == "nullius-mecha") then
+  elseif ((entity.name == "nullius-mecha") or (entity.name == "nullius-mecha-2")) then
     entity.vehicle_automatic_targeting_parameters = {
 	  auto_target_without_gunner = false, auto_target_with_gunner = false
 	}

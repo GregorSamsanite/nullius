@@ -298,9 +298,15 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "solar",
+    group = "equipment",
+    order = "db"
+  },
+  {
+    type = "item-subgroup",
     name = "battery",
     group = "equipment",
-    order = "d"
+    order = "dc"
   },
   {
     type = "item-subgroup",

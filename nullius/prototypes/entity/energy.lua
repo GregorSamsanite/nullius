@@ -135,6 +135,7 @@ data:extend({
     production = "400kW",
     resistances = data.raw["solar-panel"]["nullius-solar-panel-1"].resistances,
     fast_replaceable_group = "solar-panel",
+    next_upgrade = "nullius-solar-panel-4",
 	overlay = data.raw["solar-panel"]["nullius-solar-panel-1"].overlay,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.6 },
     picture = {
@@ -145,6 +146,39 @@ data:extend({
           width = 230,
           height = 224,
           shift = util.by_pixel(-2, 2.4),
+          scale = 0.64
+        },
+		data.raw["solar-panel"]["nullius-solar-panel-1"].picture.layers[2]
+      }
+    }
+  },
+
+  {
+    type = "solar-panel",
+    name = "nullius-solar-panel-4",
+	localised_description = {"equipment-description.nullius-solar-panel-4"},
+    icons = data.raw.item["nullius-solar-panel-4"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.1, result = "nullius-solar-panel-4"},
+    max_health = 500,
+    corpse = "solar-panel-remnants",
+    collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
+    selection_box = {{-2, -2}, {2, 2}},
+    energy_source = { type = "electric", usage_priority = "solar" },
+    production = "800kW",
+    resistances = data.raw["solar-panel"]["nullius-solar-panel-1"].resistances,
+    fast_replaceable_group = "solar-panel",
+	overlay = data.raw["solar-panel"]["nullius-solar-panel-1"].overlay,
+    vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.6 },
+    picture = {
+      layers = {
+        {
+          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel.png",
+          priority = "high",
+          width = 230,
+          height = 224,
+          shift = util.by_pixel(-2, 2.4),
+          tint = {1, 0.75, 0.85},
           scale = 0.64
         },
 		data.raw["solar-panel"]["nullius-solar-panel-1"].picture.layers[2]
@@ -227,6 +261,7 @@ data:extend({
     max_health = 300,
     corpse = "accumulator-remnants",
 	fast_replaceable_group = "grid-battery",
+    next_upgrade = "nullius-grid-battery-3",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
@@ -260,6 +295,71 @@ data:extend({
     discharge_animation = {
       layers = {
         accumulator_picture({ r=1, g=1, b=1, a=1 } , 24),
+        {
+          filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+          priority = "high",
+          width = 170,
+          height = 210,
+          line_length = 6,
+          frame_count = 24,
+          blend_mode = "additive",
+          shift = util.by_pixel(-1.5, -34.5),
+          scale = 0.75
+        }
+      }
+    },
+    discharge_cooldown = 60,
+    discharge_light = {intensity = 0.7, size = 7, color = {r = 1.0, g = 1.0, b = 1.0}},
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    working_sound = data.raw.accumulator["accumulator"].working_sound,
+    circuit_wire_connection_point = circuit_connector_definitions["accumulator"].points,
+    circuit_connector_sprites = circuit_connector_definitions["accumulator"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    default_output_signal = {type = "virtual", name = "signal-A"}
+  },
+
+  {
+    type = "accumulator",
+    name = "nullius-grid-battery-3",
+	icons = data.raw.item["nullius-grid-battery-3"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.1, result = "nullius-grid-battery-3"},
+    max_health = 400,
+    corpse = "accumulator-remnants",
+    fast_replaceable_group = "grid-battery",
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "60MJ",
+      usage_priority = "tertiary",
+      input_flow_limit = "200kW",
+      output_flow_limit = "800kW"
+    },
+    resistances = { { type = "impact", decrease = 100, percent = 90 } },
+    picture = accumulator_picture({ r=1, g=0.85, b=1, a=1 }),
+    charge_animation = {
+      layers = {
+        accumulator_picture({ r=1, g=0.85, b=1, a=1 } , 24),
+        {
+          filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+          priority = "high",
+          width = 178,
+          height = 206,
+          line_length = 6,
+          frame_count = 24,
+          blend_mode = "additive",
+          shift = util.by_pixel(0, -33),
+          scale = 0.75
+        }
+      }
+    },
+    charge_cooldown = 30,
+    charge_light = {intensity = 0.3, size = 7, color = {r = 1.0, g = 1.0, b = 1.0}},
+    discharge_animation = {
+      layers = {
+        accumulator_picture({ r=1, g=0.85, b=1, a=1 } , 24),
         {
           filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
           priority = "high",

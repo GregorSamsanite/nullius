@@ -36,6 +36,13 @@ data:extend({
   },
   {
     type = "equipment-grid",
+    name = "nullius-armor-grid-6",
+    width = 10,
+    height = 15,
+    equipment_categories = {"cybernetic"}
+  },
+  {
+    type = "equipment-grid",
     name = "nullius-mecha-grid",
     width = 10,
     height = 10,
@@ -50,9 +57,8 @@ data:extend({
     icon_mipmaps = 4,
     resistances = {
       { type = "explosion", decrease = 2, percent = 20 },
-      { type = "poison", decrease = 2, percent = 20 },
-      { type = "physical", decrease = 1, percent = 10 },
-      { type = "impact", decrease = 1, percent = 10 }
+      { type = "impact", decrease = 2, percent = 20 },
+      { type = "physical", decrease = 1, percent = 10 }
     },
     subgroup = "armor",
     order = "nullius-b",
@@ -68,9 +74,8 @@ data:extend({
     icon_mipmaps = 4,
     resistances = {
 	  { type = "explosion", decrease = 10, percent = 40 },
-      { type = "poison", decrease = 5, percent = 30 },
+      { type = "impact", decrease = 5, percent = 30 },
       { type = "physical", decrease = 2, percent = 20 },
-      { type = "impact", decrease = 2, percent = 20 },
       { type = "fire", decrease = 1, percent = 10 },
       { type = "laser", decrease = 1, percent = 10 }
     },
@@ -89,9 +94,8 @@ data:extend({
     icon_mipmaps = 4,
     resistances = {
       { type = "explosion", decrease = 20, percent = 50 },
-      { type = "poison", decrease = 10, percent = 40 },
+      { type = "impact", decrease = 10, percent = 40 },
       { type = "physical", decrease = 5, percent = 30 },
-      { type = "impact", decrease = 5, percent = 30 },
       { type = "fire", decrease = 2, percent = 20 },
       { type = "laser", decrease = 2, percent = 20 },
       { type = "acid", decrease = 1, percent = 10 }
@@ -111,9 +115,8 @@ data:extend({
     icon_mipmaps = 4,
     resistances = {
       { type = "explosion", decrease = 30, percent = 60 },
-      { type = "poison", decrease = 20, percent = 50 },
+      { type = "impact", decrease = 20, percent = 50 },
       { type = "physical", decrease = 10, percent = 40 },
-      { type = "impact", decrease = 10, percent = 40 },
       { type = "fire", decrease = 5, percent = 30 },
       { type = "laser", decrease = 5, percent = 30 },
       { type = "acid", decrease = 2, percent = 20 }
@@ -133,9 +136,8 @@ data:extend({
     icon_mipmaps = 4,
     resistances = {
       { type = "explosion", decrease = 40, percent = 75 },
-      { type = "poison", decrease = 30, percent = 60 },
+      { type = "impact", decrease = 30, percent = 60 },
       { type = "physical", decrease = 20, percent = 50 },
-      { type = "impact", decrease = 20, percent = 50 },
       { type = "fire", decrease = 10, percent = 40 },
       { type = "laser", decrease = 10, percent = 40 },
       { type = "acid", decrease = 5, percent = 25 }
@@ -145,6 +147,28 @@ data:extend({
     stack_size = 1,
     inventory_size_bonus = 40,
     equipment_grid = "nullius-armor-grid-5",
+    infinite = true
+  },
+  {
+    type = "armor",
+    name = "nullius-chassis-6",
+	localised_description = {"item-description.nullius-chassis-5"},
+    icon = "__nullius__/graphics/chassis6.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    resistances = {
+      { type = "explosion", decrease = 50, percent = 80 },
+      { type = "impact", decrease = 40, percent = 75 },
+      { type = "physical", decrease = 30, percent = 60 },
+      { type = "fire", decrease = 20, percent = 50 },
+      { type = "laser", decrease = 20, percent = 50 },
+      { type = "acid", decrease = 10, percent = 40 }
+    },
+    subgroup = "armor",
+    order = "nullius-g",
+    stack_size = 1,
+    inventory_size_bonus = 50,
+    equipment_grid = "nullius-armor-grid-6",
     infinite = true
   },
   {
@@ -215,6 +239,22 @@ data:extend({
     },
     result = "nullius-chassis-5"
   },
+  {
+    type = "recipe",
+    name = "nullius-chassis-6",
+    enabled = false,
+    category = "nanotechnology",
+    energy_required = 300,
+    ingredients = {
+      {"nullius-chassis-5", 3},
+	  {"nullius-solar-panel-4", 3},
+      {"nullius-battery-3", 4},
+	  {"nullius-box-graphene", 6},
+	  {"nullius-leg-augmentation-4", 2},
+	  {"nullius-relay-4", 1}
+    },
+    result = "nullius-chassis-6"
+  },
 
   {
     type = "item",
@@ -225,7 +265,7 @@ data:extend({
       icon_mipmaps = 4,
       tint = {0.77, 0.77, 0.68}
     }},
-    subgroup = "battery",
+    subgroup = "solar",
     order = "nullius-bb",
     place_result = "nullius-solar-panel-1",
     placed_as_equipment_result = "nullius-solar-panel-1",
@@ -240,7 +280,7 @@ data:extend({
       icon_mipmaps = 4,
       tint = {0.8, 0.8, 0.9}
     }},
-    subgroup = "battery",
+    subgroup = "solar",
     order = "nullius-bc",
     place_result = "nullius-solar-panel-2",
     placed_as_equipment_result = "nullius-solar-panel-2",
@@ -254,10 +294,25 @@ data:extend({
 	  icon_size = 64,
       icon_mipmaps = 4
     }},
-    subgroup = "battery",
+    subgroup = "solar",
     order = "nullius-bd",
     place_result = "nullius-solar-panel-3",
     placed_as_equipment_result = "nullius-solar-panel-3",
+    stack_size = 100
+  },
+  {
+    type = "item",
+    name = "nullius-solar-panel-4",
+	icons = {{
+	  icon = "__base__/graphics/icons/solar-panel.png",
+	  icon_size = 64,
+      icon_mipmaps = 4,
+      tint = {1, 0.75, 0.85}
+    }},
+    subgroup = "solar",
+    order = "nullius-be",
+    place_result = "nullius-solar-panel-4",
+    placed_as_equipment_result = "nullius-solar-panel-4",
     stack_size = 100
   },
 
@@ -371,6 +426,19 @@ data:extend({
       {type="fluid", name="nullius-chlorine", amount=60}
     },
 	main_product = "nullius-box-solar-panel-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-solar-panel-4",
+    enabled = false,
+    category = "nanotechnology",
+    energy_required = 40,
+    ingredients = {
+      {type="item", name="nullius-box-solar-panel-3", amount=1},
+	  {type="item", name="nullius-productivity-module-3", amount=1},
+	  {type="item", name="nullius-antimatter", amount=1}
+    },
+    result = "nullius-solar-panel-4"
   },
 
   {
@@ -683,6 +751,71 @@ data:extend({
       {"nullius-uncharged-battery-2", 5}
     },
     result = "nullius-box-battery-2"
+  },
+
+  {
+    type = "item",
+    name = "nullius-battery-3",
+    localised_name = {"item-name.nullius-battery-3"},
+	localised_description = {"equipment-description.nullius-battery"},
+    icon = "__nullius__/graphics/battery3.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    placed_as_equipment_result = "nullius-battery-3",
+    subgroup = "battery",
+    order = "nullius-dd",
+    fuel_category = "vehicle",
+    fuel_value = "25MJ",
+    fuel_acceleration_multiplier = 1.8,
+    fuel_top_speed_multiplier = 1.4,
+    burnt_result = "nullius-uncharged-battery-3",
+    stack_size = 100
+  },
+  {
+    type = "item",
+    name = "nullius-uncharged-battery-3",
+    localised_name = {"item-name.nullius-uncharged-battery-3"},
+    icon = "__nullius__/graphics/uncharged3.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    placed_as_equipment_result = "nullius-battery-3",
+    subgroup = "battery",
+    order = "nullius-ed",
+    stack_size = 100
+  },
+  {
+    type = "recipe",
+    name = "nullius-battery-3",
+    enabled = false,
+	always_show_made_in = true,
+	always_show_products = true,
+    category = "nanotechnology",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-box-battery-2", amount=1},
+      {type="item", name="nullius-box-copper-sheet", amount=2},
+      {type="item", name="nullius-antimatter", amount=1},
+      {type="item", name="nullius-efficiency-module-3", amount=1}
+    },
+	result = "nullius-battery-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-battery-recharging-3",
+    localised_name = {"recipe-name.nullius-battery-recharging-3"},
+    icon = "__nullius__/graphics/uncharged3.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    enabled = false,
+	always_show_products = true,
+	no_productivity = true,
+    category = "nullius-electrolysis",
+	order = "nullius-ed",
+    energy_required = 12,
+    ingredients = {
+      {"nullius-uncharged-battery-3", 1}
+    },
+    result = "nullius-battery-3"
   },
 
   {
@@ -1019,6 +1152,20 @@ data:extend({
     stack_size = 50
   },
   {
+    type = "item",
+    name = "nullius-relay-4",
+	icons = {{
+      icon = "__boblogistics__/graphics/icons/logistic-zone-expander-3.png",
+	  tint = {0.85, 1, 0.9},
+      icon_size = 32
+	}},
+    placed_as_equipment_result = "nullius-relay-4",
+	place_result = "nullius-relay-4",
+    subgroup = "hangar-1",
+	order = "nullius-de",
+    stack_size = 50
+  },
+  {
     type = "recipe",
     name = "nullius-relay-1",
     enabled = false,
@@ -1113,6 +1260,19 @@ data:extend({
     },
     result = "nullius-box-relay-3"
   },
+  {
+    type = "recipe",
+    name = "nullius-relay-4",
+    enabled = false,
+    category = "nanotechnology",
+    energy_required = 8,
+    ingredients = {
+	  {"nullius-box-relay-3", 1},
+	  {"nullius-box-copper-wire", 3},
+	  {"nullius-speed-module-4", 1}
+    },
+    result = "nullius-relay-4"
+  },
 
   {
     type = "capsule",
@@ -1123,8 +1283,8 @@ data:extend({
       icon_mipmaps = 4,
       tint = {1, 0.6, 0.8}
     }},
-    subgroup = "tool",
-	order = "nullius-bc",
+    subgroup = "armor",
+	order = "nullius-mc",
     stack_size = 100,
     capsule_action = {
       type = "use-on-self",
@@ -2274,6 +2434,19 @@ data:extend({
     stack_size = 1
   },
   {
+    type = "item-with-entity-data",
+    name = "nullius-mecha-2",
+	icons = {{
+	  icon = "__base__/graphics/icons/spidertron-tintable.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
+	}},
+    subgroup = "vehicle",
+	order = "nullius-dc",
+    place_result = "nullius-mecha-2",
+    stack_size = 1
+  },
+  {
     type = "recipe",
     name = "nullius-mecha",
     enabled = false,
@@ -2289,6 +2462,20 @@ data:extend({
     },
     result = "nullius-mecha"
   },
+  {
+    type = "recipe",
+    name = "nullius-mecha-2",
+    enabled = false,
+    category = "huge-assembly",
+    energy_required = 300,
+    ingredients = {
+	  {type="item", name="nullius-mecha", amount=2},
+      {type="item", name="nullius-leg-augmentation-4", amount=8},
+	  {type="item", name="nullius-solar-panel-4", amount=8},
+	  {type="item", name="nullius-grid-battery-3", amount=4}
+    },
+    result = "nullius-mecha-2"
+  },
 
   {
     type = "spidertron-remote",
@@ -2298,7 +2485,7 @@ data:extend({
     icon_size = 64,
 	icon_mipmaps = 4,
     subgroup = "vehicle",
-    order = "nullius-dc",
+    order = "nullius-df",
     stack_size = 1
   },
   {
@@ -2413,6 +2600,5 @@ data:extend({
 	  {"nullius-reactor", 1}
     },
     result = "nullius-probe"
-  },
-
+  }
 })

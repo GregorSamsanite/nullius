@@ -12981,5 +12981,158 @@ data:extend({
       time = 60
     },
     prerequisites = {"nullius-artificial-intelligence", "nullius-personal-storage-3"}
+  },
+
+  {
+    type = "technology",
+    name = "nullius-battery-storage-5",
+	order = "nullius-gm",
+    icon = "__nullius__/graphics/battery3.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-battery-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-battery-recharging-3"
+      }
+    },
+    unit = {
+      count = 500000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-miniaturization-3", "nullius-asteroid-mining-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-battery-storage-6",
+	order = "nullius-gm",
+    icon = "__base__/graphics/technology/electric-energy-acumulators.png",
+	icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-grid-battery-3"
+      }
+    },
+    unit = {
+      count = 1000000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-battery-storage-5"}
+  },
+  {
+    type = "technology",
+    name = "nullius-broadcasting-4",
+	order = "nullius-gm",
+    icon = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-relay-4"
+      }
+    },
+    unit = {
+      count = 1000000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-rocket-science-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-solar-power-4",
+	order = "nullius-gm",
+    icon = "__base__/graphics/technology/solar-energy.png",
+	icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-solar-panel-4"
+      }
+    },
+    unit = {
+      count = 2000000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-battery-storage-5", "nullius-rocket-science-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-cybernetics-7",
+	order = "nullius-gm",
+    icon = "__base__/graphics/technology/power-armor-mk2.png",
+	icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-chassis-6"
+      }
+    },
+    unit = {
+      count = 3000000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-solar-power-4", "nullius-broadcasting-4"}
+  },
+  {
+    type = "technology",
+    name = "nullius-personal-transportation-5",
+	order = "nullius-gm",
+    icon = "__base__/graphics/technology/spidertron.png",
+	icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+		recipe = "nullius-mecha-2"
+      }
+    },
+    unit = {
+      count = 5000000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-cybernetics-7", "nullius-battery-storage-6"}
   }
 })

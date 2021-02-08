@@ -7,14 +7,6 @@ local box_stack_size = {
   [500] = 100
 }
 
-local box_ratio = {
-  [10] = 5,
-  [20] = 5,
-  [50] = 5,
-  [100] = 5,
-  [200] = 5,
-  [500] = 10
-}
 
 local function create_boxed_item(base_name, group, box_order,
 		full_name, category, stack_size, icon_scale, localname)
@@ -31,8 +23,14 @@ local function create_boxed_item(base_name, group, box_order,
   if (stack_size == nil) then
     stack_size = item.stack_size
   end
-  local ratio = box_ratio[stack_size]
+  local ratio = 5
+  if (ratio > 300) then
+    ratio = 10
+  end
   local box_stack = box_stack_size[stack_size]
+  if (box_stack == nil) then
+    box_stack = math.max(1, math.floor((2 * box_stack / ratio)))
+  end
   local base_icon = item.icon
   local base_size = item.icon_size
   local base_tint = nil
@@ -124,6 +122,7 @@ local function create_boxed_item(base_name, group, box_order,
     {
       type = "recipe",
 	  name = "nullius-box-"..base_name,
+	  localised_name = {"recipe-name.nullius-boxing", localname},
 	  enabled = false,
       category = "tiny-crafting",
 	  always_show_made_in = true,

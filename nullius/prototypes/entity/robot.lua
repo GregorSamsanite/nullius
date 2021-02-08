@@ -1072,6 +1072,7 @@ data:extend({
     flags = {"placeable-player", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.1, result = "nullius-relay-3"},
     fast_replaceable_group = "nullius-relay",
+	next_upgrade = "nullius-relay-4",
     max_health = 100,
     corpse = "small-remnants",
     collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
@@ -1120,6 +1121,68 @@ data:extend({
       animation_speed = 0.5,
       shift = {0, -1.9875*0.6},
       scale = 0.5*0.6
+    }
+  },
+
+  {
+    type = "roboport",
+    name = "nullius-relay-4",
+	localised_name = {"equipment-name.nullius-relay-4"},
+	localised_description = {"equipment-description.nullius-relay"},
+	icons = data.raw.item["nullius-relay-4"].icons,
+    flags = {"placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.1, result = "nullius-relay-4"},
+    fast_replaceable_group = "nullius-relay",
+    max_health = 100,
+    corpse = "small-remnants",
+    collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    dying_explosion = "medium-explosion",
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input",
+      input_flow_limit = "400kW",
+      buffer_capacity = "4MJ"
+    },
+    recharge_minimum = "1kJ",
+    energy_usage = "40kW",
+    -- per one charge slot
+    charging_energy = "1kW",
+    logistics_radius = 48.5,
+    construction_radius = 104.5,
+    charge_approach_distance = 1,
+    robot_slots_count = 0,
+    material_slots_count = 0,
+    -- stationing_offset = {0, 0},
+    -- charging_offsets = {{0, -1.7}},
+    recharging_light = {intensity = 0.4, size = 5},
+    request_to_open_door_timeout = 15,
+    spawn_and_station_height = 1.75,
+    draw_logistic_radius_visualization = true,
+    draw_construction_radius_visualization = true,
+	recharging_animation = data.raw["roboport"]["roboport"].recharging_animation,
+	base_patch = data.raw["roboport"]["bob-logistic-zone-expander"].base_patch,
+	door_animation_up = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_up,
+	door_animation_down = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_down,
+
+    base = {
+      filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
+      width = 136,
+      height = 132,
+      shift = {1*0.6, -0.55*0.6},
+	  scale = 0.6,
+	  tint = {0.85, 1, 0.9}
+    },
+    base_animation = {
+      filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png",
+      priority = "medium",
+      width = 83,
+      height = 59,
+      frame_count = 8,
+      animation_speed = 0.5,
+      shift = {0, -1.9875*0.6},
+      scale = 0.5*0.6,
+	  tint = {0.85, 1, 0.9}
     }
   },
 

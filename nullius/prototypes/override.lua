@@ -317,7 +317,8 @@ data.raw.item["rail-chain-signal"].order = "nullius-g"
 data.raw["repair-tool"]["repair-pack"].icon = "__base__/graphics/icons/repair-pack.png"
 data.raw["repair-tool"]["repair-pack"].icon_size = 64
 data.raw["repair-tool"]["repair-pack"].icon_mipmaps = 4
-data.raw["repair-tool"]["repair-pack"].order = "nullius-bb"
+data.raw["repair-tool"]["repair-pack"].subgroup = "armor"
+data.raw["repair-tool"]["repair-pack"].order = "nullius-mb"
 data.raw.recipe["repair-pack"].order = "x"
 
 data.raw["character"]["character"].crafting_categories = {

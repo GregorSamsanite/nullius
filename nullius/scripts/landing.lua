@@ -151,10 +151,11 @@ function landing_site(surface, loc)
       force = "player"
     }
 	if (part.pod ~= nil) then
-	  part_entity.insert({name="nullius-small-chest-1", count=3})
 	  if (part.pod == 1) then
-	    part_entity.insert({name="inserter", count=12})
+	    part_entity.insert({name="nullius-small-chest-1", count=4})
+	    part_entity.insert({name="inserter", count=15})
 	  else
+	    part_entity.insert({name="nullius-small-storage-chest-1", count=1})
 	    part_entity.insert({name="transport-belt", count=200})
 	    part_entity.insert({name="splitter", count=5})		
 	  end

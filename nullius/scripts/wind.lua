@@ -41,12 +41,12 @@ function recalculate_wind()
   local surface = game.surfaces[1]
   if (surface == nil) then return end
 
-  local wave1 = math.sin(discretize((surface.daytime + 0.3) * 6.2832))
+  local wave1 = math.sin(discretize((surface.daytime + 0.1) * 6.2832))
   local wave2 = math.sin(discretize((game.tick % 75787) * 0.001160682))
-  local wave3 = math.sin(discretize(((game.tick % 291113) * 0.000107917) + 2.5))
-  local wave4 = math.sin(discretize(((game.tick % 1023487) * 0.000024556) + 4.4))
+  local wave3 = math.sin(discretize(((game.tick % 291113) * 0.0001295004) + 2.5))
+  local wave4 = math.sin(discretize(((game.tick % 1023487) * 0.000055251) + 4.4))
 
-  local wave = discretize((wave1 * 1.5) + wave2 + wave3 + (wave4 * 0.5))
+  local wave = discretize((wave1 * 1.25) + wave2 + wave3 + (wave4 * 0.75))
   local noise = (math.random() * 3) + (math.random() * 5)
   local momentum = discretize((global.nullius_wind_momentum * 0.999) +
       (math.random() * 0.1) - 0.05)
