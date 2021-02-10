@@ -320,8 +320,8 @@ data:extend({
     category = "tiny-assembly",
     energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-logic-circuit", amount=2},
-      {type="item", name="nullius-memory-circuit", amount=2},
+      {type="item", name="decider-combinator", amount=2},
+      {type="item", name="constant-combinator", amount=2},
       {type="item", name="green-wire", amount=3}
     },
     result = "nullius-efficiency-module-1"
@@ -351,8 +351,8 @@ data:extend({
     category = "tiny-assembly",
     energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-arithmetic-circuit", amount=2},
-      {type="item", name="nullius-logic-circuit", amount=1},
+      {type="item", name="arithmetic-combinator", amount=2},
+      {type="item", name="decider-combinator", amount=1},
       {type="item", name="green-wire", amount=3}
     },
     result = "nullius-haste-module-1"

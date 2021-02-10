@@ -322,3 +322,15 @@ data.raw.item["teleporter"].subgroup = "vehicle"
 data.raw.item["teleporter"].order = "nullius-f"
 data.raw.item["teleporter"].stack_size = 5
 end
+
+
+if mods["jetpack"] then
+data.raw["battery-equipment"]["jetpack-1"].localised_description =
+  {"equipment-description.nullius-jetpack-1"}
+data.raw["battery-equipment"]["jetpack-2"].localised_description =
+  {"equipment-description.nullius-jetpack-2"}
+data.raw["battery-equipment"]["jetpack-3"].localised_description =
+  {"equipment-description.nullius-jetpack-3"}
+data.raw["battery-equipment"]["jetpack-4"].localised_description =
+  {"equipment-description.nullius-jetpack-4"}
+end

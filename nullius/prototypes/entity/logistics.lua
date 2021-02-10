@@ -1197,7 +1197,7 @@ data:extend({
     icon = "__nullius__/graphics/lamp1.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-lamp-1"},
+    minable = {mining_time = 0.1, result = "small-lamp"},
     max_health = 100,
     fast_replaceable_group = "lamp",
     next_upgrade = "nullius-lamp-2",

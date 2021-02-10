@@ -8,6 +8,14 @@ function init_geothermal()
   end
 end
 
+function destroy_stirling_engine(entry)
+  if ((entry.heat ~= nil) and (entry.heat.valid)) then
+    entry.heat.destroy()
+  end
+  rendering.destroy(entry.turbine)
+  rendering.destroy(entry.shadow)
+end
+
 function update_engine(e, threshold, ratio, limit, speed)
   local storage = e.electric.electric_buffer_size - e.electric.energy
   local temp = e.heat.temperature
@@ -38,14 +46,29 @@ end
 
 function update_geothermal()
   local bucket = global.nullius_stirling_buckets[game.tick % 443]
-  for _,e in pairs(bucket[1]) do
-    update_engine(e, 120, 200000, 16666.67, 0.5)
+  for i,e in pairs(bucket[1]) do
+    if (e.electric.valid) then
+      update_engine(e, 120, 200000, 16666.67, 0.5)
+	else
+	  destroy_stirling_engine(e)
+	  bucket[1][i] = nil
+	end
   end
-  for _,e in pairs(bucket[2]) do
-    update_engine(e, 100, 360000, 66666.67, 0.65)
+  for i,e in pairs(bucket[2]) do
+    if (e.electric.valid) then
+      update_engine(e, 100, 360000, 66666.67, 0.65)
+	else
+	  destroy_stirling_engine(e)
+	  bucket[2][i] = nil
+	end
   end
-  for _,e in pairs(bucket[3]) do
-    update_engine(e, 80, 800000, 250000, 0.8)
+  for i,e in pairs(bucket[3]) do
+    if (e.electric.valid) then
+      update_engine(e, 80, 800000, 250000, 0.8)
+	else
+	  destroy_stirling_engine(e)
+	  bucket[3][i] = nil
+	end
   end
 end
 
@@ -127,10 +150,6 @@ function remove_stirling_engine(entity, died, level)
     end
   end
 
-  if entry.heat ~= nil then
-    entry.heat.destroy()
-  end
-  rendering.destroy(entry.turbine)
-  rendering.destroy(entry.shadow)
+  destroy_stirling_engine(entry)
   bucket[level][unit] = nil  
 end

@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 10.02.2021
+  Modding:
+    - Add compatibility support for Jetpack mod.
+  Bugfixes:
+    - Fix crash in creative mode instant deconstruction of wind turbines or stirling engines.
+    - Fix minor issue where canister emptying showed as an option in medium assemblers.
+    - Fixed an undefined tooltip category message on self-repair pack.
+  Changes:
+    - Switch internal representation of combinators for easier blueprints and modding.
+  Translation:
+    - Updated Russian.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 07.02.2021
   Features:

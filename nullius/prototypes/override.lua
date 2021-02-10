@@ -38,6 +38,26 @@ data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 data.raw.item["copper-cable"].stack_size = 200
 
+data.raw["constant-combinator"]["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
+data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
+data.raw.item["constant-combinator"].order = "nullius-g"
+data.raw["arithmetic-combinator"]["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
+data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
+data.raw.item["arithmetic-combinator"].order = "nullius-f"
+data.raw["decider-combinator"]["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
+data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
+data.raw.item["decider-combinator"].order = "nullius-e"
+data.raw["programmable-speaker"]["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
+data.raw["programmable-speaker"]["programmable-speaker"].localised_description = {"entity-description.nullius-antenna"}
+data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
+data.raw.item["programmable-speaker"].order = "nullius-i"
+data.raw["lamp"]["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
+data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
+data.raw.item["small-lamp"].subgroup = "railway"
+data.raw.item["small-lamp"].order = "nullius-bb"
+data.raw.item["small-lamp"].place_result = "nullius-lamp-1"
+data.raw["lamp"]["small-lamp"].placeable_by = {item = "small-lamp", count = 1}
+
 data.raw.item["stone-wall"].stack_size = 200
 data.raw.item["stone-wall"].subgroup = "masonry"
 data.raw.item["stone-wall"].order = "nullius-e"

@@ -345,8 +345,8 @@ data:extend({
 	always_show_products = true,
     energy_required = 12,
     ingredients = {
-      {"nullius-logic-circuit", 1},
-      {"nullius-lamp-1", 1},
+      {"decider-combinator", 1},
+      {"small-lamp", 1},
       {"copper-cable", 2},
       {"nullius-capacitor", 1}
     },
@@ -5306,9 +5306,9 @@ data:extend({
 	always_show_products = true,
     energy_required = 3,
     ingredients = {
-      {"nullius-arithmetic-circuit", 1},
+      {"arithmetic-combinator", 1},
       {"nullius-glass", 1},
-      {"nullius-lamp-1", 1},
+      {"small-lamp", 1},
 	  {"nullius-capacitor", 1},
 	  {"nullius-polycrystalline-silicon", 1},
       {"red-wire", 2}
@@ -6043,8 +6043,8 @@ data:extend({
 	  {"nullius-turbine-1", 1},
       {"nullius-capacitor", 2},
 	  {"turbo-filter-inserter", 2},
-	  {"nullius-memory-circuit", 2},
-	  {"nullius-antenna", 1},
+	  {"constant-combinator", 2},
+	  {"programmable-speaker", 1},
 	  {"nullius-aluminum-sheet", 3}
     },
     result = "nullius-robot-frame-1",
@@ -6400,7 +6400,7 @@ data:extend({
       {type="item", name="nullius-fiberglass", amount=1},
       {type="item", name="nullius-monocrystalline-silicon", amount=2},
       {type="item", name="nullius-ceramic-powder", amount=1},
-      {type="item", name="nullius-memory-circuit", amount=3},
+      {type="item", name="constant-combinator", amount=3},
       {type="item", name="green-wire", amount=2},
       {type="fluid", name="nullius-acid-nitric", amount=3, fluidbox_index=2},
       {type="fluid", name="nullius-argon", amount=2, fluidbox_index=3}
@@ -6443,7 +6443,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-processor-1", amount=2},
-	  {type="item", name="nullius-arithmetic-circuit", amount=3},
+	  {type="item", name="arithmetic-combinator", amount=3},
       {type="item", name="nullius-battery-1", amount=1},
       {type="item", name="nullius-heat-pipe-2", amount=1},
       {type="item", name="nullius-graphene", amount=1},

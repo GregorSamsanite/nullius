@@ -2321,7 +2321,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"nullius-barrel", "nullius-unbarrel", "nullius-canister", "decompression"},
+    crafting_categories = {"nullius-barrel", "nullius-unbarrel", "decompression"},
     crafting_speed = 1,
     energy_source = {
       type = "electric",
@@ -2427,7 +2427,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"nullius-barrel", "nullius-unbarrel", "nullius-canister", "decompression"},
+    crafting_categories = {"nullius-barrel", "nullius-unbarrel", "decompression"},
     crafting_speed = 2.5,
     energy_source = {
       type = "electric",

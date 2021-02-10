@@ -74,6 +74,24 @@ function recalculate_wind()
   global.nullius_wind_orientation = math.floor((surface.wind_orientation * 8) % 8)
 end
 
+function destroy_turbine(entry)
+  if ((entry.collision_box ~= nil) and (entry.collision_box.valid)) then
+    entry.collision_box.destroy()
+  end
+  if ((entry.collision_box2 ~= nil) and (entry.collision_box2.valid)) then
+    entry.collision_box2.destroy()
+  end
+  if ((entry.collision_box3 ~= nil) and (entry.collision_box3.valid)) then
+    entry.collision_box3.destroy()
+  end
+  if ((entry.collision_box4 ~= nil) and (entry.collision_box4.valid)) then
+    entry.collision_box4.destroy()
+  end
+
+  rendering.destroy(entry.blade)
+  rendering.destroy(entry.shadow)
+end
+
 function update_turbines(ind, level)
   local bucket = global.nullius_turbine_buckets[ind]
   local orientation = global.nullius_wind_orientation
@@ -83,8 +101,10 @@ function update_turbines(ind, level)
     local shadow_animation = "nullius-wind-shadow-"..level.."-"..orientation
 
     for _,t in pairs(bucket.turbines) do
-      rendering.set_animation(t.blade, blade_animation)
-      rendering.set_animation(t.shadow, shadow_animation)        
+	  if (t.base.valid) then
+        rendering.set_animation(t.blade, blade_animation)
+        rendering.set_animation(t.shadow, shadow_animation)
+	  end
     end
   end
 
@@ -99,12 +119,17 @@ function update_turbines(ind, level)
   bucket.last_offset = offs
   bucket.last_speed = aspeed
 
-  for _,t in pairs(bucket.turbines) do
-    t.base.power_production = power
-    rendering.set_animation_speed(t.blade, aspeed)
-    rendering.set_animation_speed(t.shadow, aspeed)
-    rendering.set_animation_offset(t.blade, offs)
-    rendering.set_animation_offset(t.shadow, offs)
+  for i,t in pairs(bucket.turbines) do
+    if (t.base.valid) then
+      t.base.power_production = power
+      rendering.set_animation_speed(t.blade, aspeed)
+      rendering.set_animation_speed(t.shadow, aspeed)
+      rendering.set_animation_offset(t.blade, offs)
+      rendering.set_animation_offset(t.shadow, offs)
+	else
+	  destroy_turbine(t)
+	  bucket.turbines[i] = nil
+	end
   end
 end
 
@@ -174,7 +199,7 @@ function build_wind_turbine(entity, level)
       animation_offset = bucket.last_offset}
   }
 end
-  
+
 function remove_wind_turbine(entity, died, level)
   if ((level < 1) or (level > 3)) then return end
 
@@ -196,20 +221,6 @@ function remove_wind_turbine(entity, died, level)
     end
   end
 
-  if entry.collision_box ~= nil then
-    entry.collision_box.destroy()
-  end
-  if entry.collision_box2 ~= nil then
-    entry.collision_box2.destroy()
-  end
-  if entry.collision_box3 ~= nil then
-    entry.collision_box3.destroy()
-  end
-  if entry.collision_box4 ~= nil then
-    entry.collision_box4.destroy()
-  end
-
-  rendering.destroy(entry.blade)
-  rendering.destroy(entry.shadow)
+  destroy_turbine(entry)
   bucket.turbines[unit] = nil
 end

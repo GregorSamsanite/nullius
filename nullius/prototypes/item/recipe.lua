@@ -179,7 +179,7 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {"turbo-inserter", 1},
-      {"nullius-logic-circuit", 1}
+      {"decider-combinator", 1}
     },
     result = "turbo-filter-inserter"
   },
@@ -518,7 +518,7 @@ data:extend({
       {"fast-underground-belt", 1},
       {"splitter", 1},
       {"nullius-steel-sheet", 4},
-      {"nullius-logic-circuit", 1}
+      {"decider-combinator", 1}
     },
     result = "fast-splitter"
   },
@@ -843,9 +843,9 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-steel-sheet", 5},
-      {"nullius-logic-circuit", 2},
-      {"nullius-antenna", 1},
-      {"nullius-lamp-1", 2}
+      {"decider-combinator", 2},
+      {"programmable-speaker", 1},
+      {"small-lamp", 2}
     },
     result = "train-stop"
   },
@@ -873,8 +873,8 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 1,
     ingredients = {
-      {"nullius-logic-circuit", 1},
-      {"nullius-lamp-1", 3},
+      {"decider-combinator", 1},
+      {"small-lamp", 3},
       {"nullius-sensor-1", 1}
     },
     result = "rail-signal"
@@ -964,7 +964,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"copper-cable", 5},
-      {"nullius-logic-circuit", 1} 
+      {"decider-combinator", 1} 
     },
     result = "red-wire",
     result_count = 8

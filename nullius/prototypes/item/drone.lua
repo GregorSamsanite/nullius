@@ -439,7 +439,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"nullius-sensor-2", 1},
-      {"nullius-antenna", 1}
+      {"programmable-speaker", 1}
     },
     result = "nullius-scout-remote"
   },

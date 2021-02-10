@@ -89,7 +89,7 @@ data:extend({
     minable = {
       mining_time = 2,
 	  results = {
-	    {type="item", name="nullius-lamp-1", amount=20},
+	    {type="item", name="small-lamp", amount=20},
         {type="item", name="nullius-solar-panel-1", amount=5}
 	  }
     },

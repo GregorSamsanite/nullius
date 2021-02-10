@@ -155,7 +155,7 @@ data:extend({
     crafting_categories = {
       "small-crafting", "medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
-      "small-fluid-assembly", "large-fluid-assembly", "nullius-canister"
+      "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 1,
 	module_specification = { module_slots = 1 },
@@ -443,7 +443,7 @@ data:extend({
     crafting_categories = {
       "small-crafting", "medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
-      "small-fluid-assembly", "large-fluid-assembly", "nullius-canister"
+      "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 2,
 	module_specification = { module_slots = 2 },
@@ -525,7 +525,7 @@ data:extend({
     crafting_categories = {
       "small-crafting", "medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
-      "small-fluid-assembly", "large-fluid-assembly", "nullius-canister"
+      "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 4,
 	module_specification = { module_slots = 3 },

@@ -11,41 +11,48 @@ data:extend({
     name = "nullius-armor-grid-2",
     width = 5,
     height = 6,
-    equipment_categories = {"cybernetic"}
+    equipment_categories = {"cybernetic", "armor-jetpack"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-3",
     width = 6,
     height = 8,
-    equipment_categories = {"cybernetic"}
+    equipment_categories = {"cybernetic", "armor-jetpack"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-4",
     width = 8,
     height = 10,
-    equipment_categories = {"cybernetic"}
+    equipment_categories = {"cybernetic", "armor-jetpack"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-5",
     width = 10,
     height = 12,
-    equipment_categories = {"cybernetic"}
+    equipment_categories = {"cybernetic", "armor-jetpack"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-6",
     width = 10,
     height = 15,
+    equipment_categories = {"cybernetic", "armor-jetpack"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-mecha-grid-1",
+    width = 10,
+    height = 10,
     equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
-    name = "nullius-mecha-grid",
+    name = "nullius-mecha-grid-2",
     width = 10,
-    height = 10,
+    height = 15,
     equipment_categories = {"cybernetic"}
   },
 
@@ -1003,7 +1010,7 @@ data:extend({
     ingredients = {
       {"nullius-power-pole-2", 1},
       {"nullius-capacitor", 3},
-	  {"nullius-antenna", 1}
+	  {"programmable-speaker", 1}
     },
     result = "nullius-charger-1"
   },
@@ -1173,10 +1180,10 @@ data:extend({
     category = "medium-crafting",
     energy_required = 4,
     ingredients = {
-	  {"nullius-antenna", 1},
-	  {"nullius-logic-circuit", 2},
-	  {"nullius-memory-circuit", 1},
-	  {"nullius-lamp-1", 1}
+	  {"programmable-speaker", 1},
+	  {"decider-combinator", 2},
+	  {"constant-combinator", 1},
+	  {"small-lamp", 1}
     },
     result = "nullius-relay-1"
   },
@@ -1318,7 +1325,7 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 4,
     ingredients = {
-      {"nullius-logic-circuit", 1},
+      {"decider-combinator", 1},
       {"inserter", 1},
       {"nullius-steel-gear", 1},
       {"nullius-plastic", 1},
@@ -1399,7 +1406,7 @@ data:extend({
 	  {"nullius-plastic", 8},
 	  {"nullius-iron-rod", 6},
       {"nullius-sensor-1", 2},
-      {"nullius-antenna", 3},
+      {"programmable-speaker", 3},
 	  {"nullius-capacitor", 4}
     },
     result = "nullius-levitation-field-1"
@@ -1985,7 +1992,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-robot-frame-1", 1},
-	  {"nullius-logic-circuit", 1},
+	  {"decider-combinator", 1},
 	  {"repair-pack", 1}
     },
     result = "nullius-construction-bot-1"
@@ -2158,7 +2165,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-robot-frame-1", 1},
-      {"nullius-arithmetic-circuit", 1},
+      {"arithmetic-combinator", 1},
 	  {"nullius-small-storage-chest-1", 1}
     },
     result = "nullius-logistic-bot-1"
@@ -2352,7 +2359,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-locomotive-1", amount=1},
-      {type="item", name="nullius-lamp-1", amount=2},
+      {type="item", name="small-lamp", amount=2},
       {type="item", name="nullius-rubber", amount=4},
       {type="item", name="nullius-iron-wire", amount=4},
       {type="fluid", name="nullius-air", amount=15, fluidbox_index=1}

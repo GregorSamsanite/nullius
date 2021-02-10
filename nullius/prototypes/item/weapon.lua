@@ -397,7 +397,7 @@ data:extend({
     ingredients = {
       {"cliff-explosives", 5},
       {"nullius-steel-sheet", 3},
-	  {"nullius-methanol-canister", 1},
+	  {"processed-fuel", 1},
 	  {"nullius-sensor-1", 1},
 	  {"nullius-battery-1", 1},
 	  {"nullius-motor-2", 1}

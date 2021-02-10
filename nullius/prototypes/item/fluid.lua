@@ -3538,8 +3538,42 @@ data:extend({
       {type="fluid", name="nullius-benzene", amount=6}
     },
     main_product = "nullius-methane"
-  },
+  }
+})
 
+if mods["aai-industry"] then
+data.raw.item["processed-fuel"].localised_name = {"item-name.nullius-methanol-canister"}
+data.raw.item["processed-fuel"].icon = "__nullius__/graphics/methanol-canister.png"
+data.raw.item["processed-fuel"].icon_size = 64
+data.raw.item["processed-fuel"].subgroup = "canisters"
+data.raw.item["processed-fuel"].order = "nullius-e"
+data.raw.item["processed-fuel"].fuel_category = "vehicle"
+data.raw.item["processed-fuel"].fuel_value = "15MJ"
+data.raw.item["processed-fuel"].fuel_acceleration_multiplier = 1.4
+data.raw.item["processed-fuel"].fuel_top_speed_multiplier = 1.2
+data.raw.item["processed-fuel"].burnt_result = "nullius-canister"
+data.raw.item["processed-fuel"].stack_size = 50
+else
+data:extend({
+  {
+    type = "item",
+    name = "processed-fuel",
+	localised_name = {"item-name.nullius-methanol-canister"},
+    icon = "__nullius__/graphics/methanol-canister.png",
+    icon_size = 64,
+    subgroup = "canisters",
+    order = "nullius-e",
+    fuel_category = "vehicle",
+    fuel_value = "15MJ",
+    fuel_acceleration_multiplier = 1.4,
+    fuel_top_speed_multiplier = 1.2,
+    burnt_result = "nullius-canister",
+    stack_size = 50
+  }
+})
+end
+
+data:extend({
   {
     type = "item",
     name = "nullius-hydrogen-canister",
@@ -3556,20 +3590,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-methanol-canister",
-    icon = "__nullius__/graphics/methanol-canister.png",
-    icon_size = 64,
-    subgroup = "canisters",
-    order = "nullius-e",
-    fuel_category = "vehicle",
-    fuel_value = "15MJ",
-    fuel_acceleration_multiplier = 1.4,
-    fuel_top_speed_multiplier = 1.2,
-    burnt_result = "nullius-canister",
-    stack_size = 50
-  },
-  {
-    type = "item",
     name = "nullius-water-canister",
     icon = "__nullius__/graphics/water-canister.png",
     icon_size = 64,
@@ -3581,7 +3601,7 @@ data:extend({
     type = "recipe",
     name = "nullius-canister-emptying",
     enabled = false,
-    category = "nullius-canister",
+    category = "nullius-unbarrel",
     icon = "__nullius__/graphics/water-canister.png",
     icon_size = 64,
     subgroup = "canisters",
@@ -3616,7 +3636,7 @@ data:extend({
       }
     },
     enabled = false,
-    category = "nullius-canister",
+    category = "nullius-unbarrel",
     subgroup = "boxed-canister",
     order = "nullius-g",
     crafting_machine_tint = {
@@ -3814,7 +3834,7 @@ data:extend({
       {type="fluid", name="nullius-oxygen", amount=420},
       {type="fluid", name="nullius-benzene", amount=3}
     },
-    result = "nullius-methanol-canister"
+    result = "processed-fuel"
   },
   {
     type = "recipe",
@@ -3889,7 +3909,7 @@ data:extend({
       {type="fluid", name="nullius-compressed-oxygen", amount=95},
       {type="fluid", name="nullius-benzene", amount=2}
     },
-    result = "nullius-methanol-canister"
+    result = "processed-fuel"
   },
   {
     type = "recipe",
@@ -3961,7 +3981,7 @@ data:extend({
     },
     energy_required = 30,
     ingredients = {
-      {type="item", name="nullius-methanol-canister", amount=1},
+      {type="item", name="processed-fuel", amount=1},
       {type="fluid", name="nullius-ammonia", amount=240},
       {type="fluid", name="nullius-acid-hydrochloric", amount=300},
       {type="fluid", name="nullius-compressed-oxygen", amount=150},

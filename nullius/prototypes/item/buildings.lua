@@ -1188,8 +1188,8 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-small-chest-2", 1},
-      {"nullius-antenna", 1},
-      {"nullius-arithmetic-circuit", 1}
+      {"programmable-speaker", 1},
+      {"arithmetic-combinator", 1}
     },
     result = "nullius-small-storage-chest-1"
   },
@@ -1900,9 +1900,9 @@ data:extend({
     ingredients = {
       {"nullius-aluminum-sheet", 8},
       {"nullius-glass", 8},
-      {"nullius-logic-circuit", 10},
+      {"decider-combinator", 10},
       {"inserter", 4},
-      {"nullius-lamp-1", 4}
+      {"small-lamp", 4}
     },
     result = "nullius-lab-1"
   },
@@ -1991,8 +1991,8 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 20,
     ingredients = {
-      {"nullius-antenna", 1},
-      {"nullius-memory-circuit", 2},
+      {"programmable-speaker", 1},
+      {"constant-combinator", 2},
       {"nullius-power-pole-2", 1},
       {"nullius-iron-sheet", 2},
 	  {"nullius-capacitor", 1}
@@ -2183,7 +2183,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"nullius-sensor-1", 3},
-      {"nullius-antenna", 2},
+      {"programmable-speaker", 2},
       {"nullius-glass", 4},
       {"nullius-iron-sheet", 3},
 	  {"nullius-motor-2", 1}
@@ -2321,51 +2321,6 @@ data:extend({
   },
 
   {
-    type = "item",
-    name = "nullius-logic-circuit",
-    icon = "__base__/graphics/icons/decider-combinator.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
-    subgroup = "circuit-network",
-	order = "nullius-e",
-    place_result = "nullius-logic-circuit",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-arithmetic-circuit",
-    icon = "__base__/graphics/icons/arithmetic-combinator.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
-    subgroup = "circuit-network",
-	order = "nullius-f",
-    place_result = "nullius-arithmetic-circuit",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-memory-circuit",
-    icon = "__base__/graphics/icons/constant-combinator.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
-    subgroup = "circuit-network",
-	order = "nullius-g",
-    place_result = "nullius-memory-circuit",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-antenna",
-    icon = "__base__/graphics/icons/programmable-speaker.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
-    subgroup = "circuit-network",
-	order = "nullius-i",
-    place_result = "nullius-antenna",
-    stack_size = 50
-  },
-
-  {
     type = "recipe",
     name = "nullius-logic-circuit",
     enabled = false,
@@ -2379,7 +2334,7 @@ data:extend({
       {"nullius-polycrystalline-silicon", 2},
       {"nullius-graphite", 1}             
     },
-    result = "nullius-logic-circuit",
+    result = "decider-combinator",
     result_count = 3
   },
   {
@@ -2443,10 +2398,10 @@ data:extend({
 	always_show_products = true,
     energy_required = 6,
     ingredients = {
-      {"nullius-logic-circuit", 2},
+      {"decider-combinator", 2},
       {"nullius-capacitor", 3}
     },
-    result = "nullius-memory-circuit",
+    result = "constant-combinator",
     result_count = 4
   },
   {
@@ -2506,11 +2461,11 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 2,
     ingredients = {
-      {"nullius-logic-circuit", 1},
-      {"nullius-memory-circuit", 1},
+      {"decider-combinator", 1},
+      {"constant-combinator", 1},
 	  {"nullius-aluminum-wire", 1}
     },
-    result = "nullius-arithmetic-circuit"
+    result = "arithmetic-combinator"
   },
   {
     type = "recipe",
@@ -2540,7 +2495,7 @@ data:extend({
       {"nullius-rubber", 1},
 	  {"nullius-capacitor", 1}
     },
-    result = "nullius-antenna"
+    result = "programmable-speaker"
   },
   {
     type = "recipe",
@@ -2559,16 +2514,6 @@ data:extend({
     result = "nullius-box-antenna"
   },
 
-  {
-    type = "item",
-    name = "nullius-lamp-1",
-    order = "nullius-bb",
-    icon = "__nullius__/graphics/lamp1.png",
-    icon_size = 64,
-    subgroup = "railway",
-    place_result = "nullius-lamp-1",
-    stack_size = 50
-  },
   {
     type = "item",
     name = "nullius-lamp-2",
@@ -2593,7 +2538,7 @@ data:extend({
       {"nullius-glass", 1},
       {"nullius-iron-sheet", 1}
     },
-    result = "nullius-lamp-1"
+    result = "small-lamp"
   },
   {
     type = "recipe",
@@ -2623,7 +2568,7 @@ data:extend({
       {"nullius-glass", 1},
       {"nullius-aluminum-sheet", 1}
     },
-    result = "nullius-lamp-1",
+    result = "small-lamp",
     result_count = 3
   },
   {
@@ -2654,7 +2599,7 @@ data:extend({
     category = "small-assembly",
     energy_required = 6,
     ingredients = {
-      {type="item", name="nullius-lamp-1", amount=2},
+      {type="item", name="small-lamp", amount=2},
       {type="item", name="nullius-hard-glass", amount=2},
       {type="item", name="nullius-sodium", amount=1},
       {type="item", name="nullius-ceramic-powder", amount=1},

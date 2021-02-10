@@ -195,6 +195,12 @@ data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coi
 data.raw.item["copper-cable"].icon_size = 32 
 data.raw.item["copper-cable"].stack_size = 200
 
+data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
+data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
+data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
+data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
+data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
+
 data.raw.item["empty-barrel"].stack_size = 20
 data.raw.item["iron-ore"].stack_size = 50
 data.raw.item["copper-ore"].stack_size = 50
@@ -289,9 +295,9 @@ create_boxed_item("cement", "glass", "l")
 create_boxed_item("ceramic-powder", "glass", "k")
 
 create_boxed_item("filter-1", "mechanical", "bb")
-create_boxed_item("logic-circuit", "circuit", "d")
-create_boxed_item("memory-circuit", "circuit", "f")
-create_boxed_item("arithmetic-circuit", "circuit", "e")
+create_boxed_item("logic-circuit", "circuit", "d", "decider-combinator")
+create_boxed_item("memory-circuit", "circuit", "f", "constant-combinator")
+create_boxed_item("arithmetic-circuit", "circuit", "e", "arithmetic-combinator")
 create_boxed_item("red-wire", "circuit", "b", "red-wire")
 create_boxed_item("green-wire", "circuit", "c", "green-wire")
 create_boxed_item("bpa", "organic", "c")
@@ -308,10 +314,10 @@ create_boxed_item("sodium", "sodium", "d")
 create_boxed_item("salt", "sodium", "bb")
 create_boxed_item("reinforced-concrete", "concrete", "b", "refined-concrete")
 create_boxed_item("textile", "organic", "h")
-create_boxed_item("lamp-1", "rail", "cb")
+create_boxed_item("lamp-1", "rail", "cb", "small-lamp")
 create_boxed_item("lamp-2", "rail", "cc")
 create_boxed_item("sensor-1", "electrical", "g")
-create_boxed_item("antenna", "circuit", "h")
+create_boxed_item("antenna", "circuit", "h", "programmable-speaker")
 create_boxed_item("fiberglass", "glass", "e")
 create_boxed_item("processor-1", "electrical", "fb")
 create_boxed_item("sensor-2", "electrical", "h")
@@ -344,7 +350,7 @@ create_boxed_item("relief-valve", "plumbing", "e")
 create_boxed_item("barrel", "canister", "b", "empty-barrel")
 create_boxed_item("canister", "canister", "c")
 create_boxed_item("hydrogen-canister", "canister", "d")
-create_boxed_item("methanol-canister", "canister", "e")
+create_boxed_item("methanol-canister", "canister", "e", "processed-fuel")
 create_boxed_item("water-canister", "canister", "f")
 create_boxed_item("chain-signal", "rail", "g", "rail-chain-signal")
 create_boxed_item("rail-signal", "rail", "f", "rail-signal")

@@ -467,3 +467,175 @@ data:extend({
   }
 })
 end
+
+
+if mods["jetpack"] then
+data:extend({
+  {
+    type = "technology",
+    name = "nullius-jetpack-1",
+	localised_name = {"technology-name.jetpack-1"},
+	localised_description = {"equipment-description.nullius-jetpack-1"},
+    order = "nullius-di",
+    icon = "__jetpack__/graphics/technology/jetpack-1.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-jetpack-1"
+      }
+    },
+    unit = {
+      count = 200,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-locomotion-1"}
+  },
+  {
+    type = "technology",
+    name = "nullius-jetpack-2",
+	localised_name = {"technology-name.jetpack-2"},
+	localised_description = {"equipment-description.nullius-jetpack-2"},
+    order = "nullius-eo",
+    icon = "__jetpack__/graphics/technology/jetpack-2.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-jetpack-2"
+      }
+    },
+    unit = {
+      count = 1000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-locomotion-2", "nullius-jetpack-1"}
+  },
+  {
+    type = "technology",
+    name = "nullius-jetpack-3",
+	localised_name = {"technology-name.jetpack-3"},
+	localised_description = {"equipment-description.nullius-jetpack-3"},
+    order = "nullius-ft",
+    icon = "__jetpack__/graphics/technology/jetpack-3.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-jetpack-3"
+      }
+    },
+    unit = {
+      count = 4000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 55
+    },
+    prerequisites = {"nullius-rocket-science-1", "nullius-jetpack-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-jetpack-4",
+	localised_name = {"technology-name.jetpack-4"},
+	localised_description = {"equipment-description.nullius-jetpack-4"},
+    order = "nullius-di",
+    icon = "__jetpack__/graphics/technology/jetpack-4.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-jetpack-4"
+      }
+    },
+    unit = {
+      count = 250000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-rocket-science-3", "nullius-jetpack-3"}
+  },
+
+  {
+	type = "recipe",
+	name = "nullius-jetpack-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 10,
+	ingredients = {
+	  {"nullius-robot-frame-1", 1},
+	  {"nullius-haste-module-1", 1},
+	  {"nullius-combustion-chamber-1", 1},
+	  {"nullius-turbine-1", 2},
+	  {"nullius-aluminum-plate", 6}
+	},
+	result = "jetpack-1"
+  },
+  {
+	type = "recipe",
+	name = "nullius-jetpack-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 15,
+	ingredients = {
+	  {"jetpack-1", 1},
+	  {"nullius-robot-frame-2", 1},
+	  {"nullius-haste-module-2", 1},
+	  {"nullius-combustion-chamber-2", 2},
+	  {"nullius-turbine-2", 2},
+	  {"nullius-ceramic-powder", 8}
+	},
+	result = "jetpack-2"
+  },
+  {
+	type = "recipe",
+	name = "nullius-jetpack-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 20,
+	ingredients = {
+	  {"jetpack-2", 1},
+	  {"nullius-robot-frame-3", 1},
+	  {"nullius-haste-module-3", 2},
+	  {"nullius-combustion-chamber-3", 1},
+	  {"nullius-turbine-3", 2},
+	  {"nullius-titanium-plate", 10}
+	},
+	result = "jetpack-3"
+  },
+  {
+	type = "recipe",
+	name = "nullius-jetpack-4",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 30,
+	ingredients = {
+	  {"jetpack-3", 2},
+	  {"nullius-robot-frame-4", 1},
+	  {"nullius-haste-module-4", 2},
+	  {"nullius-missile-launcher", 4}
+	},
+	result = "jetpack-4"
+  }
+})
+end

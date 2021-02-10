@@ -57,10 +57,6 @@ data:extend({
   },
   {
     type = "recipe-category",
-    name = "nullius-canister"
-  },
-  {
-    type = "recipe-category",
     name = "nullius-barrel"
   },
   {

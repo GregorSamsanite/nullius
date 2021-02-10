@@ -1,0 +1,19 @@
+{
+  "item":
+  [
+    ["nullius-methanol-canister", "processed-fuel"],
+	["nullius-arithmetic-circuit", "arithmetic-combinator"],
+	["nullius-logic-circuit", "decider-combinator"],
+	["nullius-memory-circuit", "constant-combinator"],
+	["nullius-antenna", "programmable-speaker"],
+	["nullius-lamp-1", "small-lamp"]
+  ],
+  "entity":
+  [
+	["nullius-arithmetic-circuit", "arithmetic-combinator"],
+	["nullius-logic-circuit", "decider-combinator"],
+	["nullius-memory-circuit", "constant-combinator"],
+	["nullius-antenna", "programmable-speaker"],
+	["nullius-lamp-1", "small-lamp"]
+  ]
+}
