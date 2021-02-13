@@ -85,6 +85,17 @@ data.raw["projectile"]["cliff-explosives"].action[1].action_delivery.target_effe
   probability = 0.5
 }
 
+data.raw.item["rocket-fuel"].subgroup = "canisters"
+data.raw.item["rocket-fuel"].order = "nullius-g"
+data.raw.item["rocket-fuel"].fuel_category = "vehicle"
+data.raw.item["rocket-fuel"].fuel_value = "60MJ"
+data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = 2
+data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = 1.5
+data.raw.item["rocket-fuel"].burnt_result = "nullius-alumina"
+data.raw.item["rocket-fuel"].stack_size = 20
+data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
+data.raw.item["rocket-fuel"].icon_size = 64
+
 data.raw.item["stone-brick"].stack_size = 500
 data.raw.tile["stone-path"].walking_speed_modifier = 1.3
 data.raw.tile["stone-path"].vehicle_friction_modifier = 0.8

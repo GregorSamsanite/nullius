@@ -2557,7 +2557,7 @@ data:extend({
       usage_priority = "secondary-input"
     },
     energy_usage = "10kW",
-    pumping_speed = 10,
+    pumping_speed = 20,
 	vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
 	open_sound = data.raw.pump["pump"].open_sound,
 	close_sound = data.raw.pump["pump"].close_sound,
@@ -2576,8 +2576,8 @@ data:extend({
         width = 103,
         height = 164,
         scale = 0.5,
-        line_length =8,
-        frame_count =32,
+        line_length = 8,
+        frame_count = 32,
         animation_speed = 0.5,
         shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
       },
@@ -2606,8 +2606,8 @@ data:extend({
         width = 131,
         height = 111,
         scale = 0.5,
-        line_length =8,
-        frame_count =32,
+        line_length = 8,
+        frame_count = 32,
         animation_speed = 0.5,
         shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
       }
@@ -2649,7 +2649,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input"
     },
-    energy_usage = "20kW",
+    energy_usage = "15kW",
     pumping_speed = 40,
 	vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
 	open_sound = data.raw.pump["pump"].open_sound,
@@ -2740,7 +2740,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input"
     },
-    energy_usage = "40kW",
+    energy_usage = "30kW",
     pumping_speed = 160,
 	vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
 	open_sound = data.raw.pump["pump"].open_sound,
@@ -2788,7 +2788,7 @@ data:extend({
       usage_priority = "secondary-input"
     },
     energy_usage = "10kW",
-    pumping_speed = 10,
+    pumping_speed = 20,
     vehicle_impact_sound = data.raw["pump"]["pump"].vehicle_impact_sound,
     open_sound = data.raw["pump"]["pump"].open_sound,
     close_sound = data.raw["pump"]["pump"].close_sound,
@@ -2865,7 +2865,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input"
     },
-    energy_usage = "20kW",
+    energy_usage = "15kW",
     pumping_speed = 40,
     vehicle_impact_sound = data.raw["pump"]["pump"].vehicle_impact_sound,
     open_sound = data.raw["pump"]["pump"].open_sound,

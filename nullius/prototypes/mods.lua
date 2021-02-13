@@ -33,7 +33,7 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {"train-stop", 1},
-      {"nullius-arithmetic-circuit", 2},
+      {"arithmetic-combinator", 2},
 	  {"green-wire", 4}
     },
     result = "logistic-train-stop"
@@ -65,7 +65,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {"nullius-sensor-node-1", 1},
-      {"nullius-antenna", 2}
+      {"programmable-speaker", 2}
     },
     result = "aai-signal-receiver",
     enabled = false
@@ -110,7 +110,7 @@ data:extend({
       {"nullius-mortar", 60},
 	  {"nullius-glass", 40},
 	  {"nullius-substation-1", 4},
-	  {"nullius-lamp-1", 4}
+	  {"small-lamp", 4}
     },
     result = "factory-1",
     enabled = false
@@ -155,7 +155,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"green-wire", 3},
-      {"nullius-arithmetic-circuit", 1}
+      {"arithmetic-combinator", 1}
     },
     result = "factory-circuit-input",
     enabled = false
@@ -397,7 +397,7 @@ data:extend({
     category = "small-crafting",
     energy_required = 3,
 	ingredients = {
-		{"nullius-lamp-1", 1},
+		{"small-lamp", 1},
 		{"train-config", 2}
 	},
 	result = "train-publisher"
@@ -438,8 +438,8 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 2,
 	ingredients = {
-		{"nullius-memory-circuit", 1},
-		{"nullius-arithmetic-circuit", 1}
+		{"constant-combinator", 1},
+		{"arithmetic-combinator", 1}
 	},
 	result = "train-config"
   }

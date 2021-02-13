@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 12.02.2021
+  Balancing:
+    - Increase wind turbine 1 power output by 50%.
+    - Reduce wind turbine 2 cost.
+    - Tweak wind speed algorithm.
+    - Add an inefficient lower tech cliff explosive recipe.
+    - Increase pump 1 (and small pump 1) pumping rate from 600/s to 1200/s.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 10.02.2021
+  Bugfixes:
+    - Fix some problems with Jetpack integration.
+    - Fix problem with ported mod recipes using circuits.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.10
 Date: 10.02.2021
   Modding:

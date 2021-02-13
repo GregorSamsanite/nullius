@@ -746,10 +746,10 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 15,
     ingredients = {
-      {"nullius-wind-turbine-1", 3},
-      {"nullius-turbine-2", 3},
-      {"nullius-pylon-1", 3},
-      {"nullius-steel-cable", 8},
+      {"nullius-wind-turbine-1", 1},
+      {"nullius-turbine-2", 2},
+      {"nullius-pylon-1", 2},
+      {"nullius-steel-cable", 6},
       {"concrete", 12}
     },
     result = "nullius-wind-turbine-2"
@@ -763,10 +763,10 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 75,
     ingredients = {
-      {"nullius-box-wind-turbine-1", 3},
-      {"nullius-box-turbine-2", 3},
-      {"nullius-box-pylon-1", 3},
-      {"nullius-box-steel-cable", 8},
+      {"nullius-box-wind-turbine-1", 1},
+      {"nullius-box-turbine-2", 2},
+      {"nullius-box-pylon-1", 2},
+      {"nullius-box-steel-cable", 6},
       {"nullius-box-concrete", 12}
     },
     result = "nullius-box-wind-turbine-2"

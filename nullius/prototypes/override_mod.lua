@@ -333,4 +333,9 @@ data.raw["battery-equipment"]["jetpack-3"].localised_description =
   {"equipment-description.nullius-jetpack-3"}
 data.raw["battery-equipment"]["jetpack-4"].localised_description =
   {"equipment-description.nullius-jetpack-4"}
+table.insert(data.raw["equipment-grid"]["nullius-armor-grid-2"].equipment_categories, "armor-jetpack")
+table.insert(data.raw["equipment-grid"]["nullius-armor-grid-3"].equipment_categories, "armor-jetpack")
+table.insert(data.raw["equipment-grid"]["nullius-armor-grid-4"].equipment_categories, "armor-jetpack")
+table.insert(data.raw["equipment-grid"]["nullius-armor-grid-5"].equipment_categories, "armor-jetpack")
+table.insert(data.raw["equipment-grid"]["nullius-armor-grid-6"].equipment_categories, "armor-jetpack")
 end

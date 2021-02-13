@@ -581,14 +581,32 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-explosive",
+    name = "nullius-improvised-explosive",
+	localised_name = {"recipe-name.nullius-improvised-explosive"},
+	order = "nullius-bb",
     enabled = false,
+	always_show_made_in = true,
+    category = "hand-crafting",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-chlorine-barrel", amount=1},
+      {type="item", name="processed-fuel", amount=5},
+      {type="item", name="red-wire", amount=2},
+      {type="item", name="nullius-small-miner-1", amount=1}
+    },
+	result = "cliff-explosives"
+  },
+  {
+    type = "recipe",
+    name = "nullius-explosive",
+	order = "nullius-bc",
+    enabled = false,
+	always_show_made_in = true,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
     },
-	always_show_made_in = true,
     energy_required = 4,
     ingredients = {
       {type="fluid", name="nullius-acid-nitric", amount=18},

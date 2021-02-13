@@ -3954,21 +3954,6 @@ data:extend({
   },
 
   {
-    type = "item",
-    name = "nullius-rocket-fuel",
-    icon = "__base__/graphics/icons/rocket-fuel.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
-    subgroup = "canisters",
-    order = "nullius-g",
-    fuel_category = "vehicle",
-    fuel_value = "60MJ",
-    fuel_acceleration_multiplier = 2,
-    fuel_top_speed_multiplier = 1.5,
-    burnt_result = "nullius-alumina",
-    stack_size = 20
-  },
-  {
     type = "recipe",
     name = "nullius-rocket-fuel",
     enabled = false,
@@ -3992,10 +3977,10 @@ data:extend({
 	  {type="item", name="cliff-explosives", amount=2}
     },
     results = {
-      {type="item", name="nullius-rocket-fuel", amount=3},
+      {type="item", name="rocket-fuel", amount=3},
       {type="fluid", name="nullius-wastewater", amount=200}
     },
-    main_product = "nullius-rocket-fuel"
+    main_product = "rocket-fuel"
   },
   {
     type = "recipe",

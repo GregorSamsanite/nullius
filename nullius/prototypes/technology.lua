@@ -3349,6 +3349,29 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-explosives-1",
+	order = "nullius-dk",
+    icon = "__base__/graphics/technology/explosives.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-improvised-explosive"
+      }
+    },
+    unit = {
+      count = 150,
+      ingredients = {
+	    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-barreling-2", "nullius-land-fill-3"}
+  },
+  {
+    type = "technology",
     name = "nullius-robot-speed-1",
     order = "nullius-dk",
     icon = "__base__/graphics/technology/worker-robots-speed.png",
@@ -3660,7 +3683,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-metallurgy-3"},
+    prerequisites = {"nullius-metallurgy-3", "nullius-explosives-1"}
   },
   {
     type = "technology",
@@ -4684,7 +4707,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-explosives",
+    name = "nullius-explosives-2",
 	order = "nullius-eh",
     icon = "__base__/graphics/technology/explosives.png",
     icon_size = 256,
@@ -5765,7 +5788,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-toolmaking-2", "nullius-explosives"},
+    prerequisites = {"nullius-toolmaking-2", "nullius-explosives-2"}
   },
 
   {
@@ -6268,7 +6291,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-plumbing-4", "nullius-explosives", "nullius-energy-distribution-4"}
+    prerequisites = {"nullius-plumbing-4", "nullius-explosives-2", "nullius-energy-distribution-4"}
   },
   {
     type = "technology",

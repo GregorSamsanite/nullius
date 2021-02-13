@@ -3,6 +3,7 @@
 -- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
 -- to rely on it, so the graphics are replicated here.
 
+local base_wind_power = {1500000/60, 3000000/60, 9000000/60}
 
 function init_wind()
   global.nullius_wind_orientation = 4
@@ -13,11 +14,8 @@ function init_wind()
   global.nullius_base_power = { }
   global.nullius_current_power = { }
   global.nullius_animation_speed = { }
-  global.nullius_base_power[1] = 1000000/60
-  global.nullius_base_power[2] = 3000000/60
-  global.nullius_base_power[3] = 9000000/60
   for i=1,3 do
-    global.nullius_current_power[i] = global.nullius_wind_speed * global.nullius_base_power[i]
+    global.nullius_current_power[i] = global.nullius_wind_speed * base_wind_power[i]
     global.nullius_animation_speed[i] = global.nullius_wind_speed * (0.6 + (i * 0.2))
   end
 
@@ -41,17 +39,17 @@ function recalculate_wind()
   local surface = game.surfaces[1]
   if (surface == nil) then return end
 
-  local wave1 = math.sin(discretize((surface.daytime + 0.1) * 6.2832))
+  local wave1 = math.sin(discretize((surface.daytime + 0.075) * 6.2832))
   local wave2 = math.sin(discretize((game.tick % 75787) * 0.001160682))
   local wave3 = math.sin(discretize(((game.tick % 291113) * 0.0001295004) + 2.5))
   local wave4 = math.sin(discretize(((game.tick % 1023487) * 0.000055251) + 4.4))
 
   local wave = discretize((wave1 * 1.25) + wave2 + wave3 + (wave4 * 0.75))
   local noise = (math.random() * 3) + (math.random() * 5)
-  local momentum = discretize((global.nullius_wind_momentum * 0.999) +
-      (math.random() * 0.1) - 0.05)
-  local target = ((wave + noise + momentum) - 0.3) / 6
-  local delta = discretize((math.random() * 0.3) + 0.05)
+  local momentum = discretize((global.nullius_wind_momentum * 0.9985) +
+      (math.random() * 0.16) - 0.08)
+  local target = (wave + noise + momentum - 0.1) / 6
+  local delta = discretize((math.random() * 0.25) + 0.05)
   local factor = discretize(global.nullius_wind_factor * (1 - delta) + (delta * target))
   global.nullius_wind_factor = factor
   global.nullius_wind_momentum = momentum
@@ -67,7 +65,7 @@ function recalculate_wind()
   end
 
   for i=1,3 do
-    global.nullius_current_power[i] = global.nullius_wind_speed * global.nullius_base_power[i]
+    global.nullius_current_power[i] = global.nullius_wind_speed * base_wind_power[i]
     global.nullius_animation_speed[i] = discretize(global.nullius_wind_speed * (0.6 + (i * 0.2)))
   end
 

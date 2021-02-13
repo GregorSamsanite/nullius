@@ -94,7 +94,7 @@ local function create_terraform(suffix, tile, suborder)
       ingredients = {
         {"nullius-excavation-drone", 1},
 	    {"nullius-construction-bot-3", 2},
-		{"nullius-rocket-fuel", 2},
+		{"rocket-fuel", 2},
 	    {"nullius-box-land-fill-"..tile, 300}
       },
       result = "nullius-terraforming-drone-"..suffix
@@ -132,7 +132,7 @@ local function create_paving(suffix, landfill, suborder, tile)
       ingredients = {
         {"nullius-terraforming-drone-"..landfill, 1},
 	    {"nullius-logistic-bot-3", 1},
-		{"nullius-rocket-fuel", 1},
+		{"rocket-fuel", 1},
 	    {"nullius-box-"..tile.."-concrete", 400}
       },
       result = "nullius-paving-drone-"..suffix

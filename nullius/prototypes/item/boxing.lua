@@ -164,6 +164,7 @@ end
 data.raw["capsule"]["cliff-explosives"].localised_name = {"item-name.nullius-explosive"}
 data.raw["capsule"]["cliff-explosives"].icon = "__base__/graphics/icons/explosives.png"
 data.raw["capsule"]["cliff-explosives"].stack_size = 100
+data.raw.item["rocket-fuel"].stack_size = 20
 
 data.raw.item["refined-concrete"].localised_name = {"item-name.nullius-reinforced-concrete"}
 data.raw.item["refined-hazard-concrete"].localised_name = {"item-name.nullius-hazard-concrete"}
@@ -463,7 +464,7 @@ create_boxed_item("relay-3", "beacon", "cd")
 create_boxed_item("charger-3", "hangar", "cd")
 create_boxed_item("charger-4", "hangar", "ce")
 create_boxed_item("missile-2", "demolition", "ec", nil, "ammo")
-create_boxed_item("rocket-fuel", "canister", "g")
+create_boxed_item("rocket-fuel", "canister", "g", "rocket-fuel")
 create_boxed_item("astronomy-pack", "science", "h", nil, "tool")
 create_boxed_item("copper-ore", "copper", "b", "copper-ore")
 create_boxed_item("crushed-copper-ore", "copper", "c")

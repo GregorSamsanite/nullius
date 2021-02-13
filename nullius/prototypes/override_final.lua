@@ -12,6 +12,8 @@ data.raw.recipe["fill-liquid-fuel-barrel"].subgroup = "unused-fluid"
 data.raw.recipe["empty-liquid-fuel-barrel"].subgroup = "unused-fluid"
 data.raw.resource["uranium-ore"].minable.fluid_amount = nil
 data.raw.resource["uranium-ore"].minable.required_fluid = nil
+data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
+data.raw.item["rocket-fuel"].icon_size = 64
 
 -- Workaround issues with Squeak_Through
 data.raw["mining-drill"]["nullius-geothermal-build-1"].collision_box =

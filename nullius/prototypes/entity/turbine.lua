@@ -55,9 +55,11 @@ for i=0,7 do
   end
 end
 
+local power_value = {1500, 3000, 9000}
 for i=1,3 do
   local scale = 0.4 + (i * 0.2)
-  local power = (3^(i-1))*1000
+  local power = power_value[i]
+
   data:extend({
     {
       type = "electric-energy-interface",

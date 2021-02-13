@@ -11,35 +11,35 @@ data:extend({
     name = "nullius-armor-grid-2",
     width = 5,
     height = 6,
-    equipment_categories = {"cybernetic", "armor-jetpack"}
+    equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-3",
     width = 6,
     height = 8,
-    equipment_categories = {"cybernetic", "armor-jetpack"}
+    equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-4",
     width = 8,
     height = 10,
-    equipment_categories = {"cybernetic", "armor-jetpack"}
+    equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-5",
     width = 10,
     height = 12,
-    equipment_categories = {"cybernetic", "armor-jetpack"}
+    equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-6",
     width = 10,
     height = 15,
-    equipment_categories = {"cybernetic", "armor-jetpack"}
+    equipment_categories = {"cybernetic"}
   },
   {
     type = "equipment-grid",
