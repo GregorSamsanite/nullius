@@ -1311,9 +1311,9 @@ data:extend({
         icon_size = 32
       },
       {
-		icon = "__bobplates__/graphics/icons/plate/silver-plate.png",
-		icon_size = 32,
-        scale = 0.5,
+		icon = "__nullius__/graphics/icons/calcium.png",
+		icon_size = 64,
+        scale = 0.25,
         shift = {9, -11}
       }
     },
@@ -1348,9 +1348,9 @@ data:extend({
 		scale = 0.9
       },
       {
-		icon = "__bobplates__/graphics/icons/plate/silver-plate.png",
-		icon_size = 32,
-        scale = 0.4,
+		icon = "__nullius__/graphics/icons/calcium.png",
+		icon_size = 64,
+        scale = 0.2,
         shift = {8, -10}
       }
     },
@@ -1415,8 +1415,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-sodium-hydroxide",
-    icon = "__angelspetrochem__/graphics/icons/solid-sodium-hydroxide.png",
-    icon_size = 32,
+    icon = "__nullius__/graphics/icons/lye.png",
+    icon_size = 64,
     subgroup = "sodium-product",
 	order = "nullius-c",
     stack_size = 100
@@ -1433,8 +1433,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-calcium",
-    icon = "__bobplates__/graphics/icons/plate/silver-plate.png",
-    icon_size = 32,
+    icon = "__nullius__/graphics/icons/calcium.png",
+    icon_size = 64,
     subgroup = "calcium-product",
     order = "nullius-j",
     stack_size = 100
@@ -2368,8 +2368,8 @@ data:extend({
     type = "item",
     name = "nullius-boron",
     icons = {{
-      icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-	  icon_size = 32,
+      icon = "__nullius__/graphics/icons/lye.png",
+	  icon_size = 64,
 	  tint = {0.4, 0.35, 0.3}
     }},
     subgroup = "glass-product",
@@ -2380,8 +2380,8 @@ data:extend({
     type = "item",
     name = "nullius-acid-boric",
     icons = {{
-      icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-	  icon_size = 32,
+      icon = "__nullius__/graphics/icons/lye.png",
+	  icon_size = 64,
 	  tint = { 240, 172, 172 }
     }},
     subgroup = "glass-product",
@@ -4299,8 +4299,8 @@ data:extend({
     type = "item",
     name = "nullius-monocrystalline-silicon",
 	icons = {{
-      icon = "__bobplates__/graphics/icons/plate/silicon-plate.png",
-      icon_size = 32,
+      icon = "__nullius__/graphics/icons/mono.png",
+      icon_size = 64,
 	  tint = {0.8, 0.75, 0.7, 0.9}
 	}},
     subgroup = "silicon-product",
@@ -5448,8 +5448,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-bearing",
-    icon = "__bobplates__/graphics/icons/ceramic-bearing.png",
-    icon_size = 32,
+    icon = "__nullius__/graphics/icons/bearing.png",
+    icon_size = 64,
     subgroup = "mechanical-intermediate",
 	order = "nullius-e",
     stack_size = 100
@@ -5797,9 +5797,9 @@ data:extend({
 		icon_size = 32
       },
       {
-		icon = "__bobplates__/graphics/icons/plate/silver-plate.png",
-		icon_size = 32,
-        scale = 0.5,
+		icon = "__nullius__/graphics/icons/calcium.png",
+		icon_size = 64,
+        scale = 0.25,
         shift = {10, -10}
       }
     },
@@ -5834,9 +5834,9 @@ data:extend({
 		scale = 0.9
       },
       {
-		icon = "__bobplates__/graphics/icons/plate/silver-plate.png",
-		icon_size = 32,
-        scale = 0.4,
+		icon = "__nullius__/graphics/icons/calcium.png",
+		icon_size = 64,
+        scale = 0.2,
         shift = {8, -10}
       }
 	},
@@ -6243,7 +6243,7 @@ data:extend({
     type = "item",
     name = "nullius-carbon-composite",
 	icons = {{
-      icon = "__bobplates__/graphics/icons/plate/tungsten-carbide-plate.png",
+      icon = "__nullius__/graphics/icons/plate.png",
       icon_size = 64,
 	  tint = {0.35, 0.35, 0.45}
 	}},
@@ -6286,7 +6286,7 @@ data:extend({
     type = "item",
     name = "nullius-graphene",
 	icons = {{
-      icon = "__bobplates__/graphics/icons/plate/aluminium-plate.png",
+      icon = "__nullius__/graphics/icons/plate.png",
       icon_size = 64,
 	  tint = {0.4, 0.4, 0.4, 0.4}
 	}},

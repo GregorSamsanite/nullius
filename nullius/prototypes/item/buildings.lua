@@ -2974,7 +2974,7 @@ data:extend({
 	  {"nullius-box-efficiency-module-1", 1},
 	  {"nullius-box-reinforced-concrete", 3}
     },
-    result = "nullius-box-pylon-2"
+    result = "nullius-box-pylon-3"
   },
 
   {
@@ -3182,4 +3182,142 @@ data:extend({
     result = "nullius-silo"
   },
 
+  {
+    type = "item",
+    name = "nullius-solar-collector-1",
+	localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 1},
+	icons = {{
+      icon = "__nullius__/graphics/icons/collector1.png",
+      icon_size = 64
+	}},
+    subgroup = "geothermal",
+    order = "nullius-cb",
+    place_result = "nullius-solar-collector-1",
+    stack_size = 100
+  },
+  {
+    type = "item",
+    name = "nullius-solar-collector-2",
+	localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 2},
+	icons = {{
+      icon = "__nullius__/graphics/icons/collector2.png",
+      icon_size = 64
+	}},
+    subgroup = "geothermal",
+    order = "nullius-cc",
+    place_result = "nullius-solar-collector-2",
+    stack_size = 100
+  },
+  {
+    type = "item",
+    name = "nullius-solar-collector-3",
+	localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 3},
+	icons = {{
+      icon = "__nullius__/graphics/icons/collector3.png",
+      icon_size = 64
+	}},
+    subgroup = "geothermal",
+    order = "nullius-cd",
+    place_result = "nullius-solar-collector-3",
+    stack_size = 100
+  },
+  {
+    type = "recipe",
+    name = "nullius-solar-collector-1",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"nullius-glass", 10},
+      {"nullius-aluminum-sheet", 8},
+      {"nullius-steel-rod", 4},
+	  {"nullius-heat-pipe-1", 6}
+    },
+    result = "nullius-solar-collector-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-solar-collector-1",
+    enabled = false,
+	always_show_made_in = true,
+    category = "huge-assembly",
+	subgroup = "boxed-heat-energy",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-box-glass", 10},
+      {"nullius-box-aluminum-sheet", 8},
+      {"nullius-box-steel-rod", 4},
+	  {"nullius-box-heat-pipe-1", 6}
+    },
+    result = "nullius-box-solar-collector-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-solar-collector-2",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-solar-collector-1", 2},
+	  {"nullius-heat-pipe-2", 8},
+	  {"nullius-motor-2", 1},
+	  {"nullius-steel-cable", 4},
+	  {"nullius-titanium-sheet", 5}
+    },
+    result = "nullius-solar-collector-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-solar-collector-2",
+    enabled = false,
+	always_show_made_in = true,
+    category = "huge-assembly",
+	subgroup = "boxed-heat-energy",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-box-solar-collector-1", 2},
+	  {"nullius-box-heat-pipe-2", 8},
+	  {"nullius-box-motor-2", 1},
+	  {"nullius-box-steel-cable", 4},
+	  {"nullius-box-titanium-sheet", 5}
+    },
+    result = "nullius-box-solar-collector-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-solar-collector-3",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-solar-collector-2", 3},
+	  {"nullius-hard-glass", 10},
+	  {"nullius-heat-pipe-3", 8},
+	  {"nullius-titanium-rod", 4},
+	  {"nullius-sensor-1", 1},
+      {"nullius-monocrystalline-silicon", 12}
+    },
+    result = "nullius-solar-collector-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-solar-collector-3",
+    enabled = false,
+	always_show_made_in = true,
+    category = "huge-assembly",
+	subgroup = "boxed-heat-energy",
+    energy_required = 50,
+    ingredients = {
+      {"nullius-box-solar-collector-2", 3},
+	  {"nullius-box-hard-glass", 10},
+	  {"nullius-box-heat-pipe-3", 8},
+	  {"nullius-box-titanium-rod", 4},
+	  {"nullius-box-sensor-1", 1},
+      {"nullius-box-monocrystalline-silicon", 12}
+    },
+    result = "nullius-box-solar-collector-3"
+  }
 })

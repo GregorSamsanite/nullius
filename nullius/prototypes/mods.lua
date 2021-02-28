@@ -617,7 +617,7 @@ data:extend({
 	  {"nullius-robot-frame-3", 1},
 	  {"nullius-haste-module-3", 2},
 	  {"nullius-combustion-chamber-3", 1},
-	  {"nullius-turbine-3", 2},
+	  {"nullius-priority-turbine-2", 2},
 	  {"nullius-titanium-plate", 10}
 	},
 	result = "jetpack-3"
@@ -636,6 +636,321 @@ data:extend({
 	  {"nullius-missile-launcher", 4}
 	},
 	result = "jetpack-4"
+  }
+})
+end
+
+
+if mods["underground-pipe-pack"] then
+data:extend({
+  {
+	type = "recipe",
+	name = "nullius-surface-two-way-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"nullius-underground-pipe-2", 2},
+	  {"nullius-steel-plate", 1},
+	  {"nullius-rubber", 1}
+	},
+	result = "one-to-one-forward-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-three-way-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"one-to-one-forward-t2-pipe", 1},
+	  {"nullius-underground-pipe-2", 1}
+	},
+	result = "one-to-two-perpendicular-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-four-way-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"one-to-two-perpendicular-t2-pipe", 1},
+	  {"nullius-underground-pipe-2", 1}
+	},
+	result = "one-to-three-forward-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-straight-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"one-to-one-forward-t2-pipe", 1},
+	  {"nullius-underground-pipe-2", 1},
+	  {"nullius-glass", 1}
+	},
+	result = "underground-i-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-elbow-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"underground-i-t2-pipe", 1},
+	  {"nullius-pipe-2", 2}
+	},
+	result = "underground-L-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-three-way-junction-1",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"underground-L-t2-pipe", 1},
+	  {"nullius-underground-pipe-2", 1}
+	},
+	result = "underground-t-t2-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-adjustable-relief-valve",
+	enabled = false,
+	always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"nullius-relief-valve", 2},
+	  {"red-wire", 1}
+	},
+	result = "80-overflow-valve"
+  },
+
+  {
+	type = "recipe",
+	name = "nullius-surface-two-way-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"one-to-one-forward-t2-pipe", 1},
+	  {"nullius-bearing", 1},
+	  {"nullius-underground-pipe-3", 1}
+	},
+	result = "one-to-one-forward-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-three-way-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"one-to-two-perpendicular-t2-pipe", 1},
+	  {"nullius-bearing", 1},
+	  {"nullius-underground-pipe-3", 2}
+	},
+	result = "one-to-two-perpendicular-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-four-way-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"one-to-three-forward-t2-pipe", 1},
+	  {"nullius-bearing", 1},
+	  {"nullius-underground-pipe-3", 3}
+	},
+	result = "one-to-three-forward-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-straight-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"underground-i-t2-pipe", 1},
+	  {"nullius-underground-pipe-3", 2}
+	},
+	result = "underground-i-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-elbow-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"underground-L-t2-pipe", 1},
+	  {"nullius-underground-pipe-3", 2}
+	},
+	result = "underground-L-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-three-way-junction-2",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"underground-t-t2-pipe", 1},
+	  {"nullius-underground-pipe-3", 3}
+	},
+	result = "underground-t-t3-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-adjustable-top-up-valve",
+	enabled = false,
+	always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"nullius-top-up-valve", 2},
+	  {"red-wire", 1}
+	},
+	result = "80-top-up-valve"
+  },
+
+  {
+	type = "recipe",
+	name = "nullius-surface-two-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"one-to-one-forward-t3-pipe", 1},
+	  {"nullius-underground-pipe-4", 1}
+	},
+	result = "one-to-one-forward-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-three-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"one-to-two-perpendicular-t3-pipe", 1},
+	  {"nullius-underground-pipe-4", 2}
+	},
+	result = "one-to-two-perpendicular-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-four-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+	ingredients = {
+	  {"one-to-three-forward-t3-pipe", 1},
+	  {"nullius-underground-pipe-4", 3}
+	},
+	result = "one-to-three-forward-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-surface-five-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"one-to-two-perpendicular-pipe", 1},
+	  {"one-to-one-forward-pipe", 1}
+	},
+	result = "one-to-four-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-straight-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"underground-i-t3-pipe", 1},
+	  {"nullius-hard-glass", 1},
+	  {"nullius-underground-pipe-4", 2}
+	},
+	result = "underground-i-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-elbow-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"underground-L-t3-pipe", 1},
+	  {"nullius-hard-glass", 1},
+	  {"nullius-underground-pipe-4", 2}
+	},
+	result = "underground-L-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-three-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"underground-t-t3-pipe", 1},
+	  {"nullius-hard-glass", 1},
+	  {"nullius-underground-pipe-4", 3}
+	},
+	result = "underground-t-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-four-way-junction-3",
+	enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+	ingredients = {
+	  {"underground-L-pipe", 2},
+	  {"nullius-underground-pipe-4", 1}
+	},
+	result = "underground-cross-pipe"
+  },
+  {
+	type = "recipe",
+	name = "nullius-underground-pump",
+	enabled = false,
+	always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 10,
+	ingredients = {
+	  {"nullius-small-pump-2", 3},
+	  {"underground-i-pipe", 2}
+	},
+	result = "underground-mini-pump"
   }
 })
 end

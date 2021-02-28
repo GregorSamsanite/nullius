@@ -165,6 +165,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "heat-storage",
+    group = "production",
+    order = "cb"
+  },
+  {
+    type = "item-subgroup",
     name = "geothermal",
     group = "production",
     order = "cc"
@@ -276,13 +282,13 @@ data:extend({
     type = "item-subgroup",
     name = "masonry",
     group = "logistics",
-    order = "m"
+    order = "n"
   },
   {
     type = "item-subgroup",
     name = "concrete",
     group = "logistics",
-    order = "n"
+    order = "o"
   },
 
   {
@@ -540,7 +546,19 @@ data:extend({
   {
     type = "item-subgroup",
     name = "pipes-to-ground",
-    order = "b",
+    order = "bb",
+    group = "chemistry",
+  },
+  {
+    type = "item-subgroup",
+    name = "nullius-surface-junction",
+    order = "bc",
+    group = "chemistry",
+  },
+  {
+    type = "item-subgroup",
+    name = "nullius-underground-junction",
+    order = "bd",
     group = "chemistry",
   },
   {
@@ -1417,6 +1435,24 @@ data:extend({
     type = "item-subgroup",
     order = "sc",
     name = "boxed-fluid-energy",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
+    order = "sd",
+    name = "boxing-heat-energy",
+    group = "boxing",
+  },
+  {
+    type = "item-subgroup",
+    order = "sd",
+    name = "unboxing-heat-energy",
+    group = "unboxing",
+  },
+  {
+    type = "item-subgroup",
+    order = "sd",
+    name = "boxed-heat-energy",
     group = "boxed",
   },
   {

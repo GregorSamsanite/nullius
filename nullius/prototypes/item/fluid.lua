@@ -39,8 +39,8 @@ data:extend({
     order = "nullius-b",
     base_color = {r=18, g=193, b=200},
     flow_color = {r=18, g=193, b=200},
-    heat_capacity = "0.2KJ",
-    default_temperature = 25,
+    heat_capacity = "0.075KJ",
+    default_temperature = 15,
     max_temperature = 100
   },
   {
@@ -54,8 +54,8 @@ data:extend({
     order = "nullius-c",
     base_color = {r=0.5, g=0.5, b=0.5},
     flow_color = {r=0.9, g=0.9, b=1.0},
-    heat_capacity = "0.1KJ",
-    default_temperature = 150,
+    heat_capacity = "0.05KJ",
+    default_temperature = 15,
     max_temperature = 2000,
     gas_temperature = 100
   },
@@ -69,7 +69,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r=72, g=144, b=140},
     flow_color = {r=72, g=144, b=140},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 15,
     max_temperature = 100
   },
@@ -83,7 +83,7 @@ data:extend({
     order = "nullius-e",
     base_color = {r=76, g=160, b=148},
     flow_color = {r=76, g=160, b=148},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 15,
     max_temperature = 100
   },
@@ -97,8 +97,8 @@ data:extend({
     order = "nullius-f",
     base_color = {r=34, g=169, b=187},
     flow_color = {r=34, g=169, b=187},
-    heat_capacity = "0.2KJ",
-    default_temperature = 20,
+    heat_capacity = "0.08KJ",
+    default_temperature = 15,
     max_temperature = 100
   },
   {
@@ -111,8 +111,8 @@ data:extend({
     order = "nullius-g",
     base_color = {r=36, g=94, b=142},
     flow_color = {r=36, g=94, b=142},
-    heat_capacity = "0.2KJ",
-    default_temperature = 25,
+    heat_capacity = "0.08KJ",
+    default_temperature = 20,
     max_temperature = 100
   },
   {
@@ -126,8 +126,8 @@ data:extend({
     order = "nullius-h",
     base_color = {r=18, g=180, b=180},
     flow_color = {r=18, g=180, b=180},
-    heat_capacity = "0.2KJ",
-    default_temperature = 25,
+    heat_capacity = "0.08KJ",
+    default_temperature = 20,
     max_temperature = 100
   },
   {
@@ -140,8 +140,8 @@ data:extend({
     order = "nullius-i",
     base_color = {r=97, g=127, b=104},
     flow_color = {r=97, g=127, b=104},
-    heat_capacity = "0.2KJ",
-    default_temperature = 25,
+    heat_capacity = "0.08KJ",
+    default_temperature = 20,
     max_temperature = 100
   },
   {
@@ -154,7 +154,7 @@ data:extend({
     order = "nullius-j",
     base_color = {r=115, g=94, b=57},
     flow_color = {r=115, g=94, b=57},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -169,7 +169,7 @@ data:extend({
     order = "nullius-b",
     base_color = {r = 32, g = 144, b = 255},
     flow_color = {r = 32, g = 144, b = 255},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -184,7 +184,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 122, g = 175, b = 232},
     flow_color = {r = 122, g = 175, b = 232},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -199,7 +199,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 152, g = 176, b = 204},
     flow_color = {r = 152, g = 176, b = 204},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -214,7 +214,7 @@ data:extend({
     order = "nullius-e",
     base_color = {r = 224, g = 128, b = 0},
     flow_color = {r = 224, g = 128, b = 0},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 200,
     max_temperature = 500,
     gas_temperature = 0
@@ -229,7 +229,7 @@ data:extend({
     order = "nullius-f",
     base_color = { r = 40, g = 80, b = 192 },
     flow_color = { r = 40, g = 80, b = 192 },
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -244,7 +244,7 @@ data:extend({
     order = "nullius-g",
     base_color = { r = 164, g = 140, b = 204 },
     flow_color = { r = 164, g = 140, b = 204 },
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -259,7 +259,7 @@ data:extend({
     order = "nullius-h",
     base_color = { r = 224, g = 200, b = 255 },
     flow_color = { r = 224, g = 200, b = 255 },
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -276,7 +276,7 @@ data:extend({
     order = "nullius-b",
     base_color = {r = 1, g = 0.4, b = 0.4},
     flow_color = {r = 1, g = 0.4, b = 0.4},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -292,7 +292,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 0.5, g = 0.2, b = 0.2},
     flow_color = {r = 0.5, g = 0.2, b = 0.2},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -308,7 +308,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 0.68, g = 0.68, b = 0.68},
     flow_color = {r = 0.68, g = 0.68, b = 0.68},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -324,7 +324,7 @@ data:extend({
     order = "nullius-f",
     base_color = {r = 0.45, g = 0.45, b = 0.45},
     flow_color = {r = 0.45, g = 0.45, b = 0.45},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -340,7 +340,7 @@ data:extend({
     order = "nullius-g",
     base_color = {r = 0.3, g = 0.3, b = 0.3},
     flow_color = {r = 0.3, g = 0.3, b = 0.3},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -356,7 +356,7 @@ data:extend({
     order = "nullius-h",
     base_color = {r = 0.15, g = 0.15, b = 0.15},
     flow_color = {r = 0.15, g = 0.15, b = 0.15},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -372,7 +372,7 @@ data:extend({
     order = "nullius-b",
     base_color = {r = 0.7, g = 0.575, b = 0.575},
     flow_color = {r = 0.7, g = 0.575, b = 0.575},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -387,7 +387,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 0.8, g = 0.8, b = 0.8},
     flow_color = {r = 0.8, g = 0.8, b = 0.8},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
 	gas_temperature = 0
@@ -403,7 +403,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 0, g = 0, b = 0},
     flow_color = {r = 0, g = 0, b = 0},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -418,7 +418,7 @@ data:extend({
     order = "nullius-e",
     base_color = {r = 0.2, g = 0.2, b = 0.4},
     flow_color = {r = 0.2, g = 0.2, b = 0.4},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -433,7 +433,7 @@ data:extend({
     order = "nullius-f",
     base_color = {r = 224, g = 212, b = 168},
     flow_color = {r = 224, g = 212, b = 168},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -448,7 +448,7 @@ data:extend({
     order = "nullius-g",
     base_color = {r = 224, g = 192, b = 128},
     flow_color = {r = 224, g = 192, b = 128},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -462,7 +462,7 @@ data:extend({
     order = "nullius-h",
     base_color = {r = 0.43, g = 0.65, b = 0.31},
     flow_color = {r = 0.43, g = 0.65, b = 0.31},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -476,7 +476,7 @@ data:extend({
     order = "nullius-i",
     base_color = {r = 232, g = 228, b = 200},
     flow_color = {r = 232, g = 228, b = 200},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -490,7 +490,7 @@ data:extend({
     order = "nullius-j",
     base_color = {r = 192, g = 184, b = 136},
     flow_color = {r = 192, g = 184, b = 136},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -505,7 +505,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 0.5, g = 0.4, b = 0.2},
     flow_color = {r = 0.5, g = 0.4, b = 0.2},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -519,7 +519,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 0.8, g = 0.8, b = 0.4},
     flow_color = {r = 0.8, g = 0.8, b = 0.4},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -533,7 +533,7 @@ data:extend({
     order = "nullius-e",
     base_color = {r = 0.7, g = 0.9, b = 0.5},
     flow_color = {r = 0.7, g = 0.9, b = 0.5},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -548,7 +548,7 @@ data:extend({
     order = "nullius-f",
 	base_color = {r = 0.9, g = 0.7, b = 0.5},
     flow_color = {r = 0.9, g = 0.7, b = 0.5},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -563,7 +563,7 @@ data:extend({
     order = "nullius-g",
 	base_color = {r = 0.8, g = 0.5, b = 0.3},
     flow_color = {r = 0.8, g = 0.5, b = 0.3},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -578,7 +578,7 @@ data:extend({
     order = "nullius-bb",
     base_color = {r = 1, g = 1, b = 1},
     flow_color = {r = 1, g = 1, b = 1},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -593,7 +593,7 @@ data:extend({
     order = "nullius-bc",
     base_color = {r = 1, g = 0.95, b = 0.85},
     flow_color = {r = 1, g = 0.95, b = 0.85},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -608,7 +608,7 @@ data:extend({
     order = "nullius-bd",
     base_color = {r = 1, g = 0.9, b = 0.7},
     flow_color = {r = 1, g = 0.9, b = 0.7},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -623,7 +623,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 1, g = 0, b = 0},
     flow_color = {r = 1, g = 0, b = 0},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -638,7 +638,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 0, g = 1, b = 0},
     flow_color = {r = 0, g = 1, b = 0},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -655,7 +655,7 @@ data:extend({
     order = "nullius-g",
     base_color = { r = 150, g = 40, b = 180 },
     flow_color = { r = 150, g = 40, b = 180 },
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -669,7 +669,7 @@ data:extend({
     order = "nullius-l",
     base_color = {r = 120, g = 60, b = 90},
     flow_color = {r = 120, g = 60, b = 90},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -683,7 +683,7 @@ data:extend({
     order = "nullius-m",
     base_color = {r=0.803, g=0.388, b=0.215},
     flow_color = {r=0.803, g=0.388, b=0.215},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -700,7 +700,7 @@ data:extend({
     order = "nullius-e",
     base_color = {r = 0.7, g = 1, b = 0.7},
     flow_color = {r = 0.7, g = 1, b = 0.7},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -717,7 +717,7 @@ data:extend({
     order = "nullius-f",
     base_color = {r = 0.4, g = 1, b = 0.4},
     flow_color = {r = 0.4, g = 1, b = 0.4},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -733,7 +733,7 @@ data:extend({
     order = "nullius-h",
     base_color = {r = 0.9, g = 0.9, b = 0.2},
     flow_color = {r = 0.9, g = 0.9, b = 0.2},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -750,7 +750,7 @@ data:extend({
     order = "nullius-i",
     base_color = {r = 0.75, g = 0.65, b = 0.1},
     flow_color = {r = 0.75, g = 0.65, b = 0.1},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -765,7 +765,7 @@ data:extend({
     order = "nullius-j",
     base_color = {r = 0.4, g = 0.4, b = 0.7},
     flow_color = {r = 0.4, g = 0.4, b = 0.7},
-    heat_capacity = "0.1KJ",
+    heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
@@ -782,7 +782,7 @@ data:extend({
     order = "nullius-k",
     base_color = {r = 148, g = 112, b = 224},
     flow_color = {r = 148, g = 112, b = 224},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     default_temperature = 25,
     max_temperature = 100
   },
@@ -797,7 +797,7 @@ data:extend({
     order = "nullius-b",
     base_color = {r = 32, g = 144, b = 255},
     flow_color = {r = 32, g = 144, b = 255},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "10KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -812,7 +812,7 @@ data:extend({
     order = "nullius-c",
     base_color = {r = 122, g = 175, b = 232},
     flow_color = {r = 122, g = 175, b = 232},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "15KJ",
     default_temperature = 50,
     max_temperature = 100,
@@ -828,7 +828,7 @@ data:extend({
     order = "nullius-d",
     base_color = {r = 152, g = 176, b = 204},
     flow_color = {r = 152, g = 176, b = 204},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "15KJ",
     default_temperature = 50,
     max_temperature = 100,
@@ -844,7 +844,7 @@ data:extend({
     order = "nullius-e",
     base_color = { r = 40, g = 80, b = 192},
     flow_color = { r = 40, g = 80, b = 192},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "18KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -859,7 +859,7 @@ data:extend({
     order = "nullius-f",
     base_color = { r = 164, g = 140, b = 204},
     flow_color = { r = 164, g = 140, b = 204},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "24KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -874,7 +874,7 @@ data:extend({
     order = "nullius-g",
     base_color = { r = 224, g = 200, b = 255},
     flow_color = { r = 224, g = 200, b = 255},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "32KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -889,7 +889,7 @@ data:extend({
     order = "nullius-h",
     base_color = {r = 1, g = 1, b = 1},
     flow_color = {r = 1, g = 1, b = 1},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "4KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -904,7 +904,7 @@ data:extend({
     order = "nullius-i",
     base_color = {r = 1, g = 0, b = 0},
     flow_color = {r = 1, g = 0, b = 0},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "4KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -920,7 +920,7 @@ data:extend({
     order = "nullius-j",
     base_color = {r = 1, g = 0.4, b = 0.4},
     flow_color = {r = 1, g = 0.4, b = 0.4},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "12KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -936,7 +936,7 @@ data:extend({
     order = "nullius-k",
     base_color = {r = 0.5, g = 0.2, b = 0.2},
     flow_color = {r = 0.5, g = 0.2, b = 0.2},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "8KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -952,7 +952,7 @@ data:extend({
     order = "nullius-l",
     base_color = {r = 0.68, g = 0.68, b = 0.68},
     flow_color = {r = 0.68, g = 0.68, b = 0.68},
-    heat_capacity = "0.2KJ",
+    heat_capacity = "0.08KJ",
     fuel_value = "6KJ",
     default_temperature = 50,
     max_temperature = 100
@@ -1478,9 +1478,9 @@ data:extend({
         icon_size = 32
 	  },
       {
-        icon = "__bobplates__/graphics/icons/salt.png",
-        icon_size = 32,
-        scale = 0.6,
+        icon = "__nullius__/graphics/icons/salt.png",
+        icon_size = 64,
+        scale = 0.25,
         shift = {7, -10}
       }
     },
@@ -1517,9 +1517,9 @@ data:extend({
 		scale = 0.9
 	  },
       {
-        icon = "__bobplates__/graphics/icons/salt.png",
-        icon_size = 32,
-        scale = 0.55,
+        icon = "__nullius__/graphics/icons/salt.png",
+        icon_size = 64,
+        scale = 0.22,
         shift = {6, -9}
       }
     },
@@ -1552,9 +1552,9 @@ data:extend({
         icon_size = 32
 	  },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-hydroxide.png",
-        icon_size = 32,
-        scale = 0.5,
+        icon = "__nullius__/graphics/icons/lye.png",
+        icon_size = 64,
+        scale = 0.25,
         shift = {9, -9}
       }
     },
@@ -1591,9 +1591,9 @@ data:extend({
 		scale = 0.9
 	  },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-hydroxide.png",
-        icon_size = 32,
-        scale = 0.45,
+        icon = "__nullius__/graphics/icons/lye.png",
+        icon_size = 64,
+        scale = 0.23,
         shift = {8, -8}
       }
     },
@@ -1881,8 +1881,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-salt",
-    icon = "__bobplates__/graphics/icons/salt.png",
-    icon_size = 32,
+    icon = "__nullius__/graphics/icons/salt.png",
+    icon_size = 64,
     subgroup = "sodium-product",
 	order = "nullius-b",
     stack_size = 100
@@ -1943,9 +1943,9 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-		icon = "__bobplates__/graphics/icons/salt.png",
-		icon_size = 32,
-        scale = 0.42,
+		icon = "__nullius__/graphics/icons/salt.png",
+		icon_size = 64,
+        scale = 0.21,
         shift = {-10, -11}
       }
     },
@@ -2008,9 +2008,9 @@ data:extend({
         icon_size = 32
 	  },
       {
-        icon = "__bobplates__/graphics/icons/salt.png",
-        icon_size = 32,
-        scale = 0.6,
+        icon = "__nullius__/graphics/icons/salt.png",
+        icon_size = 64,
+        scale = 0.25,
         shift = {7, -10}
       }
     },
@@ -2042,9 +2042,9 @@ data:extend({
 		scale = 0.9
 	  },
       {
-        icon = "__bobplates__/graphics/icons/salt.png",
-        icon_size = 32,
-        scale = 0.5,
+        icon = "__nullius__/graphics/icons/salt.png",
+        icon_size = 64,
+        scale = 0.22,
         shift = {6, -9}
       }
     },
@@ -2072,9 +2072,9 @@ data:extend({
         icon_size = 32
 	  },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-hydroxide.png",
-        icon_size = 32,
-        scale = 0.5,
+        icon = "__nullius__/graphics/icons/lye.png",
+        icon_size = 64,
+        scale = 0.25,
         shift = {9, -9}
       }
     },
@@ -2107,9 +2107,9 @@ data:extend({
 		scale = 0.9
 	  },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-hydroxide.png",
-        icon_size = 32,
-        scale = 0.45,
+        icon = "__nullius__/graphics/icons/lye.png",
+        icon_size = 64,
+        scale = 0.23,
         shift = {8, -8}
       }
     },
@@ -2133,8 +2133,8 @@ data:extend({
     type = "item",
     name = "nullius-lithium-chloride",
     icons = {{
-      icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-	  icon_size = 32,
+      icon = "__nullius__/graphics/icons/sugar.png",
+	  icon_size = 64,
 	  tint = { 0.9, 0.75, 1 }
     }},
     subgroup = "sodium-product",
@@ -2144,7 +2144,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-lithium",
-    icon = "__bobplates__/graphics/icons/plate/lithium-plate.png",
+    icon = "__nullius__/graphics/icons/lithium.png",
     icon_size = 64,
     subgroup = "sodium-product",
 	order = "nullius-k",
@@ -2977,8 +2977,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-rubber",
-    icon = "__bobplates__/graphics/icons/rubber.png",
-    icon_size = 32,
+    icon = "__nullius__/graphics/icons/rubber.png",
+    icon_size = 64,
     subgroup = "organic-material-2",
 	order = "nullius-c",
     stack_size = 100
@@ -3012,8 +3012,8 @@ data:extend({
 	localised_name = {"recipe-name.nullius-rubber-2"},
     icons = {
       {
-        icon = "__bobplates__/graphics/icons/rubber.png",
-        icon_size = 32
+        icon = "__nullius__/graphics/icons/rubber.png",
+        icon_size = 64
 	  },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methylamine.png",
@@ -3110,7 +3110,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__bobplates__/graphics/icons/hydrogen.png",
+        icon = "__nullius__/graphics/icons/atom2.png",
         scale = 0.25,
         shift = {-10, -10}
       }
@@ -3141,7 +3141,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__bobplates__/graphics/icons/hydrogen.png",
+        icon = "__nullius__/graphics/icons/atom2.png",
         scale = 0.2,
         shift = {-11, -11}
       }
@@ -3173,7 +3173,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__bobplates__/graphics/icons/hydrogen.png",
+        icon = "__nullius__/graphics/icons/atom2.png",
         scale = 0.15,
         shift = {-12, -12}
       }
@@ -5313,8 +5313,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-eutectic-salt",
-    icon = "__bobplates__/graphics/icons/lithium-cobalt-oxide.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__nullius__/graphics/icons/salt.png",
+      icon_size = 64,
+	  tint = {0.4, 0.6, 0.8}
+	}},
     subgroup = "sodium-product",
 	order = "nullius-g",
     stack_size = 100

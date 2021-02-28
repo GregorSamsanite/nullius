@@ -153,3 +153,25 @@ function remove_stirling_engine(entity, died, level)
   destroy_stirling_engine(entry)
   bucket[level][unit] = nil  
 end
+
+
+function build_thermal_tank(entity, level)
+  if ((level < 1) or (level > 2)) then return end
+  
+  local direction = entity.direction  
+  local dirname = "south"
+  if (direction == defines.direction.north) then
+    dirname = "north"
+  elseif (direction == defines.direction.east) then
+    dirname = "east"
+  elseif (direction == defines.direction.west) then
+    dirname = "west"
+  end
+
+  local position = entity.position
+  local force = entity.force
+  local surface = entity.surface
+  entity.destroy()
+  surface.create_entity{name = "nullius-thermal-tank-"..dirname.."-"..level,
+    position = position, force = force, direction = direction}
+end

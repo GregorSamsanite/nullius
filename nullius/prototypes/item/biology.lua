@@ -3,8 +3,8 @@ data:extend({
     type = "item",
     name = "nullius-sugar",
     icons = {{
-      icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-	  icon_size = 32
+      icon = "__nullius__/graphics/icons/sugar.png",
+	  icon_size = 64
     }},
     subgroup = "biology-material",
 	order = "nullius-b",
@@ -38,8 +38,8 @@ data:extend({
 	localised_name = {"", {"item-name.nullius-sugar"}, " ", 1},
     icons = {
       {
-        icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-	    icon_size = 32
+        icon = "__nullius__/graphics/icons/sugar.png",
+	    icon_size = 64
 	  },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/glycerol.png",
@@ -396,9 +396,9 @@ data:extend({
 	  data.raw.fluid["nullius-methanol"].icons[3],
 	  data.raw.fluid["nullius-methanol"].icons[4],
       {
-	    icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-        icon_size = 32,
-        scale = 0.5,
+	    icon = "__nullius__/graphics/icons/sugar.png",
+        icon_size = 64,
+        scale = 0.25,
         shift = {-9, -9}
 	  }
 	},
@@ -436,9 +436,9 @@ data:extend({
 	  data.raw.fluid["nullius-methanol"].icons[3],
 	  data.raw.fluid["nullius-methanol"].icons[4],
       {
-	    icon = "__bobplates__/graphics/icons/calcium-chloride.png",
-        icon_size = 32,
-        scale = 0.45,
+	    icon = "__nullius__/graphics/icons/sugar.png",
+        icon_size = 64,
+        scale = 0.23,
         shift = {-8, -8}
 	  }
 	},
@@ -1598,8 +1598,8 @@ data:extend({
 	localised_name = {"recipe-name.nullius-latex"},
     icons = {
 	  {
-		icon = "__bobplates__/graphics/icons/rubber.png",
-		icon_size = 32
+		icon = "__nullius__/graphics/icons/rubber.png",
+		icon_size = 64
 	  },
       {
         icon = "__base__/graphics/icons/tree-08.png",
@@ -1640,9 +1640,9 @@ data:extend({
         icon_size = 64
 	  },
 	  {
-		icon = "__bobplates__/graphics/icons/rubber.png",
-		icon_size = 32,
-		scale = 0.9
+		icon = "__nullius__/graphics/icons/rubber.png",
+		icon_size = 64,
+		scale = 0.45
 	  },
       {
         icon = "__base__/graphics/icons/tree-08.png",
@@ -2283,7 +2283,7 @@ data:extend({
 	localised_name = {"recipe-name.nullius-harvest", {"item-name.nullius-arthropod"}},
     icons = {
 	  {
-        icon = "__bobplates__/graphics/icons/plate/aluminium-plate.png",
+        icon = "__nullius__/graphics/icons/plate.png",
         icon_size = 64,
 	    tint = {0.4, 0.4, 0.4, 0.4}
 	  },
@@ -2328,7 +2328,7 @@ data:extend({
         icon_size = 64
 	  },
 	  {
-        icon = "__bobplates__/graphics/icons/plate/aluminium-plate.png",
+        icon = "__nullius__/graphics/icons/plate.png",
         icon_size = 64,
 	    tint = {0.4, 0.4, 0.4, 0.4},
 		scale = 0.45

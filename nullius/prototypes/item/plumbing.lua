@@ -327,7 +327,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
 	always_show_products = true,
-    category = "small-crafting",
+    category = "small-fluid-assembly",
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-fiberglass", amount=1},
@@ -1441,7 +1441,7 @@ data:extend({
       }
     },
     subgroup = "energy-storage",
-    order = "nullius-dc",
+    order = "nullius-dcb",
     place_result = "nullius-turbine-2",
     stack_size = 50
   },
@@ -1456,8 +1456,40 @@ data:extend({
       }
     },
     subgroup = "energy-storage",
-    order = "nullius-dd",
+    order = "nullius-ddb",
     place_result = "nullius-turbine-3",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-priority-turbine-1",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/steam-turbine.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        tint = {0.75, 0.6, 0.72, 1}
+      }
+    },
+    subgroup = "energy-storage",
+    order = "nullius-dcc",
+    place_result = "nullius-priority-turbine-1",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-priority-turbine-2",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/steam-turbine.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        tint = {1, 0.8, 0.8, 1}
+      }
+    },
+    subgroup = "energy-storage",
+    order = "nullius-ddc",
+    place_result = "nullius-priority-turbine-2",
     stack_size = 50
   },
   {
@@ -1562,6 +1594,33 @@ data:extend({
 	  {"nullius-box-small-pump-2", 1}
     },
     result = "nullius-box-turbine-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-priority-turbine-1",
+    enabled = false,
+	always_show_made_in = true,
+	no_productivity = true,
+    category = "large-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-turbine-2", 1},
+      {"power-switch", 1}
+    },
+    result = "nullius-priority-turbine-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-priority-turbine-2",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-turbine-3", 1},
+      {"nullius-priority-turbine-1", 2}
+    },
+    result = "nullius-priority-turbine-2"
   },
 
   {
@@ -3549,7 +3608,7 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "large-fluid-assembly",
-	subgroup = "boxed-fluid-energy",
+	subgroup = "boxed-heat-energy",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-pipe-2", amount=2},
@@ -3597,7 +3656,7 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "machine-casting",
-	subgroup = "boxed-fluid-energy",
+	subgroup = "boxed-heat-energy",
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-heat-pipe-1", amount=1},
@@ -3646,7 +3705,7 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "machine-casting",
-	subgroup = "boxed-fluid-energy",
+	subgroup = "boxed-heat-energy",
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-box-heat-pipe-2", amount=5},
@@ -3662,25 +3721,24 @@ data:extend({
     type = "item",
     name = "nullius-thermal-tank-1",
 	icons = {{
-      icon = "__angelspetrochem__/graphics/icons/polymerization-chamber-ico.png",
-      icon_size = 32,
-	  tint = {0.7, 0.9, 0.8}
+      icon = "__nullius__/graphics/icons/thermaltank1.png",
+      icon_size = 64
 	}},
     subgroup = "heat-energy",
 	order = "nullius-cb",
-    place_result = "nullius-thermal-tank-1",
+    place_result = "nullius-thermal-tank-build-1",
     stack_size = 50
   },
   {
     type = "item",
     name = "nullius-thermal-tank-2",
 	icons = {{
-      icon = "__angelspetrochem__/graphics/icons/polymerization-chamber-ico.png",
-      icon_size = 32
+      icon = "__nullius__/graphics/icons/thermaltank2.png",
+      icon_size = 64
 	}},
     subgroup = "heat-energy",
 	order = "nullius-cc",
-    place_result = "nullius-thermal-tank-2",
+    place_result = "nullius-thermal-tank-build-2",
     stack_size = 50
   },
   {
@@ -3840,6 +3898,32 @@ data:extend({
       {"nullius-top-up-valve", 2}
     },
     result = "nullius-barrel-pump-1"
+  },
+
+  {
+    type = "item",
+    name = "nullius-heat-exchanger",
+	icons = {{
+      icon = "__nullius__/graphics/exchanger/exchanger.png",
+      icon_size = 64
+	}},
+    subgroup = "heat-energy",
+	order = "nullius-db",
+    place_result = "nullius-heat-exchanger",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-heat-exchanger",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+    ingredients = {
+      {"nullius-combustion-chamber-1", 1},
+      {"nullius-heat-pipe-1", 4}
+    },
+    result = "nullius-heat-exchanger"
   },
 
   {

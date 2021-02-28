@@ -1,4 +1,43 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.15
+Date: 27.02.2021
+  Features:
+    - Add concentrated solar thermal collector as a low tech renewable energy alternative.
+    - Allow thermal tanks to be rotated when placed.
+  Graphics:
+    - Add some new icons for certain materials.
+    - New graphic for thermal tanks.
+  Balancing:
+    - Reduce cost of solar panel 1.
+  Changes:
+    - Removed bobplates mod from list of prerequisites.
+    - Add Advanced Underground Piping as an optional prerequisite.
+    - Disable low power icon on stirling engines, since it can be misleading.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.14
+Date: 20.02.2021
+  Modding:
+    - Add compatibility support for Advanced Underground Piping.
+  Bugfixes:
+    - Fix incorrect ratio for boxed terrain items.  Should be 10 per box.
+  Graphics:
+    - Add new icons for sodium hydroxide, monocrystalline silicon, and salt.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.13
+Date: 16.02.2021
+  Features:
+    - Add "priority" version of turbines generating electricity at solar/wind priority.
+  Bugfixes:
+    - Fix a problem when Medium Miner 3 was deconstructed into Medium Miner 2.
+    - Fix boxed pylon 3 recipe.
+  Changes:
+    - Change chassis 3 recipe to use robot frame 1.
+    - Don't list pipe 3 as hand craftable, since it requires fluid.
+  Modding:
+    - Allow productivity modules by default in third party recipes ported to Nullius.
+  Balancing:
+    - Remove temperature limit on turbines.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.12
 Date: 12.02.2021
   Balancing:

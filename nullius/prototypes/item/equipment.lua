@@ -203,7 +203,7 @@ data:extend({
       {"nullius-titanium-plate", 20},
       {"nullius-ceramic-powder", 15},
 	  {"nullius-textile", 10},
-	  {"nullius-robot-frame-2", 2},
+	  {"nullius-robot-frame-1", 2},
 	  {"nullius-efficiency-module-1", 1},
 	  {"nullius-transformer", 1}
     },
@@ -331,11 +331,11 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-polycrystalline-silicon", 12},
-      {"nullius-glass", 8},
-      {"nullius-aluminum-sheet", 8},
-      {"nullius-plastic", 4},
-      {"nullius-aluminum-rod", 4}
+      {"nullius-polycrystalline-silicon", 8},
+      {"nullius-glass", 6},
+      {"nullius-aluminum-sheet", 5},
+      {"nullius-plastic", 3},
+      {"nullius-aluminum-rod", 2}
     },
     result = "nullius-solar-panel-1"
   },
@@ -348,11 +348,11 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 50,
     ingredients = {
-      {"nullius-box-polycrystalline-silicon", 12},
-      {"nullius-box-glass", 8},
-      {"nullius-box-aluminum-sheet", 8},
-      {"nullius-box-plastic", 4},
-      {"nullius-box-aluminum-rod", 4}
+      {"nullius-box-polycrystalline-silicon", 8},
+      {"nullius-box-glass", 6},
+      {"nullius-box-aluminum-sheet", 5},
+      {"nullius-box-plastic", 3},
+      {"nullius-box-aluminum-rod", 2}
     },
     result = "nullius-box-solar-panel-1"
   },
@@ -441,7 +441,8 @@ data:extend({
     category = "nanotechnology",
     energy_required = 40,
     ingredients = {
-      {type="item", name="nullius-box-solar-panel-3", amount=1},
+      {type="item", name="nullius-solar-panel-3", amount=3},
+      {type="item", name="nullius-solar-collector-3", amount=2},
 	  {type="item", name="nullius-productivity-module-3", amount=1},
 	  {type="item", name="nullius-antimatter", amount=1}
     },

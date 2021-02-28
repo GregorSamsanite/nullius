@@ -6,14 +6,17 @@ data.raw.item["refined-concrete"].subgroup = "concrete"
 data.raw.item["refined-concrete"].order = "nullius-c"
 data.raw.item["refined-hazard-concrete"].subgroup = "concrete"
 data.raw.item["refined-hazard-concrete"].order = "nullius-e"
-data.raw.fluid["liquid-fuel"].subgroup = "unused-fluid"
-data.raw.item["liquid-fuel-barrel"].subgroup = "unused-fluid"
-data.raw.recipe["fill-liquid-fuel-barrel"].subgroup = "unused-fluid"
-data.raw.recipe["empty-liquid-fuel-barrel"].subgroup = "unused-fluid"
 data.raw.resource["uranium-ore"].minable.fluid_amount = nil
 data.raw.resource["uranium-ore"].minable.required_fluid = nil
 data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
 data.raw.item["rocket-fuel"].icon_size = 64
+
+if mods["bobplates"] then
+data.raw.fluid["liquid-fuel"].subgroup = "unused-fluid"
+data.raw.item["liquid-fuel-barrel"].subgroup = "unused-fluid"
+data.raw.recipe["fill-liquid-fuel-barrel"].subgroup = "unused-fluid"
+data.raw.recipe["empty-liquid-fuel-barrel"].subgroup = "unused-fluid"
+end
 
 -- Workaround issues with Squeak_Through
 data.raw["mining-drill"]["nullius-geothermal-build-1"].collision_box =

@@ -1671,7 +1671,7 @@ data:extend({
     icons = data.raw.item["nullius-medium-miner-2"].icons,
 	localised_description = {"entity-description.nullius-miner"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.6, result = "nullius-medium-miner-2"},
+    minable = {mining_time = 0.6, result = "nullius-medium-miner-3"},
     max_health = 300,
     resource_categories = {"basic-solid"},
     corpse = "medium-remnants",

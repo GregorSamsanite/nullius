@@ -24,7 +24,7 @@ local function create_boxed_item(base_name, group, box_order,
     stack_size = item.stack_size
   end
   local ratio = 5
-  if (ratio > 300) then
+  if (stack_size > 300) then
     ratio = 10
   end
   local box_stack = box_stack_size[stack_size]
@@ -335,8 +335,8 @@ create_boxed_item("transformer", "electrical", "c")
 create_boxed_item("power-switch", "circuit", "g", "power-switch")
 create_boxed_item("one-way-valve", "plumbing", "b")
 
-create_boxed_item("heat-pipe-1", "fluid-energy", "cb")
-create_boxed_item("heat-pipe-2", "fluid-energy", "cc")
+create_boxed_item("heat-pipe-1", "heat-energy", "cb")
+create_boxed_item("heat-pipe-2", "heat-energy", "cc")
 create_boxed_item("red-concrete", "concrete", "c")
 create_boxed_item("blue-concrete", "concrete", "d")
 create_boxed_item("yellow-concrete", "concrete", "e")
@@ -442,7 +442,7 @@ create_boxed_item("power-pole-4", "power-pole", "ce")
 create_boxed_item("pylon-3", "power-pole", "dd")
 create_boxed_item("battery-2", "renewable", "ec", nil, nil, nil, nil, {"equipment-name.nullius-battery-2"})
 create_boxed_item("grid-battery-2", "renewable", "dc")
-create_boxed_item("heat-pipe-3", "fluid-energy", "cd")
+create_boxed_item("heat-pipe-3", "heat-energy", "cd")
 create_boxed_item("processor-2", "electrical", "fc")
 create_boxed_item("processor-3", "electrical", "fd")
 create_boxed_item("haste-module-3", "module-1", "cd", nil, "module")
@@ -476,3 +476,6 @@ create_boxed_item("cellulose", "biology", "c")
 create_boxed_item("wood", "biology", "d")
 create_boxed_item("fertilizer", "biology", "e")
 create_boxed_item("grass-seed", "biology", "f")
+create_boxed_item("solar-collector-1", "heat-energy", "bb")
+create_boxed_item("solar-collector-2", "heat-energy", "bc")
+create_boxed_item("solar-collector-3", "heat-energy", "bd")

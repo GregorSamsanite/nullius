@@ -22,9 +22,10 @@ nullius_non_productivity_categories = {
 
 
 for _,recipe in pairs(data.raw.recipe) do
-  if ((string.sub(recipe.name, 1, 8) == "nullius-") and
+  if (((string.sub(recipe.name, 1, 8) == "nullius-") or ((recipe.order ~= nil) and
+        (string.sub(recipe.order, 1, 8) == "nullius-"))) and
       (recipe.no_productivity ~= true) and
-	  nullius_non_productivity_categories[recipe.category] ~= true) then
+	  (nullius_non_productivity_categories[recipe.category] ~= true)) then
     for _,modname in pairs(nullius_productivity_modules) do
 	  table.insert(data.raw.module[modname].limitation, recipe.name)
 	end

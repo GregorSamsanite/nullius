@@ -1,3 +1,5 @@
+require("pipe_graphics")
+
 data:extend({
   {
     type = "offshore-pump",
@@ -2854,8 +2856,8 @@ data:extend({
       { type = "fire", decrease = 20, percent = 50 }
     },
     fluid_box = {
-      base_area = 0.8,
-      height = 2.5,
+      base_area = 1,
+      height = 4,
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
@@ -2979,7 +2981,7 @@ data:extend({
 	working_sound = data.raw["pipe"]["pipe"].working_sound,
     horizontal_window_bounding_box = {{-0.25, -0.25}, {0.25, 0.15625}},
     vertical_window_bounding_box = {{-0.28125, -0.40625}, {0.03125, 0.125}},
-	pictures = data.raw["pipe"]["copper-tungsten-pipe"].pictures
+    pictures = pipepics("__boblogistics__/graphics/entity/pipe/copper-tungsten/")
   },
 
   {
@@ -3050,7 +3052,7 @@ data:extend({
 	working_sound = data.raw["pipe"]["pipe"].working_sound,
     horizontal_window_bounding_box = {{-0.25, -0.25}, {0.25, 0.15625}},
     vertical_window_bounding_box = {{-0.28125, -0.40625}, {0.03125, 0.125}},
-	pictures = data.raw["pipe"]["tungsten-pipe"].pictures
+	pictures = pipepics("__boblogistics__/graphics/entity/pipe/tungsten/")
   },
 
   {
@@ -3121,7 +3123,7 @@ data:extend({
       }
     },
 	vehicle_impact_sound = data.raw["pipe-to-ground"]["pipe-to-ground"].vehicle_impact_sound,
-	pictures = data.raw["pipe-to-ground"]["copper-tungsten-pipe-to-ground"].pictures
+    pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/copper-tungsten/")
   },
 
   {
@@ -3190,6 +3192,6 @@ data:extend({
       }
     },
 	vehicle_impact_sound = data.raw["pipe-to-ground"]["pipe-to-ground"].vehicle_impact_sound,
-	pictures = data.raw["pipe-to-ground"]["tungsten-pipe-to-ground"].pictures
+	pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/tungsten/")
   }
 })
