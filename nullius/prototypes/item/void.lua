@@ -16,11 +16,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-liquid-void",
-    icon_size = 32,
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/water-concentrated-mud.png",
-        tint = {r=1, g=1, b=0.7, a=1}
+        icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+		icon_size = 64
       }
     },
     flags = {"hidden"},

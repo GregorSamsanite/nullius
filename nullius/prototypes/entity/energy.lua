@@ -2554,6 +2554,14 @@ data:extend({
       scale = 0.5,
 	  tint = {0.5, 0.7, 1}
     },
+    picture = {
+      filename = "__angelssmelting__/graphics/entity/chemical-furnace/hr-chemical-furnace-shadow_01.png",
+      width = 448,
+      height = 280,
+      shift = util.by_pixel(28, 12.5),
+      scale = 0.5,
+	  draw_as_shadow = true
+    },
 	consumption = "12.5MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
@@ -2569,8 +2577,10 @@ data:extend({
 	connection_patches_disconnected = data.raw.reactor["nuclear-reactor"].connection_patches_disconnected,
 	heat_connection_patches_connected = data.raw.reactor["nuclear-reactor"].connection_patches_connected,
 	heat_connection_patches_disconnected = data.raw.reactor["nuclear-reactor"].connection_patches_connected
-  },
+  }
+})
 
+data:extend({
   {
     type = "reactor",
     name = "nullius-geothermal-reactor-2",
@@ -2602,6 +2612,7 @@ data:extend({
       scale = 0.5,
 	  tint = {0.85, 0.75, 1}
     },
+	picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
 	consumption = "40MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
@@ -2648,6 +2659,7 @@ data:extend({
       shift = util.by_pixel(-1, -11.5),
       scale = 0.5
     },
+	picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
 	consumption = "125MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
@@ -2889,8 +2901,44 @@ data:extend({
       connections = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.connections,
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
     }
-  },
+  }
+})
 
+if mods["reskins-bobs"] then
+data.raw["heat-pipe"]["nullius-heat-pipe-1"].connection_sprites = 
+    data.raw["heat-pipe"]["heat-pipe"].connection_sprites
+data.raw["heat-pipe"]["nullius-heat-pipe-2"].connection_sprites =
+    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/heat-pipe-3/",
+      "heat-pipe-3", nil, {
+        single = { name = "straight-vertical-single", ommit_number = true },
+        straight_vertical = { variations = 6 },
+        straight_horizontal = { variations = 6 },
+        corner_right_up = { name = "corner-up-right", variations = 6 },
+        corner_left_up = { name = "corner-up-left", variations = 6 },
+        corner_right_down = { name = "corner-down-right", variations = 6 },
+        corner_left_down = { name = "corner-down-left", variations = 6 },
+        t_up = {}, t_down = {}, t_right = {}, t_left = {},
+        ending_up = {}, ending_down = {}, ending_right = {}, ending_left = {},
+	    cross = { name = "t" }
+    })
+data.raw["heat-pipe"]["nullius-heat-pipe-3"].connection_sprites =
+    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/heat-pipe-2/",
+      "heat-pipe-2", nil, {
+        single = { name = "straight-vertical-single", ommit_number = true },
+        straight_vertical = { variations = 6 },
+        straight_horizontal = { variations = 6 },
+        corner_right_up = { name = "corner-up-right", variations = 6 },
+        corner_left_up = { name = "corner-up-left", variations = 6 },
+        corner_right_down = { name = "corner-down-right", variations = 6 },
+        corner_left_down = { name = "corner-down-left", variations = 6 },
+        t_up = {}, t_down = {}, t_right = {}, t_left = {},
+        ending_up = {}, ending_down = {}, ending_right = {}, ending_left = {},
+	    cross = { name = "t" }
+    })
+end
+
+
+data:extend({
   {
     type = "reactor",
     name = "nullius-thermal-tank-1",
@@ -3713,127 +3761,220 @@ data:extend({
   {
     type = "animation",
     name = "nullius-stirling-horizontal-turbine-1",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
-    width = 176,
-    height = 128,
-    frame_count = 32,
-    line_length = 8,
-    shift = util.by_pixel(1, -5),
-	tint = {0.8, 0.8, 0.6},
-    hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
-      width = 352,
-      height = 257,
-      frame_count = 32,
-      line_length = 8,
-      shift = util.by_pixel(1, -4.75),
-	  tint = {0.8, 0.8, 0.6},
-      scale = 0.5
-    }	
+	layers = {
+	  {
+        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        width = 176,
+        height = 128,
+        frame_count = 32,
+        line_length = 8,
+        shift = util.by_pixel(1, -5),
+	    tint = {0.8, 0.8, 0.6},
+        hr_version = {
+          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          width = 352,
+          height = 257,
+          frame_count = 32,
+          line_length = 8,
+          shift = util.by_pixel(1, -4.75),
+	      tint = {0.8, 0.8, 0.6},
+          scale = 0.5
+        }
+	  },
+      {
+        type = "animation",
+        name = "nullius-stirling-horizontal-shadow",
+        filename = "__base__/graphics/entity/steam-engine/steam-engine-H-shadow.png",
+        width = 254,
+        height = 80,
+        frame_count = 32,
+        line_length = 8,
+        draw_as_shadow = true,
+        shift = util.by_pixel(48, 24),
+        hr_version = {
+          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H-shadow.png",
+          width = 508,
+          height = 160,
+          frame_count = 32,
+          line_length = 8,
+          draw_as_shadow = true,
+          shift = util.by_pixel(48, 24),
+          scale = 0.5
+        }
+	  }
+	}
   },
   {
     type = "animation",
     name = "nullius-stirling-vertical-turbine-1",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
-    width = 112,
-    height = 195,
-    frame_count = 32,
-    line_length = 8,
-    shift = util.by_pixel(5, -6.5),
-	tint = {0.8, 0.8, 0.6},
-    hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
-      width = 225,
-      height = 391,
-      frame_count = 32,
-      line_length = 8,
-      shift = util.by_pixel(4.75, -6.25),
-	  tint = {0.8, 0.8, 0.6},
-      scale = 0.5
-    }
-  },
+	layers = {
+	  {
+        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        width = 112,
+        height = 195,
+        frame_count = 32,
+        line_length = 8,
+        shift = util.by_pixel(5, -6.5),
+	    tint = {0.8, 0.8, 0.6},
+        hr_version = {
+          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          width = 225,
+          height = 391,
+          frame_count = 32,
+          line_length = 8,
+          shift = util.by_pixel(4.75, -6.25),
+	      tint = {0.8, 0.8, 0.6},
+          scale = 0.5
+        }
+	  },
+	  {
+        filename = "__base__/graphics/entity/steam-engine/steam-engine-V-shadow.png",
+        width = 165,
+        height = 153,
+        frame_count = 32,
+        line_length = 8,
+        draw_as_shadow = true,
+        shift = util.by_pixel(40.5, 9.5),
+        hr_version = {
+          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V-shadow.png",
+          width = 330,
+          height = 307,
+          frame_count = 32,
+          line_length = 8,
+          draw_as_shadow = true,
+          shift = util.by_pixel(40.5, 9.25),
+          scale = 0.5
+		}
+	  }
+	}
+  }
+})
 
+if mods["reskins-bobs"] then
+data.raw["animation"]["nullius-stirling-horizontal-turbine-1"].layers = {
+  data.raw["animation"]["nullius-stirling-horizontal-turbine-1"].layers[1],
   {
-    type = "animation",
-    name = "nullius-stirling-horizontal-turbine-2",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+    filename = "__reskins-bobs__/graphics/entity/power/steam-engine/steam-engine-H-mask.png",
     width = 176,
     height = 128,
     frame_count = 32,
     line_length = 8,
     shift = util.by_pixel(1, -5),
-	tint = {0.75, 0.75, 0.95},
+    tint = tiercolor("yellow"),
     hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+      filename = "__reskins-bobs__/graphics/entity/power/steam-engine/hr-steam-engine-H-mask.png",
       width = 352,
       height = 257,
       frame_count = 32,
       line_length = 8,
       shift = util.by_pixel(1, -4.75),
-	  tint = {0.75, 0.75, 0.95},
-      scale = 0.5
-    }	
-  },
-  {
-    type = "animation",
-    name = "nullius-stirling-vertical-turbine-2",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
-    width = 112,
-    height = 195,
-    frame_count = 32,
-    line_length = 8,
-    shift = util.by_pixel(5, -6.5),
-	tint = {0.75, 0.75, 0.95},
-    hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
-      width = 225,
-      height = 391,
-      frame_count = 32,
-      line_length = 8,
-      shift = util.by_pixel(4.75, -6.25),
-	  tint = {0.75, 0.75, 0.95},
+      tint = tiercolor("yellow"),
       scale = 0.5
     }
   },
-
   {
-    type = "animation",
-    name = "nullius-stirling-horizontal-turbine-3",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+    filename = "__reskins-bobs__/graphics/entity/power/steam-engine/steam-engine-H-highlights.png",
     width = 176,
     height = 128,
     frame_count = 32,
     line_length = 8,
     shift = util.by_pixel(1, -5),
+    blend_mode = "additive",
     hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+      filename = "__reskins-bobs__/graphics/entity/power/steam-engine/hr-steam-engine-H-highlights.png",
       width = 352,
       height = 257,
       frame_count = 32,
       line_length = 8,
       shift = util.by_pixel(1, -4.75),
+      blend_mode = "additive",
       scale = 0.5
-    }	
+    }
   },
+  data.raw["animation"]["nullius-stirling-horizontal-turbine-1"].layers[2]
+}
+data.raw["animation"]["nullius-stirling-vertical-turbine-1"].layers = {
+  data.raw["animation"]["nullius-stirling-vertical-turbine-1"].layers[1],
   {
-    type = "animation",
-    name = "nullius-stirling-vertical-turbine-3",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+    filename = "__reskins-bobs__/graphics/entity/power/steam-engine/steam-engine-V-mask.png",
     width = 112,
     height = 195,
     frame_count = 32,
     line_length = 8,
     shift = util.by_pixel(5, -6.5),
+    tint = tiercolor("yellow"),
     hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+      filename = "__reskins-bobs__/graphics/entity/power/steam-engine/hr-steam-engine-V-mask.png",
       width = 225,
       height = 391,
       frame_count = 32,
       line_length = 8,
       shift = util.by_pixel(4.75, -6.25),
+      tint = tiercolor("yellow"),
       scale = 0.5
     }
   },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/steam-engine/steam-engine-V-highlights.png",
+    width = 112,
+    height = 195,
+    frame_count = 32,
+    line_length = 8,
+    shift = util.by_pixel(5, -6.5),
+    blend_mode = "additive",
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/steam-engine/hr-steam-engine-V-highlights.png",
+      width = 225,
+      height = 391,
+      frame_count = 32,
+      line_length = 8,
+      shift = util.by_pixel(4.75, -6.25),
+      blend_mode = "additive",
+      scale = 0.5
+    }
+  },
+  data.raw["animation"]["nullius-stirling-vertical-turbine-1"].layers[2]
+}
+data.raw["animation"]["nullius-stirling-horizontal-turbine-1"].layers[1].tint = nil
+data.raw["animation"]["nullius-stirling-horizontal-turbine-1"].layers[1].hr_version.tint = nil
+data.raw["animation"]["nullius-stirling-vertical-turbine-1"].layers[1].tint = nil
+data.raw["animation"]["nullius-stirling-vertical-turbine-1"].layers[1].hr_version.tint = nil
+end
+
+local stirling2h = util.table.deepcopy(data.raw["animation"]["nullius-stirling-horizontal-turbine-1"])
+local stirling2v = util.table.deepcopy(data.raw["animation"]["nullius-stirling-vertical-turbine-1"])
+local stirling3h = util.table.deepcopy(data.raw["animation"]["nullius-stirling-horizontal-turbine-1"])
+local stirling3v = util.table.deepcopy(data.raw["animation"]["nullius-stirling-vertical-turbine-1"])
+stirling2h.name = "nullius-stirling-horizontal-turbine-2"
+stirling2v.name = "nullius-stirling-vertical-turbine-2"
+stirling3h.name = "nullius-stirling-horizontal-turbine-3"
+stirling3v.name = "nullius-stirling-vertical-turbine-3"
+
+if mods["reskins-bobs"] then
+stirling2h.layers[2].tint = tiercolor("orange")
+stirling2h.layers[2].hr_version.tint = tiercolor("orange")
+stirling2v.layers[2].tint = tiercolor("orange")
+stirling2v.layers[2].hr_version.tint = tiercolor("orange")
+stirling3h.layers[2].tint = tiercolor("red")
+stirling3h.layers[2].hr_version.tint = tiercolor("red")
+stirling3v.layers[2].tint = tiercolor("red")
+stirling3v.layers[2].hr_version.tint = tiercolor("red")
+else
+stirling2h.layers[1].tint = {0.75, 0.75, 0.95}
+stirling2h.layers[1].hr_version.tint = {0.75, 0.75, 0.95}
+stirling2v.layers[1].tint = {0.75, 0.75, 0.95}
+stirling2v.layers[1].hr_version.tint = {0.75, 0.75, 0.95}
+stirling3h.layers[1].tint = nil
+stirling3h.layers[1].hr_version.tint = nil
+stirling3v.layers[1].tint = nil
+stirling3v.layers[1].hr_version.tint = nil
+end
+
+data:extend({
+  stirling2h,
+  stirling2v,
+  stirling3h,
+  stirling3v,
 
   {
     type = "reactor",
@@ -4141,3 +4282,304 @@ exchanger.structure.east.layers[1].hr_version.filename = "__nullius__/graphics/e
 exchanger.structure.south.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-S.png"
 exchanger.structure.west.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-W.png"
 data:extend({ exchanger })
+
+
+if mods["reskins-bobs"] then
+data.raw["solar-panel"]["nullius-solar-panel-1"].picture = { layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/solar-panel-large.png",
+    priority = "high",
+    width = 154,
+    height = 137,
+    shift = util.by_pixel(5, 3.5),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/hr-solar-panel-large.png",
+      priority = "high",
+      width = 308,
+      height = 274,
+      shift = util.by_pixel(5, 3.5),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/solar-panel-large-mask.png",
+    priority = "high",
+    width = 154,
+    height = 137,
+    shift = util.by_pixel(5, 3.5),
+    tint = util.color("de9400"),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/hr-solar-panel-large-mask.png",
+      priority = "high",
+      width = 308,
+      height = 274,
+      shift = util.by_pixel(5, 3.5),
+      tint = util.color("de9400"),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/solar-panel-large-highlights.png",
+    priority = "high",
+    width = 154,
+    height = 137,
+    shift = util.by_pixel(5, 3.5),
+    blend_mode = "additive",
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/hr-solar-panel-large-highlights.png",
+      priority = "high",
+      width = 308,
+      height = 274,
+      shift = util.by_pixel(5, 3.5),
+      blend_mode = "additive",
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/solar-panel-large-shadow.png",
+    priority = "high",
+    width = 154,
+    height = 137,
+    shift = util.by_pixel(5, 3.5),
+    draw_as_shadow = true,
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/hr-solar-panel-large-shadow.png",
+      priority = "high",
+      width = 308,
+      height = 274,
+      shift = util.by_pixel(5, 3.5),
+      draw_as_shadow = true,
+      scale = 0.5
+    }
+  }
+}}
+
+data.raw["solar-panel"]["nullius-solar-panel-1"].overlay = { layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/solar-panel-large-shadow-overlay.png",
+    priority = "high",
+    width = 154,
+    height = 137,
+    shift = util.by_pixel(5, 3.5),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-large/base/hr-solar-panel-large-shadow-overlay.png",
+      priority = "high",
+      width = 308,
+      height = 274,
+      shift = util.by_pixel(5, 3.5),
+      scale = 0.5
+    }
+  }
+}}
+
+data.raw["solar-panel"]["nullius-solar-panel-2"].overlay =
+    data.raw["solar-panel"]["nullius-solar-panel-1"].overlay
+data.raw["solar-panel"]["nullius-solar-panel-2"].picture =
+    util.table.deepcopy(data.raw["solar-panel"]["nullius-solar-panel-1"].picture)
+data.raw["solar-panel"]["nullius-solar-panel-2"].picture.layers[2].tint = util.color("c20600")
+data.raw["solar-panel"]["nullius-solar-panel-2"].picture.layers[2].hr_version.tint = util.color("c20600")
+
+data.raw["solar-panel"]["nullius-solar-panel-3"].overlay =
+    data.raw["solar-panel"]["nullius-solar-panel-1"].overlay
+data.raw["solar-panel"]["nullius-solar-panel-3"].picture =
+    util.table.deepcopy(data.raw["solar-panel"]["nullius-solar-panel-1"].picture)
+data.raw["solar-panel"]["nullius-solar-panel-3"].picture.layers[2].tint = util.color("0099ff")
+data.raw["solar-panel"]["nullius-solar-panel-3"].picture.layers[2].hr_version.tint = util.color("0099ff")
+
+data.raw["solar-panel"]["nullius-solar-panel-4"].overlay =
+    data.raw["solar-panel"]["nullius-solar-panel-1"].overlay
+data.raw["solar-panel"]["nullius-solar-panel-4"].picture =
+    util.table.deepcopy(data.raw["solar-panel"]["nullius-solar-panel-1"].picture)
+data.raw["solar-panel"]["nullius-solar-panel-4"].picture.layers[2].tint = util.color("23de55")
+data.raw["solar-panel"]["nullius-solar-panel-4"].picture.layers[2].hr_version.tint = util.color("23de55")
+
+
+data.raw["accumulator"]["nullius-grid-battery-1"].picture = { layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-3.png",
+    priority = "high",
+    width = 66,
+    height = 94,
+    shift = util.by_pixel(0, -10),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-3.png",
+      priority = "high",
+      width = 130,
+      height = 189,
+      shift = util.by_pixel(0, -11),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/accumulator-mask.png",
+    priority = "high",
+    width = 66,
+    height = 94,
+    shift = util.by_pixel(0, -10),
+    tint = util.color("c20600"),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-mask.png",
+      priority = "high",
+      width = 130,
+      height = 189,
+      shift = util.by_pixel(0, -11),
+      tint = util.color("c20600"),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/accumulator-highlights.png",
+    priority = "high",
+    width = 66,
+    height = 94,
+    shift = util.by_pixel(0, -10),
+    blend_mode = "additive",
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-highlights.png",
+      priority = "high",
+      width = 130,
+      height = 189,
+      shift = util.by_pixel(0, -11),
+      blend_mode = "additive",
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__base__/graphics/entity/accumulator/accumulator-shadow.png",
+    priority = "high",
+    width = 120,
+    height = 54,
+    shift = util.by_pixel(28, 6),
+    draw_as_shadow = true,
+    hr_version = {
+      filename = "__base__/graphics/entity/accumulator/hr-accumulator-shadow.png",
+      priority = "high",
+      width = 234,
+      height = 106,
+      shift = util.by_pixel(29, 6),
+      draw_as_shadow = true,
+      scale = 0.5
+    }
+  }
+}}
+
+local accumpic = util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
+accumpic.layers[1].repeat_count = 24
+accumpic.layers[1].animation_speed = 0.5
+accumpic.layers[1].hr_version.repeat_count = 24
+accumpic.layers[1].hr_version.animation_speed = 0.5
+accumpic.layers[2].repeat_count = 24
+accumpic.layers[2].animation_speed = 0.5
+accumpic.layers[2].hr_version.repeat_count = 24
+accumpic.layers[2].hr_version.animation_speed = 0.5
+accumpic.layers[3].repeat_count = 24
+accumpic.layers[3].animation_speed = 0.5
+accumpic.layers[3].hr_version.repeat_count = 24
+accumpic.layers[3].hr_version.animation_speed = 0.5
+accumpic.layers[4].repeat_count = 24
+accumpic.layers[4].hr_version.repeat_count = 24
+data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation = accumpic
+data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation.layers[5] = {
+  filename = "__base__/graphics/entity/accumulator/accumulator-charge.png",
+  priority = "high",
+  width = 90,
+  height = 100,
+  line_length = 6,
+  frame_count = 24,
+  draw_as_glow = true,
+  shift = util.by_pixel(0, -22),
+  hr_version = {
+    filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+    priority = "high",
+    width = 178,
+    height = 206,
+    line_length = 6,
+    frame_count = 24,
+    draw_as_glow = true,
+    shift = util.by_pixel(0, -22),
+    scale = 0.5
+  }
+}
+
+data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
+data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation.layers[5] = {
+  filename = "__base__/graphics/entity/accumulator/accumulator-discharge.png",
+  priority = "high",
+  width = 88,
+  height = 104,
+  line_length = 6,
+  frame_count = 24,
+  draw_as_glow = true,
+  shift = util.by_pixel(-2, -22),
+  hr_version = {
+    filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+    priority = "high",
+    width = 170,
+    height = 210,
+    line_length = 6,
+    frame_count = 24,
+    draw_as_glow = true,
+    shift = util.by_pixel(-1, -23),
+    scale = 0.5
+  }
+}
+
+
+data.raw["accumulator"]["nullius-grid-battery-2"].picture =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
+data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[2].tint = util.color("0099ff")
+data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[2].hr_version.tint =
+    util.color("0099ff")
+data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
+data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[2].tint = util.color("0099ff")
+data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[2].hr_version.tint =
+    util.color("0099ff")	
+data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation)
+data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
+data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[2].tint = util.color("0099ff")
+data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[2].hr_version.tint =
+    util.color("0099ff")
+
+data.raw["accumulator"]["nullius-grid-battery-3"].picture =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
+data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[2].tint = util.color("23de55")
+data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[2].hr_version.tint =
+    util.color("23de55")
+data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
+data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[2].tint = util.color("23de55")
+data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[2].hr_version.tint =
+    util.color("23de55")	
+data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation =
+    util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation)
+data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[1].filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[1].hr_version.filename = 
+    "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
+data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[2].tint = util.color("23de55")
+data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[2].hr_version.tint =
+    util.color("23de55")
+
+end

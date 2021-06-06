@@ -1,10 +1,14 @@
+
+
 data:extend({
   {
     type = "item",
     name = "nullius-small-furnace-1",
-    icon = "__base__/graphics/icons/stone-furnace.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+	icons = {{
+      icon = "__base__/graphics/icons/stone-furnace.png",
+      icon_size = 64,
+      icon_mipmaps = 4
+	}},
     subgroup = "furnace",
     order = "nullius-bbb",
     place_result = "nullius-small-furnace-1",
@@ -86,10 +90,12 @@ data:extend({
 
   {
     type = "item",
-    name = "nullius-medium-furnace-1",
-    icon = "__base__/graphics/icons/steel-furnace.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+    name = "nullius-medium-furnace-1", 
+	icons = {{
+      icon = "__base__/graphics/icons/steel-furnace.png",
+      icon_size = 64,
+      icon_mipmaps = 4
+	}},
     subgroup = "furnace",
     order = "nullius-bcb",
     place_result = "nullius-medium-furnace-1",
@@ -684,8 +690,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-wind-turbine-1",
-    icon = "__nullius__/graphics/windturbine1.png",
-    icon_size = 144,
+	icons = {{
+      icon = "__nullius__/graphics/windturbine1.png",
+      icon_size = 144
+	}},
     subgroup = "energy",
     order = "nullius-db",
     place_result = "nullius-wind-build-1",
@@ -694,8 +702,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-wind-turbine-2",
-    icon = "__nullius__/graphics/windturbine2.png",
-    icon_size = 144,
+	icons = {{
+      icon = "__nullius__/graphics/windturbine2.png",
+      icon_size = 144
+	}},
     subgroup = "energy",
     order = "nullius-dc",
     place_result = "nullius-wind-build-2",
@@ -704,8 +714,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-wind-turbine-3",
-    icon = "__nullius__/graphics/windturbine3.png",
-    icon_size = 144,
+	icons = {{
+      icon = "__nullius__/graphics/windturbine3.png",
+      icon_size = 144
+	}},
     subgroup = "energy",
     order = "nullius-dd",
     place_result = "nullius-wind-build-3",
@@ -1880,10 +1892,8 @@ data:extend({
     type = "item",
     name = "nullius-lab-1",
     icons = {{
-      icon = "__base__/graphics/icons/lab.png",
-      icon_size = 64,
-	  icon_mipmaps = 4,
-	  tint = {0.8, 1, 0.7}
+      icon = "__nullius__/graphics/lab/lab1.png",
+      icon_size = 64
     }},
     subgroup = "laboratory",
 	order = "nullius-bb",
@@ -1911,10 +1921,8 @@ data:extend({
     type = "item",
     name = "nullius-lab-2",
 	icons = {{
-      icon = "__base__/graphics/icons/lab.png",
-      icon_size = 64,
-	  icon_mipmaps = 4,
-	  tint = {1, 0.8, 0.95}
+      icon = "__nullius__/graphics/lab/lab2.png",
+      icon_size = 64
 	}},
     subgroup = "laboratory",
 	order = "nullius-bc",
@@ -1944,9 +1952,8 @@ data:extend({
     type = "item",
     name = "nullius-lab-3",
 	icons = {{
-      icon = "__base__/graphics/icons/lab.png",
-      icon_size = 64,
-	  icon_mipmaps = 4
+      icon = "__nullius__/graphics/lab/lab3.png",
+      icon_size = 64
 	}},
     subgroup = "laboratory",
 	order = "nullius-bd",
@@ -2518,8 +2525,7 @@ data:extend({
     type = "item",
     name = "nullius-lamp-2",
     order = "nullius-bc",
-    icon = "__nullius__/graphics/lamp2.png",
-    icon_size = 64,
+	icons = {{ icon = "__nullius__/graphics/lamp2.png", icon_size = 64 }},
     subgroup = "railway",
     place_result = "nullius-lamp-2",
     stack_size = 50
@@ -2554,7 +2560,7 @@ data:extend({
 		icon_size = 32,
 		tint = { 0.1, 0.1, 0.15 },
         scale = 0.6,
-        shift = {-8, -8}
+        shift = {8, -8}
       }
     },
     enabled = false,
@@ -3321,3 +3327,215 @@ data:extend({
     result = "nullius-box-solar-collector-3"
   }
 })
+
+
+if mods["reskins-bobs"] then
+data.raw.item["nullius-grid-battery-1"].icons = {
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/accumulator/accumulator-3-icon-base.png",
+	icon_size = 64, icon_mipmaps = 4
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/accumulator/accumulator-icon-mask.png",
+	icon_size = 64, icon_mipmaps = 4, tint = tiercolor("red")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/accumulator/accumulator-icon-highlights.png",
+	icon_size = 64, icon_mipmaps = 4, tint = {1, 1, 1, 0}
+  }
+}
+data.raw.item["nullius-grid-battery-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-grid-battery-1"].icons)
+data.raw.item["nullius-grid-battery-2"].icons[1].icon =
+    "__reskins-bobs__/graphics/icons/power/accumulator/accumulator-1-icon-base.png"
+data.raw.item["nullius-grid-battery-2"].icons[2].tint = tiercolor("blue")
+data.raw.item["nullius-grid-battery-3"].icons =
+    util.table.deepcopy(data.raw.item["nullius-grid-battery-1"].icons)
+data.raw.item["nullius-grid-battery-3"].icons[1].icon =
+    "__reskins-bobs__/graphics/icons/power/accumulator/accumulator-2-icon-base.png"
+data.raw.item["nullius-grid-battery-3"].icons[2].tint = tiercolor("green")
+
+data.raw.item["nullius-small-furnace-3"].icons[1].tint = nil
+data.raw.item["nullius-small-furnace-3"].icons = {
+  data.raw.item["nullius-small-furnace-3"].icons[1],
+  {
+	icon = "__reskins-bobs__/graphics/icons/assembly/electric-furnace/electric-furnace-icon-mask.png",
+	icon_size = 64, scale = 0.32, tint = tiercolor("red")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/assembly/electric-furnace/electric-furnace-icon-highlights.png",
+	icon_size = 64, scale = 0.32, tint = {1, 1, 1, 0}
+  }  
+}
+
+data.raw.item["nullius-medium-furnace-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-small-furnace-3"].icons)
+data.raw.item["nullius-medium-furnace-2"].icons[1].icon = "__nullius__/graphics/furnace2m.png"
+data.raw.item["nullius-medium-furnace-2"].icons[1].icon_size = 64
+data.raw.item["nullius-medium-furnace-2"].icons[2].scale = 0.4
+data.raw.item["nullius-medium-furnace-2"].icons[3].scale = 0.4
+data.raw.item["nullius-medium-furnace-3"].icons =
+    util.table.deepcopy(data.raw.item["nullius-medium-furnace-2"].icons)
+data.raw.item["nullius-medium-furnace-3"].icons[2].tint = tiercolor("deepblue")
+
+data.raw.item["nullius-large-furnace-1"].icons =
+    util.table.deepcopy(data.raw.item["nullius-medium-furnace-2"].icons)
+data.raw.item["nullius-large-furnace-1"].icons[1].icon = "__base__/graphics/icons/electric-furnace.png"
+data.raw.item["nullius-large-furnace-1"].icons[2].scale = nil
+data.raw.item["nullius-large-furnace-1"].icons[3].scale = nil
+data.raw.item["nullius-large-furnace-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-large-furnace-1"].icons)
+data.raw.item["nullius-large-furnace-2"].icons[2].tint = tiercolor("deepblue")
+
+
+data.raw.item["nullius-large-miner-1"].icons = {
+  {
+	icon = "__reskins-bobs__/graphics/icons/mining/electric-mining-drill/electric-mining-drill-icon-base.png",
+	icon_size = 64
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/mining/electric-mining-drill/electric-mining-drill-icon-mask.png",
+	icon_size = 64, tint = {240, 160, 0}
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/mining/electric-mining-drill/electric-mining-drill-icon-highlights.png",
+	icon_size = 64, tint = {1, 1, 1, 0}
+  }  
+}
+data.raw.item["nullius-large-miner-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-large-miner-1"].icons)
+data.raw.item["nullius-large-miner-2"].icons[1].icon =  "__reskins-bobs__/graphics/icons/mining/electric-mining-drill/large-area-electric-mining-drill-icon-base.png"
+data.raw.item["nullius-large-miner-2"].icons[2].tint = {12, 110, 242}
+data.raw.item["nullius-small-miner-2"].icons =
+    {{ icon = "__nullius__/graphics/miner2sy.png", icon_size = 64 }}
+data.raw.item["nullius-small-miner-3"].icons =
+    {{ icon = "__nullius__/graphics/miner2sb.png", icon_size = 64 }}
+data.raw.item["nullius-medium-miner-2"].icons =
+    {{ icon = "__nullius__/graphics/miner2my.png", icon_size = 64 }}
+data.raw.item["nullius-medium-miner-3"].icons =
+    {{ icon = "__nullius__/graphics/miner2mb.png", icon_size = 64 }}
+
+
+data.raw.item["nullius-beacon-1"].icons = {
+  { icon = "__nullius__/graphics/beacon1.png", icon_size = 64 },
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
+	icon_size = 64, tint = tiercolor("yellow"), scale = 0.4
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
+	icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.4
+  }
+}
+data.raw.item["nullius-beacon-2"].icons = {
+  { icon = "__nullius__/graphics/beacon2.png", icon_size = 64 },
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
+	icon_size = 64, tint = tiercolor("red"), scale = 0.45
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
+	icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.45
+  }
+}
+data.raw.item["nullius-beacon-3"].icons = {
+  data.raw.item["nullius-beacon-3"].icons[1],
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
+	icon_size = 64, tint = tiercolor("blue")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
+	icon_size = 64, tint = {1, 1, 1, 0}
+  }
+}
+
+data.raw.item["nullius-sensor-node-1"].icons = {
+  {
+	icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-base.png",
+	icon_size = 64, icon_mipmaps = 4
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-mask.png",
+	icon_size = 64, icon_mipmaps = 4, tint = tiercolor("yellow")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-highlights.png",
+	icon_size = 64, icon_mipmaps = 4, tint = {1, 1, 1, 0}
+  }
+}
+data.raw.item["nullius-sensor-node-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-sensor-node-1"].icons)
+data.raw.item["nullius-sensor-node-2"].icons[2].tint = tiercolor("red")
+data.raw.item["nullius-sensor-node-3"].icons =
+    util.table.deepcopy(data.raw.item["nullius-sensor-node-1"].icons)
+data.raw.item["nullius-sensor-node-3"].icons[2].tint = tiercolor("blue")
+end
+
+
+label_icon("nullius-grid-battery-1", 1, "red")
+label_icon("nullius-grid-battery-2", 2, "blue")
+label_icon("nullius-grid-battery-3", 3, "green")
+label_icon("nullius-wind-turbine-1", 1, "grey")
+label_icon("nullius-wind-turbine-2", 2, "yellow")
+label_icon("nullius-wind-turbine-3", 3, "red")
+label_icon("nullius-solar-collector-1", 1, "red")
+label_icon("nullius-solar-collector-2", 2, "orange")
+label_icon("nullius-solar-collector-3", 3, "yellow")
+
+label_icon("nullius-power-pole-1", 1, "yellow")
+label_icon("nullius-power-pole-2", 2, "red")
+label_icon("nullius-power-pole-3", 3, "blue")
+label_icon("nullius-power-pole-4", 4, "orange")
+label_icon("nullius-pylon-1", 1, "yellow")
+label_icon("nullius-pylon-2", 2, "blue")
+label_icon("nullius-pylon-3", 3, "purple")
+label_icon("nullius-substation-1", 1, "yellow")
+label_icon("nullius-substation-2", 2, "blue")
+label_icon("nullius-substation-3", 3, "green")
+label_icon("nullius-lamp-1b", 1, "yellow", "recipe")
+label_icon("nullius-lamp-2", 2, "white")
+
+label_icon("nullius-small-assembler-1", 1, "grey")
+label_icon("nullius-small-assembler-2", 2, "blue")
+label_icon("nullius-small-assembler-3", 3, "green")
+label_icon("nullius-medium-assembler-1", 1, "grey")
+label_icon("nullius-medium-assembler-2", 2, "blue")
+label_icon("nullius-medium-assembler-3", 3, "green")
+label_icon("nullius-large-assembler-1", 1, "blue")
+label_icon("nullius-large-assembler-2", 2, "green")
+label_icon("nullius-lab-1", 1, "yellow")
+label_icon("nullius-lab-2", 2, "red")
+label_icon("nullius-lab-3", 3, "blue")
+
+label_icon("nullius-small-furnace-1", 1, "yellow")
+label_icon("nullius-small-furnace-2", 2, "grey")
+label_icon("nullius-small-furnace-3", 3, "red")
+label_icon("nullius-medium-furnace-1", 1, "grey")
+label_icon("nullius-medium-furnace-2", 2, "red")
+label_icon("nullius-medium-furnace-3", 3, "blue")
+label_icon("nullius-large-furnace-1", 1, "red")
+label_icon("nullius-large-furnace-2", 2, "blue")
+
+label_icon("nullius-small-miner-1", 1, "grey")
+label_icon("nullius-small-miner-2", 2, "yellow")
+label_icon("nullius-small-miner-3", 3, "blue")
+label_icon("nullius-medium-miner-1", 1, "grey")
+label_icon("nullius-medium-miner-2", 2, "yellow")
+label_icon("nullius-medium-miner-3", 3, "blue")
+label_icon("nullius-large-miner-1", 1, "yellow")
+label_icon("nullius-large-miner-2", 2, "blue")
+
+label_icon("nullius-crusher-1", 1, "grey")
+label_icon("nullius-crusher-2", 2, "blue")
+label_icon("nullius-crusher-3", 3, "white")
+label_icon("nullius-foundry-1", 1, "green")
+label_icon("nullius-foundry-2", 2, "blue")
+label_icon("nullius-foundry-3", 3, "red")
+
+label_icon("nullius-sensor-node-1", 1, "yellow")
+label_icon("nullius-sensor-node-2", 2, "red")
+label_icon("nullius-sensor-node-3", 3, "blue")
+label_icon("nullius-beacon-1", 1, "yellow")
+label_icon("nullius-beacon-2", 2, "red")
+label_icon("nullius-beacon-3", 3, "blue")

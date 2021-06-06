@@ -296,3 +296,18 @@ if data.raw['int-setting']['angels-pavement-stack-size'] then
    data.raw['int-setting']['angels-pavement-stack-size'].hidden = true
    data.raw['int-setting']['angels-pavement-stack-size'].allowed_values = {200}
 end
+
+if data.raw['string-setting']['fuel-fluid'] then
+   data.raw['string-setting']['fuel-fluid'].hidden = true
+   data.raw['string-setting']['fuel-fluid'].default_value = "nullius-steam"
+   data.raw['string-setting']['fuel-fluid'].forced_value = {"nullius-steam"}
+end
+if data.raw['double-setting']['fuel-amount-per-drone'] then
+   data.raw['double-setting']['fuel-amount-per-drone'].default_value = 75
+end
+if data.raw['double-setting']['drone-fluid-capacity'] then
+   data.raw['double-setting']['drone-fluid-capacity'].default_value = 1000
+end
+if data.raw['double-setting']['fuel-consumption-per-meter'] then
+   data.raw['double-setting']['fuel-consumption-per-meter'].default_value = 0.035
+end

@@ -3,8 +3,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-small-furnace-1",
     localised_description = {"entity-description.nullius-furnace"},
-    icon = "__base__/graphics/icons/stone-furnace.png",
-    icon_size = 64,
+	icons = data.raw.item["nullius-small-furnace-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-small-furnace-1"},
     max_health = 200,
@@ -134,8 +133,7 @@ data:extend({
           frame_count = 1,
           shift = {0.2813, 0},
           draw_as_shadow = true,
-          scale = 0.6666,
-		  tint = {0.7, 0.7, 0.85}
+          scale = 0.6666
         }
       }
     },
@@ -225,8 +223,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-medium-furnace-1",
     localised_description = {"entity-description.nullius-furnace"},
-    icon = "__base__/graphics/icons/steel-furnace.png",
-    icon_size = 64,
+	icons = data.raw.item["nullius-medium-furnace-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-medium-furnace-1"},
     max_health = 300,
@@ -425,7 +422,6 @@ data:extend({
           frame_count = 1,
           shift = {0.421875, 0},
           draw_as_shadow = true,
-		  tint = {0.7, 0.7, 0.85},
           hr_version = {
             filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-shadow.png",
             priority = "high",
@@ -434,8 +430,7 @@ data:extend({
             frame_count = 1,
             draw_as_shadow = true,
             shift = util.by_pixel(11.25, 7.75),
-            scale = 0.5,
-		    tint = {0.7, 0.7, 0.85}
+            scale = 0.5
           }
         }
       }
@@ -514,8 +509,7 @@ data:extend({
           frame_count = 1,
           draw_as_shadow = true,
           shift = util.by_pixel(15, 10.333),
-          scale = 0.6666,
-		  tint = {0.7, 0.7, 0.85}
+          scale = 0.6666
         }
       }
     },
@@ -1475,3 +1469,104 @@ data:extend({
     }
   }
 })
+
+
+if mods["reskins-bobs"] then
+local small_animation = data.raw["assembling-machine"]["nullius-small-furnace-3"].animation
+local medium_animation = data.raw["assembling-machine"]["nullius-medium-furnace-2"].animation
+local large_animation = data.raw["assembling-machine"]["nullius-large-furnace-1"].animation
+medium_animation.layers = {
+  medium_animation.layers[1],
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/electric-furnace-mask.png",
+    priority = "high",
+    width = 119,
+    height = 106,
+    shift = util.by_pixel(1, 1),
+    tint = tiercolor("red"),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/hr-electric-furnace-mask.png",
+      priority = "high",
+      width = 238,
+      height = 212,
+      shift = util.by_pixel(1, 1),
+      tint = tiercolor("red"),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/electric-furnace-highlights.png",
+    priority = "high",
+    width = 119,
+    height = 106,
+    shift = util.by_pixel(1, 1),
+    blend_mode = "additive",
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/hr-electric-furnace-highlights.png",
+      priority = "high",
+      width = 238,
+      height = 212,
+      shift = util.by_pixel(1, 1),
+      blend_mode = "additive",
+      scale = 0.5
+    }
+  },
+  medium_animation.layers[2]
+}
+medium_animation.layers[1].tint = nil
+medium_animation.layers[1].hr_version.tint = nil
+small_animation.layers = {
+  small_animation.layers[1],
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/electric-furnace-mask.png",
+    priority = "high",
+    width = 119,
+    height = 106,
+    shift = util.by_pixel(0.6666, 0.6666),
+    tint = tiercolor("red"),
+	scale = 0.6666
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/electric-furnace-highlights.png",
+    priority = "high",
+    width = 119,
+    height = 106,
+    shift = util.by_pixel(0.6666, 0.6666),
+    blend_mode = "additive",
+	scale = 0.6666
+  },  
+  small_animation.layers[2]
+}
+small_animation.layers[1].tint = nil
+large_animation.layers = {
+  large_animation.layers[1],
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/hr-electric-furnace-mask.png",
+    priority = "high",
+    width = 238,
+    height = 212,
+    shift = util.by_pixel(1.333, 1.333),
+    tint = tiercolor("red"),
+    scale = 0.6666
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/hr-electric-furnace-highlights.png",
+    priority = "high",
+    width = 238,
+    height = 212,
+    shift = util.by_pixel(1.333, 1.333),
+    blend_mode = "additive",
+    scale = 0.6666
+  },
+  large_animation.layers[2]
+}
+large_animation.layers[1].tint = nil
+
+data.raw["assembling-machine"]["nullius-medium-furnace-3"].animation =
+    util.table.deepcopy(data.raw["assembling-machine"]["nullius-medium-furnace-2"].animation)
+data.raw["assembling-machine"]["nullius-large-furnace-2"].animation =
+    util.table.deepcopy(data.raw["assembling-machine"]["nullius-large-furnace-1"].animation)
+data.raw["assembling-machine"]["nullius-medium-furnace-3"].animation.layers[2].tint = tiercolor("deepblue")
+data.raw["assembling-machine"]["nullius-medium-furnace-3"].animation.layers[2].hr_version.tint = tiercolor("deepblue")
+data.raw["assembling-machine"]["nullius-large-furnace-2"].animation.layers[2].tint = tiercolor("deepblue")
+end

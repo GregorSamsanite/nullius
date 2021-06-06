@@ -855,91 +855,10 @@ data:extend({
     max_health = 200,
     corpse = "medium-remnants",
     dying_explosion = "medium-explosion",
-    collision_box = {{-1.25, -1.25}, {1.25, 1.25}},
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     fast_replaceable_group = "air-filter",
     next_upgrade = "nullius-air-filter-2",
-    animation = {
-      north = {
-        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
-        width = 256,
-        height = 256,
-        frame_count = 36,
-        line_length = 6,
-        shift = {0.2, -0.4+0.5},
-        animation_speed = 0.4,
-        scale = 0.4
-      },
-      east = {
-        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
-        width = 256,
-        height = 256,
-        frame_count = 36,
-        line_length = 6,
-        shift = {0.2-0.5, -0.4},
-        animation_speed = 0.4,
-        scale = 0.4
-      },
-      south = {
-        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
-        width = 256,
-        height = 256,
-        frame_count = 36,
-        line_length = 6,
-        shift = {0.2, -0.4-0.5},
-        animation_speed = 0.4,
-        scale = 0.4
-      },
-      west = {
-        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
-        width = 256,
-        height = 256,
-        frame_count = 36,
-        line_length = 6,
-        shift = {0.2+0.5, -0.4},
-        animation_speed = 0.4,
-        scale = 0.4
-      }
-    },
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", percent = 75 }
-    },
-    working_sound = data.raw["assembling-machine"]["angels-air-filter"].working_sound,
-    vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    fluid_boxes = {
-      {
-        production_type = "output",
-		pipe_picture = electrolyserpictures(),
-        pipe_covers = pipecoverspictures(),
-        base_area = 2,
-        base_level = 1.5,
-        height = 2,
-        pipe_connections = {{ position = {0, 2}, type = "output" }}
-      },
-    },
-    pipe_covers = pipecoverspictures()
-  },
-
-  {
-    type = "assembling-machine",
-    name = "nullius-air-filter-2",
-    icons = data.raw.item["nullius-air-filter-2"].icons,
-    flags = {"placeable-neutral", "player-creation"},
-    crafting_categories = {"air-filtration"},
-    crafting_speed = 3,
-    fixed_recipe = "nullius-air-filtration",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.03, drain="8kW"},
-    energy_usage = "152kW",
-    ingredient_count = 1,
-    minable = {mining_time = 0.5, result = "nullius-air-filter-2"},
-    max_health = 300,
-    corpse = "medium-remnants",
-    dying_explosion = "medium-explosion",
-    collision_box = {{-1.25, -1.25}, {1.25, 1.25}},
-    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    fast_replaceable_group = "air-filter",
-    next_upgrade = "nullius-air-filter-3",
     animation = {
       north = {
         filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
@@ -986,6 +905,87 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
+    working_sound = data.raw["assembling-machine"]["angels-air-filter"].working_sound,
+    vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    fluid_boxes = {
+      {
+        production_type = "output",
+		pipe_picture = electrolyserpictures(),
+        pipe_covers = pipecoverspictures(),
+        base_area = 2,
+        base_level = 1.5,
+        height = 2,
+        pipe_connections = {{ position = {0, 2}, type = "output" }}
+      },
+    },
+    pipe_covers = pipecoverspictures()
+  },
+
+  {
+    type = "assembling-machine",
+    name = "nullius-air-filter-2",
+    icons = data.raw.item["nullius-air-filter-2"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    crafting_categories = {"air-filtration"},
+    crafting_speed = 3,
+    fixed_recipe = "nullius-air-filtration",
+    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.03, drain="8kW"},
+    energy_usage = "152kW",
+    ingredient_count = 1,
+    minable = {mining_time = 0.5, result = "nullius-air-filter-2"},
+    max_health = 300,
+    corpse = "medium-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    fast_replaceable_group = "air-filter",
+    next_upgrade = "nullius-air-filter-3",
+    animation = {
+      north = {
+        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
+        width = 256,
+        height = 256,
+        frame_count = 36,
+        line_length = 6,
+        shift = {0.2, -0.4+0.125},
+        animation_speed = 0.5,
+        scale = 0.55
+      },
+      east = {
+        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
+        width = 256,
+        height = 256,
+        frame_count = 36,
+        line_length = 6,
+        shift = {0.2-0.125, -0.4},
+        animation_speed = 0.5,
+        scale = 0.55
+      },
+      south = {
+        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
+        width = 256,
+        height = 256,
+        frame_count = 36,
+        line_length = 6,
+        shift = {0.2, -0.4-0.125},
+        animation_speed = 0.5,
+        scale = 0.55
+      },
+      west = {
+        filename = "__angelspetrochem__/graphics/entity/air-filter/air-filter.png",
+        width = 256,
+        height = 256,
+        frame_count = 36,
+        line_length = 6,
+        shift = {0.2+0.125, -0.4},
+        animation_speed = 0.5,
+        scale = 0.55
+      }
+    },
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", percent = 75 }
+    },
 	module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "consumption", "pollution"},
     working_sound = data.raw["assembling-machine"]["angels-air-filter"].working_sound,
@@ -1019,7 +1019,7 @@ data:extend({
     max_health = 400,
     corpse = "medium-remnants",
     dying_explosion = "medium-explosion",
-    collision_box = {{-1.25, -1.25}, {1.25, 1.25}},
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     fast_replaceable_group = "air-filter",
     animation = {
@@ -1081,8 +1081,8 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 0.2,
+        base_area = 10,
+        base_level = 0.1,
         pipe_connections = {{ type="input-output", position = {0.5, 1.5} }}
       },
     },
@@ -1184,8 +1184,8 @@ data:extend({
         production_type = "input",
         pipe_covers = pipecoverspictures(),
         base_area = 10,
-        base_level = -0.1,
-        height = 2,
+        base_level = -1,
+        height = 3,
         pipe_connections = {{ type="input-output", position = {0.5, 1.5} }}
       },
     },
@@ -1249,8 +1249,8 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 0.2,
+        base_area = 10,
+        base_level = 0.1,
         pipe_connections = {{ type="input-output", position = {0, 1} }}
       },
     },
@@ -1329,8 +1329,8 @@ data:extend({
         production_type = "input",
         pipe_covers = pipecoverspictures(),
         base_area = 10,
-        base_level = -0.1,
-        height = 2,
+        base_level = -1,
+        height = 3,
         pipe_connections = {{ type="input-output", position = {0, 1} }}
       },
     },
@@ -2914,9 +2914,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-1",
-    icon = "__base__/graphics/icons/pipe.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
+	icons = data.raw.item["nullius-pipe-1"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.1, result = "nullius-pipe-1"},
     max_health = 100,
@@ -2951,8 +2949,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-2",
-    icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.1, result = "nullius-pipe-2"},
     max_health = 150,
@@ -2987,8 +2984,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-3",
-	icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-pipe-3"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.1, result = "nullius-pipe-3"},
     max_health = 200,
@@ -3023,8 +3019,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-4",
-	icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-pipe-4"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.1, result = "nullius-pipe-4"},
     max_health = 250,
@@ -3058,9 +3053,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-1",
-    icon = "__base__/graphics/icons/pipe-to-ground.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
+	icons = data.raw.item["nullius-underground-pipe-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-underground-pipe-1"},
     max_health = 150,
@@ -3094,8 +3087,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-2",
-    icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe-to-ground.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-underground-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-underground-pipe-2"},
     max_health = 200,
@@ -3129,8 +3121,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-3",
-    icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe-to-ground.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-underground-pipe-3"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-underground-pipe-3"},
     max_health = 250,
@@ -3164,8 +3155,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-4",
-    icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe-to-ground.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-underground-pipe-4"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-underground-pipe-4"},
     max_health = 300,

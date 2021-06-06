@@ -10,6 +10,8 @@ data.raw.resource["uranium-ore"].minable.fluid_amount = nil
 data.raw.resource["uranium-ore"].minable.required_fluid = nil
 data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
 data.raw.item["rocket-fuel"].icon_size = 64
+data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
+data.raw.item["copper-cable"].icon_size = 64 
 
 if mods["bobplates"] then
 data.raw.fluid["liquid-fuel"].subgroup = "unused-fluid"
@@ -80,4 +82,41 @@ for _,newcat in pairs(hand_crafting) do
   if (found) then
     table.insert(data.raw["character"]["character"].crafting_categories, newcat)
   end
+end
+
+
+if mods["reskins-bobs"] then
+if settings.startup["reskins-lib-icon-tier-labeling"].value == true then
+  local icon_style = settings.startup["reskins-lib-icon-tier-labeling-style"].value
+  data.raw.item["turbo-inserter"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["turbo-inserter"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["turbo-filter-inserter"].icons[6].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["turbo-filter-inserter"].icons[7].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["express-stack-inserter"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["express-stack-inserter"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["express-stack-filter-inserter"].icons[6].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["express-stack-filter-inserter"].icons[7].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-transport-belt"].icons[3].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-transport-belt"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-underground-belt"].icons[3].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-underground-belt"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-splitter"].icons[3].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-splitter"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw["repair-tool"]["repair-pack"].icons[4] = nil
+  data.raw["repair-tool"]["repair-pack"].icons[5] = nil
+end
 end

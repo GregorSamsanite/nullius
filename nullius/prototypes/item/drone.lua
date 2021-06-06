@@ -724,6 +724,21 @@ data:extend({
 	  {"nullius-hangar-3", 1}
     },
     result = "nullius-android"
-  },
-
+  }
 })
+
+
+label_icon("nullius-asteroid-miner-1", 1, "purple")
+label_icon("nullius-asteroid-miner-2", 2, "blue")
+label_icon("nullius-guide-drone-iron-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-iron-2", 2, "blue", "ammo")
+label_icon("nullius-guide-drone-sandstone-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-sandstone-2", 2, "blue", "ammo")
+label_icon("nullius-guide-drone-bauxite-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-bauxite-2", 2, "blue", "ammo")
+label_icon("nullius-guide-drone-limestone-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-limestone-2", 2, "blue", "ammo")
+label_icon("nullius-guide-drone-copper-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-copper-2", 2, "blue", "ammo")
+label_icon("nullius-guide-drone-uranium-1", 1, "purple", "ammo")
+label_icon("nullius-guide-drone-uranium-2", 2, "blue", "ammo")

@@ -64,8 +64,7 @@ for i=1,3 do
     {
       type = "electric-energy-interface",
       name = "nullius-wind-build-"..i,
-      icon = "__nullius__/graphics/windturbine"..i..".png",
-      icon_size = 144,
+	  icons = data.raw.item["nullius-wind-turbine-"..i].icons,
       flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
       minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
       max_health = 800*scale,

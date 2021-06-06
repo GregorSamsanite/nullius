@@ -1,4 +1,80 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.23
+Date: 05.06.2021
+  Bugfixes:
+    - Fix incompatibility with recent Angel's graphics update.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.22
+Date: 11.04.2021
+  Bugfixes:
+    - Fix Warehousing mod support to use updated graphics.
+    - Fix a technology conflict when using RSO.
+  Balancing:
+    - Reduce cost of Transport Drone depots.
+  Graphics:
+    - Progress on Artisanal Reskins: Bob's mods.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.21
+Date: 27.03.2021
+  Bugfixes:
+    - Unlock logistic shortcut buttons linked to Vanilla techs.
+    - Fix blueprinting for Text Plates mod with Nullius.
+  Graphics:
+    - Add shadow layer to Geothermal Plants.
+    - Progress on Artisanal Reskins.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.20
+Date: 21.03.2021
+  Bugfixes:
+    - Improved behavior of wind turbine/stirling engine when deleted in editor.
+      (only applies to structures first built after this fix is applied, not pre-existing ones).
+    - Fix lamp 1 icon.
+  Graphics:
+    - Ongoing progress on Artisanal Reskins.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.19
+Date: 12.03.2021
+  Bugfixes:
+    - Fix pressures on Advanced Underground Piping pipes.
+  Modding:
+    - Add compatibility support for Text Plates.
+  Graphics:
+    - Some preliminary work on supporting Artisanal Reskins (still a work in progress).
+---------------------------------------------------------------------------------------------------
+Version: 1.0.18
+Date: 07.03.2021
+  Bugfixes:
+    - Make grey landfill use the correct item when in blueprints.
+  Balancing:
+    - Tweak new Transport Drones recipes.
+  Graphics:
+    - Improve appearance of lower tiers of research lab.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.17
+Date: 05.03.2021
+  Modding:
+    - Add compatibility support for Transport Drones.
+  Balancing:
+    - Improve minimum venting threshold for outfall/chimney.
+  Graphics:
+    - Reduce size differences between air filter 1, 2, and 3.
+  Changes:
+    - Rename "priority" valve to "auxiliary" valve.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.16
+Date: 03.03.2021
+  Modding:
+    - Add compatibility support for Warehousing.
+    - Add compatibility support for Induction Charging.
+  Bugfixes:
+    - Improve some problems with box recipes interfering with hand crafting intermediates.
+    - Fix appearance of certain basic resource icons.
+  Changes:
+    - Crystal rocks now yield silica (quartz) and alumina (sapphire), instead of basic stone.
+  Info:
+    - Document differences in Nullius technologies and intermediates compared to Vanilla.
+    - Document solar thermal in Informatron.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.15
 Date: 27.02.2021
   Features:

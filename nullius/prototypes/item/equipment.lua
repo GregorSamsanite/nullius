@@ -2610,3 +2610,51 @@ data:extend({
     result = "nullius-probe"
   }
 })
+
+
+if mods["reskins-bobs"] then
+data.raw.item["nullius-solar-panel-1"].icons = {
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/solar-panel/solar-panel-icon-base.png",
+	icon_size = 64, icon_mipmaps = 4
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/solar-panel/solar-panel-icon-mask.png",
+	icon_size = 64, icon_mipmaps = 4,
+	tint = tiercolor("yellow")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/solar-panel/solar-panel-icon-highlights.png",
+	icon_size = 64, icon_mipmaps = 4, tint = {1, 1, 1, 0}
+  }
+}
+data.raw.item["nullius-solar-panel-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-solar-panel-1"].icons)
+data.raw.item["nullius-solar-panel-2"].icons[2].tint = tiercolor("red")
+data.raw.item["nullius-solar-panel-3"].icons =
+    util.table.deepcopy(data.raw.item["nullius-solar-panel-1"].icons)
+data.raw.item["nullius-solar-panel-3"].icons[2].tint = tiercolor("blue")
+data.raw.item["nullius-solar-panel-4"].icons =
+    util.table.deepcopy(data.raw.item["nullius-solar-panel-1"].icons)
+data.raw.item["nullius-solar-panel-4"].icons[2].tint = tiercolor("green")
+
+label_icon("nullius-solar-panel-1", 1, "yellow")
+label_icon("nullius-solar-panel-2", 2, "red")
+label_icon("nullius-solar-panel-3", 3, "blue")
+label_icon("nullius-solar-panel-4", 4, "green")
+end
+
+label_icon("nullius-substation-1", 1, "yellow")
+label_icon("nullius-substation-2", 2, "blue")
+label_icon("nullius-substation-3", 3, "green")
+
+label_icon("nullius-locomotive-1", 1, "yellow", "item-with-entity-data")
+label_icon("nullius-locomotive-2", 2, "red", "item-with-entity-data")
+label_icon("nullius-locomotive-3", 3, "blue", "item-with-entity-data")
+label_icon("nullius-solar-locomotive", 3, "green", "item-with-entity-data")
+label_icon("nullius-cargo-wagon-1", 1, "yellow", "item-with-entity-data")
+label_icon("nullius-cargo-wagon-2", 2, "red", "item-with-entity-data")
+label_icon("nullius-cargo-wagon-3", 3, "blue", "item-with-entity-data")
+label_icon("nullius-fluid-wagon-1", 1, "yellow", "item-with-entity-data")
+label_icon("nullius-fluid-wagon-2", 2, "red", "item-with-entity-data")
+label_icon("nullius-fluid-wagon-3", 3, "blue", "item-with-entity-data")

@@ -13,7 +13,9 @@ function destroy_stirling_engine(entry)
     entry.heat.destroy()
   end
   rendering.destroy(entry.turbine)
-  rendering.destroy(entry.shadow)
+  if (entry.shadow ~= 0) then
+    rendering.destroy(entry.shadow)
+  end
 end
 
 function update_engine(e, threshold, ratio, limit, speed)
@@ -38,9 +40,11 @@ function update_engine(e, threshold, ratio, limit, speed)
     e.last_speed = aspeed
 
     rendering.set_animation_speed(e.turbine, aspeed)
-    rendering.set_animation_speed(e.shadow, aspeed)
     rendering.set_animation_offset(e.turbine, offs)
-    rendering.set_animation_offset(e.shadow, offs)
+	if (e.shadow ~= 0) then
+	  rendering.destroy(e.shadow)
+	  e.shadow = 0
+	end
   end
 end
 
@@ -108,13 +112,10 @@ function build_stirling_engine(entity, level)
   heat.minable = false
   entity.energy = 0
   entity.power_production = 0
-  
+
+  script.register_on_entity_destroyed(entity)
   local turbine = rendering.draw_animation{
       animation = "nullius-stirling-"..orientation.."-turbine-"..level,
-      target = position, surface = surface, animation_speed = 0,
-	  render_layer = "lower-object-above-shadow"}
-  local shadow = rendering.draw_animation{
-      animation = "nullius-stirling-"..orientation.."-shadow",
       target = position, surface = surface, animation_speed = 0,
 	  render_layer = "lower-object-above-shadow"}
 
@@ -124,20 +125,17 @@ function build_stirling_engine(entity, level)
     electric = entity,
 	heat = heat,
 	turbine = turbine,
-	shadow = shadow,
+	shadow = 0,
 	last_offset = 0,
 	last_speed = 0
   }
 end
 
-function remove_stirling_engine(entity, died, level)
-  if ((level < 1) or (level > 3)) then return end
-
-  local unit = entity.unit_number
+function remove_stirling_unit(unit, died, level)
   local bucket = global.nullius_stirling_buckets[unit % 443]
-  if bucket[level][unit] == nil then return end
-
   local entry = bucket[level][unit]
+  if entry == nil then return end
+
   if entry.electric ~= nil then
     if died then
       if entry.valid then
@@ -152,6 +150,23 @@ function remove_stirling_engine(entity, died, level)
 
   destroy_stirling_engine(entry)
   bucket[level][unit] = nil  
+end
+
+function remove_stirling_engine(entity, died, level)
+  if ((level < 1) or (level > 3)) then return end
+  remove_stirling_unit(entity.unit_number, died, level)
+end
+
+function destroyed_stirling_engine(unit)
+  local bucket = global.nullius_stirling_buckets[unit % 443]
+  for lvl=1,3 do
+	local entry = bucket[lvl][unit]
+	if (entry ~= nil) then
+	  remove_stirling_unit(unit, false, lvl)
+	  return true
+	end
+  end
+  return false
 end
 
 

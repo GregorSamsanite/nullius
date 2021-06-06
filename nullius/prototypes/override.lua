@@ -31,12 +31,8 @@ data.raw.item["red-wire"].order = "nullius-c"
 data.raw.item["green-wire"].order = "nullius-d"
 data.raw.item["power-switch"].order = "nullius-h"
 
-data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"} 
-data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
-data.raw.item["copper-cable"].icon_size = 32 
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
-data.raw.item["copper-cable"].stack_size = 200
 
 data.raw["constant-combinator"]["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
@@ -57,6 +53,10 @@ data.raw.item["small-lamp"].subgroup = "railway"
 data.raw.item["small-lamp"].order = "nullius-bb"
 data.raw.item["small-lamp"].place_result = "nullius-lamp-1"
 data.raw["lamp"]["small-lamp"].placeable_by = {item = "small-lamp", count = 1}
+data.raw.item["small-lamp"].icons =
+  {{icon = "__nullius__/graphics/lamp1.png", icon_size = 64}}
+label_icon("small-lamp", 1, "yellow")
+data.raw["lamp"]["small-lamp"].icons = data.raw.item["small-lamp"].icons
 
 data.raw.item["stone-wall"].stack_size = 200
 data.raw.item["stone-wall"].subgroup = "masonry"
@@ -96,6 +96,7 @@ data.raw.item["rocket-fuel"].stack_size = 20
 data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
 data.raw.item["rocket-fuel"].icon_size = 64
 
+data.raw.tile["landfill"].placeable_by = {item = "nullius-land-fill-gravel", count = 1}
 data.raw.item["stone-brick"].stack_size = 500
 data.raw.tile["stone-path"].walking_speed_modifier = 1.3
 data.raw.tile["stone-path"].vehicle_friction_modifier = 0.8
@@ -379,6 +380,7 @@ data.raw["item-subgroup"]["terrain"].order = "l"
 data.raw["item-subgroup"]["smelting-machine"].order = "f"
 data.raw["item-subgroup"]["raw-material"].order = "b"
 data.raw["item-subgroup"]["circuit-network"].order = "e"
+data.raw["item-subgroup"]["logistic-network"].order = "ae"
 
 data.raw["spider-leg"]["spidertron-leg-1"].initial_movement_speed = 0.16
 data.raw["spider-leg"]["spidertron-leg-1"].movement_acceleration = 0.08
@@ -484,3 +486,13 @@ data.raw.corpse["behemoth-worm-corpse"].minable = {
   result = "nullius-worm",
   count = 4
 }
+
+
+for _,shortcut in pairs(data.raw.shortcut) do
+  if ((shortcut.technology_to_unlock == "construction-robotics") or
+      (shortcut.technology_to_unlock == "personal-roboport-equipment")) then
+    shortcut.technology_to_unlock = nil
+  elseif (shortcut.technology_to_unlock == "exoskeleton-equipment") then
+    shortcut.technology_to_unlock = "nullius-cybernetics-4"
+  end
+end

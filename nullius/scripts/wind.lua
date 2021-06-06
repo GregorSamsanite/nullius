@@ -165,6 +165,7 @@ function build_wind_turbine(entity, level)
     name = "nullius-wind-base-"..level,
     position = position, force = force}
   newentity.power_production = global.nullius_current_power[level]
+  script.register_on_entity_destroyed(newentity)
 
   local collision1 = create_collision_box(surface, position, force, "horizontal", 14.5, 17)
   local collision2 = create_collision_box(surface, position, force, "vertical", 17, -14.5)
@@ -198,15 +199,12 @@ function build_wind_turbine(entity, level)
   }
 end
 
-function remove_wind_turbine(entity, died, level)
-  if ((level < 1) or (level > 3)) then return end
-
-  local unit = entity.unit_number
+function remove_wind_unit(unit, died, level)
   local ind = level + ((unit % 307) * 3)
   local bucket = global.nullius_turbine_buckets[ind]
-  if bucket.turbines[unit] == nil then return end
-
   local entry = bucket.turbines[unit]
+  if entry == nil then return end
+
   if entry.base ~= nil then
     if died then
       if entry.valid then
@@ -221,4 +219,21 @@ function remove_wind_turbine(entity, died, level)
 
   destroy_turbine(entry)
   bucket.turbines[unit] = nil
+end
+
+function remove_wind_turbine(entity, died, level)
+  if ((level < 1) or (level > 3)) then return end
+  remove_wind_unit(entity.unit_number, died, level)
+end
+
+function destroyed_wind_turbine(unit)
+  local offset = ((unit % 307) * 3)
+  for lvl=1,3 do
+    local entry = global.nullius_turbine_buckets[lvl + offset].turbines[unit]
+	if (entry ~= nil) then
+	  remove_wind_unit(unit, false, lvl)
+	  return true
+	end
+  end
+  return false
 end

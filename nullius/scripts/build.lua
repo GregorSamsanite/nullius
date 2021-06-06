@@ -52,6 +52,11 @@ function entity_died(event)
   if script_kill then return end
   entity_removed(event.entity, true)
 end
+function entity_destroyed(event)
+  if (script_kill or (event.unit_number == nil)) then return end
+  if (destroyed_stirling_engine(event.unit_number)) then return end
+  destroyed_wind_turbine(event.unit_number)
+end
 
 
 script.on_event(defines.events.on_built_entity, entity_built)
@@ -61,6 +66,7 @@ script.on_event(defines.events.script_raised_revive, entity_raised)
 script.on_event(defines.events.on_player_mined_entity, entity_mined)
 script.on_event(defines.events.on_robot_mined_entity, entity_mined)
 script.on_event(defines.events.on_entity_died, entity_died)
+script.on_event(defines.events.on_entity_destroyed, entity_destroyed)
 
 
 function update_tick()

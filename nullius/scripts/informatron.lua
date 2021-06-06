@@ -23,6 +23,8 @@ function nullius_info_page_content(page_name, player_index, element)
   end
   if page_name == "research" then
     element.add{type="label", name="text_1", caption={"nullius.page_research_text_1"}}
+    element.add{type="label", name="text_2", caption={"nullius.page_research_text_2"}}
+    element.add{type="label", name="text_3", caption={"nullius.page_research_text_3"}}
   end
   if page_name == "early" then
     element.add{type="label", name="header_1",

@@ -31,72 +31,6 @@ local function create_boxed_item(base_name, group, box_order,
   if (box_stack == nil) then
     box_stack = math.max(1, math.floor((2 * box_stack / ratio)))
   end
-  local base_icon = item.icon
-  local base_size = item.icon_size
-  local base_tint = nil
-  
-  local icons = item.icons
-  if (icons ~= nil) then
-    base_icon = icons[1].icon
-    base_tint = icons[1].tint
-	if (icons[1].icon_size ~= nil) then
-      base_size = icons[1].icon_size	
-	end
-  end
-
-  if (icon_scale == nil) then
-    icon_scale = 0.9
-  end
-  local base_scale = icon_scale * 32 / base_size
-  
-  local box_icon = {
-    {
-	  icon = "__nullius__/graphics/crate.png",
-      icon_size = 64
-	},
-	{
-	  icon = base_icon,
-	  icon_size = base_size,
-	  tint = base_tint,
-	  scale = base_scale
-	}
-  }
-  local unbox_icon = {
-    {
-	  icon = "__nullius__/graphics/uncrate.png",
-      icon_size = 64
-	},
-	{
-	  icon = base_icon,
-	  icon_size = base_size,
-	  tint = base_tint,
-	  scale = base_scale
-	}
-  }
-  
-  if ((icons ~= nil) and (icons[2] ~= nil)) then
-    local size2 = icons[2].icon_size
-	if (size2 == nil) then
-	  size2 = item.icon_size
-	end
-	local scale2 = icon_scale * 32 / size2
-	if (icons[2].scale ~= nil) then
-	  scale2 = icons[2].scale * icon_scale
-	end
-	local shift2 = nil
-	if (icons[2].shift ~= nil) then
-	  shift2 = {icons[2].shift[1] * icon_scale, icons[2].shift[2] * icon_scale}
-	end
-	local frame2 = {
-	  icon = icons[2].icon,
-	  icon_size = icons[2].icon_size,
-	  tint = icons[2].tint,
-	  scale = scale2,
-	  shift = shift2
-	}
-    table.insert(box_icon, frame2)
-	table.insert(unbox_icon, frame2)
-  end
 
   if (localname == nil) then
     localname = {"item-name."..full_name}
@@ -114,7 +48,6 @@ local function create_boxed_item(base_name, group, box_order,
       type = "item",
 	  name = "nullius-box-"..base_name,
 	  localised_name = {"item-name.nullius-box", localname},
-	  icons = box_icon,
       subgroup = "boxing-"..group,
 	  order = "nullius-"..box_order,
       stack_size = box_stack
@@ -123,8 +56,8 @@ local function create_boxed_item(base_name, group, box_order,
       type = "recipe",
 	  name = "nullius-box-"..base_name,
 	  localised_name = {"recipe-name.nullius-boxing", localname},
-	  enabled = false,
       category = "tiny-crafting",
+	  enabled = false,
 	  always_show_made_in = true,
 	  show_amount_in_title = false,
 	  always_show_products = true,
@@ -140,15 +73,15 @@ local function create_boxed_item(base_name, group, box_order,
       type = "recipe",
 	  name = "nullius-unbox-"..base_name,
 	  localised_name = {"recipe-name.nullius-unbox", localname},
-	  icons = unbox_icon,
-	  enabled = false,
       category = "tiny-crafting",
       subgroup = "unboxing-"..group,
 	  order = "nullius-"..box_order,
+	  enabled = false,
 	  always_show_made_in = true,
 	  show_amount_in_title = false,
 	  always_show_products = true,
       allow_decomposition = false,
+	  allow_as_intermediate = false,
 	  no_productivity = true,
       energy_required = 0.2,
       ingredients = {
@@ -162,7 +95,6 @@ end
 
 
 data.raw["capsule"]["cliff-explosives"].localised_name = {"item-name.nullius-explosive"}
-data.raw["capsule"]["cliff-explosives"].icon = "__base__/graphics/icons/explosives.png"
 data.raw["capsule"]["cliff-explosives"].stack_size = 100
 data.raw.item["rocket-fuel"].stack_size = 20
 
@@ -188,12 +120,7 @@ data.raw.item["stone-brick"].stack_size = 500
 data.raw.item["concrete"].stack_size = 500
 data.raw.item["refined-concrete"].stack_size = 500
 data.raw.item["refined-hazard-concrete"].stack_size = 500
-data.raw["repair-tool"]["repair-pack"].icon = "__base__/graphics/icons/repair-pack.png"
-data.raw["repair-tool"]["repair-pack"].icon_size = 64
-
 data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"} 
-data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
-data.raw.item["copper-cable"].icon_size = 32 
 data.raw.item["copper-cable"].stack_size = 200
 
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
@@ -302,8 +229,8 @@ create_boxed_item("arithmetic-circuit", "circuit", "e", "arithmetic-combinator")
 create_boxed_item("red-wire", "circuit", "b", "red-wire")
 create_boxed_item("green-wire", "circuit", "c", "green-wire")
 create_boxed_item("bpa", "organic", "c")
-create_boxed_item("acrylic-fiber", "organic", "f", nil, nil, nil, 1)
-create_boxed_item("carbon-fiber", "organic", "g", nil, nil, nil, 1.1)
+create_boxed_item("acrylic-fiber", "organic", "f")
+create_boxed_item("carbon-fiber", "organic", "g")
 create_boxed_item("capacitor", "electrical", "b")
 create_boxed_item("glass-fiber", "glass", "d")
 create_boxed_item("optical-cable", "electrical", "e")
@@ -322,7 +249,7 @@ create_boxed_item("antenna", "circuit", "h", "programmable-speaker")
 create_boxed_item("fiberglass", "glass", "e")
 create_boxed_item("processor-1", "electrical", "fb")
 create_boxed_item("sensor-2", "electrical", "h")
-create_boxed_item("battery-1", "renewable", "eb", nil, nil, nil, nil, {"equipment-name.nullius-battery-1"})
+create_boxed_item("battery-1", "renewable", "eb", nil, nil, nil, {"equipment-name.nullius-battery-1"})
 create_boxed_item("underground-pipe-1", "pipe", "c")
 create_boxed_item("underground-pipe-2", "pipe", "e")
 create_boxed_item("underground-pipe-3", "pipe", "g")
@@ -440,7 +367,7 @@ create_boxed_item("solar-panel-3", "renewable", "cd")
 create_boxed_item("calcium", "calcium", "g")
 create_boxed_item("power-pole-4", "power-pole", "ce")
 create_boxed_item("pylon-3", "power-pole", "dd")
-create_boxed_item("battery-2", "renewable", "ec", nil, nil, nil, nil, {"equipment-name.nullius-battery-2"})
+create_boxed_item("battery-2", "renewable", "ec", nil, nil, nil, {"equipment-name.nullius-battery-2"})
 create_boxed_item("grid-battery-2", "renewable", "dc")
 create_boxed_item("heat-pipe-3", "heat-energy", "cd")
 create_boxed_item("processor-2", "electrical", "fc")

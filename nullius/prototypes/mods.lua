@@ -954,3 +954,438 @@ data:extend({
   }
 })
 end
+
+
+if mods["Warehousing"] then
+data:extend({
+  {
+    type = "technology",
+    name = "nullius-warehousing-1",
+	localised_name = { "", {"technology-name.warehouse-research"}, " ", 1 },
+	localised_description = { "technology-description.nullius-storage" },
+    order = "nullius-cl",
+	icon = "__Warehousing__/graphics/research/warehouse-research.png",
+	icon_size = 256,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-storehouse"
+      }
+    },
+    unit = {
+      count = 20,
+      ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+	    {"nullius-mechanical-pack", 1}},
+      time = 10
+    },
+    prerequisites = {"nullius-aluminum-working", "nullius-storage-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-warehousing-2",
+	localised_name = { "", {"technology-name.warehouse-research"}, " ", 2 },
+	localised_description = { "technology-description.nullius-storage" },
+    order = "nullius-di",
+	icon = "__Warehousing__/graphics/research/warehouse-research.png",
+	icon_size = 256,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-warehouse"
+      }
+    },
+    unit = {
+      count = 120,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-concrete-1", "nullius-warehousing-1"}
+  },
+  {
+    type = "technology",
+    name = "nullius-warehousing-3",
+	localised_name = { "", {"technology-name.warehouse-research"}, " ", 3 },
+	localised_description = { "technology-description.nullius-storage" },
+    order = "nullius-dk",
+	icon = "__Warehousing__/graphics/research/warehouse-logistics-research-1.png",
+	icon_size = 256,
+    effects = {
+	  {
+	    type = "unlock-recipe",
+		recipe = "nullius-warehouse-passive-provider"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-warehouse-storage"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-storehouse-passive-provider"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-storehouse-storage"
+	  }
+    },
+    unit = {
+      count = 250,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-distribution-1", "nullius-warehousing-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-warehousing-4",
+	localised_name = { "", {"technology-name.warehouse-research"}, " ", 4 },
+	localised_description = { "technology-description.nullius-storage" },
+    order = "nullius-eo",
+	icon = "__Warehousing__/graphics/research/warehouse-logistics-research-2.png",
+	icon_size = 256,
+    effects = {
+	  {
+	    type = "unlock-recipe",
+		recipe = "nullius-warehouse-requester"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-warehouse-buffer"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-warehouse-active-provider"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-storehouse-requester"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-storehouse-buffer"
+	  },
+	  {
+		type = "unlock-recipe",
+		recipe = "nullius-storehouse-active-provider"
+	  }
+    },
+    unit = {
+      count = 600,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-distribution-2", "nullius-warehousing-3"}
+  },
+
+  {
+	type = "recipe",
+	name = "nullius-storehouse",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 6,
+	ingredients = {
+	  {"nullius-large-chest-1", 3},
+	  {"nullius-steel-beam", 6},
+	  {"nullius-glass", 4}
+	},
+	result = "storehouse-basic"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 10,
+	ingredients = {
+	  {"storehouse-basic", 4},
+	  {"stone-brick", 40},
+	  {"nullius-mortar", 10},
+	  {"concrete", 20}
+	},
+	result = "warehouse-basic"
+  },
+  {
+	type = "recipe",
+	name = "nullius-storehouse-storage",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"storehouse-basic", 1},
+	  {"nullius-small-storage-chest-1", 2}
+	},
+	result = "storehouse-storage"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse-storage",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"warehouse-basic", 1},
+	  {"nullius-small-storage-chest-1", 5}
+	},
+	result = "warehouse-storage"
+  },
+  {
+	type = "recipe",
+	name = "nullius-storehouse-passive-provider",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"storehouse-basic", 1},
+	  {"nullius-small-supply-chest-1", 2}
+	},
+	result = "storehouse-passive-provider"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse-passive-provider",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"warehouse-basic", 1},
+	  {"nullius-small-supply-chest-1", 5}
+	},
+	result = "warehouse-passive-provider"
+  },
+  {
+	type = "recipe",
+	name = "nullius-storehouse-requester",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"storehouse-basic", 1},
+	  {"nullius-large-demand-chest-1", 1}
+	},
+	result = "storehouse-requester"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse-requester",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"warehouse-basic", 1},
+	  {"nullius-large-demand-chest-1", 2}
+	},
+	result = "warehouse-requester"
+  },
+  {
+	type = "recipe",
+	name = "nullius-storehouse-buffer",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"storehouse-basic", 1},
+	  {"nullius-large-buffer-chest-1", 1}
+	},
+	result = "storehouse-buffer"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse-buffer",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"warehouse-basic", 1},
+	  {"nullius-large-buffer-chest-1", 2}
+	},
+	result = "warehouse-buffer"
+  },
+  {
+	type = "recipe",
+	name = "nullius-storehouse-active-provider",
+	enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+	ingredients = {
+	  {"storehouse-basic", 1},
+	  {"nullius-large-dispatch-chest-1", 1}
+	},
+	result = "storehouse-active-provider"
+  },
+  {
+	type = "recipe",
+	name = "nullius-warehouse-active-provider",
+	enabled = false,
+	always_show_made_in = true,
+    category = "huge-crafting",
+    energy_required = 5,
+	ingredients = {
+	  {"warehouse-basic", 1},
+	  {"nullius-large-dispatch-chest-1", 2}
+	},
+	result = "warehouse-active-provider"
+  }
+})
+end
+
+
+if mods["textplates"] then
+data:extend({
+  {
+    type = "technology",
+    name = "nullius-typesetting-1",
+    order = "nullius-bg",
+    icon = "__textplates__/graphics/entity/iron/1.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-iron"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-iron"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-stone"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-stone"
+      }
+	},
+    unit = {
+      count = 8,
+      ingredients = {{"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1}},
+      time = 3
+    },
+    prerequisites = {"nullius-masonry-2"},
+	ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-typesetting-2",
+    order = "nullius-cl",
+    icon = "__textplates__/graphics/entity/gold/2.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-gold"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-gold"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-steel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-steel"
+      }
+	},
+    unit = {
+      count = 20,
+      ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+	    {"nullius-mechanical-pack", 1}},
+      time = 6
+    },
+    prerequisites = {"nullius-typesetting-1", "nullius-aluminum-working"},
+	ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-typesetting-3",
+    order = "nullius-dl",
+    icon = "__textplates__/graphics/entity/glass/3.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-glass"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-glass"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-concrete"
+      }
+	},
+    unit = {
+      count = 100,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-typesetting-2", "nullius-empiricism-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-typesetting-4",
+    order = "nullius-ge",
+    icon = "__textplates__/graphics/entity/uranium/4.png",
+    icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-uranium"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-uranium"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-copper"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-copper"
+      }
+	},
+    unit = {
+      count = 5000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-typesetting-3", "nullius-copper-production", "nullius-uranium-processing"}
+  }
+})
+end
+

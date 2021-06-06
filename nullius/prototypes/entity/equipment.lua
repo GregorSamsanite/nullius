@@ -1,5 +1,4 @@
-data:extend(
-{
+data:extend({
   {
     type = "battery-equipment",
     name = "nullius-capacitor",
@@ -189,8 +188,42 @@ data:extend(
     },
     power = "800kW",
     categories = {"cybernetic"}
-  },
+  }
+})
 
+if mods["reskins-bobs"] then
+data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
+    size = 150,
+    priority = "medium"
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
+    size = 150,
+    priority = "medium",
+    tint = tiercolor("yellow")
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
+    size = 150,
+    priority = "medium",
+	blend_mode = "additive"
+  }
+}}
+
+data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite =
+  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite.layers[2].tint = tiercolor("red")
+data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite =
+  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite.layers[2].tint = tiercolor("blue")
+data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite =
+  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite.layers[2].tint = tiercolor("green")
+end
+
+data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-hangar-1",

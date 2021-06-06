@@ -244,8 +244,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-bauxite",
-    icon = "__angelssmelting__/graphics/icons/ore-bauxite.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-bauxite"].icons,
     order = "a-b-c",
     map_color = {204, 204, 57},
     tree_removal_probability = 0.6,
@@ -292,9 +291,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-sandstone",
-    icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-2.png",
-    icon_size = 64,
-    tint = {184, 125, 73},
+	icons = data.raw.item["nullius-sandstone"].icons,
     map_color = {170, 121, 113},
     tree_removal_probability = 0.6,
     tree_removal_max_distance = 32 * 32,
@@ -340,9 +337,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-limestone",
-    icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-3.png",
-    icon_size = 64,
-    tint = {0.898, 0.773, 0.688},
+	icons = data.raw.item["nullius-limestone"].icons,
     map_color = {1, 0.86, 0.777},
     tree_removal_probability = 0.6,
     tree_removal_max_distance = 32 * 32,
@@ -494,8 +489,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-fumarole",
-    icon = "__angelsrefining__/graphics/icons/water-thermal.png",
-    icon_size = 32,
+	icons = data.raw.fluid["nullius-volcanic-gas"].icons,
     map_color = {r=1, g=0.5, b=0},
     map_grid = false,
 

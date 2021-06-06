@@ -2,8 +2,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-bauxite",
-    icon = "__angelssmelting__/graphics/icons/ore-bauxite.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__angelssmelting__/graphics/icons/ore-bauxite.png",
+      icon_size = 32
+	}},
     subgroup = "aluminum-ingot",
     order = "nullius-b",
     stack_size = 50
@@ -11,13 +13,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-sandstone",
-    icon_size = 64,
-    icons = {
-      {
+    icons = {{
         icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-2.png",
-        tint = {184, 125, 73},
-      }
-    },
+		icon_size = 64,
+        tint = {184, 125, 73}
+    }},
     subgroup = "silicon-product",
     order = "nullius-b",
     stack_size = 50
@@ -25,13 +25,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-limestone",
-    icon_size = 64,
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-3.png",
-        tint = {0.898, 0.773, 0.688},
-      }
-    },
+    icons = {{
+      icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-3.png",
+	  icon_size = 64,
+      tint = {0.898, 0.773, 0.688}
+    }},
     subgroup = "calcium-product",
     order = "nullius-b",
     stack_size = 50
@@ -123,8 +121,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-		icon_size = 32,
-        scale = 0.4,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.2,
         shift = {10, -11}
       }
     },
@@ -442,7 +441,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-crushed-copper-ore",
-    icon = "__angelsrefining__/graphics/icons/copper-ore-crushed.png",
+    icon = "__angelsrefining__/graphics/icons/copper-pebbles.png",
     icon_size = 32,
     subgroup = "copper",
     order = "nullius-c",
@@ -620,7 +619,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-crushed-iron-ore",
-    icon = "__angelsrefining__/graphics/icons/iron-ore-crushed.png",
+    icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
     icon_size = 32,
     subgroup = "iron-ingot",
     order = "nullius-c",
@@ -859,7 +858,8 @@ data:extend({
     type = "item",
     name = "nullius-sand",
     icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "silicon-product",
     order = "nullius-c",
     stack_size = 100
@@ -930,7 +930,8 @@ data:extend({
     type = "item",
     name = "nullius-mineral-dust",
     icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "masonry-material",
     order = "nullius-m",
     stack_size = 100
@@ -972,12 +973,14 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-		icon_size = 32,
-        scale = 0.6,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.3,
         shift = {7, 7}
       }
     },
@@ -1006,13 +1009,15 @@ data:extend({
 	  },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
-		icon_size = 32,
-		scale = 0.9
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
       },
       {
 	    icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-		icon_size = 32,
-        scale = 0.54,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.27,
         shift = {6, 6}
       }
     },
@@ -1042,7 +1047,7 @@ data:extend({
         icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
       },
       {
-        icon = "__angelsrefining__/graphics/icons/iron-ore-crushed.png",
+        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
         scale = 0.5,
         shift = {10, -9}
       }
@@ -1066,7 +1071,8 @@ data:extend({
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
@@ -1091,13 +1097,15 @@ data:extend({
     type = "recipe",
     name = "nullius-limestone-disposal",
     localised_name = {"recipe-name.nullius-limestone-disposal"},
-    icon_size = 32,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png"
+        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+		icon_size = 32,
         scale = 0.5,
         shift = {10, -9}
       }
@@ -1118,7 +1126,8 @@ data:extend({
     type = "item",
     name = "nullius-iron-ingot",
     icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "iron-ingot",
     order = "nullius-e",
     stack_size = 100
@@ -1146,7 +1155,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
       {
 		icon = "__base__/graphics/icons/coal.png",
@@ -1176,7 +1186,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
@@ -1227,7 +1238,8 @@ data:extend({
     type = "item",
     name = "nullius-steel-ingot",
     icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "iron-ingot",
     order = "nullius-f",
     stack_size = 100
@@ -1257,7 +1269,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelssmelting__/graphics/icons/solid-lime.png",
@@ -1308,7 +1321,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
       {
 		icon = "__nullius__/graphics/icons/calcium.png",
@@ -1344,8 +1358,9 @@ data:extend({
 	  },
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
-        icon_size = 32,
-		scale = 0.9
+        icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
       },
       {
 		icon = "__nullius__/graphics/icons/calcium.png",
@@ -1378,7 +1393,8 @@ data:extend({
     name = "nullius-silicon-ingot",
 	icons = {{
       icon = "__angelssmelting__/graphics/icons/ingot-silicon.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
 	  tint = {1, 0.925, 0.85}
 	}},
 	subgroup = "silicon-product",
@@ -1389,7 +1405,8 @@ data:extend({
     type = "item",
     name = "nullius-copper-ingot",
     icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
 	subgroup = "copper",
 	order = "nullius-e",
     stack_size = 100
@@ -1398,7 +1415,8 @@ data:extend({
     type = "item",
     name = "nullius-aluminum-ingot",
     icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
 	subgroup = "aluminum-ingot",
 	order = "nullius-g",
     stack_size = 100
@@ -1998,7 +2016,8 @@ data:extend({
     order = "nullius-d",
 	icons = {{
       icon = "__angelssmelting__/graphics/icons/powder-silica.png",
-      icon_size = 32
+      icon_size = 64,
+	  icon_mipmaps = 4
 	}},
     stack_size = 100
   },
@@ -2008,7 +2027,8 @@ data:extend({
     subgroup = "titanium-product",
 	order = "nullius-b",
     icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     stack_size = 100
   },
   {
@@ -2035,12 +2055,14 @@ data:extend({
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/powder-silica.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
-		icon_size = 32,
-        scale = 0.5,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.25,
         shift = {9, 9}
       }
     },
@@ -2088,13 +2110,15 @@ data:extend({
 	  },
       {
         icon = "__angelssmelting__/graphics/icons/powder-silica.png",
-		icon_size = 32,
-		scale = 0.9
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
       },
       {
         icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
-		icon_size = 32,
-        scale = 0.45,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.23,
         shift = {8, 8}
       }
     },
@@ -2321,7 +2345,8 @@ data:extend({
     type = "item",
     name = "nullius-glass-fiber",
     icon = "__angelssmelting__/graphics/icons/wire-coil-glass.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "glass-product",
 	order = "nullius-d",
     stack_size = 100
@@ -2913,7 +2938,8 @@ data:extend({
     type = "item",
     name = "nullius-iron-sheet",
     icon = "__angelssmelting__/graphics/icons/roll-iron.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "iron-product",
     order = "nullius-d",
     stack_size = 100
@@ -2923,7 +2949,8 @@ data:extend({
     name = "nullius-steel-sheet",
     order = "nullius-f",
     icon = "__angelssmelting__/graphics/icons/roll-steel.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "steel-product",
     stack_size = 100
   },
@@ -2932,7 +2959,8 @@ data:extend({
     name = "nullius-aluminum-sheet",
     order = "nullius-e",
     icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "aluminum-product",
     order = "nullius-h",
     stack_size = 100
@@ -2941,7 +2969,8 @@ data:extend({
     type = "item",
     name = "nullius-copper-sheet",
     icon = "__angelssmelting__/graphics/icons/roll-copper.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "copper",
     order = "nullius-f",
     stack_size = 100
@@ -2968,7 +2997,8 @@ data:extend({
 	icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/roll-iron.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
 	  {
 	    icon = "__base__/graphics/icons/fluid/lubricant.png",
@@ -3033,7 +3063,8 @@ data:extend({
 	icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/roll-steel.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
 	  {
 	    icon = "__base__/graphics/icons/fluid/lubricant.png",
@@ -3098,7 +3129,8 @@ data:extend({
 	icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
 	  {
 	    icon = "__base__/graphics/icons/fluid/lubricant.png",
@@ -3237,7 +3269,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/wire-coil-silver.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
 		tint = {0.8, 0.825, 0.85}
       }
     },
@@ -3250,7 +3283,8 @@ data:extend({
     name = "nullius-copper-wire",
     icons = {{
 	  icon = "__angelssmelting__/graphics/icons/wire-coil-copper.png",
-	  icon_size = 32
+	  icon_size = 64,
+	  icon_mipmaps = 4
     }},
     subgroup = "copper",
     order = "nullius-g",
@@ -3262,7 +3296,8 @@ data:extend({
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
         tint = {r=0.8, g=0.9, b=1},
       }
     },
@@ -3276,7 +3311,8 @@ data:extend({
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/wire-coil-platinum.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
         tint = {r=0.75, g=0.875, b=1}
       }
     },
@@ -3315,7 +3351,8 @@ data:extend({
 	icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/wire-coil-silver.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
 		tint = {0.8, 0.825, 0.85}
       },
 	  {
@@ -3381,7 +3418,8 @@ data:extend({
 	icons = {
       {
         icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
         tint = {r=0.8, g=0.9, b=1}
       },
 	  {
@@ -3561,7 +3599,8 @@ data:extend({
     name = "nullius-optical-cable",
 	icons = {{
       icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
-      icon_size = 32,
+	  icon_size = 64,
+	  icon_mipmaps = 4,
 	  tint = {1, 0.6, 1}
 	}},
     subgroup = "electronic-intermediate",
@@ -3771,8 +3810,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
-		icon_size = 32,
-        scale = 0.4,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.2,
         shift = {-10, -12}
       }
     },
@@ -3834,7 +3874,8 @@ data:extend({
     type = "item",
     name = "nullius-aluminum-carbide",
     icon = "__angelssmelting__/graphics/icons/powder-lead.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "aluminum-ingot",
     order = "nullius-f",
     stack_size = 100
@@ -4033,8 +4074,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-lead.png",
-		icon_size = 32,
-        scale = 0.4,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.2,
         shift = {10, -10}
       }
     },
@@ -4082,12 +4124,14 @@ data:extend({
     icons = {
       {
 	    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
         icon = "__angelssmelting__/graphics/icons/powder-lead.png",
-		icon_size = 32,
-        scale = 0.5,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.25,
         shift = {9, -9}
       }
     },
@@ -4149,7 +4193,8 @@ data:extend({
     icons = {
       {
 	    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
 		icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
@@ -4187,8 +4232,9 @@ data:extend({
 	  },
       {
 	    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
-		icon_size = 32,
-		scale = 0.9
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
       },
       {
 		icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
@@ -4240,7 +4286,8 @@ data:extend({
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/ingot-silicon.png",
-		icon_size = 32,
+		icon_size = 64,
+		icon_mipmaps = 4,
 		tint = {1, 0.925, 0.85}
       },
       {
@@ -4493,8 +4540,9 @@ data:extend({
       },
 	  {
 		icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
-		icon_size = 32,
-		scale = 0.6,
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.3,
         shift = {11, -10}
 	  }
     },
@@ -4533,8 +4581,9 @@ data:extend({
       },
 	  {
 		icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
-		icon_size = 32,
-		scale = 0.5,
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.25,
         shift = {10, -9}
 	  }
     },
@@ -5400,7 +5449,8 @@ data:extend({
     type = "item",
     name = "nullius-ceramic-powder",
     icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "glass-product",
 	order = "nullius-l",
     stack_size = 100
@@ -5580,7 +5630,8 @@ data:extend({
     type = "item",
     name = "nullius-textile",
     icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "organic-material-2",
 	order = "nullius-d",
     stack_size = 100
@@ -5629,7 +5680,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
 	  },
       {
 		icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
@@ -5664,8 +5716,9 @@ data:extend({
 	  },
       {
 		icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
-		icon_size = 32,
-		scale = 0.9
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
 	  },
       {
 		icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
@@ -5695,7 +5748,8 @@ data:extend({
     type = "item",
     name = "nullius-titanium-ingot",
     icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "titanium-product",
 	order = "nullius-d",
     stack_size = 100
@@ -5794,7 +5848,8 @@ data:extend({
     icons = {
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
-		icon_size = 32
+		icon_size = 64,
+		icon_mipmaps = 4
       },
       {
 		icon = "__nullius__/graphics/icons/calcium.png",
@@ -5830,8 +5885,9 @@ data:extend({
 	  },
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
-		icon_size = 32,
-		scale = 0.9
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.45
       },
       {
 		icon = "__nullius__/graphics/icons/calcium.png",
@@ -5951,7 +6007,8 @@ data:extend({
     type = "item",
     name = "nullius-titanium-sheet",
     icon = "__angelssmelting__/graphics/icons/roll-titanium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "titanium-product",
 	order = "nullius-g",
     stack_size = 100
@@ -6338,8 +6395,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-insulation",
-    icon = "__angelssmelting__/graphics/icons/roll-tungsten.png",
-    icon_size = 32,
+    icon = "__angelssmelting__/graphics/icons/roll-manganese.png",
+    icon_size = 64,
+	icon_mipmaps = 4,
     subgroup = "glass-product",
 	order = "nullius-f",
     stack_size = 100
@@ -6565,7 +6623,8 @@ data:extend({
     name = "nullius-crushed-uranium-ore",
 	icons = {{
       icon = "__angelssmelting__/graphics/icons/processed-tin.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
 	  tint = {0.8, 1, 0.8}
 	}},
     subgroup = "uranium",
@@ -6590,7 +6649,8 @@ data:extend({
     name = "nullius-yellowcake",
 	icons = {{
       icon = "__angelssmelting__/graphics/icons/pellet-gold.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
 	  tint = {0.7, 1, 0.7}
 	}},
     subgroup = "uranium",

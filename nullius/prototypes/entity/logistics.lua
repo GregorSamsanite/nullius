@@ -903,122 +903,87 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 33,
           line_length = 11,
-          animation_speed = 1 / 3,
+          animation_speed = 0.25,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.8, 1, 0.7},
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 33,
-            line_length = 11,
-            animation_speed = 1 / 3,
-            shift = util.by_pixel(0, 1.5),
-			tint = {0.8, 1, 0.7},
-            scale = 0.5
-          }
+		  tint = {0.8, 0.8, 0.8},
+          scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/lab-integration.png",
-          width = 122,
-          height = 81,
+          filename = "__nullius__/graphics/lab/lab-overlay-1.png",
+          width = 194,
+          height = 174,
           frame_count = 1,
           line_length = 1,
           repeat_count = 33,
-          animation_speed = 1 / 3,
+          animation_speed = 0.25,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.25,
           shift = util.by_pixel(0, 15.5),
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
-            width = 242,
-            height = 162,
-            frame_count = 1,
-            line_length = 1,
-            repeat_count = 33,
-            animation_speed = 1 / 3,
-            shift = util.by_pixel(0, 15.5),
-            scale = 0.5
-          }
+          scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/lab-shadow.png",
-          width = 122,
-          height = 68,
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
           frame_count = 1,
           line_length = 1,
           repeat_count = 33,
-          animation_speed = 1 / 3,
+          animation_speed = 0.25,
           shift = util.by_pixel(13, 11),
-          draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
-            width = 242,
-            height = 136,
-            frame_count = 1,
-            line_length = 1,
-            repeat_count = 33,
-            animation_speed = 1 / 3,
-            shift = util.by_pixel(13, 11),
-            scale = 0.5,
-            draw_as_shadow = true
-          }
+          scale = 0.5,
+          draw_as_shadow = true
         }
       }
     },
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 1,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.8, 1, 0.7},
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 1,
-            shift = util.by_pixel(0, 1.5),
-			tint = {0.8, 1, 0.7},
-            scale = 0.5
-          }
+		  tint = {0.8, 0.8, 0.8},
+          scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/lab-integration.png",
-          width = 122,
-          height = 81,
+          filename = "__nullius__/graphics/lab/lab-overlay-1.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
           frame_count = 1,
           shift = util.by_pixel(0, 15.5),
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
-            width = 242,
-            height = 162,
-            frame_count = 1,
-            shift = util.by_pixel(0, 15.5),
-            scale = 0.5
-          }
+          scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/lab-shadow.png",
-          width = 122,
-          height = 68,
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
           frame_count = 1,
           shift = util.by_pixel(13, 11),
           draw_as_shadow = true,
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
-            width = 242,
-            height = 136,
-            frame_count = 1,
-            shift = util.by_pixel(13, 11),
-            draw_as_shadow = true,
-            scale = 0.5
-          }
+          scale = 0.5
         }
       }
     }
@@ -1062,51 +1027,73 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 33,
           line_length = 11,
-          animation_speed = 1 / 3,
+          animation_speed = 0.3,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.9, 0.8, 1},
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 33,
-            line_length = 11,
-            animation_speed = 1 / 3,
-            shift = util.by_pixel(0, 1.5),
-			tint = {0.9, 0.8, 1},
-            scale = 0.5
-          }
+		  tint = {0.9, 0.9, 0.9},
+          scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].on_animation.layers[2],
-		data.raw.lab["nullius-lab-1"].on_animation.layers[3]
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-2.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.3,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.3,
+          shift = util.by_pixel(0, 15.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.3,
+          shift = util.by_pixel(13, 11),
+          scale = 0.5,
+          draw_as_shadow = true
+        }
       }
     },
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 1,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.9, 0.8, 1},
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 1,
-            shift = util.by_pixel(0, 1.5),
-			tint = {0.9, 0.8, 1},
-            scale = 0.5
-          }
+		  tint = {0.9, 0.9, 0.9},
+          scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].off_animation.layers[2],
-		data.raw.lab["nullius-lab-1"].off_animation.layers[3]
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-2.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+		data.raw.lab["nullius-lab-1"].off_animation.layers[3],
+		data.raw.lab["nullius-lab-1"].off_animation.layers[4]
 	  }
 	}
   },
@@ -1146,47 +1133,71 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 33,
           line_length = 11,
-          animation_speed = 1 / 3,
+          animation_speed = 0.35,
           shift = util.by_pixel(0, 1.5),
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 33,
-            line_length = 11,
-            animation_speed = 1 / 3,
-            shift = util.by_pixel(0, 1.5),
-            scale = 0.5
-          }
+          scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].on_animation.layers[2],
-		data.raw.lab["nullius-lab-1"].on_animation.layers[3]
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-3.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.35,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.35,
+          shift = util.by_pixel(0, 15.5),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.35,
+          shift = util.by_pixel(13, 11),
+          scale = 0.5,
+          draw_as_shadow = true
+        }
       }
     },
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/lab.png",
-          width = 98,
-          height = 87,
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
           frame_count = 1,
           shift = util.by_pixel(0, 1.5),
-          hr_version = {
-            filename = "__base__/graphics/entity/lab/hr-lab.png",
-            width = 194,
-            height = 174,
-            frame_count = 1,
-            shift = util.by_pixel(0, 1.5),
-            scale = 0.5
-          }
+          scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].off_animation.layers[2],
-		data.raw.lab["nullius-lab-1"].off_animation.layers[3]
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-3.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          shift = util.by_pixel(0, 1.5),
+          scale = 0.5
+        },
+		data.raw.lab["nullius-lab-1"].off_animation.layers[3],
+		data.raw.lab["nullius-lab-1"].off_animation.layers[4]
 	  }
 	}
   },
@@ -1561,5 +1572,216 @@ data:extend({
     circuit_wire_max_distance = data.raw["inserter"]["filter-inserter"].circuit_wire_max_distance,
     default_stack_control_input_signal = data.raw["inserter"]["filter-inserter"].default_stack_control_input_signal
   }
+})
+end
+
+
+if mods["reskins-bobs"] then
+data.raw.radar["nullius-sensor-node-1"].pictures = { layers = {
+  data.raw.radar["nullius-sensor-node-3"].pictures.layers[1],
+  {
+    filename = "__reskins-bobs__/graphics/entity/warfare/radar/radar-mask.png",
+    priority = "low",
+    width = 98,
+    height = 128,
+    apply_projection = false,
+    direction_count = 64,
+    line_length = 8,
+    shift = util.by_pixel(1, -16),
+	tint = tiercolor("yellow"),
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/warfare/radar/hr-radar-mask.png",
+      priority = "low",
+      width = 196,
+      height = 254,
+      apply_projection = false,
+      direction_count = 64,
+      line_length = 8,
+      shift = util.by_pixel(1, -16),
+	  tint = tiercolor("yellow"),
+      scale = 0.5
+    }
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/warfare/radar/radar-highlights.png",
+    priority = "low",
+    width = 98,
+    height = 128,
+    apply_projection = false,
+    direction_count = 64,
+    line_length = 8,
+    shift = util.by_pixel(1, -16),
+    blend_mode = "additive",
+    hr_version = {
+      filename = "__reskins-bobs__/graphics/entity/warfare/radar/hr-radar-highlights.png",
+      priority = "low",
+      width = 196,
+      height = 254,
+      apply_projection = false,
+      direction_count = 64,
+      line_length = 8,
+      shift = util.by_pixel(1, -16),
+      blend_mode = "additive",
+      scale = 0.5
+    }
+  },
+  data.raw.radar["nullius-sensor-node-3"].pictures.layers[2]
+}}
+data.raw.radar["nullius-sensor-node-2"].pictures =
+    util.table.deepcopy(data.raw.radar["nullius-sensor-node-1"].pictures)
+data.raw.radar["nullius-sensor-node-2"].pictures.layers[2].tint = tiercolor("red")
+data.raw.radar["nullius-sensor-node-2"].pictures.layers[2].hr_version.tint = tiercolor("red")
+data.raw.radar["nullius-sensor-node-3"].pictures =
+    util.table.deepcopy(data.raw.radar["nullius-sensor-node-1"].pictures)
+data.raw.radar["nullius-sensor-node-3"].pictures.layers[2].tint = tiercolor("blue")
+data.raw.radar["nullius-sensor-node-3"].pictures.layers[2].hr_version.tint = tiercolor("blue")
+
+
+data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.8, 1*0.8),
+    scale = 0.5*0.8
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-mask.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.8, 1*0.8),
+    tint = tiercolor("yellow"),
+    scale = 0.5*0.8
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-highlights.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.8, 1*0.8),
+    blend_mode = "additive",
+    scale = 0.5*0.8
+  },
+  data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.layers[2]
+}
+data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[2].animation = {
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-top.png",
+  width = 96,
+  height = 140,
+  repeat_count = 45,
+  animation_speed = 0.5,
+  shift = util.by_pixel(3*0.8, -19*0.8),
+  scale = 0.5*0.8
+}
+
+data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.9, 1*0.9),
+    scale = 0.5*0.9
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-mask.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.9, 1*0.9),
+    tint = tiercolor("red"),
+    scale = 0.5*0.9
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-highlights.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.9, 1*0.9),
+    blend_mode = "additive",
+    scale = 0.5*0.9
+  },
+  data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.layers[2]
+}
+data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[2].animation = {
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-top.png",
+  width = 96,
+  height = 140,
+  repeat_count = 45,
+  animation_speed = 0.5,
+  shift = util.by_pixel(3*0.9, -19*0.9),
+  scale = 0.5*0.9
+}
+table.insert(data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list, {
+  render_layer = "transport-belt-circuit-connector",
+  always_draw = true,
+  animation = {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-slot-overlay.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5*0.9, 1*0.9),
+    scale = 0.5*0.9
+  }
+})
+
+data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.layers = {
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5, 1),
+    scale = 0.5
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-mask.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5, 1),
+    tint = tiercolor("blue"),
+    scale = 0.5
+  },
+  {
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-highlights.png",
+    width = 212,
+    height = 192,
+    shift = util.by_pixel(0.5, 1),
+    blend_mode = "additive",
+    scale = 0.5
+  },
+  data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.layers[2]
+}
+data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[2].animation = {
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-top.png",
+  width = 96,
+  height = 140,
+  repeat_count = 45,
+  animation_speed = 0.5,
+  shift = util.by_pixel(3, -19),
+  scale = 0.5
+}
+table.insert(data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list, {
+  render_layer = "transport-belt-circuit-connector",
+  always_draw = true,
+  animation = { layers = {
+    {
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay.png",
+      width = 212,
+      height = 192,
+      shift = util.by_pixel(0.5, 1),
+      scale = 0.5
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-mask.png",
+      width = 212,
+      height = 192,
+      shift = util.by_pixel(0.5, 1),
+      tint = tiercolor("blue"),
+      scale = 0.5
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-highlights.png",
+      width = 212,
+      height = 192,
+      shift = util.by_pixel(0.5, 1),
+      scale = 0.5,
+      blend_mode = "additive"
+    }
+  }}
 })
 end

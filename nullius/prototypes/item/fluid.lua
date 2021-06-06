@@ -1638,7 +1638,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     category = "water-pumping",
-    subgroup = "water-treatment",
+    subgroup = "nullius-water-treatment",
     energy_required = 1,
     ingredients = {},
     results = {
@@ -4448,8 +4448,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-		icon_size = 32,
-        scale = 0.36,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.18,
         shift = {-12, -11}
       }
     },
@@ -5171,7 +5172,7 @@ data:extend({
 	localised_name = {"recipe-name.nullius-iron-recovery"},
 	icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/iron-ore-crushed.png",
+        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
         icon_size = 32
       },
 	  {
@@ -5244,7 +5245,8 @@ data:extend({
 	icons = {
       {
         icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-        icon_size = 32
+        icon_size = 64,
+		icon_mipmaps = 4
       },
 	  {
 	    icon = "__nullius__/graphics/sludge.png",

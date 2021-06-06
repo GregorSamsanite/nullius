@@ -695,6 +695,10 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
 	junction.localised_name = {"", {"entity-name."..basename}, " ", (lvl - 1)}
 	junction.localised_description =
 	  data.raw.item[junction.minable.result].localised_description
+	  
+	local archetype = data.raw["pipe-to-ground"]["nullius-underground-pipe-"..lvl]
+	junction.fluid_box.height = archetype.fluid_box.height
+	junction.fluid_box.base_area = archetype.fluid_box.base_area
 
 	for _,connection in pairs(junction.fluid_box.pipe_connections) do
 	  if ((connection.max_underground_distance ~= nil) and
@@ -721,4 +725,407 @@ for i=1,9 do
   relief.fluid_box.base_level = theight
   relief.fluid_box.base_area = 3 / rheight
 end
+end
+
+
+if mods["Warehousing"] then
+  data.raw.item["storehouse-basic"].order = "nullius-mb"
+  data.raw.item["warehouse-basic"].order = "nullius-mc"
+  data.raw.item["storehouse-storage"].order = "nullius-bb"
+  data.raw.item["warehouse-storage"].order = "nullius-bc"
+  data.raw.item["storehouse-passive-provider"].order = "nullius-cb"
+  data.raw.item["warehouse-passive-provider"].order = "nullius-cc"
+  data.raw.item["storehouse-requester"].order = "nullius-db"
+  data.raw.item["warehouse-requester"].order = "nullius-dc"
+  data.raw.item["storehouse-buffer"].order = "nullius-eb"
+  data.raw.item["warehouse-buffer"].order = "nullius-ec"
+  data.raw.item["storehouse-active-provider"].order = "nullius-fb"
+  data.raw.item["warehouse-active-provider"].order = "nullius-fc"
+end
+
+
+if mods["Induction Charging"] then
+data.raw.item["induction-coil"].subgroup = "solar"
+data.raw.item["induction-coil"].order = "nullius-ib"
+data.raw.item["induction-coil"].stack_size = 50
+
+data.raw.recipe["induction-coil"].order = "nullius-ib"
+data.raw.recipe["induction-coil"].always_show_made_in = true
+data.raw.recipe["induction-coil"].energy_required = 5
+data.raw.recipe["induction-coil"].categories = nil
+data.raw.recipe["induction-coil"].category = "small-crafting"
+data.raw.recipe["induction-coil"].ingredients = {
+  {"nullius-capacitor", 5},
+  {"decider-combinator", 3},
+  {"copper-cable", 12},
+  {"nullius-aluminum-rod", 8}
+}
+	
+data.raw.technology["induction-technology1"].order = "nullius-cm"
+data.raw.technology["induction-technology1"].prerequisites = {"nullius-electronics-1"}
+data.raw.technology["induction-technology1"].unit = {
+  count = 20, time = 6,
+  ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}}
+}
+
+data.raw.technology["induction-technology2"].order = "nullius-dd"
+data.raw.technology["induction-technology2"].prerequisites = {
+  "nullius-energy-distribution-2", "induction-technology1" }
+data.raw.technology["induction-technology2"].unit = {
+  count = 80, time = 15,
+  ingredients = {
+    {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+
+data.raw.technology["induction-technology3"].order = "nullius-dk"
+data.raw.technology["induction-technology3"].prerequisites = {
+  "nullius-energy-distribution-3", "nullius-distribution-1", "induction-technology2" }
+data.raw.technology["induction-technology3"].unit = {
+  count = 250, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+
+data.raw.technology["induction-technology4"].order = "nullius-ek"
+data.raw.technology["induction-technology4"].prerequisites = {
+  "nullius-broadcasting-2", "induction-technology3" }
+data.raw.technology["induction-technology4"].unit = {
+  count = 800, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}
+  }
+}
+
+data.raw.technology["induction-technology5"].order = "nullius-fm"
+data.raw.technology["induction-technology5"].prerequisites = {
+  "nullius-battery-storage-4", "induction-technology4" }
+data.raw.technology["induction-technology5"].unit = {
+  count = 2000, time = 45,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  }
+}
+end
+
+
+if mods["Transport_Drones"] then
+data.raw["item-subgroup"]["transport-drones"].order = "gd"
+
+data.raw.technology["transport-system"].order = "nullius-dg"
+data.raw.technology["transport-system"].prerequisites = {
+  "nullius-robotics-1", "nullius-energy-storage-2" }
+data.raw.technology["transport-system"].unit = {
+  count = 150, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+data.raw.technology["transport-depot-circuits"].order = "nullius-dm"
+data.raw.technology["transport-depot-circuits"].prerequisites = {
+  "transport-system", "nullius-traffic-control" }
+data.raw.technology["transport-depot-circuits"].unit = {
+  count = 150, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-speed-1"].order = "nullius-dl"
+data.raw.technology["transport-drone-speed-1"].prerequisites = {
+  "transport-depot-circuits", "nullius-braking-1", "nullius-robot-speed-1" }
+data.raw.technology["transport-drone-speed-1"].unit = {
+  count = 200, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-capacity-1"].order = "nullius-dl"
+data.raw.technology["transport-drone-capacity-1"].prerequisites = {
+  "transport-depot-circuits", "nullius-braking-1", "nullius-projection-1" }
+data.raw.technology["transport-drone-capacity-1"].unit = {
+  count = 250, time = 30,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-speed-2"].order = "nullius-en"
+data.raw.technology["transport-drone-speed-2"].prerequisites = {
+  "transport-drone-speed-1", "nullius-exploration-1" }
+data.raw.technology["transport-drone-speed-2"].unit = {
+  count = 800, time = 35,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-capacity-2"].order = "nullius-eo"
+data.raw.technology["transport-drone-capacity-2"].prerequisites = {
+  "transport-drone-capacity-1", "nullius-inserter-capacity-1" }
+data.raw.technology["transport-drone-capacity-2"].unit = {
+  count = 1000, time = 35,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-speed-3"].order = "nullius-fh"
+data.raw.technology["transport-drone-speed-3"].prerequisites = {
+  "transport-drone-speed-2", "nullius-robot-speed-3" }
+data.raw.technology["transport-drone-speed-3"].unit = {
+  count = 1600, time = 45,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
+data.raw.technology["transport-drone-capacity-3"].prerequisites = {
+  "transport-drone-capacity-2", "nullius-mechanical-engineering-2" }
+data.raw.technology["transport-drone-capacity-3"].unit = {
+  count = 1600, time = 45,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-speed-4"].order = "nullius-fu"
+data.raw.technology["transport-drone-speed-4"].prerequisites = {
+  "transport-drone-speed-3", "nullius-robot-speed-4" }
+data.raw.technology["transport-drone-speed-4"].unit = {
+  count = 4200, time = 55,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-capacity-4"].order = "nullius-fv"
+data.raw.technology["transport-drone-capacity-4"].prerequisites = {
+  "transport-drone-capacity-3", "nullius-cybernetics-5" }
+data.raw.technology["transport-drone-capacity-4"].unit = {
+  count = 4500, time = 55,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-speed-5"].order = "nullius-gj"
+data.raw.technology["transport-drone-speed-5"].prerequisites = {
+  "transport-drone-speed-4", "nullius-cybernetics-6" }
+data.raw.technology["transport-drone-speed-5"].unit = {
+  count_formula = "(2^(L-5))*15000", time = 60, 
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+	{"nullius-astronomy-pack", 1}
+  }
+}
+data.raw.technology["transport-drone-capacity-5"].order = "nullius-gj"
+data.raw.technology["transport-drone-capacity-5"].prerequisites = {
+  "transport-drone-capacity-4", "nullius-personal-storage-3" }
+data.raw.technology["transport-drone-capacity-5"].unit = {
+  count = 25000, time = 60,    
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+	{"nullius-astronomy-pack", 1}
+  }
+}
+
+data.raw.item["road"].order = "nullius-b"
+data.raw.item["road"].stack_size = 500
+data.raw.recipe["road"].order = "nullius-b"
+data.raw.recipe["road"].always_show_made_in = true
+data.raw.recipe["road"].show_amount_in_title = false
+data.raw.recipe["road"].always_show_products = true
+data.raw.recipe["road"].category = "hand-casting"
+data.raw.recipe["road"].energy_required = 3
+data.raw.recipe["road"].result_count = 4
+data.raw.recipe["road"].ingredients = {
+  {"nullius-rubber", 1},
+  {"nullius-land-fill-sand", 1},
+  {"nullius-gravel", 3}
+}
+data.raw.item["transport-drone"].order = "nullius-c"
+data.raw.item["transport-drone"].stack_size = 20
+data.raw.recipe["transport-drone"].order = "nullius-c"
+data.raw.recipe["transport-drone"].always_show_made_in = true
+data.raw.recipe["transport-drone"].show_amount_in_title = false
+data.raw.recipe["transport-drone"].always_show_products = true
+data.raw.recipe["transport-drone"].category = "medium-crafting"
+data.raw.recipe["transport-drone"].energy_required = 10
+data.raw.recipe["transport-drone"].result_count = 3
+data.raw.recipe["transport-drone"].ingredients = {
+  {"nullius-car-1", 1},
+  {"arithmetic-combinator", 5},
+  {"programmable-speaker", 2},
+  {"turbo-filter-inserter", 3}
+}
+
+data.raw.item["supply-depot"].order = "nullius-d"
+data.raw.item["supply-depot"].stack_size = 20
+data.raw.recipe["supply-depot"].order = "nullius-d"
+data.raw.recipe["supply-depot"].always_show_made_in = true
+data.raw.recipe["supply-depot"].category = "large-crafting"
+data.raw.recipe["supply-depot"].energy_required = 12
+data.raw.recipe["supply-depot"].ingredients = {
+  {"nullius-large-chest-1", 1},
+  {"nullius-steel-beam", 4},
+  {"nullius-glass", 2},
+  {"train-stop", 1}
+}
+data.raw.item["request-depot"].order = "nullius-e"
+data.raw.item["request-depot"].stack_size = 20
+data.raw.recipe["request-depot"].order = "nullius-e"
+data.raw.recipe["request-depot"].always_show_made_in = true
+data.raw.recipe["request-depot"].category = "large-crafting"
+data.raw.recipe["request-depot"].energy_required = 6
+data.raw.recipe["request-depot"].ingredients = {
+  {"fluid-depot", 2},
+  {"nullius-hangar-1", 1}
+}
+data.raw.item["buffer-depot"].order = "nullius-f"
+data.raw.item["buffer-depot"].stack_size = 20
+data.raw.recipe["buffer-depot"].order = "nullius-f"
+data.raw.recipe["buffer-depot"].always_show_made_in = true
+data.raw.recipe["buffer-depot"].no_productivity = true
+data.raw.recipe["buffer-depot"].category = "large-crafting"
+data.raw.recipe["buffer-depot"].energy_required = 4
+data.raw.recipe["buffer-depot"].ingredients = {
+  {"request-depot", 1},
+  {"train-stop", 1}
+}
+data.raw.item["fluid-depot"].order = "nullius-g"
+data.raw.item["fluid-depot"].stack_size = 20
+data.raw.recipe["fluid-depot"].order = "nullius-g"
+data.raw.recipe["fluid-depot"].always_show_made_in = true
+data.raw.recipe["fluid-depot"].category = "large-crafting"
+data.raw.recipe["fluid-depot"].energy_required = 4
+data.raw.recipe["fluid-depot"].ingredients = {
+  {"supply-depot", 1},
+  {"nullius-medium-tank-2", 1},
+  {"nullius-barrel-pump-1", 1}
+}
+data.raw.item["fuel-depot"].order = "nullius-h"
+data.raw.item["fuel-depot"].stack_size = 20
+data.raw.recipe["fuel-depot"].order = "nullius-h"
+data.raw.recipe["fuel-depot"].always_show_made_in = true
+data.raw.recipe["fuel-depot"].category = "large-crafting"
+data.raw.recipe["fuel-depot"].energy_required = 4
+data.raw.recipe["fuel-depot"].ingredients = {
+  {"buffer-depot", 1},
+  {"nullius-pump-2", 2}
+}
+
+data.raw.item["road-network-reader"].order = "nullius-i"
+data.raw.item["road-network-reader"].stack_size = 50
+data.raw.recipe["road-network-reader"].order = "nullius-i"
+data.raw.recipe["road-network-reader"].always_show_made_in = true
+data.raw.recipe["road-network-reader"].category = "small-crafting"
+data.raw.recipe["road-network-reader"].energy_required = 5
+data.raw.recipe["road-network-reader"].ingredients = {
+  {"rail-chain-signal", 1},
+  {"nullius-sensor-1", 1},
+  {"programmable-speaker", 1}
+}
+data.raw.item["transport-depot-reader"].order = "nullius-j"
+data.raw.item["transport-depot-reader"].stack_size = 50
+data.raw.recipe["transport-depot-reader"].order = "nullius-j"
+data.raw.recipe["transport-depot-reader"].always_show_made_in = true
+data.raw.recipe["transport-depot-reader"].category = "small-crafting"
+data.raw.recipe["transport-depot-reader"].energy_required = 2
+data.raw.recipe["transport-depot-reader"].ingredients = {
+  {"road-network-reader", 1},
+  {"red-wire", 2}
+}
+data.raw.item["transport-depot-writer"].order = "nullius-k"
+data.raw.item["transport-depot-writer"].stack_size = 50
+data.raw.recipe["transport-depot-writer"].order = "nullius-k"
+data.raw.recipe["transport-depot-writer"].always_show_made_in = true
+data.raw.recipe["transport-depot-writer"].category = "small-crafting"
+data.raw.recipe["transport-depot-writer"].energy_required = 3
+data.raw.recipe["transport-depot-writer"].ingredients = {
+  {"road-network-reader", 1},
+  {"green-wire", 3}
+}
+
+data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 3
+data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 3
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -2
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 4
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 250
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -2
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 4
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
+end
+
+
+if mods["textplates"] then
+local textplatematerial = {
+  ["stone"] = {material="stone-brick", order="b"},
+  ["iron"] = {material="nullius-iron-plate", order="c"},
+  ["steel"] = {material="nullius-steel-plate", order="d"},
+  ["gold"] = {material="nullius-aluminum-plate", order="e"},
+  ["glass"] = {material="nullius-glass", order="f"},
+  ["concrete"] = {material="concrete", order="g"},
+  ["copper"] = {material="nullius-copper-sheet", order="h"},
+  ["uranium"] = {material="nullius-uranium", order="i"}
+}
+
+for _, recipe in pairs(data.raw.recipe) do
+  if (string.sub(recipe.name, 1, 10) == "textplate-") then
+    local material = string.sub(recipe.name, 17, -1)
+	local newmaterial = textplatematerial[material]
+	if (newmaterial ~= nil) then
+	  recipe.energy_required = 1
+	  recipe.category = "medium-crafting"
+	  recipe.enabled = false
+
+	  local order = "nullius-"..newmaterial.order
+	  local sz = string.sub(recipe.name, 11, 15)
+	  if (sz == "large") then
+	    recipe.ingredients = {{"textplate-small-"..material, 4}}
+		order = order.."c"
+	  else
+	    recipe.ingredients = {{newmaterial.material, 1}}
+		order = order.."b"
+	  end
+
+	  recipe.order = order
+	  --data.raw.item[recipe.name].order = order
+	  if (material == "gold") then
+	    data.raw.item[recipe.name].localised_name =
+		  {"item-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
+	    data.raw["simple-entity-with-force"][recipe.name].localised_name =
+		  {"entity-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
+	  end
+	end
+  end
+end
+end
+
+
+if mods["rso-mod"] then
+  -- A mysterious incompatibility when RSO is installed.  It says angels-oil-processing is
+  -- registered more than once in teh lubricant technology.  We don't use this technology.
+  data.raw.technology["lubricant"].prerequisites = { "advanced-oil-processing" }
 end

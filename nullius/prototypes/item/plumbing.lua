@@ -2,9 +2,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-pipe-1",
-    icon = "__base__/graphics/icons/pipe.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
+	icons = {{
+      icon = "__base__/graphics/icons/pipe.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
+	}},
     subgroup = "pipes",
     order = "nullius-b",
     place_result = "nullius-pipe-1",
@@ -13,8 +15,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-pipe-2",
-	icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe.png",
-    icon_size = 32,
+	icons = {{
+	  icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-d",
     place_result = "nullius-pipe-2",
@@ -23,8 +27,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-pipe-3",
-    icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-f",
     place_result = "nullius-pipe-3",
@@ -33,8 +39,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-pipe-4",
-    icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-h",
     place_result = "nullius-pipe-4",
@@ -43,9 +51,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-underground-pipe-1",
-    icon = "__base__/graphics/icons/pipe-to-ground.png",
-    icon_size = 64,
-	icon_mipmaps = 4,
+	icons = {{
+      icon = "__base__/graphics/icons/pipe-to-ground.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
+	}},
     subgroup = "pipes",
     order = "nullius-c",
     place_result = "nullius-underground-pipe-1",
@@ -54,8 +64,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-underground-pipe-2",
-	icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe-to-ground.png",
-    icon_size = 32,
+	icons = {{
+	  icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe-to-ground.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-e",
     place_result = "nullius-underground-pipe-2",
@@ -64,8 +76,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-underground-pipe-3",
-	icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe-to-ground.png",
-    icon_size = 32,
+	icons = {{
+	  icon = "__boblogistics__/graphics/icons/pipe/plastic-pipe-to-ground.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-g",
     place_result = "nullius-underground-pipe-3",
@@ -74,8 +88,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-underground-pipe-4",
-	icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe-to-ground.png",
-    icon_size = 32,
+	icons = {{
+	  icon = "__boblogistics__/graphics/icons/pipe/tungsten-pipe-to-ground.png",
+      icon_size = 32
+	}},
     subgroup = "pipes",
     order = "nullius-i",
     place_result = "nullius-underground-pipe-4",
@@ -94,8 +110,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
-		icon_size = 32,
-        scale = 0.6,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.3,
         shift = {8, -9}
       }
     },
@@ -217,8 +234,9 @@ data:extend({
       },
       {
 		icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
-		icon_size = 32,
-        scale = 0.6,
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.3,
         shift = {8, -9}
       }
     },
@@ -4081,3 +4099,102 @@ data:extend({
     result = "nullius-nanofabricator-2"
   }
 })
+
+
+if mods["reskins-bobs"] then
+data.raw.item["nullius-heat-pipe-1"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-icon-base.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-heat-pipe-2"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-3-icon-base.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-heat-pipe-3"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-2-icon-base.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+
+data.raw.item["nullius-stirling-engine-1"].icons = {
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/steam-engine/steam-engine-icon-base.png",
+	icon_size = 64, icon_mipmaps = 4
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/steam-engine/steam-engine-icon-mask.png",
+	icon_size = 64, icon_mipmaps = 4,
+	tint = tiercolor("yellow")
+  },
+  {
+	icon = "__reskins-bobs__/graphics/icons/power/steam-engine/steam-engine-icon-highlights.png",
+	icon_size = 64, icon_mipmaps = 4, tint = {1, 1, 1, 0}
+  }
+}
+
+data.raw.item["nullius-stirling-engine-2"].icons =
+    util.table.deepcopy(data.raw.item["nullius-stirling-engine-1"].icons)
+data.raw.item["nullius-stirling-engine-2"].icons[2].tint = tiercolor("orange")
+data.raw.item["nullius-stirling-engine-3"].icons =
+    util.table.deepcopy(data.raw.item["nullius-stirling-engine-1"].icons)
+data.raw.item["nullius-stirling-engine-3"].icons[2].tint = tiercolor("red")
+
+
+data.raw.item["nullius-pipe-2"].icons = {{
+  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.recipe["nullius-steel-pipe"].icons[1] = {
+  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon_size = 64, icon_mipmaps = 4
+}
+data.raw.recipe["nullius-plastic-pipe"].icons[1] = {
+  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon_size = 64, icon_mipmaps = 4
+}
+data.raw.item["nullius-pipe-3"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/logistics/pipe/plastic-pipe-icon.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-pipe-4"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/logistics/pipe/tungsten-pipe-icon.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-underground-pipe-2"].icons = {{
+  icon = "__nullius__/graphics/icons/pipe-underground-red.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-underground-pipe-3"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/logistics/pipe-to-ground/plastic-pipe-to-ground-icon.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw.item["nullius-underground-pipe-4"].icons = {{
+  icon = "__reskins-bobs__/graphics/icons/logistics/pipe-to-ground/tungsten-pipe-to-ground-icon.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+end
+
+
+label_icon("nullius-thermal-tank-1", 1, "grey")
+label_icon("nullius-thermal-tank-2", 2, "orange")
+label_icon("nullius-heat-pipe-1", 1, "red")
+label_icon("nullius-heat-pipe-2", 2, "orange")
+label_icon("nullius-heat-pipe-3", 3, "white")
+label_icon("nullius-geothermal-plant-1", 1, "grey")
+label_icon("nullius-geothermal-plant-2", 2, "red")
+label_icon("nullius-geothermal-plant-3", 3, "orange")
+label_icon("nullius-stirling-engine-1", 1, "yellow")
+label_icon("nullius-stirling-engine-2", 2, "orange")
+label_icon("nullius-stirling-engine-3", 3, "red")
+
+label_icon("nullius-pipe-1", 1, "grey")
+label_icon("nullius-pipe-2", 2, "red")
+label_icon("nullius-pipe-3", 3, "blue")
+label_icon("nullius-pipe-4", 4, "white")
+label_icon("nullius-underground-pipe-1", 1, "grey")
+label_icon("nullius-underground-pipe-2", 2, "red")
+label_icon("nullius-underground-pipe-3", 3, "blue")
+label_icon("nullius-underground-pipe-4", 4, "white")
+label_icon("nullius-stone-pipe", 1, "grey", "recipe")
+label_icon("nullius-iron-pipe", 1, "grey", "recipe")
+label_icon("nullius-steel-pipe", 2, "red", "recipe")
+label_icon("nullius-plastic-pipe", 2, "red", "recipe")

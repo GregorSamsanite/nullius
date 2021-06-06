@@ -34,8 +34,9 @@ data:extend({
     type = "technology",
     name = "nullius-iron-smelting-1",
     order = "nullius-bc",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-iron.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -789,8 +790,8 @@ data:extend({
     type = "technology",
     name = "nullius-desalination",
     order = "nullius-cd",
-    icon_size = 32,
-    icon = "__angelsrefining__/graphics/icons/water-purification.png",
+    icon = "__base__/graphics/icons/oil-refinery.png",
+    icon_size = 64,
     effects = {
       {
         type = "unlock-recipe",
@@ -809,8 +810,9 @@ data:extend({
     type = "technology",
     name = "nullius-metalworking-1",
     order = "nullius-cd",
-    icon_size = 256,
     icon = "__angelssmelting__/graphics/technology/induction-furnace-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 2,
     effects = {
       {
         type = "unlock-recipe",
@@ -1112,8 +1114,9 @@ data:extend({
     type = "technology",
     name = "nullius-silica-processing-1",
     order = "nullius-cg",
-    icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/powder-silica.png",
+    icon_size = 64,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -1136,8 +1139,9 @@ data:extend({
     type = "technology",
     name = "nullius-iron-smelting-2",
     order = "nullius-cg",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-iron.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -1432,8 +1436,9 @@ data:extend({
     type = "technology",
     name = "nullius-aluminum-production",
     order = "nullius-cj",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-aluminium.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-aluminium-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -1489,8 +1494,9 @@ data:extend({
     type = "technology",
     name = "nullius-silicon-production-1",
     order = "nullius-cj",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-silicon.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-silicon-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -2466,8 +2472,9 @@ data:extend({
     type = "technology",
     name = "nullius-silica-processing-2",
     order = "nullius-dg",
-    icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/powder-silica.png",
+    icon_size = 64,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -2547,8 +2554,9 @@ data:extend({
     type = "technology",
     name = "nullius-metalworking-2",
     order = "nullius-dg",
-    icon_size = 256,
     icon = "__angelssmelting__/graphics/technology/induction-furnace-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 2,
     effects = {
       {
         type = "unlock-recipe",
@@ -2721,8 +2729,9 @@ data:extend({
     type = "technology",
     name = "nullius-glassmaking-1",
     order = "nullius-dh",
-    icon_size = 128,
     icon = "__angelssmelting__/graphics/technology/glass-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -3657,8 +3666,9 @@ data:extend({
     type = "technology",
     name = "nullius-aluminum-production-2",
     order = "nullius-ed",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-aluminium.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-aluminium-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -3714,8 +3724,9 @@ data:extend({
     type = "technology",
     name = "nullius-iron-smelting-3",
     order = "nullius-ed",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-iron.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -3986,8 +3997,9 @@ data:extend({
     type = "technology",
     name = "nullius-ceramics",
     order = "nullius-ee",
-    icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+    icon_size = 64,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -4022,8 +4034,9 @@ data:extend({
     type = "technology",
     name = "nullius-glassmaking-2",
     order = "nullius-ef",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/glass-tech2.png",
+    icon = "__angelssmelting__/graphics/technology/glass-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -4080,8 +4093,9 @@ data:extend({
     type = "technology",
     name = "nullius-weaving-2",
     order = "nullius-ef",
-    icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
+    icon_size = 64,
+	icon_mipmaps = 4,	
     effects = {
       {
         type = "unlock-recipe",
@@ -4305,8 +4319,9 @@ data:extend({
     type = "technology",
     name = "nullius-titanium-production-2",
     order = "nullius-eg",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-titanium.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-titanium-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -4762,8 +4777,9 @@ data:extend({
     type = "technology",
     name = "nullius-composites-1",
 	order = "nullius-eh",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-zinc.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-zinc-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -6327,7 +6343,8 @@ data:extend({
     name = "nullius-titanium-working",
 	order = "nullius-ek",
 	icon = "__angelssmelting__/graphics/icons/roll-titanium.png",
-    icon_size = 32,
+    icon_size = 64,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -7673,7 +7690,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-personal-transportation-2", "nullius-braking-3"},
+    prerequisites = {"nullius-personal-transportation-2"},
 	upgrade = true
   },
   {
@@ -9117,7 +9134,7 @@ data:extend({
       }
     },
     unit = {
-      count = 1200,
+      count = 1500,
       ingredients = {
         {"nullius-geology-pack", 1},
         {"nullius-mechanical-pack", 3}, {"nullius-physics-pack", 1}
@@ -9593,8 +9610,9 @@ data:extend({
     type = "technology",
     name = "nullius-metalworking-4",
     order = "nullius-fi",
-    icon_size = 256,
     icon = "__angelssmelting__/graphics/technology/induction-furnace-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 2,
     effects = {
       {
         type = "unlock-recipe",
@@ -9617,8 +9635,9 @@ data:extend({
     type = "technology",
     name = "nullius-aluminum-production-3",
     order = "nullius-fj",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-aluminium.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-aluminium-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -9915,8 +9934,9 @@ data:extend({
     type = "technology",
     name = "nullius-titanium-production-3",
     order = "nullius-fl",
-    icon_size = 128,
-    icon = "__angelssmelting__/graphics/technology/smelting-titanium.png",
+    icon = "__angelssmelting__/graphics/technology/smelting-titanium-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -11579,8 +11599,9 @@ data:extend({
     type = "technology",
     name = "nullius-copper-production",
 	order = "nullius-gd",
-    icon = "__angelssmelting__/graphics/technology/smelting-copper.png",
-    icon_size = 128,
+    icon = "__angelssmelting__/graphics/technology/smelting-copper-tech.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -12474,8 +12495,9 @@ data:extend({
     type = "technology",
     name = "nullius-weaving-3",
     order = "nullius-gh",
-    icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
+    icon_size = 64,
+	icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",

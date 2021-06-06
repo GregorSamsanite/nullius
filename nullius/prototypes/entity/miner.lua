@@ -2654,3 +2654,473 @@ data:extend({
     }
   }
 })
+
+
+if mods["reskins-bobs"] then
+local small_miner = util.table.deepcopy(data.raw["mining-drill"]["nullius-small-miner-3"].graphics_set)
+small_miner.working_visualisations[3].north_animation.layers = {
+  small_miner.working_visualisations[3].north_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-mask.png",
+    line_length = 6,
+    width = 84,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(0, -12*0.6666),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-highlights.png",
+    line_length = 6,
+    width = 84,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(0, -12*0.6666),
+    blend_mode = "additive",
+	scale = 0.6666
+  },
+  small_miner.working_visualisations[3].north_animation.layers[2]
+}
+small_miner.working_visualisations[3].east_animation.layers = {
+  small_miner.working_visualisations[3].east_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-mask.png",
+    line_length = 6,
+    width = 40,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2*0.6666, -12*0.6666),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-highlights.png",
+    line_length = 6,
+    width = 40,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2*0.6666, -12*0.6666),
+    blend_mode = "additive",
+	scale = 0.6666
+  },
+  small_miner.working_visualisations[3].east_animation.layers[2]
+}
+small_miner.working_visualisations[6].east_animation = { layers = {
+  small_miner.working_visualisations[6].east_animation,
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-front-mask.png",
+    line_length = 6,
+    width = 32,
+    height = 76,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-2*0.6666, 4*0.6666),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-front-highlights.png",
+    line_length = 6,
+    width = 32,
+    height = 76,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-2*0.6666, 4*0.6666),
+    blend_mode = "additive",
+	scale = 0.6666
+  }
+}}
+small_miner.working_visualisations[3].south_animation =
+    small_miner.working_visualisations[3].north_animation
+small_miner.working_visualisations[3].west_animation =
+    small_miner.working_visualisations[3].east_animation
+small_miner.working_visualisations[6].west_animation =
+    small_miner.working_visualisations[6].east_animation
+data.raw["mining-drill"]["nullius-small-miner-2"].graphics_set = util.table.deepcopy(small_miner)
+
+small_miner.animation.north.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-N.png"
+small_miner.animation.east.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-E.png"
+small_miner.animation.west.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-W.png"
+small_miner.working_visualisations[7].east_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-E-front.png"
+small_miner.working_visualisations[7].south_animation.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-S-output.png"
+small_miner.working_visualisations[7].south_animation.layers[2].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-S-front.png"
+small_miner.working_visualisations[7].west_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-W-front.png"
+small_miner.working_visualisations[3].north_animation.layers[2].tint = {118, 149, 235}
+small_miner.working_visualisations[3].east_animation.layers[2].tint = {118, 149, 235}
+small_miner.working_visualisations[6].east_animation.layers[2].tint = {118, 149, 235}
+data.raw["mining-drill"]["nullius-small-miner-3"].graphics_set = small_miner
+
+
+local medium_miner = util.table.deepcopy(data.raw["mining-drill"]["nullius-medium-miner-3"].graphics_set)
+medium_miner.working_visualisations[3].north_animation.layers = {
+  medium_miner.working_visualisations[3].north_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-mask.png",
+    line_length = 6,
+    width = 84,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(0, -12),
+    tint = {240, 160, 0},
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-mask.png",
+        line_length = 6,
+	    width = 162,
+        height = 156,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(1, -11),
+        tint = {240, 160, 0},
+	    scale = 0.5
+	}
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-highlights.png",
+    line_length = 6,
+    width = 84,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(0, -12),
+    blend_mode = "additive",
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-highlights.png",
+        line_length = 6,
+	    width = 162,
+        height = 156,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(1, -11),
+        blend_mode = "additive",
+	    scale = 0.5
+	}
+  },
+  medium_miner.working_visualisations[3].north_animation.layers[2]
+}
+medium_miner.working_visualisations[3].east_animation.layers = {
+  medium_miner.working_visualisations[3].east_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-mask.png",
+    line_length = 6,
+    width = 40,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2, -12),
+    tint = {240, 160, 0},
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-mask.png",
+        line_length = 6,
+        width = 80,
+        height = 160,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(2, -12),
+        tint = {240, 160, 0},
+	    scale = 0.5
+	}
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-highlights.png",
+    line_length = 6,
+    width = 40,
+    height = 80,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2, -12),
+    blend_mode = "additive",
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-highlights.png",
+        line_length = 6,
+        width = 80,
+        height = 160,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(2, -12),
+        blend_mode = "additive",
+	    scale = 0.5
+	}
+  },
+  medium_miner.working_visualisations[3].east_animation.layers[2]
+}
+medium_miner.working_visualisations[6].east_animation = { layers = {
+  medium_miner.working_visualisations[6].east_animation,
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-front-mask.png",
+    line_length = 6,
+    width = 32,
+    height = 76,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-2, 4),
+    tint = {240, 160, 0},
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-front-mask.png",
+        line_length = 6,
+        width = 66,
+        height = 154,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(-3, 3),
+        tint = {240, 160, 0},
+	    scale = 0.5
+	}
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/electric-mining-drill-horizontal-front-highlights.png",
+    line_length = 6,
+    width = 32,
+    height = 76,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-2, 4),
+    blend_mode = "additive",
+	hr_version = {
+        priority = "high",
+        filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-front-highlights.png",
+        line_length = 6,
+        width = 66,
+        height = 154,
+        frame_count = 30,
+        animation_speed = 0.4,
+        frame_sequence = drill_animation_sequence,
+        direction_count = 1,
+        shift = util.by_pixel(-3, 3),
+        blend_mode = "additive",
+	    scale = 0.5
+	}
+  }
+}}
+medium_miner.working_visualisations[3].south_animation =
+    medium_miner.working_visualisations[3].north_animation
+medium_miner.working_visualisations[3].west_animation =
+    medium_miner.working_visualisations[3].east_animation
+medium_miner.working_visualisations[6].west_animation =
+    medium_miner.working_visualisations[6].east_animation
+data.raw["mining-drill"]["nullius-medium-miner-2"].graphics_set = util.table.deepcopy(medium_miner)
+
+medium_miner.animation.north.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-N.png"
+medium_miner.animation.east.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-E.png"
+medium_miner.animation.west.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-W.png"
+medium_miner.working_visualisations[7].east_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-E-front.png"
+medium_miner.working_visualisations[7].south_animation.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-S-output.png"
+medium_miner.working_visualisations[7].south_animation.layers[2].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-S-front.png"
+medium_miner.working_visualisations[7].west_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/electric-mining-drill-W-front.png"
+medium_miner.working_visualisations[3].north_animation.layers[2].tint = {118, 149, 235}
+medium_miner.working_visualisations[3].east_animation.layers[2].tint = {118, 149, 235}
+medium_miner.working_visualisations[6].east_animation.layers[2].tint = {118, 149, 235}
+medium_miner.animation.north.layers[1].hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-N.png"
+medium_miner.animation.east.layers[1].hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-E.png"
+medium_miner.animation.west.layers[1].hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-W.png"
+medium_miner.working_visualisations[7].east_animation.hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-E-front.png"
+medium_miner.working_visualisations[7].south_animation.layers[1].hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-S-output.png"
+medium_miner.working_visualisations[7].south_animation.layers[2].hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-S-front.png"
+medium_miner.working_visualisations[7].west_animation.hr_version.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-W-front.png"
+medium_miner.working_visualisations[3].north_animation.layers[2].hr_version.tint = {118, 149, 235}
+medium_miner.working_visualisations[3].east_animation.layers[2].hr_version.tint = {118, 149, 235}
+medium_miner.working_visualisations[6].east_animation.layers[2].hr_version.tint = {118, 149, 235}
+data.raw["mining-drill"]["nullius-medium-miner-3"].graphics_set = medium_miner
+
+
+local large_miner = util.table.deepcopy(data.raw["mining-drill"]["nullius-large-miner-2"].graphics_set)
+large_miner.working_visualisations[3].north_animation.layers = {
+  large_miner.working_visualisations[3].north_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-mask.png",
+    line_length = 6,
+	width = 162,
+    height = 156,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(1*1.3333, -11*1.3333),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-highlights.png",
+    line_length = 6,
+	width = 162,
+    height = 156,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(1*1.3333, -11*1.3333),
+    blend_mode = "additive",
+	scale = 0.6666
+  },
+  large_miner.working_visualisations[3].north_animation.layers[2]
+}
+large_miner.working_visualisations[3].east_animation.layers = {
+  large_miner.working_visualisations[3].east_animation.layers[1],
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-mask.png",
+    line_length = 6,
+    width = 80,
+    height = 160,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2*1.3333, -12*1.3333),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-highlights.png",
+    line_length = 6,
+    width = 80,
+    height = 160,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(2*1.3333, -12*1.3333),
+    blend_mode = "additive",
+	scale = 0.6666
+  },
+  large_miner.working_visualisations[3].east_animation.layers[2]
+}
+large_miner.working_visualisations[6].east_animation = { layers = {
+  large_miner.working_visualisations[6].east_animation,
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-front-mask.png",
+    line_length = 6,
+    width = 66,
+    height = 154,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-3*1.3333, 3*1.3333),
+    tint = {240, 160, 0},
+	scale = 0.6666
+  },
+  {
+    priority = "high",
+    filename = "__reskins-bobs__/graphics/entity/mining/mining-drill/drill/hr-electric-mining-drill-horizontal-front-highlights.png",
+    line_length = 6,
+    width = 66,
+    height = 154,
+    frame_count = 30,
+    animation_speed = 0.4,
+    frame_sequence = drill_animation_sequence,
+    direction_count = 1,
+    shift = util.by_pixel(-3*1.3333, 3*1.3333),
+    blend_mode = "additive",
+	scale = 0.6666
+  }
+}}
+large_miner.working_visualisations[3].south_animation =
+    large_miner.working_visualisations[3].north_animation
+large_miner.working_visualisations[3].west_animation =
+    large_miner.working_visualisations[3].east_animation
+large_miner.working_visualisations[6].west_animation =
+    large_miner.working_visualisations[6].east_animation
+data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set = util.table.deepcopy(large_miner)
+
+large_miner.animation.north.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-N.png"
+large_miner.animation.east.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-E.png"
+large_miner.animation.west.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-W.png"
+large_miner.working_visualisations[7].east_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-E-front.png"
+large_miner.working_visualisations[7].south_animation.layers[1].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-S-output.png"
+large_miner.working_visualisations[7].south_animation.layers[2].filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-S-front.png"
+large_miner.working_visualisations[7].west_animation.filename =
+    "__reskins-bobs__/graphics/entity/mining/mining-drill/area-frame/hr-electric-mining-drill-W-front.png"
+large_miner.working_visualisations[3].north_animation.layers[2].tint = {118, 149, 235}
+large_miner.working_visualisations[3].east_animation.layers[2].tint = {118, 149, 235}
+large_miner.working_visualisations[6].east_animation.layers[2].tint = {118, 149, 235}
+data.raw["mining-drill"]["nullius-large-miner-2"].graphics_set = large_miner
+
+end
