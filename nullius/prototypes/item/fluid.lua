@@ -2737,7 +2737,7 @@ data:extend({
     enabled = false,
     category = "distillation",
     subgroup = "compressed-organic",
-    order = "nullius-f",
+    order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-carbon-monoxide"].flow_color },
     energy_required = 1,
     ingredients = {
@@ -2748,6 +2748,33 @@ data:extend({
       {type="fluid", name="nullius-ethylene", amount=18},
       {type="fluid", name="nullius-propene", amount=12},
       {type="fluid", name="nullius-benzene", amount=3}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-alkene-synthesis-light",
+	localised_name = {"recipe-name.nullius-light", {"recipe-name.nullius-alkene-synthesis"}},
+	icons = angelsmods.functions.create_liquid_recipe_icon(
+  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
+	    {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72},
+	    {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}},
+	  {element_tint["oxygen"], element_tint["hydrogen"], element_tint["carbon"]},
+	  nil
+	),
+    enabled = false,
+    category = "distillation",
+    subgroup = "compressed-organic",
+    order = "nullius-fc",	
+    crafting_machine_tint = { primary = {r = 0.75, g = 0.3, b = 0.3} },
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=20},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=45}
+    },
+    results = {
+      {type="fluid", name="nullius-methane", amount=36}, 
+      {type="fluid", name="nullius-ethylene", amount=24},
+      {type="fluid", name="nullius-propene", amount=12}
     }
   },
 
@@ -4946,7 +4973,7 @@ data:extend({
       {type="fluid", name="nullius-benzene", amount=50}
     },
     results = {
-      {type="item", name="nullius-box-bpa", amount=25},
+      {type="item", name="nullius-box-bpa", amount=5},
       {type="fluid", name="nullius-wastewater", amount=75},
       {type="fluid", name="nullius-carbon-dioxide", amount=250}
     },

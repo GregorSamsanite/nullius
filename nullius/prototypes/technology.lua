@@ -1317,6 +1317,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-iron-disposal"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-land-fill-sludge"
       }
     },
     unit = {
@@ -1840,7 +1844,7 @@ data:extend({
       }
     },
     unit = {
-      count = 30,
+      count = 20,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, 
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1868,7 +1872,7 @@ data:extend({
       }
     },
     unit = {
-      count = 30,
+      count = 25,
       ingredients = {
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
@@ -1891,7 +1895,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 30,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
@@ -1913,7 +1917,7 @@ data:extend({
       }
     },
     unit = {
-      count = 20,
+      count = 15,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1941,14 +1945,15 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 35,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 15
     },
-    prerequisites = {"nullius-electromagnetism-2"}
+    prerequisites = {"nullius-electromagnetism-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -1975,7 +1980,7 @@ data:extend({
       }
     },
     unit = {
-      count = 60,
+      count = 40,
       ingredients = {
         {"nullius-geology-pack", 5},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
@@ -2000,7 +2005,7 @@ data:extend({
       }
     },
     unit = {
-      count = 40,
+      count = 30,
       ingredients = {
         {"nullius-climatology-pack", 1}, {"nullius-electrical-pack", 1}
       },
@@ -2031,14 +2036,15 @@ data:extend({
       }
     },
     unit = {
-      count = 60,
+      count = 40,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 15
     },
-    prerequisites = {"nullius-electromagnetism-2", "nullius-actuation-2"}
+    prerequisites = {"nullius-electromagnetism-2", "nullius-actuation-2"},
+	ignore_tech_cost_multiplier = true
   },
 
   {
@@ -2058,7 +2064,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 30,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2066,6 +2072,7 @@ data:extend({
       time = 15
     },
     prerequisites = {"nullius-logistics-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2089,13 +2096,14 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 70,
       ingredients = {
         {"nullius-climatology-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 20
     },
     prerequisites = {"nullius-signal-processing", "nullius-empiricism-1"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2118,13 +2126,14 @@ data:extend({
       }
     },
     unit = {
-      count = 80,
+      count = 50,
       ingredients = {
         {"nullius-climatology-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 20
     },
     prerequisites = {"nullius-pumping-2", "nullius-energy-distribution-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2148,7 +2157,7 @@ data:extend({
       }
     },
     unit = {
-      count = 70,
+      count = 50,
       ingredients = {
         {"nullius-geology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2156,6 +2165,7 @@ data:extend({
       time = 20
     },
     prerequisites = {"nullius-geology-2", "nullius-electromagnetism-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2182,14 +2192,14 @@ data:extend({
       }
     },
     unit = {
-      count = 90,
+      count = 40,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 20
     },
-    prerequisites = {"nullius-geology-2", "nullius-pumping-2"},
+    prerequisites = {"nullius-geology-2", "nullius-pumping-2"}
   },
   {
     type = "technology",
@@ -2209,7 +2219,7 @@ data:extend({
       }
     },
     unit = {
-      count = 60,
+      count = 40,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2217,6 +2227,7 @@ data:extend({
       time = 20
     },
     prerequisites = {"nullius-signal-processing", "nullius-hydrocarbon-fuel"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2236,14 +2247,14 @@ data:extend({
       }
     },
     unit = {
-      count = 80,
+      count = 60,
       ingredients = {
         {"nullius-geology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 20
     },
-    prerequisites = {"nullius-logistics-2", "nullius-signal-processing"},
+    prerequisites = {"nullius-logistics-2", "nullius-signal-processing"}
   },
 
   {
@@ -2326,13 +2337,14 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 100,
       ingredients = {
         {"nullius-electrical-pack", 1}
       },
       time = 25
     },
     prerequisites = {"nullius-computation", "nullius-maintenance"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2355,7 +2367,7 @@ data:extend({
       }
     },
     unit = {
-      count = 90,
+      count = 60,
       ingredients = {
         {"nullius-geology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2363,6 +2375,7 @@ data:extend({
       time = 25
     },
     prerequisites = {"nullius-mining-2", "nullius-actuation-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2401,7 +2414,7 @@ data:extend({
       }
     },
     unit = {
-      count = 80,
+      count = 70,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2409,6 +2422,7 @@ data:extend({
       time = 25
     },
     prerequisites = {"nullius-electrolysis-3"},
+	ignore_tech_cost_multiplier = true
   },
 
   {
@@ -2459,14 +2473,15 @@ data:extend({
       }
     },
     unit = {
-      count = 110,
+      count = 70,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 30
     },
-    prerequisites = {"nullius-mineral-processing-2"}
+    prerequisites = {"nullius-mineral-processing-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2482,14 +2497,15 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 80,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 30
     },
-    prerequisites = {"nullius-mineral-processing-2", "nullius-optimization-1"}
+    prerequisites = {"nullius-mineral-processing-2", "nullius-optimization-1"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2507,7 +2523,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 60,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2515,6 +2531,7 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-energy-storage-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2607,13 +2624,14 @@ data:extend({
       }
     },
     unit = {
-      count = 140,
+      count = 100,
       ingredients = {
         {"nullius-climatology-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 30
     },
     prerequisites = {"nullius-optimization-1", "nullius-logistics-2"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2739,14 +2757,15 @@ data:extend({
       }
     },
     unit = {
-      count = 130,
+      count = 90,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 30
     },
-    prerequisites = {"nullius-limestone-processing-1", "nullius-silica-processing-2", "nullius-nitrogen-chemistry-1"}
+    prerequisites = {"nullius-limestone-processing-1", "nullius-silica-processing-2", "nullius-nitrogen-chemistry-1"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2901,7 +2920,7 @@ data:extend({
       }
     },
     unit = {
-      count = 190,
+      count = 150,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2927,14 +2946,15 @@ data:extend({
       }
     },
     unit = {
-      count = 150,
+      count = 120,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 30
     },
-    prerequisites = {"nullius-glassmaking-1", "nullius-optimization-2"},
+    prerequisites = {"nullius-glassmaking-1", "nullius-broadcasting-1"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -3087,7 +3107,7 @@ data:extend({
       }
     },
     unit = {
-      count = 180,
+      count = 100,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3095,6 +3115,7 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-freight-logistics", "nullius-sensors-1"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -8082,6 +8103,10 @@ data:extend({
       },
 	  {
         type = "unlock-recipe",
+		recipe = "nullius-boxed-land-fill-sludge"
+      },
+	  {
+        type = "unlock-recipe",
 		recipe = "nullius-boxed-land-fill-red"
       },
 	  {
@@ -8261,6 +8286,28 @@ data:extend({
 	upgrade = true
   },
 
+  {
+    type = "technology",
+    name = "nullius-organic-chemistry-6",
+	order = "nullius-ep",
+	icons = data.raw.recipe["nullius-alkene-synthesis-light"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-alkene-synthesis-light"
+      }
+    },
+    unit = {
+      count = 500,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 2}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-high-pressure-chemistry", "nullius-empiricism-4"}
+  },
   {
     type = "technology",
     name = "nullius-cybernetics-4",
@@ -8737,7 +8784,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-composites-2"}
+    prerequisites = {"nullius-composites-2", "nullius-organic-chemistry-6"}
   },
   {
     type = "technology",

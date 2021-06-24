@@ -4783,8 +4783,8 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "ore-flotation",
-	subgroup = "boxed-concrete",
-	order = "nullius-ax",
+	subgroup = "boxed-calcium",
+	order = "nullius-x",
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=1},
@@ -4855,7 +4855,8 @@ data:extend({
     show_amount_in_title = false,
 	always_show_products = true,
     category = "ore-flotation",
-	subgroup = "boxed-terrain",
+	order = "nullius-ax",
+	subgroup = "boxed-concrete",
     energy_required = 40,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=3},

@@ -417,6 +417,80 @@ data:extend({
   },
 
   {
+    type = "recipe",
+    name = "nullius-land-fill-sludge",
+	localised_name = {"recipe-name.nullius-land-fill-sludge"},
+	icons = {
+      {
+        icon = "__nullius__/graphics/landfill/landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+	    icon = "__nullius__/graphics/sludge.png",
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.25,
+        shift = {-12, -10}
+	  }
+    },
+	subgroup = "masonry",
+	order = "nullius-as",
+    energy_required = 1,
+    category = "ore-crushing",
+    enabled = false,
+	always_show_made_in = true,
+    show_amount_in_title = false,
+	always_show_products = true,
+    ingredients = {
+      {type="item", name="nullius-land-fill-gravel", amount=3},
+      {type="item", name="nullius-land-fill-sand", amount=2},
+	  {type="fluid", name="nullius-sludge", amount=25}
+    },
+    result = "nullius-land-fill-bauxite",
+    result_count = 10
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-land-fill-sludge",
+	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-sludge"}},
+	icons = {
+      {
+	    icon = "__nullius__/graphics/crate.png",
+        icon_size = 64
+	  },
+      {
+        icon = "__nullius__/graphics/landfill/landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+	  {
+	    icon = "__nullius__/graphics/sludge.png",
+		icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.225,
+        shift = {-11, -9}
+	  }
+    },
+    enabled = false,
+	always_show_made_in = true,
+    show_amount_in_title = false,
+	always_show_products = true,
+    category = "ore-crushing",
+	subgroup = "boxed-terrain",
+	order = "nullius-is",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-gravel", amount=3},
+      {type="item", name="nullius-box-land-fill-sand", amount=2},
+	  {type="fluid", name="nullius-sludge", amount=250}
+    },
+    result = "nullius-box-land-fill-bauxite",
+    result_count = 10
+  },
+
+  {
     type = "tile",
     name = "nullius-land-fill-sand",
     collision_mask = {"ground-tile"},

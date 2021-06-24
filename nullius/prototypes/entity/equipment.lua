@@ -250,7 +250,7 @@ data:extend({
     charging_energy = "250kW",
 
     robot_limit = 10,
-    construction_radius = 12,
+    construction_radius = 8,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -300,7 +300,7 @@ data:extend({
     charging_energy = "600kW",
 
     robot_limit = 16,
-    construction_radius = 15,
+    construction_radius = 12,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -350,7 +350,7 @@ data:extend({
     charging_energy = "800kW",
 
     robot_limit = 25,
-    construction_radius = 18,
+    construction_radius = 16,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -399,7 +399,7 @@ data:extend({
     charging_energy = "800kW",
 
     robot_limit = 25,
-    construction_radius = 18,
+    construction_radius = 16,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -647,7 +647,7 @@ data:extend({
     charging_energy = "0kW",
 
     robot_limit = 0,
-    construction_radius = 24,
+    construction_radius = 16,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -699,7 +699,7 @@ data:extend({
     charging_energy = "0kW",
 
     robot_limit = 0,
-    construction_radius = 32,
+    construction_radius = 24,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -751,7 +751,7 @@ data:extend({
     charging_energy = "0kW",
 
     robot_limit = 0,
-    construction_radius = 48,
+    construction_radius = 32,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,
@@ -804,7 +804,7 @@ data:extend({
     charging_energy = "0kW",
 
     robot_limit = 0,
-    construction_radius = 72,
+    construction_radius = 48,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
     charge_approach_distance = 2.6,

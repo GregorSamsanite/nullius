@@ -1,4 +1,36 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.26
+Date: 23.06.2021
+  Bugfixes:
+    - Fix ratio on non-pressurized, boxed BPA recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.25
+Date: 20.06.2021
+  Info:
+    - Note that Resource Spawner Overhaul mod supports Nullius resources as of RSO 6.2.8.
+  Bugfixes:
+    - Fix certain overridden mod settings that were not being forced to intended value.
+    - Adjust Chassis 6 recipe so it can actually be crafted.
+    - Fix some wrong looking or missing Transport Drone requests for certain items.
+  Balancing:
+    - Reduce costs of early electrical engineering technologies leading up to train signals.
+    - Reduce storage/drone capacity of request/buffer Transport Drone depots.
+    - Increase fluid storage in Transport Drones fluid depot and fuel depot.
+    - Slightly increase Transport Drone fuel consumption and fuel storage.
+  Changes:
+    - Update dependencies to more recent versions.  Some older ones have incompatibilities.
+    - Add Transport Drones as an optional dependency.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.24
+Date: 12.06.2021
+  Modding:
+    - Add compatibility support for Robot Replacer.
+  Features:
+    - Add a higher tech alternate alkene synthesis recipe.
+    - Add a recipe for landfill using sludge.
+  Balancing:
+    - Reduce construction radius of personal hangar and relay equipment (not structures).
+---------------------------------------------------------------------------------------------------
 Version: 1.0.23
 Date: 05.06.2021
   Bugfixes:

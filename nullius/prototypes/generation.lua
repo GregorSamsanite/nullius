@@ -151,7 +151,7 @@ resource_autoplace.initialize_patch_set("iron-ore", true)
 resource_autoplace.initialize_patch_set("nullius-bauxite", true)
 resource_autoplace.initialize_patch_set("nullius-sandstone", true)
 resource_autoplace.initialize_patch_set("nullius-limestone", true)
-resource_autoplace.initialize_patch_set("angels-fissure", true)
+resource_autoplace.initialize_patch_set("nullius-fumarole", true)
 
 make_particle("nullius-bauxite", {0.781, 0.703, 0.344})
 make_particle("nullius-sandstone", {0.690, 0.611, 0.427})

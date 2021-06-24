@@ -1389,3 +1389,21 @@ data:extend({
 })
 end
 
+
+if mods["botReplacer"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-bot-upgrade-chest",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-small-dispatch-chest-1", 1},
+      {"nullius-relay-2", 1}
+    },
+    result = "logistic-chest-botUpgrader"
+  }
+})
+end

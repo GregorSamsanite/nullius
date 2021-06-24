@@ -33,6 +33,10 @@ data:extend({
   },
   {
     type = "recipe-category",
+    name = "bio-harvesting",
+  },
+  {
+    type = "recipe-category",
     name = "basic-chemistry",
   },
   {

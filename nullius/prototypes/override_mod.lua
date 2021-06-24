@@ -92,7 +92,7 @@ data.raw.technology["factory-interior-upgrade-lights"].unit = {
 
 data.raw.technology["factory-interior-upgrade-display"].order = "nullius-e"
 data.raw.technology["factory-interior-upgrade-display"].prerequisites = {
-	"factory-architecture-t2", "nullius-aesthetics"}
+	"factory-architecture-t2", "nullius-sensors-2"}
 data.raw.technology["factory-interior-upgrade-display"].unit = {
     count = 4*factory_mult, time = 35,
     ingredients = {
@@ -1000,7 +1000,7 @@ data.raw.recipe["request-depot"].always_show_made_in = true
 data.raw.recipe["request-depot"].category = "large-crafting"
 data.raw.recipe["request-depot"].energy_required = 6
 data.raw.recipe["request-depot"].ingredients = {
-  {"fluid-depot", 2},
+  {"fluid-depot", 1},
   {"nullius-hangar-1", 1}
 }
 data.raw.item["buffer-depot"].order = "nullius-f"
@@ -1072,10 +1072,10 @@ data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 3
 data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 3
 data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -2
 data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 4
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 250
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 500
 data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -2
 data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 4
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 250
 end
 
 
@@ -1128,4 +1128,14 @@ if mods["rso-mod"] then
   -- A mysterious incompatibility when RSO is installed.  It says angels-oil-processing is
   -- registered more than once in teh lubricant technology.  We don't use this technology.
   data.raw.technology["lubricant"].prerequisites = { "advanced-oil-processing" }
+end
+
+
+if mods["botReplacer"] then
+data.raw.item["logistic-chest-botUpgrader"].subgroup = "hangar-2"
+data.raw.item["logistic-chest-botUpgrader"].order = "nullius-r"
+data.raw.item["logistic-chest-botUpgrader"].stack_size = 10
+
+table.insert(data.raw["technology"]["nullius-distribution-2"].effects,
+    {type = "unlock-recipe", recipe = "nullius-bot-upgrade-chest"})
 end

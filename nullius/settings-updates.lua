@@ -99,52 +99,52 @@ end
 if data.raw['string-setting']['alien-biomes-include-grass-blue'] then
    data.raw['string-setting']['alien-biomes-include-grass-blue'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-blue'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-blue'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-blue'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-green'] then
    data.raw['string-setting']['alien-biomes-include-grass-green'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-green'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-green'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-green'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-mauve'] then
    data.raw['string-setting']['alien-biomes-include-grass-mauve'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-mauve'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-mauve'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-mauve'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-olive'] then
    data.raw['string-setting']['alien-biomes-include-grass-olive'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-olive'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-olive'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-olive'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-orange'] then
    data.raw['string-setting']['alien-biomes-include-grass-orange'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-orange'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-orange'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-orange'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-purple'] then
    data.raw['string-setting']['alien-biomes-include-grass-purple'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-purple'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-purple'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-purple'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-red'] then
    data.raw['string-setting']['alien-biomes-include-grass-red'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-red'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-red'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-red'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-turquoise'] then
    data.raw['string-setting']['alien-biomes-include-grass-turquoise'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-turquoise'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-turquoise'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-turquoise'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-violet'] then
    data.raw['string-setting']['alien-biomes-include-grass-violet'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-violet'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-violet'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-violet'].allowed_values = {"Disabled"}
 end
 if data.raw['string-setting']['alien-biomes-include-grass-yellow'] then
    data.raw['string-setting']['alien-biomes-include-grass-yellow'].hidden = true
    data.raw['string-setting']['alien-biomes-include-grass-yellow'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-yellow'].forced_value = {"Disabled"}
+   data.raw['string-setting']['alien-biomes-include-grass-yellow'].allowed_values = {"Disabled"}
 end
 
 if data.raw['bool-setting']['angels-enable-converter'] then
@@ -300,14 +300,20 @@ end
 if data.raw['string-setting']['fuel-fluid'] then
    data.raw['string-setting']['fuel-fluid'].hidden = true
    data.raw['string-setting']['fuel-fluid'].default_value = "nullius-steam"
-   data.raw['string-setting']['fuel-fluid'].forced_value = {"nullius-steam"}
+   data.raw['string-setting']['fuel-fluid'].allowed_values = {"nullius-steam"}
 end
 if data.raw['double-setting']['fuel-amount-per-drone'] then
-   data.raw['double-setting']['fuel-amount-per-drone'].default_value = 75
+   data.raw['double-setting']['fuel-amount-per-drone'].hidden = true
+   data.raw['double-setting']['fuel-amount-per-drone'].default_value = 150
+   data.raw['double-setting']['fuel-amount-per-drone'].allowed_values = {150}
 end
 if data.raw['double-setting']['drone-fluid-capacity'] then
+   data.raw['double-setting']['drone-fluid-capacity'].hidden = true
    data.raw['double-setting']['drone-fluid-capacity'].default_value = 1000
+   data.raw['double-setting']['drone-fluid-capacity'].allowed_values = {1000}
 end
 if data.raw['double-setting']['fuel-consumption-per-meter'] then
-   data.raw['double-setting']['fuel-consumption-per-meter'].default_value = 0.035
+   data.raw['double-setting']['fuel-consumption-per-meter'].hidden = true
+   data.raw['double-setting']['fuel-consumption-per-meter'].default_value = 0.06
+   data.raw['double-setting']['fuel-consumption-per-meter'].allowed_values = {0.06}
 end

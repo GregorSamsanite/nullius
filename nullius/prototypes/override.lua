@@ -30,7 +30,8 @@ data.raw.item["stone"].stack_size = 50
 data.raw.item["red-wire"].order = "nullius-c"
 data.raw.item["green-wire"].order = "nullius-d"
 data.raw.item["power-switch"].order = "nullius-h"
-
+data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
+data.raw.item["copper-cable"].icon_size = 64 
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 

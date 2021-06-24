@@ -973,6 +973,25 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "physical", decrease = 50, percent = 80 }
     },
+    fluid_boxes = {
+      {
+        production_type = "input",
+        pipe_covers = pipecoverspictures(),
+        base_area = 5,
+        base_level = -2,
+		height = 2,
+        pipe_connections = {{ type="input", position = {0, 2} }}
+      },
+      {
+        production_type = "output",
+        pipe_covers = pipecoverspictures(),
+        base_level = 1,
+		base_area = 3,
+		height = 2,
+        pipe_connections = {{ position = {0, -2} }}
+      },
+      off_when_no_fluid_recipe = true
+    },
     animation = {
       layers = {{
         filename = "__angelsrefining__/graphics/entity/ore-crusher/1ore-crusher.png",
@@ -1020,7 +1039,25 @@ data:extend({
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-crusher"].working_sound,
-
+    fluid_boxes = {
+      {
+        production_type = "input",
+        pipe_covers = pipecoverspictures(),
+        base_area = 5,
+        base_level = -2,
+		height = 2,
+        pipe_connections = {{ type="input", position = {0, 2} }}
+      },
+      {
+        production_type = "output",
+        pipe_covers = pipecoverspictures(),
+        base_level = 1,
+		base_area = 3,
+		height = 2,
+        pipe_connections = {{ position = {0, -2} }}
+      },
+      off_when_no_fluid_recipe = true
+    },
     animation = {
       layers = {
         {
@@ -1050,7 +1087,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"ore-crushing", "hand-crushing"},
+    crafting_categories = {"ore-crushing", "hand-crushing", "bio-harvesting"},
     crafting_speed = 4,
     energy_source = {
       type = "electric",

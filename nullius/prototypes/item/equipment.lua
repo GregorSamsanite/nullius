@@ -253,7 +253,7 @@ data:extend({
     category = "nanotechnology",
     energy_required = 300,
     ingredients = {
-      {"nullius-chassis-5", 3},
+      {"nullius-chassis-5", 1},
 	  {"nullius-solar-panel-4", 3},
       {"nullius-battery-3", 4},
 	  {"nullius-box-graphene", 6},
