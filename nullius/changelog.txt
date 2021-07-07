@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.28
+Date: 07.07.2021
+  Balancing:
+    - Add signal processing prereq to energy storage 2.
+  Modding:
+    - Add support for the Chute item when miniloader mod is enabled.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.27
+Date: 30.06.2021
+  Changes:
+    - Small storage tanks now accept a third pipe connection.
+  Balancing:
+    - Moved boxed graphite to carbon monoxide recipe to earlier technology.
+    - Change a tech prerequisite for mechanical engineering 2.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.26
 Date: 23.06.2021
   Bugfixes:

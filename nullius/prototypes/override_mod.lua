@@ -161,10 +161,10 @@ data.raw["inserter"]["fast-miniloader-inserter"].localised_name = {"", {"entity-
 data.raw.item["fast-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
 data.raw["loader-1x1"]["fast-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
 data.raw["inserter"]["fast-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
-data.raw.item["fast-miniloader"].subgroup = "splitter"
-data.raw.item["fast-miniloader"].order = "nullius-mbb"
-data.raw.item["fast-filter-miniloader"].subgroup = "splitter"
-data.raw.item["fast-filter-miniloader"].order = "nullius-mbc"
+data.raw.item["fast-miniloader"].subgroup = "miniloader"
+data.raw.item["fast-miniloader"].order = "nullius-cb"
+data.raw.item["fast-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["fast-filter-miniloader"].order = "nullius-cc"
 
 data.raw.item["express-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
 data.raw["loader-1x1"]["express-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
@@ -172,10 +172,10 @@ data.raw["inserter"]["express-miniloader-inserter"].localised_name = {"", {"enti
 data.raw.item["express-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
 data.raw["loader-1x1"]["express-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
 data.raw["inserter"]["express-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
-data.raw.item["express-miniloader"].subgroup = "splitter"
-data.raw.item["express-miniloader"].order = "nullius-mcb"
-data.raw.item["express-filter-miniloader"].subgroup = "splitter"
-data.raw.item["express-filter-miniloader"].order = "nullius-mcc"
+data.raw.item["express-miniloader"].subgroup = "miniloader"
+data.raw.item["express-miniloader"].order = "nullius-db"
+data.raw.item["express-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["express-filter-miniloader"].order = "nullius-dc"
 
 data.raw.item["ultimate-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
 data.raw["loader-1x1"]["ultimate-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
@@ -183,10 +183,17 @@ data.raw["inserter"]["ultimate-miniloader-inserter"].localised_name = {"", {"ent
 data.raw.item["ultimate-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
 data.raw["loader-1x1"]["ultimate-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
 data.raw["inserter"]["ultimate-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
-data.raw.item["ultimate-miniloader"].subgroup = "splitter"
-data.raw.item["ultimate-miniloader"].order = "nullius-mdb"
-data.raw.item["ultimate-filter-miniloader"].subgroup = "splitter"
-data.raw.item["ultimate-filter-miniloader"].order = "nullius-mdc"
+data.raw.item["ultimate-miniloader"].subgroup = "miniloader"
+data.raw.item["ultimate-miniloader"].order = "nullius-eb"
+data.raw.item["ultimate-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["ultimate-filter-miniloader"].order = "nullius-ec"
+
+if settings.startup["miniloader-enable-chute"].value then
+  table.insert(data.raw["technology"]["nullius-mechanical-separation"].effects,
+      {type = "unlock-recipe", recipe = "nullius-miniloader-chute"})
+  data.raw.item["chute-miniloader"].subgroup = "miniloader"
+  data.raw.item["chute-miniloader"].order = "nullius-b"
+end
 end
 
 

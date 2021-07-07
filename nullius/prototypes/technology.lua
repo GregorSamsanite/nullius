@@ -2421,7 +2421,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-electrolysis-3"},
+    prerequisites = {"nullius-electrolysis-3", "nullius-signal-processing"},
 	ignore_tech_cost_multiplier = true
   },
 
@@ -6648,6 +6648,10 @@ data:extend({
       },
 	  {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-carbon-monoxide"
+      },
+	  {
+        type = "unlock-recipe",
 		recipe = "nullius-boxed-stone-brick"
       },
 	  {
@@ -9188,7 +9192,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-automation-3", "nullius-filtration-2", "nullius-logistics-4"}
+    prerequisites = {"nullius-automation-3", "nullius-pumping-3", "nullius-logistics-4"}
   },
   {
     type = "technology",
@@ -12714,10 +12718,6 @@ data:extend({
 	  {
         type = "unlock-recipe",
         recipe = "nullius-fatty-acid-pyrolysis"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-boxed-carbon-monoxide"
       },
 	  {
         type = "unlock-recipe",

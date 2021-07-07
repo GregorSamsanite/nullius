@@ -74,7 +74,7 @@ if mods["Transport_Drones"] then
 	      recipe.order = fluid.order
 		  recipe.always_show_products = true
 		  recipe.show_amount_in_title = false
-		  recipe.overload_multiplier = 30
+		  recipe.overload_multiplier = 40
 		  recipe.ingredients[2].amount = 15000
 		  recipe.results[1].amount = 500000
 		  recipe.energy_required = 600
@@ -84,7 +84,7 @@ if mods["Transport_Drones"] then
   end
 
   data.raw.recipe["fuel-depots"].ingredients[1].amount = 1
-  data.raw.recipe["fuel-depots"].overload_multiplier = 30
+  data.raw.recipe["fuel-depots"].overload_multiplier = 40
   data.raw.recipe["fuel-depots"].energy_required = 60
   data.raw.recipe["fuel-depots"].show_amount_in_title = false
 end

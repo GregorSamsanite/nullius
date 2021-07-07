@@ -218,6 +218,12 @@ end
 if mods["miniloader"] then
 data:extend({
   {
+    type = "item-subgroup",
+    name = "miniloader",
+    group = "logistics",
+    order = "cam"
+  },
+  {
     type = "technology",
     name = "nullius-miniloader-1",
     order = "nullius-dg",
@@ -294,7 +300,7 @@ data:extend({
     },
 	prerequisites = {"nullius-distribution-3", "nullius-miniloader-2"}
   },
-  
+
   {
     type = "recipe",
     name = "nullius-miniloader-1",
@@ -384,6 +390,23 @@ data:extend({
     result = "ultimate-filter-miniloader"
   }
 })
+if settings.startup["miniloader-enable-chute"].value then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-miniloader-chute",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-small-chest-1", amount=1},
+      {type="item", name="underground-belt", amount=2}
+    },
+    result = "chute-miniloader"
+  }
+})
+end
 end
 
 

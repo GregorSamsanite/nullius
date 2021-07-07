@@ -1910,7 +1910,8 @@ data:extend({
       pipe_connections = {
         { position = {0.5, -1.5} },
         { position = {0.5, 1.5} },
-      },
+		{ position = {-1.5, 0.5} }
+      }
     },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -1921,55 +1922,98 @@ data:extend({
     next_upgrade = "nullius-small-tank-2",
     pictures = {
       picture = {
-	 	sheet = {
-			filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-			priority = "extra-high",
-			frames = 4,
-			width = 256,
-			height = 320,
-			scale = 0.495,
-			shift = {0, -0.5},
-			tint = {0.8, 0.8, 0.4}
+	    north = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 144,
+			  height = 320,
+			  x = 96,
+			  scale = 0.495,
+			  shift = {0.62, -0.5},
+			  tint = {0.8, 0.8, 0.4}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 96,
+			  height = 320,
+			  x = 256,
+			  scale = 0.495,
+			  shift = {-1.23, -0.5},
+			  tint = {0.8, 0.8, 0.4}
+			}
+		  }
+		},
+	    east = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 320,
+			  x = 256,
+			  scale = 0.495,
+			  shift = {0, -0.5},
+			  tint = {0.8, 0.8, 0.4}
+			}
+		  }
+		},
+	    south = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 144,
+			  height = 320,
+			  x = 512,
+			  scale = 0.495,
+			  shift = {-0.87, -0.5},
+			  tint = {0.8, 0.8, 0.4}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 96,
+			  height = 320,
+			  x = 912,
+			  scale = 0.495,
+			  shift = {0.98, -0.5},
+			  tint = {0.8, 0.8, 0.4}
+			}
+		  }
+		},
+	    west = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 200,
+			  x = 768,
+			  scale = 0.495,
+			  shift = {0, -1.43},
+			  tint = {0.8, 0.8, 0.4}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 120,
+			  x = 0,
+			  y = 200,
+			  scale = 0.495,
+			  shift = {0, 1.04},
+			  tint = {0.8, 0.8, 0.4}
+			}
+		  }
 		}
       },
-      fluid_background = {
-        filename = "__angelspetrochem__/graphics/entity/electrolyser/blank.png",
-        priority = "extra-high",
-        width = 1,
-        height = 1
-      },
-      window_background = {
-        filename = "__angelspetrochem__/graphics/entity/electrolyser/blank.png",
-        priority = "extra-high",
-        width = 1,
-        height = 1
-      },
-      flow_sprite = {
-        filename = "__angelspetrochem__/graphics/entity/electrolyser/blank.png",
-        priority = "extra-high",
-        width = 1,
-        height = 1
-      },
-      gas_flow = {
-        filename = "__angelspetrochem__/graphics/entity/electrolyser/blank.png",
-        priority = "extra-high",
-        width = 1,
-        height = 1,
-        frame_count = 1,
-        axially_symmetrical = false,
-        direction_count = 1,
-        animation_speed = 0.25,
-        hr_version = {
-          filename = "__angelspetrochem__/graphics/entity/electrolyser/blank.png",
-          priority = "extra-high",
-          width = 1,
-          height = 1,
-          frame_count = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          animation_speed = 0.25,
-        }
-      }
+      fluid_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.fluid_background,
+      window_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.window_background,
+      flow_sprite = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.flow_sprite,
+      gas_flow = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.gas_flow
     },
     flow_length_in_ticks = 360,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1999,7 +2043,8 @@ data:extend({
       pipe_connections = {
         { position = {0.5, -1.5} },
         { position = {0.5, 1.5} },
-      },
+		{ position = {-1.5, 0.5} }
+      }
     },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -2007,7 +2052,94 @@ data:extend({
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
     fast_replaceable_group = "small-tank",
-	pictures = data.raw["storage-tank"]["angels-storage-tank-3"].pictures,
+    pictures = {
+      picture = {
+	    north = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 144,
+			  height = 320,
+			  x = 96,
+			  scale = 0.495,
+			  shift = {0.62, -0.5}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 96,
+			  height = 320,
+			  x = 256,
+			  scale = 0.495,
+			  shift = {-1.23, -0.5}
+			}
+		  }
+		},
+	    east = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 320,
+			  x = 256,
+			  scale = 0.495,
+			  shift = {0, -0.5}
+			}
+		  }
+		},
+	    south = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 144,
+			  height = 320,
+			  x = 512,
+			  scale = 0.495,
+			  shift = {-0.87, -0.5}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 96,
+			  height = 320,
+			  x = 912,
+			  scale = 0.495,
+			  shift = {0.98, -0.5}
+			}
+		  }
+		},
+	    west = {
+		  layers = {
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 200,
+			  x = 768,
+			  scale = 0.495,
+			  shift = {0, -1.43}
+			},
+		    {
+			  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			  priority = "extra-high",
+			  width = 256,
+			  height = 120,
+			  x = 0,
+			  y = 200,
+			  scale = 0.495,
+			  shift = {0, 1.04}
+			}
+		  }
+		}
+      },
+      fluid_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.fluid_background,
+      window_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.window_background,
+      flow_sprite = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.flow_sprite,
+      gas_flow = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.gas_flow
+    },
     flow_length_in_ticks = 360,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
