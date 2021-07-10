@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.29
+Date: 10.07.2021
+  Features:
+    - Add a recipe specifically for filtering minor atmospheric components.
+  Balancing:
+    - Change Mineral Sample 2 recipe to use more mineral dust.
+    - Introduce more variation in research costs for Physics and Astronomy era technologies.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.28
 Date: 07.07.2021
   Balancing:

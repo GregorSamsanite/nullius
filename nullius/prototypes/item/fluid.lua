@@ -2293,6 +2293,25 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-residual-gas",
+	localised_name = {"fluid-name.nullius-residual-gas"},
+    enabled = false,
+    category = "distillation",
+    subgroup = "air-filtration",
+	order = "nullius-ce",
+    crafting_machine_tint = { primary = {r = 77, g = 160, b = 244} },
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-air", amount=75}
+    },
+    results = {
+      {type="fluid", name="nullius-air", amount=150},
+      {type="fluid", name="nullius-compressed-residual-gas", amount=3}
+    },
+	main_product = "nullius-compressed-residual-gas"
+  },
+  {
+    type = "recipe",
     name = "nullius-residual-separation",
 	icons = angelsmods.functions.create_gas_recipe_icon(
   	  {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["argon"]},

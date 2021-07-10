@@ -132,13 +132,13 @@ data:extend({
 	always_show_made_in = true,
     enabled = false,
     category = "small-crafting",
-    energy_required = 10,
+    energy_required = 8,
     ingredients = {
       {"nullius-crushed-iron-ore", 1},
       {"nullius-crushed-bauxite", 1},
       {"nullius-crushed-limestone", 1},
       {"nullius-sand", 1},
-      {"nullius-mineral-dust", 1}
+      {"nullius-mineral-dust", 4}
     },
     result = "nullius-geology-pack",
     result_count = 2
@@ -152,13 +152,13 @@ data:extend({
     enabled = false,
     category = "large-assembly",
 	subgroup = "boxed-science",
-    energy_required = 50,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-crushed-iron-ore", 1},
       {"nullius-box-crushed-bauxite", 1},
       {"nullius-box-crushed-limestone", 1},
       {"nullius-box-sand", 1},
-      {"nullius-box-mineral-dust", 1}
+      {"nullius-box-mineral-dust", 4}
     },
     result = "nullius-box-geology-pack",
     result_count = 2

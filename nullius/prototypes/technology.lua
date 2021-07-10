@@ -8675,10 +8675,10 @@ data:extend({
       }
     },
     unit = {
-      count = 1000,
+      count = 800,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 40
@@ -8709,11 +8709,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1000,
+      count = 800,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 2}
       },
       time = 40
     },
@@ -8746,9 +8746,9 @@ data:extend({
       }
     },
     unit = {
-      count = 1100,
+      count = 1000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -8780,11 +8780,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1100,
+      count = 1000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 40
     },
@@ -9094,11 +9094,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1400,
+      count = 1000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 40
     },
@@ -9240,11 +9240,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1500,
+      count = 1200,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 40
     },
@@ -9263,9 +9263,9 @@ data:extend({
       }
     },
     unit = {
-      count = 1500,
+      count = 1400,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9286,9 +9286,9 @@ data:extend({
       }
     },
     unit = {
-      count = 1500,
+      count = 1400,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9309,11 +9309,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1500,
+      count = 1400,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-mechanical-pack", 2}, {"nullius-chemical-pack", 2},
+		{"nullius-physics-pack", 1}
       },
       time = 40
     },
@@ -9358,11 +9358,10 @@ data:extend({
       }
     },
     unit = {
-      count = 1600,
+      count = 1500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 3},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1}
       },
       time = 45
     },
@@ -9385,9 +9384,9 @@ data:extend({
       }
     },
     unit = {
-      count = 1600,
+      count = 1500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9448,11 +9447,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1600,
+      count = 1500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 45
     },
@@ -9530,9 +9529,9 @@ data:extend({
       }
     },
     unit = {
-      count = 1800,
+      count = 1600,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9561,11 +9560,11 @@ data:extend({
       }
     },
     unit = {
-      count = 1800,
+      count = 1000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 3}, {"nullius-physics-pack", 1}
       },
       time = 45
     },
@@ -9614,7 +9613,7 @@ data:extend({
     unit = {
       count = 1800,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9647,10 +9646,10 @@ data:extend({
       }
     },
     unit = {
-      count = 1800,
+      count = 1600,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 45
@@ -9743,11 +9742,11 @@ data:extend({
       }
     },
     unit = {
-      count = 2000,
+      count = 1800,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 45
     },
@@ -9787,7 +9786,7 @@ data:extend({
     unit = {
       count = 2000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -9829,11 +9828,11 @@ data:extend({
       }
     },
     unit = {
-      count = 2000,
+      count = 1500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 45
     },
@@ -9884,9 +9883,9 @@ data:extend({
     unit = {
       count = 2200,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1},
+		{"nullius-physics-pack", 1}
       },
       time = 45
     },
@@ -9970,10 +9969,10 @@ data:extend({
       }
     },
     unit = {
-      count = 2200,
+      count = 2000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 45
@@ -10154,10 +10153,10 @@ data:extend({
       }
     },
     unit = {
-      count = 2500,
+      count = 2200,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 50
@@ -10183,7 +10182,7 @@ data:extend({
     unit = {
       count = 2500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -10208,11 +10207,11 @@ data:extend({
       }
     },
     unit = {
-      count = 2500,
+      count = 2400,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 50
     },
@@ -10243,6 +10242,27 @@ data:extend({
     prerequisites = {"nullius-titanium-production-3"}
   },
 
+  {
+    type = "technology",
+    name = "nullius-air-separation-4",
+    order = "nullius-fn",
+	icons = data.raw.fluid["nullius-compressed-residual-gas"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-residual-gas"
+      }
+    },
+    unit = {
+      count = 2700,
+      ingredients = {
+        {"nullius-climatology-pack", 2}, {"nullius-mechanical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 50
+    },
+    prerequisites = {"nullius-isotope-separation"}
+  },
   {
     type = "technology",
     name = "nullius-solar-thermal-power-3",
@@ -10292,10 +10312,10 @@ data:extend({
       }
     },
     unit = {
-      count = 2700,
+      count = 2500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 50
@@ -10317,10 +10337,10 @@ data:extend({
       }
     },
     unit = {
-      count = 2700,
+      count = 2500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 50
@@ -10390,11 +10410,11 @@ data:extend({
       }
     },
     unit = {
-      count = 3000,
+      count = 2700,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 50
     },
@@ -10490,10 +10510,9 @@ data:extend({
       }
     },
     unit = {
-      count = 3000,
+      count = 2700,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 50
@@ -10587,15 +10606,15 @@ data:extend({
       }
     },
     unit = {
-      count = 3200,
+      count = 3000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 50
     },
-    prerequisites = {"nullius-distribution-4", "nullius-isotope-separation"}
+    prerequisites = {"nullius-distribution-4", "nullius-air-separation-4"}
   },
   {
     type = "technology",
@@ -10821,10 +10840,10 @@ data:extend({
       }
     },
     unit = {
-      count = 3600,
+      count = 3500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 55
@@ -10893,10 +10912,10 @@ data:extend({
       }
     },
     unit = {
-      count = 3600,
+      count = 3500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 55
@@ -10921,10 +10940,10 @@ data:extend({
       }
     },
     unit = {
-      count = 3600,
+      count = 3500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 55
@@ -10958,11 +10977,11 @@ data:extend({
       }
     },
     unit = {
-      count = 3800,
+      count = 3500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 2}
       },
       time = 55
     },
@@ -10986,10 +11005,10 @@ data:extend({
       }
     },
     unit = {
-      count = 3800,
+      count = 3500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
       time = 55
@@ -11109,11 +11128,11 @@ data:extend({
       }
     },
     unit = {
-      count = 4000,
+      count = 3600,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 55
     },
@@ -11230,9 +11249,9 @@ data:extend({
       }
     },
     unit = {
-      count = 4200,
+      count = 4000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -11291,9 +11310,9 @@ data:extend({
       }
     },
     unit = {
-      count = 4500,
+      count = 4200,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -11437,9 +11456,9 @@ data:extend({
       }
     },
     unit = {
-      count = 4800,
+      count = 4500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
       },
@@ -11503,9 +11522,8 @@ data:extend({
     unit = {
       count = 5000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 60
     },
@@ -11550,12 +11568,11 @@ data:extend({
       }
     },
     unit = {
-      count = 5000,
+      count = 4000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-geology-pack", 2}, {"nullius-mechanical-pack", 1},
+		{"nullius-electrical-pack", 1}, {"nullius-chemical-pack", 1},
+		{"nullius-physics-pack", 1}, {"nullius-astronomy-pack", 2}
       },
       time = 60
     },
@@ -11609,7 +11626,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -11634,11 +11651,11 @@ data:extend({
       }
     },
     unit = {
-      count = 5000,
+      count = 4000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -11736,9 +11753,9 @@ data:extend({
       }
     },
     unit = {
-      count = 7500,
+      count = 7000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -11773,11 +11790,11 @@ data:extend({
       }
     },
     unit = {
-      count = 7500,
+      count = 6000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 2},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -11811,7 +11828,7 @@ data:extend({
     unit = {
       count = 7500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -11838,7 +11855,7 @@ data:extend({
       count = 10000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -11885,7 +11902,7 @@ data:extend({
     unit = {
       count = 10000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -11912,10 +11929,10 @@ data:extend({
       }
     },
     unit = {
-      count = 10000,
+      count = 9000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -11957,10 +11974,10 @@ data:extend({
       }
     },
     unit = {
-      count = 10000,
+      count = 9000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12032,10 +12049,9 @@ data:extend({
     unit = {
       count = 12500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 2},
+		{"nullius-physics-pack", 1}
       },
       time = 60
     },
@@ -12069,8 +12085,8 @@ data:extend({
     unit = {
       count = 12500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-climatology-pack", 1},
+        {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12122,10 +12138,8 @@ data:extend({
     unit = {
       count = 12500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
+        {"nullius-physics-pack", 1}, {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -12182,7 +12196,7 @@ data:extend({
     unit = {
       count = 12500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -12250,7 +12264,7 @@ data:extend({
       count = 15000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12294,7 +12308,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -12319,7 +12333,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -12370,7 +12384,7 @@ data:extend({
     unit = {
       count = 15000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -12424,7 +12438,7 @@ data:extend({
       count = 15000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12469,7 +12483,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -12497,7 +12511,7 @@ data:extend({
       count = 17500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12534,7 +12548,7 @@ data:extend({
       count = 17500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12634,7 +12648,7 @@ data:extend({
     unit = {
       count = 17500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -12687,7 +12701,7 @@ data:extend({
     unit = {
       count = 17500,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -12729,7 +12743,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -12784,7 +12798,7 @@ data:extend({
     unit = {
       count = 20000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
@@ -12874,7 +12888,7 @@ data:extend({
       count = 20000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -12944,7 +12958,7 @@ data:extend({
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -12967,10 +12981,8 @@ data:extend({
     unit = {
       count = 30000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 2}
       },
       time = 60
     },
@@ -12993,9 +13005,8 @@ data:extend({
       count = 25000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
       },
       time = 60
     },
@@ -13041,10 +13052,9 @@ data:extend({
     unit = {
       count = 60000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-geology-pack", 2}, {"nullius-mechanical-pack", 1},
+		{"nullius-electrical-pack", 1}, {"nullius-physics-pack", 1},
+		{"nullius-astronomy-pack", 2}
       },
       time = 60
     },
@@ -13066,9 +13076,7 @@ data:extend({
     unit = {
       count = 50000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-electrical-pack", 2}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
       time = 60
@@ -13210,9 +13218,8 @@ data:extend({
       count = 500000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
       },
       time = 60
     },
@@ -13234,10 +13241,9 @@ data:extend({
     unit = {
       count = 1000000,
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-chemical-pack", 1}, {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -13259,7 +13265,7 @@ data:extend({
       count = 1000000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
@@ -13309,7 +13315,7 @@ data:extend({
       count = 3000000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
 		{"nullius-astronomy-pack", 1}
       },
