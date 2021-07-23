@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.31
+Date: 23.07.2021
+  Modding:
+    - Fix a couple of cases of incompatibility with miscellaneous third party mods.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.30
+Date: 18.07.2021
+  Bugfixes:
+    - Fix tint of gravel in iron ore disposal recipe.
+    - Fix a messed up boxed recipe name.
+    - Fix speed of boxed relay 1 recipe.
+    - Fix boxed charger 4 recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.29
 Date: 10.07.2021
   Features:

@@ -1045,6 +1045,7 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+		tint = {r=0.95, g=0.85, b=0.75}
       },
       {
         icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
@@ -1297,6 +1298,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-steel-ingot-1",
+	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", 1},
     enabled = false,
     category = "bulk-smelting",
 	subgroup = "boxed-steel",
@@ -1350,7 +1352,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-steel-ingot-2",
-	localised_name = {"", {"item-name.box", "item-name.nullius-steel-ingot"}, " ", 2},
+	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", 2},
     icons = {
       {
 	    icon = "__nullius__/graphics/crate.png",

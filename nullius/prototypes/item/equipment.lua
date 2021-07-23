@@ -1112,7 +1112,7 @@ data:extend({
 	subgroup = "boxed-hangar",
     energy_required = 30,
     ingredients = {
-	  {"nullius-box-charger-4", 1},
+	  {"nullius-box-charger-3", 1},
 	  {"nullius-substation-3", 5},
 	  {"nullius-box-copper-wire", 5},
 	  {"nullius-box-lithium", 2}
@@ -1195,7 +1195,7 @@ data:extend({
 	always_show_made_in = true,
     category = "large-assembly",
 	subgroup = "boxed-beacon",
-    energy_required = 4,
+    energy_required = 20,
     ingredients = {
 	  {"nullius-box-antenna", 1},
 	  {"nullius-box-logic-circuit", 2},

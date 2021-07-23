@@ -181,7 +181,9 @@ for _,type in pairs(building_types_list) do
       local item = data.raw.item[entity.minable.result]
       if (item ~= nil) and table_contains(item.flags, "hidden") then
         entity.next_upgrade = nil
-	    if (not table_contains(entity.flags, "hidden")) then
+        if (entity.flags == nil) then
+          entity.flags = {"hidden"}
+        elseif (not table_contains(entity.flags, "hidden")) then
 		  table.insert(entity.flags, "hidden")
 		end
       end
@@ -192,6 +194,9 @@ end
 for _,type in pairs(hide_entity_list) do
   for _,entity in pairs(data.raw[type]) do
     if (string.sub(entity.name, 1, 8) ~= "nullius-") then
+      if (entity.flags == nil) then
+        entity.flags = {}
+      end 
 	  table.insert(entity.flags,"hidden")
 	end
   end

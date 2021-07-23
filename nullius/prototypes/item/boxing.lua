@@ -29,7 +29,7 @@ local function create_boxed_item(base_name, group, box_order,
   end
   local box_stack = box_stack_size[stack_size]
   if (box_stack == nil) then
-    box_stack = math.max(1, math.floor((2 * box_stack / ratio)))
+    box_stack = math.max(1, math.floor((2 * stack_size / ratio)))
   end
 
   if (localname == nil) then
