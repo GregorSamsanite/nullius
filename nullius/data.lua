@@ -33,6 +33,7 @@ require("prototypes.entity.landing")
 require("prototypes.technology")
 require("prototypes.upgrades")
 require("prototypes.mods")
+require("prototypes.achievements")
 
 settings.startup["alien-biomes-disable-vegetation"].value = "Enabled"
 settings.startup["bobmods-logistics-inserteroverhaul"].value = true

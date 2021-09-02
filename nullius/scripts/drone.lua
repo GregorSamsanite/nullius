@@ -80,15 +80,36 @@ function safe_demolition(event, size)
   end
 end
 
+
+function terraform_score(name)
+  if (string.sub(name, 1, 8) == "mineral-") then
+    if (string.sub(name, 9, 18) == "aubergine-") then
+      return 1
+    elseif (string.sub(name, 9, 14) == "black-") then
+      return 1
+    elseif (string.sub(name, 9, 15) == "purple-") then
+      return 2
+    elseif (string.sub(name, 9, 15) == "violet-") then
+      return 2
+	end
+  elseif (string.sub(name, 1, 9) == "volcanic-") then
+    return 3
+  end
+  return 0
+end
+
 function excavation_effect(event)
   demolition_effect(event)
   local s = game.surfaces[event.surface_index]
   local c = area_center(event)
   local a = area_bound(c, 64)
-  local tiles = s.find_tiles_filtered{area=a}
   local newtiles = { }
+  local score = 0
+  local tiles = s.find_tiles_filtered{area=a}
+
   for i, t in pairs(tiles) do
     local n = t.name
+	score = score + terraform_score(n)
 	local p = t.position
 	if ((n == "deepwater") or ((p.x >= (c.x - 34)) and (p.x <= (c.x + 34)) and
 	    (p.y >= (c.y - 34)) and (p.y < (c.y + 34)))) then
@@ -104,24 +125,36 @@ function excavation_effect(event)
 	end
     newtiles[i] = {name = n, position = p}
   end
+
   s.set_tiles(newtiles)
+  if (event.source_entity ~= nil) then
+    bump_mission_goal(9, score, event.source_entity.force)
+  end
 end
 
-function terraforming_effect(event, tile)
+function terraforming_effect(event, tile, terraform_mult)
   scout_effect(event, 2)
   safe_demolition(event, 64)
   local s = game.surfaces[event.surface_index]
   local c = area_center(event)
   local a = area_bound(c, 64)
   local newtiles = { }
+  local score = 0
+
   local tiles = s.find_tiles_filtered{area=a}
   for i, t in pairs(tiles) do
     newtiles[i] = {name = tile, position = t.position}
+	score = score + terraform_score(t.name)
   end
   s.set_tiles(newtiles)
+
+  if (event.source_entity ~= nil) then
+    bump_mission_goal(9, (score * terraform_mult), event.source_entity.force)
+  end
 end
 
-function miner_effect(event, ore, size, richness)
+
+function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
   scout_effect(event, 1)
   safe_demolition(event, (size+4))
   local s = game.surfaces[event.surface_index]
@@ -150,7 +183,8 @@ function miner_effect(event, ore, size, richness)
     local e = s.find_entity(ore, rpos)
 	if (e ~= nil) then
 	  e.amount = e.amount + value
-	elseif (s.count_entities_filtered{area={{rpos.x-0.49, rpos.y-0.49}, {rpos.x+0.49, rpos.y+0.49}}, type="resource"}<1) then
+	elseif (s.count_entities_filtered{area={{rpos.x-0.49, rpos.y-0.49},
+	    {rpos.x+0.49, rpos.y+0.49}}, type="resource"}<1) then
 	  s.create_entity({name=ore, amount=value, position=rpos})
 	end
   end
@@ -161,6 +195,10 @@ function miner_effect(event, ore, size, richness)
 	  e.active = false
       e.active = true
 	end
+  end
+
+  if ((goal_ind ~= nil) and (event.source_entity ~= nil)) then
+    bump_mission_goal(goal_ind, goal_amount, event.source_entity.force)
   end
 end
 
@@ -577,35 +615,35 @@ function trigger_effect(event)
       excavation_effect(event)
 	elseif (string.find(event.effect_id, "terraforming%-drone%-effect%-", 9) == 9) then
 	  if (event.effect_id == "nullius-terraforming-drone-effect-grey") then
-        terraforming_effect(event, "landfill")
+        terraforming_effect(event, "landfill", 1)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-tan") then
-        terraforming_effect(event, "nullius-land-fill-sand")
+        terraforming_effect(event, "nullius-land-fill-sand", 2)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-brown") then
-        terraforming_effect(event, "nullius-land-fill-bauxite")
+        terraforming_effect(event, "nullius-land-fill-bauxite", 2)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-red") then
-        terraforming_effect(event, "nullius-land-fill-iron")
+        terraforming_effect(event, "nullius-land-fill-iron", 1.5)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-beige") then
-        terraforming_effect(event, "nullius-land-fill-limestone")
+        terraforming_effect(event, "nullius-land-fill-limestone", 1)
       end
 	elseif (string.find(event.effect_id, "paving%-drone%-effect%-", 9) == 9) then
 	  if (event.effect_id == "nullius-paving-drone-effect-grey") then
-        terraforming_effect(event, "refined-concrete")
+        terraforming_effect(event, "refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-hazard") then
-        terraforming_effect(event, "refined-hazard-concrete-left")
+        terraforming_effect(event, "refined-hazard-concrete-left", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-red") then
-        terraforming_effect(event, "red-refined-concrete")
+        terraforming_effect(event, "red-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-blue") then
-        terraforming_effect(event, "blue-refined-concrete")
+        terraforming_effect(event, "blue-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-yellow") then
-        terraforming_effect(event, "yellow-refined-concrete")
+        terraforming_effect(event, "yellow-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-green") then
-        terraforming_effect(event, "green-refined-concrete")
+        terraforming_effect(event, "green-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-purple") then
-        terraforming_effect(event, "purple-refined-concrete")
+        terraforming_effect(event, "purple-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-brown") then
-        terraforming_effect(event, "brown-refined-concrete")
+        terraforming_effect(event, "brown-refined-concrete", 0)
 	  elseif (event.effect_id == "nullius-paving-drone-effect-black") then
-        terraforming_effect(event, "black-refined-concrete")
+        terraforming_effect(event, "black-refined-concrete", 0)
 	  end
 	elseif (string.find(event.effect_id, "guide%-drone%-effect%-", 9) == 9) then
 	  if (event.effect_id == "nullius-guide-drone-effect-iron-1") then
@@ -625,13 +663,13 @@ function trigger_effect(event)
 	  elseif (event.effect_id == "nullius-guide-drone-effect-limestone-2") then
         miner_effect(event, "nullius-limestone", 28, 10.5)
 	  elseif (event.effect_id == "nullius-guide-drone-effect-copper-1") then
-        miner_effect(event, "copper-ore", 13, 0.941)
+        miner_effect(event, "copper-ore", 13, 0.941, 10, 1)
 	  elseif (event.effect_id == "nullius-guide-drone-effect-copper-2") then
-        miner_effect(event, "copper-ore", 26, 9.41)
+        miner_effect(event, "copper-ore", 26, 9.41, 10, 40)
 	  elseif (event.effect_id == "nullius-guide-drone-effect-uranium-1") then
-        miner_effect(event, "uranium-ore", 10, 0.781)
+        miner_effect(event, "uranium-ore", 10, 0.781, 11, 1)
 	  elseif (event.effect_id == "nullius-guide-drone-effect-uranium-2") then
-        miner_effect(event, "uranium-ore", 20, 7.91)
+        miner_effect(event, "uranium-ore", 20, 7.91, 11, 40)
 	  end
 	elseif (event.effect_id == "nullius-algaculture-drone-effect") then
 	  algaculture_effect(event)

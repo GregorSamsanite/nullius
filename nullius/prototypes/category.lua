@@ -99,6 +99,10 @@ data:extend({
     type = "recipe-category",
     name = "combustion"
   },
+  {
+    type = "recipe-category",
+    name = "boiling"
+  },
 
   {
     type = "recipe-category",
@@ -627,6 +631,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "energy-backup",
+    group = "chemistry",
+    order = "he"
+  },
+  {
+    type = "item-subgroup",
     name = "unmirror-1",
     group = "chemistry",
     order = "md"
@@ -636,6 +646,12 @@ data:extend({
     name = "unmirror-2",
     group = "chemistry",
     order = "me"
+  },
+  {
+    type = "item-subgroup",
+    name = "prioritization",
+    group = "chemistry",
+    order = "mf"
   },
 
   {
@@ -661,9 +677,15 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "biology-oil",
+    group = "biology",
+    order = "cb"
+  },
+  {
+    type = "item-subgroup",
     name = "biology-material",
     group = "biology",
-    order = "c"
+    order = "cc"
   },
   {
     type = "item-subgroup",
@@ -725,6 +747,12 @@ data:extend({
     group = "biology",
     order = "m"
   },
+  {
+    type = "item-subgroup",
+    name = "biology-research",
+    group = "biology",
+    order = "r"
+  },
 
   {
     type = "item-subgroup",
@@ -784,6 +812,12 @@ data:extend({
     type = "item-subgroup",
     order = "o",
     name = "combustion",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "p",
+    name = "boiling",
     group = "fluids",
   },
   {

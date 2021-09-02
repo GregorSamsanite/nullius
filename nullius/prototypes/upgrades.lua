@@ -15,7 +15,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-mining-tools"},
+    prerequisites = {"nullius-mining-tools", "nullius-masonry-1"},
     upgrade = true
   },
   {
@@ -475,7 +475,7 @@ data:extend({
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+		{"nullius-astronomy-pack", 2}
       },
       time = 60
     },
@@ -514,7 +514,7 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-inserter-capacity-5",
+    name = "nullius-inserter-capacity-8",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/inserter-capacity.png",
 	icon_size = 256,
@@ -526,7 +526,7 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "50000*(4^(L-5))",
+	  count_formula = "50000*(2^(L-8))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
@@ -535,7 +535,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-inserter-capacity-4", "nullius-locomotion-5"},
+    prerequisites = {"nullius-inserter-capacity-7", "nullius-locomotion-5"},
     max_level = "infinite",
     upgrade = true
   },
@@ -739,16 +739,16 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "20000*(3^(L-1))",
+	  count_formula = "100*(2^(L-1))",
       ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 2}
+	    {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+	    {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
+	    {"nullius-nematology-pack", 1}, {"nullius-ichthyology-pack", 1},
+	    {"nullius-zoology-pack", 1}
       },
-      time = 60
+      time = 600
     },
-    prerequisites = {"nullius-artificial-intelligence"},
+    prerequisites = {"nullius-artificial-intelligence", "nullius-biochemistry-7"},
     max_level = "infinite",
 	upgrade = true
   },

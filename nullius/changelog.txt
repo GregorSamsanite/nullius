@@ -1,4 +1,134 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 01.09.2021
+  Features:
+    - Add a new priority level of turbine:  backup, standard, or priority.
+    - Add recipes to revert surge/priority/backup/surge equipment to default.
+    - Split out chirality into multiple techs, some available earlier.
+    - Split hydrocarbon fuel tech in two, with one available earlier.
+    - New woodworking, and wood/cellulose burning recipes.
+  Changes:
+    - Characters no longer get a new chassis 1 when killed.
+    - Reworked cellulose pyrolysis recipe.
+    - "Turbines" are now called "backup turbines" to reflect their intended use.
+    - Add an explicit incompatibility with AAI Industry.
+  Balancing:
+    - Make barrels and canisters a bit cheaper.
+    - Increase speed of heat exchanger a bit to match solar collector upgrade.
+    - Increase speed of combustion chamber 2 and 3.
+    - Make lubricant a bit cheaper and some non-oiled metal recipes less effective.
+    - Slightly less saline from hydrochloric neutralization reaction.
+    - Increase gravel cost of rail.
+    - Reduce speed of solvent recipe.
+  Bugfixes:
+    - Fixed boxed caustic solution recipe to match change in non-boxed recipe.
+    - Fix output display of solar collectors.
+  Graphics:
+    - New turbine colors and overlay to make 3 turbine varieties visually distinct.
+  Translation:
+    - Russian updated for 1.1.4 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 27.08.2021
+  Features:
+    - New tooltips for fluids or byproducts that can be indirectly voided.
+    - Soda ash can now occasionally be found in particular rocks.
+  Changes:
+    - Adjust solar collector algorithm and increase expected heat generation.
+    - Unhide void recipes.
+    - Identify resources gained for mining landing site ship and pods.
+    - Hide some optional dependencies and refer to mod portal page in description.
+  Balancing:
+    - Increase turbine 1 max fluid consumption.
+    - Tweak rutile and silica 2 recipes.
+  Bugfixes:
+    - Fix some vehicle recipes requiring multiple vehicles (which don't stack).
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 24.08.2021
+  Features:
+    - New heat exchanger implementation.  Accepts different waters and uses less of it.
+  Changes:
+    - Steam recipes no longer have an explicit temperature (which was ignored anyway).
+    - Limestone crushing and limestone to dust recipe moved to earlier technology.
+  Balancing:
+    - Reduced cost of solar collector 1.
+    - Improved solar collector performance.
+    - Slightly reduce chlorine to sodium hydroxide ratio of electrolysis.
+    - Increase chlorine cost of hydrochloric acid.
+    - Make titanium production more of a chlorine sink.
+  Bugfixes:
+    - Fix a crash using excavation/terraforming drones before mission unlocked.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 21.08.2021
+  Features:
+    - New stack inserter bonus technology levels, and less steep infinite scaling.
+  Balancing:
+    - Increase speed of calcium chloride solution and soda ash 2 recipes.
+    - Reduce cost of productivity modules.
+    - Reduce some sludge reclamation costs.
+    - Reduce caustic solution cost of iron oxide.
+    - Slightly increase chlorine use of dust dissolution and hydrochloric acid recipes.
+    - Decrease thermal tank 1 costs and stirling engine 1 by 1 turbine.
+    - Increase geothermal plant costs.
+    - Reduce energy cost of hydro plant by 25%.
+    - Add a few inserters at landing site.
+  Bugfixes:
+    - Fix sulfur dioxide output of boxed volcanic separation recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 19.08.2021
+  Features:
+    - Display energy values of compressed gases/steam consumed by turbine.
+  Balancing:
+    - Adjust calcium chloride solution ratios to use a bit more chlorine.
+    - Reduce caustic solution cost of iron recovery.
+  Bugfixes:
+    - Hide Angels tips and tricks.
+  Graphics:
+    - Fix calcium chloride icon still being used in changed concrete recipe.
+  Modding:
+    - Fix problems with hand crafting in mods that add new character models.
+  Translation:
+    - Russian updated for 1.1.0 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 18.08.2021
+  Features:
+    - Biology lab, using 7 new biological science research packs.
+    - 3 new endgame mission goals.
+    - New fluid, calcium chloride solution (disposable).
+    - New Nullius achievement for building a Wind Turbine within 30 minutes.
+    - Oil and biodiesel, new biochemistry fluids, with associated recipes.
+    - New methane, benzene, and glycerol reforming recipes.
+  Changes:
+    - Chlorine is no longer ventable.
+    - Recipes involving calcium chloride are changed to use solution.
+    - Many end game technologies changed to use biology research.
+    - Many biology recipes adjusted, especially those involving fatty acids.
+    - Irrelevant vanilla achievements hidden.
+  Balancing:
+    - Adjust sludge and mineral reclamation recipe ratios.
+    - Adjust ratios of some organic chemistry reactions.
+    - Change caustic solution recipe ratio of sodium hydroxide.
+    - Reduce fuel value of antimatter, and acceleration of battery 2 and 3.
+    - Bauxite and Limestone disposal recipes no longer allow productivity modules.
+    - Minor changes to geological, electrical, and chemical eras tech prereqs.
+    - Small reduction in efficiency of hydrogen combustion 2 and 3 recipes.
+    - Crash site no longer starts with plastic.
+  Modding:
+    - Minor changes to a prereqs of a few modded techs.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.32
+Date: 09.08.2021
+  Bugfixes:
+    - Fix incompatibility with latest Angel's update.
+    - Fix a bug in turbines that made them sometimes waste fuel.
+    - Fix broken mecha 2 recipe.
+  Modding:
+    - Reduced cost of Factorissimo2 factory 2 recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.31
 Date: 23.07.2021
   Modding:

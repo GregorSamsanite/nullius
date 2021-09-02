@@ -1099,10 +1099,10 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {type="item", name="nullius-small-tank-1", amount=1},
-      {type="item", name="nullius-one-way-valve", amount=4}
+      {type="item", name="nullius-one-way-valve", amount=5}
     },
     result = "empty-barrel",
-	result_count = 4
+	result_count = 5
   },
   {
     type = "recipe",
@@ -1117,10 +1117,10 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-small-tank-1", amount=1},
-      {type="item", name="nullius-box-one-way-valve", amount=4}
+      {type="item", name="nullius-box-one-way-valve", amount=5}
     },
     result = "nullius-box-barrel",
-	result_count = 4
+	result_count = 5
   },
   {
     type = "recipe",

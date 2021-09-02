@@ -25,10 +25,8 @@ data:extend({
     minable = {
       mining_time = 4,
 	  results = {
-	    {type="item", name="nullius-steel-ingot", amount=20},
-        {type="item", name="nullius-aluminum-ingot", amount=30},
-        {type="item", name="nullius-plastic", amount=50},
-		{type="item", name="copper-cable", amount=20},
+	    {type="item", name="nullius-steel-ingot", amount=40},
+		{type="item", name="copper-cable", amount=15},
 		{type="item", name="nullius-large-chest-1", amount=2} 
       }
     },
@@ -409,7 +407,7 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-iron-ingot", amount=60} }
+	  results = { {type="item", name="nullius-aluminum-ingot", amount=20} }
     },
     collision_box = {{-0.9, -0.8}, {1.1, 0.6}},
     selection_box = {{-0.9, -0.8}, {1.1, 0.6}},

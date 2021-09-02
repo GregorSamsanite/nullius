@@ -664,8 +664,8 @@ data:extend({
     order = "nullius-dc",
     fuel_category = "vehicle",
     fuel_value = "12MJ",
-    fuel_acceleration_multiplier = 1.6,
-    fuel_top_speed_multiplier = 1.3,
+    fuel_acceleration_multiplier = 1.4,
+    fuel_top_speed_multiplier = 1.2,
     burnt_result = "nullius-uncharged-battery-2",
     stack_size = 100
   },
@@ -774,8 +774,8 @@ data:extend({
     order = "nullius-dd",
     fuel_category = "vehicle",
     fuel_value = "25MJ",
-    fuel_acceleration_multiplier = 1.8,
-    fuel_top_speed_multiplier = 1.4,
+    fuel_acceleration_multiplier = 1.6,
+    fuel_top_speed_multiplier = 1.3,
     burnt_result = "nullius-uncharged-battery-3",
     stack_size = 100
   },
@@ -1706,7 +1706,7 @@ data:extend({
     ingredients = {
       {"nullius-cargo-wagon-1", 1},
       {"nullius-combustion-chamber-1", 1},
-      {"nullius-turbine-1", 1},
+      {"nullius-backup-turbine-1", 1},
       {"nullius-motor-1", 4},
       {"nullius-steel-gear", 10},
       {"nullius-glass", 3}
@@ -1724,7 +1724,7 @@ data:extend({
       {"nullius-locomotive-1", 1},
 	  {"nullius-cargo-wagon-2", 1},
       {"nullius-combustion-chamber-2", 1},
-      {"nullius-turbine-2", 1},
+      {"nullius-standard-turbine-2", 1},
       {"nullius-motor-2", 4},
 	  {"nullius-sensor-1", 1}
     },
@@ -1740,7 +1740,7 @@ data:extend({
     ingredients = {
       {"nullius-locomotive-2", 1},
       {"nullius-combustion-chamber-3", 1},
-      {"nullius-turbine-3", 1},
+      {"nullius-standard-turbine-3", 1},
       {"nullius-motor-3", 4},
 	  {"nullius-speed-module-2", 1}
     },
@@ -2392,7 +2392,7 @@ data:extend({
     category = "large-crafting",
     energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-car-2", amount=2},
+      {type="item", name="nullius-car-2", amount=1},
       {type="item", name="nullius-solar-locomotive", amount=1},
 	  {type="item", name="nullius-missile-launcher", amount=2}
     },
@@ -2405,7 +2405,7 @@ data:extend({
     category = "huge-fluid-assembly",
     energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-car-2", amount=2},
+      {type="item", name="nullius-car-2", amount=1},
 	  {type="item", name="nullius-steel-beam", amount=12},
 	  {type="item", name="nullius-steel-plate", amount=25},
 	  {type="item", name="nullius-missile-launcher", amount=3},
@@ -2421,7 +2421,7 @@ data:extend({
     category = "huge-crafting",
     energy_required = 30,
     ingredients = {
-      {type="item", name="nullius-truck-1", amount=2},
+      {type="item", name="nullius-truck-1", amount=1},
 	  {type="item", name="nullius-locomotive-3", amount=1},
 	  {type="item", name="nullius-reactor", amount=1}
     },
@@ -2461,7 +2461,7 @@ data:extend({
     category = "huge-crafting",
     energy_required = 120,
     ingredients = {
-	  {type="item", name="nullius-car-3", amount=4},
+	  {type="item", name="nullius-car-3", amount=1},
 	  {type="item", name="nullius-drone-launcher-2", amount=2},
 	  {type="item", name="nullius-solar-panel-2", amount=32},
 	  {type="item", name="nullius-grid-battery-2", amount=8},
@@ -2475,9 +2475,9 @@ data:extend({
     name = "nullius-mecha-2",
     enabled = false,
     category = "huge-assembly",
-    energy_required = 300,
+    energy_required = 600,
     ingredients = {
-	  {type="item", name="nullius-mecha", amount=2},
+	  {type="item", name="nullius-mecha", amount=1},
       {type="item", name="nullius-leg-augmentation-4", amount=8},
 	  {type="item", name="nullius-solar-panel-4", amount=8},
 	  {type="item", name="nullius-grid-battery-3", amount=4}

@@ -1,0 +1,11 @@
+{
+  "technology":
+  [
+    ["nullius-limestone-processing-3", "nullius-limestone-processing-4"],
+    ["nullius-limestone-processing-2", "nullius-limestone-processing-3"],
+    ["nullius-biochemistry-5", "nullius-biochemistry-6"],
+    ["nullius-biochemistry-4", "nullius-biochemistry-5"],
+    ["nullius-biochemistry-3", "nullius-biochemistry-4"],
+    ["nullius-biochemistry-2", "nullius-biochemistry-3"]
+  ]
+}

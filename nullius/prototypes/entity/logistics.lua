@@ -1203,6 +1203,132 @@ data:extend({
   },
 
   {
+    type = "lab",
+    name = "nullius-biology-lab",
+	icons = data.raw.item["nullius-biology-lab"].icons,
+    flags = {"placeable-player", "player-creation"},
+    minable = {mining_time = 0.5, result = "nullius-biology-lab"},
+    max_health = 300,
+    corpse = "lab-remnants",
+    dying_explosion = "lab-explosion",
+    collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
+    selection_box = {{-2, -2}, {2, 2}},
+    light = {intensity = 0.75, size = 8, color = {r = 1.0, g = 1.0, b = 1.0}},
+    damaged_trigger_effect = data.raw.lab["lab"].damaged_trigger_effect,
+    working_sound = data.raw.lab["lab"].working_sound,
+    vehicle_impact_sound = data.raw.lab["lab"].vehicle_impact_sound,
+    open_sound = data.raw.lab["lab"].open_sound,
+    close_sound = data.raw.lab["lab"].close_sound,
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input",
+	  drain = "50kW"
+    },
+    energy_usage = "950kW",
+    researching_speed = 1,
+    inputs = {
+	  "nullius-biochemistry-pack",
+      "nullius-microbiology-pack",
+      "nullius-botany-pack",
+      "nullius-dendrology-pack",
+      "nullius-nematology-pack",
+      "nullius-ichthyology-pack",
+      "nullius-zoology-pack"
+	},
+    module_specification = {
+      module_slots = 4,
+      module_info_icon_shift = {0, 0.9}
+    },
+    allowed_effects = {"speed", "productivity", "consumption", "pollution"},
+
+    on_animation = {
+      layers = {
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
+          frame_count = 33,
+          line_length = 11,
+          animation_speed = 0.2,
+          shift = util.by_pixel(0, 1.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-4.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.2,
+          shift = util.by_pixel(0, 1.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.2,
+          shift = util.by_pixel(0, 15.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
+          frame_count = 1,
+          line_length = 1,
+          repeat_count = 33,
+          animation_speed = 0.2,
+          shift = util.by_pixel(13*1.3333, 11*1.3333),
+          scale = 0.5*1.3333,
+          draw_as_shadow = true
+        }
+      }
+    },
+    off_animation = {
+      layers = {
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          shift = util.by_pixel(0, 1.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__nullius__/graphics/lab/lab-overlay-4.png",
+          width = 194,
+          height = 174,
+          frame_count = 1,
+          shift = util.by_pixel(0, 1.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          width = 242,
+          height = 162,
+          frame_count = 1,
+          shift = util.by_pixel(0, 15.5*1.3333),
+          scale = 0.5*1.3333
+        },
+        {
+          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          width = 242,
+          height = 136,
+          frame_count = 1,
+          shift = util.by_pixel(13*1.3333, 11*1.3333),
+          draw_as_shadow = true,
+          scale = 0.5*1.3333
+        }
+	  }
+	}
+  },
+
+  {
     type = "lamp",
     name = "nullius-lamp-1",
     icon = "__nullius__/graphics/lamp1.png",

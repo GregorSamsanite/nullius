@@ -39,7 +39,7 @@ script.on_init(
 
     if (remote.interfaces["freeplay"] ~= nil) then
       remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
-      remote.call("freeplay", "set_respawn_items", {["nullius-chassis-1"] = 1})
+      remote.call("freeplay", "set_respawn_items", {})
       remote.call("freeplay", "set_skip_intro", true)
 	  remote.call("freeplay", "set_disable_crashsite", true)
       remote.call("freeplay", "set_chart_distance", 300)
@@ -55,7 +55,7 @@ script.on_configuration_changed(
   function(cfg)
     if (remote.interfaces["freeplay"] ~= nil) then
       remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
-      remote.call("freeplay", "set_respawn_items", {["nullius-chassis-1"] = 1})
+      remote.call("freeplay", "set_respawn_items", {})
 	end
     if (remote.interfaces["silo_script"] ~= nil) then
 	  remote.call("silo_script", "set_no_victory", true)

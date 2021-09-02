@@ -21,7 +21,7 @@ data.raw.technology["factory-architecture-t1"].unit = {
 
 data.raw.technology["factory-architecture-t2"].order = "nullius-e"
 data.raw.technology["factory-architecture-t2"].prerequisites = {
-	"factory-architecture-t1", "nullius-packaging-1"}
+	"factory-connection-type-chest", "nullius-packaging-1", "factory-connection-type-fluid"}
 data.raw.technology["factory-architecture-t2"].effects =
 	{{type = "unlock-recipe", recipe = "nullius-factory-2"}}
 data.raw.technology["factory-architecture-t2"].unit = {
@@ -34,7 +34,7 @@ data.raw.technology["factory-architecture-t2"].unit = {
 
 data.raw.technology["factory-architecture-t3"].order = "nullius-e"
 data.raw.technology["factory-architecture-t3"].prerequisites = {
-	"factory-architecture-t2", "nullius-mass-production-4", "nullius-storage-3"}
+	"factory-preview", "nullius-mass-production-5", "nullius-storage-3"}
 data.raw.technology["factory-architecture-t3"].effects =
 	{{type = "unlock-recipe", recipe = "nullius-factory-3"}}
 data.raw.technology["factory-architecture-t3"].unit = {
@@ -92,7 +92,7 @@ data.raw.technology["factory-interior-upgrade-lights"].unit = {
 
 data.raw.technology["factory-interior-upgrade-display"].order = "nullius-e"
 data.raw.technology["factory-interior-upgrade-display"].prerequisites = {
-	"factory-architecture-t2", "nullius-sensors-2"}
+	"factory-architecture-t2", "nullius-aesthetics"}
 data.raw.technology["factory-interior-upgrade-display"].unit = {
     count = 4*factory_mult, time = 35,
     ingredients = {
@@ -114,7 +114,7 @@ data.raw.technology["factory-preview"].unit = {
 
 data.raw.technology["factory-requester-chest"].order = "nullius-e"
 data.raw.technology["factory-requester-chest"].prerequisites = {
-	"factory-connection-type-chest", "nullius-logistic-robot-2"}
+	"factory-architecture-t2", "nullius-logistic-robot-2", "nullius-construction-robot-2"}
 data.raw.technology["factory-requester-chest"].effects =
 	{{type = "unlock-recipe", recipe = "nullius-factory-requester-chest"}}
 data.raw.technology["factory-requester-chest"].unit = {
@@ -253,7 +253,7 @@ data.raw.technology["more-inserters-1"].unit = { count = 200,
 }
 if (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["more-inserters-1"].prerequisites = {
-  "long-inserters-2", "near-inserters", "nullius-locomotion-1"}
+  "long-inserters-2", "near-inserters", "nullius-optimization-2"}
 else
 data.raw.technology["more-inserters-1"].prerequisites = {
   "long-inserters-1", "near-inserters", "nullius-cybernetics-2"}
@@ -269,12 +269,12 @@ data.raw.technology["more-inserters-2"].unit = { count = 600,
   time = 35
 }
 data.raw.technology["more-inserters-2"].prerequisites = {
-  "nullius-actuation-3", "more-inserters-1"}
+  "nullius-logistics-3", "more-inserters-1"}
 end
 end
 
 if mods["train-pubsub"] then
-data.raw.technology["train-manager"].order = "nullius-dk"
+data.raw.technology["train-manager"].order = "nullius-dl"
 data.raw.technology["train-manager"].unit = {
   count = 300,
   ingredients = {
@@ -284,7 +284,7 @@ data.raw.technology["train-manager"].unit = {
   time = 30
 }
 data.raw.technology["train-manager"].prerequisites = {
-  "nullius-distribution-1", "nullius-traffic-control"}
+  "nullius-distribution-1", "nullius-braking-1"}
 data.raw.technology["train-manager"].effects = {
   {
     type = "unlock-recipe",
@@ -303,6 +303,10 @@ data.raw.technology["train-manager"].effects = {
     recipe = "nullius-train-config"
   }
 }
+if mods["LogisticTrainNetwork"] then
+data.raw.technology["train-manager"].prerequisites =
+  { "nullius-logistic-train-network" }
+end
 end
 
 
@@ -787,9 +791,9 @@ data.raw.technology["induction-technology2"].unit = {
   }
 }
 
-data.raw.technology["induction-technology3"].order = "nullius-dk"
+data.raw.technology["induction-technology3"].order = "nullius-dl"
 data.raw.technology["induction-technology3"].prerequisites = {
-  "nullius-energy-distribution-3", "nullius-distribution-1", "induction-technology2" }
+  "nullius-energy-distribution-3", "nullius-projection-1", "induction-technology2" }
 data.raw.technology["induction-technology3"].unit = {
   count = 250, time = 30,
   ingredients = {
@@ -839,7 +843,7 @@ data.raw.technology["transport-system"].unit = {
 }
 data.raw.technology["transport-depot-circuits"].order = "nullius-dm"
 data.raw.technology["transport-depot-circuits"].prerequisites = {
-  "transport-system", "nullius-traffic-control" }
+  "transport-system", "nullius-traffic-control", "nullius-distribution-1" }
 data.raw.technology["transport-depot-circuits"].unit = {
   count = 150, time = 30,
   ingredients = {
@@ -869,7 +873,7 @@ data.raw.technology["transport-drone-capacity-1"].unit = {
 }
 data.raw.technology["transport-drone-speed-2"].order = "nullius-en"
 data.raw.technology["transport-drone-speed-2"].prerequisites = {
-  "transport-drone-speed-1", "nullius-exploration-1" }
+  "transport-drone-speed-1", "nullius-braking-5" }
 data.raw.technology["transport-drone-speed-2"].unit = {
   count = 800, time = 35,
   ingredients = {
@@ -880,7 +884,7 @@ data.raw.technology["transport-drone-speed-2"].unit = {
 }
 data.raw.technology["transport-drone-capacity-2"].order = "nullius-eo"
 data.raw.technology["transport-drone-capacity-2"].prerequisites = {
-  "transport-drone-capacity-1", "nullius-inserter-capacity-1" }
+  "transport-drone-capacity-1", "nullius-inserter-capacity-2" }
 data.raw.technology["transport-drone-capacity-2"].unit = {
   count = 1000, time = 35,
   ingredients = {

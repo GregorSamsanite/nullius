@@ -1,0 +1,22 @@
+{
+  "item":
+  [
+    ["nullius-turbine-1", "nullius-backup-turbine-1"],
+    ["nullius-turbine-2", "nullius-standard-turbine-2"],
+    ["nullius-turbine-3", "nullius-standard-turbine-3"],
+    ["nullius-box-turbine-1", "nullius-box-backup-turbine-1"],
+    ["nullius-box-turbine-2", "nullius-box-standard-turbine-2"],
+    ["nullius-box-turbine-3", "nullius-box-standard-turbine-3"]
+  ],
+  "entity":
+  [
+    ["nullius-turbine-1", "nullius-backup-turbine-1"],
+    ["nullius-turbine-2", "nullius-backup-turbine-2"],
+    ["nullius-turbine-3", "nullius-backup-turbine-3"]
+  ],
+  "technology":
+  [
+    ["nullius-chirality", "nullius-chirality-3"],
+    ["nullius-hydrocarbon-fuel", "nullius-hydrocarbon-combustion-1"]
+  ]
+}

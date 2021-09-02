@@ -67,14 +67,22 @@ end
 local hand_crafting = { "hand-crafting", "tiny-crafting", "small-crafting",
   "medium-crafting", "large-crafting", "huge-crafting", "hand-casting", "hand-crushing"
 }
-for _,newcat in pairs(hand_crafting) do
-  local found = false
-  for _,oldcat in pairs(data.raw["character"]["character"].crafting_categories) do
-    if (oldcat == newcat) then
-	  found = true
-	end
+for _,character in pairs(data.raw["character"]) do
+  for _,newcat in pairs(hand_crafting) do
+    local found = false
+    for _,oldcat in pairs(character.crafting_categories) do
+      if (oldcat == newcat) then
+	    found = true
+	  end
+    end
+    if (not found) then
+      table.insert(character.crafting_categories, newcat)
+    end
   end
-  if (found) then
-    table.insert(data.raw["character"]["character"].crafting_categories, newcat)
+end
+
+for _,tip in pairs(data.raw["tips-and-tricks-item"]) do
+  if (string.sub(tip.name, 1, 7) == "angels-") then
+    data.raw["tips-and-tricks-item"][tip.name] = nil
   end
 end

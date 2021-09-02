@@ -35,7 +35,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-seawater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-seawater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -48,7 +48,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-freshwater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-freshwater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -61,7 +61,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-wastewater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-wastewater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -74,7 +74,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-brine"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-brine", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -86,9 +86,21 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-caustic-solution"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-caustic-solution", amount=100}},
+    results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
+  },
+  {
+    type = "recipe",
+    name = "nullius-void-calcium-chloride-solution",
+    icons = data.raw.fluid["nullius-calcium-chloride-solution"].icons,
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-calcium-chloride-solution"].flow_color },
+    category = "nullius-liquid-void",
+    subgroup = "nullius-liquid-void",
+    hide_from_player_crafting = true,
+    energy_required = 1,
+    ingredients = {{type="fluid", name="nullius-calcium-chloride-solution", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
   },
   {
@@ -99,7 +111,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["water-saline"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-saline", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -112,7 +124,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-water"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-water", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -124,7 +136,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-heavy-water"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-heavy-water", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -136,7 +148,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-methanol"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-methanol", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -144,27 +156,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-amino-acids",
-    icon = data.raw.fluid["nullius-amino-acids"].icon,
-    icon_size = data.raw.fluid["nullius-amino-acids"].icon_size,
+    icons = data.raw.fluid["nullius-amino-acids"].icons,
     crafting_machine_tint = { primary = data.raw.fluid["nullius-amino-acids"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-amino-acids", amount=100}},
-    results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
-  },
-  {
-    type = "recipe",
-    name = "nullius-void-fatty-acids",
-    icon = data.raw.fluid["nullius-fatty-acids"].icon,
-    icon_size = data.raw.fluid["nullius-fatty-acids"].icon_size,
-    crafting_machine_tint = { primary = data.raw.fluid["nullius-fatty-acids"].flow_color },
-    category = "nullius-liquid-void",
-    subgroup = "nullius-liquid-void",
-    hidden = true,
-    energy_required = 1,
-    ingredients = {{type="fluid", name="nullius-fatty-acids", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
   },
   {
@@ -175,7 +173,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-nucleotides"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-nucleotides", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -188,7 +186,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-protocell"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-protocell", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -201,7 +199,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-bacteria"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-bacteria", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -214,7 +212,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-air"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-air", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -226,7 +224,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-air"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-air", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -238,7 +236,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-nitrogen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-nitrogen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -250,7 +248,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-nitrogen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-nitrogen", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -262,7 +260,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-hydrogen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-hydrogen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -274,7 +272,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-deuterium"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-deuterium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -286,7 +284,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-tritium"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-tritium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -298,7 +296,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-hydrogen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-hydrogen", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -310,7 +308,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-volcanic-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -322,7 +320,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-argon"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-argon", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -334,7 +332,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-argon"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-argon", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -346,7 +344,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-helium"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-helium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -358,7 +356,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-helium"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-helium", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -371,7 +369,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-steam"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-steam", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -383,7 +381,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-residual-gas"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-residual-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -395,7 +393,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-residual-gas"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-residual-gas", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -407,7 +405,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-trace-gas"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-trace-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -419,7 +417,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-trace-gas"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-trace-gas", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -431,7 +429,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-oxygen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-oxygen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -443,21 +441,9 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-oxygen"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-oxygen", amount=50}},
-    results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
-  },
-  {
-    type = "recipe",
-    name = "nullius-void-chlorine",
-    icons = data.raw.fluid["nullius-chlorine"].icons,
-    crafting_machine_tint = { primary = data.raw.fluid["nullius-chlorine"].flow_color },
-    category = "nullius-gas-void",
-    subgroup = "nullius-gas-void",
-    hidden = true,
-    energy_required = 1,
-    ingredients = {{type="fluid", name="nullius-chlorine", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
   },
   {
@@ -467,7 +453,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-carbon-dioxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -479,7 +465,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-carbon-dioxide"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-carbon-dioxide", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -491,7 +477,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-carbon-monoxide"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-carbon-monoxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -503,7 +489,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-carbon-monoxide"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-carbon-monoxide", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -515,7 +501,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-sulfur-dioxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -527,7 +513,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-methane"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-methane", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -539,7 +525,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-methane"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-methane", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -551,7 +537,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-ammonia"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-ammonia", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}

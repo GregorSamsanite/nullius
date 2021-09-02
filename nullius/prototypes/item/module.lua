@@ -565,13 +565,13 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "tiny-assembly",
-    energy_required = 12,
+    energy_required = 16,
     ingredients = {
       {type="item", name="nullius-yield-module-2", amount=2},
       {type="item", name="nullius-speed-module-2", amount=1}
     },
     result = "nullius-productivity-module-1",
-    result_count = 2
+    result_count = 3
   },
   {
     type = "recipe",
@@ -581,13 +581,13 @@ data:extend({
 	always_show_products = true,
     category = "medium-only-assembly",
 	subgroup = "boxed-module-2",
-    energy_required = 60,
+    energy_required = 80,
     ingredients = {
       {type="item", name="nullius-box-yield-module-2", amount=2},
       {type="item", name="nullius-box-speed-module-2", amount=1}
     },
     result = "nullius-box-productivity-module-1",
-    result_count = 2
+    result_count = 3
   },
 
   {
@@ -731,14 +731,14 @@ data:extend({
 	show_amount_in_title = false,
 	always_show_products = true,
     category = "tiny-assembly",
-    energy_required = 30,
+    energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-productivity-module-1", amount=3},
-      {type="item", name="nullius-yield-module-3", amount=1},
+      {type="item", name="nullius-productivity-module-1", amount=2},
+      {type="item", name="nullius-yield-module-3", amount=2},
       {type="item", name="nullius-speed-module-3", amount=1}
     },
     result = "nullius-productivity-module-2",
-    result_count = 2
+    result_count = 4
   },
   {
     type = "recipe",
@@ -748,14 +748,14 @@ data:extend({
 	always_show_products = true,
     category = "medium-only-assembly",
 	subgroup = "boxed-module-2",
-    energy_required = 150,
+    energy_required = 300,
     ingredients = {
-      {type="item", name="nullius-box-productivity-module-1", amount=3},
-      {type="item", name="nullius-box-yield-module-3", amount=1},
+      {type="item", name="nullius-box-productivity-module-1", amount=2},
+      {type="item", name="nullius-box-yield-module-3", amount=2},
       {type="item", name="nullius-box-speed-module-3", amount=1}
     },
     result = "nullius-box-productivity-module-2",
-    result_count = 2
+    result_count = 4
   },
 
   {
@@ -835,8 +835,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-productivity-module-2", amount=1},
 	  {type="item", name="nullius-speed-module-4", amount=1},
-	  {type="item", name="nullius-yield-module-3", amount=1},
-      {type="item", name="nullius-processor-3", amount=1}
+	  {type="item", name="nullius-yield-module-3", amount=1}
     },
     result = "nullius-productivity-module-3"
   },
@@ -852,8 +851,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-productivity-module-2", amount=1},
 	  {type="item", name="nullius-box-speed-module-4", amount=1},
-	  {type="item", name="nullius-box-yield-module-3", amount=1},
-      {type="item", name="nullius-box-processor-3", amount=1}
+	  {type="item", name="nullius-box-yield-module-3", amount=1}
     },
     result = "nullius-box-productivity-module-3"
   },

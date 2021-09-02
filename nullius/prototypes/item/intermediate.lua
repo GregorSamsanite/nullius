@@ -490,7 +490,7 @@ data:extend({
     },
     results = {
       {type="fluid", name="nullius-copper-solution", amount=40},
-      {type="fluid", name="nullius-sludge", amount=25}
+      {type="fluid", name="nullius-sludge", amount=20}
     },
     main_product = "nullius-copper-solution"
   },
@@ -520,7 +520,7 @@ data:extend({
     },
     results = {
       {type="fluid", name="nullius-copper-solution", amount=40},
-      {type="fluid", name="nullius-sludge", amount=25}
+      {type="fluid", name="nullius-sludge", amount=20}
     },
     main_product = "nullius-copper-solution"
   },
@@ -673,11 +673,11 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {type="item", name="nullius-crushed-iron-ore", amount=6},
-      {type="fluid", name="nullius-caustic-solution", amount=50, fluidbox_index=1}
+      {type="fluid", name="nullius-caustic-solution", amount=40, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-iron-oxide", amount=5},
-      {type="fluid", name="nullius-sludge", amount=25, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=20, fluidbox_index=1}
     },
     main_product = "nullius-iron-oxide"
   },
@@ -695,7 +695,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-iron-oxide", amount=5},
-      {type="fluid", name="nullius-sludge", amount=125, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=100, fluidbox_index=1}
     },
     main_product = "nullius-box-iron-oxide"
   },
@@ -1085,6 +1085,7 @@ data:extend({
     },
     show_amount_in_title = false,
 	always_show_products = true,
+	no_productivity = true,
     enabled = false,
     category = "ore-crushing",
 	subgroup = "aluminum-product",
@@ -1113,6 +1114,7 @@ data:extend({
     },
     show_amount_in_title = false,
 	always_show_products = true,
+	no_productivity = true,
     enabled = false,
     category = "ore-crushing",
 	subgroup = "calcium-product",
@@ -1444,8 +1446,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-calcium-chloride",
-    icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
+      icon_size = 32
+	}},
     subgroup = "calcium-product",
     order = "nullius-i",
     stack_size = 100
@@ -1648,8 +1652,8 @@ data:extend({
       }
     },
     enabled = false,
-    category = "ore-flotation",
 	always_show_made_in = true,
+    category = "ore-flotation",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
@@ -1688,10 +1692,10 @@ data:extend({
       }
     },
     enabled = false,
+	always_show_made_in = true,
     category = "ore-flotation",
 	subgroup = "boxed-glass",
 	order = "nullius-ef",
-	always_show_made_in = true,
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
@@ -1725,8 +1729,8 @@ data:extend({
       }
     },
     enabled = false,
-    category = "ore-flotation",
 	always_show_made_in = true,
+    category = "ore-flotation",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
@@ -1734,12 +1738,11 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {type="item", name="nullius-sodium-sulfate", amount=3},
-      {type="item", name="nullius-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-water", amount=16, fluidbox_index=1}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=40, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-gypsum", amount=2},
-      {type="fluid", name="nullius-brine", amount=20, fluidbox_index=1}
+      {type="fluid", name="nullius-brine", amount=30, fluidbox_index=1}
     },
     main_product = "nullius-gypsum"
   },
@@ -1766,10 +1769,10 @@ data:extend({
       }
     },
     enabled = false,
+	always_show_made_in = true,
     category = "ore-flotation",
 	subgroup = "boxed-glass",
 	order = "nullius-eg",
-	always_show_made_in = true,
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
@@ -1777,12 +1780,11 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-sodium-sulfate", amount=3},
-      {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-water", amount=80, fluidbox_index=1}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=200, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-box-gypsum", amount=2},
-      {type="fluid", name="nullius-brine", amount=100, fluidbox_index=1}
+      {type="fluid", name="nullius-brine", amount=150, fluidbox_index=1}
     },
     main_product = "nullius-box-gypsum"
   },
@@ -1791,60 +1793,67 @@ data:extend({
     type = "recipe",
     name = "nullius-calcium-chloride-1",
 	localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", 1},
-    enabled = false,
     category = "basic-chemistry",
-	order = "nullius-ib",
+    subgroup = "inorganic-chemistry",
+    order = "nullius-fb",
+    enabled = false,
 	always_show_made_in = true,
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 2,
+    energy_required = 1,
     ingredients = {
       {type="item", name="nullius-crushed-limestone", amount=1},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=20, fluidbox_index=1}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=25, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-calcium-chloride", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=10},
-      {type="fluid", name="nullius-wastewater", amount=5}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=16},
+      {type="fluid", name="nullius-carbon-dioxide", amount=10}
     },
-    main_product = "nullius-calcium-chloride"
+    main_product = "nullius-calcium-chloride-solution"
   },
   {
     type = "recipe",
     name = "nullius-boxed-calcium-chloride-1",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}, " ", 1},
-    enabled = false,
+	localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 1}},
+	icons = {
+      {
+	    icon = "__nullius__/graphics/crate.png",
+        icon_size = 64
+	  },
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[4]
+	},
     category = "basic-chemistry",
-	subgroup = "boxed-calcium",
-	order = "nullius-fb",
+    subgroup = "boxed-fluid",
+    order = "nullius-ccb",
+    enabled = false,
 	always_show_made_in = true,
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 10,
+    energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-crushed-limestone", amount=1},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=100, fluidbox_index=1}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=125, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-box-calcium-chloride", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=50},
-      {type="fluid", name="nullius-wastewater", amount=25}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=80},
+      {type="fluid", name="nullius-carbon-dioxide", amount=50}
     },
-    main_product = "nullius-box-calcium-chloride"
+    main_product = "nullius-calcium-chloride-solution"
   },
   {
     type = "recipe",
     name = "nullius-calcium-chloride-2",
 	localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", 2},
     icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
-		icon_size = 32
-      },
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
 		icon = "__angelssmelting__/graphics/icons/solid-lime.png",
 		icon_size = 32,
@@ -1853,60 +1862,105 @@ data:extend({
       }
     },
     enabled = false,
-    category = "wet-smelting",
-	order = "nullius-ic",
+    category = "basic-chemistry",
+    subgroup = "inorganic-chemistry",
+    order = "nullius-fc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
-    energy_required = 5,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-lime", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=30, fluidbox_index=1}
+      {type="fluid", name="nullius-chlorine", amount=50},
+      {type="fluid", name="nullius-water", amount=60}
     },
     results = {
-      {type="item", name="nullius-calcium-chloride", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=12}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=60},
+      {type="fluid", name="nullius-oxygen", amount=20}
     },
-    main_product = "nullius-calcium-chloride"
+    main_product = "nullius-calcium-chloride-solution"
   },
   {
     type = "recipe",
     name = "nullius-boxed-calcium-chloride-2",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}, " ", 2},
-    icons = {
+	localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 2}},
+	icons = {
       {
 	    icon = "__nullius__/graphics/crate.png",
         icon_size = 64
 	  },
-      {
-        icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
-		icon_size = 32,
-		scale = 0.9
-      },
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
+	  data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
 		icon = "__angelssmelting__/graphics/icons/solid-lime.png",
 		icon_size = 32,
         scale = 0.36,
         shift = {-10, -11}
       }
-    },
+	},
     enabled = false,
-    category = "bulk-smelting",
-	subgroup = "boxed-calcium",
-	order = "nullius-fc",
+    category = "basic-chemistry",
+    subgroup = "boxed-fluid",
+    order = "nullius-ccc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-lime", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=150, fluidbox_index=1}
+      {type="fluid", name="nullius-chlorine", amount=250},
+      {type="fluid", name="nullius-water", amount=300}
     },
     results = {
-      {type="item", name="nullius-box-calcium-chloride", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=60}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=300},
+      {type="fluid", name="nullius-oxygen", amount=100}
+    },
+    main_product = "nullius-calcium-chloride-solution"
+  },
+  {
+    type = "recipe",
+    name = "nullius-calcium-chloride-dehydration",
+	localised_name = {"recipe-name.nullius-dehydration", {"item-name.nullius-calcium-chloride"}},
+    enabled = false,
+    category = "distillation",
+	order = "nullius-ic",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-calcium-chloride-solution"].flow_color,
+      secondary = data.raw.fluid["nullius-steam"].flow_color
+    },
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=40}
+    },
+    results = {
+      {type="item", name="nullius-calcium-chloride", amount=2},
+      {type="fluid", name="nullius-steam", amount=50, fluidbox_index=2}
+    },
+    main_product = "nullius-calcium-chloride"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-calcium-chloride-dehydration",
+	localised_name = {"recipe-name.nullius-dehydration",
+	  {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
+    enabled = false,
+    category = "distillation",
+	subgroup = "boxed-calcium",
+	order = "nullius-fc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-calcium-chloride-solution"].flow_color,
+      secondary = data.raw.fluid["nullius-steam"].flow_color
+    },
+    energy_required = 5,
+    ingredients = {
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=200}
+    },
+    results = {
+      {type="item", name="nullius-box-calcium-chloride", amount=2},
+      {type="fluid", name="nullius-steam", amount=250, fluidbox_index=2}
     },
     main_product = "nullius-box-calcium-chloride"
   },
@@ -1933,11 +1987,11 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-water", amount=6}
+      {type="fluid", name="nullius-steam", amount=75}
     },
     results = {
       {type="item", name="nullius-lime", amount=1},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=12}
+      {type="fluid", name="nullius-hydrogen-chloride", amount=10}
     },
     main_product = "nullius-lime"
   },
@@ -1971,11 +2025,11 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-water", amount=30}
+      {type="fluid", name="nullius-steam", amount=375}
     },
     results = {
       {type="item", name="nullius-box-lime", amount=1},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=60}
+      {type="fluid", name="nullius-hydrogen-chloride", amount=50}
     },
     main_product = "nullius-box-lime"
   },
@@ -1990,7 +2044,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-calcium", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=15, fluidbox_index=1}
+      {type="fluid", name="nullius-chlorine", amount=12, fluidbox_index=1}
     },
     main_product = "nullius-calcium"
   },
@@ -2006,7 +2060,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-calcium", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=15, fluidbox_index=1}
+      {type="fluid", name="nullius-chlorine", amount=60, fluidbox_index=1}
     },
     main_product = "nullius-box-calcium"
   },
@@ -2070,11 +2124,11 @@ data:extend({
     },
     enabled = false,
     category = "ore-flotation",
-    energy_required = 20,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-sand", amount=15},
-      {type="fluid", name="nullius-caustic-solution", amount=80},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=80}
+      {type="fluid", name="nullius-caustic-solution", amount=60},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=75}
     },
     results = {
       {type="item", name="nullius-silica", amount=12},
@@ -2127,11 +2181,11 @@ data:extend({
     enabled = false,
     category = "ore-flotation",
 	subgroup = "boxed-silicon",
-    energy_required = 100,
+    energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-sand", amount=15},
-	  {type="fluid", name="nullius-caustic-solution", amount=400},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=400}
+	  {type="fluid", name="nullius-caustic-solution", amount=300},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=375}
     },
     results = {
       {type="item", name="nullius-box-silica", amount=12},
@@ -2145,15 +2199,15 @@ data:extend({
     name = "nullius-rutile",
     enabled = false,
     category = "ore-flotation",
-    energy_required = 6,
+    energy_required = 3,
     ingredients = {
-      {type="item", name="nullius-sand", amount=9},
-      {type="fluid", name="nullius-acid-sulfuric", amount=20, fluidbox_index=1}
+      {type="item", name="nullius-sand", amount=5},
+      {type="fluid", name="nullius-acid-sulfuric", amount=12, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-rutile", amount=2},
-      {type="fluid", name="nullius-sludge", amount=25},
-      {type="fluid", name="nullius-carbon-dioxide", amount=10}
+      {type="item", name="nullius-rutile", amount=1},
+      {type="fluid", name="nullius-sludge", amount=10},
+      {type="fluid", name="nullius-carbon-dioxide", amount=5}
     },
     main_product = "nullius-rutile"
   },
@@ -2164,15 +2218,15 @@ data:extend({
     category = "ore-flotation",
 	subgroup = "boxed-titanium",
 	order = "nullius-bb",
-    energy_required = 30,
+    energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-box-sand", amount=9},
-      {type="fluid", name="nullius-acid-sulfuric", amount=100, fluidbox_index=1}
+      {type="item", name="nullius-box-sand", amount=5},
+      {type="fluid", name="nullius-acid-sulfuric", amount=60, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-box-rutile", amount=2},
-      {type="fluid", name="nullius-sludge", amount=125},
-      {type="fluid", name="nullius-carbon-dioxide", amount=50}
+      {type="item", name="nullius-box-rutile", amount=1},
+      {type="fluid", name="nullius-sludge", amount=50},
+      {type="fluid", name="nullius-carbon-dioxide", amount=25}
     },
     main_product = "nullius-box-rutile"
   },
@@ -2367,7 +2421,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-glass-fiber", amount=3},
-      {type="fluid", name="nullius-steam", amount=40, temperature=800}
+      {type="fluid", name="nullius-steam", amount=40}
     },
     main_product = "nullius-glass-fiber"
   },
@@ -2386,7 +2440,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-glass-fiber", amount=3},
-      {type="fluid", name="nullius-steam", amount=200, temperature=800}
+      {type="fluid", name="nullius-steam", amount=200}
     },
     main_product = "nullius-box-glass-fiber"
   },
@@ -2545,7 +2599,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {type="item", name="nullius-iron-ingot", amount=5},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=2}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=4}
     },
     results = {
       {type="item", name="nullius-iron-rod", amount=7},
@@ -2562,7 +2616,7 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-iron-ingot", amount=5},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=10}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=20}
     },
     results = {
       {type="item", name="nullius-box-iron-rod", amount=7},
@@ -2849,7 +2903,7 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {type="item", name="nullius-iron-ingot", amount=6},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=2}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=3}
     },
     results = {
       {type="item", name="nullius-iron-plate", amount=5},
@@ -2866,7 +2920,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-iron-ingot", amount=6},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=10}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=15}
     },
     results = {
       {type="item", name="nullius-box-iron-plate", amount=5},
@@ -2985,12 +3039,12 @@ data:extend({
 	always_show_made_in = true,
 	show_amount_in_title = false,
 	always_show_products = true,
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
-      {"nullius-iron-plate", 4}
+      {"nullius-iron-plate", 5}
     },
     result = "nullius-iron-sheet",
-    result_count = 5
+    result_count = 6
   },
   {
     type = "recipe",
@@ -3053,10 +3107,10 @@ data:extend({
 	always_show_products = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-steel-plate", 4}
+      {"nullius-steel-plate", 5}
     },
     result = "nullius-steel-sheet",
-    result_count = 5
+    result_count = 6
   },
   {
     type = "recipe",
@@ -3339,12 +3393,12 @@ data:extend({
 	always_show_made_in = true,
 	show_amount_in_title = false,
 	always_show_products = true,
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
-      {"nullius-iron-rod", 2}
+      {"nullius-iron-rod", 3}
     },
     result = "nullius-iron-wire",
-    result_count = 3
+    result_count = 4
   },
   {
     type = "recipe",
@@ -3371,13 +3425,13 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "machine-casting",
-    energy_required = 3,
+    energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-iron-rod", amount=3},
+      {type="item", name="nullius-iron-rod", amount=5},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
     result = "nullius-iron-wire",
-    result_count = 5
+    result_count = 8
   },
   {
     type = "recipe",
@@ -3389,13 +3443,13 @@ data:extend({
     allow_as_intermediate = false,
     category = "machine-casting",
 	subgroup = "boxed-iron",
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-box-iron-rod", amount=3},
+      {type="item", name="nullius-box-iron-rod", amount=5},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
     result = "nullius-box-iron-wire",
-    result_count = 5
+    result_count = 8
   },
 
   {
@@ -3406,12 +3460,12 @@ data:extend({
 	always_show_made_in = true,
 	show_amount_in_title = false,
 	always_show_products = true,
-    energy_required = 2,
+    energy_required = 5,
     ingredients = {
-      {"nullius-aluminum-rod", 2}
+      {"nullius-aluminum-rod", 5}
     },
     result = "nullius-aluminum-wire",
-    result_count = 3
+    result_count = 7
   },
   {
     type = "recipe",
@@ -3438,13 +3492,13 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "machine-casting",
-    energy_required = 2,
+    energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-aluminum-rod", amount=3},
+      {type="item", name="nullius-aluminum-rod", amount=6},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
     result = "nullius-aluminum-wire",
-    result_count = 5
+    result_count = 10
   },
   {
     type = "recipe",
@@ -3456,13 +3510,13 @@ data:extend({
     allow_as_intermediate = false,
     category = "machine-casting",
 	subgroup = "boxed-aluminum",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-box-aluminum-rod", amount=3},
+      {type="item", name="nullius-box-aluminum-rod", amount=6},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
     result = "nullius-box-aluminum-wire",
-    result_count = 5
+    result_count = 10
   },
 
   {
@@ -3713,7 +3767,7 @@ data:extend({
       {type="item", name="nullius-steel-plate", amount=2},
       {type="item", name="nullius-steel-gear", amount=1},
       {type="item", name="nullius-steel-rod", amount=1},
-      {type="fluid", name="nullius-lubricant", amount=5, fluidbox_index=1}
+      {type="fluid", name="nullius-lubricant", amount=6, fluidbox_index=1}
     },
     result = "nullius-motor-2"
   },
@@ -3730,7 +3784,7 @@ data:extend({
       {type="item", name="nullius-box-steel-plate", amount=2},
       {type="item", name="nullius-box-steel-gear", amount=1},
       {type="item", name="nullius-box-steel-rod", amount=1},
-      {type="fluid", name="nullius-lubricant", amount=25, fluidbox_index=1}
+      {type="fluid", name="nullius-lubricant", amount=30, fluidbox_index=1}
     },
     result = "nullius-box-motor-2"
   },
@@ -3905,7 +3959,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-aluminum-hydroxide", amount=3},
-      {type="fluid", name="nullius-sludge", amount=15, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=12, fluidbox_index=1}
     },
     main_product = "nullius-aluminum-hydroxide"
   },
@@ -3924,7 +3978,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-aluminum-hydroxide", amount=3},
-      {type="fluid", name="nullius-sludge", amount=75, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=60, fluidbox_index=1}
     },
     main_product = "nullius-box-aluminum-hydroxide"
   },
@@ -3955,7 +4009,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-aluminum-hydroxide", amount=6},
-      {type="fluid", name="nullius-sludge", amount=30},
+      {type="fluid", name="nullius-sludge", amount=25},
       {type="fluid", name="nullius-sulfur-dioxide", amount=3}
     },
     main_product = "nullius-aluminum-hydroxide"
@@ -3993,7 +4047,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-aluminum-hydroxide", amount=6},
-      {type="fluid", name="nullius-sludge", amount=150},
+      {type="fluid", name="nullius-sludge", amount=125},
       {type="fluid", name="nullius-sulfur-dioxide", amount=15}
     },
     main_product = "nullius-box-aluminum-hydroxide"
@@ -4368,7 +4422,7 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {type="item", name="nullius-silicon-ingot", amount=3},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=40, fluidbox_index=1},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=45, fluidbox_index=1},
       {type="fluid", name="nullius-nitrogen", amount=20, fluidbox_index=3}	  
     },
     results = {
@@ -4457,7 +4511,7 @@ data:extend({
       {type="item", name="nullius-top-up-valve", amount=1}
     },
     result = "nullius-canister",
-    result_count = 3
+    result_count = 5
   },
   {
     type = "recipe",
@@ -4470,11 +4524,12 @@ data:extend({
 	always_show_products = true,
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-box-aluminum-sheet", amount=4},
-      {type="item", name="nullius-box-top-up-valve", amount=2}
+      {type="item", name="nulliux-box-barrel", amount=1},
+      {type="item", name="nullius-box-aluminum-sheet", amount=2},
+      {type="item", name="nullius-box-top-up-valve", amount=1}
     },
     result = "nullius-box-canister",
-    result_count = 3
+    result_count = 5
   },
 
   {
@@ -4828,10 +4883,10 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-		icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
-		icon_size = 32,
-        scale = 0.45,
-        shift = {-11, -11}
+		icon = "__nullius__/graphics/icons/calcium-chloride.png",
+		icon_size = 64,
+        scale = 0.24,
+        shift = {-10, -10}
       }
     },
 	order = "nullius-dc",
@@ -4844,8 +4899,8 @@ data:extend({
       {type="item", name="nullius-cement", amount=3},
       {type="item", name="nullius-sand", amount=7},
       {type="item", name="nullius-gravel", amount=15},
-      {type="item", name="nullius-calcium-chloride", amount=1},
-      {type="fluid", name="nullius-water", amount=20, fluidbox_index=1}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=5},
+      {type="fluid", name="nullius-water", amount=15}
     },
     result = "concrete",
     result_count = 20
@@ -4864,8 +4919,8 @@ data:extend({
       {type="item", name="nullius-box-cement", amount=3},
       {type="item", name="nullius-box-sand", amount=7},
       {type="item", name="nullius-box-gravel", amount=15},
-      {type="item", name="nullius-box-calcium-chloride", amount=1},
-      {type="fluid", name="nullius-water", amount=100, fluidbox_index=1}
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=25},
+      {type="fluid", name="nullius-water", amount=75}
     },
     result = "nullius-box-concrete",
     result_count = 10
@@ -5873,7 +5928,7 @@ data:extend({
     results = {
       {type="item", name="nullius-titanium-ingot", amount=5},
       {type="item", name="nullius-lime", amount=4},
-      {type="fluid", name="nullius-chlorine", amount=8}
+      {type="fluid", name="nullius-chlorine", amount=5}
     },
     main_product = "nullius-titanium-ingot"
   },
@@ -5912,7 +5967,7 @@ data:extend({
     results = {
       {type="item", name="nullius-box-titanium-ingot", amount=5},
       {type="item", name="nullius-box-lime", amount=4},
-      {type="fluid", name="nullius-chlorine", amount=40}
+      {type="fluid", name="nullius-chlorine", amount=25}
     },
     main_product = "nullius-box-titanium-ingot"
   },
@@ -6100,7 +6155,7 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 12,
     ingredients = {
-	  {"nullius-turbine-1", 1},
+	  {"nullius-standard-turbine-1", 1},
       {"nullius-capacitor", 2},
 	  {"turbo-filter-inserter", 2},
 	  {"constant-combinator", 2},
@@ -6122,7 +6177,7 @@ data:extend({
 	order = "nullius-gb",
     energy_required = 60,
     ingredients = {
-	  {"nullius-box-turbine-1", 1},
+	  {"nullius-box-standard-turbine-1", 1},
       {"nullius-box-capacitor", 2},
 	  {"nullius-box-filter-inserter-2", 2},
 	  {"nullius-box-memory-circuit", 2},
@@ -6143,7 +6198,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
 	  {"nullius-robot-frame-1", 1},
-	  {"nullius-turbine-2", 1},
+	  {"nullius-standard-turbine-2", 1},
       {"nullius-battery-1", 2},
 	  {"nullius-sensor-1", 2},
 	  {"nullius-fiberglass", 5}
@@ -6164,7 +6219,7 @@ data:extend({
     energy_required = 75,
     ingredients = {
 	  {"nullius-box-robot-frame-1", 1},
-	  {"nullius-box-turbine-2", 1},
+	  {"nullius-box-standard-turbine-2", 1},
       {"nullius-box-battery-1", 3},
 	  {"nullius-box-sensor-1", 2},
 	  {"nullius-box-fiberglass", 5}
@@ -6183,7 +6238,7 @@ data:extend({
     energy_required = 20,
     ingredients = {
 	  {"nullius-robot-frame-2", 2},
-	  {"nullius-turbine-3", 1},
+	  {"nullius-standard-turbine-3", 1},
       {"nullius-battery-2", 2},
 	  {"nullius-carbon-composite", 5},
 	  {"nullius-relay-3", 1},
@@ -6205,7 +6260,7 @@ data:extend({
     energy_required = 100,
     ingredients = {
 	  {"nullius-box-robot-frame-2", 2},
-	  {"nullius-box-turbine-3", 1},
+	  {"nullius-box-standard-turbine-3", 1},
       {"nullius-box-battery-2", 2},
 	  {"nullius-box-carbon-composite", 5},
 	  {"nullius-box-relay-3", 1},
@@ -6826,7 +6881,7 @@ data:extend({
 	subgroup = "nuclear",
 	order = "nullius-fc",
     fuel_category = "vehicle",
-    fuel_value = "2GJ",
+    fuel_value = "1GJ",
     fuel_acceleration_multiplier = 2.5,
     fuel_top_speed_multiplier = 1.75,
     stack_size = 20

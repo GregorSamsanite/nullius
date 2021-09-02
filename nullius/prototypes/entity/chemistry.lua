@@ -14,7 +14,7 @@ data:extend({
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 1,
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.01, drain="5kW"},
-    energy_usage = "195kW",
+    energy_usage = "145kW",
     ingredient_count = 3,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -103,7 +103,7 @@ data:extend({
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 2,
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="10kW"},
-    energy_usage = "390kW",
+    energy_usage = "290kW",
     ingredient_count = 4,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -197,7 +197,7 @@ data:extend({
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 4,
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="20kW"},
-    energy_usage = "780kW",
+    energy_usage = "580kW",
     ingredient_count = 6,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -290,7 +290,7 @@ data:extend({
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 2,
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="10kW"},
-    energy_usage = "390kW",
+    energy_usage = "290kW",
     ingredient_count = 4,
 	resistances = data.raw["assembling-machine"]["nullius-hydro-plant-2"].resistances,
 	module_specification = { module_slots = 2 },
@@ -356,7 +356,7 @@ data:extend({
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 4,
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="20kW"},
-    energy_usage = "780kW",
+    energy_usage = "580kW",
     ingredient_count = 6,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },

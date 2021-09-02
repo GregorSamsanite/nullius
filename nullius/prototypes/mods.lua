@@ -123,9 +123,9 @@ data:extend({
     energy_required = 60,
     ingredients = {
       {"factory-1", 3},
-      {"nullius-cement", 800},
+      {"concrete", 800},
       {"nullius-refractory-brick", 500},
-      {"nullius-steel-beam", 400},
+      {"nullius-steel-beam", 200},
 	  {"red-wire", 40}
     },
     result = "factory-2",
@@ -136,7 +136,7 @@ data:extend({
     name = "nullius-factory-3",
     category = "huge-crafting",
 	always_show_made_in = true,
-    energy_required = 80,
+    energy_required = 90,
     ingredients = {
       {"factory-2", 3},
       {"stone-wall", 150},
@@ -516,7 +516,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-locomotion-1"}
+    prerequisites = {"nullius-locomotion-1", "nullius-wind-power-2"}
   },
   {
     type = "technology",
@@ -1269,6 +1269,12 @@ data:extend({
 	result = "warehouse-active-provider"
   }
 })
+
+
+if mods["Factorissimo2"] then
+table.insert(data.raw.technology["nullius-warehousing-3"].prerequisites,
+  "factory-connection-type-chest")
+end
 end
 
 
