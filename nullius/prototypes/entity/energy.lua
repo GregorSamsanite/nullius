@@ -705,6 +705,8 @@ mcc1.minable.result = "nullius-mirror-combustion-chamber-1"
 mcc1.next_upgrade = "nullius-mirror-combustion-chamber-2"
 mcc1.localised_name = {"entity-name.nullius-mirrored",
     {"entity-name.nullius-combustion-chamber-1"}}
+mcc1.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
+mcc1.fluid_boxes[2].pipe_connections[1].position = {-2, 0.5}
 
 data:extend({
   mcc1,
@@ -717,7 +719,7 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-combustion-chamber-2"},
     crafting_categories = { "combustion" },
     crafting_speed = 2.5,
-    base_productivity = 0.03,
+    base_productivity = 0.02,
     max_health = 300,
     corpse = "boiler-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -941,7 +943,7 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-mirror-combustion-chamber-2"},
     crafting_categories = { "combustion" },
     crafting_speed = 2.5,
-    base_productivity = 0.03,
+    base_productivity = 0.02,
     max_health = 300,
     corpse = "boiler-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1001,7 +1003,7 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-combustion-chamber-3"},
     crafting_categories = { "combustion" },
     crafting_speed = 6,
-    base_productivity = 0.05,
+    base_productivity = 0.04,
     max_health = 400,
     corpse = "boiler-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1178,7 +1180,7 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-mirror-combustion-chamber-3"},
     crafting_categories = { "combustion" },
     crafting_speed = 6,
-    base_productivity = 0.05,
+    base_productivity = 0.04,
     max_health = 400,
     corpse = "boiler-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1206,7 +1208,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
     effectivity = 0.9,
-    fluid_usage_per_tick = 3,
+    fluid_usage_per_tick = 4,
     maximum_temperature = 1600,
     max_power_output = "1MW",
     burns_fluid = true,
@@ -1329,7 +1331,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
     effectivity = 0.95,
-    fluid_usage_per_tick = 6,
+    fluid_usage_per_tick = 8,
     maximum_temperature = 1800,
     max_power_output = "2.5MW",
     burns_fluid = true,
@@ -1373,7 +1375,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
     effectivity = 1,
-    fluid_usage_per_tick = 15,
+    fluid_usage_per_tick = 20,
     maximum_temperature = 2000,
     max_power_output = "6MW",
 	burns_fluid = true,
@@ -1440,7 +1442,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
     effectivity = 0.95,
-    fluid_usage_per_tick = 6,
+    fluid_usage_per_tick = 8,
     maximum_temperature = 1800,
     max_power_output = "2.5MW",
     burns_fluid = true,
@@ -1478,7 +1480,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
     effectivity = 1,
-    fluid_usage_per_tick = 15,
+    fluid_usage_per_tick = 20,
     maximum_temperature = 2000,
     max_power_output = "6MW",
 	burns_fluid = true,
@@ -1841,12 +1843,12 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 1,
-      drain = "30kW",
+      drain = "15kW",
 	  output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
-    energy_usage = "2820kW",
+    energy_usage = "2925kW",
 	resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound = data.raw["mining-drill"]["thermal-extractor"].working_sound,
@@ -1987,7 +1989,7 @@ data:extend({
       drain = "30kW",
       usage_priority = "secondary-input"
     },
-    energy_usage = "1870kW",
+    energy_usage = "1930kW",
 	resistances = data.raw["assembling-machine"]["nullius-surge-compressor-2"].resistances,
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound = data.raw["mining-drill"]["thermal-extractor"].working_sound,
@@ -2071,12 +2073,12 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 1,
-      drain = "75kW",
+      drain = "25kW",
 	  output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
-    energy_usage = "7425kW",
+    energy_usage = "7725kW",
 	resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound = data.raw["mining-drill"]["thermal-extractor"].working_sound,
@@ -2212,7 +2214,7 @@ data:extend({
       drain = "100kW",
       usage_priority = "secondary-input"
     },
-    energy_usage = "7400kW",
+    energy_usage = "7650kW",
 	resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound = data.raw["mining-drill"]["thermal-extractor"].working_sound,
@@ -2462,7 +2464,7 @@ data:extend({
       scale = 0.5,
 	  draw_as_shadow = true
     },
-	consumption = "12.5MW",
+	consumption = "10MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
       max_temperature = 250,
@@ -2513,7 +2515,7 @@ data:extend({
 	  tint = {0.85, 0.75, 1}
     },
 	picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
-	consumption = "40MW",
+	consumption = "30MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
       max_temperature = 300,
@@ -2560,7 +2562,7 @@ data:extend({
       scale = 0.5
     },
 	picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
-	consumption = "125MW",
+	consumption = "80MW",
 	neighbour_bonus = 0,
 	heat_buffer = {
       max_temperature = 400,
@@ -2862,7 +2864,8 @@ data:extend({
 	  usage_priority = "tertiary",
 	  emissions_per_minute = 0.02,
 	  drain = "0W",
-	  render_no_power_icon = false
+	  render_no_power_icon = false,
+	  render_no_network_icon = false
 	},
 	consumption = "5kW",
 	working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
@@ -2926,7 +2929,8 @@ data:extend({
 	  usage_priority = "tertiary",
 	  emissions_per_minute = 0.02,
 	  drain = "0W",
-	  render_no_power_icon = false
+	  render_no_power_icon = false,
+	  render_no_network_icon = false
 	},
 	consumption = "20kW",
 	working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
@@ -3174,7 +3178,7 @@ data:extend({
 	  type = "electric",
 	  usage_priority = "secondary-output",
 	  buffer_capacity = "8MJ",
-	  output_flow_limit = "1MW",
+	  output_flow_limit = "800kW",
 	  input_flow_limit = "0kW",
 	  render_no_power_icon = false
 	},
@@ -3271,7 +3275,7 @@ data:extend({
 	  type = "electric",
 	  usage_priority = "secondary-output",
 	  buffer_capacity = "30MJ",
-	  output_flow_limit = "4MW",
+	  output_flow_limit = "2.5MW",
 	  input_flow_limit = "0kW",
 	  render_no_power_icon = false
 	},
@@ -3367,7 +3371,7 @@ data:extend({
 	  type = "electric",
 	  usage_priority = "secondary-output",
 	  buffer_capacity = "120MJ",
-	  output_flow_limit = "15MW",
+	  output_flow_limit = "8MW",
 	  input_flow_limit = "0kW",
 	  render_no_power_icon = false
 	},
@@ -3935,7 +3939,7 @@ data:extend({
 	next_upgrade = "nullius-solar-collector-2",
     max_health = 250,
     corpse = "solar-panel-remnants",
-    consumption = "225W",
+    consumption = "150W",
     energy_source = { type = "void" },
     neighbour_bonus = 0.1,
 	neighbour_collision_increase = 0.1,
@@ -4013,7 +4017,7 @@ data:extend({
 	next_upgrade = "nullius-solar-collector-3",
     max_health = 300,
     corpse = "solar-panel-remnants",
-    consumption = "450W",
+    consumption = "300W",
     energy_source = { type = "void" },
     neighbour_bonus = 0.1,
 	neighbour_collision_increase = 0.1,
@@ -4090,7 +4094,7 @@ data:extend({
     fast_replaceable_group = "solar-collector",
     max_health = 400,
     corpse = "solar-panel-remnants",
-    consumption = "900W",
+    consumption = "600W",
     energy_source = { type = "void" },
     neighbour_bonus = 0.1,
 	neighbour_collision_increase = 0.1,
@@ -4367,190 +4371,108 @@ data.raw["solar-panel"]["nullius-solar-panel-4"].picture.layers[2].hr_version.ti
 
 data.raw["accumulator"]["nullius-grid-battery-1"].picture = { layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-3.png",
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-3.png",
     priority = "high",
-    width = 66,
-    height = 94,
-    shift = util.by_pixel(0, -10),
-    hr_version = {
-      filename = "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-3.png",
-      priority = "high",
-      width = 130,
-      height = 189,
-      shift = util.by_pixel(0, -11),
-      scale = 0.5
-    }
+    width = 130,
+    height = 189,
+    shift = util.by_pixel(0, -11*1.5),
+    scale = 0.75
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/power/accumulator/accumulator-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-mask.png",
     priority = "high",
-    width = 66,
-    height = 94,
-    shift = util.by_pixel(0, -10),
+    width = 130,
+    height = 189,
+    shift = util.by_pixel(0, -11*1.5),
     tint = util.color("c20600"),
-    hr_version = {
-      filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-mask.png",
-      priority = "high",
-      width = 130,
-      height = 189,
-      shift = util.by_pixel(0, -11),
-      tint = util.color("c20600"),
-      scale = 0.5
-    }
+    scale = 0.75
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/power/accumulator/accumulator-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-highlights.png",
     priority = "high",
-    width = 66,
-    height = 94,
-    shift = util.by_pixel(0, -10),
+    width = 130,
+    height = 189,
+    shift = util.by_pixel(0, -11*1.5),
     blend_mode = "additive",
-    hr_version = {
-      filename = "__reskins-bobs__/graphics/entity/power/accumulator/hr-accumulator-highlights.png",
-      priority = "high",
-      width = 130,
-      height = 189,
-      shift = util.by_pixel(0, -11),
-      blend_mode = "additive",
-      scale = 0.5
-    }
+    scale = 0.75
   },
   {
-    filename = "__base__/graphics/entity/accumulator/accumulator-shadow.png",
+    filename = "__base__/graphics/entity/accumulator/hr-accumulator-shadow.png",
     priority = "high",
-    width = 120,
-    height = 54,
-    shift = util.by_pixel(28, 6),
+    width = 234,
+    height = 106,
+    shift = util.by_pixel(29*1.5, 6*1.5),
     draw_as_shadow = true,
-    hr_version = {
-      filename = "__base__/graphics/entity/accumulator/hr-accumulator-shadow.png",
-      priority = "high",
-      width = 234,
-      height = 106,
-      shift = util.by_pixel(29, 6),
-      draw_as_shadow = true,
-      scale = 0.5
-    }
+    scale = 0.75
   }
 }}
 
 local accumpic = util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
 accumpic.layers[1].repeat_count = 24
 accumpic.layers[1].animation_speed = 0.5
-accumpic.layers[1].hr_version.repeat_count = 24
-accumpic.layers[1].hr_version.animation_speed = 0.5
 accumpic.layers[2].repeat_count = 24
 accumpic.layers[2].animation_speed = 0.5
-accumpic.layers[2].hr_version.repeat_count = 24
-accumpic.layers[2].hr_version.animation_speed = 0.5
 accumpic.layers[3].repeat_count = 24
 accumpic.layers[3].animation_speed = 0.5
-accumpic.layers[3].hr_version.repeat_count = 24
-accumpic.layers[3].hr_version.animation_speed = 0.5
 accumpic.layers[4].repeat_count = 24
-accumpic.layers[4].hr_version.repeat_count = 24
 data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation = accumpic
 data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation.layers[5] = {
-  filename = "__base__/graphics/entity/accumulator/accumulator-charge.png",
+  filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
   priority = "high",
-  width = 90,
-  height = 100,
+  width = 178,
+  height = 206,
   line_length = 6,
   frame_count = 24,
   draw_as_glow = true,
-  shift = util.by_pixel(0, -22),
-  hr_version = {
-    filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
-    priority = "high",
-    width = 178,
-    height = 206,
-    line_length = 6,
-    frame_count = 24,
-    draw_as_glow = true,
-    shift = util.by_pixel(0, -22),
-    scale = 0.5
-  }
+  shift = util.by_pixel(0, -22*1.5),
+  scale = 0.75
 }
 
 data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
 data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation.layers[5] = {
-  filename = "__base__/graphics/entity/accumulator/accumulator-discharge.png",
+  filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
   priority = "high",
-  width = 88,
-  height = 104,
+  width = 170,
+  height = 210,
   line_length = 6,
   frame_count = 24,
   draw_as_glow = true,
-  shift = util.by_pixel(-2, -22),
-  hr_version = {
-    filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
-    priority = "high",
-    width = 170,
-    height = 210,
-    line_length = 6,
-    frame_count = 24,
-    draw_as_glow = true,
-    shift = util.by_pixel(-1, -23),
-    scale = 0.5
-  }
+  shift = util.by_pixel(-1*1.5, -23*1.5),
+  scale = 0.75
 }
 
 
 data.raw["accumulator"]["nullius-grid-battery-2"].picture =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
 data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
-data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
 data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[2].tint = util.color("0099ff")
-data.raw["accumulator"]["nullius-grid-battery-2"].picture.layers[2].hr_version.tint =
-    util.color("0099ff")
 data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
 data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
-data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
 data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[2].tint = util.color("0099ff")
-data.raw["accumulator"]["nullius-grid-battery-2"].charge_animation.layers[2].hr_version.tint =
-    util.color("0099ff")	
 data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation)
 data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-1.png"
-data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-1.png"
 data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[2].tint = util.color("0099ff")
-data.raw["accumulator"]["nullius-grid-battery-2"].discharge_animation.layers[2].hr_version.tint =
-    util.color("0099ff")
 
 data.raw["accumulator"]["nullius-grid-battery-3"].picture =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].picture)
 data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
-data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
 data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[2].tint = util.color("23de55")
-data.raw["accumulator"]["nullius-grid-battery-3"].picture.layers[2].hr_version.tint =
-    util.color("23de55")
 data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
 data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
-data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
 data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[2].tint = util.color("23de55")
-data.raw["accumulator"]["nullius-grid-battery-3"].charge_animation.layers[2].hr_version.tint =
-    util.color("23de55")	
 data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation)
 data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[1].filename = 
-    "__reskins-bobs__/graphics/entity/power/accumulator/wires/accumulator-2.png"
-data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[1].hr_version.filename = 
     "__reskins-bobs__/graphics/entity/power/accumulator/wires/hr-accumulator-2.png"
 data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[2].tint = util.color("23de55")
-data.raw["accumulator"]["nullius-grid-battery-3"].discharge_animation.layers[2].hr_version.tint =
-    util.color("23de55")
 
 end

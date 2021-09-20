@@ -3,7 +3,7 @@
 -- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
 -- to rely on it, so the graphics are replicated here.
 
-local base_wind_power = {1500000/60, 3000000/60, 9000000/60}
+local base_wind_power = {1500000/60, 4000000/60, 12000000/60}
 
 function init_wind()
   global.nullius_wind_orientation = 4

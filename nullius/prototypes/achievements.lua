@@ -6,7 +6,7 @@ data:extend({
     to_build = "nullius-wind-build-1",
     icon = "__nullius__/graphics/breezy.png",
     icon_size = 128,
-    until_second = 30 * 60 -- 30 minutes
+    until_second = 40 * 60 -- 40 minutes
   }
 })
 

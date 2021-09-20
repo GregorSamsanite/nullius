@@ -1,20 +1,76 @@
+local function init_broken()
+  global.nullius_broken_status = {}
+  global.nullius_broken_status["nullius-broken-air-filter"] = 3
+  global.nullius_broken_status["nullius-broken-hydro-plant"] = 2
+  global.nullius_broken_status["nullius-broken-electrolyzer"] = 1
+  global.nullius_broken_status["nullius-broken-chemical-plant"] = 6
+  global.nullius_broken_status["nullius-broken-foundry"] = 2
+  global.nullius_broken_status["nullius-broken-assembler"] = 3
+  global.nullius_broken_status["nullius-broken-pylon"] = 18
+  global.nullius_broken_status["nullius-broken-solar-panel"] = 15
+  global.nullius_broken_status["nullius-broken-grid-battery"] = 10
+  global.nullius_broken_status["nullius-broken-sensor-node"] = 2
+end
+
+local function broken_disabled(name)
+  if (global.nullius_broken_status == nil) then
+    return true
+  end
+  local count = global.nullius_broken_status[name]
+  if ((count == nil) or (count < 1)) then
+    return true
+  end
+  return false
+end
+
+local function broken_crafted(name)
+  if (global.nullius_broken_status == nil) then
+    return
+  end
+  local count = global.nullius_broken_status[name]
+  if (count == nil) then
+    return
+  end
+  if (count < 2) then
+    global.nullius_broken_status[name] = nil
+    for _, force in pairs(game.forces) do
+      force.recipes[name].enabled = false
+    end
+  else
+    global.nullius_broken_status[name] = (count - 1)
+  end
+end
+
+
 local function init_tech(force)
   for _, tech in pairs(force.technologies) do
     if ((string.sub(tech.name, 1, 8) ~= "nullius-") and
 	    (string.sub(tech.order, 1, 8) ~= "nullius-")) then
       tech.enabled = false
-	elseif (tech.prototype.max_level <= tech.prototype.level) then
-	 -- tech.researched = true
     end
+  end
+  
+  if (force.technologies["nullius-experimental-chemistry"].researched) then
+    global.nullius_broken_status = nil
   end
 
   for _, recipe in pairs(force.recipes) do
-    if (string.sub(recipe.name, 1, 8) ~= "nullius-") and
-	    (string.sub(recipe.order, 1, 8) ~= "nullius-") and
+    if (string.sub(recipe.name, 1, 8) == "nullius-") then
+	  if (string.sub(recipe.name, 9, 15) == "broken-") and
+	      broken_disabled(recipe.name) then
+		recipe.enabled = false
+	  end
+    elseif (string.sub(recipe.order, 1, 8) ~= "nullius-") and
 	    (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
 	    (string.sub(recipe.name, 1, 14) ~= "empty-nullius-") then
       recipe.enabled = false
 	end
+  end
+end
+
+local function init_techs()
+  for _, force in pairs(game.forces) do
+    init_tech(force)
   end
 end
 
@@ -61,9 +117,7 @@ script.on_configuration_changed(
 	  remote.call("silo_script", "set_no_victory", true)
 	end
 
-    for _, force in pairs(game.forces) do
-      init_tech(force)
-    end
+	init_techs()
 	update_mission_global()
   end
 )
@@ -112,6 +166,7 @@ script.on_event(defines.events.on_player_created,
 	  global.init_landing = true
       player.surface.daytime = 0.7
       landing_site(player.surface, {-5, -6})
+	  init_broken()
 	end
 
     if game.is_multiplayer() then
@@ -120,5 +175,26 @@ script.on_event(defines.events.on_player_created,
       game.show_message_dialog{text = {"nullius-intro"}}
     end
 	update_mission_player(player)
+  end
+)
+
+script.on_event(defines.events.on_research_finished,
+  function(event)
+    if (global.nullius_broken_status ~= nil) then
+      if (event.research.name == "nullius-experimental-chemistry") then
+	    init_techs()
+	  elseif (event.research.name == "nullius-distillation-1") then
+	    broken_crafted("nullius-broken-electrolyzer")
+	  end
+	end
+  end
+)
+
+script.on_event(defines.events.on_player_crafted_item,
+  function(event)
+    if ((global.nullius_broken_status ~= nil) and
+	    (string.sub(event.recipe.name, 1, 15) == "nullius-broken-")) then
+	  broken_crafted(event.recipe.name)
+	end
   end
 )

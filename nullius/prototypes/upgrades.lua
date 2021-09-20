@@ -748,7 +748,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-artificial-intelligence", "nullius-biochemistry-7"},
+    prerequisites = {"nullius-artificial-intelligence-2", "nullius-biochemistry-7"},
     max_level = "infinite",
 	upgrade = true
   },

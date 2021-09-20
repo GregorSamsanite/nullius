@@ -214,7 +214,7 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-oil", amount=100},
-      {type="fluid", name="nullius-steam", amount=200}
+      {type="fluid", name="nullius-steam", amount=250}
     },
     results = {
       {type="fluid", name="nullius-fatty-acids", amount=75},
@@ -350,7 +350,7 @@ data:extend({
     category = "distillation",
     subgroup = "biology-oil",
     order = "nullius-g",
-    energy_required = 4,
+    energy_required = 3,
     ingredients = {
       {type="fluid", name="nullius-fatty-acids", amount=30}
     },
@@ -362,6 +362,37 @@ data:extend({
     },
     main_product = "nullius-propene"
   },
+  {
+    type = "recipe",
+    name = "nullius-boxed-fatty-acid-pyrolysis",
+	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pyrolysis",
+	    {"fluid-name.nullius-fatty-acids"}}},
+    icons = {
+      {
+	    icon = "__nullius__/graphics/crate.png",
+		icon_size = 64
+	  },
+	  data.raw.fluid["nullius-fatty-acids"].icons[2],
+	  data.raw.fluid["nullius-fatty-acids"].icons[3],
+	  data.raw.fluid["nullius-fatty-acids"].icons[4]
+	},
+    enabled = false,
+    category = "distillation",
+    subgroup = "boxed-biology",
+	order = "nullius-o",
+    energy_required = 15,
+    ingredients = {
+      {type="fluid", name="nullius-fatty-acids", amount=150}
+    },
+    results = {
+      {type="fluid", name="nullius-ethylene", amount=250},
+      {type="fluid", name="nullius-propene", amount=350},
+      {type="fluid", name="nullius-benzene", amount=20},
+      {type="item", name="nullius-box-graphite", amount=1}
+    },
+    main_product = "nullius-propene"
+  },
+
   {
     type = "recipe",
     name = "nullius-glycerol-reforming",
@@ -384,7 +415,7 @@ data:extend({
     results = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=12},
       {type="fluid", name="nullius-compressed-carbon-monoxide", amount=16},
-      {type="fluid", name="nullius-steam", amount=20}
+      {type="fluid", name="nullius-steam", amount=25}
     },
     main_product = "nullius-compressed-carbon-monoxide"
   },
@@ -523,7 +554,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-fermentation",
-	localised_name = {"recipe-name.nullius-fermentation"},
+	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-fermentation"}},
     icons = {
       {
 	    icon = "__nullius__/graphics/crate.png",
@@ -1327,7 +1358,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-graphite", amount=1},
-      {type="fluid", name="nullius-steam", amount=500},
+      {type="fluid", name="nullius-steam", amount=700},
       {type="fluid", name="nullius-carbon-dioxide", amount=100}
     },
     main_product = "nullius-steam"
@@ -1368,7 +1399,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-graphite", amount=1},
-      {type="fluid", name="nullius-steam", amount=2500},
+      {type="fluid", name="nullius-steam", amount=3500},
       {type="fluid", name="nullius-carbon-dioxide", amount=500}
     },
     main_product = "nullius-steam"
@@ -3294,7 +3325,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-biochemistry-pack",
-    order = "nullius-b",
+    order = "nullius-xb",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3321,7 +3352,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-microbiology-pack",
-    order = "nullius-c",
+    order = "nullius-xc",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3348,7 +3379,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-botany-pack",
-    order = "nullius-d",
+    order = "nullius-xd",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3375,7 +3406,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-dendrology-pack",
-    order = "nullius-e",
+    order = "nullius-xe",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3403,7 +3434,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-nematology-pack",
-    order = "nullius-f",
+    order = "nullius-xf",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3431,7 +3462,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-ichthyology-pack",
-    order = "nullius-g",
+    order = "nullius-xg",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",
@@ -3459,7 +3490,7 @@ data:extend({
   {
     type = "tool",
     name = "nullius-zoology-pack",
-    order = "nullius-h",
+    order = "nullius-xh",
     icons = {
       {
         icon = "__nullius__/graphics/icons/flask.png",

@@ -591,7 +591,8 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-chlorine-barrel", amount=1},
       {type="item", name="processed-fuel", amount=5},
-      {type="item", name="red-wire", amount=2},
+      {type="item", name="red-wire", amount=1},
+      {type="item", name="green-wire", amount=1},
       {type="item", name="nullius-small-miner-1", amount=1}
     },
 	result = "cliff-explosives"

@@ -3202,7 +3202,7 @@ data:extend({
 	damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
     fluid_box = {
 	  height = 0.8,
-      base_area = 2.25,
+      base_area = 1.875,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -1} },
@@ -3236,7 +3236,7 @@ data:extend({
 	damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
     fluid_box = {
 	  height = 1.2,
-      base_area = 1.25,
+      base_area = 1,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -1} },

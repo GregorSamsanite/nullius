@@ -1,6 +1,108 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 19.09.2021
+  Balancing:
+    - Increase turbine fluid consumption to match lower steam energy density.
+  Bugfixes:
+    - Fix a crash with asteroid mining on Transport Drone routes.
+    - Disallow productivity for priority turbine 2 and mirrored combustion chamber 1.
+  Modding:
+    - Provide name localization for Jetpack flying variant of android 2.
+  Translation:
+    - Russian updated for 1.2.0 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 19.09.2021
+  Features:
+    - Ability to control multiple different android bodies.
+    - New artificial intelligence tech available in early physics era.
+    - New larger and more capable android body available.
+  Changes:
+    - Residual gas recipe outputs some nitrogen and requires less air.
+    - Character can be repaired by construction bots.
+    - Android recipe changed.
+    - Minor change to improvised explosive recipe.
+    - Increase wind turbine selection box.
+    - Include MIT No Attribution license.
+  Balancing:
+    - Reduce energy density of steam to 6kJ and adjust steam ratios accordingly.
+    - Improve steel ingot 3 recipe.
+    - Increase output of wind turbine 2 and 3 by a third, and reduce their cost.
+    - Increase cost of solar collector 1.
+    - Reduce speed of compressed air recipe.
+    - Increase speed of combustion recipes.
+    - Slightly increase output of pressurized electrolysis.
+  Bugfixes:
+    - Fix a problem with boxed canister recipe.
+  Graphics:
+    - Use different armor graphics based on chassis tier.
+  Sounds:
+    - Make large chest open/close sound quieter.
+  Translation:
+    - Russian updated for 1.1.9 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.1.9
+Date: 12.09.2021
+  Bugfixes:
+    - Fix a bug involving recent change to broken item script.
+  Balancing:
+    - Increase energy value of compressed air.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.8
+Date: 10.09.2021
+  Features:
+    - Add boxed fatty acid pyrolysis and limestone disposal recipes.
+  Balancing:
+    - Reduce geothermal and stirling engine output (20% at tier 1, more at 2 & 3).
+    - Make solar panel 1 and stirling engine 2 cheaper.
+    - Increase throughput of underground pipe 1 & 2.
+    - Marginally increase power consumption of compressor and electrolyzer 2 & 3.
+    - Reduce productivity bonus of combustion chamber 2 & 3 by 1%.
+    - More energy efficient compressed gas recipes.
+  Changes:
+    - "No recipe" message is more explanatory.
+    - Broken electrolyzer can be repaired in an assembler.
+  Graphics:
+    - Don't render no network icon on thermal tank.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 07.09.2021
+  Bugfixes:
+    - Fixed the new mirrored combustion chamber 1 to actually mirror.
+    - Fix hydrogen input of compressed methane recipe to match uncompressed version.
+  Changes:
+    - Change sorting of tech packs so that all biology techs are after all others.
+    - Combinators/speakers use less power, have internal storage, and higher priority.
+    - Split out boxing and unboxing recipes to separate packaging crafting category.
+    - Replace pylon 1 entity with vanilla big electric pole entity.
+    - Adjusted prerequisites for plumbing 1.
+  Balancing:
+    - Changes to hydrogen consumption of methane/carbon monoxide/graphite recipes.
+    - Increase a few vehicle recipes to use multiple vehicle inputs.
+    - Iron ingot 1 slightly slower.   
+  Sounds:
+    - Change injured character sound to be more robotic.
+  Modding:
+    - Add support for LTN Combinator Modernized.
+    - Make modded character models still have no health regeneration.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 05.09.2021
+  Features:
+    - New "broken" equipment from crash site requires minor repairs before using.
+  Changes:
+    - Amounts of some non-broken crash site equipment reduced.
+    - Solar collector algorithm has more consistent average heat generation.
+    - Early game speed achievement increased from 30 minutes to 40 minutes.
+  Balancing:
+    - Iron ingot 2 uses less graphite but slightly more ore.
+    - Iron ingot 1 slightly slower.
+  Bugfixes:
+    - Fixed crash when drone launcher is removed before drone reaches destination.
+    - Fixed boxed wind turbine 1 recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.5
-Date: 01.09.2021
+Date: 02.09.2021
   Features:
     - Add a new priority level of turbine:  backup, standard, or priority.
     - Add recipes to revert surge/priority/backup/surge equipment to default.
@@ -13,6 +115,7 @@ Date: 01.09.2021
     - "Turbines" are now called "backup turbines" to reflect their intended use.
     - Add an explicit incompatibility with AAI Industry.
   Balancing:
+    - Raise max temperature of solar collector 1 and geothermal plant 1 to 250C.
     - Make barrels and canisters a bit cheaper.
     - Increase speed of heat exchanger a bit to match solar collector upgrade.
     - Increase speed of combustion chamber 2 and 3.

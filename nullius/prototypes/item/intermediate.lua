@@ -1124,6 +1124,40 @@ data:extend({
     result = "nullius-mineral-dust",
     result_count = 3
   },
+  {
+    type = "recipe",
+    name = "nullius-boxed-limestone-disposal",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-limestone-disposal"}},
+    icons = {
+      {
+	    icon = "__nullius__/graphics/crate.png",
+        icon_size = 64
+	  },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+		icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+		icon_size = 32,
+        scale = 0.45,
+        shift = {9, -8}
+      }
+    },
+    show_amount_in_title = false,
+	always_show_products = true,
+	no_productivity = true,
+    enabled = false,
+    category = "ore-crushing",
+	subgroup = "boxed-calcium",
+	order = "nullius-y",
+    energy_required = 10,
+    ingredients = {{"nullius-box-crushed-limestone", 4}},
+    result = "nullius-box-mineral-dust",
+    result_count = 3
+  },
 
   {
     type = "item",
@@ -1141,7 +1175,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-iron-ingot-1"},
     enabled = false,
     category = "dry-smelting",
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {"iron-ore", 5}
     },
@@ -1171,14 +1205,14 @@ data:extend({
     },
     enabled = false,
     category = "dry-smelting",
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
-      {"nullius-crushed-iron-ore", 5},
+      {"nullius-crushed-iron-ore", 8},
       {"nullius-graphite", 1}
     },
     results = {
-      {type="item", name="nullius-iron-ingot", amount=4},
-      {type="item", name="nullius-gravel", amount=1}
+      {type="item", name="nullius-iron-ingot", amount=6},
+      {type="item", name="nullius-gravel", amount=2}
     },
     main_product = "nullius-iron-ingot"
   },
@@ -1337,17 +1371,17 @@ data:extend({
     },
     enabled = false,
     category = "wet-smelting",
-    energy_required = 50,
+    energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-iron-ingot", amount=20},
-      {type="item", name="nullius-calcium", amount=4},
+      {type="item", name="nullius-iron-ingot", amount=30},
+      {type="item", name="nullius-calcium", amount=5},
       {type="item", name="nullius-boron", amount=1},
-      {type="fluid", name="nullius-oxygen", amount=200}
+      {type="fluid", name="nullius-oxygen", amount=300}
     },
     results = {
-      {type="item", name="nullius-steel-ingot", amount=16},
-      {type="item", name="nullius-gravel", amount=4},
-      {type="item", name="nullius-crushed-limestone", amount=3}
+      {type="item", name="nullius-steel-ingot", amount=24},
+      {type="item", name="nullius-gravel", amount=5},
+      {type="item", name="nullius-crushed-limestone", amount=4}
     },
     main_product = "nullius-steel-ingot"
   },
@@ -1377,17 +1411,17 @@ data:extend({
     category = "bulk-smelting",
 	subgroup = "boxed-steel",
 	order = "nullius-ac",
-    energy_required = 50,
+    energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-box-iron-ingot", amount=20},
-      {type="item", name="nullius-box-calcium", amount=4},
+      {type="item", name="nullius-box-iron-ingot", amount=30},
+      {type="item", name="nullius-box-calcium", amount=5},
       {type="item", name="nullius-box-boron", amount=1},
-      {type="fluid", name="nullius-oxygen", amount=1000}
+      {type="fluid", name="nullius-oxygen", amount=1500}
     },
     results = {
-      {type="item", name="nullius-box-steel-ingot", amount=16},
-      {type="item", name="nullius-box-gravel", amount=4},
-      {type="item", name="nullius-box-crushed-limestone", amount=3}
+      {type="item", name="nullius-box-steel-ingot", amount=24},
+      {type="item", name="nullius-box-gravel", amount=5},
+      {type="item", name="nullius-box-crushed-limestone", amount=4}
     },
     main_product = "nullius-box-steel-ingot"
   },
@@ -1937,7 +1971,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=50, fluidbox_index=2}
+      {type="fluid", name="nullius-steam", amount=60, fluidbox_index=2}
     },
     main_product = "nullius-calcium-chloride"
   },
@@ -1960,7 +1994,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=250, fluidbox_index=2}
+      {type="fluid", name="nullius-steam", amount=300, fluidbox_index=2}
     },
     main_product = "nullius-box-calcium-chloride"
   },
@@ -1987,7 +2021,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=75}
+      {type="fluid", name="nullius-steam", amount=100}
     },
     results = {
       {type="item", name="nullius-lime", amount=1},
@@ -2025,7 +2059,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=375}
+      {type="fluid", name="nullius-steam", amount=500}
     },
     results = {
       {type="item", name="nullius-box-lime", amount=1},
@@ -2421,7 +2455,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-glass-fiber", amount=3},
-      {type="fluid", name="nullius-steam", amount=40}
+      {type="fluid", name="nullius-steam", amount=50}
     },
     main_product = "nullius-glass-fiber"
   },
@@ -2440,7 +2474,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-glass-fiber", amount=3},
-      {type="fluid", name="nullius-steam", amount=200}
+      {type="fluid", name="nullius-steam", amount=250}
     },
     main_product = "nullius-box-glass-fiber"
   },
@@ -4524,7 +4558,7 @@ data:extend({
 	always_show_products = true,
     energy_required = 25,
     ingredients = {
-      {type="item", name="nulliux-box-barrel", amount=1},
+      {type="item", name="nullius-box-barrel", amount=1},
       {type="item", name="nullius-box-aluminum-sheet", amount=2},
       {type="item", name="nullius-box-top-up-valve", amount=1}
     },

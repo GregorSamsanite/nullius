@@ -140,7 +140,7 @@ data:extend({
     minable = {
       mining_time = 2,
 	  results = {
-	    {type="item", name="nullius-small-furnace-2", amount=2},
+	    {type="item", name="nullius-small-furnace-2", amount=1},
 		{type="item", name="nullius-chimney-1", amount=2},
 		{type="item", name="nullius-outfall-1", amount=2}
 	  }
@@ -193,7 +193,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1.5,
-	  results = { {type="item", name="nullius-air-filter-1", amount=5} }
+	  results = {
+	    {type="item", name="nullius-air-filter-1", amount=3},
+	    {type="item", name="nullius-broken-air-filter", amount=3}
+	  }
     },
     collision_box = {{-1.2, -1.0}, {1.2, 0.7}},
     selection_box = {{-1.2, -1.0}, {1.2, 0.7}},
@@ -245,7 +248,7 @@ data:extend({
       mining_time = 1.5,
 	  results = {
 	    {type="item", name="nullius-seawater-intake-1", amount=2},
-		{type="item", name="nullius-medium-tank-1", amount=8}
+		{type="item", name="nullius-medium-tank-1", amount=5}
 	  }
     },
     collision_box = {{-1.1, -0.6}, {1.0, 1.0}},
@@ -298,7 +301,7 @@ data:extend({
     minable = {
       mining_time = 1.5,
 	  results = {
-	    {type="item", name="nullius-solar-panel-1", amount=15},
+	    {type="item", name="nullius-broken-solar-panel", amount=15},
         {type="item", name="nullius-aluminum-ingot", amount=10}
 	  }
     },
@@ -352,9 +355,9 @@ data:extend({
     minable = {
       mining_time = 1,
 	  results = {
-	    {type="item", name="nullius-pipe-2", amount=60},
-		{type="item", name="nullius-underground-pipe-2", amount=30},
-		{type="item", name="nullius-priority-valve", amount=5},
+	    {type="item", name="nullius-pipe-2", amount=40},
+		{type="item", name="nullius-underground-pipe-2", amount=24},
+		{type="item", name="nullius-priority-valve", amount=3},
 		{type="item", name="nullius-pump-1", amount=3}
 	  }
     },
@@ -460,7 +463,8 @@ data:extend({
       mining_time = 1,
 	  results = {
 	    {type="item", name="nullius-lab-1", amount=1},
-	    {type="item", name="red-wire", amount=10}
+	    {type="item", name="red-wire", amount=10},
+		{type="item", name="nullius-broken-sensor-node", amount=2}
 	  }
     },
     collision_box = {{-2.2, -1.2}, {2.2, 1.2}},
@@ -514,8 +518,10 @@ data:extend({
       mining_time = 1,
 	  results = {
 	    {type="item", name="nullius-power-pole-1", amount=40},
-	    {type="item", name="nullius-pylon-1", amount=10},
-	    {type="item", name="nullius-grid-battery-1", amount=10}
+	    {type="item", name="big-electric-pole", amount=6},
+	    {type="item", name="nullius-broken-pylon", amount=18},
+	    {type="item", name="nullius-grid-battery-1", amount=5},
+	    {type="item", name="nullius-broken-grid-battery", amount=10}
 	  }
     },
     collision_box = {{-1.5, -0.9}, {0.9, 0.9}},
@@ -726,7 +732,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-medium-assembler-1", amount=4} }
+	  results = {
+	    {type="item", name="nullius-medium-assembler-1", amount=1},
+	    {type="item", name="nullius-broken-assembler", amount=3}
+	  }
     },
     collision_box = {{-0.7, -1.2}, {0.7, 1.2}},
     selection_box = {{-1, -1.5}, {1, 1.5}},

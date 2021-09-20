@@ -52,7 +52,7 @@ function update_geothermal()
   local bucket = global.nullius_stirling_buckets[game.tick % 443]
   for i,e in pairs(bucket[1]) do
     if (e.electric.valid) then
-      update_engine(e, 120, 200000, 16666.67, 0.5)
+      update_engine(e, 120, 200000, 13333.33, 0.5)
 	else
 	  destroy_stirling_engine(e)
 	  bucket[1][i] = nil
@@ -60,7 +60,7 @@ function update_geothermal()
   end
   for i,e in pairs(bucket[2]) do
     if (e.electric.valid) then
-      update_engine(e, 100, 360000, 66666.67, 0.65)
+      update_engine(e, 100, 360000, 41666.67, 0.65)
 	else
 	  destroy_stirling_engine(e)
 	  bucket[2][i] = nil
@@ -68,7 +68,7 @@ function update_geothermal()
   end
   for i,e in pairs(bucket[3]) do
     if (e.electric.valid) then
-      update_engine(e, 80, 800000, 250000, 0.8)
+      update_engine(e, 80, 800000, 133333.33, 0.8)
 	else
 	  destroy_stirling_engine(e)
 	  bucket[3][i] = nil

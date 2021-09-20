@@ -6,6 +6,7 @@ require("scripts.solar")
 require("scripts.build")
 require("scripts.landing")
 require("scripts.startup")
+require("scripts.body")
 require("scripts.informatron")
 
 remote.add_interface("nullius", {

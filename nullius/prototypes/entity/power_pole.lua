@@ -154,47 +154,6 @@ data:extend({
 
   {
     type = "electric-pole",
-    name = "nullius-pylon-1",
-	icons = data.raw.item["nullius-pylon-1"].icons,
-    flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
-    minable = {mining_time = 0.1, result = "nullius-pylon-1"},
-    max_health = 150,
-    maximum_wire_distance = 32.5,
-    supply_area_distance = 2,
-    fast_replaceable_group = "pylon",
-    next_upgrade = "nullius-pylon-2",
-    corpse = "big-electric-pole-remnants",
-    dying_explosion = "big-electric-pole-explosion",
-	resistances = {{ type = "impact", decrease = 100, percent = 90 }},
-    collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
-    selection_box = {{-1, -1}, {1, 1}},
-	damaged_trigger_effect = data.raw["electric-pole"]["big-electric-pole"].damaged_trigger_effect,
-    drawing_box = {{-1, -3}, {1, 0.5}},
-	vehicle_impact_sound = data.raw["electric-pole"]["big-electric-pole"].vehicle_impact_sound,
-	open_sound = data.raw["electric-pole"]["big-electric-pole"].open_sound,
-	close_sound = data.raw["electric-pole"]["big-electric-pole"].close_sound,
-	connection_points = data.raw["electric-pole"]["big-electric-pole"].connection_points,
-	radius_visualisation_picture = data.raw["electric-pole"]["big-electric-pole"].radius_visualisation_picture,
-	water_reflection = data.raw["electric-pole"]["big-electric-pole"].water_reflection,
-
-    pictures = {
-      layers = {
-        {
-          filename = "__nullius__/graphics/large-pole-1-entity.png",
-          priority = "extra-high",
-          width = 148,
-          height = 312,
-          direction_count = 4,
-          shift = util.by_pixel(0, -51),
-          scale = 0.5
-        },
-		data.raw["electric-pole"]["big-electric-pole"].pictures.layers[2]
-      }
-    }
-  },
-
-  {
-    type = "electric-pole",
     name = "nullius-pylon-2",
 	icons = data.raw.item["nullius-pylon-2"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
@@ -218,7 +177,29 @@ data:extend({
 	connection_points = data.raw["electric-pole"]["big-electric-pole"].connection_points,
 	radius_visualisation_picture = data.raw["electric-pole"]["big-electric-pole"].radius_visualisation_picture,
 	water_reflection = data.raw["electric-pole"]["big-electric-pole"].water_reflection,
-	pictures = data.raw["electric-pole"]["big-electric-pole"].pictures
+	pictures = {
+      layers = {
+        {
+          filename = "__base__/graphics/entity/big-electric-pole/hr-big-electric-pole.png",
+          priority = "extra-high",
+          width = 148,
+          height = 312,
+          direction_count = 4,
+          shift = util.by_pixel(0, -51),
+          scale = 0.5
+        },
+        {
+          filename = "__base__/graphics/entity/big-electric-pole/hr-big-electric-pole-shadow.png",
+          priority = "extra-high",
+          width = 374,
+          height = 94,
+          direction_count = 4,
+          shift = util.by_pixel(60, 0),
+          draw_as_shadow = true,
+          scale = 0.5
+        }
+      }
+	}
   },
 
   {

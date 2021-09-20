@@ -68,7 +68,7 @@ data:extend({
       { type = "physical", decrease = 1, percent = 10 }
     },
     subgroup = "armor",
-    order = "nullius-b",
+    order = "nullius-eb",
     stack_size = 1,
     equipment_grid = "nullius-armor-grid-1",
     infinite = true
@@ -87,7 +87,7 @@ data:extend({
       { type = "laser", decrease = 1, percent = 10 }
     },
     subgroup = "armor",
-    order = "nullius-c",
+    order = "nullius-ec",
     stack_size = 1,
     inventory_size_bonus = 10,
     equipment_grid = "nullius-armor-grid-2",
@@ -108,7 +108,7 @@ data:extend({
       { type = "acid", decrease = 1, percent = 10 }
     },
     subgroup = "armor",
-    order = "nullius-d",
+    order = "nullius-ed",
     stack_size = 1,
     inventory_size_bonus = 20,
     equipment_grid = "nullius-armor-grid-3",
@@ -129,7 +129,7 @@ data:extend({
       { type = "acid", decrease = 2, percent = 20 }
     },
     subgroup = "armor",
-    order = "nullius-e",
+    order = "nullius-ee",
     stack_size = 1,
     inventory_size_bonus = 30,
     equipment_grid = "nullius-armor-grid-4",
@@ -150,7 +150,7 @@ data:extend({
       { type = "acid", decrease = 5, percent = 25 }
     },
     subgroup = "armor",
-    order = "nullius-f",
+    order = "nullius-ef",
     stack_size = 1,
     inventory_size_bonus = 40,
     equipment_grid = "nullius-armor-grid-5",
@@ -172,7 +172,7 @@ data:extend({
       { type = "acid", decrease = 10, percent = 40 }
     },
     subgroup = "armor",
-    order = "nullius-g",
+    order = "nullius-eg",
     stack_size = 1,
     inventory_size_bonus = 50,
     equipment_grid = "nullius-armor-grid-6",
@@ -329,13 +329,13 @@ data:extend({
     enabled = false,
     category = "large-crafting",
 	always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 8,
     ingredients = {
-      {"nullius-polycrystalline-silicon", 8},
-      {"nullius-glass", 6},
-      {"nullius-aluminum-sheet", 5},
-      {"nullius-plastic", 3},
-      {"nullius-aluminum-rod", 2}
+      {"nullius-polycrystalline-silicon", 6},
+      {"nullius-glass", 4},
+      {"nullius-aluminum-sheet", 3},
+      {"nullius-plastic", 2},
+      {"nullius-aluminum-rod", 1}
     },
     result = "nullius-solar-panel-1"
   },
@@ -346,13 +346,13 @@ data:extend({
     category = "huge-assembly",
 	subgroup = "boxed-renewable",
 	always_show_made_in = true,
-    energy_required = 50,
+    energy_required = 40,
     ingredients = {
-      {"nullius-box-polycrystalline-silicon", 8},
-      {"nullius-box-glass", 6},
-      {"nullius-box-aluminum-sheet", 5},
-      {"nullius-box-plastic", 3},
-      {"nullius-box-aluminum-rod", 2}
+      {"nullius-box-polycrystalline-silicon", 6},
+      {"nullius-box-glass", 4},
+      {"nullius-box-aluminum-sheet", 3},
+      {"nullius-box-plastic", 2},
+      {"nullius-box-aluminum-rod", 1}
     },
     result = "nullius-box-solar-panel-1"
   },
@@ -2405,7 +2405,7 @@ data:extend({
     category = "huge-fluid-assembly",
     energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-car-2", amount=1},
+      {type="item", name="nullius-car-2", amount=2},
 	  {type="item", name="nullius-steel-beam", amount=12},
 	  {type="item", name="nullius-steel-plate", amount=25},
 	  {type="item", name="nullius-missile-launcher", amount=3},
@@ -2477,7 +2477,7 @@ data:extend({
     category = "huge-assembly",
     energy_required = 600,
     ingredients = {
-	  {type="item", name="nullius-mecha", amount=1},
+	  {type="item", name="nullius-mecha", amount=2},
       {type="item", name="nullius-leg-augmentation-4", amount=8},
 	  {type="item", name="nullius-solar-panel-4", amount=8},
 	  {type="item", name="nullius-grid-battery-3", amount=4}
@@ -2603,7 +2603,7 @@ data:extend({
       {"nullius-satellite", 2},
 	  {"nullius-antimatter", 25},
 	  {"nullius-box-copper-sheet", 10},
-	  {"nullius-android", 1},
+	  {"nullius-android-2", 1},
 	  {"nullius-nanofabricator-2", 1},
 	  {"nullius-reactor", 1}
     },

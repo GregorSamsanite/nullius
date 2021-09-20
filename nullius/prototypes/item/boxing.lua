@@ -56,7 +56,7 @@ local function create_boxed_item(base_name, group, box_order,
       type = "recipe",
 	  name = "nullius-box-"..base_name,
 	  localised_name = {"recipe-name.nullius-boxing", localname},
-      category = "tiny-crafting",
+      category = "packaging",
 	  enabled = false,
 	  always_show_made_in = true,
 	  show_amount_in_title = false,
@@ -73,7 +73,7 @@ local function create_boxed_item(base_name, group, box_order,
       type = "recipe",
 	  name = "nullius-unbox-"..base_name,
 	  localised_name = {"recipe-name.nullius-unbox", localname},
-      category = "tiny-crafting",
+      category = "packaging",
       subgroup = "unboxing-"..group,
 	  order = "nullius-"..box_order,
 	  enabled = false,
@@ -122,12 +122,14 @@ data.raw.item["refined-concrete"].stack_size = 500
 data.raw.item["refined-hazard-concrete"].stack_size = 500
 data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"} 
 data.raw.item["copper-cable"].stack_size = 200
+data.raw.item["big-electric-pole"].stack_size = 50
 
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
 data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
 data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
 data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
+data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
 
 data.raw.item["empty-barrel"].stack_size = 20
 data.raw.item["iron-ore"].stack_size = 50
@@ -333,7 +335,7 @@ create_boxed_item("productivity-module-1", "module-2", "db", nil, "module")
 create_boxed_item("solar-panel-1", "renewable", "cb")
 create_boxed_item("solar-panel-2", "renewable", "cc")
 create_boxed_item("grid-battery-1", "renewable", "db")
-create_boxed_item("pylon-1", "power-pole", "db")
+create_boxed_item("pylon-1", "power-pole", "db", "big-electric-pole")
 create_boxed_item("pylon-2", "power-pole", "dc")
 create_boxed_item("wind-turbine-1", "fluid-energy", "bb")
 create_boxed_item("wind-turbine-2", "fluid-energy", "bc")

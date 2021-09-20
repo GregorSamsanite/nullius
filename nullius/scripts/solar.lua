@@ -8,9 +8,9 @@ function init_solar()
 end
 
 local solar_values = {
-  { ratio = 6.89, maxtemp = 250, threshold = 25 },
-  { ratio = 6.04, maxtemp = 300, threshold = 50 },
-  { ratio = 5.20, maxtemp = 400, threshold = 100 }  
+  { ratio = 7.36, maxtemp = 250, threshold = 25 },
+  { ratio = 6.07, maxtemp = 300, threshold = 50 },
+  { ratio = 5.13, maxtemp = 400, threshold = 100 }  
 }
 
 function update_solar()
@@ -35,15 +35,16 @@ function update_solar()
 	    light = light * surface.solar_power_multiplier
 
         local vals = solar_values[t.level]
-	    local temp = t.collector.temperature
-	    if (temp < vals.maxtemp) then
-	      local target = (vals.maxtemp * (light + 0.1)) - temp
+	    local realtemp = t.collector.temperature
+		local basetemp = math.max(realtemp, 175)
+	    if (basetemp < vals.maxtemp) then
+	      local target = (vals.maxtemp * (light + 0.1)) - basetemp
 	      if (target > 0) then
 	        local adjust = vals.ratio * (1 + t.collector.neighbour_bonus) * light
 	        if (target < vals.threshold) then
 	          adjust = adjust * (target / vals.threshold)
 	        end
-		    t.collector.temperature = math.min(vals.maxtemp, (temp + adjust))
+		    t.collector.temperature = math.min(vals.maxtemp, (realtemp + adjust))
 	      end
 	    end
 	  else

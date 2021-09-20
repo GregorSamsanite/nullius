@@ -1,8 +1,16 @@
 if mods["LogisticTrainNetwork"] then
 data.raw["train-stop"]["logistic-train-stop"].subgroup = "railway"
-data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ec"
+data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ecb"
 data.raw.item["logistic-train-stop"].subgroup = "railway"
-data.raw.item["logistic-train-stop"].order = "nullius-ec"
+data.raw.item["logistic-train-stop"].order = "nullius-ecb"
+end
+
+
+if mods["LTN_Combinator_Modernized"] then
+data.raw["constant-combinator"]["ltn-combinator"].subgroup = "railway"
+data.raw["constant-combinator"]["ltn-combinator"].order = "nullius-ecc"
+data.raw.item["ltn-combinator"].subgroup = "railway"
+data.raw.item["ltn-combinator"].order = "nullius-ecc"
 end
 
 

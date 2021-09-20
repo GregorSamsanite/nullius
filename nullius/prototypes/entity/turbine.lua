@@ -55,7 +55,7 @@ for i=0,7 do
   end
 end
 
-local power_value = {1500, 3000, 9000}
+local power_value = {1500, 4000, 12000}
 for i=1,3 do
   local scale = 0.4 + (i * 0.2)
   local power = power_value[i]
@@ -73,7 +73,7 @@ for i=1,3 do
         { type = "impact", decrease = 100, percent = 90 }
       },
       collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
-      selection_box = {{-0.9, -0.9}, {0.9, 0.9}},
+      selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
       collision_mask = {"layer-43", "object-layer", "player-layer", "water-tile"},
       energy_source = {
         type = "electric",
@@ -155,7 +155,7 @@ for i=1,3 do
         { type = "impact", decrease = 100, percent = 90 }
       },
       collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
-      selection_box = {{-0.9, -0.9}, {0.9, 0.9}},
+      selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
       collision_mask = {"layer-43", "object-layer", "player-layer", "water-tile"},
       energy_source = {
         type = "electric",

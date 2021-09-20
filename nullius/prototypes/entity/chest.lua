@@ -7,8 +7,8 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-small-chest-1"},
     max_health = 200,
     corpse = "iron-chest-remnants",
-    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.65 },
-    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.7 },
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.6 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.65 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -32,8 +32,8 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-small-chest-2"},
     max_health = 350,
     corpse = "steel-chest-remnants",
-    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.65 },
-    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.7 },
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.6 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.65 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -57,8 +57,8 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-small-chest-3"},
     max_health = 500,
     corpse = "steel-chest-remnants",
-    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 0.65 },
-    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.7 },
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 0.6 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.65 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -103,8 +103,8 @@ data:extend({
     minable = { mining_time = 0.5, result = "nullius-large-chest-1" },
     max_health = 500,
     corpse = "steel-chest-remnants",
-    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 1 },
-    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 1 },
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 0.7 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.75 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -147,8 +147,8 @@ data:extend({
     minable = { mining_time = 0.5, result = "nullius-large-chest-2" },
     max_health = 800,
     corpse = "steel-chest-remnants",
-    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 1 },
-    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 1 },
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume = 0.7 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.75 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }

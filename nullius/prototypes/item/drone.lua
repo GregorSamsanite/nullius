@@ -693,37 +693,76 @@ data:extend({
     },
     result = "nullius-asteroid-miner-2"
   },
-
   {
     type = "item",
-    name = "nullius-android",
+    name = "nullius-android-1",
+	localised_name = {"", {"item-name.nullius-android"}, " ", 1},
+	localised_description = {"item-description.nullius-android"},
 	icons = {{
-      icon = "__nullius__/graphics/character.png",
+      icon = "__nullius__/graphics/android1.png",
       icon_size = 64,
 	  icon_mipmaps = 4
     }},
-	subgroup = "space",
-	order = "nullius-k",
-    stack_size = 1
+	subgroup = "armor",
+	order = "nullius-cb",
+    stack_size = 1,
+	place_result = "character"
+  },
+  {
+    type = "item",
+    name = "nullius-android-2",
+	localised_name = {"", {"item-name.nullius-android"}, " ", 2},
+	localised_description = {"item-description.nullius-android"},
+	icons = {{
+      icon = "__nullius__/graphics/android2.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
+    }},
+	subgroup = "armor",
+	order = "nullius-cc",
+    stack_size = 1,
+	place_result = "nullius-android-2"
   },
   {
     type = "recipe",
-    name = "nullius-android",
+    name = "nullius-android-1",
+    enabled = false,
+	always_show_made_in = true,
+    category = "nanotechnology",
+    energy_required = 200,
+    ingredients = {
+	  {"nullius-chassis-3", 1},
+	  {"nullius-construction-bot-2", 3},
+	  {"nullius-leg-augmentation-1", 2},
+      {"nullius-productivity-module-1", 4},
+	  {"nullius-battery-1", 4},
+	  {"nullius-solar-panel-2", 3},
+	  {"nullius-night-vision-2", 2},
+	  {"nullius-hangar-2", 1},
+	  {"express-stack-filter-inserter", 4}
+    },
+    result = "nullius-android-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-android-2",
     enabled = false,
 	always_show_made_in = true,
     category = "nanotechnology",
     energy_required = 300,
     ingredients = {
+	  {"nullius-android-1", 1},
+	  {"nullius-chassis-5", 1},
 	  {"nullius-construction-bot-4", 2},
 	  {"nullius-leg-augmentation-3", 1},
-      {"nullius-box-processor-3", 2},
+      {"nullius-box-processor-3", 1},
       {"nullius-efficiency-module-3", 2},
-	  {"nullius-battery-2", 6},
+	  {"nullius-battery-2", 4},
 	  {"nullius-solar-panel-3", 3},
 	  {"nullius-heat-pipe-3", 2},
 	  {"nullius-hangar-3", 1}
     },
-    result = "nullius-android"
+    result = "nullius-android-2"
   }
 })
 

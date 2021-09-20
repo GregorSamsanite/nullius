@@ -1051,12 +1051,12 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 1,
-      drain = "50kW",
+      drain = "15kW",
 	  output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
-    energy_usage = "3850kW",
+    energy_usage = "3905kW",
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -1169,10 +1169,10 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 1,
-      drain = "50kW",
+      drain = "25kW",
 	  usage_priority = "secondary-input"
     },
-    energy_usage = "2875kW",
+    energy_usage = "2915kW",
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].resistances,
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].fluid_boxes,
     animation = {
@@ -1242,7 +1242,7 @@ data:extend({
     crafting_categories = {"nullius-electrolysis"},
     crafting_speed = 2,
     energy_source = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].energy_source,
-    energy_usage = "3850kW",
+    energy_usage = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].energy_usage,
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].resistances,
     animation = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1305,7 +1305,7 @@ data:extend({
     crafting_categories = {"nullius-electrolysis"},
     crafting_speed = 1.5,
     energy_source = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].energy_source,
-    energy_usage = "2875kW",
+    energy_usage = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].energy_usage,
     resistances = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].resistances,
     animation = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].animation,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1332,12 +1332,12 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 2,
-      drain = "200kW",
+      drain = "25kW",
 	  output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
-    energy_usage = "7300kW",
+    energy_usage = "7725kW",
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
@@ -1443,7 +1443,7 @@ data:extend({
     selection_box = {{-2, -2}, {2, 2}},
     crafting_categories = {"nullius-electrolysis"},
     crafting_speed = 4,
-    energy_usage = "7300kW",
+    energy_usage = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].energy_usage,
     energy_source = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].energy_source,
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].resistances,
     animation = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].animation,
@@ -1510,9 +1510,9 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       emissions_per_minute = 2,
-      drain = "250kW"
+      drain = "100kW"
     },
-    energy_usage = "7250kW",
+    energy_usage = "7650kW",
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].resistances,
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].fluid_boxes,
     animation = {
@@ -1579,7 +1579,7 @@ data:extend({
     crafting_categories = {"nullius-electrolysis"},
     crafting_speed = 4,
 	energy_source = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].energy_source,
-    energy_usage = "7250kW",
+    energy_usage = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].energy_usage,
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].resistances,
     fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-3"].fluid_boxes,
     animation = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].animation,

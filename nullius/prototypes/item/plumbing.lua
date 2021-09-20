@@ -1335,6 +1335,7 @@ data:extend({
     name = "nullius-mirror-combustion-chamber-1",
     enabled = false,
 	always_show_made_in = true,
+	no_productivity = true,
     category = "medium-crafting",
     energy_required = 1,
     ingredients = {
@@ -1815,6 +1816,7 @@ data:extend({
     name = "nullius-priority-turbine-2",
     enabled = false,
 	always_show_made_in = true,
+	no_productivity = true,
     category = "large-crafting",
     energy_required = 8,
     ingredients = {
@@ -3004,7 +3006,7 @@ data:extend({
     ingredients = {
       {"nullius-surge-electrolyzer-1", 1},
       {"nullius-priority-electrolyzer-1", 1},
-      {"nullius-pylon-1", 3},
+      {"big-electric-pole", 3},
       {"nullius-small-tank-1", 3},
       {"nullius-small-pump-1", 3}
     },
@@ -4349,7 +4351,7 @@ data:extend({
     category = "large-fluid-assembly",
     energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-stirling-engine-1", amount=4},
+      {type="item", name="nullius-stirling-engine-1", amount=3},
       {type="item", name="nullius-surge-compressor-2", amount=1},
       {type="item", name="nullius-thermal-tank-1", amount=2},
       {type="item", name="nullius-transformer", amount=3},

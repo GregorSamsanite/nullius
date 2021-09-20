@@ -42,6 +42,32 @@ data:extend({
 end
 
 
+if mods["LTN_Combinator_Modernized"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-ltn-combinator",
+      enabled = false,
+	  always_show_made_in = true,
+      category = "tiny-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"constant-combinator", 1},
+        {"decider-combinator", 1}
+      },
+      result = "ltn-combinator"
+    }
+  })
+  if mods["LogisticTrainNetwork"] then
+    table.insert(data.raw["technology"]["nullius-logistic-train-network"].effects,
+        {type = "unlock-recipe", recipe = "nullius-ltn-combinator"})
+  else
+    table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
+        {type = "unlock-recipe", recipe = "nullius-ltn-combinator"})
+  end
+end
+
+
 if mods["aai-signal-transmission"] then
 data:extend({
   {
@@ -1283,7 +1309,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-typesetting-1",
-    order = "nullius-bg",
+    order = "nullius-bi",
     icon = "__textplates__/graphics/entity/iron/1.png",
     icon_size = 128,
     effects = {
@@ -1309,7 +1335,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1}},
       time = 3
     },
-    prerequisites = {"nullius-masonry-2"},
+    prerequisites = {"nullius-land-fill-1"},
 	ignore_tech_cost_multiplier = true
   },
   {

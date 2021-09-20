@@ -162,6 +162,10 @@ data:extend({
   },
   {
     type = "recipe-category",
+    name = "packaging",
+  },
+  {
+    type = "recipe-category",
     name = "rocketry",
   },
 
@@ -536,6 +540,12 @@ data:extend({
     name = "research-pack",
     group = "intermediate-products",
     order = "l"
+  },
+  {
+    type = "item-subgroup",
+    name = "broken",
+    group = "intermediate-products",
+    order = "r"
   },
 
   {

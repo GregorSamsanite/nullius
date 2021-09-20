@@ -107,11 +107,14 @@ function landing_site(surface, loc)
     end
   end
 
-  main_ship.insert({name="nullius-foundry-1", count=3})
-  main_ship.insert({name="nullius-hydro-plant-1", count=3})
+  main_ship.insert({name="nullius-foundry-1", count=1})
+  main_ship.insert({name="nullius-broken-foundry", count=2})
+  main_ship.insert({name="nullius-hydro-plant-1", count=1})
+  main_ship.insert({name="nullius-broken-hydro-plant", count=2})
   main_ship.insert({name="nullius-distillery-1", count=2})
-  main_ship.insert({name="nullius-priority-electrolyzer-1", count=1})
-  main_ship.insert({name="nullius-chemical-plant-1", count=6})
+  main_ship.insert({name="nullius-broken-electrolyzer", count=1})
+  main_ship.insert({name="nullius-chemical-plant-1", count=2})
+  main_ship.insert({name="nullius-broken-chemical-plant", count=6})
 
   for _, part in pairs (ship_parts) do
     local part_position = nil
@@ -152,11 +155,11 @@ function landing_site(surface, loc)
     }
 	if (part.pod ~= nil) then
 	  if (part.pod == 1) then
-	    part_entity.insert({name="nullius-small-chest-1", count=4})
-	    part_entity.insert({name="inserter", count=18})
+	    part_entity.insert({name="nullius-small-chest-1", count=2})
+	    part_entity.insert({name="inserter", count=25})
 	  else
 	    part_entity.insert({name="nullius-small-storage-chest-1", count=1})
-	    part_entity.insert({name="transport-belt", count=200})
+	    part_entity.insert({name="transport-belt", count=250})
 	    part_entity.insert({name="splitter", count=5})		
 	  end
 	end

@@ -1506,3 +1506,26 @@ data:extend({
     }
   }
 })
+
+
+local android2 = util.table.deepcopy(data.raw.character["character"])
+android2.name = "nullius-android-2"
+android2.localised_name = {"", {"item-name.nullius-android"}, " ", 2}
+android2.selection_box = {{-0.4, -1.55}, {0.4, 0.2}}
+android2.animations = scale_image(android2.animations, 1.1)
+android2.animations[2].armors = {"nullius-chassis-3", "nullius-chassis-4"}
+android2.animations[3].armors = {"nullius-chassis-5", "nullius-chassis-6"}
+android2.max_health = 500
+android2.inventory_size = 90
+android2.build_distance = 15
+android2.drop_item_distance = 15
+android2.reach_distance = 15
+android2.item_pickup_distance = 2
+android2.loot_pickup_distance = 3
+android2.enter_vehicle_distance = 4
+android2.reach_resource_distance = 4.7
+android2.running_speed = 0.2
+android2.distance_per_frame = 0.15
+android2.tool_attack_result.action_delivery.target_effects.damage.amount = 12
+android2.mining_speed = 0.8
+data:extend({ android2 })

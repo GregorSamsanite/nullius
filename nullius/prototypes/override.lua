@@ -41,13 +41,31 @@ data.raw.item["constant-combinator"].order = "nullius-g"
 data.raw["arithmetic-combinator"]["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
 data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
 data.raw.item["arithmetic-combinator"].order = "nullius-f"
+data.raw["arithmetic-combinator"]["arithmetic-combinator"].energy_source = {
+  type = "electric",
+  usage_priority = "primary-input",
+  input_flow_limit = "2kW",
+  buffer_capacity = "30kW"
+}
+data.raw["arithmetic-combinator"]["arithmetic-combinator"].active_energy_usage = "100W"
 data.raw["decider-combinator"]["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
 data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
 data.raw.item["decider-combinator"].order = "nullius-e"
+data.raw["decider-combinator"]["decider-combinator"].energy_source =
+    data.raw["arithmetic-combinator"]["arithmetic-combinator"].energy_source
+data.raw["decider-combinator"]["decider-combinator"].active_energy_usage = "100W"
 data.raw["programmable-speaker"]["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
 data.raw["programmable-speaker"]["programmable-speaker"].localised_description = {"entity-description.nullius-antenna"}
 data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
 data.raw.item["programmable-speaker"].order = "nullius-i"
+data.raw["programmable-speaker"]["programmable-speaker"].energy_source = {
+  type = "electric",
+  usage_priority = "primary-input",
+  input_flow_limit = "5kW",
+  buffer_capacity = "100kW"
+} 
+data.raw["programmable-speaker"]["programmable-speaker"].energy_usage_per_tick = "250W"
+
 data.raw["lamp"]["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
 data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
 data.raw.item["small-lamp"].subgroup = "railway"
@@ -354,11 +372,12 @@ data.raw["repair-tool"]["repair-pack"].subgroup = "armor"
 data.raw["repair-tool"]["repair-pack"].order = "nullius-mb"
 data.raw.recipe["repair-pack"].order = "x"
 
-data.raw["character"]["character"].crafting_categories = {
-  "hand-crafting", "tiny-crafting", "small-crafting", "medium-crafting",
-  "large-crafting", "huge-crafting", "hand-casting", "hand-crushing"
-}
-data.raw["character"]["character"].healing_per_tick = 0
+data.raw["character"]["character"].localised_name = {"", {"item-name.nullius-android"}, " ", 1}
+data.raw["character"]["character"].animations[2].armors =
+    {"nullius-chassis-2", "nullius-chassis-3"}
+data.raw["character"]["character"].animations[3].armors =
+    {"nullius-chassis-4", "nullius-chassis-5", "nullius-chassis-6"}
+data.raw["character-corpse"]["character-corpse"].time_to_live = 8*60*60*60
 
 data.raw["item-group"]["intermediate-products"].localised_name = {"item-group-name.nullius-intermediates"}
 data.raw["item-group"]["intermediate-products"].order = "g"
@@ -487,6 +506,41 @@ data.raw.corpse["behemoth-worm-corpse"].minable = {
   result = "nullius-worm",
   count = 4
 }
+
+
+
+data.raw.item["big-electric-pole"].subgroup = "electric-pole"
+data.raw.item["big-electric-pole"].order = "nullius-cb"
+data.raw.item["big-electric-pole"].stack_size = 50
+data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
+data.raw.item["big-electric-pole"].icons = {{
+  icon = "__nullius__/graphics/large-pole-1.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+if mods["reskins-bobs"] then
+label_icon("big-electric-pole", 1, "yellow")
+end
+
+data.raw["electric-pole"]["big-electric-pole"].pictures.layers = {
+  {
+    filename = "__nullius__/graphics/large-pole-1-entity.png",
+    priority = "extra-high",
+    width = 148,
+    height = 312,
+    direction_count = 4,
+    shift = util.by_pixel(0, -51),
+    scale = 0.5
+  },
+  data.raw["electric-pole"]["big-electric-pole"].pictures.layers[2].hr_version
+}
+data.raw["electric-pole"]["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
+data.raw["electric-pole"]["big-electric-pole"].resistances =
+    {{ type = "impact", decrease = 100, percent = 90 }}
+data.raw["electric-pole"]["big-electric-pole"].icons =
+    data.raw.item["big-electric-pole"].icons
+data.raw["electric-pole"]["big-electric-pole"].maximum_wire_distance = 32.5
+data.raw["electric-pole"]["big-electric-pole"].fast_replaceable_group = "pylon"
+data.raw["electric-pole"]["big-electric-pole"].next_upgrade = "nullius-pylon-2"
 
 
 for _,shortcut in pairs(data.raw.shortcut) do

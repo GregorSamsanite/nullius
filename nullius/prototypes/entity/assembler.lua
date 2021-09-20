@@ -45,7 +45,8 @@ data:extend({
     },
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
-      "tiny-assembly", "small-assembly", "medium-assembly"
+      "tiny-assembly", "small-assembly", "medium-assembly",
+	  "packaging"
     },
     crafting_speed = 0.5,
 	module_specification = { module_slots = 1 },
@@ -301,7 +302,8 @@ data:extend({
     },
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
-      "tiny-assembly", "small-assembly", "medium-assembly"
+      "tiny-assembly", "small-assembly", "medium-assembly",
+	  "packaging"
     },
     crafting_speed = 1,
 	module_specification = { module_slots = 2 },
@@ -360,7 +362,8 @@ data:extend({
     },
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
-      "tiny-assembly", "small-assembly", "medium-assembly"
+      "tiny-assembly", "small-assembly", "medium-assembly",
+	  "packaging"
     },
     crafting_speed = 2,
 	module_specification = { module_slots = 3 },

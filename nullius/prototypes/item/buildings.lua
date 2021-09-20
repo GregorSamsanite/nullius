@@ -745,7 +745,7 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 25,
     ingredients = {
-      {"nullius-box-standard-turbine-1", 2},
+      {"nullius-box-backup-turbine-1", 2},
       {"nullius-box-power-pole-1", 3}
     },
     result = "nullius-box-wind-turbine-1"
@@ -759,10 +759,10 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {"nullius-wind-turbine-1", 1},
-      {"nullius-standard-turbine-2", 2},
-      {"nullius-pylon-1", 2},
-      {"nullius-steel-cable", 6},
-      {"concrete", 12}
+      {"nullius-standard-turbine-2", 1},
+      {"big-electric-pole", 2},
+      {"nullius-steel-cable", 5},
+      {"concrete", 10}
     },
     result = "nullius-wind-turbine-2"
   },
@@ -776,10 +776,10 @@ data:extend({
     energy_required = 75,
     ingredients = {
       {"nullius-box-wind-turbine-1", 1},
-      {"nullius-box-standard-turbine-2", 2},
+      {"nullius-box-standard-turbine-2", 1},
       {"nullius-box-pylon-1", 2},
-      {"nullius-box-steel-cable", 6},
-      {"nullius-box-concrete", 12}
+      {"nullius-box-steel-cable", 5},
+      {"nullius-box-concrete", 5}
     },
     result = "nullius-box-wind-turbine-2"
   },
@@ -791,11 +791,11 @@ data:extend({
     category = "huge-crafting",
     energy_required = 20,
     ingredients = {
-      {"nullius-wind-turbine-2", 3},
-      {"nullius-standard-turbine-3", 3},
-      {"nullius-pylon-2", 3},
-      {"nullius-carbon-composite", 20},
-      {"refined-concrete", 20}
+      {"nullius-wind-turbine-2", 2},
+      {"nullius-standard-turbine-3", 2},
+      {"nullius-pylon-2", 2},
+      {"nullius-carbon-composite", 10},
+      {"refined-concrete", 16}
     },
     result = "nullius-wind-turbine-3"
   },
@@ -808,11 +808,11 @@ data:extend({
 	subgroup = "boxed-fluid-energy",
     energy_required = 100,
     ingredients = {
-      {"nullius-box-wind-turbine-2", 3},
-      {"nullius-box-standard-turbine-3", 3},
-      {"nullius-box-pylon-2", 3},
-      {"nullius-box-carbon-composite", 20},
-      {"nullius-box-reinforced-concrete", 10}
+      {"nullius-box-wind-turbine-2", 2},
+      {"nullius-box-standard-turbine-3", 2},
+      {"nullius-box-pylon-2", 2},
+      {"nullius-box-carbon-composite", 10},
+      {"nullius-box-reinforced-concrete", 8}
     },
     result = "nullius-box-wind-turbine-3"
   },
@@ -2716,18 +2716,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-pylon-1",
-	icons = {{
-      icon = "__nullius__/graphics/large-pole-1.png",
-      icon_size = 64, icon_mipmaps = 4
-	}},
-    subgroup = "electric-pole",
-    order = "nullius-cb",
-    place_result = "nullius-pylon-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
     name = "nullius-pylon-2",
 	icons = {{
       icon = "__base__/graphics/icons/big-electric-pole.png",
@@ -2926,7 +2914,7 @@ data:extend({
       {"copper-cable", 4},
       {"nullius-steel-beam", 3}
     },
-    result = "nullius-pylon-1"
+    result = "big-electric-pole"
   },
   {
     type = "recipe",
@@ -2951,7 +2939,7 @@ data:extend({
     category = "large-crafting",
     energy_required = 4,
     ingredients = {
-      {"nullius-pylon-1", 1},
+      {"big-electric-pole", 1},
       {"nullius-power-pole-3", 1},
       {"nullius-aluminum-wire", 3},
       {"nullius-steel-cable", 2},
@@ -3020,7 +3008,7 @@ data:extend({
 	always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-pylon-1", 1},
+      {"big-electric-pole", 1},
       {"nullius-power-pole-2", 1},
       {"power-switch", 1},
 	  {"concrete", 6},
@@ -3264,12 +3252,12 @@ data:extend({
     enabled = false,
 	always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
-      {"nullius-glass", 6},
-      {"nullius-aluminum-sheet", 5},
-      {"nullius-steel-rod", 3},
-	  {"nullius-heat-pipe-1", 4}
+      {"nullius-glass", 8},
+      {"nullius-aluminum-sheet", 6},
+      {"nullius-steel-rod", 4},
+	  {"nullius-heat-pipe-1", 5}
     },
     result = "nullius-solar-collector-1"
   },
@@ -3280,12 +3268,12 @@ data:extend({
 	always_show_made_in = true,
     category = "huge-assembly",
 	subgroup = "boxed-heat-energy",
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
-      {"nullius-box-glass", 6},
-      {"nullius-box-aluminum-sheet", 5},
-      {"nullius-box-steel-rod", 3},
-	  {"nullius-box-heat-pipe-1", 4}
+      {"nullius-box-glass", 8},
+      {"nullius-box-aluminum-sheet", 6},
+      {"nullius-box-steel-rod", 4},
+	  {"nullius-box-heat-pipe-1", 5}
     },
     result = "nullius-box-solar-collector-1"
   },
@@ -3518,7 +3506,6 @@ label_icon("nullius-power-pole-1", 1, "yellow")
 label_icon("nullius-power-pole-2", 2, "red")
 label_icon("nullius-power-pole-3", 3, "blue")
 label_icon("nullius-power-pole-4", 4, "orange")
-label_icon("nullius-pylon-1", 1, "yellow")
 label_icon("nullius-pylon-2", 2, "blue")
 label_icon("nullius-pylon-3", 3, "purple")
 label_icon("nullius-substation-1", 1, "yellow")

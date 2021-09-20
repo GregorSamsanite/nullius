@@ -1,10 +1,12 @@
 function scout_effect(event, range)
-  local s = game.surfaces[event.surface_index]
-  local px = event.target_position.x
-  local py = event.target_position.y
-  local d = 16 + (range * 32)
-  local bound = {{x = (px - d), y = (py - d)}, {x = (px + d), y = (py + d)}}
-  event.source_entity.force.chart(s, bound)
+  if (event.source_entity ~= nil) then
+    local s = game.surfaces[event.surface_index]
+    local px = event.target_position.x
+    local py = event.target_position.y
+    local d = 16 + (range * 32)
+    local bound = {{x = (px - d), y = (py - d)}, {x = (px + d), y = (py + d)}}
+    event.source_entity.force.chart(s, bound)
+  end
 end
 
 function area_center(event)
@@ -74,7 +76,9 @@ function safe_demolition(event, size)
   entities = s.find_entities(a)
   for _, e in pairs(entities) do
     if (e.valid and ((e.type == "item-entity") or (e.type == "optimized-decorative") or
-        	(e.type == "corpse") or (e.type == "cliff") or (e.type == "rail-remnants"))) then
+        	(e.type == "cliff") or (e.type == "rail-remnants") or
+			((e.type == "corpse") and (e.name ~= "transport-caution-corpse") and
+               	(e.name ~= "invisible-transport-caution-corpse")))) then
       e.destroy({do_cliff_correction = true})
 	end
   end

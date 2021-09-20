@@ -32,3 +32,31 @@ function label_icon(name, tier, color, etype)
     })
   end
 end
+
+
+function scale_image(img, scale)
+  local ret = util.table.deepcopy(img)
+  local lookup = {}
+  local function scale_subtable(img, scale)
+    if ((type(img) ~= "table") or (img.__self) or (lookup[img])) then
+      return
+    end
+	lookup[img] = true
+    for _, field in pairs(img) do
+	  scale_subtable(field, scale)
+    end
+	if (img.filename ~= nil) then
+	  if (img.shift ~= nil) then
+	    img.shift[1] = img.shift[1] * scale
+	    img.shift[2] = img.shift[2] * scale
+	  end
+	  if (img.scale ~= nil) then
+	    img.scale = img.scale * scale
+	  else
+	    img.scale = scale
+	  end
+	end
+  end
+  scale_subtable(ret, scale)
+  return ret
+end
