@@ -1,4 +1,39 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 26.09.2021
+  Bugfixes:
+    - Fix a load conflict with certain other mods introduced in previous update.
+    - Fix possible issue with broken recipes by restricting check to player force.
+  Info:
+    - Change term "specific heat" to more accurate term "heat capacity".
+    - Make boiling tech description more generic now that it can also be electric.
+  Translation:
+    - Russian updated for 1.2.2 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 24.09.2021
+  Features:
+    - Boiling 2 technology in chemical engineering.
+    - Electric boiler, crafts heat exchanger steam recipes using electricity.
+    - Wastewater boiling recipe with sludge byproduct.
+    - New Desalination 2 recipe in Physics era.
+    - Thermal tanks now have 2 heat connections on opposite ends, instead of just 1.
+  Balancing:
+    - Improve beacon 2.
+    - Make tritium and fusion cells a little cheaper.
+    - Make uranium and fission cells a bit more expensive.
+    - Make fusion cells more energetic, fission cells and antimatter traps less.
+    - Increase solar panel 3 and 4 (photovoltaic) output by 25%.
+    - Reduce cost of solar panel 2 and 3.
+    - Increase and display heat storage of heat pipes and thermal tanks.
+    - Increase energy buffers and reduce consumption for hangars and relays.
+    - Narrow differences between steam ratios of different heat exchanger recipes.
+    - Marginally faster compressed air.
+  Modding:
+    - Fix Discovery Tree by disabling non-Nullius tech and recipe prototypes earlier.
+  Info:
+    - Clarify in priority turbine description that solar panels are a special case.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 19.09.2021
   Balancing:

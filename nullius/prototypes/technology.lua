@@ -1754,7 +1754,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-boiling",
+    name = "nullius-boiling-1",
     order = "nullius-cl",
     icon = "__nullius__/graphics/exchanger/exchanger1.png",
     icon_size = 64,
@@ -1819,7 +1819,7 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-boiling"}
+    prerequisites = {"nullius-boiling-1"}
   },
   {
     type = "technology",
@@ -1843,7 +1843,7 @@ data:extend({
 	    {"nullius-mechanical-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-boiling", "nullius-illumination-1"},
+    prerequisites = {"nullius-boiling-1", "nullius-illumination-1"},
 	ignore_tech_cost_multiplier = true
   },
   {
@@ -1916,7 +1916,7 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-freight-transportation-1", "nullius-boiling"},
+    prerequisites = {"nullius-freight-transportation-1", "nullius-boiling-1"},
 	ignore_tech_cost_multiplier = true
   },
 
@@ -4638,6 +4638,40 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-boiling-2",
+    order = "nullius-eh",
+    icon_size = 64,
+    icon = "__nullius__/graphics/boiler/boiler.png",
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boiler"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boiling-wastewater"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-mirror-boiler"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unmirror-boiler"
+      }
+    },
+    unit = {
+      count = 500,
+      ingredients = {
+        {"nullius-climatology-pack", 2}, {"nullius-mechanical-pack", 1},
+		{"nullius-electrical-pack", 1}, {"nullius-chemical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-waste-reclamation"}
+  },
+  {
+    type = "technology",
     name = "nullius-packaging-1",
     order = "nullius-eh",
     icon_size = 64,
@@ -5939,7 +5973,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-concrete-2"},
+    prerequisites = {"nullius-concrete-2", "nullius-boiling-2"}
   },
   {
     type = "technology",
@@ -9678,6 +9712,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-distillery-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-desalination-2"
       },
       {
         type = "unlock-recipe",

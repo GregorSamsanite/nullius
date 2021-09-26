@@ -360,34 +360,40 @@ data:extend({
     type = "recipe",
     name = "nullius-solar-panel-2",
     enabled = false,
-    category = "nanotechnology",
 	always_show_made_in = true,
-    energy_required = 15,
+	show_amount_in_title = false,
+	always_show_products = true,
+    category = "nanotechnology",
+    energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-solar-panel-1", amount=2},
-      {type="item", name="nullius-monocrystalline-silicon", amount=10},
+      {type="item", name="nullius-solar-panel-1", amount=3},
+      {type="item", name="nullius-monocrystalline-silicon", amount=15},
 	  {type="item", name="nullius-boron", amount=1},
-	  {type="item", name="nullius-ceramic-powder", amount=3},
-	  {type="fluid", name="nullius-epoxy", amount=6, fluidbox_index=1}
+	  {type="item", name="nullius-ceramic-powder", amount=5},
+	  {type="fluid", name="nullius-epoxy", amount=10, fluidbox_index=1}
     },
-    result = "nullius-solar-panel-2"
+    result = "nullius-solar-panel-2",
+	result_count = 2
   },
   {
     type = "recipe",
     name = "nullius-boxed-solar-panel-2",
     enabled = false,
+	always_show_made_in = true,
+	show_amount_in_title = false,
+	always_show_products = true,
     category = "nanotechnology",
 	subgroup = "boxed-renewable",
-	always_show_made_in = true,
-    energy_required = 75,
+    energy_required = 125,
     ingredients = {
-      {type="item", name="nullius-box-solar-panel-1", amount=2},
-      {type="item", name="nullius-box-monocrystalline-silicon", amount=10},
+      {type="item", name="nullius-box-solar-panel-1", amount=3},
+      {type="item", name="nullius-box-monocrystalline-silicon", amount=15},
 	  {type="item", name="nullius-box-boron", amount=1},
-	  {type="item", name="nullius-box-ceramic-powder", amount=3},
-	  {type="fluid", name="nullius-epoxy", amount=30, fluidbox_index=1}
+	  {type="item", name="nullius-box-ceramic-powder", amount=5},
+	  {type="fluid", name="nullius-epoxy", amount=50, fluidbox_index=1}
     },
-    result = "nullius-box-solar-panel-2"
+    result = "nullius-box-solar-panel-2",
+	result_count = 2
   },
   {
     type = "recipe",
@@ -396,11 +402,11 @@ data:extend({
     category = "nanotechnology",
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-solar-panel-2", amount=3},
+      {type="item", name="nullius-solar-panel-2", amount=2},
 	  {type="item", name="nullius-lithium", amount=1},
 	  {type="item", name="nullius-graphene", amount=2},
-	  {type="item", name="nullius-copper-sheet", amount=5},
-	  {type="item", name="nullius-hard-glass", amount=8},
+	  {type="item", name="nullius-copper-sheet", amount=4},
+	  {type="item", name="nullius-hard-glass", amount=6},
 	  {type="item", name="nullius-transformer", amount=1},
 	  {type="fluid", name="nullius-titanium-tetrachloride", amount=2, fluidbox_index=1},
 	  {type="fluid", name="nullius-oxygen", amount=8, fluidbox_index=2}
@@ -419,11 +425,11 @@ data:extend({
 	subgroup = "boxed-renewable",
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-box-solar-panel-2", amount=3},
+      {type="item", name="nullius-box-solar-panel-2", amount=2},
 	  {type="item", name="nullius-box-lithium", amount=1},
 	  {type="item", name="nullius-box-graphene", amount=2},
-	  {type="item", name="nullius-box-copper-sheet", amount=5},
-	  {type="item", name="nullius-box-hard-glass", amount=8},
+	  {type="item", name="nullius-box-copper-sheet", amount=4},
+	  {type="item", name="nullius-box-hard-glass", amount=6},
 	  {type="item", name="nullius-box-transformer", amount=1},
 	  {type="fluid", name="nullius-titanium-tetrachloride", amount=10, fluidbox_index=1},
 	  {type="fluid", name="nullius-oxygen", amount=40, fluidbox_index=2}

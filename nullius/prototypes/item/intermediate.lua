@@ -6728,11 +6728,11 @@ data:extend({
     name = "nullius-crushed-uranium-ore",
     enabled = false,
     category = "ore-crushing",
-    energy_required = 4,
-    ingredients = {{"uranium-ore", 2}},
+    energy_required = 12,
+    ingredients = {{"uranium-ore", 5}},
     results = {
-      {type="item", name="nullius-crushed-uranium-ore", amount=1},
-      {type="item", name="nullius-mineral-dust", amount=1}
+      {type="item", name="nullius-crushed-uranium-ore", amount=2},
+      {type="item", name="nullius-mineral-dust", amount=3}
     },
     main_product = "nullius-crushed-uranium-ore"
   },
@@ -6755,14 +6755,14 @@ data:extend({
     enabled = false,
     icon_size = 32,
     category = "ore-flotation",
-    energy_required = 5,
+    energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-crushed-uranium-ore", amount=3},
-      {type="fluid", name="nullius-acid-sulfuric", amount=30, fluidbox_index=1}
+      {type="item", name="nullius-crushed-uranium-ore", amount=2},
+      {type="fluid", name="nullius-acid-sulfuric", amount=25, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-yellowcake", amount=2},
-      {type="fluid", name="nullius-sludge", amount=20, fluidbox_index=1}
+      {type="item", name="nullius-yellowcake", amount=1},
+      {type="fluid", name="nullius-sludge", amount=10, fluidbox_index=1}
     },
     main_product = "nullius-yellowcake"
   },
@@ -6784,15 +6784,15 @@ data:extend({
     name = "nullius-uranium",
     enabled = false,
     category = "vent-smelting",
-    energy_required = 10,
+    energy_required = 16,
     ingredients = {
-      {"nullius-yellowcake", 3},
-      {"nullius-soda-ash", 1}
+      {"nullius-yellowcake", 5},
+      {"nullius-soda-ash", 2}
     },
     results = {
-      {type="item", name="nullius-uranium", amount=2},
-      {type="item", name="nullius-gravel", amount=1},
-      {type="fluid", name="nullius-sulfur-dioxide", amount=6}
+      {type="item", name="nullius-uranium", amount=3},
+      {type="item", name="nullius-gravel", amount=2},
+      {type="fluid", name="nullius-sulfur-dioxide", amount=8}
     },
     main_product = "nullius-uranium"
   },
@@ -6816,13 +6816,13 @@ data:extend({
     category = "nanotechnology",
     energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-uranium", amount=3},
-      {type="fluid", name="nullius-tritium", amount=2, fluidbox_index=1}
+      {type="item", name="nullius-uranium", amount=4},
+      {type="fluid", name="nullius-tritium", amount=3, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-enriched-uranium", amount=1},
-      {type="item", name="nullius-mineral-dust", amount=2},
-      {type="fluid", name="nullius-deuterium", amount=2, fluidbox_index=1}
+      {type="item", name="nullius-mineral-dust", amount=4},
+      {type="fluid", name="nullius-deuterium", amount=3, fluidbox_index=1}
     },
     main_product = "nullius-enriched-uranium"
   },
@@ -6835,7 +6835,7 @@ data:extend({
 	icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fission-cell",
-    fuel_value = "5GJ",
+    fuel_value = "4GJ",
 	fuel_acceleration_multiplier = 2.2,
     fuel_top_speed_multiplier = 1.6,
     subgroup = "nuclear",
@@ -6901,7 +6901,7 @@ data:extend({
 	icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-antimatter",
-    fuel_value = "2GJ",
+    fuel_value = "1GJ",
     subgroup = "nuclear",
 	order = "nullius-fb",
     stack_size = 20

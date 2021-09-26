@@ -1757,20 +1757,21 @@ data:extend({
     category = "distillation",
 	subgroup = "waste-management",
 	order = "nullius-dc",
-    energy_required = 6,
+    energy_required = 5,
     ingredients = {
-      {type="fluid", name="nullius-wastewater", amount=1000}
+      {type="fluid", name="nullius-wastewater", amount=750}
     },
     results = {
-      {type="fluid", name="nullius-saline", amount=600},
+      {type="fluid", name="nullius-saline", amount=500},
       {type="fluid", name="nullius-heavy-water", amount=1},
-      {type="fluid", name="nullius-sludge", amount=100}
+      {type="fluid", name="nullius-sludge", amount=75}
     },
     main_product = "nullius-heavy-water"
   },
   {
     type = "recipe",
     name = "nullius-desalination",
+	localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 1},
     icons = angelsmods.functions.create_liquid_recipe_icon(
 	  {{"__nullius__/graphics/brine.png", 64 },
 	    {"__nullius__/graphics/purewater.png", 64 }},
@@ -1780,7 +1781,7 @@ data:extend({
     enabled = false,
     category = "distillation",
     subgroup = "nullius-water-treatment",
-    order = "nullius-eb",
+    order = "nullius-ebb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-saline"].flow_color },
     energy_required = 1,
     ingredients = {
@@ -1789,6 +1790,33 @@ data:extend({
     results = {
       {type="fluid", name="nullius-water", amount=90},
       {type="fluid", name="nullius-brine", amount=30}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-desalination-2",
+	localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 2},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+	  {{"__nullius__/graphics/brine.png", 64 },
+	    {"__nullius__/graphics/purewater.png", 64 },
+	    {"__nullius__/graphics/wastewater.png", 64 }},
+	  {element_tint["brine"], element_tint["waste"], element_tint["water"]},
+	  {{"__base__/graphics/icons/fluid/steam.png", 64}}
+	),
+    enabled = false,
+    category = "distillation",
+    subgroup = "nullius-water-treatment",
+    order = "nullius-ebc",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-seawater"].flow_color },
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-seawater", amount=250},
+      {type="fluid", name="nullius-steam", amount=50}
+    },
+    results = {
+      {type="fluid", name="nullius-water", amount=125},
+      {type="fluid", name="nullius-wastewater", amount=75},
+      {type="fluid", name="nullius-brine", amount=60}
     }
   },
 
@@ -1913,11 +1941,11 @@ data:extend({
     order = "nullius-k",
     energy_required = 10,
     ingredients = {
-      {type="fluid", name="nullius-heavy-water", amount=50}
+      {type="fluid", name="nullius-heavy-water", amount=40}
     },
     results = {
-      {type="fluid", name="nullius-deuterium", amount=100},
-      {type="fluid", name="nullius-oxygen", amount=100},
+      {type="fluid", name="nullius-deuterium", amount=80},
+      {type="fluid", name="nullius-oxygen", amount=80},
       {type="fluid", name="nullius-tritium", amount=1}
     },
 	main_product = "nullius-deuterium"
@@ -3190,7 +3218,7 @@ data:extend({
       {type="fluid", name="nullius-water", amount=65}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=265, fluidbox_index=1}
+      {type="fluid", name="nullius-steam", amount=270, fluidbox_index=1}
     },
     main_product = "nullius-steam"
   },
@@ -3225,8 +3253,8 @@ data:extend({
       {type="fluid", name="nullius-saline", amount=70}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=235},
-      {type="fluid", name="nullius-brine", amount=12}
+      {type="fluid", name="nullius-steam", amount=255},
+      {type="fluid", name="nullius-brine", amount=15}
     },
     main_product = "nullius-steam"
   },
@@ -3261,7 +3289,7 @@ data:extend({
       {type="fluid", name="nullius-seawater", amount=75}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=215},
+      {type="fluid", name="nullius-steam", amount=235},
       {type="fluid", name="nullius-wastewater", amount=20}
     },
     main_product = "nullius-steam"
@@ -3297,8 +3325,44 @@ data:extend({
       {type="fluid", name="nullius-freshwater", amount=70}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=250},
+      {type="fluid", name="nullius-steam", amount=260},
       {type="fluid", name="nullius-wastewater", amount=8}
+    },
+    main_product = "nullius-steam"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boiling-wastewater",
+	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-wastewater"}},
+    show_amount_in_title = false,
+	always_show_products = true,
+    icons = {
+      {
+		icon = "__nullius__/graphics/wastewater.png",
+		icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/steam.png",
+		icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45,
+		tint = {0.8, 0.8, 0.8, 0.8},
+        shift = {2, -2}
+      }
+    },
+    enabled = false,
+	category = "boiling",
+    subgroup = "boiling",
+	order = "nullius-f",
+    energy_required = 1,
+	no_productivity = true,
+    ingredients = {
+      {type="fluid", name="nullius-wastewater", amount=75}
+    },
+    results = {
+      {type="fluid", name="nullius-steam", amount=225},
+      {type="fluid", name="nullius-sludge", amount=12}
     },
     main_product = "nullius-steam"
   },
@@ -4394,10 +4458,10 @@ data:extend({
     category = "compression",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-air", amount=240}
+      {type="fluid", name="nullius-air", amount=260}
     },
     results = {
-      {type="fluid", name="nullius-compressed-air", amount=60}
+      {type="fluid", name="nullius-compressed-air", amount=65}
     },
     main_product = "nullius-compressed-air"
   },
@@ -5779,7 +5843,7 @@ data:extend({
 	icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fusion-cell",
-    fuel_value = "1GJ",
+    fuel_value = "2GJ",
 	fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.4,
     subgroup = "nuclear",
@@ -5835,8 +5899,8 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-deuterium", amount=8},
-	  {type="fluid", name="nullius-tritium", amount=5}
+      {type="fluid", name="nullius-deuterium", amount=7},
+	  {type="fluid", name="nullius-tritium", amount=4}
     },
     result = "nullius-fusion-cell"
   },

@@ -163,7 +163,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "400kW",
+    power = "500kW",
     categories = {"cybernetic"}
   },
   {
@@ -186,7 +186,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "800kW",
+    power = "1MW",
     categories = {"cybernetic"}
   }
 })

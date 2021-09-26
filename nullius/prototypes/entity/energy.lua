@@ -132,7 +132,7 @@ data:extend({
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2, -2}, {2, 2}},
     energy_source = { type = "electric", usage_priority = "solar" },
-    production = "400kW",
+    production = "500kW",
     resistances = data.raw["solar-panel"]["nullius-solar-panel-1"].resistances,
     fast_replaceable_group = "solar-panel",
     next_upgrade = "nullius-solar-panel-4",
@@ -165,7 +165,7 @@ data:extend({
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2, -2}, {2, 2}},
     energy_source = { type = "electric", usage_priority = "solar" },
-    production = "800kW",
+    production = "1MW",
     resistances = data.raw["solar-panel"]["nullius-solar-panel-1"].resistances,
     fast_replaceable_group = "solar-panel",
 	overlay = data.raw["solar-panel"]["nullius-solar-panel-1"].overlay,
@@ -2642,8 +2642,8 @@ data:extend({
 	min_temperature_gradient = 4,
     heat_buffer = {
       max_temperature = 250,
-      specific_heat = "80kJ",
-      max_transfer = "40MW",
+      specific_heat = "100kJ",
+      max_transfer = "30MW",
       minimum_glow_temperature = 150,
       connections = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.connections,
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
@@ -2719,8 +2719,8 @@ data:extend({
 	min_temperature_gradient = 2,
     heat_buffer = {
       max_temperature = 500,
-      specific_heat = "180kJ",
-      max_transfer = "125MW",
+      specific_heat = "250kJ",
+      max_transfer = "80MW",
       minimum_glow_temperature = 200,
       connections = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.connections,
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
@@ -2797,8 +2797,8 @@ data:extend({
 	min_temperature_gradient = 1,
     heat_buffer = {
       max_temperature = 1500,
-      specific_heat = "400kJ",
-      max_transfer = "400MW",
+      specific_heat = "500kJ",
+      max_transfer = "200MW",
       minimum_glow_temperature = 250,
       connections = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.connections,
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
@@ -2888,8 +2888,8 @@ data:extend({
 	neighbour_bonus = 0,
     heat_buffer = {
       max_temperature = 500,
-	  specific_heat = "4MJ",
-      max_transfer = "250MW",
+	  specific_heat = "6MJ",
+      max_transfer = "60MW",
 	  minimum_glow_temperature = 200,
 	  connections = {
         {
@@ -2953,8 +2953,8 @@ data:extend({
 	neighbour_bonus = 0,
     heat_buffer = {
       max_temperature = 1500,
-	  specific_heat = "10MJ",
-      max_transfer = "800MW",
+	  specific_heat = "15MJ",
+      max_transfer = "200MW",
 	  minimum_glow_temperature = 250,
 	  connections = {
         {
@@ -2973,8 +2973,28 @@ data:extend({
 })
 
 
-local function thermal_tank(dir, def, pos, tier, shft, ord)
+local function thermal_tank(tier, vert)
   local tank = util.table.deepcopy(data.raw["reactor"]["nullius-thermal-tank-"..tier])
+  local shft1 = {12, 0}
+  local shft2 = {-12, 0}
+  local dir = "horizontal"
+  local ord = "b"
+  if (vert) then
+    dir = "vertical"
+    ord = "c"
+    shft1 = {0, -11}
+	shft2 = {0, 10}
+	tank.heat_buffer.connections = {
+	  { position = {0, -1}, direction = defines.direction.north },
+	  { position = {0, 1}, direction = defines.direction.south }
+	}
+  else
+	tank.heat_buffer.connections = {
+	  { position = {1, 0}, direction = defines.direction.east },
+	  { position = {-1, 0}, direction = defines.direction.west }
+	}    
+  end
+
   tank.icons = {
     {
       icon = "__nullius__/graphics/icons/thermaltank"..tier..".png",
@@ -2985,10 +3005,17 @@ local function thermal_tank(dir, def, pos, tier, shft, ord)
 	  icon_size = 40,
 	  scale = 0.4,
 	  tint = {1, 0.8, 0.6},
-	  shift = shft
+	  shift = shft1
+	},
+	{
+	  icon = "__base__/graphics/icons/tooltips/tooltip-category-chemical.png",
+	  icon_size = 40,
+	  scale = 0.4,
+	  tint = {1, 0.8, 0.6},
+	  shift = shft2
 	}
   }
-  tank.heat_buffer.connections = {{ position = pos, direction = def }}
+
   tank.name = "nullius-thermal-tank-"..dir.."-"..tier
   tank.localised_name = {"entity-name.nullius-"..dir, {"entity-name.nullius-thermal-tank-"..tier}}
   tank.flags = {"placeable-neutral", "player-creation" }
@@ -3000,14 +3027,11 @@ local function thermal_tank(dir, def, pos, tier, shft, ord)
   data:extend({ tank })
 end
 
-thermal_tank("north", defines.direction.north, {0, -1}, 1, {0, -11}, "b")
-thermal_tank("east", defines.direction.east, {1, 0}, 1, {12, 0}, "c")
-thermal_tank("south", defines.direction.south, {0, 1}, 1, {0, 10}, "d")
-thermal_tank("west", defines.direction.west, {-1, 0}, 1, {-12, 0}, "e")
-thermal_tank("north", defines.direction.north, {0, -1}, 2, {0, -11}, "b")
-thermal_tank("east", defines.direction.east, {1, 0}, 2, {12, 0}, "c")
-thermal_tank("south", defines.direction.south, {0, 1}, 2, {0, 10}, "d")
-thermal_tank("west", defines.direction.west, {-1, 0}, 2, {-12, 0}, "e")
+thermal_tank(1, false)
+thermal_tank(1, true)
+thermal_tank(2, false)
+thermal_tank(2, true)
+
 
 data:extend({
   {
@@ -3028,13 +3052,14 @@ data:extend({
       { type = "impact", decrease = 50, percent = 80 }
     },
     fast_replaceable_group = "thermal-tank",
+    two_direction_only = true,
     fluid_box = {
       height = 2,
       base_area = 100,
-      pipe_connections = {{
-	    positions = {{0, -2}, {2, 0}, {0, 2}, {-2, 0}},
-		type = "input-output"
-	  }}
+      pipe_connections = {
+        { position = {2, 0} },
+        { position = {-2, 0} }
+      }
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
     flow_length_in_ticks = 120,
@@ -3055,6 +3080,13 @@ data:extend({
 			  height = 117,
 			  shift = {0, -2.25},
 			  scale = 0.4
+			},
+		    {
+		      filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
+			  width = 74,
+			  height = 117,
+			  shift = {0, 1.4},
+			  scale = 0.4
 			}
 		  }
         },
@@ -3073,36 +3105,7 @@ data:extend({
 			  height = 117,
 			  shift = {1.6, -0.5},
 			  scale = 0.4
-			}
-		  }
-        },
-        south = {
-		  layers = {
-            {
-			  filename = "__nullius__/graphics/thermaltank2.png",
-			  width = 180,
-			  height = 180,
-			  scale = 0.73,
-			  shift = {0.28,-0.3}
-            },
-		    {
-		      filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
-			  width = 74,
-			  height = 117,
-			  shift = {0, 1.4},
-			  scale = 0.4
-			}
-		  }
-        },
-        west = {
-		  layers = {
-            {
-			  filename = "__nullius__/graphics/thermaltank2.png",
-			  width = 180,
-			  height = 180,
-			  scale = 0.73,
-			  shift = {0.28,-0.3}
-            },
+			},
 		    {
 		      filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
 			  width = 74,
@@ -3120,7 +3123,10 @@ data:extend({
     }
   }
 })
-
+data.raw["storage-tank"]["nullius-thermal-tank-build-1"].pictures.picture.west =
+    data.raw["storage-tank"]["nullius-thermal-tank-build-1"].pictures.picture.east
+data.raw["storage-tank"]["nullius-thermal-tank-build-1"].pictures.picture.south =
+    data.raw["storage-tank"]["nullius-thermal-tank-build-1"].pictures.picture.north
 
 data:extend({
   {
@@ -4225,6 +4231,7 @@ data:extend({
 
 local ex1 = data.raw["assembling-machine"]["nullius-heat-exchanger-1"]
 local ex1m = util.table.deepcopy(ex1)
+local boil = util.table.deepcopy(ex1)
 ex1m.name = "nullius-mirror-heat-exchanger-1"
 ex1m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 1}}
@@ -4257,6 +4264,85 @@ ex2m.fluid_boxes = ex1m.fluid_boxes
 ex1.next_upgrade = "nullius-heat-exchanger-2"
 ex1m.next_upgrade = "nullius-mirror-heat-exchanger-2"
 data:extend({ ex1m, ex2, ex2m })
+
+
+boil.name = "nullius-boiler"
+boil.localised_name = {"entity-name.boiler"}
+boil.localised_description = {"entity-description.nullius-boiler"}
+boil.icons = data.raw.item["nullius-boiler"].icons
+boil.minable = {mining_time = 0.2, result = "nullius-boiler"}
+boil.crafting_speed = 2
+boil.energy_source = {
+  type = "electric",
+  usage_priority = "secondary-input",
+  emissions_per_minute = 1,
+  drain = "100kW"
+}
+boil.energy_usage = "3400kW"
+boil.animation = {
+  north = { frame_count = 1,
+    layers = {
+      {
+        filename = "__nullius__/graphics/boiler/boiler-north.png",
+        priority = "extra-high",
+        width = 269,
+        height = 221,
+        shift = util.by_pixel(-1.25, 5.25),
+        scale = 0.5
+      },
+	  data.raw["assembling-machine"]["nullius-combustion-chamber-1"].animation.north.layers[2]
+    }
+  },
+  east = { frame_count = 1,
+    layers = {
+      {
+        filename = "__nullius__/graphics/boiler/boiler-east.png",
+        priority = "extra-high",
+        width = 216,
+        height = 301,
+        shift = util.by_pixel(-3, 1.25),
+        scale = 0.5
+      },
+	  data.raw["assembling-machine"]["nullius-combustion-chamber-1"].animation.east.layers[2]
+    }
+  },
+  south = { frame_count = 1,
+    layers = {
+      {
+        filename = "__nullius__/graphics/boiler/boiler-south.png",
+        priority = "extra-high",
+        width = 260,
+        height = 192,
+        shift = util.by_pixel(4, 13),
+        scale = 0.5
+      },
+	  data.raw["assembling-machine"]["nullius-combustion-chamber-1"].animation.south.layers[2]
+    }
+  },
+  west = { frame_count = 1,
+    layers = {
+      {
+        filename = "__nullius__/graphics/boiler/boiler-west.png",
+        priority = "extra-high",
+        width = 196,
+        height = 273,
+        shift = util.by_pixel(1.5, 7.75),
+        scale = 0.5
+      },
+	  data.raw["assembling-machine"]["nullius-combustion-chamber-1"].animation.west.layers[2]
+    }
+  }
+}
+boil.working_visualisations = data.raw["assembling-machine"]["nullius-combustion-chamber-1"].working_visualisations
+
+local boilm = util.table.deepcopy(boil)
+boilm.name = "nullius-mirror-boiler"
+boilm.localised_name = {"entity-name.nullius-mirrored", {"entity-name.boiler"}}
+boilm.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
+boilm.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
+boilm.icons = data.raw.item["nullius-mirror-boiler"].icons
+boilm.minable = {mining_time = 0.2, result = "nullius-mirror-boiler"}
+data:extend({ boil, boilm})
 
 
 if mods["reskins-bobs"] then

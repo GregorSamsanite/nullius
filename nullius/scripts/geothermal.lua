@@ -174,13 +174,10 @@ function build_thermal_tank(entity, level)
   if ((level < 1) or (level > 2)) then return end
   
   local direction = entity.direction  
-  local dirname = "south"
-  if (direction == defines.direction.north) then
-    dirname = "north"
-  elseif (direction == defines.direction.east) then
-    dirname = "east"
-  elseif (direction == defines.direction.west) then
-    dirname = "west"
+  local dirname = "vertical"
+  if ((direction == defines.direction.east) or
+	      (direction == defines.direction.west)) then
+    dirname = "horizontal"
   end
 
   local position = entity.position

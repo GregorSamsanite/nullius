@@ -50,7 +50,8 @@ local function init_tech(force)
     end
   end
   
-  if (force.technologies["nullius-experimental-chemistry"].researched) then
+  if ((force.name == "player") and
+      force.technologies["nullius-experimental-chemistry"].researched) then
     global.nullius_broken_status = nil
   end
 
@@ -60,9 +61,9 @@ local function init_tech(force)
 	      broken_disabled(recipe.name) then
 		recipe.enabled = false
 	  end
-    elseif (string.sub(recipe.order, 1, 8) ~= "nullius-") and
+    elseif ((string.sub(recipe.order, 1, 8) ~= "nullius-") and
 	    (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
-	    (string.sub(recipe.name, 1, 14) ~= "empty-nullius-") then
+	    (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
       recipe.enabled = false
 	end
   end

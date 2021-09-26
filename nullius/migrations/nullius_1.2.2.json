@@ -1,0 +1,13 @@
+{
+  "entity":
+  [
+    ["nullius-thermal-tank-north-1", "nullius-thermal-tank-vertical-1"],
+    ["nullius-thermal-tank-south-1", "nullius-thermal-tank-vertical-1"],
+    ["nullius-thermal-tank-east-1", "nullius-thermal-tank-horizontal-1"],
+    ["nullius-thermal-tank-west-1", "nullius-thermal-tank-horizontal-1"]
+  ],
+  "technology":
+  [
+    ["nullius-boiling", "nullius-boiling-1"]
+  ]
+}

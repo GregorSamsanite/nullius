@@ -4590,6 +4590,96 @@ data:extend({
 
   {
     type = "item",
+    name = "nullius-boiler",
+	icons = {{
+      icon = "__nullius__/graphics/boiler/boiler.png",
+      icon_size = 64
+	}},
+    subgroup = "energy-storage",
+    order = "nullius-fb",
+    place_result = "nullius-boiler",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-mirror-boiler",
+	icons = {
+	  {
+        icon = "__nullius__/graphics/boiler/boiler.png",
+        icon_size = 64
+	  },
+	  {
+	    icon = "__nullius__/graphics/flip1.png",
+		icon_size = 64
+	  }
+	},
+    subgroup = "energy-storage",
+    order = "nullius-fc",
+    place_result = "nullius-mirror-boiler",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-boiler",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-heat-exchanger-1", 1},
+      {"nullius-medium-furnace-2", 1},
+      {"nullius-ceramic-powder", 5},
+	  {"nullius-transformer", 1}
+    },
+    result = "nullius-boiler"
+  },
+  {
+    type = "recipe",
+    name = "nullius-mirror-boiler",
+    enabled = false,
+	always_show_made_in = true,
+	no_productivity = true,
+    category = "medium-crafting",
+    energy_required = 1,
+    ingredients = {
+      {"nullius-boiler", 1},
+      {"nullius-pipe-2", 2}
+    },
+    result = "nullius-mirror-boiler"
+  },
+  {
+    type = "recipe",
+    name = "nullius-unmirror-boiler",
+    localised_name = {"recipe-name.nullius-unmirrored", {"entity-name.boiler"}},
+    icons = {
+	  {
+        icon = "__nullius__/graphics/boiler/boiler.png",
+        icon_size = 64
+	  },
+	  {
+	    icon = "__nullius__/graphics/flip2.png",
+		icon_size = 64
+	  }
+    },
+    enabled = false,
+	always_show_made_in = true,
+	no_productivity = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	always_show_products = true,
+    category = "medium-crafting",
+	subgroup = "unmirror-2",
+	order = "nullius-fd",
+    energy_required = 0.5,
+    ingredients = {
+      {"nullius-mirror-boiler", 1},
+      {"nullius-pipe-2", 1}
+    },
+    result = "nullius-boiler"
+  },
+
+  {
+    type = "item",
     name = "nullius-barrel-pump-2",
 	icons = {{
       icon = "__angelsrefining__/graphics/icons/barreling-pump.png",

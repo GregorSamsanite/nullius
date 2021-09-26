@@ -298,6 +298,16 @@ data:extend({
 	shadow_in_motion = data.raw["logistic-robot"]["bob-logistic-robot-5"].shadow_in_motion,
 	shadow_in_motion_with_cargo = data.raw["logistic-robot"]["bob-logistic-robot-5"].shadow_in_motion_with_cargo
   },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input",
+      input_flow_limit = "2MW",
+      buffer_capacity = "20MJ"
+    },
+    recharge_minimum = "1MJ",
+    energy_usage = "5kW",
+    -- per one charge slot
+    charging_energy = "600kW",
 
   {
     type = "roboport",
@@ -320,10 +330,10 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       input_flow_limit = "2MW",
-      buffer_capacity = "20MJ"
+      buffer_capacity = "25MJ"
     },
     recharge_minimum = "5MJ",
-    energy_usage = "20kW",
+    energy_usage = "15kW",
     -- per one charge slot
     charging_energy = "450kW",
     logistics_radius = 16.5,
@@ -481,10 +491,10 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       input_flow_limit = "4MW",
-      buffer_capacity = "40MJ"
+      buffer_capacity = "50MJ"
     },
     recharge_minimum = "10MJ",
-    energy_usage = "40kW",
+    energy_usage = "30kW",
     -- per one charge slot
     charging_energy = "900kW",
     logistics_radius = 24.5,
@@ -641,10 +651,10 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       input_flow_limit = "10MW",
-      buffer_capacity = "100MJ"
+      buffer_capacity = "150MJ"
     },
-    recharge_minimum = "25MJ",
-    energy_usage = "100kW",
+    recharge_minimum = "30MJ",
+    energy_usage = "75kW",
     -- per one charge slot
     charging_energy = "1.8MW",
     logistics_radius = 32.5,
@@ -801,10 +811,10 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       input_flow_limit = "10MW",
-      buffer_capacity = "100MJ"
+      buffer_capacity = "150MJ"
     },
-    recharge_minimum = "25MJ",
-    energy_usage = "100kW",
+    recharge_minimum = "30MJ",
+    energy_usage = "75kW",
     -- per one charge slot
     charging_energy = "1.8MW",
     logistics_radius = 33,
@@ -959,11 +969,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "50kW",
-      buffer_capacity = "500kJ"
+      input_flow_limit = "500kW",
+      buffer_capacity = "2MW"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "10kW",
+    energy_usage = "5kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 16.5,
@@ -1020,11 +1030,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "100kW",
-      buffer_capacity = "1MJ"
+      input_flow_limit = "1MW",
+      buffer_capacity = "4MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "16kW",
+    energy_usage = "8kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 24.5,
@@ -1081,11 +1091,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "200kW",
-      buffer_capacity = "2MJ"
+      input_flow_limit = "2MW",
+      buffer_capacity = "10MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "25kW",
+    energy_usage = "12kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 32.5,
@@ -1141,11 +1151,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "400kW",
-      buffer_capacity = "4MJ"
+      input_flow_limit = "4MW",
+      buffer_capacity = "25MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "40kW",
+    energy_usage = "20kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 48.5,
