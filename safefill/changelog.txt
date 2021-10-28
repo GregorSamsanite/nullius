@@ -1,0 +1,44 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 15.07.2021
+  Changes:
+    - When invalid waterfill mines a paved tile, replace it with original tile, not dirt.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 13.03.2021
+  Bugfixes:
+    - Fix that blueprinted waterfill could still destroy things.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 06.03.2021
+  Features:
+    - Allow non-shallow water to be placed over other water types (disabled by a setting).
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 16.02.2021
+  Features:
+    - Add a setting to control depths of water supported.
+  Changes:
+    - Allow expensive versions of recipes to be hand-crafted, since they use barrels.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 15.02.2021
+  Balancing:
+    - Slightly reduce technology prerequisites for Normal cost setting.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 15.02.2021
+  Features:
+    - Add a setting for configuring recipe costs.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 14.02.2021
+  Features:
+    - Get waterfill working in blueprints.
+  Bugfixes:
+    - Fix a crash bug when waterfill stack is empty.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 13.02.2021
+  Graphics:
+    - Improve contrast of icons.
