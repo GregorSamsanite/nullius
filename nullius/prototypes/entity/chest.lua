@@ -72,8 +72,8 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	picture = {
-	  layers = {
+    picture = {
+      layers = {
         {
           filename = "__nullius__/graphics/chest3e.png",
           priority = "extra-high",
@@ -91,7 +91,7 @@ data:extend({
           draw_as_shadow = true,
           scale = 0.5
         }
-	  }
+      }
     }
   },
 
@@ -162,8 +162,8 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	picture = {
-	  layers = {
+    picture = {
+      layers = {
         {
           filename = "__nullius__/graphics/chest3e.png",
           priority = "extra-high",
@@ -181,15 +181,15 @@ data:extend({
           draw_as_shadow = true,
           scale = 0.9
         }
-	  }
+      }
     }
   },
 
   {
     type = "logistic-container",
     name = "nullius-small-storage-chest-1",
-	icons = data.raw.item["nullius-small-storage-chest-1"].icons,
-	localised_description = {"entity-description.nullius-storage-chest"},
+    icons = data.raw.item["nullius-small-storage-chest-1"].icons,
+    localised_description = {"entity-description.nullius-storage-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-storage-chest-1"},
     max_health = 300,
@@ -215,15 +215,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.5
+          scale = 0.5
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -262,13 +262,13 @@ data:extend({
           tint = {r = 0.9, g = 0.75, b = 0.1}
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-small-storage-chest-2",
-	icons = data.raw.item["nullius-small-storage-chest-2"].icons,
-	localised_description = {"entity-description.nullius-storage-chest"},
+    icons = data.raw.item["nullius-small-storage-chest-2"].icons,
+    localised_description = {"entity-description.nullius-storage-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-storage-chest-2"},
     max_health = 400,
@@ -298,8 +298,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-large-storage-chest-1",
-	icons = data.raw.item["nullius-large-storage-chest-1"].icons,
-	localised_description = {"entity-description.nullius-storage-chest"},
+    icons = data.raw.item["nullius-large-storage-chest-1"].icons,
+    localised_description = {"entity-description.nullius-storage-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-storage-chest-1" },
     max_health = 500,
@@ -324,15 +324,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.9
+          scale = 0.9
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -352,7 +352,7 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           shift = util.by_pixel(0, -16.2),
-		  scale = 1.8
+          scale = 1.8
         },
         {
           filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
@@ -370,16 +370,16 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           tint = {r = 0.9, g = 0.75, b = 0.1},
-		  scale = 1.8
+          scale = 1.8
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-large-storage-chest-2",
-	icons = data.raw.item["nullius-large-storage-chest-2"].icons,
-	localised_description = {"entity-description.nullius-storage-chest"},
+    icons = data.raw.item["nullius-large-storage-chest-2"].icons,
+    localised_description = {"entity-description.nullius-storage-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-storage-chest-2" },
     max_health = 800,
@@ -427,12 +427,12 @@ data:extend({
       }
     }
   },
-  
+
   {
     type = "logistic-container",
     name = "nullius-small-supply-chest-1",
-	icons = data.raw.item["nullius-small-supply-chest-1"].icons,
-	localised_description = {"entity-description.nullius-supply-chest"},
+    icons = data.raw.item["nullius-small-supply-chest-1"].icons,
+    localised_description = {"entity-description.nullius-supply-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-supply-chest-1"},
     max_health = 300,
@@ -457,15 +457,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.5
+          scale = 0.5
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -504,13 +504,13 @@ data:extend({
           tint = {r = 0.9, g = 0.2, b = 0.1}
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-small-supply-chest-2",
-	icons = data.raw.item["nullius-small-supply-chest-2"].icons,
-	localised_description = {"entity-description.nullius-supply-chest"},
+    icons = data.raw.item["nullius-small-supply-chest-2"].icons,
+    localised_description = {"entity-description.nullius-supply-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-supply-chest-2"},
     max_health = 400,
@@ -539,8 +539,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-large-supply-chest-1",
-	icons = data.raw.item["nullius-large-supply-chest-1"].icons,
-	localised_description = {"entity-description.nullius-supply-chest"},
+    icons = data.raw.item["nullius-large-supply-chest-1"].icons,
+    localised_description = {"entity-description.nullius-supply-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-supply-chest-1" },
     max_health = 500,
@@ -564,15 +564,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.9
+          scale = 0.9
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -592,7 +592,7 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           shift = util.by_pixel(0, -16.2),
-		  scale = 1.8
+          scale = 1.8
         },
         {
           filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
@@ -610,16 +610,16 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           tint = {r = 0.9, g = 0.2, b = 0.1},
-		  scale = 1.8
+          scale = 1.8
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-large-supply-chest-2",
-	icons = data.raw.item["nullius-large-supply-chest-2"].icons,
-	localised_description = {"entity-description.nullius-supply-chest"},
+    icons = data.raw.item["nullius-large-supply-chest-2"].icons,
+    localised_description = {"entity-description.nullius-supply-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-supply-chest-2" },
     max_health = 800,
@@ -670,8 +670,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-small-demand-chest-1",
-	icons = data.raw.item["nullius-small-demand-chest-1"].icons,
-	localised_description = {"entity-description.nullius-demand-chest"},
+    icons = data.raw.item["nullius-small-demand-chest-1"].icons,
+    localised_description = {"entity-description.nullius-demand-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-demand-chest-1"},
     max_health = 300,
@@ -697,15 +697,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.5
+          scale = 0.5
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -744,13 +744,13 @@ data:extend({
           tint = {r = 98, g = 203, b = 230}
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-small-demand-chest-2",
-	icons = data.raw.item["nullius-small-demand-chest-2"].icons,
-	localised_description = {"entity-description.nullius-demand-chest"},
+    icons = data.raw.item["nullius-small-demand-chest-2"].icons,
+    localised_description = {"entity-description.nullius-demand-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-demand-chest-2"},
     max_health = 400,
@@ -780,8 +780,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-large-demand-chest-1",
-	icons = data.raw.item["nullius-large-demand-chest-1"].icons,
-	localised_description = {"entity-description.nullius-demand-chest"},
+    icons = data.raw.item["nullius-large-demand-chest-1"].icons,
+    localised_description = {"entity-description.nullius-demand-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-demand-chest-1" },
     max_health = 500,
@@ -806,15 +806,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.9
+          scale = 0.9
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -834,7 +834,7 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           shift = util.by_pixel(0, -16.2),
-		  scale = 1.8
+          scale = 1.8
         },
         {
           filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
@@ -852,16 +852,16 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           tint = {r = 98, g = 203, b = 230},
-		  scale = 1.8
+          scale = 1.8
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-large-demand-chest-2",
-	icons = data.raw.item["nullius-large-demand-chest-2"].icons,
-	localised_description = {"entity-description.nullius-demand-chest"},
+    icons = data.raw.item["nullius-large-demand-chest-2"].icons,
+    localised_description = {"entity-description.nullius-demand-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-demand-chest-2" },
     max_health = 800,
@@ -913,8 +913,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-small-buffer-chest-1",
-	icons = data.raw.item["nullius-small-buffer-chest-1"].icons,
-	localised_description = {"entity-description.nullius-buffer-chest"},
+    icons = data.raw.item["nullius-small-buffer-chest-1"].icons,
+    localised_description = {"entity-description.nullius-buffer-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-buffer-chest-1"},
     max_health = 300,
@@ -940,15 +940,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.5
+          scale = 0.5
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -987,13 +987,13 @@ data:extend({
           tint = {r = 0.2, g = 0.9, b = 0.1}
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-small-buffer-chest-2",
-	icons = data.raw.item["nullius-small-buffer-chest-2"].icons,
-	localised_description = {"entity-description.nullius-buffer-chest"},
+    icons = data.raw.item["nullius-small-buffer-chest-2"].icons,
+    localised_description = {"entity-description.nullius-buffer-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-buffer-chest-2"},
     max_health = 400,
@@ -1023,8 +1023,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-large-buffer-chest-1",
-	icons = data.raw.item["nullius-large-buffer-chest-1"].icons,
-	localised_description = {"entity-description.nullius-buffer-chest"},
+    icons = data.raw.item["nullius-large-buffer-chest-1"].icons,
+    localised_description = {"entity-description.nullius-buffer-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-buffer-chest-1" },
     max_health = 500,
@@ -1049,15 +1049,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.9
+          scale = 0.9
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -1077,7 +1077,7 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           shift = util.by_pixel(0, -16.2),
-		  scale = 1.8
+          scale = 1.8
         },
         {
           filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
@@ -1095,16 +1095,16 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           tint = {r = 0.2, g = 0.9, b = 0.1},
-		  scale = 1.8
+          scale = 1.8
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-large-buffer-chest-2",
-	icons = data.raw.item["nullius-large-buffer-chest-2"].icons,
-	localised_description = {"entity-description.nullius-buffer-chest"},
+    icons = data.raw.item["nullius-large-buffer-chest-2"].icons,
+    localised_description = {"entity-description.nullius-buffer-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-buffer-chest-2" },
     max_health = 800,
@@ -1156,8 +1156,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-small-dispatch-chest-1",
-	icons = data.raw.item["nullius-small-dispatch-chest-1"].icons,
-	localised_description = {"entity-description.nullius-dispatch-chest"},
+    icons = data.raw.item["nullius-small-dispatch-chest-1"].icons,
+    localised_description = {"entity-description.nullius-dispatch-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-dispatch-chest-1"},
     max_health = 300,
@@ -1182,15 +1182,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.5
+          scale = 0.5
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -1229,13 +1229,13 @@ data:extend({
           tint = {r = 0.7, g = 0.1, b = 0.9}
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-small-dispatch-chest-2",
-	icons = data.raw.item["nullius-small-dispatch-chest-2"].icons,
-	localised_description = {"entity-description.nullius-dispatch-chest"},
+    icons = data.raw.item["nullius-small-dispatch-chest-2"].icons,
+    localised_description = {"entity-description.nullius-dispatch-chest"},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-small-dispatch-chest-2"},
     max_health = 400,
@@ -1264,8 +1264,8 @@ data:extend({
   {
     type = "logistic-container",
     name = "nullius-large-dispatch-chest-1",
-	icons = data.raw.item["nullius-large-dispatch-chest-1"].icons,
-	localised_description = {"entity-description.nullius-dispatch-chest"},
+    icons = data.raw.item["nullius-large-dispatch-chest-1"].icons,
+    localised_description = {"entity-description.nullius-dispatch-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-dispatch-chest-1" },
     max_health = 500,
@@ -1289,15 +1289,15 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-	animation = {
-	  layers = {
-		{
-		  filename = "__nullius__/graphics/logistic-entity.png",
+    animation = {
+      layers = {
+        {
+          filename = "__nullius__/graphics/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
           repeat_count = 16,
-		  scale = 0.9
+          scale = 0.9
         },
         {
           filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
@@ -1317,7 +1317,7 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           shift = util.by_pixel(0, -16.2),
-		  scale = 1.8
+          scale = 1.8
         },
         {
           filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
@@ -1335,16 +1335,16 @@ data:extend({
           frame_count = 1,
           repeat_count = 16,
           tint = {r = 0.7, g = 0.1, b = 0.9},
-		  scale = 1.8
+          scale = 1.8
         }
       }
-	}
+    }
   },
   {
     type = "logistic-container",
     name = "nullius-large-dispatch-chest-2",
-	icons = data.raw.item["nullius-large-dispatch-chest-2"].icons,
-	localised_description = {"entity-description.nullius-dispatch-chest"},
+    icons = data.raw.item["nullius-large-dispatch-chest-2"].icons,
+    localised_description = {"entity-description.nullius-dispatch-chest"},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-large-dispatch-chest-2" },
     max_health = 800,

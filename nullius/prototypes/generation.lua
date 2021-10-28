@@ -244,7 +244,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-bauxite",
-	icons = data.raw.item["nullius-bauxite"].icons,
+    icons = data.raw.item["nullius-bauxite"].icons,
     order = "a-b-c",
     map_color = {204, 204, 57},
     tree_removal_probability = 0.6,
@@ -291,7 +291,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-sandstone",
-	icons = data.raw.item["nullius-sandstone"].icons,
+    icons = data.raw.item["nullius-sandstone"].icons,
     map_color = {170, 121, 113},
     tree_removal_probability = 0.6,
     tree_removal_max_distance = 32 * 32,
@@ -317,7 +317,7 @@ data:extend({
       sheet = {
         filename = "__angelsrefining__/graphics/entity/ores/ore-12-lr.png",
         priority = "extra-high",
-		tint = {184, 125, 73},
+        tint = {184, 125, 73},
         size = 64,
         frame_count = 8,
         variation_count = 8,
@@ -325,7 +325,7 @@ data:extend({
         {
           filename = "__angelsrefining__/graphics/entity/ores/ore-12-hr.png",
           priority = "extra-high",
-	      tint = {184, 125, 73},
+          tint = {184, 125, 73},
           size = 128,
           frame_count = 8,
           variation_count = 8,
@@ -337,7 +337,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-limestone",
-	icons = data.raw.item["nullius-limestone"].icons,
+    icons = data.raw.item["nullius-limestone"].icons,
     map_color = {1, 0.86, 0.777},
     tree_removal_probability = 0.6,
     tree_removal_max_distance = 32 * 32,
@@ -387,7 +387,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     order = "a-b-f",
-	map_color = {0.803, 0.388, 0.215},
+    map_color = {0.803, 0.388, 0.215},
     tree_removal_probability = 0.6,
     tree_removal_max_distance = 32 * 32,
     minable = {
@@ -423,7 +423,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral"},
-	order = "a-b-g",
+    order = "a-b-g",
     tree_removal_probability = 0.7,
     tree_removal_max_distance = 32 * 32,
     minable = {
@@ -489,7 +489,7 @@ data:extend({
   {
     type = "resource",
     name = "nullius-fumarole",
-	icons = data.raw.fluid["nullius-volcanic-gas"].icons,
+    icons = data.raw.fluid["nullius-volcanic-gas"].icons,
     map_color = {r=1, g=0.5, b=0},
     map_grid = false,
 
@@ -540,28 +540,28 @@ data:extend({
     stage_counts = {0},
     stages = {
       sheet = {
-	filename = "__angelsrefining__/graphics/entity/patches/fissure.png",
-	tint = {r = 0.65, g = 0.4, b = 0.15},
-	priority = "extra-high",
-	width = 256,
-	height = 256,
+    filename = "__angelsrefining__/graphics/entity/patches/fissure.png",
+    tint = {r = 0.65, g = 0.4, b = 0.15},
+    priority = "extra-high",
+    width = 256,
+    height = 256,
         scale = 0.75,
-	frame_count = 4,
-	variation_count = 1,
+    frame_count = 4,
+    variation_count = 1,
       }
     },
     stages_effect = {
       sheet = {
-	filename = "__angelsrefining__/graphics/entity/patches/fissure-glow.png",
-	tint = {r=1, g=0.3, b=0.1},
-	priority = "extra-high",
-	width = 256,
-	height = 256,
+    filename = "__angelsrefining__/graphics/entity/patches/fissure-glow.png",
+    tint = {r=1, g=0.3, b=0.1},
+    priority = "extra-high",
+    width = 256,
+    height = 256,
         scale = 0.75,
-	frame_count = 4,
-	variation_count = 1,
-	blend_mode = "additive-soft",
-	flags = {"light"},
+    frame_count = 4,
+    variation_count = 1,
+    blend_mode = "additive-soft",
+    flags = {"light"},
       }
     },
     effect_animation_period = 4,
@@ -575,80 +575,80 @@ data:extend({
 
 data.raw["map-gen-presets"]["default"]["rich-resources"] =
 {
-	order = "b",
-	basic_settings =
-	{
-		autoplace_controls =
-		{
-			["iron-ore"] = { richness = "very-good"},
-			["nullius-bauxite"] = { richness = "very-good"},
-			["nullius-sandstone"] = { richness = "very-good"},
-			["nullius-limestone"] = { richness = "very-good"},
-			["nullius-geothermal"] = { richness = "very-good"}
-		}
-	}
+    order = "b",
+    basic_settings =
+    {
+        autoplace_controls =
+        {
+            ["iron-ore"] = { richness = "very-good"},
+            ["nullius-bauxite"] = { richness = "very-good"},
+            ["nullius-sandstone"] = { richness = "very-good"},
+            ["nullius-limestone"] = { richness = "very-good"},
+            ["nullius-geothermal"] = { richness = "very-good"}
+        }
+    }
 }
 
 data.raw["map-gen-presets"]["default"]["rail-world"].basic_settings =
 {
     property_expression_names = {},
-	autoplace_controls = {
-		["iron-ore"] = {
-			frequency = 0.33333333333,
-			size = 3
-		},
-		["nullius-bauxite"] = {
-			frequency = 0.33333333333,
-			size = 3
-		},
-		["nullius-sandstone"] = {
-			frequency = 0.33333333333,
-			size = 3
-		},
-		["nullius-limestone"] = {
-			frequency = 0.33333333333,
-			size = 3
-		},
-		["nullius-geothermal"] = {
-			frequency = 0.33333333333,
-			size = 3
-		}
-	},
-	terrain_segmentation = "very-low",
-	water = "high",
+    autoplace_controls = {
+        ["iron-ore"] = {
+            frequency = 0.33333333333,
+            size = 3
+        },
+        ["nullius-bauxite"] = {
+            frequency = 0.33333333333,
+            size = 3
+        },
+        ["nullius-sandstone"] = {
+            frequency = 0.33333333333,
+            size = 3
+        },
+        ["nullius-limestone"] = {
+            frequency = 0.33333333333,
+            size = 3
+        },
+        ["nullius-geothermal"] = {
+            frequency = 0.33333333333,
+            size = 3
+        }
+    },
+    terrain_segmentation = "very-low",
+    water = "high",
 }
 
 data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings =
 {
-	autoplace_controls = {
-	  ["iron-ore"] = {
+    autoplace_controls = {
+      ["iron-ore"] = {
             frequency = 3,
             size = 0.5,
             richness = 2
-	  },
-	  ["nullius-bauxite"] = {
+      },
+      ["nullius-bauxite"] = {
             frequency = 3,
             size = 0.5,
             richness = 2
-	  },
-	  ["nullius-sandstone"] = {
+      },
+      ["nullius-sandstone"] = {
             frequency = 3,
             size = 0.5,
             richness = 2
-	  },
-	  ["nullius-limestone"] = {
+      },
+      ["nullius-limestone"] = {
             frequency = 3,
             size = 0.5,
             richness = 2
-	  },
-	  ["nullius-geothermal"] = {
+      },
+      ["nullius-geothermal"] = {
             frequency = 3,
             size = 0.5,
             richness = 2
-	  }
-	},
-	terrain_segmentation = 4,
-	water = 0.25,
-	starting_area = 3,
-	height = 128
+      }
+    },
+    terrain_segmentation = 4,
+    water = 0.25,
+    starting_area = 3,
+    height = 128
 }

@@ -3,7 +3,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-small-furnace-1",
     localised_description = {"entity-description.nullius-furnace"},
-	icons = data.raw.item["nullius-small-furnace-1"].icons,
+    icons = data.raw.item["nullius-small-furnace-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-small-furnace-1"},
     max_health = 200,
@@ -67,7 +67,7 @@ data:extend({
       drain = "12kW"
     },
     energy_usage = "138kW",
-	module_specification = {
+    module_specification = {
       module_slots = 1,
       module_info_icon_shift = {0, 0.5}
     },
@@ -82,7 +82,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-small-furnace-3",
     localised_description = {"entity-description.nullius-furnace"},
-	icons = data.raw.item["nullius-small-furnace-3"].icons,
+    icons = data.raw.item["nullius-small-furnace-3"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.4, result = "nullius-small-furnace-3"},
     max_health = 300,
@@ -107,7 +107,7 @@ data:extend({
     },
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
-	module_specification = {
+    module_specification = {
       module_slots = 2,
       module_info_icon_shift = {0, 0.5}
     },
@@ -123,7 +123,7 @@ data:extend({
           frame_count = 1,
           shift = {0.2813, 0},
           scale = 0.6666,
-		  tint = {0.7, 0.7, 0.85}
+          tint = {0.7, 0.7, 0.85}
         },
         {
           filename = "__base__/graphics/entity/electric-furnace/electric-furnace-shadow.png",
@@ -143,8 +143,8 @@ data:extend({
         draw_as_light = true,
         fadeout = true,
         animation = {
-		  layers = {
-		    {
+          layers = {
+            {
               filename = "__base__/graphics/entity/electric-furnace/electric-furnace-heater.png",
               priority = "high",
               width = 25,
@@ -153,7 +153,7 @@ data:extend({
               animation_speed = 0.5,
               shift = {0.01042, 0.5938},
               scale = 0.6666
-			},
+            },
             {
               filename = "__base__/graphics/entity/electric-furnace/electric-furnace-light.png",
               blend_mode = "additive",
@@ -161,9 +161,9 @@ data:extend({
               height = 102,
               repeat_count = 12,
               shift = util.by_pixel(0, 0),
-			  scale = 0.6666
-			}
-		  }
+              scale = 0.6666
+            }
+          }
         }
       },
       {
@@ -223,7 +223,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-medium-furnace-1",
     localised_description = {"entity-description.nullius-furnace"},
-	icons = data.raw.item["nullius-medium-furnace-1"].icons,
+    icons = data.raw.item["nullius-medium-furnace-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-medium-furnace-1"},
     max_health = 300,
@@ -259,7 +259,7 @@ data:extend({
       drain = "25kW"
     },
     energy_usage = "270kW",
-	module_specification = {
+    module_specification = {
       module_slots = 1,
       module_info_icon_shift = {0, 0.8}
     },
@@ -283,7 +283,7 @@ data:extend({
           frame_count = 1,
           draw_as_shadow = true,
           shift = util.by_pixel(39.25*1.5, 11.25*1.5),
-          scale = 0.75        
+          scale = 0.75
         }
       }
     },
@@ -343,7 +343,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-medium-furnace-2",
     localised_description = {"entity-description.nullius-furnace"},
-	icons = data.raw.item["nullius-medium-furnace-2"].icons,
+    icons = data.raw.item["nullius-medium-furnace-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-medium-furnace-2"},
     max_health = 350,
@@ -387,7 +387,7 @@ data:extend({
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
     water_reflection = data.raw["furnace"]["electric-furnace"].water_reflection,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = {
+    module_specification = {
       module_slots = 2,
       module_info_icon_shift = {0, 0.8}
     },
@@ -395,14 +395,14 @@ data:extend({
 
     animation = {
       layers = {
-	    {
+        {
           filename = "__base__/graphics/entity/electric-furnace/electric-furnace-base.png",
           priority = "high",
           width = 129,
           height = 100,
           frame_count = 1,
           shift = {0.421875, 0},
-		  tint = {0.7, 0.7, 0.85},
+          tint = {0.7, 0.7, 0.85},
           hr_version = {
             filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace.png",
             priority = "high",
@@ -411,7 +411,7 @@ data:extend({
             frame_count = 1,
             shift = util.by_pixel(0.75, 5.75),
             scale = 0.5,
-		    tint = {0.7, 0.7, 0.85}
+            tint = {0.7, 0.7, 0.85}
           }
         },
         {
@@ -441,7 +441,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-large-furnace-1",
     localised_description = {"entity-description.nullius-large-furnace"},
-	icons = data.raw.item["nullius-large-furnace-1"].icons,
+    icons = data.raw.item["nullius-large-furnace-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.4, result = "nullius-large-furnace-1"},
     max_health = 500,
@@ -453,7 +453,7 @@ data:extend({
       { type = "explosion", percent = 50 }
     },
     fast_replaceable_group = "large-furnace",
-	next_upgrade = "nullius-large-furnace-2",
+    next_upgrade = "nullius-large-furnace-2",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
     fluid_boxes = {
@@ -483,7 +483,7 @@ data:extend({
     },
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
-	module_specification = {
+    module_specification = {
       module_slots = 2,
       module_info_icon_shift = {0, 1}
     },
@@ -499,7 +499,7 @@ data:extend({
           frame_count = 1,
           shift = util.by_pixel(1, 7.666),
           scale = 0.6666,
-		  tint = {0.7, 0.7, 0.85}
+          tint = {0.7, 0.7, 0.85}
         },
         {
           filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-shadow.png",
@@ -519,8 +519,8 @@ data:extend({
         draw_as_light = true,
         fadeout = true,
         animation = {
-		  layers = {
-		    {
+          layers = {
+            {
               filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-heater.png",
               priority = "high",
               width = 60,
@@ -529,7 +529,7 @@ data:extend({
               animation_speed = 0.5,
               shift = util.by_pixel(2.333, 43.666),
               scale = 0.6666
-			},
+            },
             {
               filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-light.png",
               blend_mode = "additive",
@@ -539,7 +539,7 @@ data:extend({
               shift = util.by_pixel(1.333, 0),
               scale = 0.6666
             }
-		  }
+          }
         }
       },
       {
@@ -602,7 +602,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-medium-furnace-3",
     localised_description = {"entity-description.nullius-furnace"},
-	icons = data.raw.item["nullius-medium-furnace-3"].icons,
+    icons = data.raw.item["nullius-medium-furnace-3"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-medium-furnace-3"},
     max_health = 400,
@@ -626,7 +626,7 @@ data:extend({
       emissions_per_minute = 2,
       drain = "100kW"
     },
-	module_specification = {
+    module_specification = {
       module_slots = 3,
       module_info_icon_shift = {0, 0.8}
     },
@@ -642,7 +642,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-large-furnace-2",
     localised_description = {"entity-description.nullius-large-furnace"},
-	icons = data.raw.item["nullius-large-furnace-2"].icons,
+    icons = data.raw.item["nullius-large-furnace-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.4, result = "nullius-large-furnace-2"},
     max_health = 600,
@@ -656,7 +656,7 @@ data:extend({
     fast_replaceable_group = "large-furnace",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
-	fluid_boxes = data.raw["assembling-machine"]["nullius-large-furnace-1"].fluid_boxes,
+    fluid_boxes = data.raw["assembling-machine"]["nullius-large-furnace-1"].fluid_boxes,
     crafting_categories = {"bulk-smelting"},
     crafting_speed = 2,
     energy_usage = "2200kW",
@@ -668,9 +668,9 @@ data:extend({
     },
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
-	working_visualisations = data.raw["assembling-machine"]["nullius-large-furnace-1"].working_visualisations,
-	water_reflection = data.raw["assembling-machine"]["nullius-large-furnace-1"].water_reflection,
-	module_specification = {
+    working_visualisations = data.raw["assembling-machine"]["nullius-large-furnace-1"].working_visualisations,
+    water_reflection = data.raw["assembling-machine"]["nullius-large-furnace-1"].water_reflection,
+    module_specification = {
       module_slots = 3,
       module_info_icon_shift = {0, 1}
     },
@@ -724,8 +724,8 @@ data:extend({
     },
     energy_usage = "150kW",
     animation = {
-	  layers = {
-	    {
+      layers = {
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-base.png",
           priority = "high",
           width = 205,
@@ -735,9 +735,9 @@ data:extend({
           animation_speed = 0.4,
           shift = util.by_pixel(0, -2),
           scale = 0.5,
-		  tint = {0.6, 0.8, 0.7}
+          tint = {0.6, 0.8, 0.7}
         },
-		{
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-shadow.png",
           priority = "high",
           width = 248,
@@ -749,7 +749,7 @@ data:extend({
           shift = util.by_pixel(11.5, 8.5),
           scale = 0.5
         }
-	  }
+      }
     },
     working_visualisations = {
       {
@@ -764,13 +764,13 @@ data:extend({
           shift = util.by_pixel(0, -2),
           scale = 0.5
         }
-	  }
+      }
     },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
@@ -800,7 +800,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-foundry-2"},
     fast_replaceable_group = "foundry",
-	next_upgrade = "nullius-foundry-3",
+    next_upgrade = "nullius-foundry-3",
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -816,8 +816,8 @@ data:extend({
     },
     energy_usage = "265kW",
     animation = {
-	  layers = {
-	    {
+      layers = {
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-base.png",
           priority = "high",
           width = 205,
@@ -827,9 +827,9 @@ data:extend({
           animation_speed = 0.5,
           shift = util.by_pixel(0, -2),
           scale = 0.5,
-		  tint = {0.7, 0.8, 1}
+          tint = {0.7, 0.8, 1}
         },
-		{
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-shadow.png",
           priority = "high",
           width = 248,
@@ -841,14 +841,14 @@ data:extend({
           shift = util.by_pixel(11.5, 8.5),
           scale = 0.5
         }
-	  }
+      }
     },
     working_visualisations = data.raw["assembling-machine"]["nullius-foundry-1"].working_visualisations,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
@@ -861,7 +861,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-		base_area = 5,
+        base_area = 5,
         base_level = 1.5,
         pipe_connections = {{ position = {2, -1} }}
       },
@@ -892,8 +892,8 @@ data:extend({
     },
     energy_usage = "525kW",
     animation = {
-	  layers = {
-	    {
+      layers = {
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-base.png",
           priority = "high",
           width = 205,
@@ -904,7 +904,7 @@ data:extend({
           shift = util.by_pixel(0, -2),
           scale = 0.5
         },
-		{
+        {
           filename = "__angelssmelting__/graphics/entity/casting-machine/hr-casting-machine-shadow.png",
           priority = "high",
           width = 248,
@@ -916,14 +916,14 @@ data:extend({
           shift = util.by_pixel(11.5, 8.5),
           scale = 0.5
         }
-	  }
+      }
     },
     working_visualisations = data.raw["assembling-machine"]["nullius-foundry-1"].working_visualisations,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
@@ -948,7 +948,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-crusher-1",
-	icons = data.raw.item["nullius-crusher-1"].icons,
+    icons = data.raw.item["nullius-crusher-1"].icons,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-crusher-1"},
     fast_replaceable_group = "crusher",
@@ -960,7 +960,7 @@ data:extend({
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     crafting_categories = {"ore-crushing", "hand-crushing"},
     crafting_speed = 1,
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {
       type = "electric",
@@ -979,15 +979,15 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0, 2} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-		base_area = 3,
-		height = 2,
+        base_area = 3,
+        height = 2,
         pipe_connections = {{ position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
@@ -1012,11 +1012,11 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-crusher-2",
-	icons = data.raw.item["nullius-crusher-2"].icons,
+    icons = data.raw.item["nullius-crusher-2"].icons,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-crusher-2"},
     fast_replaceable_group = "crusher",
-	next_upgrade = "nullius-crusher-3",
+    next_upgrade = "nullius-crusher-3",
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -1035,7 +1035,7 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "physical", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-crusher"].working_sound,
@@ -1045,15 +1045,15 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0, 2} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-		base_area = 3,
-		height = 2,
+        base_area = 3,
+        height = 2,
         pipe_connections = {{ position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
@@ -1069,7 +1069,7 @@ data:extend({
           line_length = 4,
           shift = {0.45, -0.25},
           animation_speed = 0.5,
-		  tint = {0.6, 0.65, 0.85}
+          tint = {0.6, 0.65, 0.85}
         }
       }
     }
@@ -1078,7 +1078,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-crusher-3",
-	icons = data.raw.item["nullius-crusher-3"].icons,
+    icons = data.raw.item["nullius-crusher-3"].icons,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-crusher-3"},
     fast_replaceable_group = "crusher",
@@ -1100,7 +1100,7 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "physical", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-crusher"].working_sound,
@@ -1110,15 +1110,15 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0, 2} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-		base_area = 3,
-		height = 2,
+        base_area = 3,
+        height = 2,
         pipe_connections = {{ position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
@@ -1143,7 +1143,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-flotation-cell-1",
     icons = data.raw.item["nullius-flotation-cell-2"].icons,
-	localised_description = {"entity-description.nullius-flotation-cell"},
+    localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-flotation-cell-1"},
     fast_replaceable_group = "flotation-cell",
@@ -1166,12 +1166,12 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "acid", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -1179,7 +1179,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -1187,14 +1187,14 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1,
         pipe_connections = {{ position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1,
         pipe_connections = {{ position = {2.5, 0.5} }}
@@ -1221,11 +1221,11 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-flotation-cell-2",
     icons = data.raw.item["nullius-flotation-cell-2"].icons,
-	localised_description = {"entity-description.nullius-flotation-cell"},
+    localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-flotation-cell-2"},
     fast_replaceable_group = "flotation-cell",
-	next_upgrade = "nullius-flotation-cell-3",
+    next_upgrade = "nullius-flotation-cell-3",
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -1244,12 +1244,12 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "acid", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1257,7 +1257,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1265,7 +1265,7 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
@@ -1273,7 +1273,7 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
@@ -1301,7 +1301,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-flotation-cell-3",
     icons = data.raw.item["nullius-flotation-cell-3"].icons,
-	localised_description = {"entity-description.nullius-flotation-cell"},
+    localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-flotation-cell-3"},
     fast_replaceable_group = "flotation-cell",
@@ -1323,43 +1323,43 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "acid", decrease = 50, percent = 80 }
     },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-0.5, 2.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-2.5, -0.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {2.5, 0.5} }}
       }
     },
@@ -1385,7 +1385,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-flotation-cell-2",
     icons = data.raw.item["nullius-mirror-flotation-cell-2"].icons,
-	localised_description = {"entity-description.nullius-flotation-cell"},
+    localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-flotation-cell-2"},
     fast_replaceable_group = "flotation-cell",
@@ -1397,19 +1397,19 @@ data:extend({
     selection_box = {{-2, -2}, {2, 2}},
     crafting_categories = {"ore-flotation"},
     crafting_speed = 2,
-	energy_source = data.raw["assembling-machine"]["nullius-flotation-cell-2"].energy_source,
+    energy_source = data.raw["assembling-machine"]["nullius-flotation-cell-2"].energy_source,
     energy_usage = "385kW",
-	resistances = data.raw["assembling-machine"]["nullius-flotation-cell-2"].resistances,
-	module_specification = { module_slots = 2 },
+    resistances = data.raw["assembling-machine"]["nullius-flotation-cell-2"].resistances,
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     animation = data.raw["assembling-machine"]["nullius-flotation-cell-2"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
-	
+
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1417,7 +1417,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1425,7 +1425,7 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
@@ -1433,7 +1433,7 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
@@ -1446,7 +1446,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-flotation-cell-3",
     icons = data.raw.item["nullius-mirror-flotation-cell-3"].icons,
-	localised_description = {"entity-description.nullius-flotation-cell"},
+    localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-flotation-cell-3"},
     fast_replaceable_group = "flotation-cell",
@@ -1458,49 +1458,49 @@ data:extend({
     crafting_categories = {"ore-flotation"},
     crafting_speed = 4,
     energy_usage = "770kW",
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
-	animation = data.raw["assembling-machine"]["nullius-flotation-cell-3"].animation,
-	energy_source = data.raw["assembling-machine"]["nullius-flotation-cell-3"].energy_source,
-	resistances = data.raw["assembling-machine"]["nullius-flotation-cell-3"].resistances,
+    animation = data.raw["assembling-machine"]["nullius-flotation-cell-3"].animation,
+    energy_source = data.raw["assembling-machine"]["nullius-flotation-cell-3"].energy_source,
+    resistances = data.raw["assembling-machine"]["nullius-flotation-cell-3"].resistances,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
 
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-2.5, 0.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0.5, 2.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {2.5, -0.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = floatationpipepictures(),
+        pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {-0.5, -2.5} }}
       }
     }
@@ -1561,7 +1561,7 @@ small_animation.layers = {
     height = 106,
     shift = util.by_pixel(0.6666, 0.6666),
     tint = tiercolor("red"),
-	scale = 0.6666
+    scale = 0.6666
   },
   {
     filename = "__reskins-bobs__/graphics/entity/assembly/electric-furnace/electric-furnace-highlights.png",
@@ -1570,8 +1570,8 @@ small_animation.layers = {
     height = 106,
     shift = util.by_pixel(0.6666, 0.6666),
     blend_mode = "additive",
-	scale = 0.6666
-  },  
+    scale = 0.6666
+  },
   small_animation.layers[2]
 }
 small_animation.layers[1].tint = nil

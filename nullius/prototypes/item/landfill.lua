@@ -85,50 +85,50 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-gravel",
-	localised_name = {"recipe-name.nullius-land-fill-grey-1"},
-	order = "nullius-dbb",
+    localised_name = {"recipe-name.nullius-land-fill-grey-1"},
+    order = "nullius-dbb",
     energy_required = 1,
     enabled = false,
     category = "hand-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-gravel", 5},
-	  {"nullius-sand", 1}
+      {"nullius-sand", 1}
     },
     result = "nullius-land-fill-gravel",
-	result_count = 2
+    result_count = 2
   },
   {
     type = "recipe",
     name = "nullius-land-fill-sand",
-	localised_name = {"recipe-name.nullius-land-fill-tan-1"},
-	order = "nullius-dcb",
+    localised_name = {"recipe-name.nullius-land-fill-tan-1"},
+    order = "nullius-dcb",
     energy_required = 1,
     enabled = false,
     category = "hand-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-sand", 10},
       {"nullius-gravel", 2}
     },
     result = "nullius-land-fill-sand",
-	result_count = 4
+    result_count = 4
   },
   {
     type = "recipe",
     name = "nullius-land-fill-bauxite",
-	localised_name = {"recipe-name.nullius-land-fill-brown-1"},
-	order = "nullius-ddb",
+    localised_name = {"recipe-name.nullius-land-fill-brown-1"},
+    order = "nullius-ddb",
     energy_required = 3,
     enabled = false,
     category = "hand-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-crushed-bauxite", 15},
       {"nullius-gravel", 5}
@@ -139,16 +139,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-iron",
-	localised_name = {"recipe-name.nullius-land-fill-red-1"},
-	order = "nullius-deb",
+    localised_name = {"recipe-name.nullius-land-fill-red-1"},
+    order = "nullius-deb",
     energy_required = 1,
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
     ingredients = {
       {"nullius-crushed-iron-ore", 4},
-	  {"nullius-sand", 1}
+      {"nullius-sand", 1}
     },
     result = "nullius-land-fill-iron",
     result_count = 2
@@ -156,12 +156,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-limestone",
-	localised_name = {"recipe-name.nullius-land-fill-beige-1"},
-	order = "nullius-dfb",
+    localised_name = {"recipe-name.nullius-land-fill-beige-1"},
+    order = "nullius-dfb",
     energy_required = 4,
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
     ingredients = {
       {"nullius-crushed-limestone", 25}
@@ -173,8 +173,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-grey",
-	localised_name = {"recipe-name.nullius-land-fill-grey-2"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-grey-2"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-grey.png",
         icon_size = 64,
@@ -188,16 +188,16 @@ data:extend({
         shift = {-12, -12}
       }
     },
-	order = "nullius-dbc",
+    order = "nullius-dbc",
     energy_required = 4,
     enabled = false,
     category = "hand-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-gravel", 10},
-	  {"concrete", 15}
+      {"concrete", 15}
     },
     result = "nullius-land-fill-gravel",
     result_count = 20
@@ -206,15 +206,15 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-land-fill-grey",
     enabled = false,
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "hand-crushing",
-	subgroup = "boxed-terrain",
+    subgroup = "boxed-terrain",
     energy_required = 8,
     ingredients = {
       {"nullius-box-gravel", 4},
-	  {"nullius-box-concrete", 3}
+      {"nullius-box-concrete", 3}
     },
     result = "nullius-box-land-fill-gravel",
     result_count = 4
@@ -223,8 +223,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-tan",
-	localised_name = {"recipe-name.nullius-land-fill-tan-2"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-tan-2"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-tan.png",
         icon_size = 64,
@@ -238,13 +238,13 @@ data:extend({
         shift = {-12, -12}
       }
     },
-	order = "nullius-dcc",
+    order = "nullius-dcc",
     energy_required = 3,
     enabled = false,
     category = "ore-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-sand", 10},
       {"nullius-yellow-concrete", 10}
@@ -256,11 +256,11 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-land-fill-tan",
     enabled = false,
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
-	subgroup = "boxed-terrain",
+    subgroup = "boxed-terrain",
     energy_required = 3,
     ingredients = {
       {"nullius-box-sand", 2},
@@ -273,8 +273,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-brown",
-	localised_name = {"recipe-name.nullius-land-fill-brown-2"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-brown-2"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-brown.png",
         icon_size = 64,
@@ -288,13 +288,13 @@ data:extend({
         shift = {-12, -12}
       }
     },
-	order = "nullius-ddc",
+    order = "nullius-ddc",
     energy_required = 2,
     enabled = false,
     category = "ore-crushing",
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {"nullius-crushed-bauxite", 3},
       {"nullius-brown-concrete", 5}
@@ -306,11 +306,11 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-land-fill-brown",
     enabled = false,
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
-	subgroup = "boxed-terrain",
+    subgroup = "boxed-terrain",
     energy_required = 20,
     ingredients = {
       {"nullius-box-crushed-bauxite", 6},
@@ -323,8 +323,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-red",
-	localised_name = {"recipe-name.nullius-land-fill-red-2"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-red-2"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-red.png",
         icon_size = 64,
@@ -338,15 +338,15 @@ data:extend({
         shift = {-12, -12}
       }
     },
-	order = "nullius-dec",
+    order = "nullius-dec",
     energy_required = 2,
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
     ingredients = {
       {"nullius-crushed-iron-ore", 4},
-	  {"nullius-red-concrete", 5}
+      {"nullius-red-concrete", 5}
     },
     result = "nullius-land-fill-iron",
     result_count = 10
@@ -356,13 +356,13 @@ data:extend({
     name = "nullius-boxed-land-fill-red",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
-	subgroup = "boxed-terrain",
+    subgroup = "boxed-terrain",
     energy_required = 20,
     ingredients = {
       {"nullius-box-crushed-iron-ore", 8},
-	  {"nullius-box-red-concrete", 5}
+      {"nullius-box-red-concrete", 5}
     },
     result = "nullius-box-land-fill-iron",
     result_count = 10
@@ -371,8 +371,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-beige",
-	localised_name = {"recipe-name.nullius-land-fill-beige-2"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-beige-2"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-beige.png",
         icon_size = 64,
@@ -386,15 +386,15 @@ data:extend({
         shift = {-12, -12}
       }
     },
-	order = "nullius-dfc",
+    order = "nullius-dfc",
     energy_required = 2,
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
     ingredients = {
       {"nullius-crushed-limestone", 5},
-	  {"refined-concrete", 4}
+      {"refined-concrete", 4}
     },
     result = "nullius-land-fill-limestone",
     result_count = 10
@@ -404,13 +404,13 @@ data:extend({
     name = "nullius-boxed-land-fill-beige",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
-	subgroup = "boxed-terrain",
+    subgroup = "boxed-terrain",
     energy_required = 10,
     ingredients = {
       {"nullius-box-crushed-limestone", 5},
-	  {"nullius-box-reinforced-concrete", 2}
+      {"nullius-box-reinforced-concrete", 2}
     },
     result = "nullius-box-land-fill-limestone",
     result_count = 5
@@ -419,33 +419,33 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-land-fill-sludge",
-	localised_name = {"recipe-name.nullius-land-fill-sludge"},
-	icons = {
+    localised_name = {"recipe-name.nullius-land-fill-sludge"},
+    icons = {
       {
         icon = "__nullius__/graphics/landfill/landfill-brown.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.25,
+      {
+        icon = "__nullius__/graphics/sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.25,
         shift = {-12, -10}
-	  }
+      }
     },
-	subgroup = "masonry",
-	order = "nullius-as",
+    subgroup = "masonry",
+    order = "nullius-as",
     energy_required = 1,
     category = "ore-crushing",
     enabled = false,
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     ingredients = {
       {type="item", name="nullius-land-fill-gravel", amount=3},
       {type="item", name="nullius-land-fill-sand", amount=2},
-	  {type="fluid", name="nullius-sludge", amount=25}
+      {type="fluid", name="nullius-sludge", amount=25}
     },
     result = "nullius-land-fill-bauxite",
     result_count = 10
@@ -453,38 +453,38 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-land-fill-sludge",
-	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-sludge"}},
-	icons = {
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-sludge"}},
+    icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = "__nullius__/graphics/crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__nullius__/graphics/landfill/landfill-brown.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		scale = 0.45
+        scale = 0.45
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.225,
+      {
+        icon = "__nullius__/graphics/sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.225,
         shift = {-11, -9}
-	  }
+      }
     },
     enabled = false,
-	always_show_made_in = true,
+    always_show_made_in = true,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "ore-crushing",
-	subgroup = "boxed-terrain",
-	order = "nullius-is",
+    subgroup = "boxed-terrain",
+    order = "nullius-is",
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-land-fill-gravel", amount=3},
       {type="item", name="nullius-box-land-fill-sand", amount=2},
-	  {type="fluid", name="nullius-sludge", amount=250}
+      {type="fluid", name="nullius-sludge", amount=250}
     },
     result = "nullius-box-land-fill-bauxite",
     result_count = 10

@@ -470,7 +470,7 @@ function pipecoverspics(dir)
             draw_as_shadow = true
           }
         }
-	  }
+      }
     },
     west = {
       layers = {

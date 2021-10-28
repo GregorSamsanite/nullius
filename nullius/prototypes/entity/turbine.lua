@@ -42,7 +42,7 @@ for i=0,7 do
         shift = {0.15*scale, -1*scale},
         scale = 2*scale,
         hr_version = {
-		  filename = "__nullius__/graphics/windturbine/hd"..j.."/angle"..k..".png",
+          filename = "__nullius__/graphics/windturbine/hd"..j.."/angle"..k..".png",
           width = 600,
           height = 800,
           frame_count = 24,
@@ -64,7 +64,7 @@ for i=1,3 do
     {
       type = "electric-energy-interface",
       name = "nullius-wind-build-"..i,
-	  icons = data.raw.item["nullius-wind-turbine-"..i].icons,
+      icons = data.raw.item["nullius-wind-turbine-"..i].icons,
       flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
       minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
       max_health = 800*scale,
@@ -85,7 +85,7 @@ for i=1,3 do
       },
       energy_production = power.."kW",
       energy_usage = "0kW",
-	  fast_replaceable_group = "wind-turbine",
+      fast_replaceable_group = "wind-turbine",
       animations = {
         layers = {
           {
@@ -138,7 +138,7 @@ for i=1,3 do
           volume = scale
         },
         match_speed_to_activity = true
-      }	
+      }
     },
 
     {
@@ -167,7 +167,7 @@ for i=1,3 do
       },
       energy_production = power.."kW",
       energy_usage = "0kW",
-	  fast_replaceable_group = "wind-turbine",
+      fast_replaceable_group = "wind-turbine",
       picture = {
         filename = "__nullius__/graphics/windturbine/ld"..i.."/base.png",
         width = 300,
@@ -223,7 +223,7 @@ data:extend({
   {
     type = "simple-entity-with-force",
     name = "nullius-wind-collision-horizontal",
-	localised_name = {"entity-name.nullius-wind-collision"},
+    localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
     icon = "__base__/graphics/icons/fluid/steam.png",
     icon_size = 64,
@@ -243,7 +243,7 @@ data:extend({
   {
     type = "simple-entity-with-force",
     name = "nullius-wind-collision-vertical",
-	localised_name = {"entity-name.nullius-wind-collision"},
+    localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
     icon = "__base__/graphics/icons/fluid/steam.png",
     icon_size = 64,

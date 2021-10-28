@@ -4,7 +4,7 @@ data:extend({
     name = "nullius-upload-mind",
     order = "nullius-bb",
     key_sequence = "U",
-	include_selected_prototype = true
+    include_selected_prototype = true
   },
   {
     type = "custom-input",

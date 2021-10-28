@@ -14,7 +14,7 @@ data:extend({
     name = "nullius-landing-main",
     icon = "__base__/graphics/icons/crash-site-spaceship.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 600,
@@ -24,10 +24,10 @@ data:extend({
     enable_inventory_bar = false,
     minable = {
       mining_time = 4,
-	  results = {
-	    {type="item", name="nullius-steel-ingot", amount=40},
-		{type="item", name="copper-cable", amount=15},
-		{type="item", name="nullius-large-chest-1", amount=2} 
+      results = {
+        {type="item", name="nullius-steel-ingot", amount=40},
+        {type="item", name="copper-cable", amount=15},
+        {type="item", name="nullius-large-chest-1", amount=2}
       }
     },
     collision_box = {{-8.7, -3.3}, {6.9, 4.5}},
@@ -78,7 +78,7 @@ data:extend({
     name = "nullius-landing-tail",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-big-1.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 200,
@@ -86,16 +86,16 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 2,
-	  results = {
-	    {type="item", name="small-lamp", amount=20},
+      results = {
+        {type="item", name="small-lamp", amount=20},
         {type="item", name="nullius-solar-panel-1", amount=5}
-	  }
+      }
     },
     collision_box = {{-0.9, -0.1}, {1.4, 1.2}},
     selection_box = {{-0.9, -0.1}, {1.4, 1.2}},
     dying_explosion = "big-explosion",
     integration_patch_render_layer = "decals",
-	integration_patch = {
+    integration_patch = {
       filename = "__base__/graphics/entity/crash-site-spaceship/hr-spaceship-wreck-big-1-ground.png",
       priority="high",
       width = 348,
@@ -131,7 +131,7 @@ data:extend({
     name = "nullius-landing-propulsion",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-big-2.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 200,
@@ -139,17 +139,17 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 2,
-	  results = {
-	    {type="item", name="nullius-small-furnace-2", amount=1},
-		{type="item", name="nullius-chimney-1", amount=2},
-		{type="item", name="nullius-outfall-1", amount=2}
-	  }
+      results = {
+        {type="item", name="nullius-small-furnace-2", amount=1},
+        {type="item", name="nullius-chimney-1", amount=2},
+        {type="item", name="nullius-outfall-1", amount=2}
+      }
     },
     collision_box = {{-1.6, -1.6}, {1.3, 1.3}},
     selection_box = {{-1.6, -1.6}, {1.3, 1.3}},
     dying_explosion = "big-explosion",
     integration_patch_render_layer = "decals",
-	integration_patch = {
+    integration_patch = {
       filename = "__base__/graphics/entity/crash-site-spaceship/hr-spaceship-wreck-big-2-ground.png",
       priority="high",
       width = 450,
@@ -182,10 +182,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-vent",
+    name = "nullius-landing-vent",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-1.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
@@ -193,16 +193,16 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1.5,
-	  results = {
-	    {type="item", name="nullius-air-filter-1", amount=3},
-	    {type="item", name="nullius-broken-air-filter", amount=3}
-	  }
+      results = {
+        {type="item", name="nullius-air-filter-1", amount=3},
+        {type="item", name="nullius-broken-air-filter", amount=3}
+      }
     },
     collision_box = {{-1.2, -1.0}, {1.2, 0.7}},
     selection_box = {{-1.2, -1.0}, {1.2, 0.7}},
     dying_explosion = "big-explosion",
     integration_patch_render_layer = "decals",
-	integration_patch = {
+    integration_patch = {
       filename = "__base__/graphics/entity/crash-site-spaceship/hr-spaceship-wreck-medium-1-ground.png",
       priority="high",
       width = 352,
@@ -235,10 +235,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-intake",
+    name = "nullius-landing-intake",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-2.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
@@ -246,10 +246,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1.5,
-	  results = {
-	    {type="item", name="nullius-seawater-intake-1", amount=2},
-		{type="item", name="nullius-medium-tank-1", amount=5}
-	  }
+      results = {
+        {type="item", name="nullius-seawater-intake-1", amount=2},
+        {type="item", name="nullius-medium-tank-1", amount=5}
+      }
     },
     collision_box = {{-1.1, -0.6}, {1.0, 1.0}},
     selection_box = {{-1.1, -0.6}, {1.0, 1.0}},
@@ -289,10 +289,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-wing",
+    name = "nullius-landing-wing",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-3.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
@@ -300,10 +300,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1.5,
-	  results = {
-	    {type="item", name="nullius-broken-solar-panel", amount=15},
+      results = {
+        {type="item", name="nullius-broken-solar-panel", amount=15},
         {type="item", name="nullius-aluminum-ingot", amount=10}
-	  }
+      }
     },
     collision_box = {{-0.8, -1.4}, {0.7, 1.4}},
     selection_box = {{-0.8, -1.4}, {0.7, 1.4}},
@@ -343,10 +343,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-duct",
+    name = "nullius-landing-duct",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-small-3.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 50,
@@ -354,12 +354,12 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = {
-	    {type="item", name="nullius-pipe-2", amount=40},
-		{type="item", name="nullius-underground-pipe-2", amount=24},
-		{type="item", name="nullius-priority-valve", amount=3},
-		{type="item", name="nullius-pump-1", amount=3}
-	  }
+      results = {
+        {type="item", name="nullius-pipe-2", amount=40},
+        {type="item", name="nullius-underground-pipe-2", amount=24},
+        {type="item", name="nullius-priority-valve", amount=3},
+        {type="item", name="nullius-pump-1", amount=3}
+      }
     },
     collision_box = {{-0.7, -0.8}, {1.2, 0.6}},
     selection_box = {{-0.7, -0.8}, {1.2, 0.6}},
@@ -399,10 +399,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-shielding",
+    name = "nullius-landing-shielding",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-small-4.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 50,
@@ -410,7 +410,7 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-aluminum-ingot", amount=20} }
+      results = { {type="item", name="nullius-aluminum-ingot", amount=20} }
     },
     collision_box = {{-0.9, -0.8}, {1.1, 0.6}},
     selection_box = {{-0.9, -0.8}, {1.1, 0.6}},
@@ -450,28 +450,28 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-lab",
+    name = "nullius-landing-lab",
     icon = "__nullius__/graphics/crash-site-lab-broken.png",
     icon_size = 64,
-	icon_mipmaps = 4,
-	flags = wreck_flags,
+    icon_mipmaps = 4,
+    flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = {
-	    {type="item", name="nullius-lab-1", amount=1},
-	    {type="item", name="red-wire", amount=10},
-		{type="item", name="nullius-broken-sensor-node", amount=2}
-	  }
+      results = {
+        {type="item", name="nullius-lab-1", amount=1},
+        {type="item", name="red-wire", amount=10},
+        {type="item", name="nullius-broken-sensor-node", amount=2}
+      }
     },
     collision_box = {{-2.2, -1.2}, {2.2, 1.2}},
     selection_box = {{-2.5, -1.5}, {2.5, 1.5}},
-	dying_explosion = "medium-explosion",
+    dying_explosion = "medium-explosion",
     integration_patch_render_layer = "decals",
-	integration_patch = {
+    integration_patch = {
       filename = "__nullius__/graphics/crash/hr-crash-site-lab-ground.png",
       priority = crash_site_sprite_priority,
       width = 700,
@@ -505,28 +505,28 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-pylon",
+    name = "nullius-landing-pylon",
     icon = "__nullius__/graphics/crash-site-generator.png",
     icon_size = 64,
-	icon_mipmaps = 4,
-	flags = wreck_flags,
+    icon_mipmaps = 4,
+    flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 50,
     alert_when_damaged = false,
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = {
-	    {type="item", name="nullius-power-pole-1", amount=40},
-	    {type="item", name="big-electric-pole", amount=6},
-	    {type="item", name="nullius-broken-pylon", amount=18},
-	    {type="item", name="nullius-grid-battery-1", amount=5},
-	    {type="item", name="nullius-broken-grid-battery", amount=10}
-	  }
+      results = {
+        {type="item", name="nullius-power-pole-1", amount=40},
+        {type="item", name="big-electric-pole", amount=6},
+        {type="item", name="nullius-broken-pylon", amount=18},
+        {type="item", name="nullius-grid-battery-1", amount=5},
+        {type="item", name="nullius-broken-grid-battery", amount=10}
+      }
     },
     collision_box = {{-1.5, -0.9}, {0.9, 0.9}},
     selection_box = {{-1.5, -0.9}, {0.9, 0.9}},
-	dying_explosion = "medium-explosion",
+    dying_explosion = "medium-explosion",
     integration_patch_render_layer = "decals",
     integration_patch = {
       filename = "__nullius__/graphics/crash/hr-crash-site-generator-ground.png",
@@ -562,10 +562,10 @@ data:extend({
 
   {
     type = "container",
-	name = "nullius-landing-pod-1",
+    name = "nullius-landing-pod-1",
     icon = "__base__/graphics/icons/crash-site-chest.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 200,
@@ -575,7 +575,7 @@ data:extend({
     enable_inventory_bar = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-large-chest-1", amount=1} }
+      results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -616,10 +616,10 @@ data:extend({
 
   {
     type = "container",
-	name = "nullius-landing-pod-2",
+    name = "nullius-landing-pod-2",
     icon = "__base__/graphics/icons/crash-site-chest.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 200,
@@ -629,7 +629,7 @@ data:extend({
     enable_inventory_bar = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-large-chest-1", amount=1} }
+      results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -670,10 +670,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-machine-1",
-	icon = "__nullius__/graphics/crash-site-assembling-machine-1-repaired.png",
+    name = "nullius-landing-machine-1",
+    icon = "__nullius__/graphics/crash-site-assembling-machine-1-repaired.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
@@ -681,13 +681,13 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = { {type="item", name="nullius-small-miner-1", amount=5} }
+      results = { {type="item", name="nullius-small-miner-1", amount=5} }
     },
     collision_box = {{-1.2, -0.7}, {1.2, 0.7}},
     selection_box = {{-1.5, -1}, {1.5, 1}},
     dying_explosion = "medium-explosion",
     integration_patch_render_layer = "decals",
-	integration_patch = {
+    integration_patch = {
       filename = "__nullius__/graphics/crash/hr-crash-site-assembling-machine-1-ground.png",
       priority = crash_site_sprite_priority,
       width = 446,
@@ -721,10 +721,10 @@ data:extend({
 
   {
     type = "simple-entity",
-	name = "nullius-landing-machine-2",
-	icon = "__nullius__/graphics/crash-site-assembling-machine-2-repaired.png",
+    name = "nullius-landing-machine-2",
+    icon = "__nullius__/graphics/crash-site-assembling-machine-2-repaired.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
@@ -732,10 +732,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-	  results = {
-	    {type="item", name="nullius-medium-assembler-1", amount=1},
-	    {type="item", name="nullius-broken-assembler", amount=3}
-	  }
+      results = {
+        {type="item", name="nullius-medium-assembler-1", amount=1},
+        {type="item", name="nullius-broken-assembler", amount=3}
+      }
     },
     collision_box = {{-0.7, -1.2}, {0.7, 1.2}},
     selection_box = {{-1, -1.5}, {1, 1.5}},

@@ -19,7 +19,7 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/heavy-oil.png",
-		icon_size = 64
+        icon_size = 64
       }
     },
     flags = {"hidden"},

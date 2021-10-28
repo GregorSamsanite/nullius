@@ -46,10 +46,10 @@ data:extend({
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
-	  "packaging"
+      "packaging"
     },
     crafting_speed = 0.5,
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=2, drain="1kW"},
     energy_usage = "59kW",
@@ -115,7 +115,7 @@ data:extend({
           frame_count = 32,
           line_length = 8,
           shift = util.by_pixel(0, 2),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
             filename = "__base__/graphics/entity/assembling-machine-1/hr-assembling-machine-1.png",
             priority="high",
@@ -125,7 +125,7 @@ data:extend({
             line_length = 8,
             shift = util.by_pixel(0, 2),
             scale = 0.5,
-		    animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         {
@@ -159,7 +159,7 @@ data:extend({
       "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 1,
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=5, drain="5kW"},
     energy_usage = "145kW",
@@ -247,7 +247,7 @@ data:extend({
       "large-fluid-assembly", "huge-fluid-assembly"
     },
     crafting_speed = 4,
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=20, drain="30kW"},
     energy_usage = "620kW",
@@ -295,18 +295,18 @@ data:extend({
           line_length = 8,
           shift = util.by_pixel(0, 4),
           scale = 0.666,
-		  animation_speed = 0.8
+          animation_speed = 0.8
         },
-		data.raw["assembling-machine"]["nullius-small-assembler-1"].animation.layers[2]
+        data.raw["assembling-machine"]["nullius-small-assembler-1"].animation.layers[2]
       }
     },
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
-	  "packaging"
+      "packaging"
     },
     crafting_speed = 1,
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=4, drain="2kW"},
     energy_usage = "123kW",
@@ -344,7 +344,7 @@ data:extend({
           line_length = 8,
           shift = util.by_pixel(0, -0.3333),
           scale = 0.666,
-		  animation_speed = 0.6
+          animation_speed = 0.6
         },
         {
           filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow.png",
@@ -356,17 +356,17 @@ data:extend({
           draw_as_shadow = true,
           shift = util.by_pixel(18.667, 2.6667),
           scale = 0.666,
-		  animation_speed = 0.6
-		}
+          animation_speed = 0.6
+        }
       }
     },
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
-	  "packaging"
+      "packaging"
     },
     crafting_speed = 2,
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=8, drain="5kW"},
     energy_usage = "245kW",
@@ -405,7 +405,7 @@ data:extend({
           frame_count = 32,
           line_length = 8,
           shift = util.by_pixel(0, 4),
-		  animation_speed = 0.4,
+          animation_speed = 0.4,
           hr_version = {
             filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2.png",
             priority = "high",
@@ -415,7 +415,7 @@ data:extend({
             line_length = 8,
             shift = util.by_pixel(0, 4),
             scale = 0.5,
-			animation_speed = 0.4
+            animation_speed = 0.4
           }
         },
         {
@@ -427,7 +427,7 @@ data:extend({
           line_length = 8,
           draw_as_shadow = true,
           shift = util.by_pixel(12, 5),
-		  animation_speed = 0.4,
+          animation_speed = 0.4,
           hr_version = {
             filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2-shadow.png",
             priority = "high",
@@ -438,7 +438,7 @@ data:extend({
             draw_as_shadow = true,
             shift = util.by_pixel(12, 4.75),
             scale = 0.5,
-			animation_speed = 0.4
+            animation_speed = 0.4
           }
         }
       }
@@ -449,7 +449,7 @@ data:extend({
       "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 2,
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=10, drain="10kW"},
     energy_usage = "290kW",
@@ -487,7 +487,7 @@ data:extend({
           frame_count = 32,
           line_length = 8,
           shift = util.by_pixel(0, -0.5),
-		  animation_speed = 0.3,
+          animation_speed = 0.3,
           hr_version = {
             filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3.png",
             priority = "high",
@@ -497,7 +497,7 @@ data:extend({
             line_length = 8,
             shift = util.by_pixel(0, -0.75),
             scale = 0.5,
-			animation_speed = 0.3
+            animation_speed = 0.3
           }
         },
         {
@@ -509,7 +509,7 @@ data:extend({
           line_length = 8,
           draw_as_shadow = true,
           shift = util.by_pixel(28, 4),
-		  animation_speed = 0.3,
+          animation_speed = 0.3,
           hr_version = {
             filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3-shadow.png",
             priority = "high",
@@ -520,7 +520,7 @@ data:extend({
             draw_as_shadow = true,
             shift = util.by_pixel(28, 4),
             scale = 0.5,
-			animation_speed = 0.3
+            animation_speed = 0.3
           }
         }
       }
@@ -531,7 +531,7 @@ data:extend({
       "small-fluid-assembly", "large-fluid-assembly"
     },
     crafting_speed = 4,
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=20, drain="20kW"},
     energy_usage = "580kW",
@@ -567,7 +567,7 @@ data:extend({
           height = 237,
           frame_count = 32,
           line_length = 8,
-	      shift = util.by_pixel(0, -1),
+          shift = util.by_pixel(0, -1),
           scale = 0.666,
           animation_speed = 0.15
         },
@@ -591,20 +591,20 @@ data:extend({
       "large-fluid-assembly", "huge-fluid-assembly"
     },
     crafting_speed = 8,
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     energy_source = {type="electric", usage_priority="secondary-input", emissions_per_minute=40, drain="60kW"},
     energy_usage = "1240kW",
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	working_sound = data.raw["assembling-machine"]["nullius-large-assembler-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-large-assembler-1"].working_sound
   },
 
   {
     type = "assembling-machine",
     name = "nullius-nanofabricator-1",
-	icons = data.raw.item["nullius-nanofabricator-1"].icons,
+    icons = data.raw.item["nullius-nanofabricator-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-nanofabricator-1"},
     max_health = 300,
@@ -613,7 +613,7 @@ data:extend({
     resistances = { { type = "impact", decrease = 50, percent = 80 } },
     collision_box = {{-1.75, -1.75}, {1.75, 1.75}},
     selection_box = {{-2, -2}, {2, 2}},
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     crafting_categories = {"nanotechnology"},
     fast_replaceable_group = "nanofabricator",
@@ -623,7 +623,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       emissions_per_minute = 2,
-	  drain = "30kW"
+      drain = "30kW"
     },
     energy_usage = "470kW",
     animation = {
@@ -633,9 +633,9 @@ data:extend({
           width = 192,
           height = 192,
           frame_count = 1,
-		  scale = 0.775,
+          scale = 0.775,
           shift = {0.5*0.775, -0.5*0.775},
-		  tint = {0.6, 0.75, 0.75}
+          tint = {0.6, 0.75, 0.75}
         }
       }
     },
@@ -648,7 +648,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -656,7 +656,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -664,7 +664,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -672,7 +672,7 @@ data:extend({
       },
       {
         production_type = "output",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 2,
@@ -687,7 +687,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-nanofabricator-2",
-	icons = data.raw.item["nullius-nanofabricator-2"].icons,
+    icons = data.raw.item["nullius-nanofabricator-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-nanofabricator-2"},
     max_health = 400,
@@ -696,7 +696,7 @@ data:extend({
     resistances = { { type = "impact", decrease = 50, percent = 80 } },
     collision_box = {{-1.75, -1.75}, {1.75, 1.75}},
     selection_box = {{-2, -2}, {2, 2}},
-	module_specification = { module_slots = 4 },
+    module_specification = { module_slots = 4 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     crafting_categories = {"nanotechnology"},
     fast_replaceable_group = "nanofabricator",
@@ -706,7 +706,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       emissions_per_minute = 4,
-	  drain = "60kW"
+      drain = "60kW"
     },
     energy_usage = "940kW",
     animation = {
@@ -716,48 +716,48 @@ data:extend({
           width = 192,
           height = 192,
           frame_count = 1,
-		  scale = 0.775,
+          scale = 0.775,
           shift = {0.5*0.775, -0.5*0.775}
         }
       }
     },
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
-	working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-2.5, -0.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-0.5, 2.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {2.5, 0.5} }}
       },
       off_when_no_fluid_recipe = true
@@ -769,7 +769,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-nanofabricator-2",
-	icons = data.raw.item["nullius-mirror-nanofabricator-2"].icons,
+    icons = data.raw.item["nullius-mirror-nanofabricator-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-nanofabricator-2"},
     max_health = 400,
@@ -778,51 +778,51 @@ data:extend({
     resistances = { { type = "impact", decrease = 50, percent = 80 } },
     collision_box = {{-1.75, -1.75}, {1.75, 1.75}},
     selection_box = {{-2, -2}, {2, 2}},
-	module_specification = { module_slots = 4 },
+    module_specification = { module_slots = 4 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     crafting_categories = {"nanotechnology"},
     fast_replaceable_group = "nanofabricator",
     crafting_speed = 2,
-	energy_source = data.raw["assembling-machine"]["nullius-nanofabricator-2"].energy_source,
+    energy_source = data.raw["assembling-machine"]["nullius-nanofabricator-2"].energy_source,
     energy_usage = "940kW",
-	animation = data.raw["assembling-machine"]["nullius-nanofabricator-2"].animation,
+    animation = data.raw["assembling-machine"]["nullius-nanofabricator-2"].animation,
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
-	working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-2.5, 0.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-0.5, -2.5} }}
       },
       {
         production_type = "input",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {0.5, 2.5} }}
       },
       {
         production_type = "output",
-		pipe_picture = crystallizerpipepictures(),
+        pipe_picture = crystallizerpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ position = {2.5, -0.5} }}
       },
       off_when_no_fluid_recipe = true

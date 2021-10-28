@@ -20,18 +20,18 @@ local factory_mult = settings.startup["Factorissimo2-easy-research"].value and 1
 data.raw.technology["factory-architecture-t1"].order = "nullius-e"
 data.raw.technology["factory-architecture-t1"].prerequisites = {"nullius-energy-distribution-3"}
 data.raw.technology["factory-architecture-t1"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-1"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-1"}}
 data.raw.technology["factory-architecture-t1"].unit = {
     count = 2*factory_mult, time = 30, ingredients = {
-	    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}}
 }
 
 data.raw.technology["factory-architecture-t2"].order = "nullius-e"
 data.raw.technology["factory-architecture-t2"].prerequisites = {
-	"factory-interior-upgrade-lights", "nullius-packaging-1", "factory-connection-type-fluid"}
+    "factory-interior-upgrade-lights", "nullius-packaging-1", "factory-connection-type-fluid"}
 data.raw.technology["factory-architecture-t2"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-2"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-2"}}
 data.raw.technology["factory-architecture-t2"].unit = {
     count = 4*factory_mult, time = 30,
     ingredients = {
@@ -42,9 +42,9 @@ data.raw.technology["factory-architecture-t2"].unit = {
 
 data.raw.technology["factory-architecture-t3"].order = "nullius-e"
 data.raw.technology["factory-architecture-t3"].prerequisites = {
-	"factory-preview", "nullius-mass-production-5", "nullius-storage-3"}
+    "factory-preview", "nullius-mass-production-5", "nullius-storage-3"}
 data.raw.technology["factory-architecture-t3"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-3"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-3"}}
 data.raw.technology["factory-architecture-t3"].unit = {
     count = 10*factory_mult, time = 35,
     ingredients = {
@@ -55,10 +55,10 @@ data.raw.technology["factory-architecture-t3"].unit = {
 
 data.raw.technology["factory-connection-type-fluid"].order = "nullius-e"
 data.raw.technology["factory-connection-type-fluid"].prerequisites = {
-	"factory-architecture-t1", "nullius-experimental-chemistry"}
+    "factory-architecture-t1", "nullius-experimental-chemistry"}
 data.raw.technology["factory-connection-type-fluid"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-input-pipe"},
-	 {type = "unlock-recipe", recipe = "nullius-factory-output-pipe"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-input-pipe"},
+     {type = "unlock-recipe", recipe = "nullius-factory-output-pipe"}}
 data.raw.technology["factory-connection-type-fluid"].unit = {
     count = 2*factory_mult, time = 30,
     ingredients = {
@@ -68,7 +68,7 @@ data.raw.technology["factory-connection-type-fluid"].unit = {
 
 data.raw.technology["factory-connection-type-chest"].order = "nullius-e"
 data.raw.technology["factory-connection-type-chest"].prerequisites = {
-	"factory-architecture-t1"}
+    "factory-architecture-t1"}
 data.raw.technology["factory-connection-type-chest"].unit = {
     count = 3*factory_mult, time = 30,
     ingredients = {
@@ -78,10 +78,10 @@ data.raw.technology["factory-connection-type-chest"].unit = {
 
 data.raw.technology["factory-connection-type-circuit"].order = "nullius-e"
 data.raw.technology["factory-connection-type-circuit"].prerequisites = {
-	"factory-connection-type-chest", "nullius-traffic-control"}
+    "factory-connection-type-chest", "nullius-traffic-control"}
 data.raw.technology["factory-connection-type-circuit"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-circuit-input"},
-	 {type = "unlock-recipe", recipe = "nullius-factory-circuit-output"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-circuit-input"},
+     {type = "unlock-recipe", recipe = "nullius-factory-circuit-output"}}
 data.raw.technology["factory-connection-type-circuit"].unit = {
     count = 2*factory_mult, time = 30,
     ingredients = {
@@ -90,7 +90,7 @@ data.raw.technology["factory-connection-type-circuit"].unit = {
 
 data.raw.technology["factory-interior-upgrade-lights"].order = "nullius-e"
 data.raw.technology["factory-interior-upgrade-lights"].prerequisites = {
-	"factory-connection-type-circuit", "nullius-illumination-2"}
+    "factory-connection-type-circuit", "nullius-illumination-2"}
 data.raw.technology["factory-interior-upgrade-lights"].unit = {
     count = 3*factory_mult, time = 30,
     ingredients = {
@@ -100,7 +100,7 @@ data.raw.technology["factory-interior-upgrade-lights"].unit = {
 
 data.raw.technology["factory-interior-upgrade-display"].order = "nullius-e"
 data.raw.technology["factory-interior-upgrade-display"].prerequisites = {
-	"factory-architecture-t2", "nullius-aesthetics"}
+    "factory-architecture-t2", "nullius-aesthetics"}
 data.raw.technology["factory-interior-upgrade-display"].unit = {
     count = 4*factory_mult, time = 35,
     ingredients = {
@@ -111,7 +111,7 @@ data.raw.technology["factory-interior-upgrade-display"].unit = {
 
 data.raw.technology["factory-preview"].order = "nullius-e"
 data.raw.technology["factory-preview"].prerequisites = {
-	"factory-interior-upgrade-display", "factory-interior-upgrade-lights"}
+    "factory-interior-upgrade-display", "factory-interior-upgrade-lights"}
 data.raw.technology["factory-preview"].unit = {
     count = 8*factory_mult, time = 35,
     ingredients = {
@@ -122,9 +122,9 @@ data.raw.technology["factory-preview"].unit = {
 
 data.raw.technology["factory-requester-chest"].order = "nullius-e"
 data.raw.technology["factory-requester-chest"].prerequisites = {
-	"factory-architecture-t2", "nullius-logistic-robot-2", "nullius-construction-robot-2"}
+    "factory-architecture-t2", "nullius-logistic-robot-2", "nullius-construction-robot-2"}
 data.raw.technology["factory-requester-chest"].effects =
-	{{type = "unlock-recipe", recipe = "nullius-factory-requester-chest"}}
+    {{type = "unlock-recipe", recipe = "nullius-factory-requester-chest"}}
 data.raw.technology["factory-requester-chest"].unit = {
     count = 5*factory_mult, time = 30,
     ingredients = {
@@ -135,7 +135,7 @@ data.raw.technology["factory-requester-chest"].unit = {
 
 data.raw.technology["factory-recursion-t1"].order = "nullius-e"
 data.raw.technology["factory-recursion-t1"].prerequisites = {
-	"factory-architecture-t2", "nullius-packaging-4"}
+    "factory-architecture-t2", "nullius-packaging-4"}
 data.raw.technology["factory-recursion-t1"].unit = {
     count = 8*factory_mult, time = 35,
     ingredients = {
@@ -146,7 +146,7 @@ data.raw.technology["factory-recursion-t1"].unit = {
 
 data.raw.technology["factory-recursion-t2"].order = "nullius-e"
 data.raw.technology["factory-recursion-t2"].prerequisites = {
-	"factory-architecture-t3", "nullius-physics", "factory-recursion-t1"}
+    "factory-architecture-t3", "nullius-physics", "factory-recursion-t1"}
 data.raw.technology["factory-recursion-t2"].unit = {
     count = 25*factory_mult, time = 40,
     ingredients = {
@@ -316,7 +316,7 @@ data.raw.technology["train-manager"].order = "nullius-dl"
 data.raw.technology["train-manager"].unit = {
   count = 300,
   ingredients = {
-	{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
   },
   time = 30
@@ -556,7 +556,7 @@ data.raw.item["underground-mini-pump"].localised_description =
 
 data.raw.technology["advanced-underground-piping"].localised_name = {"",
   {"technology-name.advanced-underground-piping"}, " ", 1}
-data.raw.technology["advanced-underground-piping"].icon = 
+data.raw.technology["advanced-underground-piping"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t2.png"
 data.raw.technology["advanced-underground-piping"].prerequisites = {"nullius-hydrology-1"}
 data.raw.technology["advanced-underground-piping"].order = "nullius-df"
@@ -604,9 +604,9 @@ data.raw.technology["advanced-underground-piping"].effects = {
 
 data.raw.technology["advanced-underground-piping-t2"].localised_name = {"",
   {"technology-name.advanced-underground-piping"}, " ", 2}
-data.raw.technology["advanced-underground-piping-t2"].localised_description = 
+data.raw.technology["advanced-underground-piping-t2"].localised_description =
   {"technology-description.advanced-underground-piping"}
-data.raw.technology["advanced-underground-piping-t2"].icon = 
+data.raw.technology["advanced-underground-piping-t2"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t3.png"
 data.raw.technology["advanced-underground-piping-t2"].prerequisites =
   {"nullius-plumbing-5", "advanced-underground-piping"}
@@ -647,9 +647,9 @@ data.raw.technology["advanced-underground-piping-t2"].effects = {
 
 data.raw.technology["advanced-underground-piping-t3"].localised_name = {"",
   {"technology-name.advanced-underground-piping"}, " ", 3}
-data.raw.technology["advanced-underground-piping-t3"].localised_description = 
+data.raw.technology["advanced-underground-piping-t3"].localised_description =
   {"technology-description.advanced-underground-piping"}
-data.raw.technology["advanced-underground-piping-t3"].icon = 
+data.raw.technology["advanced-underground-piping-t3"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t1.png"
 data.raw.technology["advanced-underground-piping-t3"].prerequisites =
   {"nullius-hydrology-2", "advanced-underground-piping-t2"}
@@ -714,47 +714,47 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
   if ((string.sub(junction.name, -5, -1) == "-pipe") and
       (junction.minable.result ~= nil)) then
     local lvl = 4
-	local tint = {0.7, 0.7, 0.4}
-	if (string.sub(junction.name, -8, -6) == "-t2") then
-	  lvl = 2
-	  tint = {1, 0.75, 0.75}
-	elseif (string.sub(junction.name, -8, -6) == "-t3") then
-	  lvl = 3
-	  tint = {0.75, 0.75, 1}
-	end	
+    local tint = {0.7, 0.7, 0.4}
+    if (string.sub(junction.name, -8, -6) == "-t2") then
+      lvl = 2
+      tint = {1, 0.75, 0.75}
+    elseif (string.sub(junction.name, -8, -6) == "-t3") then
+      lvl = 3
+      tint = {0.75, 0.75, 1}
+    end
 
-	local dist = 7 + (lvl * 4)
-	if (string.sub(junction.name, 1, 7) ~= "one-to-") then
-	  dist = dist + 1
-	else
-	  for _,pic in pairs(junction.pictures) do
-	    pic.tint = tint
-	    pic.hr_version.tint = tint
-	  end
-	  for _,cover in pairs(junction.fluid_box.pipe_covers) do
-	    cover.layers[1].tint = tint
-	    cover.layers[1].hr_version.tint = tint
-	  end
-	end
+    local dist = 7 + (lvl * 4)
+    if (string.sub(junction.name, 1, 7) ~= "one-to-") then
+      dist = dist + 1
+    else
+      for _,pic in pairs(junction.pictures) do
+        pic.tint = tint
+        pic.hr_version.tint = tint
+      end
+      for _,cover in pairs(junction.fluid_box.pipe_covers) do
+        cover.layers[1].tint = tint
+        cover.layers[1].hr_version.tint = tint
+      end
+    end
 
     local basename = junction.name
-	if (lvl < 4) then
-	  basename = string.sub(junction.name, 1, -8).."pipe"
-	end
-	junction.localised_name = {"", {"entity-name."..basename}, " ", (lvl - 1)}
-	junction.localised_description =
-	  data.raw.item[junction.minable.result].localised_description
-	  
-	local archetype = data.raw["pipe-to-ground"]["nullius-underground-pipe-"..lvl]
-	junction.fluid_box.height = archetype.fluid_box.height
-	junction.fluid_box.base_area = archetype.fluid_box.base_area
+    if (lvl < 4) then
+      basename = string.sub(junction.name, 1, -8).."pipe"
+    end
+    junction.localised_name = {"", {"entity-name."..basename}, " ", (lvl - 1)}
+    junction.localised_description =
+      data.raw.item[junction.minable.result].localised_description
 
-	for _,connection in pairs(junction.fluid_box.pipe_connections) do
-	  if ((connection.max_underground_distance ~= nil) and
-	      (connection.max_underground_distance > 5)) then
-	    connection.max_underground_distance = dist
-	  end
-	end
+    local archetype = data.raw["pipe-to-ground"]["nullius-underground-pipe-"..lvl]
+    junction.fluid_box.height = archetype.fluid_box.height
+    junction.fluid_box.base_area = archetype.fluid_box.base_area
+
+    for _,connection in pairs(junction.fluid_box.pipe_connections) do
+      if ((connection.max_underground_distance ~= nil) and
+          (connection.max_underground_distance > 5)) then
+        connection.max_underground_distance = dist
+      end
+    end
   end
 end
 
@@ -809,7 +809,7 @@ data.raw.recipe["induction-coil"].ingredients = {
   {"copper-cable", 12},
   {"nullius-aluminum-rod", 8}
 }
-	
+
 data.raw.technology["induction-technology1"].order = "nullius-cm"
 data.raw.technology["induction-technology1"].prerequisites = {"nullius-electronics-1"}
 data.raw.technology["induction-technology1"].unit = {
@@ -979,24 +979,24 @@ data.raw.technology["transport-drone-speed-5"].order = "nullius-gj"
 data.raw.technology["transport-drone-speed-5"].prerequisites = {
   "transport-drone-speed-4", "nullius-cybernetics-6" }
 data.raw.technology["transport-drone-speed-5"].unit = {
-  count_formula = "(2^(L-5))*15000", time = 60, 
+  count_formula = "(2^(L-5))*15000", time = 60,
   ingredients = {
     {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
     {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-	{"nullius-astronomy-pack", 1}
+    {"nullius-astronomy-pack", 1}
   }
 }
 data.raw.technology["transport-drone-capacity-5"].order = "nullius-gj"
 data.raw.technology["transport-drone-capacity-5"].prerequisites = {
   "transport-drone-capacity-4", "nullius-personal-storage-3" }
 data.raw.technology["transport-drone-capacity-5"].unit = {
-  count = 25000, time = 60,    
+  count = 25000, time = 60,
   ingredients = {
     {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
     {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-	{"nullius-astronomy-pack", 1}
+    {"nullius-astronomy-pack", 1}
   }
 }
 
@@ -1143,31 +1143,31 @@ local textplatematerial = {
 for _, recipe in pairs(data.raw.recipe) do
   if (string.sub(recipe.name, 1, 10) == "textplate-") then
     local material = string.sub(recipe.name, 17, -1)
-	local newmaterial = textplatematerial[material]
-	if (newmaterial ~= nil) then
-	  recipe.energy_required = 1
-	  recipe.category = "medium-crafting"
-	  recipe.enabled = false
+    local newmaterial = textplatematerial[material]
+    if (newmaterial ~= nil) then
+      recipe.energy_required = 1
+      recipe.category = "medium-crafting"
+      recipe.enabled = false
 
-	  local order = "nullius-"..newmaterial.order
-	  local sz = string.sub(recipe.name, 11, 15)
-	  if (sz == "large") then
-	    recipe.ingredients = {{"textplate-small-"..material, 4}}
-		order = order.."c"
-	  else
-	    recipe.ingredients = {{newmaterial.material, 1}}
-		order = order.."b"
-	  end
+      local order = "nullius-"..newmaterial.order
+      local sz = string.sub(recipe.name, 11, 15)
+      if (sz == "large") then
+        recipe.ingredients = {{"textplate-small-"..material, 4}}
+        order = order.."c"
+      else
+        recipe.ingredients = {{newmaterial.material, 1}}
+        order = order.."b"
+      end
 
-	  recipe.order = order
-	  --data.raw.item[recipe.name].order = order
-	  if (material == "gold") then
-	    data.raw.item[recipe.name].localised_name =
-		  {"item-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
-	    data.raw["simple-entity-with-force"][recipe.name].localised_name =
-		  {"entity-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
-	  end
-	end
+      recipe.order = order
+      --data.raw.item[recipe.name].order = order
+      if (material == "gold") then
+        data.raw.item[recipe.name].localised_name =
+          {"item-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
+        data.raw["simple-entity-with-force"][recipe.name].localised_name =
+          {"entity-name.textplate", {"textplates."..sz}, {"textplates.aluminum"}}
+      end
+    end
   end
 end
 end

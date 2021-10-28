@@ -13,13 +13,13 @@ data:extend({
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
     drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
     allowed_effects = {"consumption", "speed", "pollution"},
-	resistances = {
+    resistances = {
       { type = "impact", decrease = 50, percent = 80 }
     },
     fast_replaceable_group = "beacon",
     next_upgrade = "nullius-beacon-2",
 
-	water_reflection = data.raw.beacon["beacon"].water_reflection,
+    water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
     supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
@@ -34,14 +34,14 @@ data:extend({
       module_info_multi_row_initial_height_modifier = -0.3
     },
 
-	graphics_set = {
+    graphics_set = {
       module_icons_suppressed = true,
       animation_progress = 1,
       min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
-	  apply_module_tint = "secondary",
+      apply_module_tint = "secondary",
       apply_module_tint_to_light = "none",
 
       animation_list = {
@@ -56,7 +56,7 @@ data:extend({
                 height = 192,
                 scale = 0.4,
                 shift = util.by_pixel(0.5*0.8, 1*0.8),
-				tint = {0.8, 0.9, 0.7}
+                tint = {0.8, 0.9, 0.7}
               },
               {
                 filename = "__base__/graphics/entity/beacon/hr-beacon-shadow.png",
@@ -103,13 +103,13 @@ data:extend({
       },
 
       module_visualisations = {
-		{
+        {
           art_style = "vanilla",
           use_for_empty_slots = true,
           tier_offset = 0,
           slots = {
             {
-			  -- slot 1
+              -- slot 1
               {
                 has_empty_slot = true,
                 render_layer = "lower-object",
@@ -184,13 +184,13 @@ data:extend({
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
     drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
     allowed_effects = {"consumption", "speed", "pollution"},
-	resistances = {
+    resistances = {
       { type = "impact", decrease = 50, percent = 80 }
     },
     fast_replaceable_group = "beacon",
-	next_upgrade = "nullius-beacon-3",
+    next_upgrade = "nullius-beacon-3",
 
-	water_reflection = data.raw.beacon["beacon"].water_reflection,
+    water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
     supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
@@ -205,14 +205,14 @@ data:extend({
       module_info_multi_row_initial_height_modifier = -0.3
     },
 
-	graphics_set =  {
+    graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
       min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
-	  apply_module_tint = "secondary",
+      apply_module_tint = "secondary",
       apply_module_tint_to_light = "none",
 
       animation_list = {
@@ -227,7 +227,7 @@ data:extend({
                 height = 192,
                 scale = 0.45,
                 shift = util.by_pixel(0.5*0.9, 1*0.9),
-				tint = {0.9, 0.8, 1}
+                tint = {0.9, 0.8, 1}
               },
               {
                 filename = "__base__/graphics/entity/beacon/hr-beacon-shadow.png",
@@ -274,13 +274,13 @@ data:extend({
       },
 
       module_visualisations = {
-		{
+        {
           art_style = "vanilla",
           use_for_empty_slots = true,
           tier_offset = 0,
           slots = {
             {
-			  -- slot 1
+              -- slot 1
               {
                 has_empty_slot = true,
                 render_layer = "lower-object",
@@ -411,12 +411,12 @@ data:extend({
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
     drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
     allowed_effects = {"consumption", "speed", "pollution"},
-	resistances = {
+    resistances = {
       { type = "impact", decrease = 50, percent = 80 }
     },
     fast_replaceable_group = "beacon",
 
-	water_reflection = data.raw.beacon["beacon"].water_reflection,
+    water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
     supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
@@ -431,14 +431,14 @@ data:extend({
       module_info_multi_row_initial_height_modifier = -0.3
     },
 
-	graphics_set =  {
+    graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
       min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
-	  apply_module_tint = "secondary",
+      apply_module_tint = "secondary",
       apply_module_tint_to_light = "none",
 
       animation_list = {
@@ -499,13 +499,13 @@ data:extend({
       },
 
       module_visualisations = {
-		{
+        {
           art_style = "vanilla",
           use_for_empty_slots = true,
           tier_offset = 0,
           slots = {
             {
-			  -- slot 1
+              -- slot 1
               {
                 has_empty_slot = true,
                 render_layer = "lower-object",
@@ -625,7 +625,7 @@ data:extend({
   {
     type = "radar",
     name = "nullius-sensor-node-1",
-	icons = data.raw.item["nullius-sensor-node-1"].icons,
+    icons = data.raw.item["nullius-sensor-node-1"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-sensor-node-1"},
     max_health = 200,
@@ -633,7 +633,7 @@ data:extend({
     next_upgrade = "nullius-sensor-node-2",
     corpse = "radar-remnants",
     dying_explosion = "radar-explosion",
-	resistances = {{ type = "impact", decrease = 50, percent = 80 }},
+    resistances = {{ type = "impact", decrease = 50, percent = 80 }},
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.radar["radar"].damaged_trigger_effect,
@@ -643,7 +643,7 @@ data:extend({
     energy_per_nearby_scan = "200kJ",
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     energy_usage = "100kW",
-	integration_patch = data.raw.radar["radar"].integration_patch,
+    integration_patch = data.raw.radar["radar"].integration_patch,
     vehicle_impact_sound = data.raw.radar["radar"].vehicle_impact_sound,
     working_sound = data.raw.radar["radar"].working_sound,
     radius_minimap_visualisation_color = { r = 0.059, g = 0.092, b = 0.235, a = 0.275 },
@@ -661,7 +661,7 @@ data:extend({
           direction_count = 64,
           line_length = 8,
           shift = util.by_pixel(1, -16),
-		  tint = {0.9, 0.9, 0.65},
+          tint = {0.9, 0.9, 0.65},
           hr_version = {
             filename = "__base__/graphics/entity/radar/hr-radar.png",
             priority = "low",
@@ -671,7 +671,7 @@ data:extend({
             direction_count = 64,
             line_length = 8,
             shift = util.by_pixel(1, -16),
-			tint = {0.9, 0.9, 0.65},
+            tint = {0.9, 0.9, 0.65},
             scale = 0.5
           }
         },
@@ -705,15 +705,15 @@ data:extend({
   {
     type = "radar",
     name = "nullius-sensor-node-2",
-	icons = data.raw.item["nullius-sensor-node-2"].icons,
+    icons = data.raw.item["nullius-sensor-node-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-sensor-node-2"},
     max_health = 300,
     fast_replaceable_group = "sensor-node",
-	next_upgrade = "nullius-sensor-node-3",
+    next_upgrade = "nullius-sensor-node-3",
     corpse = "radar-remnants",
     dying_explosion = "radar-explosion",
-	resistances = {{ type = "impact", decrease = 50, percent = 80 }},
+    resistances = {{ type = "impact", decrease = 50, percent = 80 }},
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.radar["radar"].damaged_trigger_effect,
@@ -723,7 +723,7 @@ data:extend({
     energy_per_nearby_scan = "200kJ",
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     energy_usage = "150kW",
-	integration_patch = data.raw.radar["radar"].integration_patch,
+    integration_patch = data.raw.radar["radar"].integration_patch,
     vehicle_impact_sound = data.raw.radar["radar"].vehicle_impact_sound,
     working_sound = data.raw.radar["radar"].working_sound,
     radius_minimap_visualisation_color = { r = 0.059, g = 0.092, b = 0.235, a = 0.275 },
@@ -741,7 +741,7 @@ data:extend({
           direction_count = 64,
           line_length = 8,
           shift = util.by_pixel(1, -16),
-		  tint = {0.8, 0.8, 1},
+          tint = {0.8, 0.8, 1},
           hr_version = {
             filename = "__base__/graphics/entity/radar/hr-radar.png",
             priority = "low",
@@ -751,7 +751,7 @@ data:extend({
             direction_count = 64,
             line_length = 8,
             shift = util.by_pixel(1, -16),
-			tint = {0.8, 0.8, 1},
+            tint = {0.8, 0.8, 1},
             scale = 0.5
           }
         },
@@ -785,14 +785,14 @@ data:extend({
   {
     type = "radar",
     name = "nullius-sensor-node-3",
-	icons = data.raw.item["nullius-sensor-node-3"].icons,
+    icons = data.raw.item["nullius-sensor-node-3"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "nullius-sensor-node-3"},
     max_health = 400,
     fast_replaceable_group = "sensor-node",
     corpse = "radar-remnants",
     dying_explosion = "radar-explosion",
-	resistances = {{ type = "impact", decrease = 50, percent = 80 }},
+    resistances = {{ type = "impact", decrease = 50, percent = 80 }},
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.radar["radar"].damaged_trigger_effect,
@@ -802,7 +802,7 @@ data:extend({
     energy_per_nearby_scan = "200kJ",
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     energy_usage = "250kW",
-	integration_patch = data.raw.radar["radar"].integration_patch,
+    integration_patch = data.raw.radar["radar"].integration_patch,
     vehicle_impact_sound = data.raw.radar["radar"].vehicle_impact_sound,
     working_sound = data.raw.radar["radar"].working_sound,
     radius_minimap_visualisation_color = { r = 0.059, g = 0.092, b = 0.235, a = 0.275 },
@@ -862,7 +862,7 @@ data:extend({
   {
     type = "lab",
     name = "nullius-lab-1",
-	icons = data.raw.item["nullius-lab-1"].icons,
+    icons = data.raw.item["nullius-lab-1"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-lab-1"},
     max_health = 150,
@@ -881,19 +881,19 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-	  drain = "5kW"
+      drain = "5kW"
     },
     energy_usage = "95kW",
     researching_speed = 1,
     inputs = {
-	  "nullius-geology-pack",
+      "nullius-geology-pack",
       "nullius-climatology-pack",
       "nullius-mechanical-pack",
       "nullius-electrical-pack",
       "nullius-chemical-pack",
       "nullius-physics-pack",
       "nullius-astronomy-pack"
-	},
+    },
     module_specification = {
       module_slots = 2,
       module_info_icon_shift = {0, 0.9}
@@ -910,7 +910,7 @@ data:extend({
           line_length = 11,
           animation_speed = 0.25,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.8, 0.8, 0.8},
+          tint = {0.8, 0.8, 0.8},
           scale = 0.5
         },
         {
@@ -957,7 +957,7 @@ data:extend({
           height = 174,
           frame_count = 1,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.8, 0.8, 0.8},
+          tint = {0.8, 0.8, 0.8},
           scale = 0.5
         },
         {
@@ -994,7 +994,7 @@ data:extend({
   {
     type = "lab",
     name = "nullius-lab-2",
-	icons = data.raw.item["nullius-lab-2"].icons,
+    icons = data.raw.item["nullius-lab-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-lab-2"},
     max_health = 200,
@@ -1013,11 +1013,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-	  drain = "15kW"
+      drain = "15kW"
     },
     energy_usage = "210kW",
     researching_speed = 2,
-	inputs = data.raw.lab["nullius-lab-1"].inputs,
+    inputs = data.raw.lab["nullius-lab-1"].inputs,
     module_specification = {
       module_slots = 3,
       module_info_icon_shift = {0, 0.9}
@@ -1034,7 +1034,7 @@ data:extend({
           line_length = 11,
           animation_speed = 0.3,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.9, 0.9, 0.9},
+          tint = {0.9, 0.9, 0.9},
           scale = 0.5
         },
         {
@@ -1081,7 +1081,7 @@ data:extend({
           height = 174,
           frame_count = 1,
           shift = util.by_pixel(0, 1.5),
-		  tint = {0.9, 0.9, 0.9},
+          tint = {0.9, 0.9, 0.9},
           scale = 0.5
         },
         {
@@ -1092,16 +1092,16 @@ data:extend({
           shift = util.by_pixel(0, 1.5),
           scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].off_animation.layers[3],
-		data.raw.lab["nullius-lab-1"].off_animation.layers[4]
-	  }
-	}
+        data.raw.lab["nullius-lab-1"].off_animation.layers[3],
+        data.raw.lab["nullius-lab-1"].off_animation.layers[4]
+      }
+    }
   },
 
   {
     type = "lab",
     name = "nullius-lab-3",
-	icons = data.raw.item["nullius-lab-3"].icons,
+    icons = data.raw.item["nullius-lab-3"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-lab-3"},
     max_health = 250,
@@ -1119,11 +1119,11 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-	  drain = "40kW"
+      drain = "40kW"
     },
     energy_usage = "460kW",
     researching_speed = 4,
-	inputs = data.raw.lab["nullius-lab-1"].inputs,
+    inputs = data.raw.lab["nullius-lab-1"].inputs,
     module_specification = {
       module_slots = 4,
       module_info_icon_shift = {0, 0.9}
@@ -1196,16 +1196,16 @@ data:extend({
           shift = util.by_pixel(0, 1.5),
           scale = 0.5
         },
-		data.raw.lab["nullius-lab-1"].off_animation.layers[3],
-		data.raw.lab["nullius-lab-1"].off_animation.layers[4]
-	  }
-	}
+        data.raw.lab["nullius-lab-1"].off_animation.layers[3],
+        data.raw.lab["nullius-lab-1"].off_animation.layers[4]
+      }
+    }
   },
 
   {
     type = "lab",
     name = "nullius-biology-lab",
-	icons = data.raw.item["nullius-biology-lab"].icons,
+    icons = data.raw.item["nullius-biology-lab"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-biology-lab"},
     max_health = 300,
@@ -1222,19 +1222,19 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-	  drain = "50kW"
+      drain = "50kW"
     },
     energy_usage = "950kW",
     researching_speed = 1,
     inputs = {
-	  "nullius-biochemistry-pack",
+      "nullius-biochemistry-pack",
       "nullius-microbiology-pack",
       "nullius-botany-pack",
       "nullius-dendrology-pack",
       "nullius-nematology-pack",
       "nullius-ichthyology-pack",
       "nullius-zoology-pack"
-	},
+    },
     module_specification = {
       module_slots = 4,
       module_info_icon_shift = {0, 0.9}
@@ -1324,8 +1324,8 @@ data:extend({
           draw_as_shadow = true,
           scale = 0.5*1.3333
         }
-	  }
-	}
+      }
+    }
   },
 
   {
@@ -1342,13 +1342,13 @@ data:extend({
     dying_explosion = "lamp-explosion",
     collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	damaged_trigger_effect = data.raw["lamp"]["small-lamp"].damaged_trigger_effect,
-	vehicle_impact_sound = data.raw["lamp"]["small-lamp"].vehicle_impact_sound,
-	open_sound = data.raw["lamp"]["small-lamp"].open_sound,
-	close_sound = data.raw["lamp"]["small-lamp"].close_sound,
-	working_sound = data.raw["lamp"]["small-lamp"].working_sound,
+    damaged_trigger_effect = data.raw["lamp"]["small-lamp"].damaged_trigger_effect,
+    vehicle_impact_sound = data.raw["lamp"]["small-lamp"].vehicle_impact_sound,
+    open_sound = data.raw["lamp"]["small-lamp"].open_sound,
+    close_sound = data.raw["lamp"]["small-lamp"].close_sound,
+    working_sound = data.raw["lamp"]["small-lamp"].working_sound,
     energy_source = { type = "electric", usage_priority = "lamp" },
-	signal_to_color_mapping = data.raw["lamp"]["small-lamp"].signal_to_color_mapping,
+    signal_to_color_mapping = data.raw["lamp"]["small-lamp"].signal_to_color_mapping,
     circuit_wire_connection_point = circuit_connector_definitions["lamp"].points,
     circuit_connector_sprites = circuit_connector_definitions["lamp"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1372,7 +1372,7 @@ data:extend({
           axially_symmetrical = false,
           direction_count = 1,
           shift = util.by_pixel(0,2.4),
-		  scale = 0.8,
+          scale = 0.8,
           hr_version = {
             filename = "__base__/graphics/entity/small-lamp/hr-lamp.png",
             priority = "high",
@@ -1395,7 +1395,7 @@ data:extend({
           direction_count = 1,
           shift = util.by_pixel(3.2,4),
           draw_as_shadow = true,
-		  scale = 0.8,
+          scale = 0.8,
           hr_version = {
             filename = "__base__/graphics/entity/small-lamp/hr-lamp-shadow.png",
             priority = "high",
@@ -1420,7 +1420,7 @@ data:extend({
       axially_symmetrical = false,
       direction_count = 1,
       shift = util.by_pixel(0, -5.6),
-	  scale = 0.8,
+      scale = 0.8,
       hr_version = {
         filename = "__base__/graphics/entity/small-lamp/hr-lamp-light.png",
         priority = "high",
@@ -1448,13 +1448,13 @@ data:extend({
     dying_explosion = "lamp-explosion",
     collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	damaged_trigger_effect = data.raw["lamp"]["small-lamp"].damaged_trigger_effect,
-	vehicle_impact_sound = data.raw["lamp"]["small-lamp"].vehicle_impact_sound,
-	open_sound = data.raw["lamp"]["small-lamp"].open_sound,
-	close_sound = data.raw["lamp"]["small-lamp"].close_sound,
-	working_sound = data.raw["lamp"]["small-lamp"].working_sound,
+    damaged_trigger_effect = data.raw["lamp"]["small-lamp"].damaged_trigger_effect,
+    vehicle_impact_sound = data.raw["lamp"]["small-lamp"].vehicle_impact_sound,
+    open_sound = data.raw["lamp"]["small-lamp"].open_sound,
+    close_sound = data.raw["lamp"]["small-lamp"].close_sound,
+    working_sound = data.raw["lamp"]["small-lamp"].working_sound,
     energy_source = { type = "electric", usage_priority = "lamp" },
-	signal_to_color_mapping = data.raw["lamp"]["small-lamp"].signal_to_color_mapping,
+    signal_to_color_mapping = data.raw["lamp"]["small-lamp"].signal_to_color_mapping,
     circuit_wire_connection_point = circuit_connector_definitions["lamp"].points,
     circuit_connector_sprites = circuit_connector_definitions["lamp"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1478,7 +1478,7 @@ data:extend({
           axially_symmetrical = false,
           direction_count = 1,
           shift = util.by_pixel(0,3.3),
-		  scale = 1.1,
+          scale = 1.1,
           hr_version = {
             filename = "__base__/graphics/entity/small-lamp/hr-lamp.png",
             priority = "high",
@@ -1501,7 +1501,7 @@ data:extend({
           direction_count = 1,
           shift = util.by_pixel(4.4,5.5),
           draw_as_shadow = true,
-		  scale = 1.1,
+          scale = 1.1,
           hr_version = {
             filename = "__base__/graphics/entity/small-lamp/hr-lamp-shadow.png",
             priority = "high",
@@ -1526,7 +1526,7 @@ data:extend({
       axially_symmetrical = false,
       direction_count = 1,
       shift = util.by_pixel(0, -7.7),
-	  scale = 1.1,
+      scale = 1.1,
       hr_version = {
         filename = "__base__/graphics/entity/small-lamp/hr-lamp-light.png",
         priority = "high",
@@ -1546,14 +1546,14 @@ data:extend({
     name = "nullius-turret",
     icon = "__base__/graphics/icons/laser-turret.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     flags = { "placeable-player", "placeable-enemy", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-turret" },
     max_health = 2000,
-	resistances = {
+    resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "laser", decrease = 50, percent = 75 },
-	  { type = "explosion", decrease = 50, percent = 75 },
+      { type = "explosion", decrease = 50, percent = 75 },
       { type = "physical", decrease = 20, percent = 50 }
     },
     collision_box = {{ -0.7, -0.7}, {0.7, 0.7}},
@@ -1614,7 +1614,7 @@ data:extend({
   {
     type = "inserter",
     name = "turbo-inserter",
-	localised_name = {"entity-name.nullius-inserter-2"},
+    localised_name = {"entity-name.nullius-inserter-2"},
     icon = "__base__/graphics/icons/fast-inserter.png",
     icon_size = 64, icon_mipmaps = 4,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -1622,16 +1622,16 @@ data:extend({
     max_health = 150,
     corpse = "fast-inserter-remnants",
     dying_explosion = "fast-inserter-explosion",
-	resistances = {{ type = "impact", decrease = 100, percent = 90 }},
+    resistances = {{ type = "impact", decrease = 100, percent = 90 }},
     collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
     selection_box = {{-0.4, -0.35}, {0.4, 0.45}},
     damaged_trigger_effect = data.raw["inserter"]["fast-inserter"].damaged_trigger_effect,
     pickup_position = {0, -1},
     insert_position = {0, 1.2},
-	rotation_speed = 0.0333333,
-	extension_speed = 0.08,
-	energy_per_rotation = "10.25KJ",
-	energy_per_movement = "1.5625KJ",
+    rotation_speed = 0.0333333,
+    extension_speed = 0.08,
+    energy_per_rotation = "10.25KJ",
+    energy_per_movement = "1.5625KJ",
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
@@ -1665,16 +1665,16 @@ data:extend({
     max_health = 150,
     corpse = "filter-inserter-remnants",
     dying_explosion = "filter-inserter-explosion",
-	resistances = {{ type = "impact", decrease = 100, percent = 90 }},
+    resistances = {{ type = "impact", decrease = 100, percent = 90 }},
     collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
     selection_box = {{-0.4, -0.35}, {0.4, 0.45}},
     damaged_trigger_effect = data.raw["inserter"]["filter-inserter"].damaged_trigger_effect,
     pickup_position = {0, -1},
     insert_position = {0, 1.2},
-	rotation_speed = 0.0333333,
-	extension_speed = 0.08,
-	energy_per_rotation = "10.25KJ",
-	energy_per_movement = "1.5625KJ",
+    rotation_speed = 0.0333333,
+    extension_speed = 0.08,
+    energy_per_rotation = "10.25KJ",
+    energy_per_movement = "1.5625KJ",
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
@@ -1714,7 +1714,7 @@ data.raw.radar["nullius-sensor-node-1"].pictures = { layers = {
     direction_count = 64,
     line_length = 8,
     shift = util.by_pixel(1, -16),
-	tint = tiercolor("yellow"),
+    tint = tiercolor("yellow"),
     hr_version = {
       filename = "__reskins-bobs__/graphics/entity/warfare/radar/hr-radar-mask.png",
       priority = "low",
@@ -1724,7 +1724,7 @@ data.raw.radar["nullius-sensor-node-1"].pictures = { layers = {
       direction_count = 64,
       line_length = 8,
       shift = util.by_pixel(1, -16),
-	  tint = tiercolor("yellow"),
+      tint = tiercolor("yellow"),
       scale = 0.5
     }
   },

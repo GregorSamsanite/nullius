@@ -668,16 +668,16 @@ data:extend({
     type = "item-group",
     name = "biology",
     order = "h",
-	icons = {
-	  {
-		icon = "__nullius__/graphics/shadow.png",
-		icon_size = 64
-	  },
-	  {
-		icon = "__nullius__/graphics/genome.png",
-		icon_size = 64
-	  }
-	}
+    icons = {
+      {
+        icon = "__nullius__/graphics/shadow.png",
+        icon_size = 64
+      },
+      {
+        icon = "__nullius__/graphics/genome.png",
+        icon_size = 64
+      }
+    }
   },
   {
     type = "item-subgroup",
@@ -848,7 +848,7 @@ data:extend({
     name = "nullius-gas-void",
     group = "fluids",
   },
-  
+
   {
     type = "item-group",
     name = "unused",
@@ -873,9 +873,9 @@ data:extend({
   },
   {
     type = "item-group",
-	name = "unbarreling",
+    name = "unbarreling",
     order = "lc",
-	icon_size = 64,
+    icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/fluid/barreling/barrel-empty.png"
   },
@@ -993,9 +993,9 @@ data:extend({
   },
   {
     type = "item-group",
-	name = "unboxing",
+    name = "unboxing",
     order = "kd",
-	icon_size = 64,
+    icon_size = 64,
     icon = "__nullius__/graphics/unboxing.png"
   },
   {
@@ -1190,7 +1190,7 @@ data:extend({
     name = "boxed-wood",
     group = "boxed",
   },
-  
+
   {
     type = "item-subgroup",
     order = "jb",
