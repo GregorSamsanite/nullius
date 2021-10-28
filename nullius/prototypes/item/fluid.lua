@@ -5913,7 +5913,6 @@ data:extend({
     enabled = false,
 	show_amount_in_title = false,
 	always_show_products = true,
-	no_productivity = true,
     category = "basic-chemistry",
     subgroup = "nuclear",
 	order = "nullius-cc",
@@ -5927,7 +5926,7 @@ data:extend({
       {type="fluid", name="nullius-water", amount=100, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-canister", amount=3},
+      {type="item", name="nullius-canister", amount=2},
       {type="fluid", name="nullius-helium", amount=20},
       {type="fluid", name="nullius-wastewater", amount=80}
     }
@@ -5959,7 +5958,6 @@ data:extend({
     enabled = false,
 	show_amount_in_title = false,
 	always_show_products = true,
-	no_productivity = true,
     category = "distillation",
     subgroup = "nuclear",
 	order = "nullius-dc",
@@ -5970,9 +5968,9 @@ data:extend({
       {type="fluid", name="nullius-water", amount=120, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-canister", amount=2},
-      {type="item", name="nullius-lithium", amount=3},
-      {type="fluid", name="nullius-tritium", amount=25},
+      {type="item", name="nullius-canister", amount=1},
+      {type="item", name="nullius-lithium", amount=2},
+      {type="fluid", name="nullius-tritium", amount=16},
       {type="fluid", name="nullius-helium", amount=60},
       {type="fluid", name="nullius-wastewater", amount=100}
     }

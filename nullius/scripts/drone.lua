@@ -621,11 +621,11 @@ function trigger_effect(event)
 	  if (event.effect_id == "nullius-terraforming-drone-effect-grey") then
         terraforming_effect(event, "landfill", 1)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-tan") then
-        terraforming_effect(event, "nullius-land-fill-sand", 2)
+        terraforming_effect(event, "nullius-land-fill-sand", 1.25)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-brown") then
-        terraforming_effect(event, "nullius-land-fill-bauxite", 2)
+        terraforming_effect(event, "nullius-land-fill-bauxite", 1.5)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-red") then
-        terraforming_effect(event, "nullius-land-fill-iron", 1.5)
+        terraforming_effect(event, "nullius-land-fill-iron", 1.25)
 	  elseif (event.effect_id == "nullius-terraforming-drone-effect-beige") then
         terraforming_effect(event, "nullius-land-fill-limestone", 1)
       end

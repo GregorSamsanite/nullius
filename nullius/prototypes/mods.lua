@@ -252,18 +252,25 @@ data:extend({
   {
     type = "technology",
     name = "nullius-miniloader-1",
+    order = "nullius-ck",
+	icons = data.raw.technology["miniloader"].icons,
+    effects = { },
+    unit = {
+      count = 25,
+      ingredients = {
+	    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+		{"nullius-mechanical-pack", 1}
+	  },
+      time = 6
+    },
+	prerequisites = {"nullius-storage-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-miniloader-2",
     order = "nullius-dg",
 	icons = data.raw.technology["fast-miniloader"].icons,
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-miniloader-1"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-filter-miniloader-1"
-      }
-    },
+    effects = { },
 	unit = {
       count = 250,
       ingredients = {
@@ -272,23 +279,14 @@ data:extend({
       },
       time = 30
     },
-	prerequisites = {"nullius-freight-logistics", "nullius-logistics-2"}
+	prerequisites = {"nullius-freight-logistics", "nullius-logistics-2", "nullius-miniloader-1"}
   },
   {
     type = "technology",
-    name = "nullius-miniloader-2",
+    name = "nullius-miniloader-3",
     order = "nullius-ek",
 	icons = data.raw.technology["express-miniloader"].icons,
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-miniloader-2"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-filter-miniloader-2"
-      }
-    },
+    effects = { },
     unit = {
       count = 1000,
       ingredients = {
@@ -298,23 +296,14 @@ data:extend({
       },
       time = 35
     },
-	prerequisites = {"nullius-storage-3", "nullius-miniloader-1"}
+	prerequisites = {"nullius-storage-3", "nullius-miniloader-2"}
   },
   {
     type = "technology",
-    name = "nullius-miniloader-3",
+    name = "nullius-miniloader-4",
     order = "nullius-fo",
 	icons = data.raw.technology["ultimate-miniloader"].icons,
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-miniloader-3"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-filter-miniloader-3"
-      }
-    },
+    effects = { },
     unit = {
       count = 3000,
       ingredients = {
@@ -324,40 +313,68 @@ data:extend({
       },
       time = 50
     },
-	prerequisites = {"nullius-distribution-3", "nullius-miniloader-2"}
-  },
-
+	prerequisites = {"nullius-distribution-3", "nullius-miniloader-3"}
+  }
+})
+if settings.startup["miniloader-enable-chute"].value then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-miniloader-chute",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-small-chest-1", amount=1},
+      {type="item", name="underground-belt", amount=1}
+    },
+    result = "chute-miniloader"
+  }
+})
+end
+if settings.startup["miniloader-enable-standard"].value then
+  table.insert(data.raw["technology"]["nullius-miniloader-1"].effects,
+      {type = "unlock-recipe", recipe = "nullius-miniloader-1"})
+  table.insert(data.raw["technology"]["nullius-miniloader-2"].effects,
+      {type = "unlock-recipe", recipe = "nullius-miniloader-2"})
+  table.insert(data.raw["technology"]["nullius-miniloader-3"].effects,
+      {type = "unlock-recipe", recipe = "nullius-miniloader-3"})
+  table.insert(data.raw["technology"]["nullius-miniloader-4"].effects,
+      {type = "unlock-recipe", recipe = "nullius-miniloader-4"})
+data:extend({
   {
     type = "recipe",
     name = "nullius-miniloader-1",
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 3,
     ingredients = {
-      {type="item", name="nullius-small-chest-2", amount=1},
-      {type="item", name="fast-underground-belt", amount=2},
-      {type="item", name="turbo-inserter", amount=3}
+      {type="item", name="chute-miniloader", amount=1},
+      {type="item", name="underground-belt", amount=1},
+      {type="item", name="inserter", amount=2}
     },
-    result = "fast-miniloader"
+    result = "miniloader"
   },
   {
     type = "recipe",
-    name = "nullius-filter-miniloader-1",
+    name = "nullius-miniloader-2",
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 4,
     ingredients = {
+      {type="item", name="miniloader", amount=1},
       {type="item", name="nullius-small-chest-2", amount=1},
       {type="item", name="fast-underground-belt", amount=2},
-      {type="item", name="turbo-filter-inserter", amount=3}
+      {type="item", name="turbo-inserter", amount=2}
     },
-    result = "fast-filter-miniloader"
+    result = "fast-miniloader"
   },
   {
     type = "recipe",
-    name = "nullius-miniloader-2",
+    name = "nullius-miniloader-3",
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
@@ -372,7 +389,47 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-miniloader-4",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="express-miniloader", amount=1},
+      {type="item", name="nullius-small-storage-chest-2", amount=1},
+      {type="item", name="ultimate-underground-belt", amount=1},
+      {type="item", name="express-stack-inserter", amount=2}
+    },
+    result = "ultimate-miniloader"
+  }
+})
+end
+if settings.startup["miniloader-enable-filter"].value then
+  table.insert(data.raw["technology"]["nullius-miniloader-2"].effects,
+      {type = "unlock-recipe", recipe = "nullius-filter-miniloader-2"})
+  table.insert(data.raw["technology"]["nullius-miniloader-3"].effects,
+      {type = "unlock-recipe", recipe = "nullius-filter-miniloader-3"})
+  table.insert(data.raw["technology"]["nullius-miniloader-4"].effects,
+      {type = "unlock-recipe", recipe = "nullius-filter-miniloader-4"})
+data:extend({
+  {
+    type = "recipe",
     name = "nullius-filter-miniloader-2",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+    ingredients = {
+      {type="item", name="miniloader", amount=1},
+      {type="item", name="nullius-small-chest-2", amount=1},
+      {type="item", name="fast-underground-belt", amount=2},
+      {type="item", name="turbo-filter-inserter", amount=2}
+    },
+    result = "fast-filter-miniloader"
+  },
+  {
+    type = "recipe",
+    name = "nullius-filter-miniloader-3",
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
@@ -387,22 +444,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-miniloader-3",
-    enabled = false,
-	always_show_made_in = true,
-    category = "medium-crafting",
-    energy_required = 8,
-    ingredients = {
-      {type="item", name="express-miniloader", amount=1},
-      {type="item", name="nullius-small-storage-chest-2", amount=1},
-      {type="item", name="ultimate-underground-belt", amount=1},
-      {type="item", name="express-stack-inserter", amount=2}
-    },
-    result = "ultimate-miniloader"
-  },
-  {
-    type = "recipe",
-    name = "nullius-filter-miniloader-3",
+    name = "nullius-filter-miniloader-4",
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
@@ -414,22 +456,6 @@ data:extend({
       {type="item", name="express-stack-filter-inserter", amount=2}
     },
     result = "ultimate-filter-miniloader"
-  }
-})
-if settings.startup["miniloader-enable-chute"].value then
-data:extend({
-  {
-    type = "recipe",
-    name = "nullius-miniloader-chute",
-    enabled = false,
-	always_show_made_in = true,
-    category = "medium-crafting",
-    energy_required = 2,
-    ingredients = {
-      {type="item", name="nullius-small-chest-1", amount=1},
-      {type="item", name="underground-belt", amount=2}
-    },
-    result = "chute-miniloader"
   }
 })
 end

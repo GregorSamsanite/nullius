@@ -1,0 +1,14 @@
+{
+  "recipe":
+  [
+    ["nullius-miniloader-3", "nullius-miniloader-4"],
+    ["nullius-miniloader-2", "nullius-miniloader-3"],
+    ["nullius-miniloader-1", "nullius-miniloader-2"]
+  ],
+  "technology":
+  [
+    ["nullius-miniloader-3", "nullius-miniloader-4"],
+    ["nullius-miniloader-2", "nullius-miniloader-3"],
+    ["nullius-miniloader-1", "nullius-miniloader-2"]
+  ]
+}

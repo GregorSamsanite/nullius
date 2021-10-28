@@ -90,18 +90,22 @@ for _,rock in pairs(data.raw["simple-entity"]) do
 end
 
 
-data.raw["simple-entity"]["angels-crystal-rock"].minable = {
-  mining_particle = "stone-particle",
-  mining_time = 8,
-  results = {
-	{type="item", name="nullius-silica", amount=16},
-    {type="item", name="nullius-alumina", amount=8}
+if (data.raw["simple-entity"]["angels-crystal-rock"] ~= nil) then
+  data.raw["simple-entity"]["angels-crystal-rock"].minable = {
+    mining_particle = "stone-particle",
+    mining_time = 8,
+    results = {
+	  {type="item", name="nullius-silica", amount=16},
+      {type="item", name="nullius-alumina", amount=8}
+    }
   }
-}
-data.raw["simple-entity"]["angels-crystal-rock"].loot = {
-  {item = "nullius-silica", probability = 1, count_min = 4, count_max = 12},
-  {item = "nullius-alumina", probability = 1, count_min = 2, count_max = 6}
-}
-table.insert(data.raw["simple-entity"]["sand-rock-big-white"].minable.results,
-  {type="item", name="nullius-soda-ash", probability=0.1, amount_min=1, amount_max=2}
-)
+  data.raw["simple-entity"]["angels-crystal-rock"].loot = {
+    {item = "nullius-silica", probability = 1, count_min = 4, count_max = 12},
+    {item = "nullius-alumina", probability = 1, count_min = 2, count_max = 6}
+  }
+end
+if (data.raw["simple-entity"]["sand-rock-big-white"] ~= nil) then
+  table.insert(data.raw["simple-entity"]["sand-rock-big-white"].minable.results,
+    {type="item", name="nullius-soda-ash", probability=0.1, amount_min=1, amount_max=2}
+  )
+end

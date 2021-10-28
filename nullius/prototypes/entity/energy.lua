@@ -1413,12 +1413,14 @@ st1.icons = data.raw.item["nullius-standard-turbine-1"].icons
 st1.minable.result = "nullius-standard-turbine-1"
 st1.energy_source.usage_priority = "secondary-output"
 st1.localised_description = {"entity-description.nullius-standard-turbine"}
+st1.next_upgrade = "nullius-standard-turbine-2"
 local st2 = util.table.deepcopy(data.raw.generator["nullius-backup-turbine-2"])
 st2.name = "nullius-standard-turbine-2"
 st2.icons = data.raw.item["nullius-standard-turbine-2"].icons
 st2.minable.result = "nullius-standard-turbine-2"
 st2.energy_source.usage_priority = "secondary-output"
 st2.localised_description = {"entity-description.nullius-standard-turbine"}
+st2.next_upgrade = "nullius-standard-turbine-3"
 local st3 = util.table.deepcopy(data.raw.generator["nullius-backup-turbine-3"])
 st3.name = "nullius-standard-turbine-3"
 st3.icons = data.raw.item["nullius-standard-turbine-3"].icons
@@ -3916,7 +3918,7 @@ data:extend({
     },
     heat_buffer = {
       max_temperature = 1500,
-      specific_heat = "20MJ",
+      specific_heat = "10MJ",
       max_transfer = "500MW",
       minimum_glow_temperature = 400,
 	  connections = data.raw.reactor["nuclear-reactor"].heat_buffer.connections,

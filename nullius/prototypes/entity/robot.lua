@@ -329,7 +329,7 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "2MW",
+      input_flow_limit = "2.5MW",
       buffer_capacity = "25MJ"
     },
     recharge_minimum = "5MJ",
@@ -490,7 +490,7 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "4MW",
+      input_flow_limit = "5MW",
       buffer_capacity = "50MJ"
     },
     recharge_minimum = "10MJ",
@@ -650,7 +650,7 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "10MW",
+      input_flow_limit = "12MW",
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",
@@ -810,7 +810,7 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "10MW",
+      input_flow_limit = "12MW",
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",

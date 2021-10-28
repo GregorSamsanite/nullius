@@ -531,11 +531,11 @@ data:extend({
     category = "nullius-electrolysis",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-copper-solution", amount=7}
+      {type="fluid", name="nullius-copper-solution", amount=20}
     },
     results = {
-      {type="item", name="nullius-copper-ingot", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=3, fluidbox_index=1}
+      {type="item", name="nullius-copper-ingot", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=10, fluidbox_index=1}
     },
     main_product = "nullius-copper-ingot"
   },
@@ -547,11 +547,11 @@ data:extend({
 	subgroup = "boxed-copper",
     energy_required = 5,
     ingredients = {
-      {type="fluid", name="nullius-copper-solution", amount=35}
+      {type="fluid", name="nullius-copper-solution", amount=100}
     },
     results = {
-      {type="item", name="nullius-box-copper-ingot", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=15, fluidbox_index=1}
+      {type="item", name="nullius-box-copper-ingot", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=50, fluidbox_index=1}
     },
     main_product = "nullius-box-copper-ingot"
   },
@@ -6817,12 +6817,12 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-uranium", amount=4},
-      {type="fluid", name="nullius-tritium", amount=3, fluidbox_index=1}
+      {type="fluid", name="nullius-tritium", amount=2, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-enriched-uranium", amount=1},
       {type="item", name="nullius-mineral-dust", amount=4},
-      {type="fluid", name="nullius-deuterium", amount=3, fluidbox_index=1}
+      {type="fluid", name="nullius-deuterium", amount=2, fluidbox_index=1}
     },
     main_product = "nullius-enriched-uranium"
   },
@@ -6876,7 +6876,6 @@ data:extend({
     enabled = false,
 	show_amount_in_title = false,
 	always_show_products = true,
-	no_productivity = true,
     category = "ore-flotation",
     subgroup = "nuclear",
 	order = "nullius-ec",
@@ -6888,8 +6887,8 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-iron-oxide", amount=1},
-      {type="item", name="nullius-yellowcake", amount=4},
-      {type="fluid", name="nullius-wastewater", amount=70, fluidbox_index=1}
+      {type="item", name="nullius-yellowcake", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=80, fluidbox_index=1}
     }
   },
 

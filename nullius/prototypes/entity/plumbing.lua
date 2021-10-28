@@ -2161,7 +2161,7 @@ data:extend({
 	two_direction_only = false,
     fluid_box = {
       height = 2,
-      base_area = 1000,
+      base_area = 625,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -3} },
@@ -2187,7 +2187,7 @@ data:extend({
 		  frames = 1,
 		  width = 224,
 		  height = 224,
-		  tint = {0.7, 0.7, 0.85}
+		  tint = {0.75, 0.75, 0.6}
 		}
 	  },
 	  fluid_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.fluid_background,
@@ -2203,6 +2203,55 @@ data:extend({
 	icons = data.raw.item["nullius-large-tank-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {hardness = 0.2, mining_time = 3, result = "nullius-large-tank-2"},
+    max_health = 1200,
+    corpse = "medium-remnants",
+    collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+	two_direction_only = false,
+    fluid_box = {
+      height = 2.2,
+      base_area = 1136.3636364,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections = {
+        { position = {0, -3} },
+        { position = {3, 0} },
+        { position = {-3, 0} },
+        { position = {0, 3} },
+      },
+    },
+    fast_replaceable_group = "large-tank",
+    next_upgrade = "nullius-large-tank-3",
+    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
+    flow_length_in_ticks = 360,
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+	working_sound = data.raw["storage-tank"]["angels-storage-tank-1"].working_sound,
+    circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
+    circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    pictures = {
+	  picture = {
+		sheet = {
+		  filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-1.png",
+		  priority = "extra-high",
+		  frames = 1,
+		  width = 224,
+		  height = 224,
+		  tint = {0.85, 0.85, 0.95}
+		}
+	  },
+	  fluid_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.fluid_background,
+	  window_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.window_background,
+	  flow_sprite = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.flow_sprite,
+	  gas_flow = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.gas_flow
+    }
+  },
+
+  {
+    type = "storage-tank",
+    name = "nullius-large-tank-3",
+	icons = data.raw.item["nullius-large-tank-3"].icons,
+    flags = {"placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 3, result = "nullius-large-tank-3"},
     max_health = 1500,
     corpse = "medium-remnants",
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
@@ -2210,7 +2259,7 @@ data:extend({
 	two_direction_only = false,
     fluid_box = {
       height = 2.5,
-      base_area = 1600,
+      base_area = 2000,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -3} },

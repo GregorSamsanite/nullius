@@ -16,6 +16,7 @@ nullius_non_productivity_categories = {
   ["nullius-unbarrel"] = true,
   ["air-filtration"] = true,
   ["compression"] = true,
+  ["decompression"] = true,
   ["water-pumping"] = true,
   ["combustion"] = true
 }

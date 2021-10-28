@@ -1,0 +1,22 @@
+{
+  "item":
+  [
+    ["nullius-large-tank-2", "nullius-large-tank-3"],
+    ["nullius-large-tank-1", "nullius-large-tank-2"]
+  ],
+  "entity":
+  [
+    ["nullius-large-tank-2", "nullius-large-tank-3"],
+    ["nullius-large-tank-1", "nullius-large-tank-2"]
+  ],
+  "recipe":
+  [
+    ["nullius-large-tank-2", "nullius-large-tank-3"],
+    ["nullius-large-tank-1", "nullius-large-tank-2"]
+  ],
+  "technology":
+  [
+    ["nullius-plumbing-5", "nullius-plumbing-6"],
+    ["nullius-plumbing-4", "nullius-plumbing-5"]
+  ]
+}

@@ -3602,6 +3602,29 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-plumbing-4",
+	order = "nullius-dl",
+    icon = "__base__/graphics/technology/fluid-handling.png",
+    icon_size = 256,
+	icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-tank-1"
+      }
+    },
+    unit = {
+      count = 250,
+      ingredients = {
+	    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-barreling-2"}
+  },
+  {
+    type = "technology",
     name = "nullius-chirality-2",
     order = "nullius-dl",
     icon_size = 64,
@@ -3769,7 +3792,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-barreling-2", "nullius-empiricism-2", "nullius-robot-speed-1"}
+    prerequisites = {"nullius-plumbing-4", "nullius-empiricism-2", "nullius-robot-speed-1"}
   },
 
   {
@@ -5937,7 +5960,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-plumbing-4",
+    name = "nullius-plumbing-5",
 	order = "nullius-ej",
     icon = "__base__/graphics/technology/fluid-handling.png",
     icon_size = 256,
@@ -5953,7 +5976,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-large-tank-1"
+        recipe = "nullius-large-tank-2"
       },
       {
         type = "unlock-recipe",
@@ -6508,7 +6531,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-actuation-3", "nullius-plumbing-4", "nullius-packaging-3"},
+    prerequisites = {"nullius-actuation-3", "nullius-plumbing-5", "nullius-packaging-3"},
   },
   {
     type = "technology",
@@ -6563,7 +6586,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-plumbing-4", "nullius-explosives-2", "nullius-energy-distribution-4"}
+    prerequisites = {"nullius-plumbing-5", "nullius-explosives-2", "nullius-energy-distribution-4"}
   },
   {
     type = "technology",
@@ -9170,7 +9193,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-plumbing-5",
+    name = "nullius-plumbing-6",
 	order = "nullius-fe",
     icon = "__base__/graphics/technology/fluid-handling.png",
     icon_size = 256,
@@ -9178,7 +9201,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-large-tank-2"
+        recipe = "nullius-large-tank-3"
       },
       {
         type = "unlock-recipe",
@@ -9370,7 +9393,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-plumbing-5", "nullius-inserter-capacity-3"}
+    prerequisites = {"nullius-plumbing-6", "nullius-inserter-capacity-3"}
   },
   {
     type = "technology",
@@ -9404,7 +9427,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-plumbing-5"}
+    prerequisites = {"nullius-plumbing-6"}
   },
   {
     type = "technology",
@@ -9455,7 +9478,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-plumbing-5", "nullius-electromagnetism-3"}
+    prerequisites = {"nullius-plumbing-6", "nullius-electromagnetism-3"}
   },
 
   {

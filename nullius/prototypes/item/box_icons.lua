@@ -16,18 +16,20 @@ local function boxed_icons(itemname)
 	  end
     end
   end
+  if (base_item == nil) then return nil end
 
   local base_icon = base_item.icon
   local base_size = base_item.icon_size
   local base_tint = nil
   local icons = base_item.icons
-  if (icons ~= nil) then
+  if ((icons ~= nil) and (icons[1] ~= nil)) then
     base_icon = icons[1].icon
     base_tint = icons[1].tint
 	if (icons[1].icon_size ~= nil) then
-      base_size = icons[1].icon_size	
+      base_size = icons[1].icon_size
 	end
   end
+  if ((base_icon == nil) or (base_size == nil)) then return nil end
 
   local icon_scale = 0.9
   if (suffix == "acrylic-fiber") then
@@ -88,12 +90,16 @@ for _,recipe in pairs(data.raw.recipe) do
   if (string.sub(recipe.name, 1, 14) == "nullius-unbox-") then
     local suffix = string.sub(recipe.name, 15, -1)
 	local icons = boxed_icons(recipe.result)
-	data.raw.item["nullius-box-"..suffix].icons = icons.boxed
-	recipe.icons = icons.unboxed
+	if (icons ~= nil) then
+	  data.raw.item["nullius-box-"..suffix].icons = icons.boxed
+	  recipe.icons = icons.unboxed
+	end
   elseif ((string.sub(recipe.name, 1, 14) == "nullius-boxed-") and
       (recipe.result ~= nil) and 
       (string.sub(recipe.result, 1, 12) ~= "nullius-box-")) then
     local icons = boxed_icons(recipe.result)
-    recipe.icons = icons.boxed
+	if (icons ~= nil) then
+      recipe.icons = icons.boxed
+	end
   end
 end

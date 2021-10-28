@@ -29,7 +29,7 @@ data.raw.technology["factory-architecture-t1"].unit = {
 
 data.raw.technology["factory-architecture-t2"].order = "nullius-e"
 data.raw.technology["factory-architecture-t2"].prerequisites = {
-	"factory-connection-type-chest", "nullius-packaging-1", "factory-connection-type-fluid"}
+	"factory-interior-upgrade-lights", "nullius-packaging-1", "factory-connection-type-fluid"}
 data.raw.technology["factory-architecture-t2"].effects =
 	{{type = "unlock-recipe", recipe = "nullius-factory-2"}}
 data.raw.technology["factory-architecture-t2"].unit = {
@@ -78,7 +78,7 @@ data.raw.technology["factory-connection-type-chest"].unit = {
 
 data.raw.technology["factory-connection-type-circuit"].order = "nullius-e"
 data.raw.technology["factory-connection-type-circuit"].prerequisites = {
-	"factory-architecture-t1", "nullius-traffic-control"}
+	"factory-connection-type-chest", "nullius-traffic-control"}
 data.raw.technology["factory-connection-type-circuit"].effects =
 	{{type = "unlock-recipe", recipe = "nullius-factory-circuit-input"},
 	 {type = "unlock-recipe", recipe = "nullius-factory-circuit-output"}}
@@ -163,44 +163,74 @@ end
 
 
 if mods["miniloader"] then
-data.raw.item["fast-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
-data.raw["loader-1x1"]["fast-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
-data.raw["inserter"]["fast-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
-data.raw.item["fast-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
-data.raw["loader-1x1"]["fast-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
-data.raw["inserter"]["fast-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 1}
-data.raw.item["fast-miniloader"].subgroup = "miniloader"
-data.raw.item["fast-miniloader"].order = "nullius-cb"
-data.raw.item["fast-filter-miniloader"].subgroup = "miniloader"
-data.raw.item["fast-filter-miniloader"].order = "nullius-cc"
-
-data.raw.item["express-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
-data.raw["loader-1x1"]["express-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
-data.raw["inserter"]["express-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
-data.raw.item["express-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
-data.raw["loader-1x1"]["express-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
-data.raw["inserter"]["express-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
-data.raw.item["express-miniloader"].subgroup = "miniloader"
-data.raw.item["express-miniloader"].order = "nullius-db"
-data.raw.item["express-filter-miniloader"].subgroup = "miniloader"
-data.raw.item["express-filter-miniloader"].order = "nullius-dc"
-
-data.raw.item["ultimate-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
-data.raw["loader-1x1"]["ultimate-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
-data.raw["inserter"]["ultimate-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
-data.raw.item["ultimate-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
-data.raw["loader-1x1"]["ultimate-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
-data.raw["inserter"]["ultimate-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
-data.raw.item["ultimate-miniloader"].subgroup = "miniloader"
-data.raw.item["ultimate-miniloader"].order = "nullius-eb"
-data.raw.item["ultimate-filter-miniloader"].subgroup = "miniloader"
-data.raw.item["ultimate-filter-miniloader"].order = "nullius-ec"
-
 if settings.startup["miniloader-enable-chute"].value then
-  table.insert(data.raw["technology"]["nullius-mechanical-separation"].effects,
+  table.insert(data.raw["technology"]["nullius-logistics-1"].effects,
       {type = "unlock-recipe", recipe = "nullius-miniloader-chute"})
   data.raw.item["chute-miniloader"].subgroup = "miniloader"
   data.raw.item["chute-miniloader"].order = "nullius-b"
+end
+
+if settings.startup["miniloader-enable-standard"].value then
+data.raw.item["miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
+data.raw.item["miniloader"].subgroup = "miniloader"
+data.raw.item["miniloader"].order = "nullius-cb"
+data.raw["loader-1x1"]["miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
+data.raw["inserter"]["miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
+
+data.raw.item["fast-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
+data.raw.item["fast-miniloader"].subgroup = "miniloader"
+data.raw.item["fast-miniloader"].order = "nullius-db"
+data.raw["loader-1x1"]["fast-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
+data.raw["inserter"]["fast-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
+
+data.raw.item["express-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
+data.raw.item["express-miniloader"].subgroup = "miniloader"
+data.raw.item["express-miniloader"].order = "nullius-eb"
+data.raw["loader-1x1"]["express-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
+data.raw["inserter"]["express-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
+
+data.raw.item["ultimate-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
+data.raw.item["ultimate-miniloader"].subgroup = "miniloader"
+data.raw.item["ultimate-miniloader"].order = "nullius-fb"
+data.raw["loader-1x1"]["ultimate-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
+data.raw["inserter"]["ultimate-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
+end
+
+if settings.startup["miniloader-enable-filter"].value then
+data.raw.item["fast-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
+data.raw.item["fast-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["fast-filter-miniloader"].order = "nullius-dc"
+data.raw["loader-1x1"]["fast-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
+data.raw["inserter"]["fast-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 2}
+
+data.raw.item["express-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
+data.raw.item["express-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["express-filter-miniloader"].order = "nullius-ec"
+data.raw["loader-1x1"]["express-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
+data.raw["inserter"]["express-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
+
+data.raw.item["ultimate-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 4}
+data.raw.item["ultimate-filter-miniloader"].subgroup = "miniloader"
+data.raw.item["ultimate-filter-miniloader"].order = "nullius-fc"
+data.raw["loader-1x1"]["ultimate-filter-miniloader-loader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 4}
+data.raw["inserter"]["ultimate-filter-miniloader-inserter"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 4}
+end
+
+if (settings.startup["miniloader-enable-standard"].value and
+      not settings.startup["miniloader-enable-chute"].value) then
+  data.raw.recipe["nullius-miniloader-1"].ingredients = {
+    {type="item", name="nullius-small-chest-1", amount=1},
+    {type="item", name="underground-belt", amount=2},
+    {type="item", name="inserter", amount=2}
+  }
+end
+if (settings.startup["miniloader-enable-filter"].value and
+      not settings.startup["miniloader-enable-standard"].value) then
+  data.raw.recipe["nullius-filter-miniloader-2"].ingredients = {
+    {type="item", name="nullius-small-chest-2", amount=1},
+    {type="item", name="fast-underground-belt", amount=2},
+    {type="item", name="turbo-filter-inserter", amount=3}
+  }
 end
 end
 
@@ -565,6 +595,10 @@ data.raw.technology["advanced-underground-piping"].effects = {
   {
     type = "unlock-recipe",
     recipe = "nullius-adjustable-relief-valve"
+  },
+  {
+    type = "unlock-recipe",
+    recipe = "nullius-adjustable-top-up-valve"
   }
 }
 
@@ -575,7 +609,7 @@ data.raw.technology["advanced-underground-piping-t2"].localised_description =
 data.raw.technology["advanced-underground-piping-t2"].icon = 
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t3.png"
 data.raw.technology["advanced-underground-piping-t2"].prerequisites =
-  {"nullius-plumbing-4", "advanced-underground-piping"}
+  {"nullius-plumbing-5", "advanced-underground-piping"}
 data.raw.technology["advanced-underground-piping-t2"].order = "nullius-ek"
 data.raw.technology["advanced-underground-piping-t2"].unit = {
   count = 600, time = 30,
@@ -608,10 +642,6 @@ data.raw.technology["advanced-underground-piping-t2"].effects = {
   {
     type = "unlock-recipe",
     recipe = "nullius-underground-three-way-junction-2"
-  },
-  {
-    type = "unlock-recipe",
-    recipe = "nullius-adjustable-top-up-valve"
   }
 }
 

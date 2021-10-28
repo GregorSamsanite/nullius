@@ -2105,7 +2105,7 @@ data:extend({
       {"nullius-hydro-plant-2", 1},
       {"nullius-flotation-cell-2", 1},
       {"nullius-chemical-plant-2", 1},
-      {"nullius-large-tank-2", 1},
+      {"nullius-large-tank-3", 1},
       {"nullius-pump-3", 3},
 	  {"nullius-box-filter-2", 1},
       {"nullius-box-sensor-2", 1}
@@ -3563,7 +3563,7 @@ data:extend({
 	icons = {{
       icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
       icon_size = 32,
-	  tint = {0.75, 0.75, 0.9}
+	  tint = {0.75, 0.75, 0.6}
 	}},
     subgroup = "tanks",
     order = "nullius-bdb",
@@ -3574,13 +3574,13 @@ data:extend({
     type = "recipe",
     name = "nullius-large-tank-1",
     enabled = false,
-    category = "large-crafting",
 	always_show_made_in = true,
+    category = "large-crafting",
     energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-medium-tank-3", amount=3},
-      {type="item", name="nullius-steel-beam", amount=10},
-      {type="item", name="concrete", amount=30},
+      {type="item", name="nullius-medium-tank-2", amount=4},
+      {type="item", name="nullius-steel-cable", amount=8},
+      {type="item", name="concrete", amount=20},
       {type="item", name="nullius-relief-valve", amount=2}
     },
     result = "nullius-large-tank-1"
@@ -3591,7 +3591,8 @@ data:extend({
     name = "nullius-large-tank-2",
 	icons = {{
       icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
-      icon_size = 32
+      icon_size = 32,
+	  tint = {0.85, 0.85, 0.95}
 	}},
     subgroup = "tanks",
     order = "nullius-bdc",
@@ -3604,13 +3605,41 @@ data:extend({
     enabled = false,
     category = "large-crafting",
 	always_show_made_in = true,
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-medium-tank-3", amount=3},
+      {type="item", name="nullius-large-tank-1", amount=1},
+      {type="item", name="nullius-steel-beam", amount=12},
+      {type="item", name="refined-concrete", amount=20}
+    },
+    result = "nullius-large-tank-2"
+  },
+
+  {
+    type = "item",
+    name = "nullius-large-tank-3",
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
+      icon_size = 32
+	}},
+    subgroup = "tanks",
+    order = "nullius-bdd",
+    place_result = "nullius-large-tank-3",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-tank-3",
+    enabled = false,
+    category = "large-crafting",
+	always_show_made_in = true,
     energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-large-tank-1", amount=2},
+      {type="item", name="nullius-large-tank-2", amount=2},
       {type="item", name="nullius-box-wall", amount=3},
       {type="item", name="nullius-box-underground-pipe-4", amount=2}
     },
-    result = "nullius-large-tank-2"
+    result = "nullius-large-tank-3"
   },
 
   {
@@ -3822,7 +3851,7 @@ data:extend({
       {"nullius-priority-compressor-1", 1},
       {"nullius-surge-compressor-1", 1},
       {"nullius-air-filter-2", 1},
-      {"nullius-large-tank-1", 1},
+      {"nullius-large-tank-2", 1},
       {"nullius-relief-valve", 5}
     },
     result = "nullius-priority-compressor-2"
@@ -3878,7 +3907,7 @@ data:extend({
       {"nullius-surge-compressor-2", 1},
       {"nullius-priority-compressor-2", 1},
       {"nullius-air-filter-3", 1},
-      {"nullius-large-tank-2", 1},
+      {"nullius-large-tank-3", 1},
 	  {"nullius-standard-turbine-3", 1},
 	  {"nullius-box-pump-3", 1},
 	  {"nullius-pylon-2", 1}
@@ -4276,7 +4305,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-thermal-tank-1", amount=3},
       {type="item", name="nullius-box-heat-pipe-3", amount=2},
-	  {type="item", name="nullius-large-tank-2", amount=1},
+	  {type="item", name="nullius-large-tank-3", amount=1},
 	  {type="item", name="nullius-barrel-pump-2", amount=1}
     },
     result = "nullius-thermal-tank-2"

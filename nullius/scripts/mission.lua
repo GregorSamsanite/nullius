@@ -67,7 +67,7 @@ end
 
 function set_mission_goal(goal, amount, force)
   if (not global.nullius_mission_complete) then
-    local mission_target = {10, 100, 1500, 4000000, 2000, 400, 250, 50, 6000000, 20, 12}
+    local mission_target = {10, 100, 1500, 4000000, 2000, 400, 250, 50, 3000000, 20, 12}
     local count = global.nullius_mission_count
     local status = global.nullius_mission_status
     count[goal] = math.min(math.max(amount, 0), (mission_target[goal] * 4))

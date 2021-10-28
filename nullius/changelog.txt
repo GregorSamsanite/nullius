@@ -1,9 +1,63 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.7
+Date: 27.10.2021
+  Balancing:
+    - Reduce effectiveness disparity in terraforming methods and adjust target score.
+  Info:
+    - Add some guidance on Terraform end game goal to terraforming drone tooltips.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 26.10.2021
+  Changes:
+    - Revert to default death behavior even when alternate bodies are available.
+  Bugfixes:
+    - Fix rounding error in stirling energy calculation.
+    - Fixed some subtle problems in body switch queue when bodies are destroyed.
+  Modding:
+    - Add support for yellow Miniloader, and change recipe of red Miniloader.
+    - Fix an incompatibility when non-default Miniloader mod settings are used.
+    - Fix body switching queue to work with jetpack mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 13.10.2021
+  Bugfixes:
+    - Fix a load failure when certain Alien Biomes terrain is disabled.
+  Modding:
+    - Move Advanced Fluid Handling adjustable top up valve to a lower tech.
+    - Attempt to fix non-reproducible rumor of incompatibility with an unknown mod.
+  Translation:
+    - Russian updated for 1.2.4 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 09.10.2021
+  Features:
+    - Add a new, lower tech large tank 1.
+  Changes:
+    - Rename large tank 1 and 2 to 2 and 3, and change recipe to use new large tank.
+  Balancing:
+    - Increase large tank capacity by 25%.
+    - Increase large tank 2 pressure to 110%.
+    - Reduce energy cost of copper smelting.
+    - Revert tritium cost of uranium enrichment to prior value.
+    - Increase helium output of breeder cell recycling.
+    - Reduce reactor heat capacity to 10MJ/C.
+    - Increase hangar energy input flow limit.
+  Bugfixes:
+    - Fix upgrade/downgrade planner for standard turbines.
+    - Give unbarreling recipes a recipe group name.
+  Modding:
+    - Fix an incompatibility with mods that define characters with no hand crafting.
+    - Adjust Factorissimo2 prereqs.
+    - Don't falsely tag decompression recipes as if they allow productivity.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.3
 Date: 26.09.2021
   Bugfixes:
     - Fix a load conflict with certain other mods introduced in previous update.
     - Fix possible issue with broken recipes by restricting check to player force.
+  Balancing:
+    - Reduce breeder cell recycling output a bit to match change in fusion cell cost.
+    - Allow productivity in nuclear cell recycling.
   Info:
     - Change term "specific heat" to more accurate term "heat capacity".
     - Make boiling tech description more generic now that it can also be electric.

@@ -97,7 +97,7 @@ function update_queue(player, oldchar)
   end
   local node1 = queue.nodes[oldchar.unit_number]
   if ((node1 == nil) or (node1.next == nil) or (node1.next.prev ~= node1)) then
-    node1 = { body = oldchar }
+    node1 = { body = oldchar, unit = oldchar.unit_number }
     node1.next = node1
     node1.prev = node1
 	queue.nodes[oldchar.unit_number] = node1
@@ -108,7 +108,7 @@ function update_queue(player, oldchar)
   if ((node2 == nil) or (node2.body ~= newchar) or
       (node2.next == nil) or (node2.prev == nil) or
       (node2.next.prev ~= node2) or (node2.prev.next ~= node2)) then
-    node2 = { body = newchar }
+    node2 = { body = newchar, unit = newchar.unit_number }
     queue.nodes[newchar.unit_number] = node2
   else
     local n2n = node2.next
@@ -234,13 +234,54 @@ script.on_event(defines.events.on_chart_tag_removed, function(event)
   end
 end)
 
+function change_character_entity(oldunit, newchar)
+  local newunit = newchar.unit_number
+  if ((oldunit == nil) or (newunit == oldunit)) then return end
+
+  if (global.nullius_android_tag ~= nil) then
+    local tag = global.nullius_android_tag[oldunit]
+	local name = global.nullius_android_name[oldunit]
+	if (tag ~= nil) then
+	  global.nullius_android_tag[oldunit] = nil
+      global.nullius_android_tag[newunit] = tag
+      global.nullius_tag_android[tag.tag_number] = newchar
+	end
+	if (name ~= nil) then
+	  global.nullius_android_name[oldunit] = nil
+	  global.nullius_android_name[newunit] = name
+	end
+  end
+
+  if (global.nullius_body_queue ~= nil) then
+    for _,queue in pairs(global.nullius_body_queue) do
+	  local node = queue.nodes[oldunit]
+	  if (node ~= nil) then
+	    node.body = newchar
+		node.unit = newunit
+	    queue.nodes[oldunit] = nil
+	    queue.nodes[newunit] = node
+	  end
+	  if (queue.last_index == oldunit) then
+	    queue.last_index = newunit
+	  end
+	end
+  end
+end
+
 script.on_event(defines.events.on_player_respawned, function(event)
   local player = game.players[event.player_index]
-  local oldchar = player.character
-  if ((oldchar == nil) or (not oldchar.valid)) then return end
-  cycle_body(player, true)
   local newchar = player.character
   if ((newchar == nil) or (not newchar.valid)) then return end
-  if (newchar == oldchar) then return end
-  oldchar.destroy()
+
+  if (global.nullius_body_queue == nil) then return end
+  local queue = global.nullius_body_queue[player.index]
+  if (queue == nil) then return end  
+  if (queue[newchar.unit_number] ~= nil) then return end
+  
+  for _,node in pairs(queue.nodes) do
+    if ((node.body == nil) or (not node.body.valid)) then
+	  change_character_entity(node.unit, newchar)
+	  return
+	end
+  end
 end)

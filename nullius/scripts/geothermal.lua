@@ -22,8 +22,9 @@ function update_engine(e, threshold, ratio, limit, speed)
   local storage = e.electric.electric_buffer_size - e.electric.energy
   local temp = e.heat.temperature
   local thermal = (temp - threshold) / 2
-  local delta = math.floor(math.max(math.min(thermal, (storage / ratio)), 0))
-  local production = math.min((delta * ratio / 443.0), limit)
+  local capacity = math.max(math.min((thermal * ratio), storage), 0)
+  local production = math.min((capacity / 443.0), limit)
+  local delta = production * 443.0 / ratio
   e.heat.temperature = temp - delta
   e.electric.power_production = production
 
