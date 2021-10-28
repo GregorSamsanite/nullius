@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 function pipepics(dir)
   return
   {
@@ -262,12 +267,12 @@ function pipepics(dir)
       }
     },
     fluid_background = {
-      filename = "__base__/graphics/entity/pipe/fluid-background.png",
+      filename = BASEENTITY .. "pipe/fluid-background.png",
       priority = "extra-high",
       width = 32,
       height = 20,
       hr_version = {
-        filename = "__base__/graphics/entity/pipe/hr-fluid-background.png",
+        filename = BASEENTITY .. "pipe/hr-fluid-background.png",
         priority = "extra-high",
         width = 64,
         height = 40,
@@ -275,25 +280,25 @@ function pipepics(dir)
       }
     },
     low_temperature_flow = {
-      filename = "__base__/graphics/entity/pipe/fluid-flow-low-temperature.png",
+      filename = BASEENTITY .. "pipe/fluid-flow-low-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
     middle_temperature_flow = {
-      filename = "__base__/graphics/entity/pipe/fluid-flow-medium-temperature.png",
+      filename = BASEENTITY .. "pipe/fluid-flow-medium-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
     high_temperature_flow = {
-      filename = "__base__/graphics/entity/pipe/fluid-flow-high-temperature.png",
+      filename = BASEENTITY .. "pipe/fluid-flow-high-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
     gas_flow = {
-      filename = "__base__/graphics/entity/pipe/steam.png",
+      filename = BASEENTITY .. "pipe/steam.png",
       priority = "extra-high",
       line_length = 10,
       width = 24,
@@ -302,7 +307,7 @@ function pipepics(dir)
       axially_symmetrical = false,
       direction_count = 1,
       hr_version = {
-        filename = "__base__/graphics/entity/pipe/hr-steam.png",
+        filename = BASEENTITY .. "pipe/hr-steam.png",
         priority = "extra-high",
         line_length = 10,
         width = 48,
@@ -392,13 +397,13 @@ function pipecoverspics(dir)
           }
         },
         {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north-shadow.png",
+          filename = BASEENTITY .. "pipe-covers/pipe-cover-north-shadow.png",
           priority = "extra-high",
           width = 64,
           height = 64,
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north-shadow.png",
+            filename = BASEENTITY .. "pipe-covers/hr-pipe-cover-north-shadow.png",
             priority = "extra-high",
             width = 128,
             height = 128,
@@ -424,13 +429,13 @@ function pipecoverspics(dir)
           }
         },
         {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east-shadow.png",
+          filename = BASEENTITY .. "pipe-covers/pipe-cover-east-shadow.png",
           priority = "extra-high",
           width = 64,
           height = 64,
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east-shadow.png",
+            filename = BASEENTITY .. "pipe-covers/hr-pipe-cover-east-shadow.png",
             priority = "extra-high",
             width = 128,
             height = 128,
@@ -456,13 +461,13 @@ function pipecoverspics(dir)
           }
         },
         {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south-shadow.png",
+          filename = BASEENTITY .. "pipe-covers/pipe-cover-south-shadow.png",
           priority = "extra-high",
           width = 64,
           height = 64,
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south-shadow.png",
+            filename = BASEENTITY .. "pipe-covers/hr-pipe-cover-south-shadow.png",
             priority = "extra-high",
             width = 128,
             height = 128,
@@ -488,13 +493,13 @@ function pipecoverspics(dir)
           }
         },
         {
-          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west-shadow.png",
+          filename = BASEENTITY .. "pipe-covers/pipe-cover-west-shadow.png",
           priority = "extra-high",
           width = 64,
           height = 64,
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west-shadow.png",
+            filename = BASEENTITY .. "pipe-covers/hr-pipe-cover-west-shadow.png",
             priority = "extra-high",
             width = 128,
             height = 128,

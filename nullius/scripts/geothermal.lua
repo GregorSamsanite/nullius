@@ -2,9 +2,9 @@ function init_geothermal()
   global.nullius_stirling_buckets = {}
   for i=0,442 do
     global.nullius_stirling_buckets[i] = { }
-	global.nullius_stirling_buckets[i][1] = { }
-	global.nullius_stirling_buckets[i][2] = { }
-	global.nullius_stirling_buckets[i][3] = { }
+  global.nullius_stirling_buckets[i][1] = { }
+  global.nullius_stirling_buckets[i][2] = { }
+  global.nullius_stirling_buckets[i][3] = { }
   end
 end
 
@@ -42,10 +42,10 @@ function update_engine(e, threshold, ratio, limit, speed)
 
     rendering.set_animation_speed(e.turbine, aspeed)
     rendering.set_animation_offset(e.turbine, offs)
-	if (e.shadow ~= 0) then
-	  rendering.destroy(e.shadow)
-	  e.shadow = 0
-	end
+  if (e.shadow ~= 0) then
+    rendering.destroy(e.shadow)
+    e.shadow = 0
+  end
   end
 end
 
@@ -54,26 +54,26 @@ function update_geothermal()
   for i,e in pairs(bucket[1]) do
     if (e.electric.valid) then
       update_engine(e, 120, 200000, 13333.33, 0.5)
-	else
-	  destroy_stirling_engine(e)
-	  bucket[1][i] = nil
-	end
+  else
+    destroy_stirling_engine(e)
+    bucket[1][i] = nil
+  end
   end
   for i,e in pairs(bucket[2]) do
     if (e.electric.valid) then
       update_engine(e, 100, 360000, 41666.67, 0.65)
-	else
-	  destroy_stirling_engine(e)
-	  bucket[2][i] = nil
-	end
+  else
+    destroy_stirling_engine(e)
+    bucket[2][i] = nil
+  end
   end
   for i,e in pairs(bucket[3]) do
     if (e.electric.valid) then
       update_engine(e, 80, 800000, 133333.33, 0.8)
-	else
-	  destroy_stirling_engine(e)
-	  bucket[3][i] = nil
-	end
+  else
+    destroy_stirling_engine(e)
+    bucket[3][i] = nil
+  end
   end
 end
 
@@ -92,7 +92,7 @@ end
 
 function build_stirling_engine(entity, level)
   if ((level < 1) or (level > 3)) then return end
-  
+
   local direction = entity.direction
   local position = entity.position
   local force = entity.force
@@ -101,11 +101,11 @@ function build_stirling_engine(entity, level)
   local orientation = nil
   if ((direction == defines.direction.north) or
       (direction == defines.direction.south)) then
-	orientation = "vertical"
+  orientation = "vertical"
   else
     orientation = "horizontal"
   end
-  
+
   local heat = surface.create_entity{
       name = "nullius-stirling-"..orientation.."-heat-"..level,
       position = position, force = force}
@@ -118,17 +118,17 @@ function build_stirling_engine(entity, level)
   local turbine = rendering.draw_animation{
       animation = "nullius-stirling-"..orientation.."-turbine-"..level,
       target = position, surface = surface, animation_speed = 0,
-	  render_layer = "lower-object-above-shadow"}
+    render_layer = "lower-object-above-shadow"}
 
   local unit = entity.unit_number
   local bucket = global.nullius_stirling_buckets[unit % 443]
   bucket[level][unit] = {
     electric = entity,
-	heat = heat,
-	turbine = turbine,
-	shadow = 0,
-	last_offset = 0,
-	last_speed = 0
+  heat = heat,
+  turbine = turbine,
+  shadow = 0,
+  last_offset = 0,
+  last_speed = 0
   }
 end
 
@@ -150,7 +150,7 @@ function remove_stirling_unit(unit, died, level)
   end
 
   destroy_stirling_engine(entry)
-  bucket[level][unit] = nil  
+  bucket[level][unit] = nil
 end
 
 function remove_stirling_engine(entity, died, level)
@@ -161,11 +161,11 @@ end
 function destroyed_stirling_engine(unit)
   local bucket = global.nullius_stirling_buckets[unit % 443]
   for lvl=1,3 do
-	local entry = bucket[lvl][unit]
-	if (entry ~= nil) then
-	  remove_stirling_unit(unit, false, lvl)
-	  return true
-	end
+  local entry = bucket[lvl][unit]
+  if (entry ~= nil) then
+    remove_stirling_unit(unit, false, lvl)
+    return true
+  end
   end
   return false
 end
@@ -173,11 +173,11 @@ end
 
 function build_thermal_tank(entity, level)
   if ((level < 1) or (level > 2)) then return end
-  
-  local direction = entity.direction  
+
+  local direction = entity.direction
   local dirname = "vertical"
   if ((direction == defines.direction.east) or
-	      (direction == defines.direction.west)) then
+        (direction == defines.direction.west)) then
     dirname = "horizontal"
   end
 

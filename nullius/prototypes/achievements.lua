@@ -1,10 +1,12 @@
+local ACHIEVEMENTPATH = "__nullius__/graphics/achievement/"
+
 data:extend({
   {
     type = "build-entity-achievement",
     name = "nullius-easy-breezy",
     order = "ab",
     to_build = "nullius-wind-build-1",
-    icon = "__nullius__/graphics/breezy.png",
+    icon = ACHIEVEMENTPATH .. "breezy.png",
     icon_size = 128,
     until_second = 40 * 60 -- 40 minutes
   }

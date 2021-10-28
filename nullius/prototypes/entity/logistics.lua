@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "beacon",
@@ -51,7 +56,7 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.4,
@@ -59,7 +64,7 @@ data:extend({
                 tint = {0.8, 0.9, 0.7}
               },
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.4,
@@ -73,7 +78,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.4,
@@ -89,7 +94,7 @@ data:extend({
           draw_as_light = true,
           always_draw = false,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -114,7 +119,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -127,7 +132,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -140,7 +145,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -154,7 +159,7 @@ data:extend({
                 draw_as_light = true,
                 draw_as_sprite = false,
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
@@ -222,7 +227,7 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.45,
@@ -230,7 +235,7 @@ data:extend({
                 tint = {0.9, 0.8, 1}
               },
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.45,
@@ -244,7 +249,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.5,
@@ -260,7 +265,7 @@ data:extend({
           draw_as_light = true,
           always_draw = false,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -285,7 +290,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -298,7 +303,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -311,7 +316,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -325,7 +330,7 @@ data:extend({
                 draw_as_light = true,
                 draw_as_sprite = false,
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
@@ -341,7 +346,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-slot-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-2.png",
                   line_length = 4,
                   width = 46,
                   height = 44,
@@ -354,7 +359,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-box-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-2.png",
                   line_length = 3,
                   width = 36,
                   height = 26,
@@ -367,7 +372,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-lights-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-2.png",
                   line_length = 3,
                   width = 24,
                   height = 14,
@@ -381,7 +386,7 @@ data:extend({
                 draw_as_light = true,
                 draw_as_sprite = false,
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-lights-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-2.png",
                   line_length = 3,
                   width = 66,
                   height = 46,
@@ -448,14 +453,14 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.5,
                 shift = util.by_pixel(0.5, 1),
               },
               {
-                filename = "__base__/graphics/entity/beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.5,
@@ -469,7 +474,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.5,
@@ -485,7 +490,7 @@ data:extend({
           draw_as_light = true,
           always_draw = false,
           animation = {
-            filename = "__base__/graphics/entity/beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -510,7 +515,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -523,7 +528,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -536,7 +541,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -550,7 +555,7 @@ data:extend({
                 draw_as_light = true,
                 draw_as_sprite = false,
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
@@ -566,7 +571,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-slot-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-2.png",
                   line_length = 4,
                   width = 46,
                   height = 44,
@@ -579,7 +584,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-box-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-2.png",
                   line_length = 3,
                   width = 36,
                   height = 26,
@@ -592,7 +597,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-mask-lights-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-2.png",
                   line_length = 3,
                   width = 24,
                   height = 14,
@@ -606,7 +611,7 @@ data:extend({
                 draw_as_light = true,
                 draw_as_sprite = false,
                 pictures = {
-                  filename = "__base__/graphics/entity/beacon/hr-beacon-module-lights-2.png",
+                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-2.png",
                   line_length = 3,
                   width = 66,
                   height = 46,
@@ -653,7 +658,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__base__/graphics/entity/radar/radar.png",
+          filename = BASEENTITY .. "radar/radar.png",
           priority = "low",
           width = 98,
           height = 128,
@@ -663,7 +668,7 @@ data:extend({
           shift = util.by_pixel(1, -16),
           tint = {0.9, 0.9, 0.65},
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar.png",
+            filename = BASEENTITY .. "radar/hr-radar.png",
             priority = "low",
             width = 196,
             height = 254,
@@ -676,7 +681,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/radar/radar-shadow.png",
+          filename = BASEENTITY .. "radar/radar-shadow.png",
           priority = "low",
           width = 172,
           height = 94,
@@ -686,7 +691,7 @@ data:extend({
           shift = util.by_pixel(39,3),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar-shadow.png",
+            filename = BASEENTITY .. "radar/hr-radar-shadow.png",
             priority = "low",
             width = 343,
             height = 186,
@@ -733,7 +738,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__base__/graphics/entity/radar/radar.png",
+          filename = BASEENTITY .. "radar/radar.png",
           priority = "low",
           width = 98,
           height = 128,
@@ -743,7 +748,7 @@ data:extend({
           shift = util.by_pixel(1, -16),
           tint = {0.8, 0.8, 1},
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar.png",
+            filename = BASEENTITY .. "radar/hr-radar.png",
             priority = "low",
             width = 196,
             height = 254,
@@ -756,7 +761,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/radar/radar-shadow.png",
+          filename = BASEENTITY .. "radar/radar-shadow.png",
           priority = "low",
           width = 172,
           height = 94,
@@ -766,7 +771,7 @@ data:extend({
           shift = util.by_pixel(39,3),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar-shadow.png",
+            filename = BASEENTITY .. "radar/hr-radar-shadow.png",
             priority = "low",
             width = 343,
             height = 186,
@@ -812,7 +817,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__base__/graphics/entity/radar/radar.png",
+          filename = BASEENTITY .. "radar/radar.png",
           priority = "low",
           width = 98,
           height = 128,
@@ -821,7 +826,7 @@ data:extend({
           line_length = 8,
           shift = util.by_pixel(1, -16),
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar.png",
+            filename = BASEENTITY .. "radar/hr-radar.png",
             priority = "low",
             width = 196,
             height = 254,
@@ -833,7 +838,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/radar/radar-shadow.png",
+          filename = BASEENTITY .. "radar/radar-shadow.png",
           priority = "low",
           width = 172,
           height = 94,
@@ -843,7 +848,7 @@ data:extend({
           shift = util.by_pixel(39,3),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/radar/hr-radar-shadow.png",
+            filename = BASEENTITY .. "radar/hr-radar-shadow.png",
             priority = "low",
             width = 343,
             height = 186,
@@ -903,7 +908,7 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 33,
@@ -914,7 +919,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-1.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-1.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -925,7 +930,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -936,7 +941,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -952,7 +957,7 @@ data:extend({
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -961,7 +966,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-1.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-1.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -969,7 +974,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -977,7 +982,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -1027,7 +1032,7 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 33,
@@ -1038,7 +1043,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-2.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-2.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1049,7 +1054,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -1060,7 +1065,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -1076,7 +1081,7 @@ data:extend({
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1085,7 +1090,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-2.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-2.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1133,7 +1138,7 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 33,
@@ -1143,7 +1148,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-3.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-3.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1154,7 +1159,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -1165,7 +1170,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -1181,7 +1186,7 @@ data:extend({
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1189,7 +1194,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-3.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-3.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1244,7 +1249,7 @@ data:extend({
     on_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 33,
@@ -1254,7 +1259,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-4.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-4.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1265,7 +1270,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -1276,7 +1281,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -1292,7 +1297,7 @@ data:extend({
     off_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/lab/hr-lab.png",
+          filename = BASEENTITY .. "lab/hr-lab.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1300,7 +1305,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__nullius__/graphics/lab/lab-overlay-4.png",
+          filename = ENTITYPATH .. "lab/lab-overlay-4.png",
           width = 194,
           height = 174,
           frame_count = 1,
@@ -1308,7 +1313,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-integration.png",
+          filename = BASEENTITY .. "lab/hr-lab-integration.png",
           width = 242,
           height = 162,
           frame_count = 1,
@@ -1316,7 +1321,7 @@ data:extend({
           scale = 0.5*1.3333
         },
         {
-          filename = "__base__/graphics/entity/lab/hr-lab-shadow.png",
+          filename = BASEENTITY .. "lab/hr-lab-shadow.png",
           width = 242,
           height = 136,
           frame_count = 1,
@@ -1331,7 +1336,7 @@ data:extend({
   {
     type = "lamp",
     name = "nullius-lamp-1",
-    icon = "__nullius__/graphics/lamp1.png",
+    icon = ICONPATH .. "lamp1.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "small-lamp"},
@@ -1364,7 +1369,7 @@ data:extend({
     picture_off = {
       layers = {
         {
-          filename = "__base__/graphics/entity/small-lamp/lamp.png",
+          filename = BASEENTITY .. "small-lamp/lamp.png",
           priority = "high",
           width = 42,
           height = 36,
@@ -1374,7 +1379,7 @@ data:extend({
           shift = util.by_pixel(0,2.4),
           scale = 0.8,
           hr_version = {
-            filename = "__base__/graphics/entity/small-lamp/hr-lamp.png",
+            filename = BASEENTITY .. "small-lamp/hr-lamp.png",
             priority = "high",
             width = 83,
             height = 70,
@@ -1386,7 +1391,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/small-lamp/lamp-shadow.png",
+          filename = BASEENTITY .. "small-lamp/lamp-shadow.png",
           priority = "high",
           width = 38,
           height = 24,
@@ -1397,7 +1402,7 @@ data:extend({
           draw_as_shadow = true,
           scale = 0.8,
           hr_version = {
-            filename = "__base__/graphics/entity/small-lamp/hr-lamp-shadow.png",
+            filename = BASEENTITY .. "small-lamp/hr-lamp-shadow.png",
             priority = "high",
             width = 76,
             height = 47,
@@ -1412,7 +1417,7 @@ data:extend({
       }
     },
     picture_on = {
-      filename = "__base__/graphics/entity/small-lamp/lamp-light.png",
+      filename = BASEENTITY .. "small-lamp/lamp-light.png",
       priority = "high",
       width = 46,
       height = 40,
@@ -1422,7 +1427,7 @@ data:extend({
       shift = util.by_pixel(0, -5.6),
       scale = 0.8,
       hr_version = {
-        filename = "__base__/graphics/entity/small-lamp/hr-lamp-light.png",
+        filename = BASEENTITY .. "small-lamp/hr-lamp-light.png",
         priority = "high",
         width = 90,
         height = 78,
@@ -1438,7 +1443,7 @@ data:extend({
   {
     type = "lamp",
     name = "nullius-lamp-2",
-    icon = "__nullius__/graphics/lamp2.png",
+    icon = ICONPATH .. "lamp2.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-lamp-2"},
@@ -1470,7 +1475,7 @@ data:extend({
     picture_off = {
       layers = {
         {
-          filename = "__base__/graphics/entity/small-lamp/lamp.png",
+          filename = BASEENTITY .. "small-lamp/lamp.png",
           priority = "high",
           width = 42,
           height = 36,
@@ -1480,7 +1485,7 @@ data:extend({
           shift = util.by_pixel(0,3.3),
           scale = 1.1,
           hr_version = {
-            filename = "__base__/graphics/entity/small-lamp/hr-lamp.png",
+            filename = BASEENTITY .. "small-lamp/hr-lamp.png",
             priority = "high",
             width = 83,
             height = 70,
@@ -1492,7 +1497,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/small-lamp/lamp-shadow.png",
+          filename = BASEENTITY .. "small-lamp/lamp-shadow.png",
           priority = "high",
           width = 38,
           height = 24,
@@ -1503,7 +1508,7 @@ data:extend({
           draw_as_shadow = true,
           scale = 1.1,
           hr_version = {
-            filename = "__base__/graphics/entity/small-lamp/hr-lamp-shadow.png",
+            filename = BASEENTITY .. "small-lamp/hr-lamp-shadow.png",
             priority = "high",
             width = 76,
             height = 47,
@@ -1518,7 +1523,7 @@ data:extend({
       }
     },
     picture_on = {
-      filename = "__base__/graphics/entity/small-lamp/lamp-light.png",
+      filename = BASEENTITY .. "small-lamp/lamp-light.png",
       priority = "high",
       width = 46,
       height = 40,
@@ -1528,7 +1533,7 @@ data:extend({
       shift = util.by_pixel(0, -7.7),
       scale = 1.1,
       hr_version = {
-        filename = "__base__/graphics/entity/small-lamp/hr-lamp-light.png",
+        filename = BASEENTITY .. "small-lamp/hr-lamp-light.png",
         priority = "high",
         width = 90,
         height = 78,

@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 for r, subdir in pairs(angelsmods.functions.store) do
   for r, input in pairs(subdir) do
     if not input.inactive then
@@ -225,13 +230,13 @@ data:extend({
     stage_counts = {15000, 9500, 5500, 2900, 1300, 400, 150, 80},
     stages = {
       sheet = {
-        filename = "__base__/graphics/entity/iron-ore/iron-ore.png",
+        filename = BASEENTITY .. "iron-ore/iron-ore.png",
         priority = "extra-high",
         size = 64,
         frame_count = 8,
         variation_count = 8,
         hr_version = {
-          filename = "__base__/graphics/entity/iron-ore/hr-iron-ore.png",
+          filename = BASEENTITY .. "iron-ore/hr-iron-ore.png",
           priority = "extra-high",
           size = 128,
           frame_count = 8,
@@ -400,13 +405,13 @@ data:extend({
     stage_counts = {15000, 9500, 5500, 2900, 1300, 400, 150, 80},
     stages = {
       sheet = {
-        filename = "__base__/graphics/entity/copper-ore/copper-ore.png",
+        filename = BASEENTITY .. "copper-ore/copper-ore.png",
         priority = "extra-high",
         size = 64,
         frame_count = 8,
         variation_count = 8,
         hr_version = {
-          filename = "__base__/graphics/entity/copper-ore/hr-copper-ore.png",
+          filename = BASEENTITY .. "copper-ore/hr-copper-ore.png",
           priority = "extra-high",
           size = 128,
           frame_count = 8,
@@ -438,14 +443,14 @@ data:extend({
     stage_counts = {10000, 6330, 3670, 1930, 870, 270, 100, 50},
     stages = {
       sheet = {
-        filename = "__base__/graphics/entity/uranium-ore/uranium-ore.png",
+        filename = BASEENTITY .. "uranium-ore/uranium-ore.png",
         priority = "extra-high",
         width = 64,
         height = 64,
         frame_count = 8,
         variation_count = 8,
         hr_version = {
-          filename = "__base__/graphics/entity/uranium-ore/hr-uranium-ore.png",
+          filename = BASEENTITY .. "uranium-ore/hr-uranium-ore.png",
           priority = "extra-high",
           width = 128,
           height = 128,
@@ -457,7 +462,7 @@ data:extend({
     },
     stages_effect = {
       sheet = {
-        filename = "__base__/graphics/entity/uranium-ore/uranium-ore-glow.png",
+        filename = BASEENTITY .. "uranium-ore/uranium-ore-glow.png",
         priority = "extra-high",
         width = 64,
         height = 64,
@@ -466,7 +471,7 @@ data:extend({
         blend_mode = "additive",
         flags = {"light"},
         hr_version = {
-          filename = "__base__/graphics/entity/uranium-ore/hr-uranium-ore-glow.png",
+          filename = BASEENTITY .. "uranium-ore/hr-uranium-ore-glow.png",
           priority = "extra-high",
           width = 128,
           height = 128,

@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "container",
@@ -75,7 +80,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/chest3e.png",
+          filename = ICONPATH .. "chest3e.png",
           priority = "extra-high",
           width = 68,
           height = 84,
@@ -83,7 +88,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/infinity-chest/hr-infinity-chest-shadow.png",
+          filename = BASEENTITY .. "infinity-chest/hr-infinity-chest-shadow.png",
           priority = "extra-high",
           width = 116,
           height = 48,
@@ -117,7 +122,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/steel-chest/hr-steel-chest.png",
+          filename = BASEENTITY .. "steel-chest/hr-steel-chest.png",
           priority = "extra-high",
           width = 64,
           height = 80,
@@ -125,7 +130,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/steel-chest/hr-steel-chest-shadow.png",
+          filename = BASEENTITY .. "steel-chest/hr-steel-chest-shadow.png",
           priority = "extra-high",
           width = 110,
           height = 46,
@@ -165,7 +170,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/chest3e.png",
+          filename = ICONPATH .. "chest3e.png",
           priority = "extra-high",
           width = 68,
           height = 84,
@@ -173,7 +178,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/infinity-chest/hr-infinity-chest-shadow.png",
+          filename = BASEENTITY .. "infinity-chest/hr-infinity-chest-shadow.png",
           priority = "extra-high",
           width = 116,
           height = 48,
@@ -218,7 +223,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -226,7 +231,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -327,7 +332,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -335,7 +340,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -406,7 +411,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-storage.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-storage.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -415,7 +420,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -460,7 +465,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -468,7 +473,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -567,7 +572,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -575,7 +580,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -645,7 +650,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-passive-provider.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-passive-provider.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -654,7 +659,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -700,7 +705,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -708,7 +713,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -809,7 +814,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -817,7 +822,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -888,7 +893,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-requester.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-requester.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -897,7 +902,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -943,7 +948,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -951,7 +956,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1052,7 +1057,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -1060,7 +1065,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1131,7 +1136,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-buffer.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-buffer.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -1140,7 +1145,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -1185,7 +1190,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -1193,7 +1198,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1292,7 +1297,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__nullius__/graphics/logistic-entity.png",
+          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
           width = 64,
           height = 64,
           frame_count = 1,
@@ -1300,7 +1305,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1370,7 +1375,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-active-provider.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-active-provider.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -1379,7 +1384,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = "__base__/graphics/entity/logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,

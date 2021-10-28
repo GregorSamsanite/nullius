@@ -7,61 +7,61 @@ function update_mission_panel(player)
 
   if (global.nullius_mission_show[player.index]) then
     local gui = player.gui.left.add({type = "frame",
-	  name = "nullius_mission_panel", direction = "vertical"})
+    name = "nullius_mission_panel", direction = "vertical"})
     gui.style.bottom_padding = 8
     gui.style.vertically_stretchable = false
     gui.style.horizontally_stretchable = false
-	local objective = {"probe", "oxygen", "algae", "grass", "tree", 
-	  "worm", "fish", "arthropod", "terraform", "copper", "uranium"}
-	local group = {"item", "fluid", "item", "item", "item",
-	  "item", "item", "item", "technology", "ore", "ore"}
+  local objective = {"probe", "oxygen", "algae", "grass", "tree",
+    "worm", "fish", "arthropod", "terraform", "copper", "uranium"}
+  local group = {"item", "fluid", "item", "item", "item",
+    "item", "item", "item", "technology", "ore", "ore"}
     gui.add({type = "table", name = "table", column_count = 1})
 
-	for i = 1, 11 do
-	  if (global.nullius_mission_status[i] < 100) then
-	    local labname = nil
-		if (group[i] == "ore") then
-		  labname = "item-name."..objective[i].."-ore"
-		else
-		  labname = group[i].."-name.nullius-"..objective[i]
-		end
+  for i = 1, 11 do
+    if (global.nullius_mission_status[i] < 100) then
+      local labname = nil
+    if (group[i] == "ore") then
+      labname = "item-name."..objective[i].."-ore"
+    else
+      labname = group[i].."-name.nullius-"..objective[i]
+    end
         gui.table.add({type = "label", name = "mission_"..objective[i],
           caption = {"", {labname}, ": ",
-		  global.nullius_mission_status[i], "%"}})
-	  end
+      global.nullius_mission_status[i], "%"}})
+    end
     end
   end
 end
 
 function update_mission_player(player)
   if (global.nullius_mission_status ~= nil) then
-	for i = 9, 11 do
+  for i = 9, 11 do
       if (global.nullius_mission_count[i] == nil) then
-	    global.nullius_mission_count[i] = 0
-	    global.nullius_mission_status[i] = 0
-	  end
-	end
+      global.nullius_mission_count[i] = 0
+      global.nullius_mission_status[i] = 0
+    end
+  end
     if (global.nullius_mission_complete) then
       global.nullius_mission_show[player.index] = false
       if mod_gui.get_button_flow(player).nullius_mission_button then
-	    mod_gui.get_button_flow(player).nullius_mission_button.destroy()
+      mod_gui.get_button_flow(player).nullius_mission_button.destroy()
       end
-	elseif (global.nullius_mission_show[player.index] == nil) then
+  elseif (global.nullius_mission_show[player.index] == nil) then
       global.nullius_mission_show[player.index] = true
-	  if mod_gui.get_button_flow(player).nullius_mission_button then
+    if mod_gui.get_button_flow(player).nullius_mission_button then
         mod_gui.get_button_flow(player).nullius_mission_button.destroy()
       end
       mod_gui.get_button_flow(player).add{type = "sprite-button",
         name = "nullius_mission_button", tooltip = {"gui.nullius-mission-open-panel"},
         sprite = "item/nullius-tree", style = "mod_gui_button"}
-	end
-	update_mission_panel(player)
+  end
+  update_mission_panel(player)
   end
 end
 
 function update_mission_global()
   for _, player in pairs(game.players) do
-	update_mission_player(player)
+  update_mission_player(player)
   end
 end
 
@@ -84,15 +84,15 @@ function set_mission_goal(goal, amount, force)
 
     local any = false
     for i = 1, 11 do
-	  if (global.nullius_mission_status[i] < 100) then
-  	    any = true
-	  end
-	end
-	if (not any) then
-	  global.nullius_mission_complete = true
-	end
+    if (global.nullius_mission_status[i] < 100) then
+        any = true
+    end
+  end
+  if (not any) then
+    global.nullius_mission_complete = true
+  end
     update_mission_global()
-	if (global.nullius_mission_complete) then
+  if (global.nullius_mission_complete) then
       game.set_game_state{game_finished=true, player_won=true, can_continue=true, victorious_force=force}
     end
   end
@@ -108,12 +108,12 @@ function create_mission()
   if (global.nullius_mission_status == nil) then
     global.nullius_mission_status = {}
     global.nullius_mission_count = {}
-	global.nullius_mission_show = {}
+  global.nullius_mission_show = {}
     global.nullius_mission_complete = false
-	for i = 1, 11 do
-	  global.nullius_mission_count[i] = 0
-	  global.nullius_mission_status[i] = 0
-	end
+  for i = 1, 11 do
+    global.nullius_mission_count[i] = 0
+    global.nullius_mission_status[i] = 0
+  end
     update_mission_global()
   end
 end

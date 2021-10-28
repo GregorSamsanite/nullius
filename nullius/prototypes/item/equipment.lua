@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "equipment-grid",
@@ -160,7 +163,7 @@ data:extend({
     type = "armor",
     name = "nullius-chassis-6",
     localised_description = {"item-description.nullius-chassis-5"},
-    icon = "__nullius__/graphics/chassis6.png",
+    icon = ICONPATH .. "chassis6.png",
     icon_size = 64,
     icon_mipmaps = 4,
     resistances = {
@@ -508,7 +511,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"equipment-name.nullius-capacitor"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -557,7 +560,7 @@ data:extend({
     type = "item",
     name = "nullius-uncharged-battery-1",
     localised_name = {"item-name.nullius-uncharged-battery-1"},
-    icon = "__nullius__/graphics/uncharged1.png",
+    icon = ICONPATH .. "uncharged1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-1",
@@ -614,7 +617,7 @@ data:extend({
     type = "recipe",
     name = "nullius-battery-recharging-1",
     localised_name = {"recipe-name.nullius-battery-recharging-1"},
-    icon = "__nullius__/graphics/uncharged1.png",
+    icon = ICONPATH .. "uncharged1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     enabled = false,
@@ -634,11 +637,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-battery-recharging-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/uncharged1.png",
+        icon = ICONPATH .. "uncharged1.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45
@@ -679,7 +682,7 @@ data:extend({
     type = "item",
     name = "nullius-uncharged-battery-2",
     localised_name = {"item-name.nullius-uncharged-battery-2"},
-    icon = "__nullius__/graphics/uncharged2.png",
+    icon = ICONPATH .. "uncharged2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-2",
@@ -724,7 +727,7 @@ data:extend({
     type = "recipe",
     name = "nullius-battery-recharging-2",
     localised_name = {"recipe-name.nullius-battery-recharging-2"},
-    icon = "__nullius__/graphics/uncharged2.png",
+    icon = ICONPATH .. "uncharged2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     enabled = false,
@@ -744,11 +747,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-battery-recharging-2"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/uncharged2.png",
+        icon = ICONPATH .. "uncharged2.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45
@@ -772,7 +775,7 @@ data:extend({
     name = "nullius-battery-3",
     localised_name = {"item-name.nullius-battery-3"},
     localised_description = {"equipment-description.nullius-battery"},
-    icon = "__nullius__/graphics/battery3.png",
+    icon = ICONPATH .. "battery3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-3",
@@ -789,7 +792,7 @@ data:extend({
     type = "item",
     name = "nullius-uncharged-battery-3",
     localised_name = {"item-name.nullius-uncharged-battery-3"},
-    icon = "__nullius__/graphics/uncharged3.png",
+    icon = ICONPATH .. "uncharged3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-3",
@@ -817,7 +820,7 @@ data:extend({
     type = "recipe",
     name = "nullius-battery-recharging-3",
     localised_name = {"recipe-name.nullius-battery-recharging-3"},
-    icon = "__nullius__/graphics/uncharged3.png",
+    icon = ICONPATH .. "uncharged3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     enabled = false,
@@ -881,8 +884,8 @@ data:extend({
     type = "item",
     name = "nullius-hangar-4",
     icons = {{
-      icon = "__nullius__/graphics/hangar.png",
-      icon_size = 80,
+      icon = ICONPATH .. "hangar.png",
+      icon_size = 64,
       tint = {0.55, 0.7, 0.55}
     }},
     placed_as_equipment_result = "nullius-hangar-4",
@@ -998,8 +1001,8 @@ data:extend({
     type = "item",
     name = "nullius-charger-4",
     icons = {{
-      icon = "__nullius__/graphics/charger.png",
-      icon_size = 40
+      icon = ICONPATH .. "charger.png",
+      icon_size = 64
     }},
     placed_as_equipment_result = "nullius-charger-4",
     place_result = "nullius-charger-4",
@@ -1392,8 +1395,8 @@ data:extend({
     name = "nullius-levitation-field-2",
     localised_description = {"equipment-description.nullius-levitation-field"},
     icons = {{
-      icon = "__nullius__/graphics/levitation2.png",
-      icon_size = 80,
+      icon = ICONPATH .. "levitation2.png",
+      icon_size = 64,
       icon_mipmaps = 4
     }},
     placed_as_equipment_result = "nullius-levitation-field-2",
@@ -1454,7 +1457,7 @@ data:extend({
     type = "item",
     name = "nullius-night-vision-2",
     localised_description = {"equipment-description.nullius-night-vision-2"},
-    icon = "__nullius__/graphics/night-vision-2.png",
+    icon = ICONPATH .. "night-vision-2.png",
     icon_size = 64,
     placed_as_equipment_result = "nullius-night-vision-2",
     subgroup = "equipment",
@@ -1466,7 +1469,7 @@ data:extend({
     type = "item",
     name = "nullius-night-vision-3",
     localised_description = {"equipment-description.nullius-night-vision-3"},
-    icon = "__nullius__/graphics/night-vision-3.png",
+    icon = ICONPATH .. "night-vision-3.png",
     icon_size = 64,
     placed_as_equipment_result = "nullius-night-vision-3",
     subgroup = "equipment",
@@ -1625,8 +1628,8 @@ data:extend({
     name = "nullius-leg-augmentation-4",
     localised_description = {"equipment-description.nullius-leg-augmentation-4"},
     icons = {{
-      icon = "__nullius__/graphics/legs.png",
-      icon_size = 80
+      icon = ICONPATH .. "legs.png",
+      icon_size = 64
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-4",
     subgroup = "equipment",
@@ -1654,7 +1657,7 @@ data:extend({
     type = "item-with-entity-data",
     name = "nullius-locomotive-1",
     icons = {{
-      icon = "__nullius__/graphics/locomotive1.png",
+      icon = ICONPATH .. "locomotive1.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -1680,7 +1683,7 @@ data:extend({
     type = "item-with-entity-data",
     name = "nullius-locomotive-3",
     icons = {{
-      icon = "__nullius__/graphics/locomotive3.png",
+      icon = ICONPATH .. "locomotive3.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -1693,7 +1696,7 @@ data:extend({
     type = "item-with-entity-data",
     name = "nullius-solar-locomotive",
     icons = {{
-      icon = "__nullius__/graphics/locomotive4.png",
+      icon = ICONPATH .. "locomotive4.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},

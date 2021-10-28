@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "module",
@@ -59,7 +62,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-haste-module-1",
-    icon = "__nullius__/graphics/haste1.png",
+    icon = ICONPATH .. "haste1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-1",
@@ -78,7 +81,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-haste-module-2",
-    icon = "__nullius__/graphics/haste2.png",
+    icon = ICONPATH .. "haste2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-1",
@@ -97,7 +100,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-haste-module-3",
-    icon = "__nullius__/graphics/haste3.png",
+    icon = ICONPATH .. "haste3.png",
     icon_size = 64,
     subgroup = "module-1",
     category = "haste",
@@ -115,7 +118,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-haste-module-4",
-    icon = "__nullius__/graphics/haste4.png",
+    icon = ICONPATH .. "haste4.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-1",
@@ -134,7 +137,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-speed-module-1",
-    icon = "__nullius__/graphics/speed1.png",
+    icon = ICONPATH .. "speed1.png",
     icon_size = 64,
     subgroup = "module-1",
     category = "speed",
@@ -209,7 +212,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-yield-module-1",
-    icon = "__nullius__/graphics/yield1.png",
+    icon = ICONPATH .. "yield1.png",
     icon_size = 64,
     subgroup = "module-2",
     category = "yield",
@@ -223,7 +226,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-yield-module-2",
-    icon = "__nullius__/graphics/yield2.png",
+    icon = ICONPATH .. "yield2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-2",
@@ -238,7 +241,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-yield-module-3",
-    icon = "__nullius__/graphics/yield3.png",
+    icon = ICONPATH .. "yield3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-2",
@@ -253,7 +256,7 @@ data:extend({
   {
     type = "module",
     name = "nullius-yield-module-4",
-    icon = "__nullius__/graphics/yield4.png",
+    icon = ICONPATH .. "yield4.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "module-2",

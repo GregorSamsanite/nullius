@@ -1,6 +1,9 @@
  -- seed + drone -> farmer
  -- farmer + greenhouse + 1 minute -> seed + 1
 
+local ICONPATH = "__nullius__/graphics/icons/"
+local FLUIDPATH = ICONPATH .. "fluid/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
 
 element_tint = {
   ["carbon"] = { 32, 32, 32 },
@@ -33,7 +36,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-water",
-    icon = "__nullius__/graphics/purewater.png",
+    icon = FLUIDPATH .. "purewater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -63,7 +66,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-seawater",
-    icon = "__nullius__/graphics/seawater.png",
+    icon = FLUIDPATH .. "seawater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -77,7 +80,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-freshwater",
-    icon = "__nullius__/graphics/freshwater.png",
+    icon = FLUIDPATH .. "freshwater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -105,7 +108,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-brine",
-    icon = "__nullius__/graphics/brine.png",
+    icon = FLUIDPATH .. "brine.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -134,7 +137,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-wastewater",
-    icon = "__nullius__/graphics/wastewater.png",
+    icon = FLUIDPATH .. "wastewater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -148,7 +151,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-sludge",
-    icon = "__nullius__/graphics/sludge.png",
+    icon = FLUIDPATH .. "sludge.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -470,7 +473,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-solvent",
-    icon = "__nullius__/graphics/solvent.png",
+    icon = FLUIDPATH .. "solvent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "organic-chemistry",
@@ -484,7 +487,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-epoxy",
-    icon = "__nullius__/graphics/epoxy.png",
+    icon = FLUIDPATH .. "epoxy.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "organic-chemistry",
@@ -574,7 +577,7 @@ data:extend({
     type = "fluid",
     name = "nullius-protocell",
     icons = {{
-      icon = "__nullius__/graphics/protocell.png",
+      icon = ICONPATH .. "protocell.png",
       icon_size = 64
     }},
     subgroup = "biochemistry",
@@ -589,7 +592,7 @@ data:extend({
     type = "fluid",
     name = "nullius-bacteria",
     icons = {{
-      icon = "__nullius__/graphics/bacteria.png",
+      icon = ICONPATH .. "bacteria.png",
       icon_size = 64
     }},
     subgroup = "biochemistry",
@@ -680,7 +683,7 @@ data:extend({
     type = "fluid",
     name = "nullius-caustic-solution",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-      {"__nullius__/graphics/sodium-hydroxide.png",
+      {FLUIDPATH .. "sodium-hydroxide.png",
         64, nil, 0.18},
       {element_tint["sodium"], element_tint["oxygen"], element_tint["hydrogen"]}
     ),
@@ -696,7 +699,7 @@ data:extend({
     type = "fluid",
     name = "nullius-calcium-chloride-solution",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-      {"__nullius__/graphics/icons/calcium-chloride.png",
+      {FLUIDPATH .. "calcium-chloride.png",
         64, nil, 0.18 },
       {element_tint["calcium"], element_tint["chlorine"], element_tint["chlorine"]}
     ),
@@ -1069,7 +1072,7 @@ data:extend({
         tint = {r=1, g=1, b=1, a=0.75}
       },
       {
-        icon = "__nullius__/graphics/wastewater.png",
+        icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.25,
@@ -1199,11 +1202,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-caustic-solution"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/sodium-hydroxide.png",
+        icon = FLUIDPATH .. "sodium-hydroxide.png",
         icon_size = 64,
         scale = 0.4
       }
@@ -1317,7 +1320,7 @@ data:extend({
         shift = {-13, -12}
       },
       {
-        icon = "__nullius__/graphics/sodium-hydroxide.png",
+        icon = FLUIDPATH .. "sodium-hydroxide.png",
         icon_size = 64,
         scale = 0.15,
         shift = {11, -11}
@@ -1523,7 +1526,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.25,
         shift = {7, -10}
@@ -1553,7 +1556,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1562,7 +1565,7 @@ data:extend({
         scale = 0.9
       },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.22,
         shift = {6, -9}
@@ -1597,7 +1600,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.25,
         shift = {9, -9}
@@ -1627,7 +1630,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1636,7 +1639,7 @@ data:extend({
         scale = 0.9
       },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.23,
         shift = {8, -8}
@@ -1732,7 +1735,7 @@ data:extend({
     name = "nullius-wastewater-filtration",
     localised_name = {"recipe-name.nullius-wastewater-filtration"},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-      {{"__nullius__/graphics/sludge.png", 64},
+      {{FLUIDPATH .. "sludge.png", 64},
         {"__base__/graphics/icons/fluid/water.png", 64}},
       {element_tint["waste"], element_tint["sludge"], element_tint["saline"]},
       nil
@@ -1773,8 +1776,8 @@ data:extend({
     name = "nullius-desalination",
     localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 1},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-      {{"__nullius__/graphics/brine.png", 64 },
-        {"__nullius__/graphics/purewater.png", 64 }},
+      {{FLUIDPATH .. "brine.png", 64 },
+        {FLUIDPATH .. "purewater.png", 64 }},
       {element_tint["saline"], element_tint["brine"], element_tint["water"]},
       nil
     ),
@@ -1797,9 +1800,9 @@ data:extend({
     name = "nullius-desalination-2",
     localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 2},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-      {{"__nullius__/graphics/brine.png", 64 },
-        {"__nullius__/graphics/purewater.png", 64 },
-        {"__nullius__/graphics/wastewater.png", 64 }},
+      {{FLUIDPATH .. "brine.png", 64 },
+        {FLUIDPATH .. "purewater.png", 64 },
+        {FLUIDPATH .. "wastewater.png", 64 }},
       {element_tint["brine"], element_tint["waste"], element_tint["water"]},
       {{"__base__/graphics/icons/fluid/steam.png", 64}}
     ),
@@ -1895,7 +1898,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_recipe_icon(
         {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
         {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72},
-        {"__nullius__/graphics/sodium-hydroxide.png", 64, nil, 0.9}},
+        {FLUIDPATH .. "sodium-hydroxide.png", 64, nil, 0.9}},
       {element_tint["brine"], element_tint["sodium"], element_tint["chlorine"]},
       nil
     ),
@@ -1954,7 +1957,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-salt",
-    icon = "__nullius__/graphics/icons/salt.png",
+    icon = ICONPATH .. "salt.png",
     icon_size = 64,
     subgroup = "sodium-product",
     order = "nullius-b",
@@ -2016,7 +2019,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.21,
         shift = {-10, -11}
@@ -2045,7 +2048,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-salination"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2081,7 +2084,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.25,
         shift = {7, -10}
@@ -2106,7 +2109,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2115,7 +2118,7 @@ data:extend({
         scale = 0.9
       },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.22,
         shift = {6, -9}
@@ -2145,7 +2148,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.25,
         shift = {9, -9}
@@ -2171,7 +2174,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2180,7 +2183,7 @@ data:extend({
         scale = 0.9
       },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.23,
         shift = {8, -8}
@@ -2206,7 +2209,7 @@ data:extend({
     type = "item",
     name = "nullius-lithium-chloride",
     icons = {{
-      icon = "__nullius__/graphics/icons/sugar.png",
+      icon = ICONPATH .. "sugar.png",
       icon_size = 64,
       tint = { 0.9, 0.75, 1 }
     }},
@@ -2217,7 +2220,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-lithium",
-    icon = "__nullius__/graphics/icons/lithium.png",
+    icon = ICONPATH .. "lithium.png",
     icon_size = 64,
     subgroup = "sodium-product",
     order = "nullius-k",
@@ -2388,8 +2391,8 @@ data:extend({
     type = "recipe",
     name = "nullius-residual-separation",
     icons = angelsmods.functions.create_gas_recipe_icon(
-        {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["argon"]},
-        {"__nullius__/graphics/purewater.png", 64}},
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["argon"]},
+        {FLUIDPATH .. "purewater.png", 64}},
       {element_tint["residual"], element_tint["argon"], element_tint["water"]},
       nil
     ),
@@ -2412,8 +2415,8 @@ data:extend({
     type = "recipe",
     name = "nullius-pressure-residual-separation",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-        {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["argon"]},
-        {"__nullius__/graphics/purewater.png", 64}},
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["argon"]},
+        {FLUIDPATH .. "purewater.png", 64}},
       {element_tint["residual"], element_tint["argon"], element_tint["water"]},
       nil
     ),
@@ -2436,7 +2439,7 @@ data:extend({
     type = "recipe",
     name = "nullius-trace-separation",
     icons = angelsmods.functions.create_gas_recipe_icon(
-        {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["helium"]},
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["helium"]},
         {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
       {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
       nil
@@ -2460,7 +2463,7 @@ data:extend({
     type = "recipe",
     name = "nullius-pressure-trace-separation",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-        {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["helium"]},
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["helium"]},
         {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
       {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
       nil
@@ -2761,7 +2764,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-carbon-monoxide"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3097,7 +3100,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-rubber",
-    icon = "__nullius__/graphics/icons/rubber.png",
+    icon = ICONPATH .. "rubber.png",
     icon_size = 64,
     subgroup = "organic-material-2",
     order = "nullius-c",
@@ -3132,7 +3135,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-rubber-2"},
     icons = {
       {
-        icon = "__nullius__/graphics/icons/rubber.png",
+        icon = ICONPATH .. "rubber.png",
         icon_size = 64
       },
       {
@@ -3195,7 +3198,7 @@ data:extend({
     always_show_products = true,
     icons = {
       {
-        icon = "__nullius__/graphics/purewater.png",
+        icon = FLUIDPATH .. "purewater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -3266,7 +3269,7 @@ data:extend({
     always_show_products = true,
     icons = {
       {
-        icon = "__nullius__/graphics/seawater.png",
+        icon = FLUIDPATH .. "seawater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -3302,7 +3305,7 @@ data:extend({
     always_show_products = true,
     icons = {
       {
-        icon = "__nullius__/graphics/freshwater.png",
+        icon = FLUIDPATH .. "freshwater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -3338,7 +3341,7 @@ data:extend({
     always_show_products = true,
     icons = {
       {
-        icon = "__nullius__/graphics/wastewater.png",
+        icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -3375,7 +3378,7 @@ data:extend({
     icon_size = 64,
     icons = {
       {
-        icon = "__nullius__/graphics/purewater.png",
+        icon = FLUIDPATH .. "purewater.png",
         icon_mipmaps = 4
       },
       {
@@ -3411,7 +3414,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.25,
         shift = {-10, -10}
       }
@@ -3442,7 +3445,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.2,
         shift = {-11, -11}
       }
@@ -3474,7 +3477,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.15,
         shift = {-12, -12}
       }
@@ -3755,7 +3758,7 @@ data:extend({
     name = "nullius-boxed-graphite",
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3791,7 +3794,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-graphite"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3930,7 +3933,7 @@ data:extend({
 
 if mods["aai-industry"] then
 data.raw.item["processed-fuel"].localised_name = {"item-name.nullius-methanol-canister"}
-data.raw.item["processed-fuel"].icon = "__nullius__/graphics/methanol-canister.png"
+data.raw.item["processed-fuel"].icon = ICONPATH .. "methanol-canister.png"
 data.raw.item["processed-fuel"].icon_size = 64
 data.raw.item["processed-fuel"].subgroup = "canisters"
 data.raw.item["processed-fuel"].order = "nullius-e"
@@ -3946,7 +3949,7 @@ data:extend({
     type = "item",
     name = "processed-fuel",
     localised_name = {"item-name.nullius-methanol-canister"},
-    icon = "__nullius__/graphics/methanol-canister.png",
+    icon = ICONPATH .. "methanol-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-e",
@@ -3964,7 +3967,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hydrogen-canister",
-    icon = "__nullius__/graphics/hydrogen-canister.png",
+    icon = ICONPATH .. "hydrogen-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-d",
@@ -3978,7 +3981,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-biodiesel-canister",
-    icon = "__nullius__/graphics/biodiesel-canister.png",
+    icon = ICONPATH .. "biodiesel-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-f",
@@ -3992,7 +3995,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-water-canister",
-    icon = "__nullius__/graphics/water-canister.png",
+    icon = ICONPATH .. "water-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-g",
@@ -4003,7 +4006,7 @@ data:extend({
     name = "nullius-canister-emptying",
     enabled = false,
     category = "nullius-unbarrel",
-    icon = "__nullius__/graphics/water-canister.png",
+    icon = ICONPATH .. "water-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-h",
@@ -4027,11 +4030,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-canister-emptying"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/water-canister.png",
+        icon = ICONPATH .. "water-canister.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -4060,7 +4063,7 @@ data:extend({
     name = "nullius-hydrogen-canister-1",
     icons = {
       {
-        icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "hydrogen-canister.png",
         icon_size = 64
       },
       {
@@ -4093,11 +4096,11 @@ data:extend({
     name = "nullius-boxed-hydrogen-canister-1",
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "hydrogen-canister.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4133,7 +4136,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-hydrogen-canister"}},
     icons = {
       {
-        icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "hydrogen-canister.png",
         icon_size = 64
       },
       {
@@ -4168,11 +4171,11 @@ data:extend({
         {"item-name.nullius-box", {"item-name.nullius-hydrogen-canister"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "hydrogen-canister.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4208,7 +4211,7 @@ data:extend({
     name = "nullius-methanol-canister-1",
     icons = {
       {
-        icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "methanol-canister.png",
         icon_size = 64
       },
       {
@@ -4242,11 +4245,11 @@ data:extend({
     name = "nullius-boxed-methanol-canister-1",
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "methanol-canister.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4283,7 +4286,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
     icons = {
       {
-        icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "methanol-canister.png",
         icon_size = 64
       },
       {
@@ -4318,11 +4321,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "methanol-canister.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4808,12 +4811,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-sludge-disposal-1"},
     icons = {
       {
-        icon = "__nullius__/graphics/wastewater.png",
+        icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.2,
@@ -4843,12 +4846,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-sludge-disposal-2"},
     icons = {
       {
-        icon = "__nullius__/graphics/wastewater.png",
+        icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/freshwater.png",
+        icon = FLUIDPATH .. "freshwater.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.2,
@@ -4878,7 +4881,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-sand-disposal"},
     icons = {
       {
-        icon = "__nullius__/graphics/wastewater.png",
+        icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -4913,7 +4916,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-dust-disposal-1"},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -4945,11 +4948,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 1}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45
@@ -4982,7 +4985,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-dust-disposal-2"},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -5014,11 +5017,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 2}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45
@@ -5213,7 +5216,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-lubricant"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -5394,7 +5397,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-bpa"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -5480,7 +5483,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-glycerol"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -5564,11 +5567,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-epoxy"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/epoxy.png",
+        icon = FLUIDPATH .. "epoxy.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -5604,7 +5607,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.35,
@@ -5640,7 +5643,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.35,
@@ -5676,7 +5679,7 @@ data:extend({
         tint = {0.867, 0.820, 0.609}
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.35,
@@ -5713,7 +5716,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.35,
@@ -5750,7 +5753,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.35,
@@ -5780,7 +5783,7 @@ data:extend({
     type = "item",
     name = "nullius-eutectic-salt",
     icons = {{
-      icon = "__nullius__/graphics/icons/salt.png",
+      icon = ICONPATH .. "salt.png",
       icon_size = 64,
       tint = {0.4, 0.6, 0.8}
     }},
@@ -5838,7 +5841,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-fusion-cell",
-    icon = "__nullius__/graphics/fusion-cell.png",
+    icon = ICONPATH .. "fusion-cell.png",
     icon_size = 64,
     icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
@@ -5853,7 +5856,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-spent-fusion-cell",
-    icon = "__nullius__/graphics/fusion-spent.png",
+    icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nuclear",
@@ -5863,7 +5866,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-breeder-cell",
-    icon = "__nullius__/graphics/breeder-cell.png",
+    icon = ICONPATH .. "breeder-cell.png",
     icon_size = 64,
     icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
@@ -5878,7 +5881,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-spent-breeder-cell",
-    icon = "__nullius__/graphics/breeder-spent.png",
+    icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nuclear",
@@ -5907,7 +5910,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-fusion-recycling",
-    icon = "__nullius__/graphics/fusion-spent.png",
+    icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     enabled = false,
@@ -5952,7 +5955,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-breeder-recycling",
-    icon = "__nullius__/graphics/breeder-spent.png",
+    icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     enabled = false,

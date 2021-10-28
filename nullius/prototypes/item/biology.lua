@@ -1,9 +1,13 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local FLUIDPATH = ICONPATH .. "fluid/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "item",
     name = "nullius-sugar",
     icons = {{
-      icon = "__nullius__/graphics/icons/sugar.png",
+      icon = ICONPATH .. "sugar.png",
       icon_size = 64
     }},
     subgroup = "biology-material",
@@ -38,7 +42,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-sugar"}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/icons/sugar.png",
+        icon = ICONPATH .. "sugar.png",
         icon_size = 64
       },
       {
@@ -290,11 +294,11 @@ data:extend({
     localised_name = {"", {"fluid-name.nullius-protocell"}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64,
         scale = 0.35,
         shift = {11, -10}
@@ -369,7 +373,7 @@ data:extend({
         {"fluid-name.nullius-fatty-acids"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-fatty-acids"].icons[2],
@@ -425,11 +429,11 @@ data:extend({
     name = "nullius-bacteria-genome",
     icons = {
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -462,11 +466,11 @@ data:extend({
     localised_name = {"", {"fluid-name.nullius-bacteria"}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -524,7 +528,7 @@ data:extend({
       data.raw.fluid["nullius-methanol"].icons[3],
       data.raw.fluid["nullius-methanol"].icons[4],
       {
-        icon = "__nullius__/graphics/icons/sugar.png",
+        icon = ICONPATH .. "sugar.png",
         icon_size = 64,
         scale = 0.25,
         shift = {-9, -9}
@@ -557,14 +561,14 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-fermentation"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-methanol"].icons[2],
       data.raw.fluid["nullius-methanol"].icons[3],
       data.raw.fluid["nullius-methanol"].icons[4],
       {
-        icon = "__nullius__/graphics/icons/sugar.png",
+        icon = ICONPATH .. "sugar.png",
         icon_size = 64,
         scale = 0.23,
         shift = {-8, -8}
@@ -600,7 +604,7 @@ data:extend({
       data.raw.fluid["nullius-ammonia"].icons[3],
       data.raw.fluid["nullius-ammonia"].icons[4],
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64,
         scale = 0.35,
         shift = {-8, -9}
@@ -635,7 +639,7 @@ data:extend({
       data.raw.fluid["nullius-amino-acids"].icons[3],
       data.raw.fluid["nullius-amino-acids"].icons[4],
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64,
         scale = 0.35,
         shift = {-8, -9}
@@ -668,11 +672,11 @@ data:extend({
     name = "nullius-algae-genome",
     icons = {
       {
-        icon = "__nullius__/graphics/algae.png",
+        icon = ICONPATH .. "algae.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.4
       }
@@ -685,7 +689,7 @@ data:extend({
     type = "item",
     name = "nullius-algae-progenitor",
     icons = {{
-      icon = "__nullius__/graphics/algae-progenitor.png",
+      icon = ICONPATH .. "algae-progenitor.png",
       icon_size = 64
     }},
     subgroup = "biology-algae",
@@ -696,7 +700,7 @@ data:extend({
     type = "item",
     name = "nullius-algae",
     icons = {{
-      icon = "__nullius__/graphics/algae.png",
+      icon = ICONPATH .. "algae.png",
       icon_size = 64
     }},
     subgroup = "biology-algae",
@@ -708,12 +712,12 @@ data:extend({
     name = "nullius-algae-spore",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
       {
-        icon = "__nullius__/graphics/algae.png",
+        icon = ICONPATH .. "algae.png",
         icon_size = 64,
         scale = 0.4,
       }
@@ -766,11 +770,11 @@ data:extend({
     localised_name = {"", {"item-name.nullius-algae"}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/algae.png",
+        icon = ICONPATH .. "algae.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -847,7 +851,7 @@ data:extend({
         scale = 0.5
       },
       {
-        icon = "__nullius__/graphics/algae.png",
+        icon = ICONPATH .. "algae.png",
         icon_size = 64,
         scale = 0.36,
         shift = {-4, -4}
@@ -886,7 +890,7 @@ data:extend({
         scale = 0.5
       },
       {
-        icon = "__nullius__/graphics/algae.png",
+        icon = ICONPATH .. "algae.png",
         icon_size = 64,
         scale = 0.36,
         shift = {-4, -4}
@@ -919,11 +923,11 @@ data:extend({
     name = "nullius-grass-genome",
     icons = {
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.35
       }
@@ -936,7 +940,7 @@ data:extend({
     type = "item",
     name = "nullius-grass-progenitor",
     icons = {{
-      icon = "__nullius__/graphics/grass-progenitor.png",
+      icon = ICONPATH .. "grass-progenitor.png",
       icon_size = 64
     }},
     subgroup = "biology-grass",
@@ -947,7 +951,7 @@ data:extend({
     type = "item",
     name = "nullius-grass",
     icons = {{
-      icon = "__nullius__/graphics/grass.png",
+      icon = ICONPATH .. "grass.png",
       icon_size = 64
     }},
     subgroup = "biology-grass",
@@ -959,12 +963,12 @@ data:extend({
     name = "nullius-grass-seed",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64,
         scale = 0.45,
       }
@@ -1018,11 +1022,11 @@ data:extend({
     localised_name = {"", {"item-name.nullius-grass"}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -1121,14 +1125,14 @@ data:extend({
         icon_size = 54
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
         shift = {-8, -7}
       },
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64,
         scale = 0.36,
         shift = {-8, -7}
@@ -1157,7 +1161,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-grass-seed-milling"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1166,14 +1170,14 @@ data:extend({
         scale = 0.5333
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.36,
         shift = {-7, -6}
       },
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64,
         scale = 0.32,
         shift = {-7, -6}
@@ -1233,7 +1237,7 @@ data:extend({
         {"item-name.nullius-cellulose"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-carbon-dioxide"].icons[2],
@@ -1298,7 +1302,7 @@ data:extend({
         {"item-name.nullius-cellulose"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1370,7 +1374,7 @@ data:extend({
         {"item-name.nullius-wood"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1415,7 +1419,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -1453,7 +1457,7 @@ data:extend({
     name = "nullius-worm-egg",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
@@ -1517,7 +1521,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -1608,7 +1612,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-worm"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -1645,7 +1649,7 @@ data:extend({
       data.raw.fluid["nullius-amino-acids"].icons[3],
       data.raw.fluid["nullius-amino-acids"].icons[4],
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -1685,12 +1689,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-worm-egg"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -1731,7 +1735,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -1769,7 +1773,7 @@ data:extend({
     name = "nullius-tree-seed",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
@@ -1846,7 +1850,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -1945,7 +1949,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-latex"},
     icons = {
       {
-        icon = "__nullius__/graphics/icons/rubber.png",
+        icon = ICONPATH .. "rubber.png",
         icon_size = 64
       },
       {
@@ -1983,11 +1987,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-latex"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/icons/rubber.png",
+        icon = ICONPATH .. "rubber.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -2057,7 +2061,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-wood-pulping"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2097,7 +2101,7 @@ data:extend({
         icon_size = 54
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -2139,7 +2143,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.5
       }
@@ -2178,7 +2182,7 @@ data:extend({
     name = "nullius-fish-egg",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
@@ -2243,7 +2247,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -2334,7 +2338,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-fish"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -2369,7 +2373,7 @@ data:extend({
     icons = {
       data.raw.fluid["nullius-oil"].icons[1],
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -2410,12 +2414,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-fish-egg"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -2457,7 +2461,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/genome.png",
+        icon = ICONPATH .. "genome.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -2496,7 +2500,7 @@ data:extend({
     name = "nullius-arthropod-egg",
     icons = {
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8}
       },
@@ -2564,7 +2568,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         scale = 0.3,
         shift = {9, -9}
@@ -2626,7 +2630,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-harvest", {"item-name.nullius-arthropod"}},
     icons = {
       {
-        icon = "__nullius__/graphics/icons/plate.png",
+        icon = ICONPATH .. "plate.png",
         icon_size = 64,
         tint = {0.4, 0.4, 0.4, 0.4}
       },
@@ -2667,11 +2671,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-harvest", {"item-name.nullius-arthropod"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/icons/plate.png",
+        icon = ICONPATH .. "plate.png",
         icon_size = 64,
         tint = {0.4, 0.4, 0.4, 0.4},
         scale = 0.45
@@ -2713,7 +2717,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-arthropod"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -2750,11 +2754,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-disposal", {"item-name.nullius-arthropod"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45
@@ -2795,7 +2799,7 @@ data:extend({
       data.raw.fluid["nullius-nucleotides"].icons[3],
       data.raw.fluid["nullius-nucleotides"].icons[4],
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -2837,12 +2841,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-arthropod-egg"}},
     icons = {
       {
-        icon = "__nullius__/graphics/sludge.png",
+        icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/protocell.png",
+        icon = ICONPATH .. "protocell.png",
         icon_size = 64,
         tint = {1, 1, 1, 0.8},
         scale = 0.4,
@@ -2912,7 +2916,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pyrolysis", {"item-name.nullius-plastic"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3006,7 +3010,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-wooden", {"item-name.nullius-box", {"entity-name.nullius-power-pole-1"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3066,7 +3070,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-wooden", {"item-name.nullius-box", {"entity-name.nullius-power-pole-2"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3138,7 +3142,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-wooden", {"item-name.nullius-box", {"item-name.rail"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3221,7 +3225,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-wooden", {"item-name.nullius-box", {"entity-name.stone-wall"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3328,7 +3332,7 @@ data:extend({
     order = "nullius-xb",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
@@ -3338,7 +3342,7 @@ data:extend({
         shift = {0, 6}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3355,17 +3359,17 @@ data:extend({
     order = "nullius-xc",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/bacteria.png",
+        icon = ICONPATH .. "bacteria.png",
         icon_size = 64,
         scale = 0.36,
         shift = {3, 5}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3382,17 +3386,17 @@ data:extend({
     order = "nullius-xd",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/grass.png",
+        icon = ICONPATH .. "grass.png",
         icon_size = 64,
         scale = 0.33,
         shift = {0, 4}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3409,7 +3413,7 @@ data:extend({
     order = "nullius-xe",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
@@ -3420,7 +3424,7 @@ data:extend({
         shift = {0, 5}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3437,7 +3441,7 @@ data:extend({
     order = "nullius-xf",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
@@ -3448,7 +3452,7 @@ data:extend({
         shift = {1, 5}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3465,7 +3469,7 @@ data:extend({
     order = "nullius-xg",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
@@ -3476,7 +3480,7 @@ data:extend({
         shift = {-1, 5}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }
@@ -3493,7 +3497,7 @@ data:extend({
     order = "nullius-xh",
     icons = {
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64
       },
       {
@@ -3503,7 +3507,7 @@ data:extend({
         shift = {-1, 6}
       },
       {
-        icon = "__nullius__/graphics/icons/flask.png",
+        icon = ICONPATH .. "flask.png",
         icon_size = 64,
         tint = {0.4, 0.3, 0.4, 0.4}
       }

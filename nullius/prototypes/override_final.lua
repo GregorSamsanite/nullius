@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data.raw.item["stone-brick"].subgroup = "masonry"
 data.raw.item["stone-brick"].order = "nullius-b"
 data.raw.item["concrete"].subgroup = "masonry"
@@ -19,7 +22,7 @@ data.raw.item["big-electric-pole"].subgroup = "electric-pole"
 data.raw.item["big-electric-pole"].order = "nullius-cb"
 data.raw.item["big-electric-pole"].stack_size = 50
 data.raw.item["big-electric-pole"].icons = {{
-  icon = "__nullius__/graphics/large-pole-1.png",
+  icon = ICONPATH .. "large-pole-1.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 if mods["reskins-bobs"] then

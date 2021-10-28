@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 local drill_animation_sequence = {
   1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
@@ -125,7 +130,7 @@ data:extend({
             height = 188,
             line_length = 4,
             shift = util.by_pixel(2.75*1.5, 0.75),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-N.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-N.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -137,7 +142,7 @@ data:extend({
             height = 150,
             line_length = 4,
             shift = util.by_pixel(23.75*1.5, -1.5),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-N-shadow.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-N-shadow.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -154,7 +159,7 @@ data:extend({
             height = 168,
             line_length = 4,
             shift = util.by_pixel(2.75*1.5, 1.5),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-E.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-E.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -166,7 +171,7 @@ data:extend({
             height = 128,
             line_length = 4,
             shift = util.by_pixel(13.75*1.5, 0.75),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-E-shadow.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-E-shadow.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -183,7 +188,7 @@ data:extend({
             height = 174,
             line_length = 4,
             shift = util.by_pixel(0.75, -0.75),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-S.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-S.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -195,7 +200,7 @@ data:extend({
             height = 137,
             line_length = 4,
             shift = util.by_pixel(16.5, 2.75*1.5),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-S-shadow.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-S-shadow.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -212,7 +217,7 @@ data:extend({
             height = 176,
             line_length = 4,
             shift = util.by_pixel(-2.25, 0),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-W.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-W.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -224,7 +229,7 @@ data:extend({
             height = 130,
             line_length = 4,
             shift = util.by_pixel(7.5*1.5, 1.5),
-            filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-W-shadow.png",
+            filename = BASEENTITY .. "burner-mining-drill/hr-burner-mining-drill-W-shadow.png",
             frame_count = 32,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
@@ -274,7 +279,7 @@ data:extend({
     open_sound = data.raw["mining-drill"]["electric-mining-drill"].open_sound,
     close_sound = data.raw["mining-drill"]["electric-mining-drill"].close_sound,
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png",
+      filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-radius-visualization.png",
       width = 10,
       height = 10
     },
@@ -299,7 +304,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N.png",
               line_length = 1,
               width = 96,
               height = 104,
@@ -313,7 +318,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N-output.png",
               line_length = 5,
               width = 32,
               height = 34,
@@ -325,7 +330,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N-shadow.png",
               line_length = 1,
               width = 106,
               height = 104,
@@ -342,7 +347,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E.png",
               line_length = 1,
               width = 94,
               height = 94,
@@ -356,7 +361,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-output.png",
               line_length = 5,
               width = 26,
               height = 38,
@@ -368,7 +373,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-shadow.png",
               line_length = 1,
               width = 112,
               height = 92,
@@ -385,7 +390,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S.png",
               line_length = 1,
               width = 92,
               height = 98,
@@ -399,7 +404,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-shadow.png",
               line_length = 1,
               width = 106,
               height = 102,
@@ -416,7 +421,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W.png",
               line_length = 1,
               width = 96,
               height = 94,
@@ -430,7 +435,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-output.png",
               line_length = 5,
               width = 24,
               height = 28,
@@ -442,7 +447,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-shadow.png",
               line_length = 1,
               width = 102,
               height = 92,
@@ -469,7 +474,7 @@ data:extend({
           apply_tint = "resource-color",
           animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-smoke.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-smoke.png",
             line_length = 6,
             width = 24,
             height = 38,
@@ -493,7 +498,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N-smoke.png",
                 line_length = 5,
                 width = 24,
                 height = 30,
@@ -518,7 +523,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -532,7 +537,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-shadow.png",
                 line_length = 7,
                 width = 112,
                 height = 26,
@@ -549,7 +554,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -563,7 +568,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-shadow.png",
                 line_length = 7,
                 width = 92,
                 height = 80,
@@ -580,7 +585,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -594,7 +599,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-shadow.png",
                 line_length = 7,
                 width = 112,
                 height = 26,
@@ -611,7 +616,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -625,7 +630,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-shadow.png",
                 line_length = 7,
                 width = 92,
                 height = 80,
@@ -648,7 +653,7 @@ data:extend({
           apply_tint = "resource-color",
           animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-smoke-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-smoke-front.png",
             line_length = 6,
             width = 76,
             height = 68,
@@ -674,7 +679,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-smoke.png",
                 line_length = 5,
                 width = 24,
                 height = 28,
@@ -690,7 +695,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-smoke.png",
                 line_length = 5,
                 width = 24,
                 height = 18,
@@ -706,7 +711,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-smoke.png",
                 line_length = 5,
                 width = 26,
                 height = 30,
@@ -726,7 +731,7 @@ data:extend({
           always_draw = true,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -740,7 +745,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -760,7 +765,7 @@ data:extend({
           north_animation = nil,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-front.png",
             line_length = 1,
             width = 66,
             height = 74,
@@ -775,7 +780,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-output.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-output.png",
                 line_length = 5,
                 width = 44,
                 height = 28,
@@ -786,7 +791,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-front.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-front.png",
                 line_length = 1,
                 width = 96,
                 height = 54,
@@ -801,7 +806,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-front.png",
             line_length = 1,
             width = 68,
             height = 70,
@@ -821,7 +826,7 @@ data:extend({
           draw_as_sprite = true,
           draw_as_light = true,
           north_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N-light.png",
             width = 16,
             height = 16,
             blend_mode = nil,
@@ -830,7 +835,7 @@ data:extend({
             scale = 0.6666
           },
           east_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-light.png",
             width = 16,
             height = 18,
             blend_mode = nil,
@@ -839,7 +844,7 @@ data:extend({
             scale = 0.6666
           },
           south_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-light.png",
             width = 20,
             height = 24,
             blend_mode = nil,
@@ -848,7 +853,7 @@ data:extend({
             scale = 0.6666
           },
           west_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-light.png",
             width = 18,
             height = 18,
             blend_mode = nil,
@@ -936,7 +941,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N.png",
               line_length = 1,
               width = 96,
               height = 104,
@@ -955,7 +960,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E.png",
               line_length = 1,
               width = 94,
               height = 94,
@@ -974,7 +979,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S.png",
               line_length = 1,
               width = 92,
               height = 98,
@@ -992,7 +997,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W.png",
               line_length = 1,
               width = 96,
               height = 94,
@@ -1025,7 +1030,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -1043,7 +1048,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -1061,7 +1066,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -1079,7 +1084,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -1104,7 +1109,7 @@ data:extend({
           always_draw = true,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -1117,7 +1122,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -1136,7 +1141,7 @@ data:extend({
           north_animation = nil,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-front.png",
             line_length = 1,
             width = 66,
             height = 74,
@@ -1151,7 +1156,7 @@ data:extend({
               data.raw["mining-drill"]["nullius-small-miner-2"].graphics_set.working_visualisations[7].south_animation.layers[1],
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-front.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-front.png",
                 line_length = 1,
                 width = 96,
                 height = 54,
@@ -1165,7 +1170,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-front.png",
             line_length = 1,
             width = 68,
             height = 70,
@@ -1238,7 +1243,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-N.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-N.png",
               line_length = 1,
               width = 96,
               height = 104,
@@ -1250,7 +1255,7 @@ data:extend({
               tint = {0.6, 0.7, 0.8},
               hr_version = {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N.png",
                 line_length = 1,
                 width = 190,
                 height = 208,
@@ -1271,7 +1276,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E.png",
               line_length = 1,
               width = 96,
               height = 94,
@@ -1283,7 +1288,7 @@ data:extend({
               tint = {0.6, 0.7, 0.8},
               hr_version = {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E.png",
                 line_length = 1,
                 width = 192,
                 height = 188,
@@ -1304,7 +1309,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S.png",
               line_length = 1,
               width = 92,
               height = 98,
@@ -1316,7 +1321,7 @@ data:extend({
               tint = {0.6, 0.7, 0.8},
               hr_version = {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S.png",
                 line_length = 1,
                 width = 184,
                 height = 192,
@@ -1336,7 +1341,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W.png",
+              filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W.png",
               line_length = 1,
               width = 96,
               height = 94,
@@ -1348,7 +1353,7 @@ data:extend({
               tint = {0.6, 0.7, 0.8},
               hr_version = {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W.png",
                 line_length = 1,
                 width = 192,
                 height = 188,
@@ -1383,7 +1388,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -1395,7 +1400,7 @@ data:extend({
                 tint = {0.6, 0.7, 0.8},
                 hr_version = {
                   priority = "high",
-                  filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                  filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                   line_length = 6,
                   width = 162,
                   height = 156,
@@ -1415,7 +1420,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -1427,7 +1432,7 @@ data:extend({
                 tint = {0.6, 0.7, 0.8},
                 hr_version = {
                   priority = "high",
-                  filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                  filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                   line_length = 6,
                   width = 80,
                   height = 160,
@@ -1447,7 +1452,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill.png",
                 line_length = 6,
                 width = 84,
                 height = 80,
@@ -1459,7 +1464,7 @@ data:extend({
                 tint = {0.6, 0.7, 0.8},
                 hr_version = {
                   priority = "high",
-                  filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                  filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                   line_length = 6,
                   width = 162,
                   height = 156,
@@ -1479,7 +1484,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 40,
                 height = 80,
@@ -1491,7 +1496,7 @@ data:extend({
                 tint = {0.6, 0.7, 0.8},
                 hr_version = {
                   priority = "high",
-                  filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                  filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                   line_length = 6,
                   width = 80,
                   height = 160,
@@ -1518,7 +1523,7 @@ data:extend({
           always_draw = true,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -1530,7 +1535,7 @@ data:extend({
             tint = {0.6, 0.7, 0.8},
             hr_version = {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
               line_length = 6,
               width = 66,
               height = 154,
@@ -1545,7 +1550,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 32,
             height = 76,
@@ -1557,7 +1562,7 @@ data:extend({
             tint = {0.6, 0.7, 0.8},
             hr_version = {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
               line_length = 6,
               width = 66,
               height = 154,
@@ -1578,7 +1583,7 @@ data:extend({
           north_animation = nil,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-E-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-E-front.png",
             line_length = 1,
             width = 66,
             height = 74,
@@ -1589,7 +1594,7 @@ data:extend({
             tint = {0.6, 0.7, 0.8},
             hr_version = {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-front.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-front.png",
               line_length = 1,
               width = 136,
               height = 148,
@@ -1606,7 +1611,7 @@ data:extend({
               data.raw["mining-drill"]["electric-mining-drill"].graphics_set.working_visualisations[7].south_animation.layers[1],
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-S-front.png",
+                filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-S-front.png",
                 line_length = 1,
                 width = 96,
                 height = 54,
@@ -1617,7 +1622,7 @@ data:extend({
                 tint = {0.6, 0.7, 0.8},
                 hr_version = {
                   priority = "high",
-                  filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-front.png",
+                  filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-front.png",
                   line_length = 1,
                   width = 190,
                   height = 104,
@@ -1633,7 +1638,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-W-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-W-front.png",
             line_length = 1,
             width = 68,
             height = 70,
@@ -1644,7 +1649,7 @@ data:extend({
             tint = {0.6, 0.7, 0.8},
             hr_version = {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-front.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-front.png",
               line_length = 1,
               width = 134,
               height = 140,
@@ -1742,7 +1747,7 @@ data:extend({
     open_sound = data.raw["mining-drill"]["electric-mining-drill"].open_sound,
     close_sound = data.raw["mining-drill"]["electric-mining-drill"].close_sound,
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png",
+      filename = BASEENTITY .. "electric-mining-drill/electric-mining-drill-radius-visualization.png",
       width = 10,
       height = 10
     },
@@ -1768,7 +1773,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N.png",
               line_length = 1,
               width = 190,
               height = 208,
@@ -1782,7 +1787,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N-output.png",
               line_length = 5,
               width = 60,
               height = 66,
@@ -1794,7 +1799,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N-shadow.png",
               line_length = 1,
               width = 212,
               height = 204,
@@ -1811,7 +1816,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E.png",
               line_length = 1,
               width = 192,
               height = 188,
@@ -1825,7 +1830,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-output.png",
               line_length = 5,
               width = 50,
               height = 74,
@@ -1837,7 +1842,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-shadow.png",
               line_length = 1,
               width = 222,
               height = 182,
@@ -1854,7 +1859,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S.png",
               line_length = 1,
               width = 184,
               height = 192,
@@ -1868,7 +1873,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-shadow.png",
               line_length = 1,
               width = 212,
               height = 204,
@@ -1885,7 +1890,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W.png",
               line_length = 1,
               width = 192,
               height = 188,
@@ -1899,7 +1904,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-output.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-output.png",
               line_length = 5,
               width = 50,
               height = 60,
@@ -1911,7 +1916,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-shadow.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-shadow.png",
               line_length = 1,
               width = 200,
               height = 182,
@@ -1939,7 +1944,7 @@ data:extend({
           apply_tint = "resource-color",
           animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-smoke.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-smoke.png",
             line_length = 6,
             width = 48,
             height = 72,
@@ -1964,7 +1969,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N-smoke.png",
                 line_length = 5,
                 width = 42,
                 height = 58,
@@ -1989,7 +1994,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                 line_length = 6,
                 width = 162,
                 height = 156,
@@ -2003,7 +2008,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-shadow.png",
                 line_length = 7,
                 width = 218,
                 height = 56,
@@ -2020,7 +2025,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 80,
                 height = 160,
@@ -2034,7 +2039,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-shadow.png",
                 line_length = 7,
                 width = 180,
                 height = 164,
@@ -2051,7 +2056,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                 line_length = 6,
                 width = 162,
                 height = 156,
@@ -2065,7 +2070,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-shadow.png",
                 line_length = 7,
                 width = 218,
                 height = 56,
@@ -2082,7 +2087,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 80,
                 height = 160,
@@ -2096,7 +2101,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-shadow.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-shadow.png",
                 line_length = 7,
                 width = 180,
                 height = 164,
@@ -2119,7 +2124,7 @@ data:extend({
           apply_tint = "resource-color",
           animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-smoke-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-smoke-front.png",
             line_length = 6,
             width = 148,
             height = 132,
@@ -2145,7 +2150,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-smoke.png",
                 line_length = 5,
                 width = 46,
                 height = 56,
@@ -2161,7 +2166,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-smoke.png",
                 line_length = 5,
                 width = 48,
                 height = 36,
@@ -2177,7 +2182,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-smoke.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-smoke.png",
                 line_length = 5,
                 width = 46,
                 height = 54,
@@ -2197,7 +2202,7 @@ data:extend({
           always_draw = true,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 66,
             height = 154,
@@ -2211,7 +2216,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 66,
             height = 154,
@@ -2231,7 +2236,7 @@ data:extend({
           north_animation = nil,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-front.png",
             line_length = 1,
             width = 136,
             height = 148,
@@ -2246,7 +2251,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-output.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-output.png",
                 line_length = 5,
                 width = 84,
                 height = 56,
@@ -2257,7 +2262,7 @@ data:extend({
               },
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-front.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-front.png",
                 line_length = 1,
                 width = 190,
                 height = 104,
@@ -2272,7 +2277,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-front.png",
             line_length = 1,
             width = 134,
             height = 140,
@@ -2292,7 +2297,7 @@ data:extend({
           draw_as_sprite = true,
           -- draw_as_light = true,
           north_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N-light.png",
             width = 32,
             height = 32,
             blend_mode = nil,
@@ -2301,7 +2306,7 @@ data:extend({
             scale = 0.6666
           },
           east_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-light.png",
             width = 32,
             height = 34,
             blend_mode = nil,
@@ -2310,7 +2315,7 @@ data:extend({
             scale = 0.6666
           },
           south_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-light.png",
             width = 38,
             height = 46,
             blend_mode = nil,
@@ -2319,7 +2324,7 @@ data:extend({
             scale = 0.6666
           },
           west_animation = {
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-light.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-light.png",
             width = 32,
             height = 34,
             blend_mode = nil,
@@ -2406,7 +2411,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-N.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-N.png",
               line_length = 1,
               width = 190,
               height = 208,
@@ -2425,7 +2430,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E.png",
               line_length = 1,
               width = 192,
               height = 188,
@@ -2444,7 +2449,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S.png",
               line_length = 1,
               width = 184,
               height = 192,
@@ -2462,7 +2467,7 @@ data:extend({
           layers = {
             {
               priority = "high",
-              filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W.png",
+              filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W.png",
               line_length = 1,
               width = 192,
               height = 188,
@@ -2495,7 +2500,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                 line_length = 6,
                 width = 162,
                 height = 156,
@@ -2513,7 +2518,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 80,
                 height = 160,
@@ -2531,7 +2536,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill.png",
                 line_length = 6,
                 width = 162,
                 height = 156,
@@ -2549,7 +2554,7 @@ data:extend({
             layers = {
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal.png",
                 line_length = 6,
                 width = 80,
                 height = 160,
@@ -2574,7 +2579,7 @@ data:extend({
           always_draw = true,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 66,
             height = 154,
@@ -2587,7 +2592,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-horizontal-front.png",
             line_length = 6,
             width = 66,
             height = 154,
@@ -2606,7 +2611,7 @@ data:extend({
           north_animation = nil,
           east_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-E-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-E-front.png",
             line_length = 1,
             width = 136,
             height = 148,
@@ -2621,7 +2626,7 @@ data:extend({
               data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.working_visualisations[7].south_animation.layers[1],
               {
                 priority = "high",
-                filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-S-front.png",
+                filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-S-front.png",
                 line_length = 1,
                 width = 190,
                 height = 104,
@@ -2635,7 +2640,7 @@ data:extend({
           },
           west_animation = {
             priority = "high",
-            filename = "__base__/graphics/entity/electric-mining-drill/hr-electric-mining-drill-W-front.png",
+            filename = BASEENTITY .. "electric-mining-drill/hr-electric-mining-drill-W-front.png",
             line_length = 1,
             width = 134,
             height = 140,

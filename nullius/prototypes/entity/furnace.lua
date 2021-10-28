@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "assembling-machine",
@@ -116,7 +121,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-base.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-base.png",
           priority = "high",
           width = 129,
           height = 100,
@@ -126,7 +131,7 @@ data:extend({
           tint = {0.7, 0.7, 0.85}
         },
         {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-shadow.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-shadow.png",
           priority = "high",
           width = 129,
           height = 100,
@@ -145,7 +150,7 @@ data:extend({
         animation = {
           layers = {
             {
-              filename = "__base__/graphics/entity/electric-furnace/electric-furnace-heater.png",
+              filename = BASEENTITY .. "electric-furnace/electric-furnace-heater.png",
               priority = "high",
               width = 25,
               height = 15,
@@ -155,7 +160,7 @@ data:extend({
               scale = 0.6666
             },
             {
-              filename = "__base__/graphics/entity/electric-furnace/electric-furnace-light.png",
+              filename = BASEENTITY .. "electric-furnace/electric-furnace-light.png",
               blend_mode = "additive",
               width = 104,
               height = 102,
@@ -171,7 +176,7 @@ data:extend({
         draw_as_sprite = false,
         fadeout = true,
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-ground-light.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-ground-light.png",
           blend_mode = "additive",
           width = 82,
           height = 64,
@@ -180,7 +185,7 @@ data:extend({
       },
       {
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-propeller-1.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-propeller-1.png",
           priority = "high",
           width = 19,
           height = 13,
@@ -192,7 +197,7 @@ data:extend({
       },
       {
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-propeller-2.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-propeller-2.png",
           priority = "high",
           width = 12,
           height = 9,
@@ -206,7 +211,7 @@ data:extend({
 
     water_reflection = {
       pictures = {
-        filename = "__base__/graphics/entity/electric-furnace/electric-furnace-reflection.png",
+        filename = BASEENTITY .. "electric-furnace/electric-furnace-reflection.png",
         priority = "extra-high",
         width = 24,
         height = 24,
@@ -267,7 +272,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace.png",
+          filename = BASEENTITY .. "steel-furnace/hr-steel-furnace.png",
           priority = "high",
           width = 171,
           height = 174,
@@ -276,7 +281,7 @@ data:extend({
           scale = 0.75
         },
         {
-          filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace-shadow.png",
+          filename = BASEENTITY .. "steel-furnace/hr-steel-furnace-shadow.png",
           priority = "high",
           width = 277,
           height = 85,
@@ -293,7 +298,7 @@ data:extend({
         fadeout = true,
         effect = "flicker",
         animation = {
-            filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace-fire.png",
+            filename = BASEENTITY .. "steel-furnace/hr-steel-furnace-fire.png",
             priority = "high",
             line_length = 8,
             width = 57,
@@ -309,7 +314,7 @@ data:extend({
         draw_as_light = true,
         effect = "flicker",
         animation = {
-          filename = "__base__/graphics/entity/steel-furnace/steel-furnace-glow.png",
+          filename = BASEENTITY .. "steel-furnace/steel-furnace-glow.png",
           priority = "high",
           width = 60,
           height = 43,
@@ -324,7 +329,7 @@ data:extend({
         draw_as_light = true,
         effect = "flicker",
         animation = {
-          filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace-working.png",
+          filename = BASEENTITY .. "steel-furnace/hr-steel-furnace-working.png",
           priority = "high",
           line_length = 1,
           width = 128,
@@ -396,7 +401,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-base.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-base.png",
           priority = "high",
           width = 129,
           height = 100,
@@ -404,7 +409,7 @@ data:extend({
           shift = {0.421875, 0},
           tint = {0.7, 0.7, 0.85},
           hr_version = {
-            filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace.png",
+            filename = BASEENTITY .. "electric-furnace/hr-electric-furnace.png",
             priority = "high",
             width = 239,
             height = 219,
@@ -415,7 +420,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/electric-furnace/electric-furnace-shadow.png",
+          filename = BASEENTITY .. "electric-furnace/electric-furnace-shadow.png",
           priority = "high",
           width = 129,
           height = 100,
@@ -423,7 +428,7 @@ data:extend({
           shift = {0.421875, 0},
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-shadow.png",
+            filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-shadow.png",
             priority = "high",
             width = 227,
             height = 171,
@@ -492,7 +497,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace.png",
           priority = "high",
           width = 239,
           height = 219,
@@ -502,7 +507,7 @@ data:extend({
           tint = {0.7, 0.7, 0.85}
         },
         {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-shadow.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-shadow.png",
           priority = "high",
           width = 227,
           height = 171,
@@ -521,7 +526,7 @@ data:extend({
         animation = {
           layers = {
             {
-              filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-heater.png",
+              filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-heater.png",
               priority = "high",
               width = 60,
               height = 56,
@@ -531,7 +536,7 @@ data:extend({
               scale = 0.6666
             },
             {
-              filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-light.png",
+              filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-light.png",
               blend_mode = "additive",
               width = 202,
               height = 202,
@@ -547,7 +552,7 @@ data:extend({
         draw_as_sprite = false,
         fadeout = true,
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-ground-light.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-ground-light.png",
           blend_mode = "additive",
           width = 166,
           height = 124,
@@ -557,7 +562,7 @@ data:extend({
       },
       {
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-propeller-1.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-propeller-1.png",
           priority = "high",
           width = 37,
           height = 25,
@@ -569,7 +574,7 @@ data:extend({
       },
       {
         animation = {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-propeller-2.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-propeller-2.png",
           priority = "high",
           width = 23,
           height = 15,
@@ -583,7 +588,7 @@ data:extend({
 
     water_reflection = {
       pictures = {
-        filename = "__base__/graphics/entity/electric-furnace/electric-furnace-reflection.png",
+        filename = BASEENTITY .. "electric-furnace/electric-furnace-reflection.png",
         priority = "extra-high",
         width = 24,
         height = 24,
@@ -679,7 +684,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace.png",
           priority = "high",
           width = 239,
           height = 219,
@@ -688,7 +693,7 @@ data:extend({
           scale = 0.6666
         },
         {
-          filename = "__base__/graphics/entity/electric-furnace/hr-electric-furnace-shadow.png",
+          filename = BASEENTITY .. "electric-furnace/hr-electric-furnace-shadow.png",
           priority = "high",
           width = 227,
           height = 171,

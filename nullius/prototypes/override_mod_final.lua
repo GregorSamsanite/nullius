@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 if mods["bobplates"] then
 data.raw.fluid["liquid-fuel"].subgroup = "unused-fluid"
 data.raw.item["liquid-fuel-barrel"].subgroup = "unused-fluid"

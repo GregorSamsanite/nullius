@@ -1,9 +1,14 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 function accumulator_picture(tint, repeat_count)
   return
   {
     layers = {
       {
-        filename = "__base__/graphics/entity/accumulator/hr-accumulator.png",
+        filename = BASEENTITY .. "accumulator/hr-accumulator.png",
         priority = "high",
         width = 130,
         height = 189,
@@ -14,7 +19,7 @@ function accumulator_picture(tint, repeat_count)
         scale = 0.75
       },
       {
-        filename = "__base__/graphics/entity/accumulator/hr-accumulator-shadow.png",
+        filename = BASEENTITY .. "accumulator/hr-accumulator-shadow.png",
         priority = "high",
         width = 234,
         height = 106,
@@ -50,7 +55,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel.png",
           priority = "high",
           width = 230,
           height = 224,
@@ -59,7 +64,7 @@ data:extend({
           scale = 0.64
         },
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel-shadow.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel-shadow.png",
           priority = "high",
           width = 220,
           height = 180,
@@ -72,7 +77,7 @@ data:extend({
     overlay = {
       layers = {
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel-shadow-overlay.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel-shadow-overlay.png",
           priority = "high",
           width = 214,
           height = 180,
@@ -107,7 +112,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel.png",
           priority = "high",
           width = 230,
           height = 224,
@@ -141,7 +146,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel.png",
           priority = "high",
           width = 230,
           height = 224,
@@ -173,7 +178,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/solar-panel/hr-solar-panel.png",
+          filename = BASEENTITY .. "solar-panel/hr-solar-panel.png",
           priority = "high",
           width = 230,
           height = 224,
@@ -212,7 +217,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=0.9, g=0.85, b=0.7, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-charge.png",
           priority = "high",
           width = 178,
           height = 206,
@@ -230,7 +235,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=0.9, g=0.85, b=0.7, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-discharge.png",
           priority = "high",
           width = 170,
           height = 210,
@@ -278,7 +283,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=1, g=1, b=1, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-charge.png",
           priority = "high",
           width = 178,
           height = 206,
@@ -296,7 +301,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=1, g=1, b=1, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-discharge.png",
           priority = "high",
           width = 170,
           height = 210,
@@ -343,7 +348,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=1, g=0.85, b=1, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-charge.png",
           priority = "high",
           width = 178,
           height = 206,
@@ -361,7 +366,7 @@ data:extend({
       layers = {
         accumulator_picture({ r=1, g=0.85, b=1, a=1 } , 24),
         {
-          filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+          filename = BASEENTITY .. "accumulator/hr-accumulator-discharge.png",
           priority = "high",
           width = 170,
           height = 210,
@@ -450,14 +455,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-N-idle.png",
             priority = "extra-high",
             width = 131,
             height = 108,
             shift = util.by_pixel(-0.5, 4),
             tint = {0.77, 0.77, 0.66, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-idle.png",
               priority = "extra-high",
               width = 269,
               height = 221,
@@ -467,14 +472,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-N-shadow.png",
             priority = "extra-high",
             width = 137,
             height = 82,
             shift = util.by_pixel(20.5, 9),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-shadow.png",
               priority = "extra-high",
               width = 274,
               height = 164,
@@ -489,14 +494,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-E-idle.png",
             priority = "extra-high",
             width = 105,
             height = 147,
             shift = util.by_pixel(-3.5, -0.5),
             tint = {0.77, 0.77, 0.66, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-idle.png",
               priority = "extra-high",
               width = 216,
               height = 301,
@@ -506,14 +511,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-E-shadow.png",
             priority = "extra-high",
             width = 92,
             height = 97,
             shift = util.by_pixel(30, 9.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-shadow.png",
               priority = "extra-high",
               width = 184,
               height = 194,
@@ -528,14 +533,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-S-idle.png",
             priority = "extra-high",
             width = 128,
             height = 95,
             shift = util.by_pixel(3, 12.5),
             tint = {0.77, 0.77, 0.66, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-idle.png",
               priority = "extra-high",
               width = 260,
               height = 192,
@@ -545,14 +550,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-S-shadow.png",
             priority = "extra-high",
             width = 156,
             height = 66,
             shift = util.by_pixel(30, 16),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-shadow.png",
               priority = "extra-high",
               width = 311,
               height = 131,
@@ -567,14 +572,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-W-idle.png",
             priority = "extra-high",
             width = 96,
             height = 132,
             shift = util.by_pixel(1, 5),
             tint = {0.77, 0.77, 0.66, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-idle.png",
               priority = "extra-high",
               width = 196,
               height = 273,
@@ -584,14 +589,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-W-shadow.png",
             priority = "extra-high",
             width = 103,
             height = 109,
             shift = util.by_pixel(19.5, 6.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-shadow.png",
               priority = "extra-high",
               width = 206,
               height = 218,
@@ -607,7 +612,7 @@ data:extend({
     working_visualisations = {
       {
         north_animation = {
-          filename = "__nullius__/graphics/boiler/blue-fire-north.png",
+          filename = ENTITYPATH .. "boiler/blue-fire-north.png",
           priority = "extra-high",
           frame_count = 64,
           line_length = 8,
@@ -618,7 +623,7 @@ data:extend({
           scale = 0.5
         },
         east_animation = {
-          filename = "__nullius__/graphics/boiler/blue-fire-east.png",
+          filename = ENTITYPATH .. "boiler/blue-fire-east.png",
           priority = "extra-high",
           frame_count = 64,
           line_length = 8,
@@ -629,7 +634,7 @@ data:extend({
           scale = 0.5
         },
         south_animation = {
-          filename = "__nullius__/graphics/boiler/blue-fire-south.png",
+          filename = ENTITYPATH .. "boiler/blue-fire-south.png",
           priority = "extra-high",
           frame_count = 64,
           line_length = 8,
@@ -640,7 +645,7 @@ data:extend({
           scale = 0.5
         },
         west_animation = {
-          filename = "__nullius__/graphics/boiler/blue-fire-west.png",
+          filename = ENTITYPATH .. "boiler/blue-fire-west.png",
           priority = "extra-high",
           frame_count = 64,
           line_length = 8,
@@ -653,7 +658,7 @@ data:extend({
       },
       {
         north_animation = {
-          filename = "__nullius__/graphics/boiler/blue-glow-north.png",
+          filename = ENTITYPATH .. "boiler/blue-glow-north.png",
           priority = "extra-high",
           frame_count = 1,
           width = 200,
@@ -663,7 +668,7 @@ data:extend({
           scale = 0.5
         },
         east_animation = {
-          filename = "__nullius__/graphics/boiler/blue-glow-east.png",
+          filename = ENTITYPATH .. "boiler/blue-glow-east.png",
           priority = "extra-high",
           frame_count = 1,
           width = 139,
@@ -673,7 +678,7 @@ data:extend({
           scale = 0.5
         },
         south_animation = {
-          filename = "__nullius__/graphics/boiler/blue-glow-south.png",
+          filename = ENTITYPATH .. "boiler/blue-glow-south.png",
           priority = "extra-high",
           frame_count = 1,
           width = 200,
@@ -683,7 +688,7 @@ data:extend({
           scale = 0.5
         },
         west_animation = {
-          filename = "__nullius__/graphics/boiler/blue-glow-west.png",
+          filename = ENTITYPATH .. "boiler/blue-glow-west.png",
           priority = "extra-high",
           frame_count = 1,
           width = 136,
@@ -777,14 +782,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-N-idle.png",
             priority = "extra-high",
             width = 131,
             height = 108,
             shift = util.by_pixel(-0.5, 4),
             tint = {0.8, 0.8, 1, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-idle.png",
               priority = "extra-high",
               width = 269,
               height = 221,
@@ -794,14 +799,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-N-shadow.png",
             priority = "extra-high",
             width = 137,
             height = 82,
             shift = util.by_pixel(20.5, 9),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-shadow.png",
               priority = "extra-high",
               width = 274,
               height = 164,
@@ -816,14 +821,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-E-idle.png",
             priority = "extra-high",
             width = 105,
             height = 147,
             shift = util.by_pixel(-3.5, -0.5),
             tint = {0.8, 0.8, 1, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-idle.png",
               priority = "extra-high",
               width = 216,
               height = 301,
@@ -833,14 +838,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-E-shadow.png",
             priority = "extra-high",
             width = 92,
             height = 97,
             shift = util.by_pixel(30, 9.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-shadow.png",
               priority = "extra-high",
               width = 184,
               height = 194,
@@ -855,14 +860,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-S-idle.png",
             priority = "extra-high",
             width = 128,
             height = 95,
             shift = util.by_pixel(3, 12.5),
             tint = {0.8, 0.8, 1, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-idle.png",
               priority = "extra-high",
               width = 260,
               height = 192,
@@ -872,14 +877,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-S-shadow.png",
             priority = "extra-high",
             width = 156,
             height = 66,
             shift = util.by_pixel(30, 16),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-shadow.png",
               priority = "extra-high",
               width = 311,
               height = 131,
@@ -894,14 +899,14 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-W-idle.png",
             priority = "extra-high",
             width = 96,
             height = 132,
             shift = util.by_pixel(1, 5),
             tint = {0.8, 0.8, 1, 1},
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-idle.png",
               priority = "extra-high",
               width = 196,
               height = 273,
@@ -911,14 +916,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-W-shadow.png",
             priority = "extra-high",
             width = 103,
             height = 109,
             shift = util.by_pixel(19.5, 6.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-shadow.png",
               priority = "extra-high",
               width = 206,
               height = 218,
@@ -1022,13 +1027,13 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-N-idle.png",
             priority = "extra-high",
             width = 131,
             height = 108,
             shift = util.by_pixel(-0.5, 4),
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-idle.png",
               priority = "extra-high",
               width = 269,
               height = 221,
@@ -1037,14 +1042,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-N-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-N-shadow.png",
             priority = "extra-high",
             width = 137,
             height = 82,
             shift = util.by_pixel(20.5, 9),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-N-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-N-shadow.png",
               priority = "extra-high",
               width = 274,
               height = 164,
@@ -1059,13 +1064,13 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-E-idle.png",
             priority = "extra-high",
             width = 105,
             height = 147,
             shift = util.by_pixel(-3.5, -0.5),
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-idle.png",
               priority = "extra-high",
               width = 216,
               height = 301,
@@ -1074,14 +1079,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-E-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-E-shadow.png",
             priority = "extra-high",
             width = 92,
             height = 97,
             shift = util.by_pixel(30, 9.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-E-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-E-shadow.png",
               priority = "extra-high",
               width = 184,
               height = 194,
@@ -1096,13 +1101,13 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-S-idle.png",
             priority = "extra-high",
             width = 128,
             height = 95,
             shift = util.by_pixel(3, 12.5),
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-idle.png",
               priority = "extra-high",
               width = 260,
               height = 192,
@@ -1111,14 +1116,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-S-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-S-shadow.png",
             priority = "extra-high",
             width = 156,
             height = 66,
             shift = util.by_pixel(30, 16),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-S-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-S-shadow.png",
               priority = "extra-high",
               width = 311,
               height = 131,
@@ -1133,13 +1138,13 @@ data:extend({
         frame_count = 1,
         layers = {
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-idle.png",
+            filename = BASEENTITY .. "boiler/boiler-W-idle.png",
             priority = "extra-high",
             width = 96,
             height = 132,
             shift = util.by_pixel(1, 5),
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-idle.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-idle.png",
               priority = "extra-high",
               width = 196,
               height = 273,
@@ -1148,14 +1153,14 @@ data:extend({
             }
           },
           {
-            filename = "__base__/graphics/entity/boiler/boiler-W-shadow.png",
+            filename = BASEENTITY .. "boiler/boiler-W-shadow.png",
             priority = "extra-high",
             width = 103,
             height = 109,
             shift = util.by_pixel(19.5, 6.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/boiler/hr-boiler-W-shadow.png",
+              filename = BASEENTITY .. "boiler/hr-boiler-W-shadow.png",
               priority = "extra-high",
               width = 206,
               height = 218,
@@ -1246,7 +1251,7 @@ data:extend({
     horizontal_animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H.png",
+          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-H.png",
           width = 320,
           height = 245,
           frame_count = 8,
@@ -1256,7 +1261,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/turbine/green-turbine-h.png",
+          filename = ENTITYPATH .. "turbine/green-turbine-h.png",
           width = 320,
           height = 245,
           repeat_count = 8,
@@ -1267,7 +1272,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H-shadow.png",
+          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-H-shadow.png",
           width = 435,
           height = 150,
           repeat_count = 8,
@@ -1282,7 +1287,7 @@ data:extend({
     vertical_animation = {
      layers = {
         {
-          filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V.png",
+          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-V.png",
           width = 217,
           height = 347,
           frame_count = 8,
@@ -1292,7 +1297,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__nullius__/graphics/turbine/green-turbine-v.png",
+          filename = ENTITYPATH .. "turbine/green-turbine-v.png",
           width = 217,
           height = 347,
           repeat_count = 8,
@@ -1303,7 +1308,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V-shadow.png",
+          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-V-shadow.png",
           width = 302,
           height = 260,
           repeat_count = 8,
@@ -1523,8 +1528,8 @@ data.raw.generator["nullius-backup-turbine-3"].horizontal_animation = bt3h
 data.raw.generator["nullius-backup-turbine-3"].vertical_animation = bt3v
 local st3h = util.table.deepcopy(bt3h)
 local st3v = util.table.deepcopy(bt3v)
-st3h.layers[2].filename = "__nullius__/graphics/turbine/yellow-turbine-h.png"
-st3v.layers[2].filename = "__nullius__/graphics/turbine/yellow-turbine-v.png"
+st3h.layers[2].filename = ENTITYPATH .. "turbine/yellow-turbine-h.png"
+st3v.layers[2].filename = ENTITYPATH .. "turbine/yellow-turbine-v.png"
 data.raw.generator["nullius-standard-turbine-3"].horizontal_animation = st3h
 data.raw.generator["nullius-standard-turbine-3"].vertical_animation = st3v
 local st1h = util.table.deepcopy(st3h)
@@ -1545,8 +1550,8 @@ data.raw.generator["nullius-standard-turbine-2"].horizontal_animation = st2h
 data.raw.generator["nullius-standard-turbine-2"].vertical_animation = st2v
 local pt2h = util.table.deepcopy(bt3h)
 local pt2v = util.table.deepcopy(bt3v)
-pt2h.layers[2].filename = "__nullius__/graphics/turbine/red-turbine-h.png"
-pt2v.layers[2].filename = "__nullius__/graphics/turbine/red-turbine-v.png"
+pt2h.layers[2].filename = ENTITYPATH .. "turbine/red-turbine-h.png"
+pt2v.layers[2].filename = ENTITYPATH .. "turbine/red-turbine-v.png"
 data.raw.generator["nullius-priority-turbine-2"].horizontal_animation = pt2h
 data.raw.generator["nullius-priority-turbine-2"].vertical_animation = pt2v
 local pt1h = util.table.deepcopy(pt2h)
@@ -2325,7 +2330,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
     fast_replaceable_group = "geothermal-plant",
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      filename = BASEENTITY .. "pumpjack/pumpjack-radius-visualization.png",
       width = 12,
       height = 12
     },
@@ -2368,7 +2373,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
     fast_replaceable_group = "geothermal-plant",
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      filename = BASEENTITY .. "pumpjack/pumpjack-radius-visualization.png",
       width = 12,
       height = 12
     },
@@ -2411,7 +2416,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
     fast_replaceable_group = "geothermal-plant",
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      filename = BASEENTITY .. "pumpjack/pumpjack-radius-visualization.png",
       width = 12,
       height = 12
     },
@@ -2651,7 +2656,7 @@ data:extend({
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
     },
 
-    connection_sprites = make_heat_pipe_pictures("__base__/graphics/entity/heat-pipe/",
+    connection_sprites = make_heat_pipe_pictures(BASEENTITY .. "heat-pipe/",
         "heat-pipe", {0.5, 0.7, 0.9},
       {
         single = { name = "straight-vertical-single", ommit_number = true },
@@ -2673,7 +2678,7 @@ data:extend({
       }
     ),
 
-    heat_glow_sprites = make_heat_pipe_pictures("__base__/graphics/entity/heat-pipe/",
+    heat_glow_sprites = make_heat_pipe_pictures(BASEENTITY .. "heat-pipe/",
         "heated", {0.6, 0.6, 0.9},
       {
         single = { empty = true },
@@ -2728,7 +2733,7 @@ data:extend({
       heat_glow = data.raw["heat-pipe"]["heat-pipe"].heat_buffer.heat_glow
     },
 
-    connection_sprites = make_heat_pipe_pictures("__base__/graphics/entity/heat-pipe/",
+    connection_sprites = make_heat_pipe_pictures(BASEENTITY .. "heat-pipe/",
         "heat-pipe", {0.75, 0.85, 0.95},
       {
         single = { name = "straight-vertical-single", ommit_number = true },
@@ -2750,7 +2755,7 @@ data:extend({
       }
     ),
 
-    heat_glow_sprites = make_heat_pipe_pictures("__base__/graphics/entity/heat-pipe/",
+    heat_glow_sprites = make_heat_pipe_pictures(BASEENTITY .. "heat-pipe/",
         "heated", {0.8, 0.8, 0.95},
       {
         single = { empty = true },
@@ -2874,14 +2879,14 @@ data:extend({
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
     picture = {
-      filename = "__nullius__/graphics/thermaltank1.png",
+      filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
       width = 180,
       height = 180,
       scale = 0.73,
       shift = {0.3,-0.3}
     },
     working_light_picture = {
-      filename = "__nullius__/graphics/thermaltank1.png",
+      filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
       width = 180,
       height = 180,
       scale = 0.73,
@@ -2939,14 +2944,14 @@ data:extend({
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
     picture = {
-      filename = "__nullius__/graphics/thermaltank2.png",
+      filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
       width = 180,
       height = 180,
       scale = 0.73,
       shift = {0.28,-0.3}
     },
     working_light_picture = {
-      filename = "__nullius__/graphics/thermaltank2.png",
+      filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
       width = 180,
       height = 180,
       scale = 0.73,
@@ -2999,7 +3004,7 @@ local function thermal_tank(tier, vert)
 
   tank.icons = {
     {
-      icon = "__nullius__/graphics/icons/thermaltank"..tier..".png",
+      icon = ICONPATH .. "thermaltank"..tier..".png",
       icon_size = 64
     },
     {
@@ -3070,21 +3075,21 @@ data:extend({
         north = {
           layers = {
             {
-              filename = "__nullius__/graphics/thermaltank2.png",
+              filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
               width = 180,
               height = 180,
               scale = 0.73,
               shift = {0.28,-0.3}
             },
             {
-              filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
+              filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
               width = 74,
               height = 117,
               shift = {0, -2.25},
               scale = 0.4
             },
             {
-              filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
+              filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
               width = 74,
               height = 117,
               shift = {0, 1.4},
@@ -3095,21 +3100,21 @@ data:extend({
         east = {
           layers = {
             {
-              filename = "__nullius__/graphics/thermaltank2.png",
+              filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
               width = 180,
               height = 180,
               scale = 0.73,
               shift = {0.28,-0.3}
             },
             {
-              filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
+              filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
               width = 74,
               height = 117,
               shift = {1.6, -0.5},
               scale = 0.4
             },
             {
-              filename = "__base__/graphics/entity/fire-flame/fire-flame-03.png",
+              filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
               width = 74,
               height = 117,
               shift = {-1.6, -0.5},
@@ -3200,13 +3205,13 @@ data:extend({
     render_layer = "lower-object",
     pictures = {
       north = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3214,13 +3219,13 @@ data:extend({
         }
       },
       east = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3228,13 +3233,13 @@ data:extend({
         }
       },
       south = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.97,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3242,13 +3247,13 @@ data:extend({
         }
       },
       west = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3297,13 +3302,13 @@ data:extend({
     render_layer = "lower-object",
     pictures = {
       north = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3311,13 +3316,13 @@ data:extend({
         }
       },
       east = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3325,13 +3330,13 @@ data:extend({
         }
       },
       south = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3339,13 +3344,13 @@ data:extend({
         }
       },
       west = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3393,13 +3398,13 @@ data:extend({
     render_layer = "lower-object",
     pictures = {
       north = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3407,13 +3412,13 @@ data:extend({
         }
       },
       east = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3421,13 +3426,13 @@ data:extend({
         }
       },
       south = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         shift = util.by_pixel(5, -6.5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           shift = util.by_pixel(4.75, -6.25),
@@ -3435,13 +3440,13 @@ data:extend({
         }
       },
       west = {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         shift = util.by_pixel(1, -5),
         scale = 0.95,
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           shift = util.by_pixel(1, -4.75),
@@ -3630,7 +3635,7 @@ data:extend({
   {
     type = "animation",
     name = "nullius-stirling-horizontal-shadow",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-H-shadow.png",
+    filename = BASEENTITY .. "steam-engine/steam-engine-H-shadow.png",
     width = 254,
     height = 80,
     frame_count = 32,
@@ -3638,7 +3643,7 @@ data:extend({
     draw_as_shadow = true,
     shift = util.by_pixel(48, 24),
     hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H-shadow.png",
+      filename = BASEENTITY .. "steam-engine/hr-steam-engine-H-shadow.png",
       width = 508,
       height = 160,
       frame_count = 32,
@@ -3651,7 +3656,7 @@ data:extend({
   {
     type = "animation",
     name = "nullius-stirling-vertical-shadow",
-    filename = "__base__/graphics/entity/steam-engine/steam-engine-V-shadow.png",
+    filename = BASEENTITY .. "steam-engine/steam-engine-V-shadow.png",
     width = 165,
     height = 153,
     frame_count = 32,
@@ -3659,7 +3664,7 @@ data:extend({
     draw_as_shadow = true,
     shift = util.by_pixel(40.5, 9.5),
     hr_version = {
-      filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V-shadow.png",
+      filename = BASEENTITY .. "steam-engine/hr-steam-engine-V-shadow.png",
       width = 330,
       height = 307,
       frame_count = 32,
@@ -3675,7 +3680,7 @@ data:extend({
     name = "nullius-stirling-horizontal-turbine-1",
     layers = {
       {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H.png",
         width = 176,
         height = 128,
         frame_count = 32,
@@ -3683,7 +3688,7 @@ data:extend({
         shift = util.by_pixel(1, -5),
         tint = {0.8, 0.8, 0.6},
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H.png",
           width = 352,
           height = 257,
           frame_count = 32,
@@ -3696,7 +3701,7 @@ data:extend({
       {
         type = "animation",
         name = "nullius-stirling-horizontal-shadow",
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-H-shadow.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-H-shadow.png",
         width = 254,
         height = 80,
         frame_count = 32,
@@ -3704,7 +3709,7 @@ data:extend({
         draw_as_shadow = true,
         shift = util.by_pixel(48, 24),
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-H-shadow.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-H-shadow.png",
           width = 508,
           height = 160,
           frame_count = 32,
@@ -3721,7 +3726,7 @@ data:extend({
     name = "nullius-stirling-vertical-turbine-1",
     layers = {
       {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V.png",
         width = 112,
         height = 195,
         frame_count = 32,
@@ -3729,7 +3734,7 @@ data:extend({
         shift = util.by_pixel(5, -6.5),
         tint = {0.8, 0.8, 0.6},
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V.png",
           width = 225,
           height = 391,
           frame_count = 32,
@@ -3740,7 +3745,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/steam-engine/steam-engine-V-shadow.png",
+        filename = BASEENTITY .. "steam-engine/steam-engine-V-shadow.png",
         width = 165,
         height = 153,
         frame_count = 32,
@@ -3748,7 +3753,7 @@ data:extend({
         draw_as_shadow = true,
         shift = util.by_pixel(40.5, 9.5),
         hr_version = {
-          filename = "__base__/graphics/entity/steam-engine/hr-steam-engine-V-shadow.png",
+          filename = BASEENTITY .. "steam-engine/hr-steam-engine-V-shadow.png",
           width = 330,
           height = 307,
           frame_count = 32,
@@ -3979,14 +3984,14 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector1.png",
+          filename = ENTITYPATH .. "collector/collector1.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -3997,14 +4002,14 @@ data:extend({
     working_light_picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector1.png",
+          filename = ENTITYPATH .. "collector/collector1.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -4057,14 +4062,14 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector2.png",
+          filename = ENTITYPATH .. "collector/collector2.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -4075,14 +4080,14 @@ data:extend({
     working_light_picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector2.png",
+          filename = ENTITYPATH .. "collector/collector2.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -4134,14 +4139,14 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector3.png",
+          filename = ENTITYPATH .. "collector/collector3.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -4152,14 +4157,14 @@ data:extend({
     working_light_picture = {
       layers = {
         {
-          filename = "__nullius__/graphics/collector3.png",
+          filename = ENTITYPATH .. "collector/collector3.png",
           width = 220,
           height = 140,
           scale = 0.9,
           shift = {0, -0.25}
         },
         {
-          filename = "__nullius__/graphics/collectorpipe.png",
+          filename = ENTITYPATH .. "collector/collectorpipe.png",
           width = 320,
           height = 32,
           scale = 0.5,
@@ -4252,10 +4257,10 @@ ex2.energy_source.max_temperature = 400
 ex2.energy_source.specific_heat = "5MW"
 ex2.energy_source.max_transfer = "40MW"
 ex2.energy_usage = "8.5MW"
-ex2.animation.north.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-N.png"
-ex2.animation.east.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-E.png"
-ex2.animation.south.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-S.png"
-ex2.animation.west.layers[1].hr_version.filename = "__nullius__/graphics/exchanger/exchanger-W.png"
+ex2.animation.north.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-N.png"
+ex2.animation.east.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-E.png"
+ex2.animation.south.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-S.png"
+ex2.animation.west.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-W.png"
 local ex2m = util.table.deepcopy(ex2)
 ex2m.name = "nullius-mirror-heat-exchanger-2"
 ex2m.localised_name = {"entity-name.nullius-mirrored",
@@ -4285,7 +4290,7 @@ boil.animation = {
   north = { frame_count = 1,
     layers = {
       {
-        filename = "__nullius__/graphics/boiler/boiler-north.png",
+        filename = ENTITYPATH .. "boiler/boiler-north.png",
         priority = "extra-high",
         width = 269,
         height = 221,
@@ -4298,7 +4303,7 @@ boil.animation = {
   east = { frame_count = 1,
     layers = {
       {
-        filename = "__nullius__/graphics/boiler/boiler-east.png",
+        filename = ENTITYPATH .. "boiler/boiler-east.png",
         priority = "extra-high",
         width = 216,
         height = 301,
@@ -4311,7 +4316,7 @@ boil.animation = {
   south = { frame_count = 1,
     layers = {
       {
-        filename = "__nullius__/graphics/boiler/boiler-south.png",
+        filename = ENTITYPATH .. "boiler/boiler-south.png",
         priority = "extra-high",
         width = 260,
         height = 192,
@@ -4324,7 +4329,7 @@ boil.animation = {
   west = { frame_count = 1,
     layers = {
       {
-        filename = "__nullius__/graphics/boiler/boiler-west.png",
+        filename = ENTITYPATH .. "boiler/boiler-west.png",
         priority = "extra-high",
         width = 196,
         height = 273,
@@ -4485,7 +4490,7 @@ data.raw["accumulator"]["nullius-grid-battery-1"].picture = { layers = {
     scale = 0.75
   },
   {
-    filename = "__base__/graphics/entity/accumulator/hr-accumulator-shadow.png",
+    filename = BASEENTITY .. "accumulator/hr-accumulator-shadow.png",
     priority = "high",
     width = 234,
     height = 106,
@@ -4505,7 +4510,7 @@ accumpic.layers[3].animation_speed = 0.5
 accumpic.layers[4].repeat_count = 24
 data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation = accumpic
 data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation.layers[5] = {
-  filename = "__base__/graphics/entity/accumulator/hr-accumulator-charge.png",
+  filename = BASEENTITY .. "accumulator/hr-accumulator-charge.png",
   priority = "high",
   width = 178,
   height = 206,
@@ -4519,7 +4524,7 @@ data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation.layers[5] = {
 data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation =
     util.table.deepcopy(data.raw["accumulator"]["nullius-grid-battery-1"].charge_animation)
 data.raw["accumulator"]["nullius-grid-battery-1"].discharge_animation.layers[5] = {
-  filename = "__base__/graphics/entity/accumulator/hr-accumulator-discharge.png",
+  filename = BASEENTITY .. "accumulator/hr-accumulator-discharge.png",
   priority = "high",
   width = 170,
   height = 210,

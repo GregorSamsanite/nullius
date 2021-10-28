@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "assembling-machine",
@@ -20,7 +25,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
+          filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1.png",
           priority="high",
           width = 108,
           height = 114,
@@ -30,7 +35,7 @@ data:extend({
           scale = 0.666
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1-shadow.png",
           priority="high",
           width = 95,
           height = 83,
@@ -108,7 +113,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
+          filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1.png",
           priority="high",
           width = 108,
           height = 114,
@@ -117,7 +122,7 @@ data:extend({
           shift = util.by_pixel(0, 2),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-1/hr-assembling-machine-1.png",
+            filename = BASEENTITY .. "assembling-machine-1/hr-assembling-machine-1.png",
             priority="high",
             width = 214,
             height = 226,
@@ -129,7 +134,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1-shadow.png",
           priority="high",
           width = 95,
           height = 83,
@@ -139,7 +144,7 @@ data:extend({
           draw_as_shadow = true,
           shift = util.by_pixel(8.5, 5.5),
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-1/hr-assembling-machine-1-shadow.png",
+            filename = BASEENTITY .. "assembling-machine-1/hr-assembling-machine-1-shadow.png",
             priority="high",
             width = 190,
             height = 165,
@@ -217,7 +222,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2.png",
+          filename = BASEENTITY .. "assembling-machine-2/hr-assembling-machine-2.png",
           priority = "high",
           width = 214,
           height = 218,
@@ -228,7 +233,7 @@ data:extend({
           animation_speed = 0.2
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-2/hr-assembling-machine-2-shadow.png",
           priority = "high",
           width = 196,
           height = 163,
@@ -287,7 +292,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2.png",
+          filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2.png",
           priority = "high",
           width = 108,
           height = 110,
@@ -336,7 +341,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
+          filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3.png",
           priority = "high",
           width = 108,
           height = 119,
@@ -347,7 +352,7 @@ data:extend({
           animation_speed = 0.6
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3-shadow.png",
           priority = "high",
           width = 130,
           height = 82,
@@ -398,7 +403,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2.png",
+          filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2.png",
           priority = "high",
           width = 108,
           height = 110,
@@ -407,7 +412,7 @@ data:extend({
           shift = util.by_pixel(0, 4),
           animation_speed = 0.4,
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2.png",
+            filename = BASEENTITY .. "assembling-machine-2/hr-assembling-machine-2.png",
             priority = "high",
             width = 214,
             height = 218,
@@ -419,7 +424,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2-shadow.png",
           priority = "high",
           width = 98,
           height = 82,
@@ -429,7 +434,7 @@ data:extend({
           shift = util.by_pixel(12, 5),
           animation_speed = 0.4,
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-2/hr-assembling-machine-2-shadow.png",
+            filename = BASEENTITY .. "assembling-machine-2/hr-assembling-machine-2-shadow.png",
             priority = "high",
             width = 196,
             height = 163,
@@ -480,7 +485,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
+          filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3.png",
           priority = "high",
           width = 108,
           height = 119,
@@ -489,7 +494,7 @@ data:extend({
           shift = util.by_pixel(0, -0.5),
           animation_speed = 0.3,
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3.png",
+            filename = BASEENTITY .. "assembling-machine-3/hr-assembling-machine-3.png",
             priority = "high",
             width = 214,
             height = 237,
@@ -501,7 +506,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3-shadow.png",
           priority = "high",
           width = 130,
           height = 82,
@@ -511,7 +516,7 @@ data:extend({
           shift = util.by_pixel(28, 4),
           animation_speed = 0.3,
           hr_version = {
-            filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3-shadow.png",
+            filename = BASEENTITY .. "assembling-machine-3/hr-assembling-machine-3-shadow.png",
             priority = "high",
             width = 260,
             height = 162,
@@ -561,7 +566,7 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3.png",
+          filename = BASEENTITY .. "assembling-machine-3/hr-assembling-machine-3.png",
           priority = "high",
           width = 214,
           height = 237,
@@ -572,7 +577,7 @@ data:extend({
           animation_speed = 0.15
         },
         {
-          filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3-shadow.png",
+          filename = BASEENTITY .. "assembling-machine-3/hr-assembling-machine-3-shadow.png",
           priority = "high",
           width = 260,
           height = 162,

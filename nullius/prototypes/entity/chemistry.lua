@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "assembling-machine",
@@ -455,7 +460,7 @@ data:extend({
         west_position = {1.7, -3.65},
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 90,
@@ -469,14 +474,14 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({
       layers = {
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
           width = 337,
           height = 255,
           frame_count = 1,
           shift = {2.515625, 0.484375},
           tint = {0.77, 0.77, 0.66, 1},
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery.png",
             width = 386,
             height = 430,
             frame_count = 1,
@@ -486,14 +491,14 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery-shadow.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
           width = 337,
           height = 213,
           frame_count = 1,
           shift = util.by_pixel(82.5, 26.5),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery-shadow.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery-shadow.png",
             width = 674,
             height = 426,
             frame_count = 1,
@@ -583,14 +588,14 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({
       layers = {
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
           width = 337,
           height = 255,
           frame_count = 1,
           shift = {2.515625, 0.484375},
           tint = {0.8, 0.8, 1, 1},
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery.png",
             width = 386,
             height = 430,
             frame_count = 1,
@@ -600,14 +605,14 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery-shadow.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
           width = 337,
           height = 213,
           frame_count = 1,
           shift = util.by_pixel(82.5, 26.5),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery-shadow.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery-shadow.png",
             width = 674,
             height = 426,
             frame_count = 1,
@@ -1607,7 +1612,7 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
@@ -1615,7 +1620,7 @@ data:extend({
         shift = util.by_pixel(1, -9),
         tint = {0.75, 0.75, 0.6, 1},
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -1626,7 +1631,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -1634,7 +1639,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,
@@ -1649,7 +1654,7 @@ data:extend({
       {
         apply_recipe_tint = "primary",
         north_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-north.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-north.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
@@ -1657,7 +1662,7 @@ data:extend({
           shift = util.by_pixel(24, 14),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-north.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-north.png",
             frame_count = 24,
             line_length = 6,
             width = 66,
@@ -1668,7 +1673,7 @@ data:extend({
           }
         },
         east_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-east.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-east.png",
           frame_count = 24,
           line_length = 6,
           width = 36,
@@ -1676,7 +1681,7 @@ data:extend({
           shift = util.by_pixel(0, 22),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-east.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-east.png",
             frame_count = 24,
             line_length = 6,
             width = 70,
@@ -1687,7 +1692,7 @@ data:extend({
           }
         },
         south_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-south.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-south.png",
           frame_count = 24,
           line_length = 6,
           width = 34,
@@ -1695,7 +1700,7 @@ data:extend({
           shift = util.by_pixel(0, 16),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-south.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-south.png",
             frame_count = 24,
             line_length = 6,
             width = 66,
@@ -1706,7 +1711,7 @@ data:extend({
           }
         },
         west_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-west.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-west.png",
           frame_count = 24,
           line_length = 6,
           width = 38,
@@ -1714,7 +1719,7 @@ data:extend({
           shift = util.by_pixel(-10, 12),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-west.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-west.png",
             frame_count = 24,
             line_length = 6,
             width = 74,
@@ -1728,7 +1733,7 @@ data:extend({
       {
         apply_recipe_tint = "secondary",
         north_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-north.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-north.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
@@ -1736,7 +1741,7 @@ data:extend({
           shift = util.by_pixel(24, 14),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-north.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-north.png",
             frame_count = 24,
             line_length = 6,
             width = 62,
@@ -1747,7 +1752,7 @@ data:extend({
           }
         },
         east_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-east.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-east.png",
           frame_count = 24,
           line_length = 6,
           width = 34,
@@ -1755,7 +1760,7 @@ data:extend({
           shift = util.by_pixel(0, 22),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-east.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-east.png",
             frame_count = 24,
             line_length = 6,
             width = 68,
@@ -1766,7 +1771,7 @@ data:extend({
           }
         },
         south_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-south.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-south.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
@@ -1774,7 +1779,7 @@ data:extend({
           shift = util.by_pixel(0, 18),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-south.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-south.png",
             frame_count = 24,
             line_length = 6,
             width = 60,
@@ -1785,7 +1790,7 @@ data:extend({
           }
         },
         west_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-west.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-west.png",
           frame_count = 24,
           line_length = 6,
           width = 36,
@@ -1793,7 +1798,7 @@ data:extend({
           shift = util.by_pixel(-10, 14),
           animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-west.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-west.png",
             frame_count = 24,
             line_length = 6,
             width = 68,
@@ -1814,7 +1819,7 @@ data:extend({
         west_position = util.by_pixel_hr(-32, -132),
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 46,
@@ -1822,7 +1827,7 @@ data:extend({
           animation_speed = 0.4,
           shift = util.by_pixel(-2, -40),
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
             frame_count = 47,
             line_length = 16,
             width = 90,
@@ -1843,7 +1848,7 @@ data:extend({
         west_position = util.by_pixel_hr(-32, -132),
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-inner.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-inner.png",
           frame_count = 47,
           line_length = 16,
           width = 20,
@@ -1851,7 +1856,7 @@ data:extend({
           animation_speed = 0.4,
           shift = util.by_pixel(0, -14),
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-inner.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-inner.png",
             frame_count = 47,
             line_length = 16,
             width = 40,
@@ -1941,7 +1946,7 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
@@ -1949,7 +1954,7 @@ data:extend({
         shift = util.by_pixel(1, -9),
         tint = {0.8, 0.8, 1, 1},
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -1960,7 +1965,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -1968,7 +1973,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,
@@ -2130,14 +2135,14 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
         line_length = 12,
         shift = util.by_pixel(1, -9),
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -2147,7 +2152,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -2155,7 +2160,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,

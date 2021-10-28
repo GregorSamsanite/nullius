@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 local boxed_item_type_list = {
   "ammo",
   "capsule",
@@ -41,7 +44,7 @@ local function boxed_icons(itemname)
 
   local box_icon = {
     {
-      icon = "__nullius__/graphics/crate.png",
+      icon = ICONPATH .. "crate.png",
       icon_size = 64
     },
     {
@@ -52,7 +55,7 @@ local function boxed_icons(itemname)
     }
   }
   local unbox_icon = util.table.deepcopy(box_icon)
-  unbox_icon[1].icon = "__nullius__/graphics/uncrate.png"
+  unbox_icon[1].icon = ICONPATH .. "uncrate.png"
 
   if (icons ~= nil) then
     for layer=2,9 do

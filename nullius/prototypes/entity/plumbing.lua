@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 require("pipe_graphics")
 
 data:extend({
@@ -50,7 +55,7 @@ data:extend({
         north = {
           layers = {
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_North.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -61,7 +66,7 @@ data:extend({
               scale = 0.75
             },
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North-shadow.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_North-shadow.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -77,7 +82,7 @@ data:extend({
         east = {
           layers = {
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_East.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -88,7 +93,7 @@ data:extend({
               scale = 0.75
             },
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East-shadow.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_East-shadow.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -104,7 +109,7 @@ data:extend({
         south = {
           layers = {
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_South.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -115,7 +120,7 @@ data:extend({
               scale = 0.75
             },
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South-shadow.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_South-shadow.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -131,7 +136,7 @@ data:extend({
         west = {
           layers = {
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_West.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -142,7 +147,7 @@ data:extend({
               scale = 0.75
             },
             {
-              filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West-shadow.png",
+              filename = BASEENTITY .. "offshore-pump/offshore-pump_West-shadow.png",
               priority = "high",
               line_length = 8,
               frame_count = 32,
@@ -158,7 +163,7 @@ data:extend({
       },
       fluid_animation = {
         north = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North-fluid.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_North-fluid.png",
           apply_runtime_tint = true,
           line_length = 8,
           frame_count = 32,
@@ -169,7 +174,7 @@ data:extend({
           scale = 0.75
         },
         east = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East-fluid.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_East-fluid.png",
           apply_runtime_tint = true,
           line_length = 8,
           frame_count = 32,
@@ -180,7 +185,7 @@ data:extend({
           scale = 0.75
         },
         south = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South-fluid.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_South-fluid.png",
           apply_runtime_tint = true,
           line_length = 8,
           frame_count = 32,
@@ -191,7 +196,7 @@ data:extend({
           scale = 0.75
         },
         west = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West-fluid.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_West-fluid.png",
           apply_runtime_tint = true,
           line_length = 8,
           frame_count = 32,
@@ -204,28 +209,28 @@ data:extend({
       },
       glass_pictures = {
         north = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North-glass.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_North-glass.png",
           width = 18,
           height = 20,
           shift = util.by_pixel(-2*0.75, -22*0.75),
           scale = 0.75
         },
         east = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East-glass.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_East-glass.png",
           width = 18,
           height = 18,
           shift = util.by_pixel(4*0.75-4, -14*0.75),
           scale = 0.75
         },
         south = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South-glass.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_South-glass.png",
           width = 22,
           height = 12,
           shift = util.by_pixel(-2*0.75, -6*0.75),
           scale = 0.75
         },
         west = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West-glass.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_West-glass.png",
           width = 16,
           height = 16,
           shift = util.by_pixel(-6*0.75+4, -14*0.75),
@@ -234,28 +239,28 @@ data:extend({
       },
       base_pictures = {
         north = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North-legs.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_North-legs.png",
           width = 60,
           height = 52,
           shift = util.by_pixel(-2*0.75, -4*0.75),
           scale = 0.75
         },
         east = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East-legs.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_East-legs.png",
           width = 54,
           height = 32,
           shift = util.by_pixel(4*0.75-4, 12*0.75),
           scale = 0.75
         },
         south = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South-legs.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_South-legs.png",
           width = 56,
           height = 54,
           shift = util.by_pixel(-2*0.75, 6*0.75),
           scale = 0.75
         },
         west = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West-legs.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_West-legs.png",
           width = 54,
           height = 32,
           shift = util.by_pixel(-6*0.75+4, 12*0.75),
@@ -264,28 +269,28 @@ data:extend({
       },
       underwater_pictures = {
         north = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_North-underwater.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_North-underwater.png",
           width = 52,
           height = 16,
           shift = util.by_pixel(-2*0.75, -34*0.75),
           scale = 0.75
         },
         east = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_East-underwater.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_East-underwater.png",
           width = 18,
           height = 38,
           shift = util.by_pixel(40*0.75-4, 16*0.75),
           scale = 0.75
         },
         south = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_South-underwater.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_South-underwater.png",
           width = 52,
           height = 26,
           shift = util.by_pixel(-2*0.75, 48*0.75),
           scale = 0.75
         },
         west = {
-          filename = "__base__/graphics/entity/offshore-pump/offshore-pump_West-underwater.png",
+          filename = BASEENTITY .. "offshore-pump/offshore-pump_West-underwater.png",
           width = 20,
           height = 34,
           shift = util.by_pixel(-40*0.75+4, 18*0.75),
@@ -295,7 +300,7 @@ data:extend({
     },
     water_reflection = {
       pictures = {
-        filename = "__base__/graphics/entity/offshore-pump/offshore-pump-reflection.png",
+        filename = BASEENTITY .. "offshore-pump/offshore-pump-reflection.png",
         priority = "extra-high",
         width = 132,
         height = 156,
@@ -400,7 +405,7 @@ data:extend({
       north = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -410,7 +415,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -422,7 +427,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well1entity.png",
+            filename = ENTITYPATH .. "wells/well1entity.png",
             animation_speed = 0.4,
             scale = 0.5,
             line_length = 8,
@@ -433,7 +438,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.4,
             draw_as_shadow = true,
             line_length = 8,
@@ -448,7 +453,7 @@ data:extend({
       east = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -459,7 +464,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -472,7 +477,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well1entity.png",
+            filename = ENTITYPATH .. "wells/well1entity.png",
             animation_speed = 0.4,
             scale = 0.5,
             line_length = 8,
@@ -483,7 +488,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.4,
             draw_as_shadow = true,
             line_length = 8,
@@ -498,7 +503,7 @@ data:extend({
       south = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -509,7 +514,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -522,7 +527,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well1entity.png",
+            filename = ENTITYPATH .. "wells/well1entity.png",
             animation_speed = 0.4,
             scale = 0.5,
             line_length = 8,
@@ -533,7 +538,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.4,
             draw_as_shadow = true,
             line_length = 8,
@@ -548,7 +553,7 @@ data:extend({
       west = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -559,7 +564,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -572,7 +577,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well1entity.png",
+            filename = ENTITYPATH .. "wells/well1entity.png",
             animation_speed = 0.4,
             scale = 0.5,
             line_length = 8,
@@ -583,7 +588,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.4,
             draw_as_shadow = true,
             line_length = 8,
@@ -642,7 +647,7 @@ data:extend({
       north = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -652,7 +657,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -664,7 +669,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well2entity.png",
+            filename = ENTITYPATH .. "wells/well2entity.png",
             animation_speed = 0.6,
             scale = 0.5,
             line_length = 8,
@@ -675,7 +680,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.6,
             draw_as_shadow = true,
             line_length = 8,
@@ -690,7 +695,7 @@ data:extend({
       east = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -701,7 +706,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -714,7 +719,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well2entity.png",
+            filename = ENTITYPATH .. "wells/well2entity.png",
             animation_speed = 0.6,
             scale = 0.5,
             line_length = 8,
@@ -725,7 +730,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.6,
             draw_as_shadow = true,
             line_length = 8,
@@ -740,7 +745,7 @@ data:extend({
       south = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -751,7 +756,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -764,7 +769,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well2entity.png",
+            filename = ENTITYPATH .. "wells/well2entity.png",
             animation_speed = 0.6,
             scale = 0.5,
             line_length = 8,
@@ -775,7 +780,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.6,
             draw_as_shadow = true,
             line_length = 8,
@@ -790,7 +795,7 @@ data:extend({
       west = {
         layers = {
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
             priority = "extra-high",
             width = 261,
             height = 273,
@@ -801,7 +806,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
             priority = "extra-high",
             width = 220,
             height = 220,
@@ -814,7 +819,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__nullius__/graphics/well2entity.png",
+            filename = ENTITYPATH .. "wells/well2entity.png",
             animation_speed = 0.6,
             scale = 0.5,
             line_length = 8,
@@ -825,7 +830,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.6,
             draw_as_shadow = true,
             line_length = 8,
@@ -1135,7 +1140,7 @@ data:extend({
         south_position = {-0.25, -5.9},
         west_position = {-0.05, -5.8},
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 46,
@@ -1143,7 +1148,7 @@ data:extend({
           scale = 1.2,
           animation_speed = 0.25,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
             frame_count = 47,
             line_length = 16,
             width = 90,
@@ -1198,7 +1203,7 @@ data:extend({
         constant_speed = true,
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 46,
@@ -1206,7 +1211,7 @@ data:extend({
           shift = {-0.22, -6.95},
           scale = 1.6,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
             frame_count = 47,
             line_length = 16,
             width = 90,
@@ -1779,7 +1784,7 @@ data:extend({
       picture = {
         sheets = {
           {
-            filename = "__nullius__/graphics/storage-tank-2.png",
+            filename = ENTITYPATH .. "storage-tank/storage-tank-2.png",
             priority = "extra-high",
             frames = 2,
             width = 219,
@@ -1789,7 +1794,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/storage-tank/storage-tank-shadow.png",
+            filename = BASEENTITY .. "storage-tank/storage-tank-shadow.png",
             priority = "extra-high",
             frames = 2,
             width = 146,
@@ -1797,7 +1802,7 @@ data:extend({
             shift = util.by_pixel(30, 22.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/storage-tank/hr-storage-tank-shadow.png",
+              filename = BASEENTITY .. "storage-tank/hr-storage-tank-shadow.png",
               priority = "extra-high",
               frames = 2,
               width = 291,
@@ -1819,8 +1824,8 @@ data:extend({
   {
     type = "storage-tank",
     name = "nullius-medium-tank-3",
-    icon = "__nullius__/graphics/tank2.png",
-    icon_size = 32,
+    icon = ICONPATH .. "tank2.png",
+    icon_size = 64,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time=0.5, result="nullius-medium-tank-3"},
     max_health = 600,
@@ -1856,7 +1861,7 @@ data:extend({
       picture = {
         sheets = {
           {
-            filename = "__nullius__/graphics/storage-tank-2.png",
+            filename = ENTITYPATH .. "storage-tank/storage-tank-2.png",
             priority = "extra-high",
             frames = 2,
             width = 219,
@@ -1865,7 +1870,7 @@ data:extend({
             scale = 0.5
           },
           {
-            filename = "__base__/graphics/entity/storage-tank/storage-tank-shadow.png",
+            filename = BASEENTITY .. "storage-tank/storage-tank-shadow.png",
             priority = "extra-high",
             frames = 2,
             width = 146,
@@ -1873,7 +1878,7 @@ data:extend({
             shift = util.by_pixel(30, 22.5),
             draw_as_shadow = true,
             hr_version = {
-              filename = "__base__/graphics/entity/storage-tank/hr-storage-tank-shadow.png",
+              filename = BASEENTITY .. "storage-tank/hr-storage-tank-shadow.png",
               priority = "extra-high",
               frames = 2,
               width = 291,
@@ -2325,7 +2330,7 @@ data:extend({
     module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      filename = BASEENTITY .. "pumpjack/pumpjack-radius-visualization.png",
       width = 12,
       height = 12
     },
@@ -2337,7 +2342,7 @@ data:extend({
     base_picture = {
       sheets = {
         {
-          filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+          filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
           priority = "extra-high",
           width = 261,
           height = 273,
@@ -2345,7 +2350,7 @@ data:extend({
           scale = 0.66667
         },
         {
-          filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+          filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
           width = 220,
           height = 220,
           scale = 0.66667,
@@ -2359,7 +2364,7 @@ data:extend({
         layers = {
           {
             priority = "high",
-            filename = "__nullius__/graphics/extractor1entity.png",
+            filename = ENTITYPATH .. "extractor/extractor1entity.png",
             animation_speed = 0.4,
             scale = 0.66667,
             line_length = 8,
@@ -2370,7 +2375,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.66667,
             draw_as_shadow = true,
             line_length = 8,
@@ -2431,7 +2436,7 @@ data:extend({
     module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     radius_visualisation_picture = {
-      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      filename = BASEENTITY .. "pumpjack/pumpjack-radius-visualization.png",
       width = 12,
       height = 12
     },
@@ -2443,7 +2448,7 @@ data:extend({
     base_picture = {
       sheets = {
         {
-          filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+          filename = BASEENTITY .. "pumpjack/hr-pumpjack-base.png",
           priority = "extra-high",
           width = 261,
           height = 273,
@@ -2451,7 +2456,7 @@ data:extend({
           scale = 0.66667
         },
         {
-          filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+          filename = BASEENTITY .. "pumpjack/hr-pumpjack-base-shadow.png",
           width = 220,
           height = 220,
           scale = 0.66667,
@@ -2465,7 +2470,7 @@ data:extend({
         layers = {
           {
             priority = "high",
-            filename = "__nullius__/graphics/extractor2entity.png",
+            filename = ENTITYPATH .. "extractor/extractor2entity.png",
             animation_speed = 0.6,
             scale = 0.66667,
             line_length = 8,
@@ -2476,7 +2481,7 @@ data:extend({
           },
           {
             priority = "high",
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+            filename = BASEENTITY .. "pumpjack/hr-pumpjack-horsehead-shadow.png",
             animation_speed = 0.66667,
             draw_as_shadow = true,
             line_length = 8,
@@ -2707,7 +2712,7 @@ data:extend({
   {
     type = "pump",
     name = "nullius-pump-1",
-    icon = "__nullius__/graphics/pump/yellow-pump.png",
+    icon = ICONPATH .. "yellow-pump.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
@@ -2755,7 +2760,7 @@ data:extend({
 
     animations = {
       north = {
-        filename="__nullius__/graphics/pump/yellow-pump-north.png",
+        filename = ENTITYPATH .. "pump/yellow-pump-north.png",
         width = 103,
         height = 164,
         scale = 0.5,
@@ -2765,7 +2770,7 @@ data:extend({
         shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
       },
       east = {
-        filename="__nullius__/graphics/pump/yellow-pump-east.png",
+        filename = ENTITYPATH .. "pump/yellow-pump-east.png",
         width = 130,
         height = 109,
         scale = 0.5,
@@ -2775,7 +2780,7 @@ data:extend({
         shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
       },
       south = {
-        filename="__nullius__/graphics/pump/yellow-pump-south.png",
+        filename = ENTITYPATH .. "pump/yellow-pump-south.png",
         width = 114,
         height = 160,
         scale = 0.5,
@@ -2785,7 +2790,7 @@ data:extend({
         shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
       },
       west = {
-        filename="__nullius__/graphics/pump/yellow-pump-west.png",
+        filename = ENTITYPATH .. "pump/yellow-pump-west.png",
         width = 131,
         height = 111,
         scale = 0.5,
@@ -2800,7 +2805,7 @@ data:extend({
   {
     type = "pump",
     name = "nullius-pump-2",
-    icon = "__nullius__/graphics/pump/blue-pump.png",
+    icon = ICONPATH .. "blue-pump.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
@@ -2848,7 +2853,7 @@ data:extend({
 
     animations = {
       north = {
-        filename="__nullius__/graphics/pump/blue-pump-north.png",
+        filename = ENTITYPATH .. "pump/blue-pump-north.png",
         width = 103,
         height = 164,
         scale = 0.5,
@@ -2858,7 +2863,7 @@ data:extend({
         shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
       },
       east = {
-        filename="__nullius__/graphics/pump/blue-pump-east.png",
+        filename = ENTITYPATH .. "pump/blue-pump-east.png",
         width = 130,
         height = 109,
         scale = 0.5,
@@ -2868,7 +2873,7 @@ data:extend({
         shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
       },
       south = {
-        filename="__nullius__/graphics/pump/blue-pump-south.png",
+        filename = ENTITYPATH .. "pump/blue-pump-south.png",
         width = 114,
         height = 160,
         scale = 0.5,
@@ -2878,7 +2883,7 @@ data:extend({
         shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
       },
       west = {
-        filename="__nullius__/graphics/pump/blue-pump-west.png",
+        filename = ENTITYPATH .. "pump/blue-pump-west.png",
         width = 131,
         height = 111,
         scale = 0.5,

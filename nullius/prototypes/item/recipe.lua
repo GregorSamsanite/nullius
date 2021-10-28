@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "recipe",
@@ -407,7 +410,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-splitter-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -528,7 +531,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-splitter-2"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -648,7 +651,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-splitter-3"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -770,11 +773,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-splitter-4"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/splitter4.png",
+        icon = ICONPATH .. "splitter4.png",
         icon_size = 64,
         scale = 0.45
       }

@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "item",
@@ -482,7 +485,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-pump-1",
-    icon = "__nullius__/graphics/pump/yellow-pump.png",
+    icon = ICONPATH .. "yellow-pump.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "pumping",
@@ -493,7 +496,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-pump-2",
-    icon = "__nullius__/graphics/pump/blue-pump.png",
+    icon = ICONPATH .. "blue-pump.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "pumping",
@@ -701,7 +704,7 @@ data:extend({
     name = "nullius-chimney-1",
     icons = {
       {
-        icon = "__nullius__/graphics/blank.png",
+        icon = ICONPATH .. "blank.png",
         icon_size = 32,
         scale = 1
       },
@@ -731,9 +734,9 @@ data:extend({
     name = "nullius-chimney-1",
     icons = {
       {
-        icon = "__nullius__/graphics/shadow2.png",
-        icon_size = 32,
-        scale = 1
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
       },
       {
         icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
@@ -966,7 +969,7 @@ data:extend({
     name = "nullius-outfall-1",
     icons = {
       {
-        icon = "__nullius__/graphics/blank.png",
+        icon = ICONPATH .. "blank.png",
         icon_size = 32,
         scale = 1
       },
@@ -996,9 +999,9 @@ data:extend({
     name = "nullius-outfall-1",
     icons = {
       {
-        icon = "__nullius__/graphics/shadow2.png",
-        icon_size = 32,
-        scale = 1
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
       },
       {
         icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
@@ -1036,7 +1039,7 @@ data:extend({
     type = "item",
     name = "nullius-seawater-intake-1",
     icons = {{
-      icon = "__nullius__/graphics/intake.png",
+      icon = ICONPATH .. "intake.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -1091,7 +1094,7 @@ data:extend({
     name = "nullius-air-filter-1",
     icons = {
       {
-        icon = "__nullius__/graphics/blank.png",
+        icon = ICONPATH .. "blank.png",
         icon_size = 32
       },
       {
@@ -1110,7 +1113,7 @@ data:extend({
     name = "nullius-air-filter-2",
     icons = {
       {
-        icon = "__nullius__/graphics/blank.png",
+        icon = ICONPATH .. "blank.png",
         icon_size = 32
       },
       {
@@ -1141,8 +1144,9 @@ data:extend({
     name = "nullius-air-filter-1",
     icons = {
       {
-        icon = "__nullius__/graphics/shadow2.png",
-        icon_size = 32
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
       },
       {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
@@ -1166,8 +1170,9 @@ data:extend({
     name = "nullius-air-filter-2",
     icons = {
       {
-        icon = "__nullius__/graphics/shadow2.png",
-        icon_size = 32
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
       },
       {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
@@ -1238,7 +1243,7 @@ data:extend({
         tint = {0.77, 0.77, 0.66, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -1274,7 +1279,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -1308,7 +1313,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -1357,7 +1362,7 @@ data:extend({
         tint = {0.77, 0.77, 0.66, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -1417,7 +1422,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -1477,7 +1482,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -1502,7 +1507,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-1",
     icons = {{
-        icon = "__nullius__/graphics/turbine/green-turbine.png",
+        icon = ICONPATH .. "green-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.5, 0.6, 0.55, 1}
@@ -1516,7 +1521,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-1",
     icons = {{
-        icon = "__nullius__/graphics/turbine/yellow-turbine.png",
+        icon = ICONPATH .. "yellow-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.65, 0.6, 0.5, 1}
@@ -1530,7 +1535,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-2",
     icons = {{
-        icon = "__nullius__/graphics/turbine/green-turbine.png",
+        icon = ICONPATH .. "green-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.75, 0.8, 0.75, 1}
@@ -1544,7 +1549,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-2",
     icons = {{
-        icon = "__nullius__/graphics/turbine/yellow-turbine.png",
+        icon = ICONPATH .. "yellow-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.8, 0.8, 0.75, 1}
@@ -1558,7 +1563,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-3",
     icons = {{
-        icon = "__nullius__/graphics/turbine/green-turbine.png",
+        icon = ICONPATH .. "green-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -1571,7 +1576,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-3",
     icons = {{
-        icon = "__nullius__/graphics/turbine/yellow-turbine.png",
+        icon = ICONPATH .. "yellow-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -1584,7 +1589,7 @@ data:extend({
     type = "item",
     name = "nullius-priority-turbine-1",
     icons = {{
-        icon = "__nullius__/graphics/turbine/red-turbine.png",
+        icon = ICONPATH .. "red-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.8, 0.75, 0.75, 1}
@@ -1598,7 +1603,7 @@ data:extend({
     type = "item",
     name = "nullius-priority-turbine-2",
     icons = {{
-        icon = "__nullius__/graphics/turbine/red-turbine.png",
+        icon = ICONPATH .. "red-turbine.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -1835,7 +1840,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-backup-turbine-2"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -1864,7 +1869,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-priority-turbine-1"].icons[1],
       {
-        icon = "__nullius__/graphics/down.png",
+        icon = ICONPATH .. "down.png",
         icon_size = 64,
         scale = 0.3,
         shift = {-8, 6}
@@ -1893,7 +1898,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-backup-turbine-3"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -1922,7 +1927,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-priority-turbine-2"].icons[1],
       {
-        icon = "__nullius__/graphics/down.png",
+        icon = ICONPATH .. "down.png",
         icon_size = 64,
         scale = 0.3,
         shift = {-8, 6}
@@ -1981,7 +1986,7 @@ data:extend({
         tint = {0.8, 0.8, 0.9}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2011,7 +2016,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2074,7 +2079,7 @@ data:extend({
         tint = {0.8, 0.8, 0.9}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2136,7 +2141,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2200,7 +2205,7 @@ data:extend({
         tint = {0.7, 0.7, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2234,7 +2239,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2301,7 +2306,7 @@ data:extend({
         tint = {0.7, 0.7, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2364,7 +2369,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2421,7 +2426,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2451,7 +2456,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2512,7 +2517,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2570,7 +2575,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2634,7 +2639,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2668,7 +2673,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2734,7 +2739,7 @@ data:extend({
         tint = {0.8, 0.8, 1, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2794,7 +2799,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -2864,7 +2869,7 @@ data:extend({
         tint = {0.8, 0.9, 1}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2896,7 +2901,7 @@ data:extend({
         tint = {0.8, 0.76, 0.85}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2926,7 +2931,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -2958,7 +2963,7 @@ data:extend({
         tint = {1, 0.85, 0.85}
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -3051,7 +3056,7 @@ data:extend({
         tint = {0.8, 0.76, 0.85}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -3096,7 +3101,7 @@ data:extend({
         tint = {0.8, 0.9, 1}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -3157,7 +3162,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -3216,7 +3221,7 @@ data:extend({
         tint = {1, 0.85, 0.85}
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -3247,7 +3252,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-electrolyzer-1"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -3277,7 +3282,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-electrolyzer-2"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -3307,7 +3312,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-electrolyzer-3"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -3377,8 +3382,8 @@ data:extend({
     type = "item",
     name = "nullius-medium-tank-2",
     icons = {{
-      icon = "__nullius__/graphics/tank2.png",
-      icon_size = 32,
+      icon = ICONPATH .. "tank2.png",
+      icon_size = 64,
       tint = {0.85, 0.9, 1}
     }},
     subgroup = "tanks",
@@ -3423,8 +3428,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-medium-tank-3",
-    icon = "__nullius__/graphics/tank2.png",
-    icon_size = 32,
+    icon = ICONPATH .. "tank2.png",
+    icon_size = 64,
     subgroup = "tanks",
     order = "nullius-bcd",
     place_result = "nullius-medium-tank-3",
@@ -3646,7 +3651,7 @@ data:extend({
     type = "item",
     name = "nullius-well-1",
     icons = {{
-      icon = "__nullius__/graphics/well1.png",
+      icon = ICONPATH .. "well1.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -3658,7 +3663,7 @@ data:extend({
     type = "item",
     name = "nullius-well-2",
     icons = {{
-      icon = "__nullius__/graphics/well2.png",
+      icon = ICONPATH .. "well2.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -3703,7 +3708,7 @@ data:extend({
     type = "item",
     name = "nullius-extractor-1",
     icons = {{
-      icon = "__nullius__/graphics/extractor1.png",
+      icon = ICONPATH .. "extractor1.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -3716,7 +3721,7 @@ data:extend({
     type = "item",
     name = "nullius-extractor-2",
     icons = {{
-      icon = "__nullius__/graphics/extractor2.png",
+      icon = ICONPATH .. "extractor2.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -3939,7 +3944,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-compressor-1"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -3969,7 +3974,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-compressor-2"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -3999,7 +4004,7 @@ data:extend({
     icons = {
       data.raw.item["nullius-surge-compressor-3"].icons[1],
       {
-        icon = "__nullius__/graphics/up.png",
+        icon = ICONPATH .. "up.png",
         icon_size = 64,
         scale = 0.3,
         shift = {8, -6}
@@ -4260,7 +4265,7 @@ data:extend({
     type = "item",
     name = "nullius-thermal-tank-1",
     icons = {{
-      icon = "__nullius__/graphics/icons/thermaltank1.png",
+      icon = ICONPATH .. "thermaltank1.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4272,7 +4277,7 @@ data:extend({
     type = "item",
     name = "nullius-thermal-tank-2",
     icons = {{
-      icon = "__nullius__/graphics/icons/thermaltank2.png",
+      icon = ICONPATH .. "thermaltank2.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4443,7 +4448,7 @@ data:extend({
     type = "item",
     name = "nullius-heat-exchanger-1",
     icons = {{
-      icon = "__nullius__/graphics/exchanger/exchanger1.png",
+      icon = ICONPATH .. "exchanger1.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4456,11 +4461,11 @@ data:extend({
     name = "nullius-mirror-heat-exchanger-1",
     icons = {
       {
-        icon = "__nullius__/graphics/exchanger/exchanger1.png",
+        icon = ICONPATH .. "exchanger1.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -4503,11 +4508,11 @@ data:extend({
         {"", {"entity-name.heat-exchanger"}, " ", 1}},
     icons = {
       {
-        icon = "__nullius__/graphics/exchanger/exchanger1.png",
+        icon = ICONPATH .. "exchanger1.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -4531,7 +4536,7 @@ data:extend({
     type = "item",
     name = "nullius-heat-exchanger-2",
     icons = {{
-      icon = "__nullius__/graphics/exchanger/exchanger2.png",
+      icon = ICONPATH .. "exchanger2.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4544,11 +4549,11 @@ data:extend({
     name = "nullius-mirror-heat-exchanger-2",
     icons = {
       {
-        icon = "__nullius__/graphics/exchanger/exchanger2.png",
+        icon = ICONPATH .. "exchanger2.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -4592,11 +4597,11 @@ data:extend({
         {"", {"entity-name.heat-exchanger"}, " ", 2}},
     icons = {
       {
-        icon = "__nullius__/graphics/exchanger/exchanger2.png",
+        icon = ICONPATH .. "exchanger2.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -4621,7 +4626,7 @@ data:extend({
     type = "item",
     name = "nullius-boiler",
     icons = {{
-      icon = "__nullius__/graphics/boiler/boiler.png",
+      icon = ICONPATH .. "boiler.png",
       icon_size = 64
     }},
     subgroup = "energy-storage",
@@ -4634,11 +4639,11 @@ data:extend({
     name = "nullius-mirror-boiler",
     icons = {
       {
-        icon = "__nullius__/graphics/boiler/boiler.png",
+        icon = ICONPATH .. "boiler.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -4682,11 +4687,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-unmirrored", {"entity-name.boiler"}},
     icons = {
       {
-        icon = "__nullius__/graphics/boiler/boiler.png",
+        icon = ICONPATH .. "boiler.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -4769,7 +4774,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip1.png",
+        icon = ICONPATH .. "flip1.png",
         icon_size = 64
       }
     },
@@ -4841,7 +4846,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/flip2.png",
+        icon = ICONPATH .. "flip2.png",
         icon_size = 64
       }
     },
@@ -4903,15 +4908,15 @@ data.raw.item["nullius-stirling-engine-3"].icons[2].tint = tiercolor("red")
 
 
 data.raw.item["nullius-pipe-2"].icons = {{
-  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon = ICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.recipe["nullius-steel-pipe"].icons[1] = {
-  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon = ICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }
 data.raw.recipe["nullius-plastic-pipe"].icons[1] = {
-  icon = "__nullius__/graphics/icons/pipe-red.png",
+  icon = ICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }
 data.raw.item["nullius-pipe-3"].icons = {{
@@ -4923,7 +4928,7 @@ data.raw.item["nullius-pipe-4"].icons = {{
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-underground-pipe-2"].icons = {{
-  icon = "__nullius__/graphics/icons/pipe-underground-red.png",
+  icon = ICONPATH .. "pipe-underground-red.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-underground-pipe-3"].icons = {{

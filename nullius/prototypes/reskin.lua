@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 local tiercolors = {
   ["grey"] = "707070",
   ["yellow"] = "deb900",

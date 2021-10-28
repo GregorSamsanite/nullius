@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "artillery-turret",
@@ -45,7 +50,7 @@ data:extend({
     base_picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base.png",
           priority = "high",
           width = 104,
           height = 100,
@@ -54,7 +59,7 @@ data:extend({
           shift = util.by_pixel(-0, 22),
           tint = {0.7, 0.7, 0.9},
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base.png",
             priority = "high",
             line_length = 1,
             width = 207,
@@ -67,7 +72,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base-shadow.png",
           priority = "high",
           line_length = 1,
           width = 138,
@@ -77,7 +82,7 @@ data:extend({
           shift = util.by_pixel(18, 38),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base-shadow.png",
             priority = "high",
             line_length = 1,
             width = 277,
@@ -139,7 +144,7 @@ data:extend({
     base_picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base.png",
           priority = "high",
           width = 104,
           height = 100,
@@ -147,7 +152,7 @@ data:extend({
           frame_count = 1,
           shift = util.by_pixel(-0, 22),
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base.png",
             priority = "high",
             line_length = 1,
             width = 207,
@@ -159,7 +164,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base-shadow.png",
           priority = "high",
           line_length = 1,
           width = 138,
@@ -169,7 +174,7 @@ data:extend({
           shift = util.by_pixel(18, 38),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base-shadow.png",
             priority = "high",
             line_length = 1,
             width = 277,
@@ -195,13 +200,13 @@ data:extend({
     height_from_ground = 280 / 64,
 
     picture = {
-      filename = "__base__/graphics/entity/distractor-robot/hr-distractor-robot.png",
+      filename = BASEENTITY .. "distractor-robot/hr-distractor-robot.png",
       width = 72,
       height = 62,
       scale = 0.5
     },
     shadow = {
-      filename = "__base__/graphics/entity/distractor-robot/hr-distractor-robot-shadow.png",
+      filename = BASEENTITY .. "distractor-robot/hr-distractor-robot-shadow.png",
       width = 96,
       height = 59,
       scale = 0.5
@@ -385,7 +390,7 @@ local function create_projectile(base_name, suffix, drone_picture, drone_shadow)
   local prefix = "nullius-"..base_name
   if (drone_picture == nil) then
     drone_picture = {
-      filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot.png",
+      filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot.png",
       width = 88,
       height = 77,
       x = 264,
@@ -394,7 +399,7 @@ local function create_projectile(base_name, suffix, drone_picture, drone_shadow)
   end
   if (drone_shadow == nil) then
     drone_shadow = {
-        filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot-shadow.png",
+      filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot-shadow.png",
       width = 108,
       height = 66,
       x = 324,
@@ -469,14 +474,14 @@ end
 
 local function create_terraform(base_name, suffix)
   local picture = {
-    filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot.png",
+    filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot.png",
     width = 88,
     height = 77,
     x = 264,
     scale = 0.5
   }
   local shadow = {
-    filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot-shadow.png",
+    filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot-shadow.png",
     width = 108,
     height = 66,
     x = 324,
@@ -507,14 +512,14 @@ local function create_farmer(base_name)
       chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
       height_from_ground = 280 / 64,
       picture = {
-        filename = "__base__/graphics/entity/defender-robot/hr-defender-robot.png",
+        filename = BASEENTITY .. "defender-robot/hr-defender-robot.png",
         width = 56,
         height = 59,
         x = 392,
         scale = 0.6
       },
       shadow = {
-        filename = "__base__/graphics/entity/defender-robot/hr-defender-robot-shadow.png",
+        filename = BASEENTITY .. "defender-robot/hr-defender-robot-shadow.png",
         width = 88,
         height = 50,
         x = 616,

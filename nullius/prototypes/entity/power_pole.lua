@@ -1,3 +1,8 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "electric-pole",
@@ -28,7 +33,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/hr-pole1.png",
+          filename = ENTITYPATH .. "poles/hr-pole1.png",
           priority = "extra-high",
           width = 72,
           height = 220,
@@ -70,7 +75,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/hr-pole2.png",
+          filename = ENTITYPATH .. "poles/hr-pole2.png",
           priority = "extra-high",
           width = 72,
           height = 220,
@@ -112,7 +117,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/hr-pole3.png",
+          filename = ENTITYPATH .. "poles/hr-pole3.png",
           priority = "extra-high",
           width = 84,
           height = 252,
@@ -180,7 +185,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__base__/graphics/entity/big-electric-pole/hr-big-electric-pole.png",
+          filename = BASEENTITY .. "big-electric-pole/hr-big-electric-pole.png",
           priority = "extra-high",
           width = 148,
           height = 312,
@@ -189,7 +194,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = "__base__/graphics/entity/big-electric-pole/hr-big-electric-pole-shadow.png",
+          filename = BASEENTITY .. "big-electric-pole/hr-big-electric-pole-shadow.png",
           priority = "extra-high",
           width = 374,
           height = 94,
@@ -229,7 +234,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/large-pole-3-entity.png",
+          filename = ENTITYPATH .. "poles/large-pole-3-entity.png",
           priority = "extra-high",
           width = 148,
           height = 312,
@@ -272,7 +277,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/substation-1-entity.png",
+          filename = ENTITYPATH .. "poles/substation-1-entity.png",
           priority = "high",
           width = 138,
           height = 270,
@@ -343,7 +348,7 @@ data:extend({
     pictures = {
       layers = {
         {
-          filename = "__nullius__/graphics/substation-3-entity.png",
+          filename = ENTITYPATH .. "poles/substation-3-entity.png",
           priority = "high",
           width = 138,
           height = 270,

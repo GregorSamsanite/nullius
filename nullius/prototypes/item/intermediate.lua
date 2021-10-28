@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "item",
@@ -269,7 +272,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -500,7 +503,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-copper-solution"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-copper-solution"].icons[2],
@@ -778,7 +781,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-crushed-limestone"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1004,7 +1007,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-slag-reprocessing"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1130,7 +1133,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-limestone-disposal"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1363,7 +1366,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/calcium.png",
+        icon = ICONPATH .. "calcium.png",
         icon_size = 64,
         scale = 0.25,
         shift = {9, -11}
@@ -1391,7 +1394,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1401,7 +1404,7 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__nullius__/graphics/icons/calcium.png",
+        icon = ICONPATH .. "calcium.png",
         icon_size = 64,
         scale = 0.2,
         shift = {8, -10}
@@ -1471,7 +1474,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-sodium-hydroxide",
-    icon = "__nullius__/graphics/icons/lye.png",
+    icon = ICONPATH .. "lye.png",
     icon_size = 64,
     subgroup = "sodium-product",
     order = "nullius-c",
@@ -1491,7 +1494,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-calcium",
-    icon = "__nullius__/graphics/icons/calcium.png",
+    icon = ICONPATH .. "calcium.png",
     icon_size = 64,
     subgroup = "calcium-product",
     order = "nullius-j",
@@ -1572,7 +1575,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-limestone-precipitation"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1640,7 +1643,7 @@ data:extend({
         {"recipe-name.nullius-gypsum-decomposition"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1709,7 +1712,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", 1},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1786,7 +1789,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -1853,7 +1856,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 1}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
@@ -1921,7 +1924,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 2}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
@@ -2036,7 +2039,7 @@ data:extend({
         {"recipe-name.nullius-calcium-chloride-decomposition"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2195,7 +2198,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2483,7 +2486,7 @@ data:extend({
     type = "item",
     name = "nullius-boron",
     icons = {{
-      icon = "__nullius__/graphics/icons/lye.png",
+      icon = ICONPATH .. "lye.png",
       icon_size = 64,
       tint = {0.4, 0.35, 0.3}
     }},
@@ -2495,7 +2498,7 @@ data:extend({
     type = "item",
     name = "nullius-acid-boric",
     icons = {{
-      icon = "__nullius__/graphics/icons/lye.png",
+      icon = ICONPATH .. "lye.png",
       icon_size = 64,
       tint = { 240, 172, 172 }
     }},
@@ -2744,7 +2747,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/sodium-hydroxide.png",
+        icon = ICONPATH .. "fluid/sodium-hydroxide.png",
         icon_size = 64,
         scale = 0.2,
         shift = {-11, -12}
@@ -2863,7 +2866,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/sodium-hydroxide.png",
+        icon = ICONPATH .. "fluid/sodium-hydroxide.png",
         icon_size = 64,
         scale = 0.2,
         shift = {11, -12}
@@ -3313,8 +3316,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-steel-gear",
-    icon = "__nullius__/graphics/steel-gear.png",
-    icon_size = 32,
+    icon = ICONPATH .. "steel-gear.png",
+    icon_size = 64,
     subgroup = "steel-product",
     order = "nullius-k",
     stack_size = 100
@@ -3732,7 +3735,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-motor-1",
-    icon = "__nullius__/graphics/motor1.png",
+    icon = ICONPATH .. "motor1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "mechanical-intermediate",
@@ -3752,7 +3755,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-motor-3",
-    icon = "__nullius__/graphics/motor3.png",
+    icon = ICONPATH .. "motor3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "mechanical-intermediate",
@@ -4054,7 +4057,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -4113,7 +4116,7 @@ data:extend({
         icon_size = 32
       },
       {
-        icon = "__nullius__/graphics/purewater.png",
+        icon = ICONPATH .. "fluid/purewater.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.25,
@@ -4317,7 +4320,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -4436,7 +4439,7 @@ data:extend({
     type = "item",
     name = "nullius-monocrystalline-silicon",
     icons = {{
-      icon = "__nullius__/graphics/icons/mono.png",
+      icon = ICONPATH .. "mono.png",
       icon_size = 64,
       tint = {0.8, 0.75, 0.7, 0.9}
     }},
@@ -4524,7 +4527,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-canister",
-    icon = "__nullius__/graphics/empty-canister.png",
+    icon = ICONPATH .. "empty-canister.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-c",
@@ -4662,7 +4665,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-filter-1"}}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -4861,7 +4864,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"item-name.nullius-mortar"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -4917,7 +4920,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/calcium-chloride.png",
+        icon = ICONPATH .. "fluid/calcium-chloride.png",
         icon_size = 64,
         scale = 0.24,
         shift = {-10, -10}
@@ -5483,7 +5486,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-sensor-2",
-    icon = "__nullius__/graphics/sensor2.png",
+    icon = ICONPATH .. "sensor2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
@@ -5590,7 +5593,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-bearing",
-    icon = "__nullius__/graphics/icons/bearing.png",
+    icon = ICONPATH .. "bearing.png",
     icon_size = 64,
     subgroup = "mechanical-intermediate",
     order = "nullius-e",
@@ -5803,7 +5806,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-textile"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -5871,7 +5874,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-titanium-tetrachloride"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       data.raw.fluid["nullius-titanium-tetrachloride"].icons[2],
@@ -5944,7 +5947,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/calcium.png",
+        icon = ICONPATH .. "calcium.png",
         icon_size = 64,
         scale = 0.25,
         shift = {10, -10}
@@ -5972,7 +5975,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -5982,7 +5985,7 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__nullius__/graphics/icons/calcium.png",
+        icon = ICONPATH .. "calcium.png",
         icon_size = 64,
         scale = 0.2,
         shift = {8, -10}
@@ -6142,7 +6145,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-robot-frame-1",
-    icon = "__nullius__/graphics/frame1.png",
+    icon = ICONPATH .. "frame1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
@@ -6152,7 +6155,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-robot-frame-2",
-    icon = "__nullius__/graphics/frame2.png",
+    icon = ICONPATH .. "frame2.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
@@ -6162,7 +6165,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-robot-frame-3",
-    icon = "__nullius__/graphics/frame3.png",
+    icon = ICONPATH .. "frame3.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
@@ -6172,7 +6175,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-robot-frame-4",
-    icon = "__nullius__/graphics/frame4.png",
+    icon = ICONPATH .. "frame4.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
@@ -6392,7 +6395,7 @@ data:extend({
     type = "item",
     name = "nullius-carbon-composite",
     icons = {{
-      icon = "__nullius__/graphics/icons/plate.png",
+      icon = ICONPATH .. "plate.png",
       icon_size = 64,
       tint = {0.35, 0.35, 0.45}
     }},
@@ -6435,7 +6438,7 @@ data:extend({
     type = "item",
     name = "nullius-graphene",
     icons = {{
-      icon = "__nullius__/graphics/icons/plate.png",
+      icon = ICONPATH .. "plate.png",
       icon_size = 64,
       tint = {0.4, 0.4, 0.4, 0.4}
     }},
@@ -6895,7 +6898,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-antimatter-trap",
-    icon = "__nullius__/graphics/antimatter-trap.png",
+    icon = ICONPATH .. "antimatter-trap.png",
     icon_size = 64,
     icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
@@ -6908,7 +6911,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-antimatter",
-    icon = "__nullius__/graphics/antimatter.png",
+    icon = ICONPATH .. "antimatter.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nuclear",

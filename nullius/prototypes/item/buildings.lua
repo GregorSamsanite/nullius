@@ -1,4 +1,5 @@
-
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
 
 data:extend({
   {
@@ -33,7 +34,7 @@ data:extend({
     type = "item",
     name = "nullius-small-furnace-2",
     icons = {{
-      icon = "__nullius__/graphics/furnace1.png",
+      icon = ICONPATH .. "furnace1.png",
       icon_size = 64
     }},
     subgroup = "furnace",
@@ -61,8 +62,8 @@ data:extend({
     type = "item",
     name = "nullius-small-furnace-3",
     icons = {{
-      icon = "__nullius__/graphics/furnace2s.png",
-      icon_size = 80,
+      icon = ICONPATH .. "furnace2s.png",
+      icon_size = 64,
       tint = {0.7, 0.7, 0.85}
     }},
     subgroup = "furnace",
@@ -119,7 +120,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-furnace-2",
     icons = {{
-      icon = "__nullius__/graphics/furnace2m.png",
+      icon = ICONPATH .. "furnace2m.png",
       icon_size = 64,
       tint = {0.65, 0.65, 0.8}
     }},
@@ -148,7 +149,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-furnace-3",
     icons = {{
-      icon = "__nullius__/graphics/furnace2m.png",
+      icon = ICONPATH .. "furnace2m.png",
       icon_size = 64
     }},
     subgroup = "furnace",
@@ -238,7 +239,7 @@ data:extend({
     type = "item",
     name = "nullius-small-assembler-1",
     icons = {{
-      icon = "__nullius__/graphics/assembler1s.png",
+      icon = ICONPATH .. "assembler1s.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -250,7 +251,7 @@ data:extend({
     type = "item",
     name = "nullius-small-assembler-2",
     icons = {{
-      icon = "__nullius__/graphics/assembler2s.png",
+      icon = ICONPATH .. "assembler2s.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -262,7 +263,7 @@ data:extend({
     type = "item",
     name = "nullius-small-assembler-3",
     icons = {{
-      icon = "__nullius__/graphics/assembler3s.png",
+      icon = ICONPATH .. "assembler3s.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -323,7 +324,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-assembler-1",
     icons = {{
-      icon = "__nullius__/graphics/assembler1m.png",
+      icon = ICONPATH .. "assembler1m.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -335,7 +336,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-assembler-2",
     icons = {{
-      icon = "__nullius__/graphics/assembler2m.png",
+      icon = ICONPATH .. "assembler2m.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -347,7 +348,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-assembler-3",
     icons = {{
-      icon = "__nullius__/graphics/assembler3m.png",
+      icon = ICONPATH .. "assembler3m.png",
       icon_size = 64
     }},
     subgroup = "assembler",
@@ -463,7 +464,7 @@ data:extend({
     type = "item",
     name = "nullius-small-miner-1",
     icons = {{
-      icon = "__nullius__/graphics/miner1.png",
+      icon = ICONPATH .. "miner1.png",
       icon_size = 64
     }},
     subgroup = "miner",
@@ -475,7 +476,7 @@ data:extend({
     type = "item",
     name = "nullius-small-miner-2",
     icons = {{
-      icon = "__nullius__/graphics/miner2s.png",
+      icon = ICONPATH .. "miner2s.png",
       icon_size = 64,
       tint = {0.6, 0.7, 0.8}
     }},
@@ -488,7 +489,7 @@ data:extend({
     type = "item",
     name = "nullius-small-miner-3",
     icons = {{
-      icon = "__nullius__/graphics/miner2s.png",
+      icon = ICONPATH .. "miner2s.png",
       icon_size = 64
     }},
     subgroup = "miner",
@@ -562,7 +563,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-miner-2",
     icons = {{
-      icon = "__nullius__/graphics/miner2m.png",
+      icon = ICONPATH .. "miner2m.png",
       icon_size = 64,
       tint = {0.6, 0.7, 0.8}
     }},
@@ -575,7 +576,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-miner-3",
     icons = {{
-      icon = "__nullius__/graphics/miner2m.png",
+      icon = ICONPATH .. "miner2m.png",
       icon_size = 64
     }},
     subgroup = "miner",
@@ -691,8 +692,8 @@ data:extend({
     type = "item",
     name = "nullius-wind-turbine-1",
     icons = {{
-      icon = "__nullius__/graphics/windturbine1.png",
-      icon_size = 144
+      icon = ICONPATH .. "windturbine1.png",
+      icon_size = 64
     }},
     subgroup = "energy",
     order = "nullius-db",
@@ -703,8 +704,8 @@ data:extend({
     type = "item",
     name = "nullius-wind-turbine-2",
     icons = {{
-      icon = "__nullius__/graphics/windturbine2.png",
-      icon_size = 144
+      icon = ICONPATH .. "windturbine2.png",
+      icon_size = 64
     }},
     subgroup = "energy",
     order = "nullius-dc",
@@ -715,8 +716,8 @@ data:extend({
     type = "item",
     name = "nullius-wind-turbine-3",
     icons = {{
-      icon = "__nullius__/graphics/windturbine3.png",
-      icon_size = 144
+      icon = ICONPATH .. "windturbine3.png",
+      icon_size = 64
     }},
     subgroup = "energy",
     order = "nullius-dd",
@@ -987,8 +988,8 @@ data:extend({
     type = "item",
     name = "nullius-small-chest-1",
     icons = {{
-      icon = "__nullius__/graphics/chest1.png",
-      icon_size = 80
+      icon = ICONPATH .. "chest1.png",
+      icon_size = 64
     }},
     subgroup = "storage",
     order = "nullius-bb",
@@ -999,8 +1000,8 @@ data:extend({
     type = "item",
     name = "nullius-small-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/chest2.png",
-      icon_size = 80
+      icon = ICONPATH .. "chest2.png",
+      icon_size = 64
     }},
     subgroup = "storage",
     order = "nullius-bc",
@@ -1011,7 +1012,7 @@ data:extend({
     type = "item",
     name = "nullius-small-chest-3",
     icons = {{
-      icon = "__nullius__/graphics/chest3s.png",
+      icon = ICONPATH .. "chest3s.png",
       icon_size = 64
     }},
     subgroup = "storage",
@@ -1080,7 +1081,7 @@ data:extend({
     type = "item",
     name = "nullius-large-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/chest3.png",
+      icon = ICONPATH .. "chest3.png",
       icon_size = 64
     }},
     subgroup = "storage",
@@ -1121,19 +1122,20 @@ data:extend({
     name = "nullius-small-storage-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-small.png",
-        icon_size = 80
+        icon = ICONPATH .. "logistic-small.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.9, g = 0.75, b = 0.1},
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       }
     },
     subgroup = "small-logistic-storage",
@@ -1145,8 +1147,8 @@ data:extend({
     type = "item",
     name = "nullius-small-storage-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/storage1.png",
-      icon_size = 80
+      icon = ICONPATH .. "storage1.png",
+      icon_size = 64
     }},
     subgroup = "small-logistic-storage",
     order = "nullius-bc",
@@ -1158,7 +1160,7 @@ data:extend({
     name = "nullius-large-storage-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-large.png",
+        icon = ICONPATH .. "logistic-large.png",
         icon_size = 64
       },
       {
@@ -1256,19 +1258,20 @@ data:extend({
     name = "nullius-small-supply-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-small.png",
-        icon_size = 80
+        icon = ICONPATH .. "logistic-small.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.9, g = 0.2, b = 0.1},
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       }
     },
     subgroup = "small-logistic-storage",
@@ -1280,8 +1283,8 @@ data:extend({
     type = "item",
     name = "nullius-small-supply-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/supply1.png",
-      icon_size = 80
+      icon = ICONPATH .. "supply1.png",
+      icon_size = 64
     }},
     subgroup = "small-logistic-storage",
     order = "nullius-cc",
@@ -1293,7 +1296,7 @@ data:extend({
     name = "nullius-large-supply-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-large.png",
+        icon = ICONPATH .. "logistic-large.png",
         icon_size = 64
       },
       {
@@ -1384,19 +1387,20 @@ data:extend({
     name = "nullius-small-demand-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-small.png",
-        icon_size = 80
+        icon = ICONPATH .. "logistic-small.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 98, g = 203, b = 230},
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       }
     },
     subgroup = "small-logistic-storage",
@@ -1408,8 +1412,8 @@ data:extend({
     type = "item",
     name = "nullius-small-demand-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/demand1.png",
-      icon_size = 80
+      icon = ICONPATH .. "demand1.png",
+      icon_size = 64
     }},
     subgroup = "small-logistic-storage",
     order = "nullius-dc",
@@ -1421,7 +1425,7 @@ data:extend({
     name = "nullius-large-demand-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-large.png",
+        icon = ICONPATH .. "logistic-large.png",
         icon_size = 64
       },
       {
@@ -1512,19 +1516,20 @@ data:extend({
     name = "nullius-small-buffer-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-small.png",
-        icon_size = 80
+        icon = ICONPATH .. "logistic-small.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.2, g = 0.9, b = 0.1},
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       }
     },
     subgroup = "small-logistic-storage",
@@ -1536,8 +1541,8 @@ data:extend({
     type = "item",
     name = "nullius-small-buffer-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/buffer1.png",
-      icon_size = 80
+      icon = ICONPATH .. "buffer1.png",
+      icon_size = 64
     }},
     subgroup = "small-logistic-storage",
     order = "nullius-ec",
@@ -1549,7 +1554,7 @@ data:extend({
     name = "nullius-large-buffer-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-large.png",
+        icon = ICONPATH .. "logistic-large.png",
         icon_size = 64
       },
       {
@@ -1640,19 +1645,20 @@ data:extend({
     name = "nullius-small-dispatch-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-small.png",
-        icon_size = 80
+        icon = ICONPATH .. "logistic-small.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.7, g = 0.1, b = 0.9},
         icon_size = 32,
-        scale = 0.7
+        scale = 0.5
       }
     },
     subgroup = "small-logistic-storage",
@@ -1664,8 +1670,8 @@ data:extend({
     type = "item",
     name = "nullius-small-dispatch-chest-2",
     icons = {{
-      icon = "__nullius__/graphics/dispatch1.png",
-      icon_size = 80
+      icon = ICONPATH .. "dispatch1.png",
+      icon_size = 64
     }},
     subgroup = "small-logistic-storage",
     order = "nullius-fc",
@@ -1677,7 +1683,7 @@ data:extend({
     name = "nullius-large-dispatch-chest-1",
     icons = {
       {
-        icon = "__nullius__/graphics/logistic-large.png",
+        icon = ICONPATH .. "logistic-large.png",
         icon_size = 64
       },
       {
@@ -1892,7 +1898,7 @@ data:extend({
     type = "item",
     name = "nullius-lab-1",
     icons = {{
-      icon = "__nullius__/graphics/lab/lab1.png",
+      icon = ICONPATH .. "lab1.png",
       icon_size = 64
     }},
     subgroup = "laboratory",
@@ -1921,7 +1927,7 @@ data:extend({
     type = "item",
     name = "nullius-lab-2",
     icons = {{
-      icon = "__nullius__/graphics/lab/lab2.png",
+      icon = ICONPATH .. "lab2.png",
       icon_size = 64
     }},
     subgroup = "laboratory",
@@ -1952,7 +1958,7 @@ data:extend({
     type = "item",
     name = "nullius-lab-3",
     icons = {{
-      icon = "__nullius__/graphics/lab/lab3.png",
+      icon = ICONPATH .. "lab3.png",
       icon_size = 64
     }},
     subgroup = "laboratory",
@@ -1981,7 +1987,7 @@ data:extend({
     type = "item",
     name = "nullius-biology-lab",
     icons = {{
-      icon = "__nullius__/graphics/lab/lab4.png",
+      icon = ICONPATH .. "lab4.png",
       icon_size = 64
     }},
     subgroup = "laboratory",
@@ -2010,7 +2016,7 @@ data:extend({
     type = "item",
     name = "nullius-beacon-1",
     icons = {{
-      icon = "__nullius__/graphics/beacon1.png",
+      icon = ICONPATH .. "beacon1.png",
       icon_size = 64,
       tint = {0.8, 0.9, 0.7}
     }},
@@ -2041,11 +2047,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-beacon-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/beacon1.png",
+        icon = ICONPATH .. "beacon1.png",
         icon_size = 64,
         tint = {0.9, 1, 0.8},
         scale = 0.45
@@ -2074,7 +2080,7 @@ data:extend({
     type = "item",
     name = "nullius-beacon-2",
     icons = {{
-      icon = "__nullius__/graphics/beacon2.png",
+      icon = ICONPATH .. "beacon2.png",
       tint = {0.9, 0.8, 1},
       icon_size = 64
     }},
@@ -2105,11 +2111,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-beacon-2"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/beacon2.png",
+        icon = ICONPATH .. "beacon2.png",
         icon_size = 64,
         tint = {0.9, 0.8, 1},
         scale = 0.45
@@ -2168,7 +2174,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-beacon-3"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2232,7 +2238,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-sensor-node-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2297,7 +2303,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-sensor-node-2"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2398,7 +2404,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"entity-name.nullius-logic-circuit"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2464,7 +2470,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"entity-name.nullius-memory-circuit"}}, " ", 2},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -2554,7 +2560,7 @@ data:extend({
     type = "item",
     name = "nullius-lamp-2",
     order = "nullius-bc",
-    icons = {{ icon = "__nullius__/graphics/lamp2.png", icon_size = 64 }},
+    icons = {{ icon = ICONPATH .. "lamp2.png", icon_size = 64 }},
     subgroup = "railway",
     place_result = "nullius-lamp-2",
     stack_size = 50
@@ -2581,7 +2587,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-improved", {"entity-name.nullius-lamp-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/lamp1.png",
+        icon = ICONPATH .. "lamp1.png",
         icon_size = 64
       },
       {
@@ -2670,7 +2676,7 @@ data:extend({
     type = "item",
     name = "nullius-power-pole-1",
     icons = {{
-      icon = "__nullius__/graphics/pole1.png",
+      icon = ICONPATH .. "pole1.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -2682,7 +2688,7 @@ data:extend({
     type = "item",
     name = "nullius-power-pole-2",
     icons = {{
-      icon = "__nullius__/graphics/pole2.png",
+      icon = ICONPATH .. "pole2.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -2694,7 +2700,7 @@ data:extend({
     type = "item",
     name = "nullius-power-pole-3",
     icons = {{
-      icon = "__nullius__/graphics/pole3.png",
+      icon = ICONPATH .. "pole3.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -2730,7 +2736,7 @@ data:extend({
     type = "item",
     name = "nullius-pylon-3",
     icons = {{
-      icon = "__nullius__/graphics/large-pole-3.png",
+      icon = ICONPATH .. "large-pole-3.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -2742,7 +2748,7 @@ data:extend({
     type = "item",
     name = "nullius-substation-1",
     icons = {{
-      icon = "__nullius__/graphics/substation1.png",
+      icon = ICONPATH .. "substation1.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -2766,7 +2772,7 @@ data:extend({
     type = "item",
     name = "nullius-substation-3",
     icons = {{
-      icon = "__nullius__/graphics/substation3.png",
+      icon = ICONPATH .. "substation3.png",
       icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "electric-pole",
@@ -3022,11 +3028,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-substation-1"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/substation1.png",
+        icon = ICONPATH .. "substation1.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -3071,7 +3077,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-substation-2"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
@@ -3121,11 +3127,11 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-substation-3"}},
     icons = {
       {
-        icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__nullius__/graphics/substation3.png",
+        icon = ICONPATH .. "substation3.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -3212,7 +3218,7 @@ data:extend({
     name = "nullius-solar-collector-1",
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 1},
     icons = {{
-      icon = "__nullius__/graphics/icons/collector1.png",
+      icon = ICONPATH .. "collector1.png",
       icon_size = 64
     }},
     subgroup = "geothermal",
@@ -3225,7 +3231,7 @@ data:extend({
     name = "nullius-solar-collector-2",
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 2},
     icons = {{
-      icon = "__nullius__/graphics/icons/collector2.png",
+      icon = ICONPATH .. "collector2.png",
       icon_size = 64
     }},
     subgroup = "geothermal",
@@ -3238,7 +3244,7 @@ data:extend({
     name = "nullius-solar-collector-3",
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 3},
     icons = {{
-      icon = "__nullius__/graphics/icons/collector3.png",
+      icon = ICONPATH .. "collector3.png",
       icon_size = 64
     }},
     subgroup = "geothermal",
@@ -3389,7 +3395,7 @@ data.raw.item["nullius-small-furnace-3"].icons = {
 
 data.raw.item["nullius-medium-furnace-2"].icons =
     util.table.deepcopy(data.raw.item["nullius-small-furnace-3"].icons)
-data.raw.item["nullius-medium-furnace-2"].icons[1].icon = "__nullius__/graphics/furnace2m.png"
+data.raw.item["nullius-medium-furnace-2"].icons[1].icon = ICONPATH .. "furnace2m.png"
 data.raw.item["nullius-medium-furnace-2"].icons[1].icon_size = 64
 data.raw.item["nullius-medium-furnace-2"].icons[2].scale = 0.4
 data.raw.item["nullius-medium-furnace-2"].icons[3].scale = 0.4
@@ -3426,17 +3432,17 @@ data.raw.item["nullius-large-miner-2"].icons =
 data.raw.item["nullius-large-miner-2"].icons[1].icon =  "__reskins-bobs__/graphics/icons/mining/electric-mining-drill/large-area-electric-mining-drill-icon-base.png"
 data.raw.item["nullius-large-miner-2"].icons[2].tint = {12, 110, 242}
 data.raw.item["nullius-small-miner-2"].icons =
-    {{ icon = "__nullius__/graphics/miner2sy.png", icon_size = 64 }}
+    {{ icon = ICONPATH .. "miner2sy.png", icon_size = 64 }}
 data.raw.item["nullius-small-miner-3"].icons =
-    {{ icon = "__nullius__/graphics/miner2sb.png", icon_size = 64 }}
+    {{ icon = ICONPATH .. "miner2sb.png", icon_size = 64 }}
 data.raw.item["nullius-medium-miner-2"].icons =
-    {{ icon = "__nullius__/graphics/miner2my.png", icon_size = 64 }}
+    {{ icon = ICONPATH .. "miner2my.png", icon_size = 64 }}
 data.raw.item["nullius-medium-miner-3"].icons =
-    {{ icon = "__nullius__/graphics/miner2mb.png", icon_size = 64 }}
+    {{ icon = ICONPATH .. "miner2mb.png", icon_size = 64 }}
 
 
 data.raw.item["nullius-beacon-1"].icons = {
-  { icon = "__nullius__/graphics/beacon1.png", icon_size = 64 },
+  { icon = ICONPATH .. "beacon1.png", icon_size = 64 },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
     icon_size = 64, tint = tiercolor("yellow"), scale = 0.4
@@ -3447,7 +3453,7 @@ data.raw.item["nullius-beacon-1"].icons = {
   }
 }
 data.raw.item["nullius-beacon-2"].icons = {
-  { icon = "__nullius__/graphics/beacon2.png", icon_size = 64 },
+  { icon = ICONPATH .. "beacon2.png", icon_size = 64 },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
     icon_size = 64, tint = tiercolor("red"), scale = 0.45

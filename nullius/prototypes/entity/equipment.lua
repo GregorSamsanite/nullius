@@ -1,3 +1,7 @@
+local BASEENTITY = "__base__/graphics/entity/"
+local ICONPATH = "__nullius__/graphics/icons/"
+local EQUIPPATH = "__nullius__/graphics/equipment/"
+
 data:extend({
   {
     type = "battery-equipment",
@@ -80,7 +84,7 @@ data:extend({
     take_result = "nullius-uncharged-battery-3",
     order = "be",
     sprite = {
-      filename = "__nullius__/graphics/battery3.png",
+      filename = EQUIPPATH .. "battery3.png",
       width = 64,
       height = 64,
       priority = "medium"
@@ -230,11 +234,11 @@ data:extend({
     order = "gb",
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar1.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "hangar1.png",
+      width = 192,
+      height = 192,
       priority = "medium",
-      scale = 1.5
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -257,7 +261,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -307,7 +311,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -330,11 +334,11 @@ data:extend({
     order = "gd",
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar3.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "hangar3.png",
+      width = 192,
+      height = 192,
       priority = "medium",
-      scale = 1.5
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -357,7 +361,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -380,10 +384,11 @@ data:extend({
     order = "ge",
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar3.png",
-      width = 64,
-      height = 64,
-      priority = "medium"
+      filename = EQUIPPATH .. "hangar4.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 2,
@@ -406,7 +411,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -455,7 +460,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -504,7 +509,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -553,7 +558,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -602,7 +607,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -654,7 +659,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -706,7 +711,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -758,7 +763,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -811,7 +816,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -863,11 +868,11 @@ data:extend({
     name = "nullius-night-vision-2",
     order = "ec",
     sprite = {
-      filename = "__nullius__/graphics/night-vision-2.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "night-vision-2.png",
+      width = 192,
+      height = 128,
       priority = "medium",
-      scale = 1.2
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -893,11 +898,11 @@ data:extend({
     name = "nullius-night-vision-3",
     order = "ed",
     sprite = {
-      filename = "__nullius__/graphics/night-vision-3.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "night-vision-3.png",
+      width = 192,
+      height = 128,
       priority = "medium",
-      scale = 1.2
+      scale = 0.5
     },
     shape = {
       width = 3,

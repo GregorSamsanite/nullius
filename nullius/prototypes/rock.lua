@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 for _,rock in pairs(data.raw["simple-entity"]) do
   local primary = nil
   local secondary = "stone"

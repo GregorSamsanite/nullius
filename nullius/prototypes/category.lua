@@ -1,3 +1,7 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+local CATEGORYPATH = "__nullius__/graphics/category/"
+
 data:extend({
   {
     type = "recipe-category",
@@ -552,8 +556,8 @@ data:extend({
     type = "item-group",
     name = "chemistry",
     order = "d",
-    icon_size = 64,
-    icon = "__nullius__/graphics/chemical-plant.png",
+    icon_size = 128,
+    icon = CATEGORYPATH .. "chemical-plant.png",
   },
   {
     type = "item-subgroup",
@@ -668,16 +672,8 @@ data:extend({
     type = "item-group",
     name = "biology",
     order = "h",
-    icons = {
-      {
-        icon = "__nullius__/graphics/shadow.png",
-        icon_size = 64
-      },
-      {
-        icon = "__nullius__/graphics/genome.png",
-        icon_size = 64
-      }
-    }
+    icon = CATEGORYPATH .. "group-biology.png",
+    icon_size = 128
   },
   {
     type = "item-subgroup",
@@ -982,21 +978,24 @@ data:extend({
     name = "boxed",
     order = "kb",
     icon_size = 64,
-    icon = "__nullius__/graphics/crate.png"
+    icon_mipmaps = 4,
+    icon = ICONPATH .. "crate.png"
   },
   {
     type = "item-group",
     name = "boxing",
     order = "kc",
     icon_size = 64,
-    icon = "__nullius__/graphics/boxing.png"
+    icon_mipmaps = 4,
+    icon = ICONPATH .. "boxing.png"
   },
   {
     type = "item-group",
     name = "unboxing",
     order = "kd",
     icon_size = 64,
-    icon = "__nullius__/graphics/unboxing.png"
+    icon_mipmaps = 4,
+    icon = ICONPATH .. "unboxing.png"
   },
   {
     type = "item-subgroup",

@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 local function create_drone(base_name, group, suborder, base_suffix, stack, flare, drone_icons, remote_icons, number)
   local prefix = "nullius-"..base_name
   local suffix = ""
@@ -10,7 +13,7 @@ local function create_drone(base_name, group, suborder, base_suffix, stack, flar
   end
   local drone_name = prefix.."-drone"..suffix
   local drone_icon = {
-    icon = "__nullius__/graphics/"..base_name..suffix..".png",
+    icon = ICONPATH .. base_name..suffix..".png",
     icon_size = 64
   }
   if (drone_icons == nil) then
@@ -19,7 +22,7 @@ local function create_drone(base_name, group, suborder, base_suffix, stack, flar
   if (remote_icons == nil) then
     remote_icons = {
       {
-        icon = "__nullius__/graphics/target.png",
+        icon = ICONPATH .. "target.png",
         icon_size = 64
       },
       drone_icon
@@ -157,7 +160,7 @@ end
 local function create_miner(mineral, suborder, group, landfill, iname, isize, itint)
   local drone_icons1 = {
     {
-      icon = "__nullius__/graphics/asteroid-miner-1.png",
+      icon = ICONPATH .. "asteroid-miner-1.png",
       icon_size = 64
     },
     {
@@ -170,7 +173,7 @@ local function create_miner(mineral, suborder, group, landfill, iname, isize, it
   }
   local drone_icons2 = {
     {
-      icon = "__nullius__/graphics/asteroid-miner-2.png",
+      icon = ICONPATH .. "asteroid-miner-2.png",
       icon_size = 64
     },
     {
@@ -183,7 +186,7 @@ local function create_miner(mineral, suborder, group, landfill, iname, isize, it
   }
   local remote_icons = {
     {
-      icon = "__nullius__/graphics/target.png",
+      icon = ICONPATH .. "target.png",
       icon_size = 64
     },
     {
@@ -230,7 +233,7 @@ local function create_miner(mineral, suborder, group, landfill, iname, isize, it
       localised_name = {"recipe-name.nullius-redeploy", {"item-name.nullius-guide-drone-"..mineral}},
       icons = {
         {
-          icon = "__nullius__/graphics/asteroid-miner-1.png",
+          icon = ICONPATH .. "asteroid-miner-1.png",
           icon_size = 64
         },
         {
@@ -290,7 +293,7 @@ local function create_farmer(base, suborder, species, spore, spore_count, remote
   }
   local remote_icons = {
     {
-      icon = "__nullius__/graphics/target.png",
+      icon = ICONPATH .. "target.png",
       icon_size = 64
     },
     {
@@ -367,10 +370,10 @@ create_miner("copper", "f", 2, "grey", "__base__/graphics/icons/copper-ore.png",
 create_miner("uranium", "g", 2, "grey", "__base__/graphics/icons/uranium-ore.png", 64)
 
 create_farmer("algaculture", "b", "algae", "algae-spore", 60, "excavation-remote",
-    "productivity-module-1", "__nullius__/graphics/algae.png",
+    "productivity-module-1", ICONPATH .. "algae.png",
     {"nullius-box-mineral-dust", 10}, {"nullius-bacteria-barrel", 1})
 create_farmer("horticulture", "c", "grass", "box-grass-seed", 20, "algaculture-remote",
-    "productivity-module-2", "__nullius__/graphics/grass.png",
+    "productivity-module-2", ICONPATH .. "grass.png",
     {"nullius-fertilizer", 20}, {"nullius-water-barrel", 10}, {"nullius-bacteria-barrel", 1})
 create_farmer("arboriculture", "d", "tree", "tree-seed", 40, "horticulture-remote",
     "productivity-module-2", "__base__/graphics/icons/tree-08.png",
@@ -419,7 +422,7 @@ data:extend({
   {
     type = "capsule",
     name = "nullius-scout-remote",
-    icon = "__nullius__/graphics/scout-remote.png",
+    icon = ICONPATH .. "scout-remote.png",
     icon_size = 64,
     capsule_action = {
       type = "artillery-remote",
@@ -622,7 +625,7 @@ data:extend({
     type = "item",
     name = "nullius-asteroid-miner-1",
     icons = {{
-      icon = "__nullius__/graphics/asteroid-miner-1.png",
+      icon = ICONPATH .. "asteroid-miner-1.png",
       icon_size = 64
     }},
     subgroup = "space",
@@ -661,7 +664,7 @@ data:extend({
     type = "item",
     name = "nullius-asteroid-miner-2",
     icons = {{
-      icon = "__nullius__/graphics/asteroid-miner-2.png",
+      icon = ICONPATH .. "asteroid-miner-2.png",
       icon_size = 64
     }},
     subgroup = "space",
@@ -699,7 +702,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-android"}, " ", 1},
     localised_description = {"item-description.nullius-android"},
     icons = {{
-      icon = "__nullius__/graphics/android1.png",
+      icon = ICONPATH .. "android1.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -714,7 +717,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-android"}, " ", 2},
     localised_description = {"item-description.nullius-android"},
     icons = {{
-      icon = "__nullius__/graphics/android2.png",
+      icon = ICONPATH .. "android2.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},

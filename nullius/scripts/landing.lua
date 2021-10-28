@@ -51,15 +51,15 @@ local ship_parts = {
     name = "nullius-landing-pod-1",
     angle_deviation = 0.05,
     min_separation = 3,
-	pod = 1
+  pod = 1
   },
   {
-	name = "nullius-landing-pylon",
+  name = "nullius-landing-pylon",
     angle_deviation = 0.05,
     min_separation = 3
   },
   {
-	name = "nullius-landing-duct",
+  name = "nullius-landing-duct",
     angle_deviation = 0.05,
     min_separation = 3
   },
@@ -72,7 +72,7 @@ local ship_parts = {
     name = "nullius-landing-pod-2",
     angle_deviation = 0.05,
     min_separation = 3,
-	pod = 2
+  pod = 2
   }
 }
 
@@ -132,19 +132,19 @@ function landing_site(surface, loc)
           forced = true
       } then
         if (part.min_separation == nil) or
-		    (surface.count_entities_filtered{position = part_position,
-		      radius = part.min_separation, limit = 1,
-			  type = {"simple-entity", "container"}} == 0) then
+        (surface.count_entities_filtered{position = part_position,
+          radius = part.min_separation, limit = 1,
+        type = {"simple-entity", "container"}} == 0) then
           break
         end
       end
       count = count + 1
       if count > 20 then
         part_position = surface.find_non_colliding_position(part.name,
-		    part_position, (((count - 20) * 5) + 25), 4)
-		if (part_position ~= nil) then
+        part_position, (((count - 20) * 5) + 25), 4)
+    if (part_position ~= nil) then
           break
-		end
+    end
       end
     end
 
@@ -153,15 +153,15 @@ function landing_site(surface, loc)
       position = part_position,
       force = "player"
     }
-	if (part.pod ~= nil) then
-	  if (part.pod == 1) then
-	    part_entity.insert({name="nullius-small-chest-1", count=2})
-	    part_entity.insert({name="inserter", count=25})
-	  else
-	    part_entity.insert({name="nullius-small-storage-chest-1", count=1})
-	    part_entity.insert({name="transport-belt", count=250})
-	    part_entity.insert({name="splitter", count=5})		
-	  end
-	end
+  if (part.pod ~= nil) then
+    if (part.pod == 1) then
+      part_entity.insert({name="nullius-small-chest-1", count=2})
+      part_entity.insert({name="inserter", count=25})
+    else
+      part_entity.insert({name="nullius-small-storage-chest-1", count=1})
+      part_entity.insert({name="transport-belt", count=250})
+      part_entity.insert({name="splitter", count=5})
+    end
+  end
   end
 end
