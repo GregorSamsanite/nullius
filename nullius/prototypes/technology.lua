@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local TECHPATH = "__nullius__/graphics/technology/"
 
@@ -1774,7 +1775,7 @@ data:extend({
     type = "technology",
     name = "nullius-boiling-1",
     order = "nullius-cl",
-    icon = ICONPATH .. "exchanger1.png",
+    icon = ENTICONPATH .. "exchanger1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     effects = {
@@ -1845,7 +1846,7 @@ data:extend({
     type = "technology",
     name = "nullius-solar-thermal-power-1",
     order = "nullius-cm",
-    icon = ICONPATH .. "collector1.png",
+    icon = ENTICONPATH .. "collector1.png",
     icon_size = 64,
     icon_mipmaps = 4,
     effects = {
@@ -1922,7 +1923,7 @@ data:extend({
     order = "nullius-cm",
     icon_size = 64,
     icon_mipmaps = 4,
-    icon = ICONPATH .. "methanol-canister.png",
+    icon = ICONPATH .. "canister-methanol.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -4700,7 +4701,7 @@ data:extend({
     order = "nullius-eh",
     icon_size = 64,
     icon_mipmaps = 4,
-    icon = ICONPATH .. "boiler.png",
+    icon = ENTICONPATH .. "boiler-blue.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -6751,7 +6752,7 @@ data:extend({
     name = "nullius-storage-3",
     order = "nullius-el",
     icon_size = 64,
-    icon = ICONPATH .. "chest3.png",
+    icon = ENTICONPATH .. "chest3.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -7222,7 +7223,7 @@ data:extend({
     type = "technology",
     name = "nullius-solar-thermal-power-2",
     order = "nullius-en",
-    icon = ICONPATH .. "collector2.png",
+    icon = ENTICONPATH .. "collector2.png",
     icon_size = 64,
     effects = {
       {
@@ -10717,7 +10718,7 @@ data:extend({
     type = "technology",
     name = "nullius-solar-thermal-power-3",
     order = "nullius-fn",
-    icon = ICONPATH .. "collector3.png",
+    icon = ENTICONPATH .. "collector3.png",
     icon_size = 64,
     effects = {
       {

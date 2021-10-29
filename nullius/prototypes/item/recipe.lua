@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 data:extend({
@@ -777,7 +778,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "splitter4.png",
+        icon = ENTICONPATH .. "splitter4.png",
         icon_size = 64,
         scale = 0.45
       }

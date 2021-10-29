@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local broken_overlay = {
@@ -90,7 +91,7 @@ data:extend({
     localised_name = {"item-name.nullius-broken", {"entity-name.nullius-pylon-1"}},
     icons = {
       {
-        icon = ICONPATH .. "large-pole-1.png",
+        icon = ENTICONPATH .. "large-pole-1.png",
         icon_size = 64, icon_mipmaps = 4
       },
       broken_overlay

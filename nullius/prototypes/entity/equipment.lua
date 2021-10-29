@@ -84,7 +84,7 @@ data:extend({
     take_result = "nullius-uncharged-battery-3",
     order = "be",
     sprite = {
-      filename = EQUIPPATH .. "battery3.png",
+      filename = ICONPATH .. "battery3.png",
       width = 64,
       height = 64,
       priority = "medium"
@@ -196,35 +196,37 @@ data:extend({
 })
 
 if mods["reskins-bobs"] then
-data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
-    size = 150,
-    priority = "medium"
-  },
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
-    size = 150,
-    priority = "medium",
-    tint = tiercolor("yellow")
-  },
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
-    size = 150,
-    priority = "medium",
-    blend_mode = "additive"
-  }
-}}
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
+      size = 150,
+      priority = "medium"
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
+      size = 150,
+      priority = "medium",
+      tint = tiercolor("yellow")
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
+      size = 150,
+      priority = "medium",
+      blend_mode = "additive"
+    }
+  }}
 
-data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite.layers[2].tint = tiercolor("red")
-data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite.layers[2].tint = tiercolor("blue")
-data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite.layers[2].tint = tiercolor("green")
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite.layers[2].tint = tiercolor("red")
+
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite.layers[2].tint = tiercolor("blue")
+
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite.layers[2].tint = tiercolor("green")
 end
 
 data:extend({
@@ -235,10 +237,10 @@ data:extend({
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
       filename = EQUIPPATH .. "hangar1.png",
-      width = 192,
-      height = 192,
+      width = 128,
+      height = 128,
       priority = "medium",
-      scale = 0.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -284,11 +286,11 @@ data:extend({
     order = "gc",
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__base__/graphics/equipment/personal-roboport-mk2-equipment.png",
-      width = 64,
-      height = 64,
+      filename = "__base__/graphics/equipment/hr-personal-roboport-mk2-equipment.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-      scale = 1.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -335,10 +337,10 @@ data:extend({
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
       filename = EQUIPPATH .. "hangar3.png",
-      width = 192,
-      height = 192,
+      width = 128,
+      height = 128,
       priority = "medium",
-      scale = 0.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -384,7 +386,7 @@ data:extend({
     order = "ge",
     localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = EQUIPPATH .. "hangar4.png",
+      filename = EQUIPPATH .. "hangar3.png", --hangar 4 is just a smaller version of h3
       width = 128,
       height = 128,
       priority = "medium",
@@ -869,7 +871,7 @@ data:extend({
     order = "ec",
     sprite = {
       filename = EQUIPPATH .. "night-vision-2.png",
-      width = 192,
+      width = 128,
       height = 128,
       priority = "medium",
       scale = 0.5
@@ -899,7 +901,7 @@ data:extend({
     order = "ed",
     sprite = {
       filename = EQUIPPATH .. "night-vision-3.png",
-      width = 192,
+      width = 128,
       height = 128,
       priority = "medium",
       scale = 0.5
@@ -930,10 +932,11 @@ data:extend({
     localised_description = {"equipment-description.nullius-levitation-field"},
     order = "fb",
     sprite = {
-      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
-      width = 32,
-      height = 32,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      width = 64,
+      height = 64,
+      priority = "medium",
+      scale = 1
     },
     shape = {
       width = 2,
@@ -956,10 +959,11 @@ data:extend({
     localised_description = {"equipment-description.nullius-levitation-field"},
     order = "fc",
     sprite = {
-      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
-      width = 32,
-      height = 32,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      width = 64,
+      height = 64,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 1,
@@ -981,11 +985,11 @@ data:extend({
     name = "nullius-leg-augmentation-1",
     order = "db",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-      scale = 1.375,
+      scale = 0.687,
       tint = {0.75, 0.75, 0.6}
     },
     shape = {
@@ -1009,11 +1013,11 @@ data:extend({
     name = "nullius-leg-augmentation-2",
     order = "dc",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-      scale = 1.375,
+      scale = 0.687,
       tint = {0.8, 0.8, 0.95}
     },
     shape = {
@@ -1037,11 +1041,11 @@ data:extend({
     name = "nullius-leg-augmentation-3",
     order = "dd",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-      scale = 1.375
+      scale = 0.687
     },
     shape = {
       width = 3,
@@ -1064,10 +1068,11 @@ data:extend({
     name = "nullius-leg-augmentation-4",
     order = "de",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 3,

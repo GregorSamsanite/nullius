@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local BASEENTITY = "__base__/graphics/entity/"
@@ -1336,7 +1337,7 @@ data:extend({
   {
     type = "lamp",
     name = "nullius-lamp-1",
-    icon = ICONPATH .. "lamp1.png",
+    icon = ENTICONPATH .. "lamp1.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "small-lamp"},
@@ -1443,7 +1444,7 @@ data:extend({
   {
     type = "lamp",
     name = "nullius-lamp-2",
-    icon = ICONPATH .. "lamp2.png",
+    icon = ENTICONPATH .. "lamp2.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "nullius-lamp-2"},

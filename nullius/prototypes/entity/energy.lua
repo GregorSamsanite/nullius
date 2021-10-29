@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local BASEENTITY = "__base__/graphics/entity/"
@@ -3004,7 +3005,7 @@ local function thermal_tank(tier, vert)
 
   tank.icons = {
     {
-      icon = ICONPATH .. "thermaltank"..tier..".png",
+      icon = ENTICONPATH .. "thermaltank"..tier..".png",
       icon_size = 64
     },
     {
