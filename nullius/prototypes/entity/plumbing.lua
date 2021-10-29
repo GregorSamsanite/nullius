@@ -2760,44 +2760,100 @@ data:extend({
 
     animations = {
       north = {
-        filename = ENTITYPATH .. "pump/yellow-pump-north.png",
-        width = 103,
-        height = 164,
-        scale = 0.5,
-        line_length = 8,
-        frame_count = 32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          }
+        }
       },
       east = {
-        filename = ENTITYPATH .. "pump/yellow-pump-east.png",
-        width = 130,
-        height = 109,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+        }
       },
       south = {
-        filename = ENTITYPATH .. "pump/yellow-pump-south.png",
-        width = 114,
-        height = 160,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+        }
       },
       west = {
-        filename = ENTITYPATH .. "pump/yellow-pump-west.png",
-        width = 131,
-        height = 111,
-        scale = 0.5,
-        line_length = 8,
-        frame_count = 32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+        }
       }
     }
   },
@@ -2853,44 +2909,100 @@ data:extend({
 
     animations = {
       north = {
-        filename = ENTITYPATH .. "pump/blue-pump-north.png",
-        width = 103,
-        height = 164,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          }
+        }
       },
       east = {
-        filename = ENTITYPATH .. "pump/blue-pump-east.png",
-        width = 130,
-        height = 109,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+        }
       },
       south = {
-        filename = ENTITYPATH .. "pump/blue-pump-south.png",
-        width = 114,
-        height = 160,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+        }
       },
       west = {
-        filename = ENTITYPATH .. "pump/blue-pump-west.png",
-        width = 131,
-        height = 111,
-        scale = 0.5,
-        line_length =8,
-        frame_count =32,
-        animation_speed = 0.5,
-        shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/hr-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+        }
       }
     }
   },
