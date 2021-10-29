@@ -1,6 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
-
 local BASEENTITY = "__base__/graphics/entity/"
 
 require("pipe_graphics")
@@ -1824,7 +1824,7 @@ data:extend({
   {
     type = "storage-tank",
     name = "nullius-medium-tank-3",
-    icon = ICONPATH .. "tank2.png",
+    icon = ENTICONPATH .. "tank2.png",
     icon_size = 64,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time=0.5, result="nullius-medium-tank-3"},
@@ -2364,7 +2364,7 @@ data:extend({
         layers = {
           {
             priority = "high",
-            filename = ENTITYPATH .. "extractor/extractor1entity.png",
+            filename = ENTITYPATH .. "wells/extractor1entity.png",
             animation_speed = 0.4,
             scale = 0.66667,
             line_length = 8,
@@ -2470,7 +2470,7 @@ data:extend({
         layers = {
           {
             priority = "high",
-            filename = ENTITYPATH .. "extractor/extractor2entity.png",
+            filename = ENTITYPATH .. "wells/extractor2entity.png",
             animation_speed = 0.6,
             scale = 0.66667,
             line_length = 8,
@@ -2712,7 +2712,7 @@ data:extend({
   {
     type = "pump",
     name = "nullius-pump-1",
-    icon = ICONPATH .. "yellow-pump.png",
+    icon = ENTICONPATH .. "pump-yellow.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
@@ -2805,7 +2805,7 @@ data:extend({
   {
     type = "pump",
     name = "nullius-pump-2",
-    icon = ICONPATH .. "blue-pump.png",
+    icon = ENTICONPATH .. "pump-blue.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},

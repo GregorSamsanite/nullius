@@ -80,7 +80,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = ICONPATH .. "chest3e.png",
+          filename = ENTITYPATH .. "chest/chest3e.png",
           priority = "extra-high",
           width = 68,
           height = 84,
@@ -170,7 +170,7 @@ data:extend({
     picture = {
       layers = {
         {
-          filename = ICONPATH .. "chest3e.png",
+          filename = ENTITYPATH .. "chest/chest3e.png",
           priority = "extra-high",
           width = 68,
           height = 84,

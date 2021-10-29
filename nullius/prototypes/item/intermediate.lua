@@ -4527,7 +4527,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-canister",
-    icon = ICONPATH .. "empty-canister.png",
+    icon = ICONPATH .. "canister-empty.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-c",

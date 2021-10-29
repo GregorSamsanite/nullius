@@ -1,6 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
-
 local BASEENTITY = "__base__/graphics/entity/"
 
 local wreck_flags =
@@ -456,7 +456,7 @@ data:extend({
   {
     type = "simple-entity",
     name = "nullius-landing-lab",
-    icon = ICONPATH .. "crash-site-lab-broken.png",
+    icon = ENTICONPATH .. "crash-site-lab-broken.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = wreck_flags,
@@ -511,7 +511,7 @@ data:extend({
   {
     type = "simple-entity",
     name = "nullius-landing-pylon",
-    icon = ICONPATH .. "crash-site-generator.png",
+    icon = ENTICONPATH .. "crash-site-generator.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = wreck_flags,
@@ -549,7 +549,7 @@ data:extend({
         {
           filename = ENTITYPATH .. "crash/hr-crash-site-generator.png",
           width = 286,
-          height= 252,
+          height = 252,
           shift = util.by_pixel(-11, -23),
           scale = 0.5
         },
@@ -676,7 +676,7 @@ data:extend({
   {
     type = "simple-entity",
     name = "nullius-landing-machine-1",
-    icon = ICONPATH .. "crash-site-assembling-machine-1-repaired.png",
+    icon = ENTICONPATH .. "crash-site-assembling-machine-1-repaired.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = wreck_flags,
@@ -727,7 +727,7 @@ data:extend({
   {
     type = "simple-entity",
     name = "nullius-landing-machine-2",
-    icon = ICONPATH .. "crash-site-assembling-machine-2-repaired.png",
+    icon = ENTICONPATH .. "crash-site-assembling-machine-2-repaired.png",
     icon_size = 64,
     icon_mipmaps = 4,
     flags = wreck_flags,

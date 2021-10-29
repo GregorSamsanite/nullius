@@ -3933,7 +3933,7 @@ data:extend({
 
 if mods["aai-industry"] then
 data.raw.item["processed-fuel"].localised_name = {"item-name.nullius-methanol-canister"}
-data.raw.item["processed-fuel"].icon = ICONPATH .. "methanol-canister.png"
+data.raw.item["processed-fuel"].icon = ICONPATH .. "canister-methanol.png"
 data.raw.item["processed-fuel"].icon_size = 64
 data.raw.item["processed-fuel"].subgroup = "canisters"
 data.raw.item["processed-fuel"].order = "nullius-e"
@@ -3949,7 +3949,7 @@ data:extend({
     type = "item",
     name = "processed-fuel",
     localised_name = {"item-name.nullius-methanol-canister"},
-    icon = ICONPATH .. "methanol-canister.png",
+    icon = ICONPATH .. "canister-methanol.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-e",
@@ -3967,7 +3967,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hydrogen-canister",
-    icon = ICONPATH .. "hydrogen-canister.png",
+    icon = ICONPATH .. "canister-hydrogen.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-d",
@@ -3981,7 +3981,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-biodiesel-canister",
-    icon = ICONPATH .. "biodiesel-canister.png",
+    icon = ICONPATH .. "canister-biodiesel.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-f",
@@ -3995,7 +3995,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-water-canister",
-    icon = ICONPATH .. "water-canister.png",
+    icon = ICONPATH .. "canister-water.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-g",
@@ -4006,7 +4006,7 @@ data:extend({
     name = "nullius-canister-emptying",
     enabled = false,
     category = "nullius-unbarrel",
-    icon = ICONPATH .. "water-canister.png",
+    icon = ICONPATH .. "canister-water.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-h",
@@ -4034,7 +4034,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "water-canister.png",
+        icon = ICONPATH .. "canister-water.png",
         icon_size = 64,
         scale = 0.45
       }
@@ -4063,7 +4063,7 @@ data:extend({
     name = "nullius-hydrogen-canister-1",
     icons = {
       {
-        icon = ICONPATH .. "hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64
       },
       {
@@ -4100,7 +4100,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4136,7 +4136,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-hydrogen-canister"}},
     icons = {
       {
-        icon = ICONPATH .. "hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64
       },
       {
@@ -4175,7 +4175,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4211,7 +4211,7 @@ data:extend({
     name = "nullius-methanol-canister-1",
     icons = {
       {
-        icon = ICONPATH .. "methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64
       },
       {
@@ -4249,7 +4249,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64,
         scale = 0.45
       },
@@ -4286,7 +4286,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
     icons = {
       {
-        icon = ICONPATH .. "methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64
       },
       {
@@ -4325,7 +4325,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64,
         scale = 0.45
       },

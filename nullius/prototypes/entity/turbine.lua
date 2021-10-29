@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local TURBINEP = ENTITYPATH .. "windturbine/"
 
@@ -147,7 +148,7 @@ for i=1,3 do
     {
       type = "electric-energy-interface",
       name = "nullius-wind-base-"..i,
-      icon = ICONPATH .. "windturbine"..i..".png",
+      icon = ENTICONPATH .. "windturbine"..i..".png",
       icon_size = 64,
       flags = {"placeable-neutral","player-creation"},
       minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},

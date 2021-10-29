@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local transitions = require("__alien-biomes__/prototypes/tile/tile-transitions-static")
@@ -8,7 +9,7 @@ data:extend({
     type = "item",
     name = "nullius-land-fill-gravel",
     localised_description = {"item-description.landfill"},
-    icon = ICONPATH .. "landfill-grey.png",
+    icon = ENTICONPATH .. "landfill-grey.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "terrain",
@@ -24,7 +25,7 @@ data:extend({
     type = "item",
     name = "nullius-land-fill-sand",
     localised_description = {"item-description.landfill"},
-    icon = ICONPATH .. "landfill-tan.png",
+    icon = ENTICONPATH .. "landfill-tan.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "terrain",
@@ -40,7 +41,7 @@ data:extend({
     type = "item",
     name = "nullius-land-fill-bauxite",
     localised_description = {"item-description.landfill"},
-    icon = ICONPATH .. "landfill-brown.png",
+    icon = ENTICONPATH .. "landfill-brown.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "terrain",
@@ -56,7 +57,7 @@ data:extend({
     type = "item",
     name = "nullius-land-fill-iron",
     localised_description = {"item-description.landfill"},
-    icon = ICONPATH .. "landfill-red.png",
+    icon = ENTICONPATH .. "landfill-red.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "terrain",
@@ -72,7 +73,7 @@ data:extend({
     type = "item",
     name = "nullius-land-fill-limestone",
     localised_description = {"item-description.landfill"},
-    icon = ICONPATH .. "landfill-beige.png",
+    icon = ENTICONPATH .. "landfill-beige.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "terrain",
@@ -179,7 +180,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-grey-2"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-grey.png",
+        icon = ENTICONPATH .. "landfill-grey.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -229,7 +230,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-tan-2"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-tan.png",
+        icon = ENTICONPATH .. "landfill-tan.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -279,7 +280,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-brown-2"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-brown.png",
+        icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -329,7 +330,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-red-2"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-red.png",
+        icon = ENTICONPATH .. "landfill-red.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -377,7 +378,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-beige-2"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-beige.png",
+        icon = ENTICONPATH .. "landfill-beige.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -425,7 +426,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-land-fill-sludge"},
     icons = {
       {
-        icon = ICONPATH .. "landfill-brown.png",
+        icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -463,7 +464,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "landfill-brown.png",
+        icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45

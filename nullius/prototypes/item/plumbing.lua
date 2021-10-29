@@ -1,4 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 data:extend({
@@ -485,7 +486,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-pump-1",
-    icon = ICONPATH .. "yellow-pump.png",
+    icon = ENTICONPATH .. "pump-yellow.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "pumping",
@@ -496,7 +497,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-pump-2",
-    icon = ICONPATH .. "blue-pump.png",
+    icon = ENTICONPATH .. "pump-blue.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "pumping",
@@ -1039,7 +1040,7 @@ data:extend({
     type = "item",
     name = "nullius-seawater-intake-1",
     icons = {{
-      icon = ICONPATH .. "intake.png",
+      icon = ENTICONPATH .. "intake.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -1507,7 +1508,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-1",
     icons = {{
-        icon = ICONPATH .. "green-turbine.png",
+        icon = ENTICONPATH .. "turbine-green.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.5, 0.6, 0.55, 1}
@@ -1521,7 +1522,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-1",
     icons = {{
-        icon = ICONPATH .. "yellow-turbine.png",
+        icon = ENTICONPATH .. "turbine-yellow.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.65, 0.6, 0.5, 1}
@@ -1535,7 +1536,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-2",
     icons = {{
-        icon = ICONPATH .. "green-turbine.png",
+        icon = ENTICONPATH .. "turbine-green.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.75, 0.8, 0.75, 1}
@@ -1549,7 +1550,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-2",
     icons = {{
-        icon = ICONPATH .. "yellow-turbine.png",
+        icon = ENTICONPATH .. "turbine-yellow.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.8, 0.8, 0.75, 1}
@@ -1563,7 +1564,7 @@ data:extend({
     type = "item",
     name = "nullius-backup-turbine-3",
     icons = {{
-        icon = ICONPATH .. "green-turbine.png",
+        icon = ENTICONPATH .. "turbine-green.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -1576,7 +1577,7 @@ data:extend({
     type = "item",
     name = "nullius-standard-turbine-3",
     icons = {{
-        icon = ICONPATH .. "yellow-turbine.png",
+        icon = ENTICONPATH .. "turbine-yellow.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -1589,7 +1590,7 @@ data:extend({
     type = "item",
     name = "nullius-priority-turbine-1",
     icons = {{
-        icon = ICONPATH .. "red-turbine.png",
+        icon = ENTICONPATH .. "turbine-red.png",
         icon_size = 64,
         icon_mipmaps = 4,
         tint = {0.8, 0.75, 0.75, 1}
@@ -1603,7 +1604,7 @@ data:extend({
     type = "item",
     name = "nullius-priority-turbine-2",
     icons = {{
-        icon = ICONPATH .. "red-turbine.png",
+        icon = ENTICONPATH .. "turbine-red.png",
         icon_size = 64,
         icon_mipmaps = 4
     }},
@@ -3382,7 +3383,7 @@ data:extend({
     type = "item",
     name = "nullius-medium-tank-2",
     icons = {{
-      icon = ICONPATH .. "tank2.png",
+      icon = ENTICONPATH .. "tank2.png",
       icon_size = 64,
       tint = {0.85, 0.9, 1}
     }},
@@ -3428,7 +3429,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-medium-tank-3",
-    icon = ICONPATH .. "tank2.png",
+    icon = ENTICONPATH .. "tank2.png",
     icon_size = 64,
     subgroup = "tanks",
     order = "nullius-bcd",
@@ -3651,7 +3652,7 @@ data:extend({
     type = "item",
     name = "nullius-well-1",
     icons = {{
-      icon = ICONPATH .. "well1.png",
+      icon = ENTICONPATH .. "well1.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -3663,7 +3664,7 @@ data:extend({
     type = "item",
     name = "nullius-well-2",
     icons = {{
-      icon = ICONPATH .. "well2.png",
+      icon = ENTICONPATH .. "well2.png",
       icon_size = 64
     }},
     subgroup = "water-intake",
@@ -3708,7 +3709,7 @@ data:extend({
     type = "item",
     name = "nullius-extractor-1",
     icons = {{
-      icon = ICONPATH .. "extractor1.png",
+      icon = ENTICONPATH .. "well-extractor1.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -3721,7 +3722,7 @@ data:extend({
     type = "item",
     name = "nullius-extractor-2",
     icons = {{
-      icon = ICONPATH .. "extractor2.png",
+      icon = ENTICONPATH .. "well-extractor2.png",
       icon_size = 64,
       icon_mipmaps = 4
     }},
@@ -4265,7 +4266,7 @@ data:extend({
     type = "item",
     name = "nullius-thermal-tank-1",
     icons = {{
-      icon = ICONPATH .. "thermaltank1.png",
+      icon = ENTICONPATH .. "thermaltank1.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4277,7 +4278,7 @@ data:extend({
     type = "item",
     name = "nullius-thermal-tank-2",
     icons = {{
-      icon = ICONPATH .. "thermaltank2.png",
+      icon = ENTICONPATH .. "thermaltank2.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4448,7 +4449,7 @@ data:extend({
     type = "item",
     name = "nullius-heat-exchanger-1",
     icons = {{
-      icon = ICONPATH .. "exchanger1.png",
+      icon = ENTICONPATH .. "exchanger1.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4461,7 +4462,7 @@ data:extend({
     name = "nullius-mirror-heat-exchanger-1",
     icons = {
       {
-        icon = ICONPATH .. "exchanger1.png",
+        icon = ENTICONPATH .. "exchanger1.png",
         icon_size = 64
       },
       {
@@ -4508,7 +4509,7 @@ data:extend({
         {"", {"entity-name.heat-exchanger"}, " ", 1}},
     icons = {
       {
-        icon = ICONPATH .. "exchanger1.png",
+        icon = ENTICONPATH .. "exchanger1.png",
         icon_size = 64
       },
       {
@@ -4536,7 +4537,7 @@ data:extend({
     type = "item",
     name = "nullius-heat-exchanger-2",
     icons = {{
-      icon = ICONPATH .. "exchanger2.png",
+      icon = ENTICONPATH .. "exchanger2.png",
       icon_size = 64
     }},
     subgroup = "heat-energy",
@@ -4549,7 +4550,7 @@ data:extend({
     name = "nullius-mirror-heat-exchanger-2",
     icons = {
       {
-        icon = ICONPATH .. "exchanger2.png",
+        icon = ENTICONPATH .. "exchanger2.png",
         icon_size = 64
       },
       {
@@ -4597,7 +4598,7 @@ data:extend({
         {"", {"entity-name.heat-exchanger"}, " ", 2}},
     icons = {
       {
-        icon = ICONPATH .. "exchanger2.png",
+        icon = ENTICONPATH .. "exchanger2.png",
         icon_size = 64
       },
       {
@@ -4626,7 +4627,7 @@ data:extend({
     type = "item",
     name = "nullius-boiler",
     icons = {{
-      icon = ICONPATH .. "boiler.png",
+      icon = ENTICONPATH .. "boiler-blue.png",
       icon_size = 64
     }},
     subgroup = "energy-storage",
@@ -4639,7 +4640,7 @@ data:extend({
     name = "nullius-mirror-boiler",
     icons = {
       {
-        icon = ICONPATH .. "boiler.png",
+        icon = ENTICONPATH .. "boiler-blue.png",
         icon_size = 64
       },
       {
@@ -4687,7 +4688,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-unmirrored", {"entity-name.boiler"}},
     icons = {
       {
-        icon = ICONPATH .. "boiler.png",
+        icon = ENTICONPATH .. "boiler-blue.png",
         icon_size = 64
       },
       {
@@ -4908,15 +4909,15 @@ data.raw.item["nullius-stirling-engine-3"].icons[2].tint = tiercolor("red")
 
 
 data.raw.item["nullius-pipe-2"].icons = {{
-  icon = ICONPATH .. "pipe-red.png",
+  icon = ENTICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.recipe["nullius-steel-pipe"].icons[1] = {
-  icon = ICONPATH .. "pipe-red.png",
+  icon = ENTICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }
 data.raw.recipe["nullius-plastic-pipe"].icons[1] = {
-  icon = ICONPATH .. "pipe-red.png",
+  icon = ENTICONPATH .. "pipe-red.png",
   icon_size = 64, icon_mipmaps = 4
 }
 data.raw.item["nullius-pipe-3"].icons = {{
@@ -4928,7 +4929,7 @@ data.raw.item["nullius-pipe-4"].icons = {{
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-underground-pipe-2"].icons = {{
-  icon = ICONPATH .. "pipe-underground-red.png",
+  icon = ENTICONPATH .. "pipe-underground-red.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-underground-pipe-3"].icons = {{
