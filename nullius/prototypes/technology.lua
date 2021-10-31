@@ -1814,9 +1814,9 @@ data:extend({
     type = "technology",
     name = "nullius-chirality-1",
     order = "nullius-cm",
-    icon_size = 64,
+    icon_size = 254,
     icon_mipmaps = 4,
-    icon = ICONPATH .. "chiral.png",
+    icon = TECHPATH .. "chiral.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -3658,9 +3658,9 @@ data:extend({
     type = "technology",
     name = "nullius-chirality-2",
     order = "nullius-dl",
-    icon_size = 64,
+    icon_size = 254,
     icon_mipmaps = 4,
-    icon = ICONPATH .. "chiral.png",
+    icon = TECHPATH .. "chiral.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -4435,9 +4435,9 @@ data:extend({
     type = "technology",
     name = "nullius-chirality-3",
     order = "nullius-ef",
-    icon_size = 64,
+    icon_size = 254,
     icon_mipmaps = 4,
-    icon = ICONPATH .. "chiral.png",
+    icon = TECHPATH .. "chiral.png",
     effects = {
       {
         type = "unlock-recipe",
