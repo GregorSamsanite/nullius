@@ -2880,18 +2880,42 @@ data:extend({
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
     picture = {
-      filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
-      width = 180,
-      height = 180,
-      scale = 0.73,
-      shift = {0.3,-0.3}
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3},
+          draw_as_shadow = true,
+        },
+      }
     },
     working_light_picture = {
-      filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
-      width = 180,
-      height = 180,
-      scale = 0.73,
-      shift = {0.28,-0.3}
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank1.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
+          shift = {0.28,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.28,-0.3},
+          draw_as_shadow = true,
+        },
+      }
     },
     neighbour_bonus = 0,
     heat_buffer = {
@@ -2945,18 +2969,42 @@ data:extend({
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
     picture = {
-      filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
-      width = 180,
-      height = 180,
-      scale = 0.73,
-      shift = {0.28,-0.3}
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3},
+          draw_as_shadow = true,
+        },
+      }
     },
     working_light_picture = {
-      filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
-      width = 180,
-      height = 180,
-      scale = 0.73,
-      shift = {0.28,-0.3}
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3},
+          draw_as_shadow = true,
+        },
+      }
     },
     neighbour_bonus = 0,
     heat_buffer = {
@@ -3083,6 +3131,14 @@ data:extend({
               shift = {0.28,-0.3}
             },
             {
+              filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+              width = 230,
+              height = 180,
+              scale = 0.73,
+              shift = {0.3,-0.3},
+              draw_as_shadow = true,
+            },
+            {
               filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
               width = 74,
               height = 117,
@@ -3106,6 +3162,14 @@ data:extend({
               height = 180,
               scale = 0.73,
               shift = {0.28,-0.3}
+            },
+            {
+              filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+              width = 230,
+              height = 180,
+              scale = 0.73,
+              shift = {0.3,-0.3},
+              draw_as_shadow = true,
             },
             {
               filename = BASEENTITY .. "fire-flame/fire-flame-03.png",
