@@ -1,16 +1,21 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "artillery-turret",
     name = "nullius-drone-launcher-1",
-	icons = data.raw.item["nullius-drone-launcher-1"].icons,
+    icons = data.raw.item["nullius-drone-launcher-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     inventory_size = 3,
     ammo_stack_limit = 10,
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 0.5, result = "nullius-drone-launcher-1"},
-	open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
-	close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
+    open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
+    close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
     mined_sound = {filename = "__core__/sound/deconstruct-large.ogg",volume = 0.8},
     rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.6 }},
     rotating_stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" },
@@ -19,7 +24,7 @@ data:extend({
     dying_explosion = "artillery-turret-explosion",
     collision_box = {{-1.25, -1.25}, {1.25, 1.25}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-	damaged_trigger_effect = data.raw["artillery-turret"]["artillery-turret"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["artillery-turret"]["artillery-turret"].damaged_trigger_effect,
     gun = "nullius-drone-cannon",
     turret_rotation_speed = 0.002,
     turn_after_shooting_cooldown = 60,
@@ -32,29 +37,29 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "explosion", decrease = 50, percent = 90 }
     },
-	cannon_barrel_recoil_shiftings = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings,
+    cannon_barrel_recoil_shiftings = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings,
     cannon_barrel_light_direction = {0.5976251, 0.0242053, -0.8014102},
-	cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings_load_correction_matrix,
-	vehicle_impact_sound = data.raw["artillery-turret"]["artillery-turret"].vehicle_impact_sound,
-	water_reflection = data.raw["artillery-turret"]["artillery-turret"].water_reflection,
+    cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings_load_correction_matrix,
+    vehicle_impact_sound = data.raw["artillery-turret"]["artillery-turret"].vehicle_impact_sound,
+    water_reflection = data.raw["artillery-turret"]["artillery-turret"].water_reflection,
     base_shift = util.by_pixel(0, -22),
     base_picture_render_layer = "lower-object-above-shadow",
-	cannon_barrel_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_pictures,
-	cannon_base_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_base_pictures,
+    cannon_barrel_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_pictures,
+    cannon_base_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_base_pictures,
 
     base_picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base.png",
           priority = "high",
           width = 104,
           height = 100,
           direction_count = 1,
           frame_count = 1,
           shift = util.by_pixel(-0, 22),
-		  tint = {0.7, 0.7, 0.9},
+          tint = {0.7, 0.7, 0.9},
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base.png",
             priority = "high",
             line_length = 1,
             width = 207,
@@ -63,11 +68,11 @@ data:extend({
             direction_count = 1,
             shift = util.by_pixel(-0, 22),
             scale = 0.5,
-			tint = {0.7, 0.7, 0.9}
+            tint = {0.7, 0.7, 0.9}
           }
         },
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base-shadow.png",
           priority = "high",
           line_length = 1,
           width = 138,
@@ -77,7 +82,7 @@ data:extend({
           shift = util.by_pixel(18, 38),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base-shadow.png",
             priority = "high",
             line_length = 1,
             width = 277,
@@ -96,15 +101,15 @@ data:extend({
   {
     type = "artillery-turret",
     name = "nullius-drone-launcher-2",
-	icons = data.raw.item["nullius-drone-launcher-2"].icons,
+    icons = data.raw.item["nullius-drone-launcher-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     inventory_size = 5,
     ammo_stack_limit = 10,
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 0.5, result = "nullius-drone-launcher-2"},
-	open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
-	close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
+    open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
+    close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
     mined_sound = {filename = "__core__/sound/deconstruct-large.ogg",volume = 0.8},
     rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.6 }},
     rotating_stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" },
@@ -113,7 +118,7 @@ data:extend({
     dying_explosion = "artillery-turret-explosion",
     collision_box = {{-1.25, -1.25}, {1.25, 1.25}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-	damaged_trigger_effect = data.raw["artillery-turret"]["artillery-turret"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["artillery-turret"]["artillery-turret"].damaged_trigger_effect,
     gun = "nullius-drone-cannon",
     turret_rotation_speed = 0.002,
     turn_after_shooting_cooldown = 60,
@@ -126,20 +131,20 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "explosion", decrease = 50, percent = 90 }
     },
-	cannon_barrel_recoil_shiftings = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings,
+    cannon_barrel_recoil_shiftings = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings,
     cannon_barrel_light_direction = {0.5976251, 0.0242053, -0.8014102},
-	cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings_load_correction_matrix,
-	vehicle_impact_sound = data.raw["artillery-turret"]["artillery-turret"].vehicle_impact_sound,
-	water_reflection = data.raw["artillery-turret"]["artillery-turret"].water_reflection,
+    cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_recoil_shiftings_load_correction_matrix,
+    vehicle_impact_sound = data.raw["artillery-turret"]["artillery-turret"].vehicle_impact_sound,
+    water_reflection = data.raw["artillery-turret"]["artillery-turret"].water_reflection,
     base_shift = util.by_pixel(0, -22),
     base_picture_render_layer = "lower-object-above-shadow",
-	cannon_barrel_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_pictures,
-	cannon_base_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_base_pictures,
+    cannon_barrel_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_barrel_pictures,
+    cannon_base_pictures = data.raw["artillery-turret"]["artillery-turret"].cannon_base_pictures,
 
     base_picture = {
       layers = {
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base.png",
           priority = "high",
           width = 104,
           height = 100,
@@ -147,7 +152,7 @@ data:extend({
           frame_count = 1,
           shift = util.by_pixel(-0, 22),
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base.png",
             priority = "high",
             line_length = 1,
             width = 207,
@@ -159,7 +164,7 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/artillery-turret/artillery-turret-base-shadow.png",
+          filename = BASEENTITY .. "artillery-turret/artillery-turret-base-shadow.png",
           priority = "high",
           line_length = 1,
           width = 138,
@@ -169,7 +174,7 @@ data:extend({
           shift = util.by_pixel(18, 38),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/artillery-turret/hr-artillery-turret-base-shadow.png",
+            filename = BASEENTITY .. "artillery-turret/hr-artillery-turret-base-shadow.png",
             priority = "high",
             line_length = 1,
             width = 277,
@@ -195,13 +200,13 @@ data:extend({
     height_from_ground = 280 / 64,
 
     picture = {
-      filename = "__base__/graphics/entity/distractor-robot/hr-distractor-robot.png",
+      filename = BASEENTITY .. "distractor-robot/hr-distractor-robot.png",
       width = 72,
       height = 62,
       scale = 0.5
     },
     shadow = {
-	  filename = "__base__/graphics/entity/distractor-robot/hr-distractor-robot-shadow.png",
+      filename = BASEENTITY .. "distractor-robot/hr-distractor-robot-shadow.png",
       width = 96,
       height = 59,
       scale = 0.5
@@ -230,8 +235,8 @@ data:extend({
     map_color = {r=1, g=1, b=0},
     chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
     height_from_ground = 280 / 64,
-	picture = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].picture,
-	shadow = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].shadow,
+    picture = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].picture,
+    shadow = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].shadow,
 
     action = {
       type = "direct",
@@ -256,19 +261,19 @@ data:extend({
     chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
     height_from_ground = 280 / 64,
 
-	picture = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].picture,
-	shadow = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].shadow,
+    picture = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].picture,
+    shadow = data.raw["artillery-projectile"]["nullius-scout-drone-projectile-1"].shadow,
 
     action = {
       type = "direct",
       action_delivery = {
         type = "instant",
         target_effects = {
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[3],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[4],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[5],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[3],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[4],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[5],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
           {
             type = "nested-result",
             action = {
@@ -286,8 +291,8 @@ data:extend({
               }
             }
           },
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[15],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[16],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[15],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[16],
           {
             type = "nested-result",
             action = {
@@ -304,8 +309,8 @@ data:extend({
                 starting_speed_deviation = 0.1
               }
             }
-          },		  
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
+          },
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
           {
             type = "script",
             effect_id = "nullius-demolition-drone-effect"
@@ -325,24 +330,24 @@ data:extend({
     map_color = {r=1, g=1, b=0},
     chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
     height_from_ground = 280 / 64,
-	picture = data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].picture,
-	shadow = data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].shadow,
+    picture = data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].picture,
+    shadow = data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].shadow,
 
     action = {
       type = "direct",
       action_delivery = {
         type = "instant",
         target_effects = {
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[1],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[2],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[3],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[4],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[5],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[6],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[7],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[8],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[9],
-		  data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[10],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[1],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[2],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[3],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[4],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[5],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[6],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[7],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[8],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[9],
+          data.raw["artillery-projectile"]["nullius-demolition-drone-projectile"].action.action_delivery.target_effects[10],
           {
             type = "script",
             effect_id = "nullius-excavation-drone-effect"
@@ -365,8 +370,8 @@ local function create_flare(base_name, suffix)
     {
       type = "artillery-flare",
       name = prefix.."-flare"..suffix,
-	  icons = data.raw.capsule[prefix.."-remote"..suffix].icons,
-	  shot_category = prefix.."-drone"..suffix,
+      icons = data.raw.capsule[prefix.."-remote"..suffix].icons,
+      shot_category = prefix.."-drone"..suffix,
       flags = {"placeable-off-grid", "not-on-map"},
       map_color = {r=1, g=0.5, b=0},
       life_time = 60 * 60,
@@ -385,19 +390,19 @@ local function create_projectile(base_name, suffix, drone_picture, drone_shadow)
   local prefix = "nullius-"..base_name
   if (drone_picture == nil) then
     drone_picture = {
-      filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot.png",
+      filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot.png",
       width = 88,
       height = 77,
-	  x = 264,
+      x = 264,
       scale = 0.5
-	}
+    }
   end
   if (drone_shadow == nil) then
     drone_shadow = {
-  	  filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot-shadow.png",
+      filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot-shadow.png",
       width = 108,
       height = 66,
-	  x = 324,
+      x = 324,
       scale = 0.5
     }
   end
@@ -411,16 +416,16 @@ local function create_projectile(base_name, suffix, drone_picture, drone_shadow)
       map_color = {r=1, g=1, b=0},
       chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
       height_from_ground = 280 / 64,
-	  drone_picture,
-	  drone_shadow,
+      drone_picture,
+      drone_shadow,
 
       action = {
         type = "direct",
         action_delivery = {
           type = "instant",
           target_effects = {
-		    data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
-		    data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
+            data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
+            data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
             {
               type = "nested-result",
               action = {
@@ -454,14 +459,14 @@ local function create_projectile(base_name, suffix, drone_picture, drone_shadow)
                   starting_speed_deviation = 0.1
                 }
               }
-            },		  
-		    data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
+            },
+            data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
             {
               type = "script",
               effect_id = prefix.."-drone-effect-"..suffix
             }
           }
-		}
+        }
       }
     }
   })
@@ -469,17 +474,17 @@ end
 
 local function create_terraform(base_name, suffix)
   local picture = {
-    filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot.png",
+    filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot.png",
     width = 88,
     height = 77,
-	x = 264,
+    x = 264,
     scale = 0.5
   }
   local shadow = {
-    filename = "__base__/graphics/entity/destroyer-robot/hr-destroyer-robot-shadow.png",
+    filename = BASEENTITY .. "destroyer-robot/hr-destroyer-robot-shadow.png",
     width = 108,
     height = 66,
-	x = 324,
+    x = 324,
     scale = 0.5
   }
   create_flare(base_name, suffix)
@@ -507,17 +512,17 @@ local function create_farmer(base_name)
       chart_picture = data.raw["artillery-projectile"]["artillery-projectile"].chart_picture,
       height_from_ground = 280 / 64,
       picture = {
-        filename = "__base__/graphics/entity/defender-robot/hr-defender-robot.png",
+        filename = BASEENTITY .. "defender-robot/hr-defender-robot.png",
         width = 56,
         height = 59,
-	    x = 392,
+        x = 392,
         scale = 0.6
       },
       shadow = {
-	    filename = "__base__/graphics/entity/defender-robot/hr-defender-robot-shadow.png",
+        filename = BASEENTITY .. "defender-robot/hr-defender-robot-shadow.png",
         width = 88,
         height = 50,
-	    x = 616,
+        x = 616,
         scale = 0.6
       },
       action = {
@@ -530,7 +535,7 @@ local function create_farmer(base_name)
               effect_id = prefix.."-drone-effect"
             }
           }
-		}
+        }
       }
     }
   })

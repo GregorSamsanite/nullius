@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.8
+Date: 02.11.2021
+  Graphics:
+    - New mod icon
+    - New windturbines icons, tech icons and slightly improved entities
+    - New battery 3 icon
+    - Slightly retouched ~30 icons
+    - New logistic and chiral tech icons, breezy achievement icon
+    - 2 HD category icons
+    - 4 HD equipments
+  Optimization:
+    - Image sorting, size standarized
+    - Slight code refactoring
+    - Some unused images or parts of images removed, big animations optimized
+---------------------------------------------------------------------------------------------------
 Version: 1.2.7
 Date: 27.10.2021
   Balancing:
@@ -168,7 +183,7 @@ Date: 07.09.2021
   Balancing:
     - Changes to hydrogen consumption of methane/carbon monoxide/graphite recipes.
     - Increase a few vehicle recipes to use multiple vehicle inputs.
-    - Iron ingot 1 slightly slower.   
+    - Iron ingot 1 slightly slower.
   Sounds:
     - Change injured character sound to be more robotic.
   Modding:
@@ -579,7 +594,7 @@ Date: 03.02.2021
   Features:
     - Add an infinite tier of projection technology.
   Balancing:
-    - Boost the effect of projection techs on character reach and build distance. 
+    - Boost the effect of projection techs on character reach and build distance.
   Bugfixes:
     - Fixed insulated wire to function like copper cable and make electrical connections.
     - Fix a bug that allowed blueprinted geothermal plants to be placed off fumaroles.

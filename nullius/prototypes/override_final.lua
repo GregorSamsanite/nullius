@@ -1,3 +1,7 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data.raw.item["stone-brick"].subgroup = "masonry"
 data.raw.item["stone-brick"].order = "nullius-b"
 data.raw.item["concrete"].subgroup = "masonry"
@@ -11,7 +15,7 @@ data.raw.resource["uranium-ore"].minable.required_fluid = nil
 data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
 data.raw.item["rocket-fuel"].icon_size = 64
 data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
-data.raw.item["copper-cable"].icon_size = 64 
+data.raw.item["copper-cable"].icon_size = 64
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 
@@ -19,7 +23,7 @@ data.raw.item["big-electric-pole"].subgroup = "electric-pole"
 data.raw.item["big-electric-pole"].order = "nullius-cb"
 data.raw.item["big-electric-pole"].stack_size = 50
 data.raw.item["big-electric-pole"].icons = {{
-  icon = "__nullius__/graphics/large-pole-1.png",
+  icon = ENTICONPATH .. "large-pole-1.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 if mods["reskins-bobs"] then
@@ -41,40 +45,40 @@ data.raw["mining-drill"]["nullius-geothermal-build-3"].collision_box =
     data.raw["reactor"]["nullius-geothermal-reactor-3"].collision_box
 
 for _,fluid in pairs(data.raw.fluid) do
-  if (string.sub(fluid.name, 1, 8) == "nullius-") and 
+  if (string.sub(fluid.name, 1, 8) == "nullius-") and
       data.raw.recipe["fill-" .. fluid.name .. "-barrel"] then
-	local barrel_name = fluid.name .. "-barrel"
-	local fill_name = "fill-" .. barrel_name
-	local empty_name = "empty-" .. barrel_name
+    local barrel_name = fluid.name .. "-barrel"
+    local fill_name = "fill-" .. barrel_name
+    local empty_name = "empty-" .. barrel_name
     data.raw.item[barrel_name].subgroup = "fill-" .. fluid.subgroup
     data.raw.item[barrel_name].order = fluid.order
     data.raw.item[barrel_name].stack_size = 20
     data.raw.recipe[fill_name].subgroup = "fill-" .. fluid.subgroup
     data.raw.recipe[fill_name].order = fluid.order
-	data.raw.recipe[fill_name].hide_from_player_crafting = true
-	data.raw.recipe[fill_name].enabled = true
-	data.raw.recipe[fill_name].category = "nullius-barrel"
-	data.raw.recipe[fill_name].energy_required = 0.25
+    data.raw.recipe[fill_name].hide_from_player_crafting = true
+    data.raw.recipe[fill_name].enabled = true
+    data.raw.recipe[fill_name].category = "nullius-barrel"
+    data.raw.recipe[fill_name].energy_required = 0.25
     data.raw.recipe[empty_name].subgroup = "empty-" .. fluid.subgroup
     data.raw.recipe[empty_name].order = fluid.order
     data.raw.recipe[empty_name].hide_from_player_crafting = true
-	data.raw.recipe[empty_name].enabled = true
-	data.raw.recipe[empty_name].category = "nullius-unbarrel"
-	data.raw.recipe[empty_name].energy_required = 0.25
+    data.raw.recipe[empty_name].enabled = true
+    data.raw.recipe[empty_name].category = "nullius-unbarrel"
+    data.raw.recipe[empty_name].energy_required = 0.25
 
-	if (fluid.fuel_value ~= nil) then
-	  data.raw.recipe[fill_name].enabled = false
-	  data.raw.recipe[empty_name].enabled = false
-	  if (fluid.name ~= "nullius-steam") then
-	    data.raw.recipe[fill_name].ingredients[1].amount = 25
-	    data.raw.recipe[empty_name].results[1].amount = 25
-	    data.raw.recipe[fill_name].energy_required = 0.5
-	    data.raw.recipe[empty_name].energy_required = 0.5
-	  end
-	elseif ((fluid.gas_temperature ~= nil) and (fluid.gas_temperature < 25)) then
-	  data.raw.recipe[fill_name].enabled = false
-	  data.raw.recipe[empty_name].enabled = false	  
-	end
+    if (fluid.fuel_value ~= nil) then
+      data.raw.recipe[fill_name].enabled = false
+      data.raw.recipe[empty_name].enabled = false
+      if (fluid.name ~= "nullius-steam") then
+        data.raw.recipe[fill_name].ingredients[1].amount = 25
+        data.raw.recipe[empty_name].results[1].amount = 25
+        data.raw.recipe[fill_name].energy_required = 0.5
+        data.raw.recipe[empty_name].energy_required = 0.5
+      end
+    elseif ((fluid.gas_temperature ~= nil) and (fluid.gas_temperature < 25)) then
+      data.raw.recipe[fill_name].enabled = false
+      data.raw.recipe[empty_name].enabled = false
+    end
   end
 end
 
@@ -90,15 +94,15 @@ for _,character in pairs(data.raw["character"]) do
       local found = false
       for _,oldcat in pairs(character.crafting_categories) do
         if (oldcat == newcat) then
-	      found = true
-	    end
+          found = true
+        end
       end
       if (not found) then
         table.insert(character.crafting_categories, newcat)
       end
     end
   end
-  
+
   character.heartbeat = {
     { filename = "__base__/sound/robot-repair-1.ogg", volume = 0.5 },
     { filename = "__base__/sound/robot-repair-2.ogg", volume = 0.5 },

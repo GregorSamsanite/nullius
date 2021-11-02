@@ -1,9 +1,14 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
+local BASEENTITY = "__base__/graphics/entity/"
+
 data:extend({
   {
     type = "assembling-machine",
     name = "nullius-hydro-plant-1",
     icons = data.raw.item["nullius-hydro-plant-1"].icons,
-	localised_description = {"entity-description.nullius-hydro-plant"},
+    localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-hydro-plant-1"},
     max_health = 250,
@@ -22,22 +27,22 @@ data:extend({
     },
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-hydro-plant-2",
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     animation = {
       layers = {
         {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-		  priority = "extra-high",
+          priority = "extra-high",
           width = 288,
           height = 288,
           frame_count = 25,
-		  line_length = 5,
-		  animation_speed = 0.4,
+          line_length = 5,
+          animation_speed = 0.4,
           scale = 0.714,
           tint = {0.77, 0.77, 0.68, 1}
-	},
-	{
+    },
+    {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
           priority = "high",
           width = 288,
@@ -46,7 +51,7 @@ data:extend({
           line_length = 5,
           scale = 0.714,
           tint = {0.77, 0.77, 0.68, 1}
-	}
+    }
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -54,7 +59,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -62,7 +67,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -92,7 +97,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-hydro-plant-2",
     icons = data.raw.item["nullius-hydro-plant-2"].icons,
-	localised_description = {"entity-description.nullius-hydro-plant"},
+    localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-hydro-plant-2"},
     max_health = 400,
@@ -109,7 +114,7 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-hydro-plant-3",
@@ -118,16 +123,16 @@ data:extend({
       layers = {
         {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-		  priority = "extra-high",
+          priority = "extra-high",
           width = 288,
           height = 288,
           frame_count = 25,
-		  line_length = 5,
-		  animation_speed = 0.5,
+          line_length = 5,
+          animation_speed = 0.5,
           scale = 0.714,
           tint = {0.8, 0.8, 0.9, 1}
-		},
-		{
+        },
+        {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
           priority = "high",
           width = 288,
@@ -136,7 +141,7 @@ data:extend({
           line_length = 5,
           scale = 0.714,
           tint = {0.8, 0.8, 0.9, 1}
-		}
+        }
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -144,7 +149,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -153,7 +158,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -186,7 +191,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-hydro-plant-3",
     icons = data.raw.item["nullius-hydro-plant-3"].icons,
-	localised_description = {"entity-description.nullius-hydro-plant"},
+    localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-hydro-plant-3"},
     max_health = 500,
@@ -203,7 +208,7 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
 
@@ -211,15 +216,15 @@ data:extend({
       layers = {
         {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-		  priority = "extra-high",
+          priority = "extra-high",
           width = 288,
           height = 288,
           frame_count = 25,
-		  line_length = 5,
-		  animation_speed = 0.6,
+          line_length = 5,
+          animation_speed = 0.6,
           scale = 0.714
-		},
-		{
+        },
+        {
           filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
           priority = "high",
           width = 288,
@@ -227,7 +232,7 @@ data:extend({
           frame_count = 25,
           line_length = 5,
           scale = 0.714
-		}
+        }
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -235,7 +240,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -244,7 +249,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -279,7 +284,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-hydro-plant-2",
     icons = data.raw.item["nullius-mirror-hydro-plant-2"].icons,
-	localised_description = {"entity-description.nullius-hydro-plant"},
+    localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-hydro-plant-2"},
     max_health = 400,
@@ -292,19 +297,19 @@ data:extend({
     energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="10kW"},
     energy_usage = "290kW",
     ingredient_count = 4,
-	resistances = data.raw["assembling-machine"]["nullius-hydro-plant-2"].resistances,
-	module_specification = { module_slots = 2 },
+    resistances = data.raw["assembling-machine"]["nullius-hydro-plant-2"].resistances,
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-mirror-hydro-plant-3",
-	animation = data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation,
+    animation = data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
 
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -313,7 +318,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -344,8 +349,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-hydro-plant-3",
-	icons = data.raw.item["nullius-mirror-hydro-plant-3"].icons,
-	localised_description = {"entity-description.nullius-hydro-plant"},
+    icons = data.raw.item["nullius-mirror-hydro-plant-3"].icons,
+    localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-hydro-plant-3"},
     max_health = 500,
@@ -362,17 +367,17 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
-	animation = data.raw["assembling-machine"]["nullius-hydro-plant-3"].animation,
+    animation = data.raw["assembling-machine"]["nullius-hydro-plant-3"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
 
     fluid_boxes = {
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -381,7 +386,7 @@ data:extend({
       },
       {
         production_type = "input",
-		pipe_picture = hydropipepictures(),
+        pipe_picture = hydropipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -414,7 +419,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-distillery-1",
     icons = data.raw.item["nullius-distillery-1"].icons,
-	localised_description = {"entity-description.nullius-distillery"},
+    localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-distillery-1"},
     max_health = 350,
@@ -440,7 +445,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     fluid_boxes = data.raw["assembling-machine"]["oil-refinery"].fluid_boxes,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "distillery",
     next_upgrade = "nullius-distillery-2",
@@ -455,7 +460,7 @@ data:extend({
         west_position = {1.7, -3.65},
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 90,
@@ -469,14 +474,14 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({
       layers = {
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
           width = 337,
           height = 255,
           frame_count = 1,
           shift = {2.515625, 0.484375},
           tint = {0.77, 0.77, 0.66, 1},
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery.png",
             width = 386,
             height = 430,
             frame_count = 1,
@@ -486,14 +491,14 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery-shadow.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
           width = 337,
           height = 213,
           frame_count = 1,
           shift = util.by_pixel(82.5, 26.5),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery-shadow.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery-shadow.png",
             width = 674,
             height = 426,
             frame_count = 1,
@@ -513,7 +518,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-distillery-2",
     icons = data.raw.item["nullius-distillery-2"].icons,
-	localised_description = {"entity-description.nullius-distillery"},
+    localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-distillery-2"},
     max_health = 500,
@@ -537,11 +542,11 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "distillery",
     next_upgrade = "nullius-distillery-3",
-	
+
     fluid_boxes = {
       {
         production_type = "input",
@@ -583,14 +588,14 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({
       layers = {
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
           width = 337,
           height = 255,
           frame_count = 1,
           shift = {2.515625, 0.484375},
           tint = {0.8, 0.8, 1, 1},
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery.png",
             width = 386,
             height = 430,
             frame_count = 1,
@@ -600,14 +605,14 @@ data:extend({
           }
         },
         {
-          filename = "__base__/graphics/entity/oil-refinery/oil-refinery-shadow.png",
+          filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
           width = 337,
           height = 213,
           frame_count = 1,
           shift = util.by_pixel(82.5, 26.5),
           draw_as_shadow = true,
           hr_version = {
-            filename = "__base__/graphics/entity/oil-refinery/hr-oil-refinery-shadow.png",
+            filename = BASEENTITY .. "oil-refinery/hr-oil-refinery-shadow.png",
             width = 674,
             height = 426,
             frame_count = 1,
@@ -625,7 +630,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-distillery-3",
     icons = data.raw.item["nullius-distillery-3"].icons,
-	localised_description = {"entity-description.nullius-distillery"},
+    localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-distillery-3"},
     max_health = 600,
@@ -649,7 +654,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "distillery",
     animation = data.raw["assembling-machine"]["oil-refinery"].animation,
@@ -660,7 +665,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-1, 3} }}
       },
       {
@@ -668,7 +673,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {1, 3} }}
       },
       {
@@ -676,7 +681,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {-2, -3} }}
       },
       {
@@ -684,7 +689,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {0, -3} }}
       },
       {
@@ -692,7 +697,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {2, -3} }}
       }
     }
@@ -704,7 +709,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-distillery-2",
     icons = data.raw.item["nullius-mirror-distillery-2"].icons,
-	localised_description = {"entity-description.nullius-distillery"},
+    localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.5, result = "nullius-mirror-distillery-2"},
     max_health = 500,
@@ -722,7 +727,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     working_visualisations = data.raw["assembling-machine"]["nullius-distillery-2"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "distillery",
     next_upgrade = "nullius-mirror-distillery-3",
@@ -771,7 +776,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-distillery-3",
     icons = data.raw.item["nullius-mirror-distillery-3"].icons,
-	localised_description = {"entity-description.nullius-distillery"},
+    localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-mirror-distillery-3"},
     max_health = 600,
@@ -795,7 +800,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "distillery",
     animation = data.raw["assembling-machine"]["oil-refinery"].animation,
@@ -806,7 +811,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {1, 3} }}
       },
       {
@@ -814,7 +819,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-1, 3} }}
       },
       {
@@ -822,7 +827,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {2, -3} }}
       },
       {
@@ -830,7 +835,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {0, -3} }}
       },
       {
@@ -838,7 +843,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 3,
         base_area = 5,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {-2, -3} }}
       }
     }
@@ -847,8 +852,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-electrolyzer-1",
-	icons = data.raw.item["nullius-surge-electrolyzer-1"].icons,
-	localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    icons = data.raw.item["nullius-surge-electrolyzer-1"].icons,
+    localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-surge-electrolyzer-1"},
     fast_replaceable_group = "electrolyzer",
@@ -864,7 +869,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 0.5,
       drain = "10kW",
-	  output_flow_limit = "0kW",
+      output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
@@ -879,9 +884,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.8, b=0.6}
       },
@@ -890,9 +895,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.8, b=0.6}
       },
@@ -901,9 +906,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.8, b=0.6}
       },
@@ -912,9 +917,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.8, b=0.6}
       }
@@ -960,8 +965,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-1",
-	icons = data.raw.item["nullius-priority-electrolyzer-1"].icons,
-	localised_description = {"entity-description.nullius-priority-electrolyzer"},
+    icons = data.raw.item["nullius-priority-electrolyzer-1"].icons,
+    localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-priority-electrolyzer-1"},
     fast_replaceable_group = "electrolyzer",
@@ -977,7 +982,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 0.5,
       drain = "10kW",
-	  usage_priority = "secondary-input"
+      usage_priority = "secondary-input"
     },
     energy_usage = "990kW",
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].resistances,
@@ -988,9 +993,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.68, 0.51}
       },
@@ -999,9 +1004,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.68, 0.51}
       },
@@ -1010,9 +1015,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.68, 0.51}
       },
@@ -1021,9 +1026,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.68, 0.51}
       }
@@ -1035,8 +1040,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-electrolyzer-2",
-	icons = data.raw.item["nullius-surge-electrolyzer-2"].icons,
-	localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    icons = data.raw.item["nullius-surge-electrolyzer-2"].icons,
+    localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-surge-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
@@ -1052,7 +1057,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 1,
       drain = "15kW",
-	  output_flow_limit = "0kW",
+      output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
@@ -1067,9 +1072,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.9, b=1}
       },
@@ -1078,9 +1083,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.9, b=1}
       },
@@ -1089,9 +1094,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.9, b=1}
       },
@@ -1100,9 +1105,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {r=0.8, g=0.9, b=1}
       }
@@ -1122,7 +1127,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {-1.5, 2.5} }}
@@ -1131,7 +1136,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {1.5, -2.5} }}
@@ -1140,7 +1145,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {1.5, 2.5} }}
@@ -1153,8 +1158,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-2",
-	icons = data.raw.item["nullius-priority-electrolyzer-2"].icons,
-	localised_description = {"entity-description.nullius-priority-electrolyzer"},
+    icons = data.raw.item["nullius-priority-electrolyzer-2"].icons,
+    localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-priority-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
@@ -1170,7 +1175,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 1,
       drain = "25kW",
-	  usage_priority = "secondary-input"
+      usage_priority = "secondary-input"
     },
     energy_usage = "2915kW",
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].resistances,
@@ -1181,9 +1186,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.76, 0.85}
       },
@@ -1192,9 +1197,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.76, 0.85}
       },
@@ -1203,9 +1208,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.76, 0.85}
       },
@@ -1214,9 +1219,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78,
         tint = {0.8, 0.76, 0.85}
       }
@@ -1228,8 +1233,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-surge-electrolyzer-2",
-	icons = data.raw.item["nullius-mirror-surge-electrolyzer-2"].icons,
-	localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    icons = data.raw.item["nullius-mirror-surge-electrolyzer-2"].icons,
+    localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-surge-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
@@ -1260,7 +1265,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {1.5, 2.5} }}
@@ -1269,7 +1274,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {-1.5, -2.5} }}
@@ -1278,7 +1283,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 4,
+        base_area = 4,
         base_level = 2,
         height = 1.5,
         pipe_connections = {{ position = {-1.5, 2.5} }}
@@ -1291,8 +1296,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-priority-electrolyzer-2",
-	icons = data.raw.item["nullius-mirror-priority-electrolyzer-2"].icons,
-	localised_description = {"entity-description.nullius-priority-electrolyzer"},
+    icons = data.raw.item["nullius-mirror-priority-electrolyzer-2"].icons,
+    localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-priority-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
@@ -1310,15 +1315,15 @@ data:extend({
     animation = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].animation,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
-	fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-2"].fluid_boxes
+    fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-2"].fluid_boxes
   },
 
   {
     type = "assembling-machine",
     name = "nullius-surge-electrolyzer-3",
     icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-    icon_size = 32,	
-	localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    icon_size = 32,
+    localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-surge-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
@@ -1333,7 +1338,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 2,
       drain = "25kW",
-	  output_flow_limit = "0kW",
+      output_flow_limit = "0kW",
       usage_priority = "tertiary",
       render_no_power_icon = false
     },
@@ -1348,9 +1353,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78
       },
       east = {
@@ -1358,9 +1363,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78
       },
       south = {
@@ -1368,9 +1373,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78
       },
       west = {
@@ -1378,9 +1383,9 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
+        line_length = 6,
         shift = {0, 0},
-		animation_speed = 0.5,
+        animation_speed = 0.5,
         scale = 0.78
       }
     },
@@ -1393,14 +1398,14 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {-1.5, 2.5} }}
@@ -1409,7 +1414,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {1.5, -2.5} }}
@@ -1418,7 +1423,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {1.5, 2.5} }}
@@ -1431,8 +1436,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-surge-electrolyzer-3",
-	icons = data.raw.item["nullius-mirror-surge-electrolyzer-3"].icons,
-	localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    icons = data.raw.item["nullius-mirror-surge-electrolyzer-3"].icons,
+    localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-surge-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
@@ -1456,14 +1461,14 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
-		height = 2,
+        height = 2,
         pipe_connections = {{ type="input", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {1.5, 2.5} }}
@@ -1472,7 +1477,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {-1.5, -2.5} }}
@@ -1481,7 +1486,7 @@ data:extend({
         production_type = "output",
         pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-	    base_area = 5,
+        base_area = 5,
         base_level = 3,
         height = 2,
         pipe_connections = {{ position = {-1.5, 2.5} }}
@@ -1494,8 +1499,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-3",
-	icons = data.raw.item["nullius-priority-electrolyzer-3"].icons,
-	localised_description = {"entity-description.nullius-priority-electrolyzer"},
+    icons = data.raw.item["nullius-priority-electrolyzer-3"].icons,
+    localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-priority-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
@@ -1521,40 +1526,40 @@ data:extend({
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
-		animation_speed = 0.5,
+        line_length = 6,
+        animation_speed = 0.5,
         scale = 0.78,
-		tint = {1, 0.85, 0.85}
+        tint = {1, 0.85, 0.85}
       },
       east = {
         filename = "__angelspetrochem__/graphics/entity/electrolyser/electrolyser-east.png",
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
-		animation_speed = 0.5,
+        line_length = 6,
+        animation_speed = 0.5,
         scale = 0.78,
-		tint = {1, 0.85, 0.85}
+        tint = {1, 0.85, 0.85}
       },
       south = {
         filename = "__angelspetrochem__/graphics/entity/electrolyser/electrolyser-north.png",
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
-		animation_speed = 0.5,
+        line_length = 6,
+        animation_speed = 0.5,
         scale = 0.78,
-		tint = {1, 0.85, 0.85}
+        tint = {1, 0.85, 0.85}
       },
       west = {
         filename = "__angelspetrochem__/graphics/entity/electrolyser/electrolyser-east.png",
         width = 224,
         height = 224,
         frame_count = 36,
-		line_length = 6,
-		animation_speed = 0.5,
+        line_length = 6,
+        animation_speed = 0.5,
         scale = 0.78,
-		tint = {1, 0.85, 0.85}
+        tint = {1, 0.85, 0.85}
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1566,8 +1571,8 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-priority-electrolyzer-3",
-	icons = data.raw.item["nullius-mirror-priority-electrolyzer-3"].icons,
-	localised_description = {"entity-description.nullius-priority-electrolyzer"},
+    icons = data.raw.item["nullius-mirror-priority-electrolyzer-3"].icons,
+    localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-mirror-priority-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
@@ -1578,7 +1583,7 @@ data:extend({
     selection_box = {{-2, -2}, {2, 2}},
     crafting_categories = {"nullius-electrolysis"},
     crafting_speed = 4,
-	energy_source = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].energy_source,
+    energy_source = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].energy_source,
     energy_usage = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].energy_usage,
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].resistances,
     fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-3"].fluid_boxes,
@@ -1591,7 +1596,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-chemical-plant-1",
     icons = data.raw.item["nullius-chemical-plant-1"].icons,
-	localised_description = {"entity-description.nullius-chemical-plant"},
+    localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-chemical-plant-1"},
     max_health = 300,
@@ -1602,12 +1607,12 @@ data:extend({
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
     fast_replaceable_group = "chemical-plant",
     next_upgrade = "nullius-chemical-plant-2",
-	module_specification = { module_slots = 1 },
+    module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
@@ -1615,7 +1620,7 @@ data:extend({
         shift = util.by_pixel(1, -9),
         tint = {0.75, 0.75, 0.6, 1},
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -1626,7 +1631,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -1634,7 +1639,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,
@@ -1649,158 +1654,158 @@ data:extend({
       {
         apply_recipe_tint = "primary",
         north_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-north.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-north.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
           height = 24,
           shift = util.by_pixel(24, 14),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-north.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-north.png",
             frame_count = 24,
             line_length = 6,
             width = 66,
             height = 44,
             shift = util.by_pixel(24, 15),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         east_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-east.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-east.png",
           frame_count = 24,
           line_length = 6,
           width = 36,
           height = 18,
           shift = util.by_pixel(0, 22),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-east.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-east.png",
             frame_count = 24,
             line_length = 6,
             width = 70,
             height = 36,
             shift = util.by_pixel(1, 22),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         south_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-south.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-south.png",
           frame_count = 24,
           line_length = 6,
           width = 34,
           height = 24,
           shift = util.by_pixel(0, 16),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-south.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-south.png",
             frame_count = 24,
             line_length = 6,
             width = 66,
             height = 42,
             shift = util.by_pixel(0, 17),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         west_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-liquid-west.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-liquid-west.png",
           frame_count = 24,
           line_length = 6,
           width = 38,
           height = 20,
           shift = util.by_pixel(-10, 12),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-liquid-west.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-liquid-west.png",
             frame_count = 24,
             line_length = 6,
             width = 74,
             height = 36,
             shift = util.by_pixel(-9, 13),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         }
       },
       {
         apply_recipe_tint = "secondary",
         north_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-north.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-north.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
           height = 22,
           shift = util.by_pixel(24, 14),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-north.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-north.png",
             frame_count = 24,
             line_length = 6,
             width = 62,
             height = 42,
             shift = util.by_pixel(25, 15),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         east_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-east.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-east.png",
           frame_count = 24,
           line_length = 6,
           width = 34,
           height = 18,
           shift = util.by_pixel(0, 22),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-east.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-east.png",
             frame_count = 24,
             line_length = 6,
             width = 68,
             height = 36,
             shift = util.by_pixel(1, 22),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         south_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-south.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-south.png",
           frame_count = 24,
           line_length = 6,
           width = 32,
           height = 18,
           shift = util.by_pixel(0, 18),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-south.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-south.png",
             frame_count = 24,
             line_length = 6,
             width = 60,
             height = 40,
             shift = util.by_pixel(2, 17),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         },
         west_animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-foam-west.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-foam-west.png",
           frame_count = 24,
           line_length = 6,
           width = 36,
           height = 16,
           shift = util.by_pixel(-10, 14),
-		  animation_speed = 0.5,
+          animation_speed = 0.5,
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-foam-west.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-foam-west.png",
             frame_count = 24,
             line_length = 6,
             width = 68,
             height = 28,
             shift = util.by_pixel(-8, 15),
             scale = 0.52,
-			animation_speed = 0.5
+            animation_speed = 0.5
           }
         }
       },
@@ -1814,7 +1819,7 @@ data:extend({
         west_position = util.by_pixel_hr(-32, -132),
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-outer.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
           frame_count = 47,
           line_length = 16,
           width = 46,
@@ -1822,7 +1827,7 @@ data:extend({
           animation_speed = 0.4,
           shift = util.by_pixel(-2, -40),
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-outer.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-outer.png",
             frame_count = 47,
             line_length = 16,
             width = 90,
@@ -1843,7 +1848,7 @@ data:extend({
         west_position = util.by_pixel_hr(-32, -132),
         render_layer = "wires",
         animation = {
-          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-smoke-inner.png",
+          filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-inner.png",
           frame_count = 47,
           line_length = 16,
           width = 20,
@@ -1851,7 +1856,7 @@ data:extend({
           animation_speed = 0.4,
           shift = util.by_pixel(0, -14),
           hr_version = {
-            filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-smoke-inner.png",
+            filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-smoke-inner.png",
             frame_count = 47,
             line_length = 16,
             width = 40,
@@ -1924,7 +1929,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-chemical-plant-2",
     icons = data.raw.item["nullius-chemical-plant-2"].icons,
-	localised_description = {"entity-description.nullius-chemical-plant"},
+    localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-chemical-plant-2"},
     max_health = 400,
@@ -1933,7 +1938,7 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "chemical-plant",
     next_upgrade = "nullius-chemical-plant-3",
@@ -1941,7 +1946,7 @@ data:extend({
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
@@ -1949,7 +1954,7 @@ data:extend({
         shift = util.by_pixel(1, -9),
         tint = {0.8, 0.8, 1, 1},
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -1960,7 +1965,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -1968,7 +1973,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,
@@ -1979,7 +1984,7 @@ data:extend({
         }
       }
     }}),
-	working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
+    working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2043,7 +2048,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-chemical-plant-2",
     icons = data.raw.item["nullius-mirror-chemical-plant-2"].icons,
-	localised_description = {"entity-description.nullius-chemical-plant"},
+    localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-mirror-chemical-plant-2"},
     max_health = 400,
@@ -2052,13 +2057,13 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
-	module_specification = { module_slots = 2 },
+    module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "chemical-plant",
-	next_upgrade = "nullius-mirror-chemical-plant-3",
+    next_upgrade = "nullius-mirror-chemical-plant-3",
 
     animation = data.raw["assembling-machine"]["nullius-chemical-plant-2"].animation,
-	working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
+    working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
     resistances = data.raw["assembling-machine"]["nullius-chemical-plant-2"].resistances,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["nullius-chemical-plant-2"].working_sound,
@@ -2114,7 +2119,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-chemical-plant-3",
     icons = data.raw.item["nullius-chemical-plant-3"].icons,
-	localised_description = {"entity-description.nullius-chemical-plant"},
+    localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-chemical-plant-3"},
     max_health = 500,
@@ -2123,21 +2128,21 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "chemical-plant",
 
     animation = make_4way_animation_from_spritesheet({ layers =
     {
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
         width = 108,
         height = 148,
         frame_count = 24,
         line_length = 12,
         shift = util.by_pixel(1, -9),
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant.png",
           width = 220,
           height = 292,
           frame_count = 24,
@@ -2147,7 +2152,7 @@ data:extend({
         }
       },
       {
-        filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+        filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
         width = 154,
         height = 112,
         repeat_count = 24,
@@ -2155,7 +2160,7 @@ data:extend({
         shift = util.by_pixel(28, 6),
         draw_as_shadow = true,
         hr_version = {
-          filename = "__base__/graphics/entity/chemical-plant/hr-chemical-plant-shadow.png",
+          filename = BASEENTITY .. "chemical-plant/hr-chemical-plant-shadow.png",
           width = 312,
           height = 222,
           repeat_count = 24,
@@ -2166,7 +2171,7 @@ data:extend({
         }
       }
     }}),
-	working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
+    working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2181,7 +2186,7 @@ data:extend({
     },
     energy_usage = "760kW",
     crafting_categories = {"basic-chemistry"},
-	fluid_boxes = data.raw["assembling-machine"]["nullius-chemical-plant-2"].fluid_boxes
+    fluid_boxes = data.raw["assembling-machine"]["nullius-chemical-plant-2"].fluid_boxes
   }
 })
 
@@ -2190,7 +2195,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-mirror-chemical-plant-3",
     icons = data.raw.item["nullius-mirror-chemical-plant-3"].icons,
-	localised_description = {"entity-description.nullius-chemical-plant"},
+    localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 0.5, result = "nullius-mirror-chemical-plant-3"},
     max_health = 500,
@@ -2199,18 +2204,18 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     drawing_box = {{-1.5, -1.9}, {1.5, 1.5}},
-	module_specification = { module_slots = 3 },
+    module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "chemical-plant",
-	animation = data.raw["assembling-machine"]["nullius-chemical-plant-3"].animation,
-	working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
-	resistances = data.raw["assembling-machine"]["nullius-chemical-plant-3"].resistances,
-	energy_source = data.raw["assembling-machine"]["nullius-chemical-plant-3"].energy_source,
+    animation = data.raw["assembling-machine"]["nullius-chemical-plant-3"].animation,
+    working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].working_visualisations,
+    resistances = data.raw["assembling-machine"]["nullius-chemical-plant-3"].resistances,
+    energy_source = data.raw["assembling-machine"]["nullius-chemical-plant-3"].energy_source,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["chemical-plant"].working_sound,
     crafting_speed = 4,
     energy_usage = "760kW",
     crafting_categories = {"basic-chemistry"},
-	fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-chemical-plant-2"].fluid_boxes
+    fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-chemical-plant-2"].fluid_boxes
   }
 })

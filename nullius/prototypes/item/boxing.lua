@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 local box_stack_size = {
   [10] = 5,
   [20] = 10,
@@ -9,7 +12,7 @@ local box_stack_size = {
 
 
 local function create_boxed_item(base_name, group, box_order,
-		full_name, category, stack_size, icon_scale, localname)
+        full_name, category, stack_size, icon_scale, localname)
   if (full_name == nil) then
     full_name = "nullius-"..base_name
   end
@@ -46,50 +49,50 @@ local function create_boxed_item(base_name, group, box_order,
   data:extend({
     {
       type = "item",
-	  name = "nullius-box-"..base_name,
-	  localised_name = {"item-name.nullius-box", localname},
+      name = "nullius-box-"..base_name,
+      localised_name = {"item-name.nullius-box", localname},
       subgroup = "boxing-"..group,
-	  order = "nullius-"..box_order,
+      order = "nullius-"..box_order,
       stack_size = box_stack
-	},
+    },
     {
       type = "recipe",
-	  name = "nullius-box-"..base_name,
-	  localised_name = {"recipe-name.nullius-boxing", localname},
+      name = "nullius-box-"..base_name,
+      localised_name = {"recipe-name.nullius-boxing", localname},
       category = "packaging",
-	  enabled = false,
-	  always_show_made_in = true,
-	  show_amount_in_title = false,
-	  always_show_products = true,
-	  no_productivity = true,
+      enabled = false,
+      always_show_made_in = true,
+      show_amount_in_title = false,
+      always_show_products = true,
+      no_productivity = true,
       energy_required = 2,
       ingredients = {
         {full_name, 4*ratio}
       },
       result = "nullius-box-"..base_name,
-	  result_count = 4
-	},
+      result_count = 4
+    },
     {
       type = "recipe",
-	  name = "nullius-unbox-"..base_name,
-	  localised_name = {"recipe-name.nullius-unbox", localname},
+      name = "nullius-unbox-"..base_name,
+      localised_name = {"recipe-name.nullius-unbox", localname},
       category = "packaging",
       subgroup = "unboxing-"..group,
-	  order = "nullius-"..box_order,
-	  enabled = false,
-	  always_show_made_in = true,
-	  show_amount_in_title = false,
-	  always_show_products = true,
+      order = "nullius-"..box_order,
+      enabled = false,
+      always_show_made_in = true,
+      show_amount_in_title = false,
+      always_show_products = true,
       allow_decomposition = false,
-	  allow_as_intermediate = false,
-	  no_productivity = true,
+      allow_as_intermediate = false,
+      no_productivity = true,
       energy_required = 0.2,
       ingredients = {
         {"nullius-box-"..base_name, 1}
       },
       result = full_name,
-	  result_count = ratio
-	}
+      result_count = ratio
+    }
   })
 end
 
@@ -120,7 +123,7 @@ data.raw.item["stone-brick"].stack_size = 500
 data.raw.item["concrete"].stack_size = 500
 data.raw.item["refined-concrete"].stack_size = 500
 data.raw.item["refined-hazard-concrete"].stack_size = 500
-data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"} 
+data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"}
 data.raw.item["copper-cable"].stack_size = 200
 data.raw.item["big-electric-pole"].stack_size = 50
 

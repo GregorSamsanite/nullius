@@ -99,10 +99,10 @@ function update_turbines(ind, level)
     local shadow_animation = "nullius-wind-shadow-"..level.."-"..orientation
 
     for _,t in pairs(bucket.turbines) do
-	  if (t.base.valid) then
+    if (t.base.valid) then
         rendering.set_animation(t.blade, blade_animation)
         rendering.set_animation(t.shadow, shadow_animation)
-	  end
+    end
     end
   end
 
@@ -124,10 +124,10 @@ function update_turbines(ind, level)
       rendering.set_animation_speed(t.shadow, aspeed)
       rendering.set_animation_offset(t.blade, offs)
       rendering.set_animation_offset(t.shadow, offs)
-	else
-	  destroy_turbine(t)
-	  bucket.turbines[i] = nil
-	end
+  else
+    destroy_turbine(t)
+    bucket.turbines[i] = nil
+  end
   end
 end
 
@@ -147,7 +147,7 @@ end
 function create_collision_box(surface, position, force, dir, xoffs, yoffs)
   local collision = surface.create_entity{name = "nullius-wind-collision-"..dir,
     position = {x=(position.x+xoffs), y=(position.y+yoffs)},
-	force = force, create_build_effect_smoke = false}
+  force = force, create_build_effect_smoke = false}
   collision.destructible = false
   collision.minable = false
   return collision
@@ -171,7 +171,7 @@ function build_wind_turbine(entity, level)
   local collision2 = create_collision_box(surface, position, force, "vertical", 17, -14.5)
   local collision3 = create_collision_box(surface, position, force, "horizontal", -14.5, -17)
   local collision4 = create_collision_box(surface, position, force, "vertical", -17, 14.5)
-  
+
   local ind = level + ((newentity.unit_number % 307) * 3)
   local bucket = global.nullius_turbine_buckets[ind]
   local scale = 0.4 + (level * 0.2)
@@ -182,7 +182,7 @@ function build_wind_turbine(entity, level)
     collision_box2 = collision2,
     collision_box3 = collision3,
     collision_box4 = collision4,
-    surface = surface.name, 
+    surface = surface.name,
     blade = rendering.draw_animation{
       animation = "nullius-wind-blade-"..level.."-"..bucket.orientation,
       target = {position.x, (position.y - (10*scale))},
@@ -230,10 +230,10 @@ function destroyed_wind_turbine(unit)
   local offset = ((unit % 307) * 3)
   for lvl=1,3 do
     local entry = global.nullius_turbine_buckets[lvl + offset].turbines[unit]
-	if (entry ~= nil) then
-	  remove_wind_unit(unit, false, lvl)
-	  return true
-	end
+  if (entry ~= nil) then
+    remove_wind_unit(unit, false, lvl)
+    return true
+  end
   end
   return false
 end

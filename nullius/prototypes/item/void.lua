@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "item",
@@ -19,7 +22,7 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/heavy-oil.png",
-		icon_size = 64
+        icon_size = 64
       }
     },
     flags = {"hidden"},

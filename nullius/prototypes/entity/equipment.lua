@@ -1,9 +1,13 @@
+local BASEENTITY = "__base__/graphics/entity/"
+local ICONPATH = "__nullius__/graphics/icons/"
+local EQUIPPATH = "__nullius__/graphics/equipment/"
+
 data:extend({
   {
     type = "battery-equipment",
     name = "nullius-capacitor",
     take_result = "nullius-capacitor",
-	order = "bb",
+    order = "bb",
     sprite = {
       filename = "__base__/graphics/icons/battery.png",
       width = 64,
@@ -26,9 +30,9 @@ data:extend({
   {
     type = "battery-equipment",
     name = "nullius-battery-1",
-	localised_description = {"equipment-description.nullius-battery"},
+    localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-1",
-	order = "bc",
+    order = "bc",
     sprite = {
       filename = "__base__/graphics/icons/battery-equipment.png",
       width = 64,
@@ -51,9 +55,9 @@ data:extend({
   {
     type = "battery-equipment",
     name = "nullius-battery-2",
-	localised_description = {"equipment-description.nullius-battery"},
+    localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-2",
-	order = "bd",
+    order = "bd",
     sprite = {
       filename = "__base__/graphics/icons/battery-mk2-equipment.png",
       width = 64,
@@ -76,11 +80,11 @@ data:extend({
   {
     type = "battery-equipment",
     name = "nullius-battery-3",
-	localised_description = {"equipment-description.nullius-battery"},
+    localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-3",
-	order = "be",
+    order = "be",
     sprite = {
-      filename = "__nullius__/graphics/battery3.png",
+      filename = ICONPATH .. "battery3.png",
       width = 64,
       height = 64,
       priority = "medium"
@@ -101,7 +105,7 @@ data:extend({
   {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-1",
-	order = "cb",
+    order = "cb",
     sprite = {
       filename = "__base__/graphics/icons/solar-panel.png",
       width = 64,
@@ -124,7 +128,7 @@ data:extend({
   {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-2",
-	order = "cc",
+    order = "cc",
     sprite = {
       filename = "__base__/graphics/icons/solar-panel.png",
       width = 64,
@@ -147,7 +151,7 @@ data:extend({
   {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-3",
-	order = "cd",
+    order = "cd",
     sprite = {
       filename = "__base__/graphics/icons/solar-panel.png",
       width = 64,
@@ -169,7 +173,7 @@ data:extend({
   {
     type = "solar-panel-equipment",
     name = "nullius-solar-panel-4",
-	order = "ce",
+    order = "ce",
     sprite = {
       filename = "__base__/graphics/icons/solar-panel.png",
       width = 64,
@@ -192,49 +196,51 @@ data:extend({
 })
 
 if mods["reskins-bobs"] then
-data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
-    size = 150,
-    priority = "medium"
-  },
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
-    size = 150,
-    priority = "medium",
-    tint = tiercolor("yellow")
-  },
-  {
-    filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
-    size = 150,
-    priority = "medium",
-	blend_mode = "additive"
-  }
-}}
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
+      size = 150,
+      priority = "medium"
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
+      size = 150,
+      priority = "medium",
+      tint = tiercolor("yellow")
+    },
+    {
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
+      size = 150,
+      priority = "medium",
+      blend_mode = "additive"
+    }
+  }}
 
-data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite.layers[2].tint = tiercolor("red")
-data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite.layers[2].tint = tiercolor("blue")
-data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite =
-  util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
-data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite.layers[2].tint = tiercolor("green")
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-2"].sprite.layers[2].tint = tiercolor("red")
+
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-3"].sprite.layers[2].tint = tiercolor("blue")
+
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite =
+    util.table.deepcopy(data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite)
+  data.raw["solar-panel-equipment"]["nullius-solar-panel-4"].sprite.layers[2].tint = tiercolor("green")
 end
 
 data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-hangar-1",
-	order = "gb",
-	localised_description = {"equipment-description.nullius-hangar"},
+    order = "gb",
+    localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar1.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "hangar1.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-	  scale = 1.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -257,7 +263,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -277,14 +283,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-hangar-2",
-	order = "gc",
-	localised_description = {"equipment-description.nullius-hangar"},
+    order = "gc",
+    localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__base__/graphics/equipment/personal-roboport-mk2-equipment.png",
-      width = 64,
-      height = 64,
+      filename = "__base__/graphics/equipment/hr-personal-roboport-mk2-equipment.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-	  scale = 1.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -307,7 +313,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -327,14 +333,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-hangar-3",
-	order = "gd",
-	localised_description = {"equipment-description.nullius-hangar"},
+    order = "gd",
+    localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar3.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "hangar3.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-	  scale = 1.5
+      scale = 0.75
     },
     shape = {
       width = 3,
@@ -357,7 +363,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -377,13 +383,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-hangar-4",
-	order = "ge",
-	localised_description = {"equipment-description.nullius-hangar"},
+    order = "ge",
+    localised_description = {"equipment-description.nullius-hangar"},
     sprite = {
-      filename = "__nullius__/graphics/hangar3.png",
-      width = 64,
-      height = 64,
-      priority = "medium"
+      filename = EQUIPPATH .. "hangar3.png", --hangar 4 is just a smaller version of h3
+      width = 128,
+      height = 128,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 2,
@@ -406,7 +413,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -426,14 +433,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-1",
-	order = "hb",
-	localised_description = {"equipment-description.nullius-charger"},
+    order = "hb",
+    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad.png",
       width = 32,
       height = 32,
       priority = "medium",
-	  scale = 2
+      scale = 2
     },
     shape = {
       width = 2,
@@ -447,7 +454,7 @@ data:extend({
       usage_priority = "secondary-input"
     },
     charging_energy = "250kW",
-	
+
     robot_limit = 0,
     construction_radius = 4,
     spawn_and_station_height = 0.4,
@@ -455,7 +462,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -475,14 +482,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-2",
-	order = "hc",
-	localised_description = {"equipment-description.nullius-charger"},
+    order = "hc",
+    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-2.png",
       width = 32,
       height = 32,
       priority = "medium",
-	  scale = 2
+      scale = 2
     },
     shape = {
       width = 2,
@@ -504,7 +511,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -515,7 +522,7 @@ data:extend({
     recharging_light = {intensity = 0.4, size = 5},
     stationing_offset = {0, -0.6},
     charging_station_shift = {0, 0.5},
-	charging_station_count = 1,
+    charging_station_count = 1,
     charging_distance = 1.6,
     charging_threshold_distance = 5,
     categories = {"cybernetic"}
@@ -524,14 +531,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-3",
-	order = "hd",
-	localised_description = {"equipment-description.nullius-charger"},
+    order = "hd",
+    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
       width = 32,
       height = 32,
       priority = "medium",
-	  scale = 2
+      scale = 2
     },
     shape = {
       width = 2,
@@ -553,7 +560,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -573,14 +580,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-4",
-	order = "he",
-	localised_description = {"equipment-description.nullius-charger"},
+    order = "he",
+    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
       width = 32,
       height = 32,
       priority = "medium",
-	  scale = 1.2
+      scale = 1.2
     },
     shape = {
       width = 2,
@@ -602,7 +609,7 @@ data:extend({
     charge_approach_distance = 2.6,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -622,14 +629,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-1",
-	order = "ib",
-	localised_description = {"equipment-description.nullius-relay"},
+    order = "ib",
+    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander.png",
       width = 32,
       height = 80,
-	  x = 20,
-	  y = 24,
+      x = 20,
+      y = 24,
       priority = "medium"
     },
     shape = {
@@ -642,7 +649,7 @@ data:extend({
       buffer_capacity = "200kJ",
       input_flow_limit = "30kW",
       usage_priority = "secondary-input",
-	  drain = "20kW"
+      drain = "20kW"
     },
     charging_energy = "0kW",
 
@@ -654,7 +661,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -674,14 +681,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-2",
-	order = "ic",
-	localised_description = {"equipment-description.nullius-relay"},
+    order = "ic",
+    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-2.png",
       width = 32,
       height = 80,
-	  x = 20,
-	  y = 24,
+      x = 20,
+      y = 24,
       priority = "medium"
     },
     shape = {
@@ -694,7 +701,7 @@ data:extend({
       buffer_capacity = "400kJ",
       input_flow_limit = "40kW",
       usage_priority = "secondary-input",
-	  drain = "30kW"
+      drain = "30kW"
     },
     charging_energy = "0kW",
 
@@ -706,7 +713,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -726,14 +733,14 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-3",
-	order = "id",
-	localised_description = {"equipment-description.nullius-relay"},
+    order = "id",
+    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-4.png",
       width = 32,
       height = 80,
-	  x = 20,
-	  y = 24,
+      x = 20,
+      y = 24,
       priority = "medium"
     },
     shape = {
@@ -746,7 +753,7 @@ data:extend({
       buffer_capacity = "1MJ",
       input_flow_limit = "60kW",
       usage_priority = "secondary-input",
-	  drain = "50kW"
+      drain = "50kW"
     },
     charging_energy = "0kW",
 
@@ -758,7 +765,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -778,15 +785,15 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-4",
-	order = "ie",
-	localised_description = {"equipment-description.nullius-relay"},
+    order = "ie",
+    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
       width = 32,
       height = 80,
-	  x = 20,
-	  y = 24,
-	  tint = {0.85, 1, 0.9},
+      x = 20,
+      y = 24,
+      tint = {0.85, 1, 0.9},
       priority = "medium"
     },
     shape = {
@@ -799,7 +806,7 @@ data:extend({
       buffer_capacity = "1.5MJ",
       input_flow_limit = "100kW",
       usage_priority = "secondary-input",
-	  drain = "75kW"
+      drain = "75kW"
     },
     charging_energy = "0kW",
 
@@ -811,7 +818,7 @@ data:extend({
     robots_shrink_when_entering_and_exiting = true,
 
     recharging_animation = {
-      filename = "__base__/graphics/entity/roboport/roboport-recharging.png",
+      filename = BASEENTITY .. "roboport/roboport-recharging.png",
       priority = "high",
       width = 37,
       height = 35,
@@ -831,13 +838,13 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-1",
-	order = "eb",
+    order = "eb",
     sprite = {
       filename = "__base__/graphics/equipment/night-vision-equipment.png",
       width = 64,
       height = 64,
       priority = "medium",
-	  scale = 1.2
+      scale = 1.2
     },
     shape = {
       width = 3,
@@ -861,13 +868,13 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-2",
-	order = "ec",
+    order = "ec",
     sprite = {
-      filename = "__nullius__/graphics/night-vision-2.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "night-vision-2.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-	  scale = 1.2
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -891,13 +898,13 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-3",
-	order = "ed",
+    order = "ed",
     sprite = {
-      filename = "__nullius__/graphics/night-vision-3.png",
-      width = 64,
-      height = 64,
+      filename = EQUIPPATH .. "night-vision-3.png",
+      width = 128,
+      height = 128,
       priority = "medium",
-	  scale = 1.2
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -921,14 +928,15 @@ data:extend({
   {
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-1",
-	localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
-	localised_description = {"equipment-description.nullius-levitation-field"},
-	order = "fb",
+    localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
+    localised_description = {"equipment-description.nullius-levitation-field"},
+    order = "fb",
     sprite = {
-      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
-      width = 32,
-      height = 32,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      width = 64,
+      height = 64,
+      priority = "medium",
+      scale = 1
     },
     shape = {
       width = 2,
@@ -947,14 +955,15 @@ data:extend({
   {
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-2",
-	localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 2},
-	localised_description = {"equipment-description.nullius-levitation-field"},
-	order = "fc",
+    localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 2},
+    localised_description = {"equipment-description.nullius-levitation-field"},
+    order = "fc",
     sprite = {
-      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
-      width = 32,
-      height = 32,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      width = 64,
+      height = 64,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 1,
@@ -974,14 +983,14 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-1",
-	order = "db",
+    order = "db",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-	  scale = 1.375,
-	  tint = {0.75, 0.75, 0.6}
+      scale = 0.687,
+      tint = {0.75, 0.75, 0.6}
     },
     shape = {
       width = 3,
@@ -1002,14 +1011,14 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-2",
-	order = "dc",
+    order = "dc",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-	  scale = 1.375,
-	  tint = {0.8, 0.8, 0.95}
+      scale = 0.687,
+      tint = {0.8, 0.8, 0.95}
     },
     shape = {
       width = 3,
@@ -1030,13 +1039,13 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-3",
-	order = "dd",
+    order = "dd",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
       priority = "medium",
-	  scale = 1.375
+      scale = 0.687
     },
     shape = {
       width = 3,
@@ -1057,12 +1066,13 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-4",
-	order = "de",
+    order = "de",
     sprite = {
-      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
-      width = 64,
-      height = 128,
-      priority = "medium"
+      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      width = 128,
+      height = 256,
+      priority = "medium",
+      scale = 0.5
     },
     shape = {
       width = 3,
@@ -1087,8 +1097,8 @@ data:extend({
     acceleration = 0.005,
     light = {intensity = 0.5, size = 4},
     animation = data.raw["projectile"]["explosive-rocket"].animation,
-	shadow = data.raw["projectile"]["explosive-rocket"].shadow,
-	smoke = data.raw["projectile"]["explosive-rocket"].smoke,
+    shadow = data.raw["projectile"]["explosive-rocket"].shadow,
+    smoke = data.raw["projectile"]["explosive-rocket"].smoke,
     action = {
       type = "direct",
       action_delivery = {
@@ -1169,8 +1179,8 @@ data:extend({
     acceleration = 0.004,
     light = {intensity = 0.5, size = 4},
     animation = data.raw["projectile"]["atomic-rocket"].animation,
-	shadow = data.raw["projectile"]["atomic-rocket"].shadow,
-	smoke = data.raw["projectile"]["atomic-rocket"].smoke,
+    shadow = data.raw["projectile"]["atomic-rocket"].shadow,
+    smoke = data.raw["projectile"]["atomic-rocket"].smoke,
     action = {
       type = "direct",
       action_delivery = {
@@ -1181,10 +1191,10 @@ data:extend({
             radius = 21,
             explosion = "explosion"
           },
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[3],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[4],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[5],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[3],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[4],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[5],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[6],
           {
             type = "nested-result",
             action = {
@@ -1195,7 +1205,7 @@ data:extend({
                 target_effects = {
                   {
                     type = "damage",
-					vaporize = true,
+                    vaporize = true,
                     damage = {amount = 30000, type = "explosion"}
                   },
                   {
@@ -1216,7 +1226,7 @@ data:extend({
                 target_effects = {
                   {
                     type = "damage",
-					vaporize = false,
+                    vaporize = false,
                     damage = {amount = 900, type = "explosion"}
                   },
                   {
@@ -1237,7 +1247,7 @@ data:extend({
                 target_effects = {
                   {
                     type = "damage",
-					vaporize = false,
+                    vaporize = false,
                     damage = {amount = 100, type = "explosion"}
                   },
                   {
@@ -1248,7 +1258,7 @@ data:extend({
               }
             }
           },
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[9],
           {
             type = "destroy-decoratives",
             from_render_layer = "decorative",
@@ -1259,11 +1269,11 @@ data:extend({
             decoratives_with_trigger_only = false,
             radius = 25
           },
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[14],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[15],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[16],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[17],
-		  data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[14],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[15],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[16],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[17],
+          data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[18],
           {
             type = "set-tile",
             tile_name = "nuclear-ground",

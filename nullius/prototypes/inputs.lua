@@ -1,10 +1,13 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "custom-input",
     name = "nullius-upload-mind",
     order = "nullius-bb",
     key_sequence = "U",
-	include_selected_prototype = true
+    include_selected_prototype = true
   },
   {
     type = "custom-input",

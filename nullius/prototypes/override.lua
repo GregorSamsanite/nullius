@@ -1,3 +1,7 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 for _, type in pairs({"unit-spawner", "unit", "turret"}) do
   for _, entity in pairs(data.raw[type]) do
     if ((entity.subgroup == "enemies") and entity.autoplace and (entity.autoplace.force == "enemy")) then
@@ -31,7 +35,7 @@ data.raw.item["red-wire"].order = "nullius-c"
 data.raw.item["green-wire"].order = "nullius-d"
 data.raw.item["power-switch"].order = "nullius-h"
 data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
-data.raw.item["copper-cable"].icon_size = 64 
+data.raw.item["copper-cable"].icon_size = 64
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 
@@ -63,7 +67,7 @@ data.raw["programmable-speaker"]["programmable-speaker"].energy_source = {
   usage_priority = "primary-input",
   input_flow_limit = "5kW",
   buffer_capacity = "100kW"
-} 
+}
 data.raw["programmable-speaker"]["programmable-speaker"].energy_usage_per_tick = "250W"
 
 data.raw["lamp"]["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
@@ -73,7 +77,7 @@ data.raw.item["small-lamp"].order = "nullius-bb"
 data.raw.item["small-lamp"].place_result = "nullius-lamp-1"
 data.raw["lamp"]["small-lamp"].placeable_by = {item = "small-lamp", count = 1}
 data.raw.item["small-lamp"].icons =
-  {{icon = "__nullius__/graphics/lamp1.png", icon_size = 64}}
+  {{icon = ENTICONPATH .. "lamp1.png", icon_size = 64}}
 label_icon("small-lamp", 1, "yellow")
 data.raw["lamp"]["small-lamp"].icons = data.raw.item["small-lamp"].icons
 
@@ -212,35 +216,35 @@ data.raw["splitter"]["express-splitter"].next_upgrade = "ultimate-splitter"
 
 data.raw.item["ultimate-transport-belt"].subgroup = "belt"
 data.raw.item["ultimate-transport-belt"].order = "nullius-be"
-data.raw.item["ultimate-transport-belt"].icon = "__nullius__/graphics/belt4.png"
+data.raw.item["ultimate-transport-belt"].icon = ENTICONPATH .. "belt4.png"
 data.raw.item["ultimate-transport-belt"].icon_size = 64
 data.raw.item["ultimate-transport-belt"].icon_mipmaps = 4
 data.raw.item["ultimate-transport-belt"].stack_size = 200
 data.raw["transport-belt"]["ultimate-transport-belt"].localised_name = {"entity-name.nullius-belt-4"}
 data.raw["transport-belt"]["ultimate-transport-belt"].next_upgrade = nil
-data.raw["transport-belt"]["ultimate-transport-belt"].icon = "__nullius__/graphics/belt4.png"
+data.raw["transport-belt"]["ultimate-transport-belt"].icon = ENTICONPATH .. "belt4.png"
 data.raw["transport-belt"]["ultimate-transport-belt"].icon_size = 64
 data.raw["transport-belt"]["ultimate-transport-belt"].icon_mipmaps = 4
 data.raw.item["ultimate-underground-belt"].subgroup = "belt"
 data.raw.item["ultimate-underground-belt"].order = "nullius-ce"
-data.raw.item["ultimate-underground-belt"].icon = "__nullius__/graphics/underground-belt4.png"
+data.raw.item["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
 data.raw.item["ultimate-underground-belt"].icon_size = 64
 data.raw.item["ultimate-underground-belt"].icon_mipmaps = 4
 data.raw.item["ultimate-underground-belt"].stack_size = 100
 data.raw["underground-belt"]["ultimate-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-4"}
 data.raw["underground-belt"]["ultimate-underground-belt"].max_distance = 19
 data.raw["underground-belt"]["ultimate-underground-belt"].next_upgrade = nil
-data.raw["underground-belt"]["ultimate-underground-belt"].icon = "__nullius__/graphics/underground-belt4.png"
+data.raw["underground-belt"]["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
 data.raw["underground-belt"]["ultimate-underground-belt"].icon_size = 64
 data.raw["underground-belt"]["ultimate-underground-belt"].icon_mipmaps = 4
 data.raw.item["ultimate-splitter"].subgroup = "splitter"
 data.raw.item["ultimate-splitter"].order = "nullius-de"
-data.raw.item["ultimate-splitter"].icon = "__nullius__/graphics/splitter4.png"
+data.raw.item["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
 data.raw.item["ultimate-splitter"].icon_size = 64
 data.raw.item["ultimate-splitter"].icon_mipmaps = 4
 data.raw["splitter"]["ultimate-splitter"].localised_name = {"entity-name.nullius-splitter-4"}
 data.raw["splitter"]["ultimate-splitter"].next_upgrade = nil
-data.raw["splitter"]["ultimate-splitter"].icon = "__nullius__/graphics/splitter4.png"
+data.raw["splitter"]["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
 data.raw["splitter"]["ultimate-splitter"].icon_size = 64
 data.raw["splitter"]["ultimate-splitter"].icon_mipmaps = 4
 
@@ -514,7 +518,7 @@ data.raw.item["big-electric-pole"].order = "nullius-cb"
 data.raw.item["big-electric-pole"].stack_size = 50
 data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
 data.raw.item["big-electric-pole"].icons = {{
-  icon = "__nullius__/graphics/large-pole-1.png",
+  icon = ENTICONPATH .. "large-pole-1.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 if mods["reskins-bobs"] then
@@ -523,7 +527,7 @@ end
 
 data.raw["electric-pole"]["big-electric-pole"].pictures.layers = {
   {
-    filename = "__nullius__/graphics/large-pole-1-entity.png",
+    filename = ENTITYPATH .. "poles/large-pole-1-entity.png",
     priority = "extra-high",
     width = 148,
     height = 312,

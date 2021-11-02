@@ -1,8 +1,12 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTICONPATH = "__nullius__/graphics/icons/entity/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+local TURBINEP = ENTITYPATH .. "windturbine/"
+
 -- Nullius wind turbine system is originally based on the windturbines mod by OwnlyMe
 -- Unfortunately they withdrew support for it while Nullius was in development, and it's
 -- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
 -- to rely on it, so the graphics are replicated here.
-
 
 for i=0,7 do
   for j=1,3 do
@@ -12,7 +16,7 @@ for i=0,7 do
       {
         type = "animation",
         name = "nullius-wind-shadow-"..j.."-"..i,
-        filename = "__nullius__/graphics/windturbine/lds/angle"..k..".png",
+        filename = TURBINEP .. "lds/angle"..k..".png",
         width = 400,
         height = 200,
         frame_count = 24,
@@ -21,7 +25,7 @@ for i=0,7 do
         scale = 4*scale,
         draw_as_shadow = true,
         hr_version = {
-          filename = "__nullius__/graphics/windturbine/hds/angle"..k..".png",
+          filename = TURBINEP .. "hds/angle"..k..".png",
           width = 800,
           height = 400,
           frame_count = 24,
@@ -34,7 +38,7 @@ for i=0,7 do
       {
         type = "animation",
         name = "nullius-wind-blade-"..j.."-"..i,
-        filename = "__nullius__/graphics/windturbine/ld"..j.."/angle"..k..".png",
+        filename = TURBINEP .. "ld"..j.."/angle"..k..".png",
         width = 300,
         height = 400,
         frame_count = 24,
@@ -42,7 +46,7 @@ for i=0,7 do
         shift = {0.15*scale, -1*scale},
         scale = 2*scale,
         hr_version = {
-		  filename = "__nullius__/graphics/windturbine/hd"..j.."/angle"..k..".png",
+          filename = TURBINEP .. "hd"..j.."/angle"..k..".png",
           width = 600,
           height = 800,
           frame_count = 24,
@@ -64,7 +68,7 @@ for i=1,3 do
     {
       type = "electric-energy-interface",
       name = "nullius-wind-build-"..i,
-	  icons = data.raw.item["nullius-wind-turbine-"..i].icons,
+      icons = data.raw.item["nullius-wind-turbine-"..i].icons,
       flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
       minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
       max_health = 800*scale,
@@ -85,45 +89,45 @@ for i=1,3 do
       },
       energy_production = power.."kW",
       energy_usage = "0kW",
-	  fast_replaceable_group = "wind-turbine",
+      fast_replaceable_group = "wind-turbine",
       animations = {
         layers = {
           {
-            filename = "__nullius__/graphics/windturbine/ld"..i.."/build.png",
+            filename = TURBINEP .. "ld"..i.."/build.png",
             width = 300,
             height = 400,
-            frame_count = 24,
-            line_length = 6,
+            frame_count = 1,
+            line_length = 1,
             shift = {0.15*scale, -11*scale},
             animation_speed = 0.2,
             scale = 2*scale,
             hr_version = {
-              filename = "__nullius__/graphics/windturbine/hd"..i.."/build.png",
+              filename = TURBINEP .. "hd"..i.."/build.png",
               width = 600,
               height = 800,
-              frame_count = 24,
-              line_length = 6,
+              frame_count = 1,
+              line_length = 1,
               scale = scale,
               shift = {0.15*scale, -11*scale},
               animation_speed = 0.2
             }
           },
           {
-            filename = "__nullius__/graphics/windturbine/lds/build.png",
+            filename = TURBINEP .. "lds/build.png",
             width = 400,
             height = 200,
-            frame_count = 24,
-            line_length = 5,
+            frame_count = 1,
+            line_length = 1,
             shift = {9.5*scale,-3.6*scale},
             animation_speed = 0.2,
             draw_as_shadow = true,
             scale = 4*scale,
             hr_version = {
-              filename = "__nullius__/graphics/windturbine/hds/build.png",
+              filename = TURBINEP .. "hds/build.png",
               width = 800,
               height = 400,
-              frame_count = 24,
-              line_length = 5,
+              frame_count = 1,
+              line_length = 1,
               scale = 2*scale,
               shift = {9.5*scale,-3.6*scale},
               animation_speed = 0.2,
@@ -138,14 +142,14 @@ for i=1,3 do
           volume = scale
         },
         match_speed_to_activity = true
-      }	
+      }
     },
 
     {
       type = "electric-energy-interface",
       name = "nullius-wind-base-"..i,
-      icon = "__nullius__/graphics/windturbine"..i..".png",
-      icon_size = 144,
+      icon = ENTICONPATH .. "windturbine"..i..".png",
+      icon_size = 64,
       flags = {"placeable-neutral","player-creation"},
       minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
       placeable_by = {item = "nullius-wind-turbine-"..i, count = 1},
@@ -167,9 +171,9 @@ for i=1,3 do
       },
       energy_production = power.."kW",
       energy_usage = "0kW",
-	  fast_replaceable_group = "wind-turbine",
+      fast_replaceable_group = "wind-turbine",
       picture = {
-        filename = "__nullius__/graphics/windturbine/ld"..i.."/base.png",
+        filename = TURBINEP .. "ld"..i.."/base.png",
         width = 300,
         height = 400,
         frame_count = 1,
@@ -178,7 +182,7 @@ for i=1,3 do
         animation_speed = 0.2,
         scale = 2*scale,
         hr_version = {
-          filename = "__nullius__/graphics/windturbine/hd"..i.."/base.png",
+          filename = TURBINEP .. "hd"..i.."/base.png",
           width = 600,
           height = 800,
           frame_count = 1,
@@ -215,7 +219,7 @@ data:extend({
     render_layer = "wires-above",
     random_animation_offset = false,
     picture = {
-      filename = "__nullius__/graphics/blank.png",
+      filename = ICONPATH .. "blank.png",
       width = 32,
       height = 32
     }
@@ -223,7 +227,7 @@ data:extend({
   {
     type = "simple-entity-with-force",
     name = "nullius-wind-collision-horizontal",
-	localised_name = {"entity-name.nullius-wind-collision"},
+    localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
     icon = "__base__/graphics/icons/fluid/steam.png",
     icon_size = 64,
@@ -235,7 +239,7 @@ data:extend({
     selectable_in_game = false,
     random_animation_offset = false,
     picture = {
-      filename = "__nullius__/graphics/blank.png",
+      filename = ICONPATH .. "blank.png",
       width = 32,
       height = 32
     }
@@ -243,7 +247,7 @@ data:extend({
   {
     type = "simple-entity-with-force",
     name = "nullius-wind-collision-vertical",
-	localised_name = {"entity-name.nullius-wind-collision"},
+    localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
     icon = "__base__/graphics/icons/fluid/steam.png",
     icon_size = 64,
@@ -255,7 +259,7 @@ data:extend({
     selectable_in_game = false,
     random_animation_offset = false,
     picture = {
-      filename = "__nullius__/graphics/blank.png",
+      filename = ICONPATH .. "blank.png",
       width = 32,
       height = 32
     }

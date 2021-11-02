@@ -1,6 +1,9 @@
  -- seed + drone -> farmer
  -- farmer + greenhouse + 1 minute -> seed + 1
 
+local ICONPATH = "__nullius__/graphics/icons/"
+local FLUIDPATH = ICONPATH .. "fluid/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
 
 element_tint = {
   ["carbon"] = { 32, 32, 32 },
@@ -33,7 +36,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-water",
-    icon = "__nullius__/graphics/purewater.png",
+    icon = FLUIDPATH .. "purewater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -63,7 +66,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-seawater",
-    icon = "__nullius__/graphics/seawater.png",
+    icon = FLUIDPATH .. "seawater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -77,7 +80,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-freshwater",
-    icon = "__nullius__/graphics/freshwater.png",
+    icon = FLUIDPATH .. "freshwater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -105,7 +108,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-brine",
-    icon = "__nullius__/graphics/brine.png",
+    icon = FLUIDPATH .. "brine.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -120,9 +123,9 @@ data:extend({
     type = "fluid",
     name = "nullius-heavy-water",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/semiheavy-water.png", 72 },
-	  {element_tint["heavy"], element_tint["oxygen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/semiheavy-water.png", 72 },
+      {element_tint["heavy"], element_tint["oxygen"], element_tint["hydrogen"]}
+    ),
     subgroup = "nullius-water-treatment",
     order = "nullius-h",
     base_color = {r=18, g=180, b=180},
@@ -134,7 +137,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-wastewater",
-    icon = "__nullius__/graphics/wastewater.png",
+    icon = FLUIDPATH .. "wastewater.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -148,7 +151,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-sludge",
-    icon = "__nullius__/graphics/sludge.png",
+    icon = FLUIDPATH .. "sludge.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
@@ -163,8 +166,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-air",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["air"], element_tint["residual"], element_tint["air"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["air"], element_tint["residual"], element_tint["air"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-b",
@@ -178,8 +181,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-residual-gas",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-c",
@@ -193,8 +196,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-trace-gas",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-d",
@@ -208,8 +211,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-volcanic-gas",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["volcanic"], element_tint["air"], element_tint["volcanic"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["volcanic"], element_tint["air"], element_tint["volcanic"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-e",
@@ -223,8 +226,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-nitrogen",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["nitrogen"], element_tint["nitrogen"], element_tint["nitrogen"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["nitrogen"], element_tint["nitrogen"], element_tint["nitrogen"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-f",
@@ -238,8 +241,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-argon",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["argon"], element_tint["argon"], element_tint["argon"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["argon"], element_tint["argon"], element_tint["argon"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-g",
@@ -253,8 +256,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-helium",
-	icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["helium"], element_tint["helium"], element_tint["helium"]}
+    icons = angelsmods.functions.create_gas_fluid_icon(nil,
+      {element_tint["helium"], element_tint["helium"], element_tint["helium"]}
     ),
     subgroup = "air-filtration",
     order = "nullius-h",
@@ -264,15 +267,15 @@ data:extend({
     default_temperature = 25,
     max_temperature = 100,
     gas_temperature = 0
-  },  
+  },
 
   {
     type = "fluid",
     name = "nullius-carbon-dioxide",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72 },
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72 },
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
+    ),
     subgroup = "carbon",
     order = "nullius-b",
     base_color = {r = 1, g = 0.4, b = 0.4},
@@ -286,9 +289,9 @@ data:extend({
     type = "fluid",
     name = "nullius-carbon-monoxide",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
+    ),
     subgroup = "carbon",
     order = "nullius-c",
     base_color = {r = 0.5, g = 0.2, b = 0.2},
@@ -302,9 +305,9 @@ data:extend({
     type = "fluid",
     name = "nullius-methane",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     subgroup = "carbon",
     order = "nullius-d",
     base_color = {r = 0.68, g = 0.68, b = 0.68},
@@ -318,9 +321,9 @@ data:extend({
     type = "fluid",
     name = "nullius-ethylene",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72 },
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72 },
+      {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]}
+    ),
     subgroup = "carbon",
     order = "nullius-f",
     base_color = {r = 0.45, g = 0.45, b = 0.45},
@@ -334,9 +337,9 @@ data:extend({
     type = "fluid",
     name = "nullius-propene",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]}
+    ),
     subgroup = "carbon",
     order = "nullius-g",
     base_color = {r = 0.3, g = 0.3, b = 0.3},
@@ -350,9 +353,9 @@ data:extend({
     type = "fluid",
     name = "nullius-benzene",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     subgroup = "carbon",
     order = "nullius-h",
     base_color = {r = 0.15, g = 0.15, b = 0.15},
@@ -366,9 +369,9 @@ data:extend({
     type = "fluid",
     name = "nullius-methanol",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72 },
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72 },
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-b",
     base_color = {r = 0.7, g = 0.575, b = 0.575},
@@ -381,9 +384,9 @@ data:extend({
     type = "fluid",
     name = "nullius-butadiene",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/butadiene.png", 75 },
-	  {element_tint["hydrogen"], element_tint["carbon"], element_tint["carbon"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/butadiene.png", 75 },
+      {element_tint["hydrogen"], element_tint["carbon"], element_tint["carbon"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-c",
     base_color = {r = 0.8, g = 0.8, b = 0.8},
@@ -391,15 +394,15 @@ data:extend({
     heat_capacity = "0.04KJ",
     default_temperature = 25,
     max_temperature = 100,
-	gas_temperature = 0
+    gas_temperature = 0
   },
   {
     type = "fluid",
     name = "nullius-styrene",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/styrene.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/styrene.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-d",
     base_color = {r = 0, g = 0, b = 0},
@@ -412,9 +415,9 @@ data:extend({
     type = "fluid",
     name = "nullius-acrylonitrile",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/methylamine.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["nitrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/methylamine.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["nitrogen"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-e",
     base_color = {r = 0.2, g = 0.2, b = 0.4},
@@ -427,9 +430,9 @@ data:extend({
     type = "fluid",
     name = "nullius-ech",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/epichlorohydrin.png", 72 },
-	  {element_tint["carbon"], element_tint["chlorine"], element_tint["oxygen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/epichlorohydrin.png", 72 },
+      {element_tint["carbon"], element_tint["chlorine"], element_tint["oxygen"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-f",
     base_color = {r = 224, g = 212, b = 168},
@@ -442,9 +445,9 @@ data:extend({
     type = "fluid",
     name = "nullius-glycerol",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/glycerol.png", 72 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/glycerol.png", 72 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]}
+    ),
     subgroup = "organic-chemistry",
     order = "nullius-g",
     base_color = {r = 224, g = 192, b = 128},
@@ -470,7 +473,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-solvent",
-    icon = "__nullius__/graphics/solvent.png",
+    icon = FLUIDPATH .. "solvent.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "organic-chemistry",
@@ -484,7 +487,7 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-epoxy",
-    icon = "__nullius__/graphics/epoxy.png",
+    icon = FLUIDPATH .. "epoxy.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "organic-chemistry",
@@ -500,8 +503,8 @@ data:extend({
     type = "fluid",
     name = "nullius-amino-acids",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["nitrogen"], element_tint["carbon"], element_tint["hydrogen"]}
-	),
+      {element_tint["nitrogen"], element_tint["carbon"], element_tint["hydrogen"]}
+    ),
     subgroup = "biochemistry",
     order = "nullius-c",
     base_color = {r = 0.5, g = 0.4, b = 0.2},
@@ -514,8 +517,8 @@ data:extend({
     type = "fluid",
     name = "nullius-nucleotides",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["nitrogen"]}
-	),
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["nitrogen"]}
+    ),
     subgroup = "biochemistry",
     order = "nullius-d",
     base_color = {r = 0.7, g = 0.9, b = 0.5},
@@ -528,8 +531,8 @@ data:extend({
     type = "fluid",
     name = "nullius-fatty-acids",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]}
-	),
+      {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]}
+    ),
     subgroup = "biochemistry",
     order = "nullius-e",
     base_color = {r = 0.8, g = 0.8, b = 0.4},
@@ -542,10 +545,10 @@ data:extend({
     type = "fluid",
     name = "nullius-oil",
     icons = {{
-	  icon = "__base__/graphics/icons/fluid/light-oil.png",
+      icon = "__base__/graphics/icons/fluid/light-oil.png",
       icon_size = 64,
       icon_mipmaps = 4
-	}},
+    }},
     subgroup = "biochemistry",
     order = "nullius-f",
     base_color = {r=0.57, g=0.33, b=0},
@@ -558,10 +561,10 @@ data:extend({
     type = "fluid",
     name = "nullius-biodiesel",
     icons = {{
-	  icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+      icon = "__base__/graphics/icons/fluid/heavy-oil.png",
       icon_size = 64,
       icon_mipmaps = 4
-	}},
+    }},
     subgroup = "biochemistry",
     order = "nullius-g",
     base_color = {r=0.5, g=0.04, b=0},
@@ -573,13 +576,13 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-protocell",
-	icons = {{
-      icon = "__nullius__/graphics/protocell.png",
+    icons = {{
+      icon = ICONPATH .. "protocell.png",
       icon_size = 64
     }},
     subgroup = "biochemistry",
     order = "nullius-h",
-	base_color = {r = 0.9, g = 0.7, b = 0.5},
+    base_color = {r = 0.9, g = 0.7, b = 0.5},
     flow_color = {r = 0.9, g = 0.7, b = 0.5},
     heat_capacity = "0.08KJ",
     default_temperature = 25,
@@ -588,13 +591,13 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-bacteria",
-	icons = {{
-      icon = "__nullius__/graphics/bacteria.png",
+    icons = {{
+      icon = ICONPATH .. "bacteria.png",
       icon_size = 64
     }},
     subgroup = "biochemistry",
     order = "nullius-i",
-	base_color = {r = 0.8, g = 0.5, b = 0.3},
+    base_color = {r = 0.8, g = 0.5, b = 0.3},
     flow_color = {r = 0.8, g = 0.5, b = 0.3},
     heat_capacity = "0.08KJ",
     default_temperature = 25,
@@ -605,8 +608,8 @@ data:extend({
     type = "fluid",
     name = "nullius-hydrogen",
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["hydrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {element_tint["hydrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-bb",
     base_color = {r = 1, g = 1, b = 1},
@@ -620,8 +623,8 @@ data:extend({
     type = "fluid",
     name = "nullius-deuterium",
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["hydrogen"], element_tint["heavy"], element_tint["heavy"]}
-	),
+      {element_tint["hydrogen"], element_tint["heavy"], element_tint["heavy"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-bc",
     base_color = {r = 1, g = 0.95, b = 0.85},
@@ -635,8 +638,8 @@ data:extend({
     type = "fluid",
     name = "nullius-tritium",
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["heavy"], element_tint["heavy"], element_tint["heavy"]}
-	),
+      {element_tint["heavy"], element_tint["heavy"], element_tint["heavy"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-bd",
     base_color = {r = 1, g = 0.9, b = 0.7},
@@ -650,8 +653,8 @@ data:extend({
     type = "fluid",
     name = "nullius-oxygen",
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["oxygen"], element_tint["oxygen"], element_tint["oxygen"]}
-	),
+      {element_tint["oxygen"], element_tint["oxygen"], element_tint["oxygen"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-c",
     base_color = {r = 1, g = 0, b = 0},
@@ -665,8 +668,8 @@ data:extend({
     type = "fluid",
     name = "nullius-chlorine",
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
-	  {element_tint["chlorine"], element_tint["chlorine"], element_tint["chlorine"]}
-	),
+      {element_tint["chlorine"], element_tint["chlorine"], element_tint["chlorine"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-d",
     base_color = {r = 0, g = 1, b = 0},
@@ -680,10 +683,10 @@ data:extend({
     type = "fluid",
     name = "nullius-caustic-solution",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__nullius__/graphics/sodium-hydroxide.png",
-	    64, nil, 0.18},
-	  {element_tint["sodium"], element_tint["oxygen"], element_tint["hydrogen"]}
-	),
+      {FLUIDPATH .. "sodium-hydroxide.png",
+        64, nil, 0.18},
+      {element_tint["sodium"], element_tint["oxygen"], element_tint["hydrogen"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-g",
     base_color = { r = 150, g = 40, b = 180 },
@@ -696,10 +699,10 @@ data:extend({
     type = "fluid",
     name = "nullius-calcium-chloride-solution",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__nullius__/graphics/icons/calcium-chloride.png",
-	    64, nil, 0.18 },
-	  {element_tint["calcium"], element_tint["chlorine"], element_tint["chlorine"]}
-	),
+      {FLUIDPATH .. "calcium-chloride.png",
+        64, nil, 0.18 },
+      {element_tint["calcium"], element_tint["chlorine"], element_tint["chlorine"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-i",
     base_color = {r = 0.9, g = 1, b = 0.7},
@@ -712,8 +715,8 @@ data:extend({
     type = "fluid",
     name = "nullius-titanium-tetrachloride",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["titanium"], element_tint["titanium"], element_tint["chlorine"]}
-	),
+      {element_tint["titanium"], element_tint["titanium"], element_tint["chlorine"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-l",
     base_color = {r = 120, g = 60, b = 90},
@@ -726,8 +729,8 @@ data:extend({
     type = "fluid",
     name = "nullius-copper-solution",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["copper"], element_tint["copper"], element_tint["copper"]}
-	),
+      {element_tint["copper"], element_tint["copper"], element_tint["copper"]}
+    ),
     subgroup = "inorganic-chemistry",
     order = "nullius-m",
     base_color = {r=0.803, g=0.388, b=0.215},
@@ -741,10 +744,10 @@ data:extend({
     type = "fluid",
     name = "nullius-hydrogen-chloride",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
-	    72, nil, 0.15},
-	  {element_tint["chlorine"], element_tint["chlorine"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        72, nil, 0.15},
+      {element_tint["chlorine"], element_tint["chlorine"], element_tint["hydrogen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-e",
     base_color = {r = 0.7, g = 1, b = 0.7},
@@ -758,10 +761,10 @@ data:extend({
     type = "fluid",
     name = "nullius-acid-hydrochloric",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
-	    72, nil, 0.15 },
-	  {element_tint["chlorine"], element_tint["chlorine"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        72, nil, 0.15 },
+      {element_tint["chlorine"], element_tint["chlorine"], element_tint["hydrogen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-f",
     base_color = {r = 0.4, g = 1, b = 0.4},
@@ -774,10 +777,10 @@ data:extend({
     type = "fluid",
     name = "nullius-sulfur-dioxide",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png",
-	    72, nil, 0.17},
-	  {element_tint["sulfur"], element_tint["oxygen"], element_tint["oxygen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png",
+        72, nil, 0.17},
+      {element_tint["sulfur"], element_tint["oxygen"], element_tint["oxygen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-h",
     base_color = {r = 0.9, g = 0.9, b = 0.2},
@@ -791,10 +794,10 @@ data:extend({
     type = "fluid",
     name = "nullius-acid-sulfuric",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
-	    72, nil, 0.18},
-	  {element_tint["sulfur"], element_tint["oxygen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        72, nil, 0.18},
+      {element_tint["sulfur"], element_tint["oxygen"], element_tint["hydrogen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-i",
     base_color = {r = 0.75, g = 0.65, b = 0.1},
@@ -807,9 +810,9 @@ data:extend({
     type = "fluid",
     name = "nullius-ammonia",
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/ammonia.png", 72 },
-	  {element_tint["nitrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/ammonia.png", 72 },
+      {element_tint["nitrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-j",
     base_color = {r = 0.4, g = 0.4, b = 0.7},
@@ -823,10 +826,10 @@ data:extend({
     type = "fluid",
     name = "nullius-acid-nitric",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/nitric-acid.png",
-	    72, nil, 0.18},
-	  {element_tint["nitrogen"], element_tint["oxygen"], element_tint["hydrogen"]}
-	),
+      {"__angelspetrochem__/graphics/icons/molecules/nitric-acid.png",
+        72, nil, 0.18},
+      {element_tint["nitrogen"], element_tint["oxygen"], element_tint["hydrogen"]}
+    ),
     subgroup = "acid-chemistry",
     order = "nullius-k",
     base_color = {r = 148, g = 112, b = 224},
@@ -839,8 +842,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-compressed-air",
-	icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["air"], element_tint["residual"], element_tint["air"]}
+    icons = angelsmods.functions.create_liquid_fluid_icon(nil,
+      {element_tint["air"], element_tint["residual"], element_tint["air"]}
     ),
     subgroup = "compression",
     order = "nullius-b",
@@ -854,8 +857,8 @@ data:extend({
   {
     type = "fluid",
     name = "nullius-compressed-residual-gas",
-	icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
+    icons = angelsmods.functions.create_liquid_fluid_icon(nil,
+      {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
     ),
     subgroup = "compression",
     order = "nullius-c",
@@ -865,13 +868,13 @@ data:extend({
     fuel_value = "15KJ",
     default_temperature = 50,
     max_temperature = 100,
-	auto_barrel = false
+    auto_barrel = false
   },
   {
     type = "fluid",
     name = "nullius-compressed-trace-gas",
-	icons = angelsmods.functions.create_liquid_fluid_icon(nil,
-	  {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
+    icons = angelsmods.functions.create_liquid_fluid_icon(nil,
+      {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
     ),
     subgroup = "compression",
     order = "nullius-d",
@@ -881,7 +884,7 @@ data:extend({
     fuel_value = "15KJ",
     default_temperature = 50,
     max_temperature = 100,
-	auto_barrel = false
+    auto_barrel = false
   },
   {
     type = "fluid",
@@ -962,7 +965,7 @@ data:extend({
     type = "fluid",
     name = "nullius-compressed-carbon-dioxide",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72 },
+      {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72 },
       {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
     ),
     subgroup = "compression",
@@ -978,7 +981,7 @@ data:extend({
     type = "fluid",
     name = "nullius-compressed-carbon-monoxide",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
+      {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
       {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
     ),
     subgroup = "compression",
@@ -994,7 +997,7 @@ data:extend({
     type = "fluid",
     name = "nullius-compressed-methane",
     icons = angelsmods.functions.create_liquid_fluid_icon(
-	  {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
+      {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
       {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
     ),
     subgroup = "compression",
@@ -1017,15 +1020,15 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/chemical-science-pack.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.27,
-		shift = {1, 7},
+        shift = {1, 7},
         tint = {r=1, g=1, b=1, a=0.75}
       }
     },
@@ -1040,7 +1043,7 @@ data:extend({
     name = "nullius-climatology-pack-1",
     localised_name = {"recipe-name.nullius-climatology-pack-1"},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "nullius-water-treatment",
     energy_required = 25,
@@ -1057,27 +1060,27 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/chemical-science-pack.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.27,
-		shift = {1, 7},
+        shift = {1, 7},
         tint = {r=1, g=1, b=1, a=0.75}
       },
-	  {
-		icon = "__nullius__/graphics/wastewater.png",
-		icon_size = 64,
+      {
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.25,
         shift = {12, -9}
       }
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
     crafting_machine_tint = {
@@ -1096,10 +1099,10 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-climatology-pack",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-science",
+    subgroup = "boxed-science",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
       secondary = data.raw.fluid["nullius-nitrogen"].flow_color
@@ -1132,7 +1135,7 @@ data:extend({
     enabled = false,
     category = "basic-chemistry",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
@@ -1140,23 +1143,23 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-glass", amount=3},
-	  {type="item", name="concrete", amount=6},
+      {type="item", name="concrete", amount=6},
       {type="item", name="nullius-ammonia-barrel", amount=1},
       {type="item", name="nullius-sodium-hydroxide", amount=2},
       {type="fluid", name="nullius-acid-sulfuric", amount=18},
-	  {type="fluid", name="nullius-lubricant", amount=5}	  
+      {type="fluid", name="nullius-lubricant", amount=5}
     },
     result = "nullius-chemical-pack",
-	result_count = 2
+    result_count = 2
   },
   {
     type = "recipe",
     name = "nullius-boxed-chemical-pack",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-science",
+    subgroup = "boxed-science",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
@@ -1164,14 +1167,14 @@ data:extend({
     energy_required = 125,
     ingredients = {
       {type="item", name="nullius-box-glass", amount=3},
-	  {type="item", name="nullius-box-concrete", amount=6},
+      {type="item", name="nullius-box-concrete", amount=6},
       {type="item", name="nullius-ammonia-barrel", amount=5},
       {type="item", name="nullius-box-sodium-hydroxide", amount=2},
       {type="fluid", name="nullius-acid-sulfuric", amount=90},
-	  {type="fluid", name="nullius-lubricant", amount=25}  
+      {type="fluid", name="nullius-lubricant", amount=25}
     },
     result = "nullius-box-chemical-pack",
-	result_count = 2
+    result_count = 2
   },
 
   {
@@ -1182,7 +1185,7 @@ data:extend({
     subgroup = "inorganic-chemistry",
     order = "nullius-eb",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-water", amount=80},
@@ -1196,16 +1199,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-caustic-solution",
-	localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-caustic-solution"}},
+    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-caustic-solution"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__nullius__/graphics/sodium-hydroxide.png",
-		icon_size = 64,
-		scale = 0.4
+        icon = FLUIDPATH .. "sodium-hydroxide.png",
+        icon_size = 64,
+        scale = 0.4
       }
     },
     enabled = false,
@@ -1213,7 +1216,7 @@ data:extend({
     subgroup = "boxed-fluid",
     order = "nullius-cb",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 5,
     ingredients = {
       {type="fluid", name="nullius-water", amount=400},
@@ -1236,9 +1239,9 @@ data:extend({
       secondary = data.raw.fluid["nullius-chlorine"].flow_color
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-hydrogen", amount=30},
       {type="fluid", name="nullius-chlorine", amount=30}
@@ -1252,11 +1255,11 @@ data:extend({
     type = "recipe",
     name = "nullius-hydrogen-chloride-electrolysis",
     icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72}},
-	  {element_tint["hydrogen"], element_tint["chlorine"], element_tint["chlorine"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72}},
+      {element_tint["hydrogen"], element_tint["chlorine"], element_tint["chlorine"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "inorganic-chemistry",
@@ -1266,7 +1269,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-chlorine"].flow_color
     },
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-hydrogen-chloride", amount=240}
     },
@@ -1287,7 +1290,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-hydrogen-chloride", amount=35},
@@ -1303,22 +1306,22 @@ data:extend({
     name = "nullius-hydrochloric-neutralization",
     localised_name = {"recipe-name.nullius-hydrochloric-neutralization"},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__base__/graphics/icons/fluid/water.png",
-		icon_size = 64,
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-	    icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
-		icon_size = 72,
+        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon_size = 72,
         scale = 0.12,
         shift = {-13, -12}
       },
       {
-	    icon = "__nullius__/graphics/sodium-hydroxide.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "sodium-hydroxide.png",
+        icon_size = 64,
         scale = 0.15,
         shift = {11, -11}
       }
@@ -1328,7 +1331,7 @@ data:extend({
     subgroup = "inorganic-chemistry",
     order = "nullius-ec",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-acid-hydrochloric", amount=100},
       {type="fluid", name="nullius-caustic-solution", amount=100}
@@ -1350,7 +1353,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-sulfur-dioxide", amount=8},
@@ -1374,7 +1377,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-compressed-nitrogen"].flow_color
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=6},
@@ -1397,7 +1400,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-oxygen", amount=20},
@@ -1415,7 +1418,7 @@ data:extend({
     icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
     icon_size = 32,
     subgroup = "sodium-product",
-	order = "nullius-f",
+    order = "nullius-f",
     stack_size = 100
   },
   {
@@ -1424,16 +1427,16 @@ data:extend({
     icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
     icon_size = 32,
     subgroup = "sodium-product",
-	order = "nullius-e",
+    order = "nullius-e",
     stack_size = 100
   },
   {
     type = "recipe",
     name = "nullius-soda-ash-1",
-	localised_name = {"recipe-name.nullius-soda-ash-1"},
+    localised_name = {"recipe-name.nullius-soda-ash-1"},
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-fb",
+    order = "nullius-fb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
@@ -1453,12 +1456,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-soda-ash-2",
-	localised_name = {"recipe-name.nullius-soda-ash-2"},
+    localised_name = {"recipe-name.nullius-soda-ash-2"},
     icons = {
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32,
@@ -1468,16 +1471,16 @@ data:extend({
     },
     enabled = false,
     category = "distillation",
-	order = "nullius-fc",
+    order = "nullius-fc",
     crafting_machine_tint = {
-	  primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
+      primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
     energy_required = 2,
     ingredients = {
       {type="item", name="nullius-sodium-sulfate", amount=4},
       {type="item", name="nullius-graphite", amount=3},
       {type="item", name="nullius-crushed-limestone", amount=4},
-	  {type="fluid", name="nullius-acid-hydrochloric", amount=80},
-	  {type="fluid", name="nullius-oxygen", amount=50}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=80},
+      {type="fluid", name="nullius-oxygen", amount=50}
     },
     results = {
       {type="item", name="nullius-soda-ash", amount=7},
@@ -1492,17 +1495,17 @@ data:extend({
     name = "nullius-boxed-soda-ash",
     enabled = false,
     category = "distillation",
-	subgroup = "boxed-sodium",
-	order = "nullius-f",
+    subgroup = "boxed-sodium",
+    order = "nullius-f",
     crafting_machine_tint = {
-	  primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
+      primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-sodium-sulfate", amount=4},
       {type="item", name="nullius-box-graphite", amount=3},
       {type="item", name="nullius-box-crushed-limestone", amount=4},
-	  {type="fluid", name="nullius-acid-hydrochloric", amount=400},
-	  {type="fluid", name="nullius-oxygen", amount=250}
+      {type="fluid", name="nullius-acid-hydrochloric", amount=400},
+      {type="fluid", name="nullius-oxygen", amount=250}
     },
     results = {
       {type="item", name="nullius-box-soda-ash", amount=7},
@@ -1516,14 +1519,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-sodium-sulfate-1",
-	localised_name = {"recipe-name.nullius-sodium-sulfate-1"},
+    localised_name = {"recipe-name.nullius-sodium-sulfate-1"},
     icons = {
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32
-	  },
+      },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.25,
         shift = {7, -10}
@@ -1531,7 +1534,7 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-eb",
+    order = "nullius-eb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
@@ -1550,19 +1553,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sodium-sulfate-1",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 1},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32,
-		scale = 0.9
-	  },
+        scale = 0.9
+      },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.22,
         shift = {6, -9}
@@ -1570,8 +1573,8 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-sodium",
-	order = "nullius-eb",
+    subgroup = "boxed-sodium",
+    order = "nullius-eb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
@@ -1590,14 +1593,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-sodium-sulfate-2",
-	localised_name = {"recipe-name.nullius-sodium-sulfate-2"},
+    localised_name = {"recipe-name.nullius-sodium-sulfate-2"},
     icons = {
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32
-	  },
+      },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.25,
         shift = {9, -9}
@@ -1605,7 +1608,7 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-ec",
+    order = "nullius-ec",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-caustic-solution"].flow_color
@@ -1624,19 +1627,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sodium-sulfate-2",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium-sulfate"}}, " ", 2},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32,
-		scale = 0.9
-	  },
+        scale = 0.9
+      },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.23,
         shift = {8, -8}
@@ -1644,8 +1647,8 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-sodium",
-	order = "nullius-ec",
+    subgroup = "boxed-sodium",
+    order = "nullius-ec",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-caustic-solution"].flow_color
@@ -1669,7 +1672,7 @@ data:extend({
     hide_from_player_crafting = true,
     category = "air-filtration",
     subgroup = "air-filtration",
-	order = "nullius-bb",
+    order = "nullius-bb",
     energy_required = 1,
     ingredients = {},
     results = {
@@ -1732,15 +1735,15 @@ data:extend({
     name = "nullius-wastewater-filtration",
     localised_name = {"recipe-name.nullius-wastewater-filtration"},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-	  {{"__nullius__/graphics/sludge.png", 64},
-	    {"__base__/graphics/icons/fluid/water.png", 64}},
-	  {element_tint["waste"], element_tint["sludge"], element_tint["saline"]},
-	  nil
-	),
+      {{FLUIDPATH .. "sludge.png", 64},
+        {"__base__/graphics/icons/fluid/water.png", 64}},
+      {element_tint["waste"], element_tint["sludge"], element_tint["saline"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-water-treatment",
-	subgroup = "waste-management",
-	order = "nullius-db",
+    subgroup = "waste-management",
+    order = "nullius-db",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-wastewater", amount=200}
@@ -1755,8 +1758,8 @@ data:extend({
     name = "nullius-heavy-water",
     enabled = false,
     category = "distillation",
-	subgroup = "waste-management",
-	order = "nullius-dc",
+    subgroup = "waste-management",
+    order = "nullius-dc",
     energy_required = 5,
     ingredients = {
       {type="fluid", name="nullius-wastewater", amount=750}
@@ -1771,13 +1774,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-desalination",
-	localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 1},
+    localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 1},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-	  {{"__nullius__/graphics/brine.png", 64 },
-	    {"__nullius__/graphics/purewater.png", 64 }},
-	  {element_tint["saline"], element_tint["brine"], element_tint["water"]},
-	  nil
-	),
+      {{FLUIDPATH .. "brine.png", 64 },
+        {FLUIDPATH .. "purewater.png", 64 }},
+      {element_tint["saline"], element_tint["brine"], element_tint["water"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "nullius-water-treatment",
@@ -1795,14 +1798,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-desalination-2",
-	localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 2},
+    localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 2},
     icons = angelsmods.functions.create_liquid_recipe_icon(
-	  {{"__nullius__/graphics/brine.png", 64 },
-	    {"__nullius__/graphics/purewater.png", 64 },
-	    {"__nullius__/graphics/wastewater.png", 64 }},
-	  {element_tint["brine"], element_tint["waste"], element_tint["water"]},
-	  {{"__base__/graphics/icons/fluid/steam.png", 64}}
-	),
+      {{FLUIDPATH .. "brine.png", 64 },
+        {FLUIDPATH .. "purewater.png", 64 },
+        {FLUIDPATH .. "wastewater.png", 64 }},
+      {element_tint["brine"], element_tint["waste"], element_tint["water"]},
+      {{"__base__/graphics/icons/fluid/steam.png", 64}}
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "nullius-water-treatment",
@@ -1824,12 +1827,12 @@ data:extend({
     type = "recipe",
     name = "nullius-saline-electrolysis",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72}},
-	  {element_tint["saline"], element_tint["hydrogen"], element_tint["chlorine"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72}},
+      {element_tint["saline"], element_tint["hydrogen"], element_tint["chlorine"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "nullius-water-treatment",
@@ -1849,11 +1852,11 @@ data:extend({
     type = "recipe",
     name = "nullius-water-electrolysis",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
-	  {element_tint["water"], element_tint["oxygen"], element_tint["hydrogen"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
+      {element_tint["water"], element_tint["oxygen"], element_tint["hydrogen"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "nullius-water-treatment",
@@ -1871,11 +1874,11 @@ data:extend({
     type = "recipe",
     name = "nullius-pressure-water-electrolysis",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
-	  {element_tint["oxygen"], element_tint["hydrogen"], element_tint["water"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
+      {element_tint["oxygen"], element_tint["hydrogen"], element_tint["water"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "nullius-water-treatment",
@@ -1893,12 +1896,12 @@ data:extend({
     type = "recipe",
     name = "nullius-brine-electrolysis",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72},
-		{"__nullius__/graphics/sodium-hydroxide.png", 64, nil, 0.9}},
-	  {element_tint["brine"], element_tint["sodium"], element_tint["chlorine"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/chlorine.png", 72},
+        {FLUIDPATH .. "sodium-hydroxide.png", 64, nil, 0.9}},
+      {element_tint["brine"], element_tint["sodium"], element_tint["chlorine"]},
+      nil
+    ),
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "nullius-water-treatment",
@@ -1916,7 +1919,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-brine-electrolysis",
-	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-brine-electrolysis"}},
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-brine-electrolysis"}},
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "boxed-sodium",
@@ -1948,16 +1951,16 @@ data:extend({
       {type="fluid", name="nullius-oxygen", amount=80},
       {type="fluid", name="nullius-tritium", amount=1}
     },
-	main_product = "nullius-deuterium"
+    main_product = "nullius-deuterium"
   },
 
   {
     type = "item",
     name = "nullius-salt",
-    icon = "__nullius__/graphics/icons/salt.png",
+    icon = ICONPATH .. "salt.png",
     icon_size = 64,
     subgroup = "sodium-product",
-	order = "nullius-b",
+    order = "nullius-b",
     stack_size = 100
   },
   {
@@ -1966,7 +1969,7 @@ data:extend({
     icon = "__angelspetrochem__/graphics/icons/solid-sodium.png",
     icon_size = 32,
     subgroup = "sodium-product",
-	order = "nullius-d",
+    order = "nullius-d",
     stack_size = 100
   },
   {
@@ -1991,8 +1994,8 @@ data:extend({
     name = "nullius-boxed-salt",
     enabled = false,
     category = "distillation",
-	subgroup = "boxed-sodium",
-	order = "nullius-bb",
+    subgroup = "boxed-sodium",
+    order = "nullius-bb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-brine"].flow_color },
     energy_required = 5,
     ingredients = {
@@ -2008,28 +2011,28 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-salination",
-	localised_name = {"recipe-name.nullius-salination"},
-	icons = {
+    localised_name = {"recipe-name.nullius-salination"},
+    icons = {
       {
-	    icon = "__base__/graphics/icons/fluid/water.png",
-		icon_size = 64,
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__nullius__/graphics/icons/salt.png",
-		icon_size = 64,
+        icon = ICONPATH .. "salt.png",
+        icon_size = 64,
         scale = 0.21,
         shift = {-10, -11}
       }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
-	always_show_products = true,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    no_productivity = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "nullius-water-treatment",
-	order = "nullius-ec",
+    order = "nullius-ec",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=200},
@@ -2042,25 +2045,25 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-salination",
-	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-salination"}},
-	icons = {
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-salination"}},
+    icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__base__/graphics/icons/fluid/water.png",
-		icon_size = 64,
-		scale = 0.45
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_size = 64,
+        scale = 0.45
       }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
-	always_show_products = true,
+    no_productivity = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "nullius-water-treatment",
-	subgroup = "boxed-fluid",
-	order = "nullius-d",
+    subgroup = "boxed-fluid",
+    order = "nullius-d",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=200},
@@ -2074,14 +2077,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-salt-electrolysis",
-	localised_name = {"recipe-name.nullius-salt-electrolysis"},
+    localised_name = {"recipe-name.nullius-salt-electrolysis"},
     icons = {
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium.png",
         icon_size = 32
-	  },
+      },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.25,
         shift = {7, -10}
@@ -2089,7 +2092,7 @@ data:extend({
     },
     enabled = false,
     category = "nullius-electrolysis",
-	order = "nullius-db",
+    order = "nullius-db",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-salt", amount=3}
@@ -2103,19 +2106,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sodium-1",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 1},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium.png",
         icon_size = 32,
-		scale = 0.9
-	  },
+        scale = 0.9
+      },
       {
-        icon = "__nullius__/graphics/icons/salt.png",
+        icon = ICONPATH .. "salt.png",
         icon_size = 64,
         scale = 0.22,
         shift = {6, -9}
@@ -2123,8 +2126,8 @@ data:extend({
     },
     enabled = false,
     category = "nullius-electrolysis",
-	subgroup = "boxed-sodium",
-	order = "nullius-db",
+    subgroup = "boxed-sodium",
+    order = "nullius-db",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-salt", amount=3}
@@ -2138,14 +2141,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-sodium-hydroxide-electrolysis",
-	localised_name = {"recipe-name.nullius-sodium-hydroxide-electrolysis"},
+    localised_name = {"recipe-name.nullius-sodium-hydroxide-electrolysis"},
     icons = {
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium.png",
         icon_size = 32
-	  },
+      },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.25,
         shift = {9, -9}
@@ -2153,7 +2156,7 @@ data:extend({
     },
     enabled = false,
     category = "nullius-electrolysis",
-	order = "nullius-dc",
+    order = "nullius-dc",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-sodium-hydroxide", amount=4}
@@ -2168,19 +2171,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sodium-2",
-	localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-sodium"}}, " ", 2},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/solid-sodium.png",
         icon_size = 32,
-		scale = 0.9
-	  },
+        scale = 0.9
+      },
       {
-        icon = "__nullius__/graphics/icons/lye.png",
+        icon = ICONPATH .. "lye.png",
         icon_size = 64,
         scale = 0.23,
         shift = {8, -8}
@@ -2188,8 +2191,8 @@ data:extend({
     },
     enabled = false,
     category = "nullius-electrolysis",
-	subgroup = "boxed-sodium",
-	order = "nullius-dc",
+    subgroup = "boxed-sodium",
+    order = "nullius-dc",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-sodium-hydroxide", amount=4}
@@ -2206,21 +2209,21 @@ data:extend({
     type = "item",
     name = "nullius-lithium-chloride",
     icons = {{
-      icon = "__nullius__/graphics/icons/sugar.png",
-	  icon_size = 64,
-	  tint = { 0.9, 0.75, 1 }
+      icon = ICONPATH .. "sugar.png",
+      icon_size = 64,
+      tint = { 0.9, 0.75, 1 }
     }},
     subgroup = "sodium-product",
-	order = "nullius-j",
+    order = "nullius-j",
     stack_size = 100
   },
   {
     type = "item",
     name = "nullius-lithium",
-    icon = "__nullius__/graphics/icons/lithium.png",
+    icon = ICONPATH .. "lithium.png",
     icon_size = 64,
     subgroup = "sodium-product",
-	order = "nullius-k",
+    order = "nullius-k",
     stack_size = 100
   },
   {
@@ -2235,7 +2238,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-salt", amount=25},
-	  {type="item", name="nullius-lithium-chloride", amount=1},
+      {type="item", name="nullius-lithium-chloride", amount=1},
       {type="fluid", name="nullius-saline", amount=150},
       {type="fluid", name="nullius-steam", amount=400}
     },
@@ -2246,8 +2249,8 @@ data:extend({
     name = "nullius-boxed-lithium-chloride",
     enabled = false,
     category = "nullius-water-treatment",
-	subgroup = "boxed-sodium",
-	order = "nullius-bc",
+    subgroup = "boxed-sodium",
+    order = "nullius-bc",
     crafting_machine_tint = { primary = {0.95, 0.8, 1} },
     energy_required = 150,
     ingredients = {
@@ -2255,7 +2258,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-salt", amount=25},
-	  {type="item", name="nullius-box-lithium-chloride", amount=1},
+      {type="item", name="nullius-box-lithium-chloride", amount=1},
       {type="fluid", name="nullius-saline", amount=750},
       {type="fluid", name="nullius-steam", amount=2000}
     },
@@ -2281,7 +2284,7 @@ data:extend({
     name = "nullius-boxed-lithium",
     enabled = false,
     category = "nullius-electrolysis",
-	subgroup = "boxed-sodium",
+    subgroup = "boxed-sodium",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-lithium-chloride", amount=2}
@@ -2297,15 +2300,15 @@ data:extend({
     type = "recipe",
     name = "nullius-air-separation-1",
     icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
-	    {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["air"], element_tint["nitrogen"], element_tint["carbon"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["air"], element_tint["nitrogen"], element_tint["carbon"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-cb",
+    order = "nullius-cb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-air"].flow_color },
     energy_required = 1,
     ingredients = {
@@ -2320,15 +2323,15 @@ data:extend({
     type = "recipe",
     name = "nullius-air-separation-2",
     icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
-	    {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["air"], element_tint["carbon"], element_tint["residual"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["air"], element_tint["carbon"], element_tint["residual"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-cc",
+    order = "nullius-cc",
     crafting_machine_tint = { primary = {r = 62, g = 154, b = 247} },
     energy_required = 1,
     ingredients = {
@@ -2336,7 +2339,7 @@ data:extend({
     },
     results = {
       {type="fluid", name="nullius-nitrogen", amount=66},
-	  {type="fluid", name="nullius-residual-gas", amount=3},
+      {type="fluid", name="nullius-residual-gas", amount=3},
       {type="fluid", name="nullius-carbon-dioxide", amount=30}
     }
   },
@@ -2344,15 +2347,15 @@ data:extend({
     type = "recipe",
     name = "nullius-pressure-air-separation",
     icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
-	    {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["air"], element_tint["carbon"], element_tint["residual"]},
-	  nil
-	),
+        {{"__angelspetrochem__/graphics/icons/molecules/nitrogen.png", 64},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["air"], element_tint["carbon"], element_tint["residual"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-cd",
+    order = "nullius-cd",
     crafting_machine_tint = { primary = {r = 62, g = 154, b = 247} },
     energy_required = 2,
     ingredients = {
@@ -2361,17 +2364,17 @@ data:extend({
     results = {
       {type="fluid", name="nullius-compressed-nitrogen", amount=66},
       {type="fluid", name="nullius-compressed-residual-gas", amount=3},
-	  {type="fluid", name="nullius-compressed-carbon-dioxide", amount=30}
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=30}
     }
   },
   {
     type = "recipe",
     name = "nullius-residual-gas",
-	localised_name = {"fluid-name.nullius-residual-gas"},
+    localised_name = {"fluid-name.nullius-residual-gas"},
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-ce",
+    order = "nullius-ce",
     crafting_machine_tint = { primary = {r = 77, g = 160, b = 244} },
     energy_required = 1,
     ingredients = {
@@ -2379,24 +2382,24 @@ data:extend({
     },
     results = {
       {type="fluid", name="nullius-air", amount=120},
-	  {type="fluid", name="nullius-compressed-nitrogen", amount=20},
+      {type="fluid", name="nullius-compressed-nitrogen", amount=20},
       {type="fluid", name="nullius-compressed-residual-gas", amount=4}
     },
-	main_product = "nullius-compressed-residual-gas"
+    main_product = "nullius-compressed-residual-gas"
   },
   {
     type = "recipe",
     name = "nullius-residual-separation",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["argon"]},
-	    {"__nullius__/graphics/purewater.png", 64}},
-	  {element_tint["residual"], element_tint["argon"], element_tint["water"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["argon"]},
+        {FLUIDPATH .. "purewater.png", 64}},
+      {element_tint["residual"], element_tint["argon"], element_tint["water"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-db",
+    order = "nullius-db",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-residual-gas"].flow_color },
     energy_required = 5,
     ingredients = {
@@ -2411,16 +2414,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-residual-separation",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["argon"]},
-	    {"__nullius__/graphics/purewater.png", 64}},
-	  {element_tint["residual"], element_tint["argon"], element_tint["water"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["argon"]},
+        {FLUIDPATH .. "purewater.png", 64}},
+      {element_tint["residual"], element_tint["argon"], element_tint["water"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-dc",
+    order = "nullius-dc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-residual-gas"].flow_color },
     energy_required = 10,
     ingredients = {
@@ -2435,16 +2438,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-trace-separation",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["helium"]},
-	    {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["helium"]},
+        {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-eb",
+    order = "nullius-eb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-trace-gas"].flow_color },
     energy_required = 2,
     ingredients = {
@@ -2459,16 +2462,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-trace-separation",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__nullius__/graphics/atom.png", 64, nil, nil, element_tint["helium"]},
-	    {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["helium"]},
+        {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["trace"], element_tint["helium"], element_tint["methane"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-ec",
+    order = "nullius-ec",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-trace-gas"].flow_color },
     energy_required = 10,
     ingredients = {
@@ -2483,17 +2486,17 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-volcanic-separation-1",
-	localised_name = {"", {"recipe-name.nullius-volcanic-separation"}, " ", 1},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["volcanic"], element_tint["sulfur"], element_tint["carbon"]},
-	  nil
-	),
+    localised_name = {"", {"recipe-name.nullius-volcanic-separation"}, " ", 1},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["volcanic"], element_tint["sulfur"], element_tint["carbon"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-fb",
+    order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
     energy_required = 1,
     ingredients = {
@@ -2508,17 +2511,17 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-volcanic-separation-2",
-	localised_name = {"", {"recipe-name.nullius-volcanic-separation"}, " ", 2},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["sulfur"], element_tint["carbon"], element_tint["boron"]},
-	  nil
-	),
+    localised_name = {"", {"recipe-name.nullius-volcanic-separation"}, " ", 2},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["sulfur"], element_tint["carbon"], element_tint["boron"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "air-filtration",
-	order = "nullius-fc",
+    order = "nullius-fc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
     energy_required = 3,
     ingredients = {
@@ -2534,11 +2537,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-volcanic",
-	localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-volcanic-separation"}},
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-volcanic-separation"}},
     enabled = false,
     category = "distillation",
     subgroup = "boxed-fluid",
-	order = "nullius-b",
+    order = "nullius-b",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
     energy_required = 15,
     ingredients = {
@@ -2550,18 +2553,18 @@ data:extend({
       {type="fluid", name="nullius-carbon-monoxide", amount=125},
       {type="item", name="nullius-box-acid-boric", amount=1}
     },
-	main_product = "nullius-box-acid-boric"
+    main_product = "nullius-box-acid-boric"
   },
 
   {
     type = "recipe",
     name = "nullius-carbon-dioxide-to-monoxide",
     localised_name = {"recipe-name.nullius-carbon-dioxide-to-monoxide"},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "carbon",
@@ -2584,11 +2587,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-carbon-monoxide",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}}
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
@@ -2611,11 +2614,11 @@ data:extend({
     type = "recipe",
     name = "nullius-carbon-monoxide-to-dioxide",
     localised_name = {"recipe-name.nullius-carbon-monoxide-to-dioxide"},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "carbon",
@@ -2638,11 +2641,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-carbon-dioxide",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
@@ -2666,9 +2669,9 @@ data:extend({
     name = "nullius-carbon-monoxide-to-graphite",
     icons = {
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png",
@@ -2680,7 +2683,7 @@ data:extend({
     enabled = false,
     category = "basic-chemistry",
     subgroup = "organic-material-1",
-	order = "nullius-bb",
+    order = "nullius-bb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-carbon-monoxide"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen"].flow_color
@@ -2700,9 +2703,9 @@ data:extend({
     name = "nullius-pressure-monoxide-to-graphite",
     icons = {
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png",
@@ -2713,8 +2716,8 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "organic-material-1",
-	order = "nullius-bc",
+    subgroup = "organic-material-1",
+    order = "nullius-bc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-carbon-monoxide"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen"].flow_color
@@ -2732,11 +2735,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-graphite-to-carbon-monoxide",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
-	  {{"__base__/graphics/icons/coal-dark-background.png", 64}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__base__/graphics/icons/coal-dark-background.png", 64}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "carbon",
@@ -2758,22 +2761,22 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-carbon-monoxide",
-	localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-carbon-monoxide"}},
-	icons = {
+    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-carbon-monoxide"}},
+    icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png",
-	    icon_size = 72,
-		scale = 0.4
-	  }
+        icon_size = 72,
+        scale = 0.4
+      }
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-organic-1",
-	order = "nullius-bm",
+    subgroup = "boxed-organic-1",
+    order = "nullius-bm",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-carbon-monoxide"].flow_color,
       secondary = data.raw.fluid["nullius-water"].flow_color
@@ -2793,13 +2796,13 @@ data:extend({
     type = "recipe",
     name = "nullius-carbon-monoxide-to-alkenes",
     localised_name = {"recipe-name.nullius-alkene-synthesis"},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "carbon",
@@ -2820,13 +2823,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-alkene-synthesis",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]},
-	  nil
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["oxygen"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "compressed-organic",
@@ -2846,18 +2849,18 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-alkene-synthesis-light",
-	localised_name = {"recipe-name.nullius-light", {"recipe-name.nullius-alkene-synthesis"}},
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}},
-	  {element_tint["oxygen"], element_tint["hydrogen"], element_tint["carbon"]},
-	  nil
-	),
+    localised_name = {"recipe-name.nullius-light", {"recipe-name.nullius-alkene-synthesis"}},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}},
+      {element_tint["oxygen"], element_tint["hydrogen"], element_tint["carbon"]},
+      nil
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "compressed-organic",
-    order = "nullius-fc",	
+    order = "nullius-fc",
     crafting_machine_tint = { primary = {r = 0.75, g = 0.3, b = 0.3} },
     energy_required = 1,
     ingredients = {
@@ -2874,11 +2877,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-carbon-dioxide-to-methane",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "carbon",
@@ -2901,11 +2904,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-methane",
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
-	),
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
@@ -2927,11 +2930,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-methane-to-ethylene",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "carbon",
@@ -2954,12 +2957,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-ethylene",
-	localised_name = {"recipe-name.nullius-pressure-ethylene"},
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-pressure-ethylene"},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
@@ -2982,14 +2985,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-methanol",
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72}}
-	),
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72}}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-oxygen"].flow_color,
@@ -3008,18 +3011,18 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-methanol",
-	localised_name = {"recipe-name.nullius-pressure-methanol"},
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-pressure-methanol"},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}},
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/methanol.png", 72}}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "compressed-organic",
-	order = "nullius-h",
+    subgroup = "compressed-organic",
+    order = "nullius-h",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-oxygen"].flow_color,
       secondary = data.raw.fluid["nullius-methane"].flow_color
@@ -3097,21 +3100,21 @@ data:extend({
   {
     type = "item",
     name = "nullius-rubber",
-    icon = "__nullius__/graphics/icons/rubber.png",
+    icon = ICONPATH .. "rubber.png",
     icon_size = 64,
     subgroup = "organic-material-2",
-	order = "nullius-c",
+    order = "nullius-c",
     stack_size = 100
   },
   {
     type = "recipe",
     name = "nullius-rubber",
-	localised_name = {"recipe-name.nullius-rubber-1"},
+    localised_name = {"recipe-name.nullius-rubber-1"},
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "ore-flotation",
-	order = "nullius-cb",
+    order = "nullius-cb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-butadiene"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -3129,12 +3132,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-rubber-nbr",
-	localised_name = {"recipe-name.nullius-rubber-2"},
+    localised_name = {"recipe-name.nullius-rubber-2"},
     icons = {
       {
-        icon = "__nullius__/graphics/icons/rubber.png",
+        icon = ICONPATH .. "rubber.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methylamine.png",
         icon_size = 72,
@@ -3143,10 +3146,10 @@ data:extend({
       }
     },
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "basic-chemistry",
-	order = "nullius-cc",
+    order = "nullius-cc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-butadiene"].flow_color,
       secondary = data.raw.fluid["nullius-acrylonitrile"].flow_color
@@ -3166,11 +3169,11 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-rubber",
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "basic-chemistry",
-  	subgroup = "boxed-organic-2",
-	order = "nullius-c",
+      subgroup = "boxed-organic-2",
+    order = "nullius-c",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-butadiene"].flow_color,
       secondary = data.raw.fluid["nullius-acrylonitrile"].flow_color
@@ -3190,30 +3193,30 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boiling-water",
-	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-water"}},
+    localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-water"}},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__nullius__/graphics/purewater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "purewater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45,
-		tint = {0.8, 0.8, 0.8, 0.8},
+        tint = {0.8, 0.8, 0.8, 0.8},
         shift = {2, -2}
       }
     },
     enabled = false,
-	category = "boiling",
+    category = "boiling",
     subgroup = "boiling",
-	order = "nullius-b",
+    order = "nullius-b",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-water", amount=65}
     },
@@ -3225,30 +3228,30 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boiling-saline",
-	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-saline"}},
+    localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-saline"}},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__base__/graphics/icons/fluid/water.png",
-		icon_size = 64,
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45,
-		tint = {0.8, 0.8, 0.8, 0.8},
+        tint = {0.8, 0.8, 0.8, 0.8},
         shift = {2, -2}
       }
     },
     enabled = false,
-	category = "boiling",
+    category = "boiling",
     subgroup = "boiling",
-	order = "nullius-c",
+    order = "nullius-c",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-saline", amount=70}
     },
@@ -3261,30 +3264,30 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boiling-seawater",
-	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-seawater"}},
+    localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-seawater"}},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__nullius__/graphics/seawater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "seawater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45,
-		tint = {0.8, 0.8, 0.8, 0.8},
+        tint = {0.8, 0.8, 0.8, 0.8},
         shift = {2, -2}
       }
     },
     enabled = false,
-	category = "boiling",
+    category = "boiling",
     subgroup = "boiling",
-	order = "nullius-d",
+    order = "nullius-d",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=75}
     },
@@ -3297,30 +3300,30 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boiling-freshwater",
-	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-freshwater"}},
+    localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-freshwater"}},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__nullius__/graphics/freshwater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "freshwater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45,
-		tint = {0.8, 0.8, 0.8, 0.8},
+        tint = {0.8, 0.8, 0.8, 0.8},
         shift = {2, -2}
       }
     },
     enabled = false,
-	category = "boiling",
+    category = "boiling",
     subgroup = "boiling",
-	order = "nullius-e",
+    order = "nullius-e",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=70}
     },
@@ -3333,30 +3336,30 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boiling-wastewater",
-	localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-wastewater"}},
+    localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-wastewater"}},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icons = {
       {
-		icon = "__nullius__/graphics/wastewater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.45,
-		tint = {0.8, 0.8, 0.8, 0.8},
+        tint = {0.8, 0.8, 0.8, 0.8},
         shift = {2, -2}
       }
     },
     enabled = false,
-	category = "boiling",
+    category = "boiling",
     subgroup = "boiling",
-	order = "nullius-f",
+    order = "nullius-f",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-wastewater", amount=75}
     },
@@ -3371,11 +3374,11 @@ data:extend({
     name = "nullius-condensation",
     localised_name = {"recipe-name.nullius-condensation"},
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     icon_size = 64,
     icons = {
       {
-		icon = "__nullius__/graphics/purewater.png",
+        icon = FLUIDPATH .. "purewater.png",
         icon_mipmaps = 4
       },
       {
@@ -3386,11 +3389,11 @@ data:extend({
       }
     },
     enabled = false,
-	category = "distillation",
+    category = "distillation",
     subgroup = "boiling",
-	order = "nullius-m",
+    order = "nullius-m",
     energy_required = 0.5,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-steam", amount=2500}
     },
@@ -3411,7 +3414,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.25,
         shift = {-10, -10}
       }
@@ -3421,7 +3424,7 @@ data:extend({
     subgroup = "combustion",
     order = "nullius-db",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-hydrogen", amount=200},
@@ -3442,7 +3445,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.2,
         shift = {-11, -11}
       }
@@ -3452,7 +3455,7 @@ data:extend({
     subgroup = "combustion",
     order = "nullius-dc",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=65},
@@ -3474,7 +3477,7 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__nullius__/graphics/icons/atom2.png",
+        icon = FLUIDPATH .. "atom2.png",
         scale = 0.15,
         shift = {-12, -12}
       }
@@ -3484,7 +3487,7 @@ data:extend({
     subgroup = "combustion",
     order = "nullius-dd",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=90},
@@ -3600,7 +3603,7 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
@@ -3632,9 +3635,9 @@ data:extend({
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-		icon_size = 64,
+        icon_size = 64,
         icon_mipmaps = 4,
-		scale = 0.5
+        scale = 0.5
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/benzene.png",
@@ -3669,9 +3672,9 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-		icon = "__base__/graphics/icons/fluid/heavy-oil.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
+        icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
         scale = 0.25,
         shift = {-8, -8}
       }
@@ -3697,9 +3700,9 @@ data:extend({
     name = "nullius-methane-to-graphite",
     icons = {
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methane.png",
@@ -3710,8 +3713,8 @@ data:extend({
     },
     enabled = false,
     category = "wet-smelting",
-	subgroup = "organic-material-1",
-	order = "nullius-bd",
+    subgroup = "organic-material-1",
+    order = "nullius-bd",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-methane", amount=50}
@@ -3726,9 +3729,9 @@ data:extend({
     name = "nullius-pressure-methane-to-graphite",
     icons = {
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methane.png",
@@ -3739,8 +3742,8 @@ data:extend({
     },
     enabled = false,
     category = "wet-smelting",
-	subgroup = "organic-material-1",
-	order = "nullius-be",
+    subgroup = "organic-material-1",
+    order = "nullius-be",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-methane", amount=25}
@@ -3755,14 +3758,14 @@ data:extend({
     name = "nullius-boxed-graphite",
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.45
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methane.png",
@@ -3773,8 +3776,8 @@ data:extend({
     },
     enabled = false,
     category = "bulk-smelting",
-	subgroup = "boxed-organic-1",
-	order = "nullius-bd",
+    subgroup = "boxed-organic-1",
+    order = "nullius-bd",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-methane", amount=250}
@@ -3783,22 +3786,22 @@ data:extend({
       {type="item", name="nullius-box-graphite", amount=2},
       {type="fluid", name="nullius-hydrogen", amount=300}
     },
-	main_product = "nullius-box-graphite"
+    main_product = "nullius-box-graphite"
   },
   {
     type = "recipe",
     name = "nullius-boxed-pressure-graphite",
-	localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-graphite"}}},
+    localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-graphite"}}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-		icon = "__base__/graphics/icons/coal-dark-background.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.45
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methane.png",
@@ -3809,8 +3812,8 @@ data:extend({
     },
     enabled = false,
     category = "bulk-smelting",
-	subgroup = "boxed-organic-1",
-	order = "nullius-be",
+    subgroup = "boxed-organic-1",
+    order = "nullius-be",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-methane", amount=125}
@@ -3819,20 +3822,20 @@ data:extend({
       {type="item", name="nullius-box-graphite", amount=4},
       {type="fluid", name="nullius-compressed-hydrogen", amount=150}
     },
-	main_product = "nullius-box-graphite"
+    main_product = "nullius-box-graphite"
   },
 
   {
     type = "recipe",
     name = "nullius-ethylene-pyrolysis",
-	localised_name = {"recipe-name.nullius-ethylene-pyrolysis"},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-ethylene-pyrolysis"},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "carbon",
@@ -3851,14 +3854,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-propene-pyrolysis",
-	localised_name = {"recipe-name.nullius-propene-pyrolysis"},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
-	    {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}},
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-propene-pyrolysis"},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}},
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["carbon"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}}
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "carbon",
@@ -3877,13 +3880,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-methane-reforming",
-	localised_name = {"recipe-name.nullius-reforming", {"fluid-name.nullius-methane"}},
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
-	   {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["hydrogen"], element_tint["carbon"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-reforming", {"fluid-name.nullius-methane"}},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
+       {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["hydrogen"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "compressed-organic",
@@ -3902,14 +3905,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-benzene-reforming",
-	localised_name = {"recipe-name.nullius-reforming", {"fluid-name.nullius-benzene"}},
-	icons = angelsmods.functions.create_gas_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
-	   {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72},
-	   {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
-	  {element_tint["hydrogen"], element_tint["carbon"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72}}
-	),
+    localised_name = {"recipe-name.nullius-reforming", {"fluid-name.nullius-benzene"}},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72},
+       {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72},
+       {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["hydrogen"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72}}
+    ),
     enabled = false,
     category = "distillation",
     subgroup = "carbon",
@@ -3930,7 +3933,7 @@ data:extend({
 
 if mods["aai-industry"] then
 data.raw.item["processed-fuel"].localised_name = {"item-name.nullius-methanol-canister"}
-data.raw.item["processed-fuel"].icon = "__nullius__/graphics/methanol-canister.png"
+data.raw.item["processed-fuel"].icon = ICONPATH .. "canister-methanol.png"
 data.raw.item["processed-fuel"].icon_size = 64
 data.raw.item["processed-fuel"].subgroup = "canisters"
 data.raw.item["processed-fuel"].order = "nullius-e"
@@ -3945,8 +3948,8 @@ data:extend({
   {
     type = "item",
     name = "processed-fuel",
-	localised_name = {"item-name.nullius-methanol-canister"},
-    icon = "__nullius__/graphics/methanol-canister.png",
+    localised_name = {"item-name.nullius-methanol-canister"},
+    icon = ICONPATH .. "canister-methanol.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-e",
@@ -3964,7 +3967,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hydrogen-canister",
-    icon = "__nullius__/graphics/hydrogen-canister.png",
+    icon = ICONPATH .. "canister-hydrogen.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-d",
@@ -3978,7 +3981,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-biodiesel-canister",
-    icon = "__nullius__/graphics/biodiesel-canister.png",
+    icon = ICONPATH .. "canister-biodiesel.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-f",
@@ -3992,7 +3995,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-water-canister",
-    icon = "__nullius__/graphics/water-canister.png",
+    icon = ICONPATH .. "canister-water.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-g",
@@ -4003,7 +4006,7 @@ data:extend({
     name = "nullius-canister-emptying",
     enabled = false,
     category = "nullius-unbarrel",
-    icon = "__nullius__/graphics/water-canister.png",
+    icon = ICONPATH .. "canister-water.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-h",
@@ -4012,7 +4015,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-water"].flow_color
     },
     energy_required = 0.2,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-water-canister", amount=1}
     },
@@ -4027,13 +4030,13 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-canister-emptying"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-		icon = "__nullius__/graphics/water-canister.png",
-		icon_size = 64,
-		scale = 0.45
+        icon = ICONPATH .. "canister-water.png",
+        icon_size = 64,
+        scale = 0.45
       }
     },
     enabled = false,
@@ -4045,7 +4048,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-water"].flow_color
     },
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-box-water-canister", amount=1}
     },
@@ -4060,7 +4063,7 @@ data:extend({
     name = "nullius-hydrogen-canister-1",
     icons = {
       {
-	    icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64
       },
       {
@@ -4072,7 +4075,7 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     order = "nullius-db",
     crafting_machine_tint = {
@@ -4080,7 +4083,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 2,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-hydrogen", amount=300, fluidbox_index=1},
@@ -4093,13 +4096,13 @@ data:extend({
     name = "nullius-boxed-hydrogen-canister-1",
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64,
-		scale = 0.45
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen.png",
@@ -4110,16 +4113,16 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     order = "nullius-db",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-hydrogen"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 10,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
       {type="fluid", name="nullius-hydrogen", amount=1500, fluidbox_index=1},
@@ -4133,7 +4136,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-hydrogen-canister"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64
       },
       {
@@ -4145,7 +4148,7 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     order = "nullius-dc",
     crafting_machine_tint = {
@@ -4153,7 +4156,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 0.5,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-compressed-hydrogen", amount=70, fluidbox_index=1},
@@ -4165,16 +4168,16 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-hydrogen-canister-2",
     localised_name = {"recipe-name.nullius-pressure",
-		{"item-name.nullius-box", {"item-name.nullius-hydrogen-canister"}}},
+        {"item-name.nullius-box", {"item-name.nullius-hydrogen-canister"}}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__nullius__/graphics/hydrogen-canister.png",
+        icon = ICONPATH .. "canister-hydrogen.png",
         icon_size = 64,
-		scale = 0.45
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen.png",
@@ -4185,16 +4188,16 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     order = "nullius-dc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-hydrogen"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 2.5,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
       {type="fluid", name="nullius-compressed-hydrogen", amount=350, fluidbox_index=1},
@@ -4208,7 +4211,7 @@ data:extend({
     name = "nullius-methanol-canister-1",
     icons = {
       {
-	    icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64
       },
       {
@@ -4220,7 +4223,7 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     order = "nullius-eb",
     crafting_machine_tint = {
@@ -4228,7 +4231,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 3,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-methanol", amount=32},
@@ -4242,13 +4245,13 @@ data:extend({
     name = "nullius-boxed-methanol-canister-1",
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64,
-		scale = 0.45
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methanol.png",
@@ -4259,16 +4262,16 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     order = "nullius-eb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-methanol"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 15,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
       {type="fluid", name="nullius-methanol", amount=160},
@@ -4280,10 +4283,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-methanol-canister-2",
-	localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
+    localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64
       },
       {
@@ -4295,7 +4298,7 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     order = "nullius-ec",
     crafting_machine_tint = {
@@ -4303,7 +4306,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-methanol", amount=28},
@@ -4315,16 +4318,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-methanol-canister-2",
-	localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
+    localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-methanol-canister"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-	    icon = "__nullius__/graphics/methanol-canister.png",
+        icon = ICONPATH .. "canister-methanol.png",
         icon_size = 64,
-		scale = 0.45
+        scale = 0.45
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/methanol.png",
@@ -4335,16 +4338,16 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     order = "nullius-ec",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-methanol"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
     },
     energy_required = 5,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
       {type="fluid", name="nullius-methanol", amount=140},
@@ -4358,8 +4361,8 @@ data:extend({
     name = "nullius-biodiesel-canister",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
-	no_productivity = true,
+    always_show_products = true,
+    no_productivity = true,
     category = "small-assembly",
     order = "nullius-fc",
     energy_required = 1,
@@ -4375,10 +4378,10 @@ data:extend({
     name = "nullius-boxed-biodiesel-canister",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
-	no_productivity = true,
+    always_show_products = true,
+    no_productivity = true,
     category = "small-assembly",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     order = "nullius-fc",
     energy_required = 5,
     ingredients = {
@@ -4394,7 +4397,7 @@ data:extend({
     name = "nullius-rocket-fuel",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
@@ -4406,11 +4409,11 @@ data:extend({
       {type="fluid", name="nullius-ammonia", amount=240},
       {type="fluid", name="nullius-acid-hydrochloric", amount=300},
       {type="fluid", name="nullius-compressed-oxygen", amount=150},
-	  {type="item", name="nullius-salt", amount=5},
-	  {type="item", name="nullius-iron-oxide", amount=3},
-	  {type="item", name="nullius-aluminum-wire", amount=20},
-	  {type="item", name="nullius-rubber", amount=14},
-	  {type="item", name="cliff-explosives", amount=2}
+      {type="item", name="nullius-salt", amount=5},
+      {type="item", name="nullius-iron-oxide", amount=3},
+      {type="item", name="nullius-aluminum-wire", amount=20},
+      {type="item", name="nullius-rubber", amount=14},
+      {type="item", name="cliff-explosives", amount=2}
     },
     results = {
       {type="item", name="rocket-fuel", amount=3},
@@ -4423,9 +4426,9 @@ data:extend({
     name = "nullius-boxed-rocket-fuel",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "basic-chemistry",
-	subgroup = "boxed-canister",
+    subgroup = "boxed-canister",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
@@ -4436,11 +4439,11 @@ data:extend({
       {type="fluid", name="nullius-ammonia", amount=1200},
       {type="fluid", name="nullius-acid-hydrochloric", amount=1500},
       {type="fluid", name="nullius-compressed-oxygen", amount=750},
-	  {type="item", name="nullius-box-salt", amount=5},
-	  {type="item", name="nullius-box-iron-oxide", amount=3},
-	  {type="item", name="nullius-box-aluminum-wire", amount=20},
-	  {type="item", name="nullius-box-rubber", amount=14},
-	  {type="item", name="nullius-box-explosive", amount=2}
+      {type="item", name="nullius-box-salt", amount=5},
+      {type="item", name="nullius-box-iron-oxide", amount=3},
+      {type="item", name="nullius-box-aluminum-wire", amount=20},
+      {type="item", name="nullius-box-rubber", amount=14},
+      {type="item", name="nullius-box-explosive", amount=2}
     },
     results = {
       {type="item", name="nullius-box-rocket-fuel", amount=3},
@@ -4454,7 +4457,7 @@ data:extend({
     name = "nullius-compressed-air",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4470,7 +4473,7 @@ data:extend({
     name = "nullius-compressed-nitrogen",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4486,7 +4489,7 @@ data:extend({
     name = "nullius-compressed-argon",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4502,7 +4505,7 @@ data:extend({
     name = "nullius-compressed-helium",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4518,7 +4521,7 @@ data:extend({
     name = "nullius-compressed-hydrogen",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4534,7 +4537,7 @@ data:extend({
     name = "nullius-compressed-oxygen",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4550,7 +4553,7 @@ data:extend({
     name = "nullius-compressed-carbon-dioxide",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4566,7 +4569,7 @@ data:extend({
     name = "nullius-compressed-carbon-monoxide",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4582,7 +4585,7 @@ data:extend({
     name = "nullius-compressed-methane",
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "compression",
     energy_required = 1,
     ingredients = {
@@ -4597,16 +4600,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-air",
-	localised_name = {"recipe-name.nullius-decompress-air"},
-	icons = angelsmods.functions.create_gas_fluid_icon(
+    localised_name = {"recipe-name.nullius-decompress-air"},
+    icons = angelsmods.functions.create_gas_fluid_icon(
       {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["air"], element_tint["residual"], element_tint["air"]}
+      {element_tint["air"], element_tint["residual"], element_tint["air"]}
     ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-b",
     energy_required = 1,
     ingredients = {
@@ -4620,16 +4623,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-nitrogen",
-	localised_name = {"recipe-name.nullius-decompress-nitrogen"},
-	icons = angelsmods.functions.create_gas_fluid_icon(
+    localised_name = {"recipe-name.nullius-decompress-nitrogen"},
+    icons = angelsmods.functions.create_gas_fluid_icon(
       {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["nitrogen"], element_tint["nitrogen"], element_tint["nitrogen"]}
+      {element_tint["nitrogen"], element_tint["nitrogen"], element_tint["nitrogen"]}
     ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-c",
     energy_required = 1,
     ingredients = {
@@ -4643,16 +4646,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-argon",
-	localised_name = {"recipe-name.nullius-decompress-argon"},
-	icons = angelsmods.functions.create_gas_fluid_icon(
+    localised_name = {"recipe-name.nullius-decompress-argon"},
+    icons = angelsmods.functions.create_gas_fluid_icon(
       {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["argon"], element_tint["argon"], element_tint["argon"]}
+      {element_tint["argon"], element_tint["argon"], element_tint["argon"]}
     ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-d",
     energy_required = 1,
     ingredients = {
@@ -4666,16 +4669,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-helium",
-	localised_name = {"recipe-name.nullius-decompress-helium"},
-	icons = angelsmods.functions.create_gas_fluid_icon(
+    localised_name = {"recipe-name.nullius-decompress-helium"},
+    icons = angelsmods.functions.create_gas_fluid_icon(
       {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["helium"], element_tint["helium"], element_tint["helium"]}
+      {element_tint["helium"], element_tint["helium"], element_tint["helium"]}
     ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-e",
     energy_required = 1,
     ingredients = {
@@ -4689,16 +4692,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-hydrogen",
-	localised_name = {"recipe-name.nullius-decompress-hydrogen"},
+    localised_name = {"recipe-name.nullius-decompress-hydrogen"},
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["hydrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["hydrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-f",
     energy_required = 1,
     ingredients = {
@@ -4712,16 +4715,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-oxygen",
-	localised_name = {"recipe-name.nullius-decompress-oxygen"},
+    localised_name = {"recipe-name.nullius-decompress-oxygen"},
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["oxygen"], element_tint["oxygen"], element_tint["oxygen"]}
-	),
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["oxygen"], element_tint["oxygen"], element_tint["oxygen"]}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-g",
     energy_required = 1,
     ingredients = {
@@ -4735,16 +4738,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-carbon-dioxide",
-	localised_name = {"recipe-name.nullius-decompress-carbon-dioxide"},
+    localised_name = {"recipe-name.nullius-decompress-carbon-dioxide"},
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
-	),
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-h",
     energy_required = 1,
     ingredients = {
@@ -4758,16 +4761,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-carbon-monoxide",
-	localised_name = {"recipe-name.nullius-decompress-carbon-monoxide"},
+    localised_name = {"recipe-name.nullius-decompress-carbon-monoxide"},
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
-	),
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-i",
     energy_required = 1,
     ingredients = {
@@ -4781,16 +4784,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-decompress-methane",
-	localised_name = {"recipe-name.nullius-decompress-methane"},
+    localised_name = {"recipe-name.nullius-decompress-methane"},
     icons = angelsmods.functions.create_gas_fluid_icon(
-	  {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
-	  {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
-	),
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
+    ),
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "decompression",
-	subgroup = "decompression",
+    subgroup = "decompression",
     order = "nullius-j",
     energy_required = 1,
     ingredients = {
@@ -4808,13 +4811,13 @@ data:extend({
     localised_name = {"recipe-name.nullius-sludge-disposal-1"},
     icons = {
       {
-		icon = "__nullius__/graphics/wastewater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.2,
         shift = {-12, -10}
@@ -4822,12 +4825,12 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "nullius-water-treatment",
-	subgroup = "waste-management",
+    subgroup = "waste-management",
     order = "nullius-bb",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=40},
       {type="fluid", name="nullius-seawater", amount=200}
@@ -4843,13 +4846,13 @@ data:extend({
     localised_name = {"recipe-name.nullius-sludge-disposal-2"},
     icons = {
       {
-		icon = "__nullius__/graphics/wastewater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__nullius__/graphics/freshwater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "freshwater.png",
+        icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.2,
         shift = {-12, -10}
@@ -4857,12 +4860,12 @@ data:extend({
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "nullius-water-treatment",
-	subgroup = "waste-management",
+    subgroup = "waste-management",
     order = "nullius-bc",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=75},
       {type="fluid", name="nullius-freshwater", amount=150}
@@ -4878,26 +4881,26 @@ data:extend({
     localised_name = {"recipe-name.nullius-sand-disposal"},
     icons = {
       {
-		icon = "__nullius__/graphics/wastewater.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
+        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
         scale = 0.18,
         shift = {-12, -11}
       }
     },
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     category = "nullius-water-treatment",
-	subgroup = "waste-management",
+    subgroup = "waste-management",
     order = "nullius-c",
     energy_required = 1,
-	no_productivity = true,
+    no_productivity = true,
     ingredients = {
       {type="item", name="nullius-sand", amount=4},
       {type="fluid", name="nullius-seawater", amount=80}
@@ -4913,20 +4916,20 @@ data:extend({
     localised_name = {"recipe-name.nullius-dust-disposal-1"},
     icons = {
       {
-		icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
-		icon_size = 72,
+        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon_size = 72,
         scale = 0.14,
         shift = {-12, -10}
       }
     },
     enabled = false,
     category = "ore-flotation",
-	subgroup = "waste-management",
+    subgroup = "waste-management",
     order = "nullius-eb",
     energy_required = 1,
     ingredients = {
@@ -4942,28 +4945,28 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sludge-1",
-	localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 1}},
+    localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 1}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
-      {
-		icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
       },
       {
-		icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
-		icon_size = 72,
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon_size = 72,
         scale = 0.12,
         shift = {-11, -9}
       }
     },
     enabled = false,
     category = "ore-flotation",
-	subgroup = "boxed-fluid",
+    subgroup = "boxed-fluid",
     order = "nullius-sb",
     energy_required = 5,
     ingredients = {
@@ -4982,20 +4985,20 @@ data:extend({
     localised_name = {"recipe-name.nullius-dust-disposal-2"},
     icons = {
       {
-		icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-		icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
-		icon_size = 72,
+        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon_size = 72,
         scale = 0.16,
         shift = {-12, -10}
       }
     },
     enabled = false,
     category = "ore-flotation",
-	subgroup = "waste-management",
+    subgroup = "waste-management",
     order = "nullius-ec",
     energy_required = 1,
     ingredients = {
@@ -5011,28 +5014,28 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-sludge-2",
-	localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 2}},
+    localised_name = {"recipe-name.nullius-boxed", {"", {"fluid-name.nullius-sludge"}, " ", 2}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
-      {
-		icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
       },
       {
-		icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
-		icon_size = 72,
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon_size = 72,
         scale = 0.14,
         shift = {-11, -9}
       }
     },
     enabled = false,
     category = "ore-flotation",
-	subgroup = "boxed-fluid",
+    subgroup = "boxed-fluid",
     order = "nullius-sc",
     energy_required = 5,
     ingredients = {
@@ -5051,9 +5054,9 @@ data:extend({
     name = "nullius-plastic",
     icon = "__base__/graphics/icons/plastic-bar.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     subgroup = "organic-material-2",
-	order = "nullius-b",
+    order = "nullius-b",
     stack_size = 100
   },
   {
@@ -5062,10 +5065,10 @@ data:extend({
     localised_name = {"recipe-name.nullius-pvc"},
     icons = {
       {
-		icon = "__base__/graphics/icons/plastic-bar.png",
-		icon_size = 64,
-		icon_mipmaps = 4
-	  },
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/chlorine.png",
         icon_size = 72,
@@ -5075,7 +5078,7 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-bb",
+    order = "nullius-bb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ethylene"].flow_color,
       secondary = data.raw.fluid["nullius-chlorine"].flow_color
@@ -5097,10 +5100,10 @@ data:extend({
     localised_name = {"recipe-name.nullius-polypropylene"},
     icons = {
       {
-		icon = "__base__/graphics/icons/plastic-bar.png",
-		icon_size = 64,
-		icon_mipmaps = 4
-	  },
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/propene.png",
         icon_size = 72,
@@ -5109,10 +5112,10 @@ data:extend({
       }
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "ore-flotation",
-	order = "nullius-bc",
+    order = "nullius-bc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-propene"].flow_color,
       secondary = data.raw.fluid["nullius-ethylene"].flow_color
@@ -5128,13 +5131,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-plastic-pc-abs",
-	localised_name = {"recipe-name.nullius-pc-abs"},
+    localised_name = {"recipe-name.nullius-pc-abs"},
     icons = {
       {
-		icon = "__base__/graphics/icons/plastic-bar.png",
-		icon_size = 64,
-		icon_mipmaps = 4
-	  },
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/styrene.png",
         icon_size = 72,
@@ -5143,10 +5146,10 @@ data:extend({
       }
     },
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-bd",
+    order = "nullius-bd",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acrylonitrile"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -5160,15 +5163,15 @@ data:extend({
     },
     result = "nullius-plastic",
     result_count = 8
-  },  
+  },
   {
     type = "recipe",
     name = "nullius-boxed-plastic",
     show_amount_in_title = false,
-	always_show_products = true,
+    always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-  	subgroup = "boxed-organic-1",
+      subgroup = "boxed-organic-1",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acrylonitrile"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -5182,7 +5185,7 @@ data:extend({
     },
     result = "nullius-box-plastic",
     result_count = 8
-  },  
+  },
 
   {
     type = "recipe",
@@ -5210,22 +5213,22 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-lubricant",
-	localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-lubricant"}},
+    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-lubricant"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-		icon = "__base__/graphics/icons/fluid/lubricant.png",
-		icon_size = 64,
-		scale = 0.45
+        icon = "__base__/graphics/icons/fluid/lubricant.png",
+        icon_size = 64,
+        scale = 0.45
       }
     },
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-fluid",
-	order = "nullius-e",
+    order = "nullius-e",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-methane"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
@@ -5267,15 +5270,15 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-solvent",
-	localised_name = {"recipe-name.nullius-pressure-solvent"},
-	icons = angelsmods.functions.create_liquid_recipe_icon(nil,
-	  {element_tint["solvent"], element_tint["solvent"], element_tint["solvent"]},
-	  nil
-	),
+    localised_name = {"recipe-name.nullius-pressure-solvent"},
+    icons = angelsmods.functions.create_liquid_recipe_icon(nil,
+      {element_tint["solvent"], element_tint["solvent"], element_tint["solvent"]},
+      nil
+    ),
     enabled = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
-	order = "nullius-i",
+    order = "nullius-i",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-methane"].flow_color,
       secondary = data.raw.fluid["nullius-oxygen"].flow_color
@@ -5298,11 +5301,11 @@ data:extend({
     name = "nullius-bpa",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/solid-salt.png",
-	  icon_size = 32,
+      icon_size = 32,
       tint = {1, 0.95, 0.9, 0.6}
     }},
     subgroup = "organic-material-1",
-	order = "nullius-c",
+    order = "nullius-c",
     stack_size = 100
   },
   {
@@ -5310,7 +5313,7 @@ data:extend({
     name = "nullius-bpa",
     enabled = false,
     category = "basic-chemistry",
-	order = "nullius-cb",
+    order = "nullius-cb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
@@ -5331,23 +5334,23 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-pressure-bpa",
-	icons = {
+    icons = {
       {
         icon = "__angelsrefining__/graphics/icons/solid-salt.png",
-	    icon_size = 32,
+        icon_size = 32,
         tint = {1, 0.95, 0.9, 0.6}
       },
-	  {
+      {
         icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
         icon_size = 72,
-		scale = 0.22,
+        scale = 0.22,
         shift = {9, -12}
-	  }
+      }
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "organic-material-1",
-	order = "nullius-cc",
+    subgroup = "organic-material-1",
+    order = "nullius-cc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
@@ -5369,8 +5372,8 @@ data:extend({
     name = "nullius-boxed-bpa",
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-organic-1",
-	order = "nullius-cb",
+    subgroup = "boxed-organic-1",
+    order = "nullius-cb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
@@ -5391,29 +5394,29 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-pressure-bpa",
-	localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-bpa"}}},
-	icons = {
+    localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-box", {"item-name.nullius-bpa"}}},
+    icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelsrefining__/graphics/icons/solid-salt.png",
-	    icon_size = 32,
+        icon_size = 32,
         tint = {1, 0.95, 0.9, 0.6},
-		scale = 0.9
+        scale = 0.9
       },
-	  {
+      {
         icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
         icon_size = 72,
-		scale = 0.18,
+        scale = 0.18,
         shift = {7, -10}
-	  }
+      }
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-organic-1",
-	order = "nullius-cc",
+    subgroup = "boxed-organic-1",
+    order = "nullius-cc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
@@ -5434,7 +5437,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-ech",
-	localised_name = {"", {"fluid-name.nullius-ech"}, " ", 1},
+    localised_name = {"", {"fluid-name.nullius-ech"}, " ", 1},
     enabled = false,
     category = "basic-chemistry",
     crafting_machine_tint = {
@@ -5477,22 +5480,22 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-glycerol",
-	localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-glycerol"}},
-	icons = {
+    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-glycerol"}},
+    icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/glycerol.png",
-	    icon_size = 72,
-		scale = 0.4
-	  }
+        icon_size = 72,
+        scale = 0.4
+      }
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-fluid",
-	order = "nullius-g",
+    subgroup = "boxed-fluid",
+    order = "nullius-g",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ech"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
@@ -5512,12 +5515,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-glycerol-to-ech",
-	localised_name = {"", {"fluid-name.nullius-ech"}, " ", 2},
-	icons = angelsmods.functions.create_liquid_recipe_icon(
-  	  {{"__angelspetrochem__/graphics/icons/molecules/epichlorohydrin.png", 72}},
-	  {element_tint["carbon"], element_tint["chlorine"], element_tint["oxygen"]},
-	  {{"__angelspetrochem__/graphics/icons/molecules/glycerol.png", 72}}
-	),
+    localised_name = {"", {"fluid-name.nullius-ech"}, " ", 2},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/epichlorohydrin.png", 72}},
+      {element_tint["carbon"], element_tint["chlorine"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/glycerol.png", 72}}
+    ),
     enabled = false,
     category = "basic-chemistry",
     crafting_machine_tint = {
@@ -5561,22 +5564,22 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-epoxy",
-	localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-epoxy"}},
+    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-epoxy"}},
     icons = {
       {
-	    icon = "__nullius__/graphics/crate.png",
+        icon = ICONPATH .. "crate.png",
         icon_size = 64
-	  },
+      },
       {
-		icon = "__nullius__/graphics/epoxy.png",
-		icon_size = 64,
-		scale = 0.45
+        icon = FLUIDPATH .. "epoxy.png",
+        icon_size = 64,
+        scale = 0.45
       }
     },
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-fluid",
-	order = "nullius-f",
+    subgroup = "boxed-fluid",
+    order = "nullius-f",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ech"].flow_color,
       secondary = data.raw.fluid["nullius-solvent"].flow_color
@@ -5597,23 +5600,23 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-limestone-recovery",
-	localised_name = {"recipe-name.nullius-limestone-recovery"},
-	icons = {
+    localised_name = {"recipe-name.nullius-limestone-recovery"},
+    icons = {
       {
         icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
         icon_size = 32
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.35,
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.35,
         shift = {10, -7}
-	  }
+      }
     },
     enabled = false,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "ore-flotation",
     subgroup = "calcium-product",
     order = "nullius-o",
@@ -5633,23 +5636,23 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-iron-recovery",
-	localised_name = {"recipe-name.nullius-iron-recovery"},
-	icons = {
+    localised_name = {"recipe-name.nullius-iron-recovery"},
+    icons = {
       {
         icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
         icon_size = 32
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.35,
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.35,
         shift = {10, -7}
-	  }
+      }
     },
     enabled = false,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "ore-flotation",
     subgroup = "iron-ingot",
     order = "nullius-o",
@@ -5668,24 +5671,24 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-bauxite-recovery",
-	localised_name = {"recipe-name.nullius-bauxite-recovery"},
-	icons = {
+    localised_name = {"recipe-name.nullius-bauxite-recovery"},
+    icons = {
       {
         icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
-	    icon_size = 64,
+        icon_size = 64,
         tint = {0.867, 0.820, 0.609}
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.35,
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.35,
         shift = {10, -7}
-	  }
+      }
     },
     enabled = false,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "ore-flotation",
     subgroup = "aluminum-ingot",
     order = "nullius-o",
@@ -5705,27 +5708,27 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-sand-recovery",
-	localised_name = {"recipe-name.nullius-sand-recovery"},
-	icons = {
+    localised_name = {"recipe-name.nullius-sand-recovery"},
+    icons = {
       {
         icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
         icon_size = 64,
-		icon_mipmaps = 4
+        icon_mipmaps = 4
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.35,
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.35,
         shift = {10, -7}
-	  }
+      }
     },
     enabled = false,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "ore-flotation",
     subgroup = "silicon-product",
-	order = "nullius-o",
+    order = "nullius-o",
     energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=200},
@@ -5742,27 +5745,27 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-stone-recovery",
-	localised_name = {"recipe-name.nullius-stone-recovery"},
-	icons = {
+    localised_name = {"recipe-name.nullius-stone-recovery"},
+    icons = {
       {
         icon = "__base__/graphics/icons/stone.png",
-		icon_size = 64,
-		icon_mipmaps = 4
+        icon_size = 64,
+        icon_mipmaps = 4
       },
-	  {
-	    icon = "__nullius__/graphics/sludge.png",
-		icon_size = 64,
-		icon_mipmaps = 4,
-		scale = 0.35,
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.35,
         shift = {10, -7}
-	  }
+      }
     },
     enabled = false,
-	allow_as_intermediate = false,
-	allow_decomposition = false,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "ore-flotation",
     subgroup = "masonry-material",
-	order = "nullius-o",
+    order = "nullius-o",
     energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=250},
@@ -5775,17 +5778,17 @@ data:extend({
     },
     main_product = "stone"
   },
-  
+
   {
     type = "item",
     name = "nullius-eutectic-salt",
-	icons = {{
-      icon = "__nullius__/graphics/icons/salt.png",
+    icons = {{
+      icon = ICONPATH .. "salt.png",
       icon_size = 64,
-	  tint = {0.4, 0.6, 0.8}
-	}},
+      tint = {0.4, 0.6, 0.8}
+    }},
     subgroup = "sodium-product",
-	order = "nullius-g",
+    order = "nullius-g",
     stack_size = 100
   },
   {
@@ -5815,8 +5818,8 @@ data:extend({
     name = "nullius-boxed-eutectic-salt",
     enabled = false,
     category = "basic-chemistry",
-	subgroup = "boxed-sodium",
-	order = "nullius-g",
+    subgroup = "boxed-sodium",
+    order = "nullius-g",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
@@ -5838,59 +5841,59 @@ data:extend({
   {
     type = "item",
     name = "nullius-fusion-cell",
-    icon = "__nullius__/graphics/fusion-cell.png",
+    icon = ICONPATH .. "fusion-cell.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fusion-cell",
     fuel_value = "2GJ",
-	fuel_acceleration_multiplier = 1.8,
+    fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.4,
     subgroup = "nuclear",
-	order = "nullius-cb",
+    order = "nullius-cb",
     stack_size = 20
   },
   {
     type = "item",
     name = "nullius-spent-fusion-cell",
-    icon = "__nullius__/graphics/fusion-spent.png",
+    icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     subgroup = "nuclear",
-	order = "nullius-cc",
+    order = "nullius-cc",
     stack_size = 20
   },
   {
     type = "item",
     name = "nullius-breeder-cell",
-    icon = "__nullius__/graphics/breeder-cell.png",
+    icon = ICONPATH .. "breeder-cell.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-breeder-cell",
     fuel_value = "500MJ",
-	fuel_acceleration_multiplier = 1.5,
+    fuel_acceleration_multiplier = 1.5,
     fuel_top_speed_multiplier = 1.25,
     subgroup = "nuclear",
-	order = "nullius-db",
+    order = "nullius-db",
     stack_size = 20
   },
   {
     type = "item",
     name = "nullius-spent-breeder-cell",
-    icon = "__nullius__/graphics/breeder-spent.png",
+    icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     subgroup = "nuclear",
-	order = "nullius-dc",
+    order = "nullius-dc",
     stack_size = 20
   },
   {
     type = "recipe",
     name = "nullius-fusion-cell",
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-deuterium"].flow_color,
@@ -5900,22 +5903,22 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-deuterium", amount=7},
-	  {type="fluid", name="nullius-tritium", amount=4}
+      {type="fluid", name="nullius-tritium", amount=4}
     },
     result = "nullius-fusion-cell"
   },
   {
     type = "recipe",
     name = "nullius-fusion-recycling",
-    icon = "__nullius__/graphics/fusion-spent.png",
+    icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "basic-chemistry",
     subgroup = "nuclear",
-	order = "nullius-cc",
+    order = "nullius-cc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-helium"].flow_color,
       secondary = data.raw.fluid["nullius-helium"].flow_color
@@ -5935,8 +5938,8 @@ data:extend({
     type = "recipe",
     name = "nullius-breeder-cell",
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "nanotechnology",
     energy_required = 10,
     ingredients = {
@@ -5944,23 +5947,23 @@ data:extend({
       {type="item", name="nullius-lithium", amount=2},
       {type="item", name="nullius-boron", amount=1},
       {type="item", name="nullius-ceramic-powder", amount=3},
-	  {type="fluid", name="nullius-deuterium", amount=12},
-	  {type="fluid", name="nullius-compressed-helium", amount=10}
+      {type="fluid", name="nullius-deuterium", amount=12},
+      {type="fluid", name="nullius-compressed-helium", amount=10}
     },
     result = "nullius-breeder-cell"
   },
   {
     type = "recipe",
     name = "nullius-breeder-recycling",
-    icon = "__nullius__/graphics/breeder-spent.png",
+    icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
-	icon_mipmaps = 4,
+    icon_mipmaps = 4,
     enabled = false,
-	show_amount_in_title = false,
-	always_show_products = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "distillation",
     subgroup = "nuclear",
-	order = "nullius-dc",
+    order = "nullius-dc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-tritium"].flow_color },
     energy_required = 20,
     ingredients = {

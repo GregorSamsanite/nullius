@@ -1,11 +1,14 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 data:extend({
   {
     type = "technology",
     name = "nullius-mining-productivity-1",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -23,8 +26,8 @@ data:extend({
     name = "nullius-mining-productivity-2",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -42,8 +45,8 @@ data:extend({
     name = "nullius-mining-productivity-3",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -61,8 +64,8 @@ data:extend({
     name = "nullius-mining-productivity-4",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -80,8 +83,8 @@ data:extend({
     name = "nullius-mining-productivity-5",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -99,8 +102,8 @@ data:extend({
     name = "nullius-mining-productivity-6",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -118,8 +121,8 @@ data:extend({
     name = "nullius-mining-productivity-7",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -140,8 +143,8 @@ data:extend({
     name = "nullius-mining-productivity-8",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -162,8 +165,8 @@ data:extend({
     name = "nullius-mining-productivity-9",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -184,8 +187,8 @@ data:extend({
     name = "nullius-mining-productivity-10",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -206,8 +209,8 @@ data:extend({
     name = "nullius-mining-productivity-11",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -228,8 +231,8 @@ data:extend({
     name = "nullius-mining-productivity-12",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -250,8 +253,8 @@ data:extend({
     name = "nullius-mining-productivity-13",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -273,8 +276,8 @@ data:extend({
     name = "nullius-mining-productivity-14",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -296,8 +299,8 @@ data:extend({
     name = "nullius-mining-productivity-15",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -319,8 +322,8 @@ data:extend({
     name = "nullius-mining-productivity-16",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -342,8 +345,8 @@ data:extend({
     name = "nullius-mining-productivity-17",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -365,8 +368,8 @@ data:extend({
     name = "nullius-mining-productivity-18",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -388,8 +391,8 @@ data:extend({
     name = "nullius-mining-productivity-19",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -411,8 +414,8 @@ data:extend({
     name = "nullius-mining-productivity-20",
     order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
@@ -433,10 +436,10 @@ data:extend({
   {
     type = "technology",
     name = "nullius-mining-productivity-21",
-	order = "nullius-xb",
+    order = "nullius-xb",
     icon = "__base__/graphics/technology/mining-productivity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {{
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
@@ -447,7 +450,7 @@ data:extend({
         {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -461,8 +464,8 @@ data:extend({
     name = "nullius-empiricism-7",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/research-speed.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "laboratory-speed",
@@ -470,12 +473,12 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "6250*(2^(L-7))",
+      count_formula = "6250*(2^(L-7))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 2}
+        {"nullius-astronomy-pack", 2}
       },
       time = 60
     },
@@ -489,8 +492,8 @@ data:extend({
     name = "nullius-braking-9",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/braking-force.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "train-braking-force-bonus",
@@ -498,12 +501,12 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "10000*(1.732050807569^(L-9))",
+      count_formula = "10000*(1.732050807569^(L-9))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -517,8 +520,8 @@ data:extend({
     name = "nullius-inserter-capacity-8",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/inserter-capacity.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "stack-inserter-capacity-bonus",
@@ -526,12 +529,12 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "50000*(2^(L-8))",
+      count_formula = "50000*(2^(L-8))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -545,8 +548,8 @@ data:extend({
     name = "nullius-toolmaking-4",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/steel-axe.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "character-mining-speed",
@@ -562,12 +565,12 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "12500*(2^(L-4))",
+      count_formula = "12500*(2^(L-4))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
@@ -581,8 +584,8 @@ data:extend({
     name = "nullius-robot-speed-6",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/worker-robots-speed.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "worker-robot-speed",
@@ -590,27 +593,27 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "25000*(2^(L-6))",
+      count_formula = "25000*(2^(L-6))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-locomotion-5"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
     type = "technology",
     name = "nullius-robot-cargo-3",
-	order = "nullius-xc",
+    order = "nullius-xc",
     icon = "__base__/graphics/technology/worker-robots-storage.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "worker-robot-storage",
@@ -618,30 +621,30 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "40000*(5^(L-3))",
+      count_formula = "40000*(5^(L-3))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-personal-storage-3"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
     type = "technology",
     name = "nullius-robot-battery-2",
-	order = "nullius-xc",
-	icons = {{
+    order = "nullius-xc",
+    icons = {{
       icon = "__base__/graphics/technology/worker-robots-storage.png",
-	  icon_size = 256,
-	  icon_mipmaps = 4,
-	  tint = {0.6, 0.9, 1}
-	}},
+      icon_size = 256,
+      icon_mipmaps = 4,
+      tint = {0.6, 0.9, 1}
+    }},
     effects = {
       {
         type = "worker-robot-battery",
@@ -649,27 +652,27 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "12500*(2^(L-2))",
+      count_formula = "12500*(2^(L-2))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-construction-robot-4"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
     type = "technology",
     name = "nullius-extermination-1",
-	order = "nullius-xc",
+    order = "nullius-xc",
     icon = "__base__/graphics/technology/energy-weapons-damage.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "gun-speed",
@@ -683,18 +686,18 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "25000*(2^(L-1))",
+      count_formula = "25000*(2^(L-1))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-wildlife-management"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
@@ -702,8 +705,8 @@ data:extend({
     name = "nullius-reconnaissance-2",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/artillery-range.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "artillery-range",
@@ -711,27 +714,27 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "12500*(2^(L-2))",
+      count_formula = "12500*(2^(L-2))",
       ingredients = {
         {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-asteroid-mining-2"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
     type = "technology",
     name = "nullius-artificial-intuition-1",
-	order = "nullius-xc",
+    order = "nullius-xc",
     icon = "__base__/graphics/technology/optics.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "laboratory-productivity",
@@ -739,18 +742,18 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "100*(2^(L-1))",
+      count_formula = "100*(2^(L-1))",
       ingredients = {
-	    {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
-	    {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
-	    {"nullius-nematology-pack", 1}, {"nullius-ichthyology-pack", 1},
-	    {"nullius-zoology-pack", 1}
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+        {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
+        {"nullius-nematology-pack", 1}, {"nullius-ichthyology-pack", 1},
+        {"nullius-zoology-pack", 1}
       },
       time = 600
     },
     prerequisites = {"nullius-artificial-intelligence-2", "nullius-biochemistry-7"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
@@ -758,8 +761,8 @@ data:extend({
     name = "nullius-personal-storage-4",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/toolbelt.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "character-inventory-slots-bonus",
@@ -767,18 +770,18 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "100000*(10^(L-4))",
+      count_formula = "100000*(10^(L-4))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-personal-storage-3", "nullius-biochemistry-5"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   },
 
   {
@@ -786,8 +789,8 @@ data:extend({
     name = "nullius-projection-3",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/discharge-defense-equipment.png",
-	icon_size = 256,
-	icon_mipmaps = 4,
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "character-reach-distance",
@@ -807,17 +810,17 @@ data:extend({
       }
     },
     unit = {
-	  count_formula = "7500*(2^(L-3))",
+      count_formula = "7500*(2^(L-3))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
         {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2},
-		{"nullius-astronomy-pack", 1}
+        {"nullius-astronomy-pack", 1}
       },
       time = 60
     },
     prerequisites = {"nullius-antimatter-containment", "nullius-inserter-capacity-4"},
     max_level = "infinite",
-	upgrade = true
+    upgrade = true
   }
 })

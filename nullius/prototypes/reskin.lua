@@ -1,3 +1,6 @@
+local ICONPATH = "__nullius__/graphics/icons/"
+local ENTITYPATH = "__nullius__/graphics/entity/"
+
 local tiercolors = {
   ["grey"] = "707070",
   ["yellow"] = "deb900",
@@ -21,12 +24,12 @@ function label_icon(name, tier, color, etype)
       etype = "item"
     end
     local icon_style = settings.startup["reskins-lib-icon-tier-labeling-style"].value
-	local icon_name = "__reskins-library__/graphics/icons/tiers/"..icon_style.."/"..tier..".png"
+    local icon_name = "__reskins-library__/graphics/icons/tiers/"..icon_style.."/"..tier..".png"
     table.insert(data.raw[etype][name].icons, {
-	  icon = icon_name, icon_size = 64, icon_mipmaps = 4
+      icon = icon_name, icon_size = 64, icon_mipmaps = 4
     })
-	local blend = tiercolor(color)
-	blend.a = 0.75
+    local blend = tiercolor(color)
+    blend.a = 0.75
     table.insert(data.raw[etype][name].icons, {
       icon = icon_name, icon_size = 64, icon_mipmaps = 4, tint = blend
     })
@@ -41,21 +44,21 @@ function scale_image(img, scale)
     if ((type(img) ~= "table") or (img.__self) or (lookup[img])) then
       return
     end
-	lookup[img] = true
+    lookup[img] = true
     for _, field in pairs(img) do
-	  scale_subtable(field, scale)
+      scale_subtable(field, scale)
     end
-	if (img.filename ~= nil) then
-	  if (img.shift ~= nil) then
-	    img.shift[1] = img.shift[1] * scale
-	    img.shift[2] = img.shift[2] * scale
-	  end
-	  if (img.scale ~= nil) then
-	    img.scale = img.scale * scale
-	  else
-	    img.scale = scale
-	  end
-	end
+    if (img.filename ~= nil) then
+      if (img.shift ~= nil) then
+        img.shift[1] = img.shift[1] * scale
+        img.shift[2] = img.shift[2] * scale
+      end
+      if (img.scale ~= nil) then
+        img.scale = img.scale * scale
+      else
+        img.scale = scale
+      end
+    end
   end
   scale_subtable(ret, scale)
   return ret
