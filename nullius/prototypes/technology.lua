@@ -12217,6 +12217,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-copper-sheet"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-copper-heat-pipe"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-copper-heat-pipe"
       }
     },
     unit = {

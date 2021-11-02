@@ -2638,7 +2638,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
-    category = "small-assembly",
+    category = "small-fluid-assembly",
     energy_required = 6,
     ingredients = {
       {type="item", name="small-lamp", amount=2},

@@ -4180,6 +4180,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-heat-pipe-2",
+	order = "nullius-bcb",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -4197,6 +4198,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-heat-pipe-2",
+	order = "nullius-ccb",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -4212,11 +4214,67 @@ data:extend({
     },
     result = "nullius-box-heat-pipe-2"
   },
+  {
+    type = "recipe",
+    name = "nullius-copper-heat-pipe",
+	localised_name = {"recipe-name.nullius-copper",
+	    {"entity-name.nullius-heat-pipe-2"}},
+    icons = {{
+      icon = "__nullius__/graphics/icons/copper-heat-pipe.png",
+	  icon_size = 64
+    }},
+	order = "nullius-bcc",
+    enabled = false,
+	show_amount_in_title = false,
+	always_show_products = true,
+    category = "machine-casting",
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-copper-sheet", amount=1},
+      {type="item", name="nullius-pipe-3", amount=1},
+      {type="item", name="nullius-ceramic-powder", amount=1},
+      {type="item", name="nullius-insulation", amount=1},
+      {type="item", name="nullius-eutectic-salt", amount=3}
+    },
+    result = "nullius-heat-pipe-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-copper-heat-pipe",
+	localised_name = {"recipe-name.nullius-copper",
+	    {"item-name.nullius-box", {"entity-name.nullius-heat-pipe-2"}}},
+    icons = {
+      {
+	    icon = "__nullius__/graphics/icons/crate.png",
+        icon_size = 64
+	  },
+      {
+		icon = "__nullius__/graphics/icons/copper-heat-pipe.png",
+		icon_size = 64,
+		scale = 0.45
+      }
+    },
+	subgroup = "boxed-heat-energy",
+	order = "nullius-ccc",
+    enabled = false,
+	show_amount_in_title = false,
+	always_show_products = true,
+    category = "machine-casting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-box-copper-sheet", amount=1},
+      {type="item", name="nullius-box-pipe-3", amount=1},
+      {type="item", name="nullius-box-ceramic-powder", amount=1},
+      {type="item", name="nullius-box-insulation", amount=1},
+      {type="item", name="nullius-box-eutectic-salt", amount=3}
+    },
+    result = "nullius-box-heat-pipe-2"
+  },
 
   {
     type = "item",
     name = "nullius-heat-pipe-3",
-    order = "nullius-bc",
+    order = "nullius-bd",
     icons = {{
       icon = "__base__/graphics/icons/heat-pipe.png",
       icon_size = 64,

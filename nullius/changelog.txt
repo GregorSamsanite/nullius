@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.8
+Version: 1.2.7
 Date: 02.11.2021
   Graphics:
-    - New mod icon
+    - New mod icon (thanks snouz!)
     - New windturbines icons, tech icons and slightly improved entities
     - New battery 3 icon
     - Slightly retouched ~30 icons
@@ -13,13 +13,16 @@ Date: 02.11.2021
     - Image sorting, size standarized
     - Slight code refactoring
     - Some unused images or parts of images removed, big animations optimized
----------------------------------------------------------------------------------------------------
-Version: 1.2.7
-Date: 27.10.2021
+  Features:
+    - Add a copper version of heat pipe 2 recipe.
   Balancing:
     - Reduce effectiveness disparity in terraforming methods and adjust target score.
   Info:
     - Add some guidance on Terraform end game goal to terraforming drone tooltips.
+  Modding:
+    - Add support for Automatic Train Fuel Stop mod.
+  Bugfixes:
+    - Don't display lamp 2 in list of small assembler recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.6
 Date: 26.10.2021

@@ -1191,3 +1191,11 @@ data.raw.item["logistic-chest-botUpgrader"].stack_size = 10
 table.insert(data.raw["technology"]["nullius-distribution-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-bot-upgrade-chest"})
 end
+
+
+if mods["FuelTrainStop"] then
+  table.insert(data.raw.technology["nullius-traffic-control"].effects,
+      {type = "unlock-recipe", recipe = "nullius-fuel-train-stop"})
+  data.raw["item"]["fuel-train-stop"].order = "nullius-ebc"
+  data.raw["item"]["fuel-train-stop"].subgroup = "railway"
+end

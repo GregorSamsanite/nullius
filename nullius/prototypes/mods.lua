@@ -1491,3 +1491,23 @@ data:extend({
   }
 })
 end
+
+
+if mods["FuelTrainStop"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-fuel-train-stop",
+    enabled = false,
+	always_show_made_in = true,
+	no_productivity = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"train-stop", 1},
+      {"rail-chain-signal", 1}
+    },
+    result = "fuel-train-stop"
+  }
+})
+end
