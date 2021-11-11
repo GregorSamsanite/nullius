@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.8
+Date: 10.11.2021
+  Balancing:
+    - Faster construction bots.
+    - Reduce disparity between terraforming different tile colors.
+  Features:
+    - When placing charged battery equipment, it starts fully charged.
+  Changes:
+    - New character starts game with full battery energy.
+    - New character starts with fewer construction bots.
+  Bugfixes:
+    - Make wind turbines have ghosts when destroyed.
+  Graphics:
+    - Fix icon overlay for small logistic chest 1s.
+  Info:
+    - Show tenths of a percent in mission progress panel.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.7
 Date: 02.11.2021
   Graphics:

@@ -205,9 +205,10 @@ function remove_wind_unit(unit, died, level)
   local entry = bucket.turbines[unit]
   if entry == nil then return end
 
+  --[[
   if entry.base ~= nil then
     if died then
-      if entry.valid then
+      if entry.base.valid then
         script_kill = true
         entry.base.die(entry.base.force)
         script_kill = nil
@@ -216,6 +217,7 @@ function remove_wind_unit(unit, died, level)
       end
     end
   end
+  --]]
 
   destroy_turbine(entry)
   bucket.turbines[unit] = nil

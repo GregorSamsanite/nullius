@@ -139,43 +139,48 @@ script.on_event(defines.events.on_player_created,
     local inventory = player.get_inventory(defines.inventory.character_armor)
     if (inventory ~= nil) then
       local body = inventory.find_item_stack("nullius-chassis-1")
-    if (body == nil) then
-      player.insert({name="nullius-chassis-1", count=1})
-    body = inventory.find_item_stack("nullius-chassis-1")
-    end
+      if (body == nil) then
+        player.insert({name="nullius-chassis-1", count=1})
+        body = inventory.find_item_stack("nullius-chassis-1")
+      end
 
-      if (body ~= nil) then
+      if ((body ~= nil) and (body.grid ~= nil)) then
         body.grid.put({name="nullius-hangar-1"})
         body.grid.put({name="nullius-charger-1"})
         body.grid.put({name="nullius-solar-panel-1"})
         body.grid.put({name="nullius-battery-1"})
         body.grid.put({name="nullius-battery-1"})
         body.grid.put({name="nullius-battery-1"})
+	    for _,eq in pairs(body.grid.equipment) do
+		  if (eq.max_energy > eq.energy) then
+		    eq.energy = eq.max_energy
+		  end
+		end
       end
     end
 
-  player.insert({name="nullius-construction-bot-1", count=8})
-  player.insert({name="nullius-solar-panel-1", count=10})
-  player.insert({name="nullius-grid-battery-1", count=5})
+    player.insert({name="nullius-construction-bot-1", count=6})
+    player.insert({name="nullius-solar-panel-1", count=10})
+    player.insert({name="nullius-grid-battery-1", count=5})
 
     if not global.init_ran then
       global.init_ran = true
       chart_starting_area()
-  end
+    end
 
-  if not global.init_landing then
-    global.init_landing = true
+    if not global.init_landing then
+      global.init_landing = true
       player.surface.daytime = 0.7
       landing_site(player.surface, {-5, -6})
-    init_broken()
-  end
+      init_broken()
+    end
 
     if game.is_multiplayer() then
       player.print({"nullius-intro"})
     else
       game.show_message_dialog{text = {"nullius-intro"}}
     end
-  update_mission_player(player)
+    update_mission_player(player)
   end
 )
 
@@ -183,11 +188,11 @@ script.on_event(defines.events.on_research_finished,
   function(event)
     if (global.nullius_broken_status ~= nil) then
       if (event.research.name == "nullius-experimental-chemistry") then
-      init_techs()
-    elseif (event.research.name == "nullius-distillation-1") then
-      broken_crafted("nullius-broken-electrolyzer")
+        init_techs()
+      elseif (event.research.name == "nullius-distillation-1") then
+        broken_crafted("nullius-broken-electrolyzer")
+      end
     end
-  end
   end
 )
 

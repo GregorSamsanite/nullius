@@ -32,7 +32,7 @@ data:extend({
     name = "nullius-battery-1",
     localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-1",
-    order = "bc",
+    order = "bcb",
     sprite = {
       filename = "__base__/graphics/icons/battery-equipment.png",
       width = 64,
@@ -57,7 +57,7 @@ data:extend({
     name = "nullius-battery-2",
     localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-2",
-    order = "bd",
+    order = "bdb",
     sprite = {
       filename = "__base__/graphics/icons/battery-mk2-equipment.png",
       width = 64,
@@ -82,7 +82,7 @@ data:extend({
     name = "nullius-battery-3",
     localised_description = {"equipment-description.nullius-battery"},
     take_result = "nullius-uncharged-battery-3",
-    order = "be",
+    order = "beb",
     sprite = {
       filename = ICONPATH .. "battery3.png",
       width = 64,
@@ -100,7 +100,26 @@ data:extend({
       usage_priority = "tertiary"
     },
     categories = {"cybernetic"}
-  },
+  }
+})
+
+local charged1 = util.table.deepcopy(data.raw["battery-equipment"]["nullius-battery-1"])
+local charged2 = util.table.deepcopy(data.raw["battery-equipment"]["nullius-battery-2"])
+local charged3 = util.table.deepcopy(data.raw["battery-equipment"]["nullius-battery-3"])
+charged1.name = "nullius-charged-battery-1"
+charged2.name = "nullius-charged-battery-2"
+charged3.name = "nullius-charged-battery-3"
+charged1.order = "bcc"
+charged2.order = "bdc"
+charged3.order = "bec"
+charged1.localised_name = {"equipment-name.nullius-battery-1"}
+charged2.localised_name = {"equipment-name.nullius-battery-2"}
+charged3.localised_name = {"equipment-name.nullius-battery-3"}
+
+data:extend({
+  charged1,
+  charged2,
+  charged3,
 
   {
     type = "solar-panel-equipment",

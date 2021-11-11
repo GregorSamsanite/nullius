@@ -88,16 +88,16 @@ end
 function terraform_score(name)
   if (string.sub(name, 1, 8) == "mineral-") then
     if (string.sub(name, 9, 18) == "aubergine-") then
-      return 1
+      return 1.25
     elseif (string.sub(name, 9, 14) == "black-") then
       return 1
     elseif (string.sub(name, 9, 15) == "purple-") then
-      return 2
+      return 1.5
     elseif (string.sub(name, 9, 15) == "violet-") then
-      return 2
+      return 1.5
   end
   elseif (string.sub(name, 1, 9) == "volcanic-") then
-    return 3
+    return 2
   end
   return 0
 end

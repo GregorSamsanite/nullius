@@ -67,11 +67,12 @@ end
 
 function set_mission_goal(goal, amount, force)
   if (not global.nullius_mission_complete) then
-    local mission_target = {10, 100, 1500, 4000000, 2000, 400, 250, 50, 3000000, 20, 12}
+    local mission_target = {10, 100, 1500, 4000000, 2000, 400, 250, 50, 2500000, 20, 12}
     local count = global.nullius_mission_count
     local status = global.nullius_mission_status
     count[goal] = math.min(math.max(amount, 0), (mission_target[goal] * 4))
-    status[goal] = math.floor(math.min(100, ((100 * count[goal]) / mission_target[goal])))
+    status[goal] = (math.floor(10 *
+	    math.min(100, ((100 * count[goal]) / mission_target[goal]))) / 10)
 
     if ((goal >= 3) and (goal <= 5)) then
       local algae_oxygen = (50 * count[3]) / (count[3] + (mission_target[3] / 2))
@@ -79,7 +80,8 @@ function set_mission_goal(goal, amount, force)
       local tree_oxygen = (30 * count[5]) / (count[5] + (mission_target[5] / 2))
       local total_oxygen = algae_oxygen + grass_oxygen + tree_oxygen
       count[2] = (107 * total_oxygen) / (150 - total_oxygen)
-      status[2] = math.floor(math.min(100, ((100 * count[2]) / mission_target[2])))
+      status[2] = (math.floor(10 *
+	      math.min(100, ((100 * count[2]) / mission_target[2]))) / 10)
     end
 
     local any = false

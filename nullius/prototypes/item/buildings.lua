@@ -1130,13 +1130,13 @@ data:extend({
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.9, g = 0.75, b = 0.1},
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       }
     },
     subgroup = "small-logistic-storage",
@@ -1266,13 +1266,13 @@ data:extend({
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.9, g = 0.2, b = 0.1},
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       }
     },
     subgroup = "small-logistic-storage",
@@ -1395,13 +1395,13 @@ data:extend({
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 98, g = 203, b = 230},
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       }
     },
     subgroup = "small-logistic-storage",
@@ -1524,13 +1524,13 @@ data:extend({
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.2, g = 0.9, b = 0.1},
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       }
     },
     subgroup = "small-logistic-storage",
@@ -1653,13 +1653,13 @@ data:extend({
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       },
       {
         icon = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
         tint = {r = 0.7, g = 0.1, b = 0.9},
         icon_size = 32,
-        scale = 0.5
+        scale = 0.6875
       }
     },
     subgroup = "small-logistic-storage",
