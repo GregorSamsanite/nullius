@@ -64,6 +64,7 @@ local function create_boxed_item(base_name, group, box_order,
       always_show_made_in = true,
       show_amount_in_title = false,
       always_show_products = true,
+      allow_as_intermediate = false,
       no_productivity = true,
       energy_required = 2,
       ingredients = {

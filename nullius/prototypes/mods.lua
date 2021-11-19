@@ -1511,3 +1511,115 @@ data:extend({
   }
 })
 end
+
+
+if mods["Companion_Drones"] then
+data:extend({
+  {
+    type = "technology",
+    name = "nullius-companionship",
+    order = "nullius-gl",
+    icon = "__Companion_Drones__/drone-icon.png",
+    icon_size = 200,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-companion"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-companion-reactor-equipment"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-companion-shield-equipment"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-companion-roboport-equipment"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-companion-defense-equipment"
+      }
+    },
+    unit = {
+      count = 25000,
+      ingredients = {
+        {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 1}, {"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-artificial-intelligence-2", "nullius-asteroid-mining-2"}
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 90,
+    ingredients = {
+      {"nullius-android-2", 1},
+      {"nullius-asteroid-miner-2", 1}
+    },
+    result = "companion"
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion-reactor-equipment",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-reactor", 1},
+      {"nullius-battery-2", 6},
+	  {"nullius-antimatter", 12}
+    },
+    result = "companion-reactor-equipment"
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion-shield-equipment",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-levitation-field-2", 3},
+      {"nullius-beacon-3", 1}
+    },
+    result = "companion-shield-equipment"
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion-roboport-equipment",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-drone-carrier-2", 1},
+      {"nullius-hangar-3", 1},
+	  {"nullius-construction-bot-4", 6}
+    },
+    result = "companion-roboport-equipment"
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion-defense-equipment",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-turret", 5},
+      {"nullius-demolition-drone", 1}
+    },
+    result = "companion-defense-equipment"
+  }
+})
+end

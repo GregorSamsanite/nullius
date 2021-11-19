@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.9
+Date: 19.11.2021
+  Balancing:
+    - Increase number of request slots in tier 1 logistic chests by 1.
+    - Marginally increase cost of methane.
+    - Eliminate drain on idle miners, but increase active miner energy use.
+  Changes:
+    - Don't allow boxing recipes as hand crafting intermediates.
+  Modding:
+    - Add support for Companion Drones mod.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.8
 Date: 10.11.2021
   Balancing:

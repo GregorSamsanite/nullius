@@ -61,10 +61,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 3,
-      usage_priority = "secondary-input",
-      drain = "1kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "59kW",
+    energy_usage = "75kW",
     working_sound = data.raw["mining-drill"]["burner-mining-drill"].working_sound,
     animations = data.raw["mining-drill"]["burner-mining-drill"].animations,
     resistances = {
@@ -100,10 +99,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 6,
-      usage_priority = "secondary-input",
-      drain = "3kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "117kW",
+    energy_usage = "150kW",
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "physical", decrease = 20, percent = 50 }
@@ -265,10 +263,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 6,
-      usage_priority = "secondary-input",
-      drain = "2kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "118kW",
+    energy_usage = "180kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "small-miner",
     next_upgrade = "nullius-small-miner-3",
@@ -906,10 +903,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 12,
-      usage_priority = "secondary-input",
-      drain = "3kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "222kW",
+    energy_usage = "360kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "small-miner",
     base_productivity = 0.05,
@@ -1209,10 +1205,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 10,
-      usage_priority = "secondary-input",
-      drain = "8kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "192kW",
+    energy_usage = "300kW",
     module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
 
@@ -1690,10 +1685,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 20,
-      usage_priority = "secondary-input",
-      drain = "12kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "368kW",
+    energy_usage = "600kW",
     module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     base_productivity = 0.05,
@@ -1733,10 +1727,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 15,
-      usage_priority = "secondary-input",
-      drain = "20kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "270kW",
+    energy_usage = "450kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "large-miner",
     next_upgrade = "nullius-large-miner-2",
@@ -2377,10 +2370,9 @@ data:extend({
     energy_source = {
       type = "electric",
       emissions_per_minute = 30,
-      usage_priority = "secondary-input",
-      drain = "30kW"
+      usage_priority = "secondary-input"
     },
-    energy_usage = "520kW",
+    energy_usage = "900kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "large-miner",
     base_productivity = 0.05,

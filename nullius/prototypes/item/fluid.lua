@@ -2892,12 +2892,12 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-carbon-dioxide", amount=30, fluidbox_index=1},
-      {type="fluid", name="nullius-hydrogen", amount=100, fluidbox_index=2}
+      {type="fluid", name="nullius-carbon-dioxide", amount=32, fluidbox_index=1},
+      {type="fluid", name="nullius-hydrogen", amount=110, fluidbox_index=2}
     },
     results = {
       {type="fluid", name="nullius-methane", amount=24},
-      {type="fluid", name="nullius-water", amount=15}
+      {type="fluid", name="nullius-water", amount=10}
     },
     main_product = "nullius-methane"
   },
@@ -2919,12 +2919,12 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=15, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-hydrogen", amount=50, fluidbox_index=2}
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=16, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=55, fluidbox_index=2}
     },
     results = {
       {type="fluid", name="nullius-compressed-methane", amount=12},
-      {type="fluid", name="nullius-water", amount=30}
+      {type="fluid", name="nullius-water", amount=20}
     }
   },
   {
@@ -2945,11 +2945,11 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-methane", amount=50, fluidbox_index=1},
-      {type="fluid", name="nullius-oxygen", amount=30, fluidbox_index=2}
+      {type="fluid", name="nullius-methane", amount=60, fluidbox_index=1},
+      {type="fluid", name="nullius-oxygen", amount=40, fluidbox_index=2}
     },
     results = {
-      {type="fluid", name="nullius-ethylene", amount=15},
+      {type="fluid", name="nullius-ethylene", amount=16},
       {type="fluid", name="nullius-water", amount=8}
     },
     main_product = "nullius-ethylene"
@@ -2973,11 +2973,11 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-methane", amount=25, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-oxygen", amount=15, fluidbox_index=2}
+      {type="fluid", name="nullius-compressed-methane", amount=30, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-oxygen", amount=20, fluidbox_index=2}
     },
     results = {
-      {type="fluid", name="nullius-ethylene", amount=30},
+      {type="fluid", name="nullius-ethylene", amount=32},
       {type="fluid", name="nullius-water", amount=16}
     },
     main_product = "nullius-ethylene"
@@ -3897,7 +3897,7 @@ data:extend({
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=20}
     },
     results = {
-      {type="fluid", name="nullius-compressed-hydrogen", amount=35},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=30},
       {type="fluid", name="nullius-compressed-carbon-monoxide", amount=25}
     },
     main_product = "nullius-compressed-carbon-monoxide"

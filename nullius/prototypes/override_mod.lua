@@ -1199,3 +1199,9 @@ if mods["FuelTrainStop"] then
   data.raw["item"]["fuel-train-stop"].order = "nullius-ebc"
   data.raw["item"]["fuel-train-stop"].subgroup = "railway"
 end
+
+
+if mods["Companion_Drones"] then
+  data.raw["item-subgroup"]["companion"].group = "equipment"
+  data.raw["item-subgroup"]["companion"].order = "gg"
+end

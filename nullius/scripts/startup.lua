@@ -89,37 +89,39 @@ script.on_event(defines.events.on_force_created,
   end
 )
 
+local function reset_config()
+  if (remote.interfaces["freeplay"] ~= nil) then
+    if (script.active_mods["Companion_Drones"]) then
+      remote.call("freeplay", "set_created_items", {})	
+	else
+      remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
+	end
+    remote.call("freeplay", "set_respawn_items", {})
+  end
+  if (remote.interfaces["silo_script"] ~= nil) then
+    remote.call("silo_script", "set_no_victory", true)
+  end  
+end
+
 script.on_init(
   function()
     init_wind()
-  init_geothermal()
-
+    init_geothermal()
+	reset_config()
     if (remote.interfaces["freeplay"] ~= nil) then
-      remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
-      remote.call("freeplay", "set_respawn_items", {})
       remote.call("freeplay", "set_skip_intro", true)
-    remote.call("freeplay", "set_disable_crashsite", true)
+      remote.call("freeplay", "set_disable_crashsite", true)
       remote.call("freeplay", "set_chart_distance", 300)
-  end
-    if (remote.interfaces["silo_script"] ~= nil) then
-    remote.call("silo_script", "set_no_victory", true)
-  end
-  update_mission_global()
+    end
+    update_mission_global()
   end
 )
 
 script.on_configuration_changed(
   function(cfg)
-    if (remote.interfaces["freeplay"] ~= nil) then
-      remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
-      remote.call("freeplay", "set_respawn_items", {})
-  end
-    if (remote.interfaces["silo_script"] ~= nil) then
-    remote.call("silo_script", "set_no_victory", true)
-  end
-
-  init_techs()
-  update_mission_global()
+    reset_config()
+    init_techs()
+    update_mission_global()
   end
 )
 
@@ -131,35 +133,40 @@ local chart_starting_area = function()
   force.chart(surface, {{origin.x - r, origin.y - r}, {origin.x + r, origin.y + r}})
 end
 
+local function equip_armor(player)
+  local inventory = player.get_inventory(defines.inventory.character_armor)
+  if (inventory ~= nil) then
+    local body = inventory.find_item_stack("nullius-chassis-1")
+    if (body == nil) then
+      player.insert({name="nullius-chassis-1", count=1})
+      body = inventory.find_item_stack("nullius-chassis-1")
+    end
+
+    if ((body ~= nil) and (body.grid ~= nil)) then
+      body.grid.put({name="nullius-hangar-1"})
+      body.grid.put({name="nullius-charger-1"})
+      body.grid.put({name="nullius-solar-panel-1"})
+      body.grid.put({name="nullius-battery-1"})
+      body.grid.put({name="nullius-battery-1"})
+      body.grid.put({name="nullius-battery-1"})
+      for _,eq in pairs(body.grid.equipment) do
+		if (eq.max_energy > eq.energy) then
+		  eq.energy = eq.max_energy
+		end
+      end
+    end
+  end
+end
+
 script.on_event(defines.events.on_player_created,
   function(event)
     local player = game.players[event.player_index]
     player.remove_item{name = "burner-ore-crusher", count = 1}
 
-    local inventory = player.get_inventory(defines.inventory.character_armor)
-    if (inventory ~= nil) then
-      local body = inventory.find_item_stack("nullius-chassis-1")
-      if (body == nil) then
-        player.insert({name="nullius-chassis-1", count=1})
-        body = inventory.find_item_stack("nullius-chassis-1")
-      end
-
-      if ((body ~= nil) and (body.grid ~= nil)) then
-        body.grid.put({name="nullius-hangar-1"})
-        body.grid.put({name="nullius-charger-1"})
-        body.grid.put({name="nullius-solar-panel-1"})
-        body.grid.put({name="nullius-battery-1"})
-        body.grid.put({name="nullius-battery-1"})
-        body.grid.put({name="nullius-battery-1"})
-	    for _,eq in pairs(body.grid.equipment) do
-		  if (eq.max_energy > eq.energy) then
-		    eq.energy = eq.max_energy
-		  end
-		end
-      end
-    end
-
-    player.insert({name="nullius-construction-bot-1", count=6})
+    if (not script.active_mods["Companion_Drones"]) then
+	  equip_armor(player)
+      player.insert({name="nullius-construction-bot-1", count=6})
+	end
     player.insert({name="nullius-solar-panel-1", count=10})
     player.insert({name="nullius-grid-battery-1", count=5})
 
