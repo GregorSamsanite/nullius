@@ -229,6 +229,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "beacon",
+    group = "production",
+    order = "j"
+  },
+  {
+    type = "item-subgroup",
     name = "module-1",
     group = "production",
     order = "m"

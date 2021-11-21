@@ -20,8 +20,11 @@ function entity_added(entity)
     build_solar_collector(entity, (string.byte(entity.name, 25) - 48))
   elseif (string.sub(entity.name, 9, -2) == "thermal-tank-build-") then
     build_thermal_tank(entity, (string.byte(entity.name, 28) - 48))
+  elseif (entity.type == "beacon") then
+    build_beacon(entity)
   elseif ((string.sub(entity.name, 9, 13) == "mecha") and
-      ((entity.name == "nullius-mecha") or (entity.name == "nullius-mecha-2"))) then
+      ((entity.name == "nullius-mecha") or
+	      (entity.name == "nullius-mecha-2"))) then
     entity.vehicle_automatic_targeting_parameters = {
     auto_target_without_gunner = false, auto_target_with_gunner = false
   }
@@ -29,12 +32,17 @@ function entity_added(entity)
 end
 
 function entity_removed(entity, died)
-  if (string.sub(entity.name, 1, -2) == "nullius-wind-base-") then
+  if (string.sub(entity.name, 1, 8) ~= "nullius-") then
+    return
+  end
+  if (string.sub(entity.name, 9, -2) == "wind-base-") then
     remove_wind_turbine(entity, died, (string.byte(entity.name, 19) - 48))
-  elseif (string.sub(entity.name, 1, -2) == "nullius-stirling-engine-") then
+  elseif (string.sub(entity.name, 9, -2) == "stirling-engine-") then
     remove_stirling_engine(entity, died, (string.byte(entity.name, 25) - 48))
-  elseif (string.sub(entity.name, 1, -2) == "nullius-solar-collector-") then
+  elseif (string.sub(entity.name, 9, -2) == "solar-collector-") then
     remove_solar_collector(entity, died, (string.byte(entity.name, 25) - 48))
+  elseif (entity.type == "beacon") then
+    remove_beacon(entity.unit_number)
   end
 end
 
@@ -55,7 +63,8 @@ end
 function entity_destroyed(event)
   if (script_kill or (event.unit_number == nil)) then return end
   if (destroyed_stirling_engine(event.unit_number)) then return end
-  destroyed_wind_turbine(event.unit_number)
+  if (destroyed_wind_turbine(event.unit_number)) then return end
+  if (remove_beacon(event.unit_number)) then return end
 end
 
 

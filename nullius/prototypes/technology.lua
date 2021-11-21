@@ -6702,6 +6702,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-beacon-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-beacon-1"
       }
     },
     unit = {
@@ -11820,6 +11824,30 @@ data:extend({
     prerequisites = {"nullius-cybernetics-5"},
     upgrade = true
   },
+  {
+    type = "technology",
+    name = "nullius-broadcasting-4",
+    order = "nullius-fv",
+    icon = "__base__/graphics/technology/effect-transmission.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-beacon-2"
+      }
+    },
+    unit = {
+      count = 4000,
+      ingredients = {
+        {"nullius-climatology-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 1}
+      },
+      time = 55
+    },
+    prerequisites = {"nullius-reconnaissance-1", "nullius-empiricism-6"},
+    upgrade = true
+  },
 
   {
     type = "technology",
@@ -11974,7 +12002,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-rocket-science-2", "nullius-terraforming-3"}
+    prerequisites = {"nullius-rocket-science-2", "nullius-terraforming-3", "nullius-broadcasting-4"}
   },
 
   {
@@ -13848,7 +13876,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-broadcasting-4",
+    name = "nullius-broadcasting-5",
     order = "nullius-gm",
     icon = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
     icon_size = 128,
@@ -13918,7 +13946,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-solar-power-4", "nullius-broadcasting-4"}
+    prerequisites = {"nullius-solar-power-4", "nullius-broadcasting-5"}
   },
   {
     type = "technology",

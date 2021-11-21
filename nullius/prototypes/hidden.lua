@@ -209,7 +209,8 @@ remove_table(data.raw.item["iron-ore"].flags, "hidden")
 remove_table(data.raw.item["copper-ore"].flags, "hidden")
 remove_table(data.raw.item["uranium-ore"].flags, "hidden")
 
-data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters = data.raw["active-defense-equipment"]["discharge-defense-equipment"].attack_parameters
+data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters =
+     data.raw["active-defense-equipment"]["discharge-defense-equipment"].attack_parameters
 
 
 for _, tech in pairs(data.raw.technology) do
@@ -223,6 +224,7 @@ end
 
 for _, recipe in pairs(data.raw.recipe) do
   if ((string.sub(recipe.name, 1, 8) ~= "nullius-") and
+      ((recipe.order == nil) or (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
       (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
       (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
     recipe.enabled = false

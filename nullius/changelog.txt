@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.10
+Date: 21.11.2021
+  Features:
+    - Large beacons!
+  Changes:
+    - New broadcasting 4 tech.  Current broadcasting 4 is now 5.
+  Modding:
+    - Allow third party recipes to be enabled by default with prefix in order.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.9
 Date: 19.11.2021
   Balancing:

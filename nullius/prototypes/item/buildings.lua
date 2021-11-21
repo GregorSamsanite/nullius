@@ -2017,12 +2017,12 @@ data:extend({
     type = "item",
     name = "nullius-beacon-1",
     icons = {{
-      icon = ENTICONPATH .. "beacon1.png",
+      icon = ENTICONPATH .. "beacon1s.png",
       icon_size = 64,
       tint = {0.8, 0.9, 0.7}
     }},
-    subgroup = "laboratory",
-    order = "nullius-eb",
+    subgroup = "beacon",
+    order = "nullius-bb",
     place_result = "nullius-beacon-1",
     stack_size = 50
   },
@@ -2052,7 +2052,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ENTICONPATH .. "beacon1.png",
+        icon = ENTICONPATH .. "beacon1s.png",
         icon_size = 64,
         tint = {0.9, 1, 0.8},
         scale = 0.45
@@ -2081,12 +2081,12 @@ data:extend({
     type = "item",
     name = "nullius-beacon-2",
     icons = {{
-      icon = ENTICONPATH .. "beacon2.png",
+      icon = ENTICONPATH .. "beacon2s.png",
       tint = {0.9, 0.8, 1},
       icon_size = 64
     }},
-    subgroup = "laboratory",
-    order = "nullius-ec",
+    subgroup = "beacon",
+    order = "nullius-bc",
     place_result = "nullius-beacon-2",
     stack_size = 50
   },
@@ -2116,7 +2116,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = ENTICONPATH .. "beacon2.png",
+        icon = ENTICONPATH .. "beacon2s.png",
         icon_size = 64,
         tint = {0.9, 0.8, 1},
         scale = 0.45
@@ -2145,12 +2145,11 @@ data:extend({
     type = "item",
     name = "nullius-beacon-3",
     icons = {{
-      icon = "__base__/graphics/icons/beacon.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon = ENTICONPATH .. "beacon3s.png",
+      icon_size = 64
     }},
-    subgroup = "laboratory",
-    order = "nullius-ed",
+    subgroup = "beacon",
+    order = "nullius-bd",
     place_result = "nullius-beacon-3",
     stack_size = 50
   },
@@ -2179,9 +2178,8 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__base__/graphics/icons/beacon.png",
+        icon = ENTICONPATH .. "beacon3s.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -2201,6 +2199,63 @@ data:extend({
     },
     result = "nullius-beacon-3",
     result_count = 5
+  },
+
+  {
+    type = "item",
+    name = "nullius-large-beacon-1",
+    icons = {{
+      icon = ENTICONPATH .. "beacon1b.png",
+      tint = {0.9, 0.8, 1},
+      icon_size = 64
+    }},
+    subgroup = "beacon",
+    order = "nullius-cb",
+    place_result = "nullius-large-beacon-1",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-large-beacon-2",
+    icons = {{
+      icon =  "__base__/graphics/icons/beacon.png",
+      icon_size = 64,
+      icon_mipmaps = 4
+    }},
+    subgroup = "beacon",
+    order = "nullius-cc",
+    place_result = "nullius-large-beacon-2",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-beacon-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 60,
+    ingredients = {
+      {"nullius-beacon-2", 3},
+      {"nullius-sensor-node-2", 1},
+      {"nullius-relay-2", 1},
+      {"nullius-productivity-module-1", 1}
+    },
+    result = "nullius-large-beacon-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-beacon-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 90,
+    ingredients = {
+      {"nullius-large-beacon-1", 1},
+      {"nullius-beacon-3", 3},
+      {"nullius-sensor-node-3", 1},
+      {"nullius-productivity-module-2", 1}
+    },
+    result = "nullius-large-beacon-2"
   },
 
   {
@@ -3443,36 +3498,58 @@ data.raw.item["nullius-medium-miner-3"].icons =
 
 
 data.raw.item["nullius-beacon-1"].icons = {
-  { icon = ENTICONPATH .. "beacon1.png", icon_size = 64 },
+  { icon = ENTICONPATH .. "beacon1s.png", icon_size = 64 },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
-    icon_size = 64, tint = tiercolor("yellow"), scale = 0.4
+    icon_size = 64, tint = tiercolor("yellow"), scale = 0.34375
   },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
-    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.4
+    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.34375
   }
 }
 data.raw.item["nullius-beacon-2"].icons = {
-  { icon = ENTICONPATH .. "beacon2.png", icon_size = 64 },
+  { icon = ENTICONPATH .. "beacon2s.png", icon_size = 64 },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
-    icon_size = 64, tint = tiercolor("red"), scale = 0.45
+    icon_size = 64, tint = tiercolor("red"), scale = 0.375
   },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
-    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.45
+    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.375
   }
 }
 data.raw.item["nullius-beacon-3"].icons = {
   data.raw.item["nullius-beacon-3"].icons[1],
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
-    icon_size = 64, tint = tiercolor("blue")
+    icon_size = 64, tint = tiercolor("blue"), scale = 0.40625
   },
   {
     icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
-    icon_size = 64, tint = {1, 1, 1, 0}
+    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.40625
+  }
+}
+data.raw.item["nullius-large-beacon-1"].icons = {
+  { icon = ENTICONPATH .. "beacon1b.png", icon_size = 64 },
+  {
+    icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
+    icon_size = 64, tint = tiercolor("red"), scale = 0.46875
+  },
+  {
+    icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
+    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.46875
+  }
+}
+data.raw.item["nullius-large-beacon-2"].icons = {
+  data.raw.item["nullius-large-beacon-2"].icons[1],
+  {
+    icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-mask.png",
+    icon_size = 64, tint = tiercolor("blue"), scale = 0.5
+  },
+  {
+    icon = "__reskins-bobs__/graphics/icons/modules/beacon/beacon-icon-highlights.png",
+    icon_size = 64, tint = {1, 1, 1, 0}, scale = 0.5
   }
 }
 
@@ -3564,3 +3641,5 @@ label_icon("nullius-sensor-node-3", 3, "blue")
 label_icon("nullius-beacon-1", 1, "yellow")
 label_icon("nullius-beacon-2", 2, "red")
 label_icon("nullius-beacon-3", 3, "blue")
+label_icon("nullius-large-beacon-1", 1, "red")
+label_icon("nullius-large-beacon-2", 2, "blue")
