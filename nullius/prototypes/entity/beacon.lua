@@ -1300,6 +1300,12 @@ for i=1,3 do
 	local spd = beacon.graphics_set.animation_list[2].animation.animation_speed * suppression[j]
 	beacon.graphics_set.animation_list[2].animation.animation_speed = spd
 	beacon.graphics_set.animation_list[3].animation.animation_speed = spd
+	
+	local tnt = beacon.graphics_set.animation_list[1].animation.layers[1].tint
+	if (tnt == nil) then tnt = {1, 1, 1} end
+	local mult = 1 - (j * 0.1)
+	tnt = {(tnt[1] * mult), (tnt[2] * mult), (tnt[3] * mult)}
+	beacon.graphics_set.animation_list[1].animation.layers[1].tint = tnt
 	data:extend({ beacon })
   end
 end
