@@ -28,15 +28,37 @@ function update_small_beacon(entity)
   end
   if (lvl == count) then return end
 
+  local modrequest = nil
+  local ghosts = entity.surface.find_entities_filtered{area=bound,
+      type = "item-request-proxy"}
+  for _,ghost in pairs(ghosts) do
+	if (ghost.valid and (ghost.proxy_target == entity) and
+	     (ghost.item_requests ~= nil)) then
+	  modrequest = { }
+	  for modind, modval in pairs(ghost.item_requests) do
+	    modrequest[modind] = modval
+	  end
+	  ghost.destroy()
+	  break
+	end
+  end
+
   local newname = "nullius-beacon-"..tier
   if ((count >= 1) and (count <= 4)) then
     newname = newname.."-"..count
   end
   global.nullius_in_beacon_replace = true
-  entity.surface.create_entity{name = newname, force = entity.force,
-      position = entity.position, spill = false,
+  local newentity = entity.surface.create_entity{name = newname,
+      force = entity.force, position = entity.position, spill = false,
 	  fast_replace = true, create_build_effect_smoke = false}
   global.nullius_in_beacon_replace = nil
+  
+  if (modrequest ~= nil) then
+    newentity.surface.create_entity{name = "item-request-proxy",
+        force = newentity.force, position = newentity.position,
+	    create_build_effect_smoke = false, target = newentity,
+	    modules = modrequest}
+  end
 end
 
 function update_small_beacons(pos, surface)

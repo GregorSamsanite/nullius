@@ -11845,8 +11845,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-reconnaissance-1", "nullius-empiricism-6"},
-    upgrade = true
+    prerequisites = {"nullius-reconnaissance-1", "nullius-empiricism-6"}
   },
 
   {

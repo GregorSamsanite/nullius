@@ -1279,12 +1279,18 @@ local base_power = {
   [3] = 300
 }
 local suppression = {
-  [0] = 1,
   [1] = 0.9,
   [2] = 0.8,
-  [3] = 0.5,
-  [4] = 0.2
+  [3] = 0.6,
+  [4] = 0.3
 }
+local energy_scale = {
+  [1] = 1,
+  [2] = 1,
+  [3] = 0.8,
+  [4] = 0.5
+}
+
 for i=1,3 do
   for j=1,4 do
     local beacon = util.table.deepcopy(data.raw.beacon["nullius-beacon-"..i])
@@ -1295,7 +1301,7 @@ for i=1,3 do
 	if (i < 3) then
 	  beacon.next_upgrade = "nullius-beacon-"..(i+1).."-"..j	
 	end
-	beacon.energy_usage = (base_power[i] * suppression[j-1]).."kW"
+	beacon.energy_usage = (base_power[i] * energy_scale[j]).."kW"
     beacon.distribution_effectivity = beacon.distribution_effectivity * suppression[j]
 	local spd = beacon.graphics_set.animation_list[2].animation.animation_speed * suppression[j]
 	beacon.graphics_set.animation_list[2].animation.animation_speed = spd

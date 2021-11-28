@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.12
+Date: 27.11.2021
+  Bugfixes:
+    - Fix a bug in previous change to beacon script.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.11
+Date: 26.11.2021
+  Bugfixes:
+    - Prevent turbines from consuming non-fuel fluids.
+    - Small beacons wouldn't preserve ghost modules when suppressed.
+    - Broadcasting 4 wasn't searchable in tech tree.
+  Balancing:
+    - Adjust suppression from 3 or 4 large beacons, energy cost of beacon--.
+  Translation:
+    - Russian updated for 1.2.10 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
 Version: 1.2.10
 Date: 21.11.2021
   Features:
