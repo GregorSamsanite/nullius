@@ -446,8 +446,11 @@ data:extend({
     type = "technology",
     name = "nullius-venting-1",
     order = "nullius-bg",
-    icon_size = 128,
-    icon = "__angelspetrochem__/graphics/technology/flare-stack.png",
+	icons = {{
+      icon = "__angelspetrochem__/graphics/technology/flare-stack-tech.png",
+      icon_size = 256,
+	  icon_mipmaps = 4
+	}},
     effects = {
       {
         type = "unlock-recipe",
@@ -4186,8 +4189,11 @@ data:extend({
     type = "technology",
     name = "nullius-venting-2",
     order = "nullius-ee",
-    icon_size = 128,
-    icon = "__angelspetrochem__/graphics/technology/flare-stack.png",
+	icons = {{
+      icon = "__angelspetrochem__/graphics/technology/flare-stack-tech.png",
+      icon_size = 256,
+	  icon_mipmaps = 4
+	}},
     effects = {
       {
         type = "unlock-recipe",

@@ -29,37 +29,15 @@ data:extend({
     next_upgrade = "nullius-hydro-plant-2",
     module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-          priority = "extra-high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          animation_speed = 0.4,
-          scale = 0.714,
-          tint = {0.77, 0.77, 0.68, 1}
-    },
-    {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
-          priority = "high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          scale = 0.714,
-          tint = {0.77, 0.77, 0.68, 1}
-    }
-      }
-    },
+	animation = scale_image(data.raw["assembling-machine"]["hydro-plant"].animation, 0.714),
+	working_visualisations = scale_image(
+	    data.raw["assembling-machine"]["hydro-plant"].working_visualisations, 0.714),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["hydro-plant"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -67,7 +45,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["hydro-plant"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -75,7 +53,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures2(),
+        pipe_picture = data.raw["assembling-machine"]["hydro-plant"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = 1.5,
@@ -83,7 +61,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["hydro-plant"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = 1.5,
@@ -91,8 +69,10 @@ data:extend({
       }
     },
     pipe_covers = pipecoverspictures(),
-  },
+  }
+})
 
+data:extend({
   {
     type = "assembling-machine",
     name = "nullius-hydro-plant-2",
@@ -118,38 +98,15 @@ data:extend({
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-hydro-plant-3",
-
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-          priority = "extra-high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          animation_speed = 0.5,
-          scale = 0.714,
-          tint = {0.8, 0.8, 0.9, 1}
-        },
-        {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
-          priority = "high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          scale = 0.714,
-          tint = {0.8, 0.8, 0.9, 1}
-        }
-      }
-    },
+	animation = scale_image(data.raw["assembling-machine"]["hydro-plant-2"].animation, 0.714),
+	working_visualisations = scale_image(
+	    data.raw["assembling-machine"]["hydro-plant-2"].working_visualisations, 0.714),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
+    working_sound = data.raw["assembling-machine"]["hydro-plant-2"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -158,7 +115,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -167,7 +124,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures2(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -176,7 +133,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -211,36 +168,15 @@ data:extend({
     module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
-
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/1hydro-plant.png",
-          priority = "extra-high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          animation_speed = 0.6,
-          scale = 0.714
-        },
-        {
-          filename = "__angelsrefining__/graphics/entity/hydro-plant/2hydro-plant-overlay.png",
-          priority = "high",
-          width = 288,
-          height = 288,
-          frame_count = 25,
-          line_length = 5,
-          scale = 0.714
-        }
-      }
-    },
+	animation = scale_image(data.raw["assembling-machine"]["hydro-plant-3"].animation, 0.714),
+	working_visualisations = scale_image(
+	    data.raw["assembling-machine"]["hydro-plant-3"].working_visualisations, 0.714),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
+    working_sound = data.raw["assembling-machine"]["hydro-plant-3"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -249,7 +185,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -258,7 +194,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures2(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 3,
@@ -267,7 +203,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 3,
@@ -278,6 +214,13 @@ data:extend({
     pipe_covers = pipecoverspictures(),
   }
 })
+
+data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].tint = {0.77, 0.77, 0.68}
+data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation.layers[1].tint = {0.8, 0.8, 0.9}
+if (data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].hr_version ~= nil) then
+data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].hr_version.tint = {0.77, 0.77, 0.68}
+data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation.layers[1].hr_version.tint = {0.8, 0.8, 0.9}
+end
 
 data:extend({
   {
@@ -309,7 +252,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -318,7 +261,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -327,7 +270,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures2(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -336,7 +279,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         height = 2,
@@ -377,7 +320,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -386,7 +329,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 2,
@@ -395,7 +338,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures2(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 3,
@@ -404,7 +347,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = hydropipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["nullius-hydro-plant-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 15,
         height = 3,

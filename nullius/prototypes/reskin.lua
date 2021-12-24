@@ -36,6 +36,12 @@ function label_icon(name, tier, color, etype)
   end
 end
 
+function scale_shift(vec, scale)
+  if (vec == nil) then return nil end
+  vec[1] = vec[1] * scale
+  vec[2] = vec[2] * scale
+  return vec
+end
 
 function scale_image(img, scale)
   local ret = util.table.deepcopy(img)
@@ -49,16 +55,17 @@ function scale_image(img, scale)
       scale_subtable(field, scale)
     end
     if (img.filename ~= nil) then
-      if (img.shift ~= nil) then
-        img.shift[1] = img.shift[1] * scale
-        img.shift[2] = img.shift[2] * scale
-      end
+	  img.shift = scale_shift(img.shift, scale)
       if (img.scale ~= nil) then
         img.scale = img.scale * scale
       else
         img.scale = scale
       end
     end
+	img.north_position = scale_shift(img.north_position, scale)
+	img.east_position = scale_shift(img.east_position, scale)
+	img.south_position = scale_shift(img.south_position, scale)
+	img.west_position = scale_shift(img.west_position, scale)
   end
   scale_subtable(ret, scale)
   return ret

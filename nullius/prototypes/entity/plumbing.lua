@@ -1072,8 +1072,7 @@ data:extend({
   {
     type = "furnace",
     name = "nullius-chimney-1",
-    icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-chimney-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-chimney-1"},
     max_health = 100,
@@ -1101,43 +1100,7 @@ data:extend({
     },
     energy_source = {type = "void"},
     energy_usage = "1kW",
-    animation = {
-      north = {
-        filename = "__angelspetrochem__/graphics/entity/flare-stack/flare-stack.png",
-        width = 256,
-        height = 256,
-        frame_count = 1,
-        shift = {1.75, -1.6},
-        scale = 0.85
-      },
-      east = {
-        filename = "__angelspetrochem__/graphics/entity/flare-stack/flare-stack.png",
-        x = 256,
-        width = 256,
-        height = 256,
-        frame_count = 1,
-        shift = {1.55, -1.7},
-        scale = 0.85
-      },
-      south = {
-        filename = "__angelspetrochem__/graphics/entity/flare-stack/flare-stack.png",
-        x = 512,
-        width = 256,
-        height = 256,
-        frame_count = 1,
-        shift = {1.6, -1.9},
-        scale = 0.85
-      },
-      west = {
-        filename = "__angelspetrochem__/graphics/entity/flare-stack/flare-stack.png",
-        x = 768,
-        width = 256,
-        height = 256,
-        frame_count = 1,
-        shift = {1.8, -1.8},
-        scale = 0.85
-      }
-    },
+	animation = scale_image(data.raw["furnace"]["angels-flare-stack"].animation, 0.85),
     working_visualisations = {
       {
         apply_recipe_tint = "primary",
@@ -1175,8 +1138,7 @@ data:extend({
   {
     type = "furnace",
     name = "nullius-chimney-2",
-    icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-chimney-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-chimney-2"},
     max_health = 200,
@@ -1938,88 +1900,97 @@ data:extend({
         north = {
           layers = {
             {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 96,
-              scale = 0.495,
-              shift = {0.62, -0.5},
+              width = 142,
+              height = 199,
+              x = 0,
+              scale = 0.5,
+              shift = {0, -0.24},
               tint = {0.8, 0.8, 0.4}
             },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			{
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {-1.23, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            }
+              width = 207,
+              height = 199,
+              x = 0,
+              shift = {0.52, 0.28},
+              draw_as_shadow = true,
+              scale = 0.5
+			}
           }
         },
         east = {
           layers = {
             {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
-              width = 256,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {0, -0.5},
+              width = 142,
+              height = 199,
+              x = 142,
+              scale = 0.5,
+              shift = {0, -0.24},
               tint = {0.8, 0.8, 0.4}
-            }
+            },
+			{
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
+              priority = "extra-high",
+              width = 207,
+              height = 199,
+              x = 207,
+              shift = {0.52, 0.28},
+              draw_as_shadow = true,
+              scale = 0.5
+			}
           }
         },
         south = {
           layers = {
             {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 512,
-              scale = 0.495,
-              shift = {-0.87, -0.5},
+              width = 142,
+              height = 199,
+              x = 284,
+              scale = 0.5,
+              shift = {0, -0.24},
               tint = {0.8, 0.8, 0.4}
             },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			{
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 912,
-              scale = 0.495,
-              shift = {0.98, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            }
+              width = 207,
+              height = 199,
+              x = 414,
+              shift = {0.52, 0.28},
+              draw_as_shadow = true,
+              scale = 0.5
+			}
           }
         },
         west = {
           layers = {
             {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
-              width = 256,
-              height = 200,
-              x = 768,
-              scale = 0.495,
-              shift = {0, -1.43},
+              width = 142,
+              height = 199,
+              x = 426,
+              scale = 0.5,
+              shift = {0, -0.24},
               tint = {0.8, 0.8, 0.4}
             },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
+			{
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
-              width = 256,
-              height = 120,
-              x = 0,
-              y = 200,
-              scale = 0.495,
-              shift = {0, 1.04},
-              tint = {0.8, 0.8, 0.4}
-            }
+              width = 207,
+              height = 199,
+              x = 621,
+              shift = {0.52, 0.28},
+              draw_as_shadow = true,
+              scale = 0.5
+			}
           }
         }
       },
@@ -2036,6 +2007,99 @@ data:extend({
     circuit_wire_max_distance = default_circuit_wire_max_distance
   }
 })
+
+
+--[[
+        north = {
+          layers = {
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 144,
+              height = 320,
+              x = 96,
+              scale = 0.495,
+              shift = {0.62, -0.5},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 96,
+              height = 320,
+              x = 256,
+              scale = 0.495,
+              shift = {-1.23, -0.5},
+              tint = {0.8, 0.8, 0.4}
+            }
+          }
+        },
+        east = {
+          layers = {
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 256,
+              height = 320,
+              x = 256,
+              scale = 0.495,
+              shift = {0, -0.5},
+              tint = {0.8, 0.8, 0.4}
+            }
+          }
+        },
+        south = {
+          layers = {
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 144,
+              height = 320,
+              x = 512,
+              scale = 0.495,
+              shift = {-0.87, -0.5},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 96,
+              height = 320,
+              x = 912,
+              scale = 0.495,
+              shift = {0.98, -0.5},
+              tint = {0.8, 0.8, 0.4}
+            }
+          }
+        },
+        west = {
+          layers = {
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 256,
+              height = 200,
+              x = 768,
+              scale = 0.495,
+              shift = {0, -1.43},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              width = 256,
+              height = 120,
+              x = 0,
+              y = 200,
+              scale = 0.495,
+              shift = {0, 1.04},
+              tint = {0.8, 0.8, 0.4}
+            }
+          }
+        }
+--]]
+
+
 
 data:extend({
   {
@@ -2065,102 +2129,25 @@ data:extend({
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
     fast_replaceable_group = "small-tank",
-    pictures = {
-      picture = {
-        north = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 96,
-              scale = 0.495,
-              shift = {0.62, -0.5}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {-1.23, -0.5}
-            }
-          }
-        },
-        east = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 256,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {0, -0.5}
-            }
-          }
-        },
-        south = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 512,
-              scale = 0.495,
-              shift = {-0.87, -0.5}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 912,
-              scale = 0.495,
-              shift = {0.98, -0.5}
-            }
-          }
-        },
-        west = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 256,
-              height = 200,
-              x = 768,
-              scale = 0.495,
-              shift = {0, -1.43}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-3.png",
-              priority = "extra-high",
-              width = 256,
-              height = 120,
-              x = 0,
-              y = 200,
-              scale = 0.495,
-              shift = {0, 1.04}
-            }
-          }
-        }
-      },
-      fluid_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.fluid_background,
-      window_background = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.window_background,
-      flow_sprite = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.flow_sprite,
-      gas_flow = data.raw["storage-tank"]["angels-storage-tank-3"].pictures.gas_flow
-    },
+    pictures = util.table.deepcopy(data.raw["storage-tank"]["nullius-small-tank-1"].pictures),
     flow_length_in_ticks = 360,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
     circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance
-  },
+  }
+})
 
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.north.layers[1].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.north.layers[2].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.east.layers[1].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.south.layers[1].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.south.layers[2].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[1].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[2].tint = nil
+
+data:extend({
   {
     type = "storage-tank",
     name = "nullius-large-tank-1",
@@ -2192,22 +2179,7 @@ data:extend({
     circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    pictures = {
-      picture = {
-        sheet = {
-          filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-1.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 224,
-          height = 224,
-          tint = {0.75, 0.75, 0.6}
-        }
-      },
-      fluid_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.fluid_background,
-      window_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.window_background,
-      flow_sprite = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.flow_sprite,
-      gas_flow = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.gas_flow
-    }
+    pictures = util.table.deepcopy(data.raw["storage-tank"]["angels-storage-tank-1"].pictures)
   },
 
   {
@@ -2241,22 +2213,7 @@ data:extend({
     circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    pictures = {
-      picture = {
-        sheet = {
-          filename = "__angelspetrochem__/graphics/entity/storage-tanks/storage-tank-1.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 224,
-          height = 224,
-          tint = {0.85, 0.85, 0.95}
-        }
-      },
-      fluid_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.fluid_background,
-      window_background = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.window_background,
-      flow_sprite = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.flow_sprite,
-      gas_flow = data.raw["storage-tank"]["angels-storage-tank-1"].pictures.gas_flow
-    }
+    pictures = util.table.deepcopy(data.raw["storage-tank"]["angels-storage-tank-1"].pictures)
   },
 
   {
@@ -2290,8 +2247,23 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     pictures = data.raw["storage-tank"]["angels-storage-tank-1"].pictures
-  },
+  }
+})
 
+data.raw["storage-tank"]["nullius-large-tank-1"].pictures.
+    picture.sheets[1].tint = {0.75, 0.75, 0.6}
+data.raw["storage-tank"]["nullius-large-tank-2"].pictures.
+    picture.sheets[1].tint = {0.85, 0.85, 0.95}
+if (data.raw["storage-tank"]["nullius-large-tank-1"].pictures.
+      picture.sheets[1].hr_version ~= nil) then
+  data.raw["storage-tank"]["nullius-large-tank-1"].pictures.
+      picture.sheets[1].hr_version.tint = {0.75, 0.75, 0.6}
+  data.raw["storage-tank"]["nullius-large-tank-2"].pictures.
+      picture.sheets[1].hr_version.tint = {0.85, 0.85, 0.95}  
+end
+
+
+data:extend({
   {
     type = "mining-drill",
     name = "nullius-extractor-1",

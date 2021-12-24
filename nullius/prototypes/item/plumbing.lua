@@ -706,13 +706,13 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "blank.png",
-        icon_size = 32,
-        scale = 1
+        icon_size = 64
       },
       {
         icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-        icon_size = 32,
-        scale = 0.8
+        icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.4
       }
     },
     subgroup = "air-treatment",
@@ -723,8 +723,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-chimney-2",
-    icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-    icon_size = 32,
+    icons = {{
+      icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
+    }},
     subgroup = "air-treatment",
     order = "nullius-dc",
     place_result = "nullius-chimney-2",
@@ -736,13 +739,13 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "shadow.png",
-        icon_size = 64,
-        scale = 0.5
+        icon_size = 64
       },
       {
         icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-        icon_size = 32,
-        scale = 0.8
+        icon_size = 64,
+		icon_mipmaps = 4,
+        scale = 0.4
       }
     },
     enabled = false,
@@ -1956,7 +1959,8 @@ data:extend({
     name = "nullius-hydro-plant-1",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.77, 0.77, 0.68}
     }},
     subgroup = "water-treatment",
@@ -1969,7 +1973,8 @@ data:extend({
     name = "nullius-hydro-plant-2",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.8, 0.8, 0.9}
     }},
     subgroup = "water-treatment",
@@ -1983,7 +1988,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 32,
+        icon_size = 64,
+	    icon_mipmaps = 4,
         tint = {0.8, 0.8, 0.9}
       },
       {
@@ -2001,7 +2007,8 @@ data:extend({
     name = "nullius-hydro-plant-3",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-      icon_size = 32
+      icon_size = 64,
+	  icon_mipmaps = 4
     }},
     subgroup = "water-treatment",
     order = "nullius-bdb",
@@ -2014,8 +2021,9 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 32
-      },
+        icon_size = 64,
+	    icon_mipmaps = 4
+	  },
       {
         icon = ICONPATH .. "flip1.png",
         icon_size = 64
@@ -2076,7 +2084,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 32,
+        icon_size = 64,
+	    icon_mipmaps = 4,
         tint = {0.8, 0.8, 0.9}
       },
       {
@@ -2139,7 +2148,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 32
+        icon_size = 64,
+	    icon_mipmaps = 4
       },
       {
         icon = ICONPATH .. "flip2.png",
@@ -2396,7 +2406,8 @@ data:extend({
     name = "nullius-flotation-cell-1",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.77, 0.77, 0.60, 1}
     }},
     subgroup = "water-treatment",
@@ -2409,7 +2420,8 @@ data:extend({
     name = "nullius-flotation-cell-2",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.8, 0.8, 1, 1}
     }},
     subgroup = "water-treatment",
@@ -2423,7 +2435,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 32,
+        icon_size = 64,
+	    icon_mipmaps = 4,
         tint = {0.8, 0.8, 1, 1}
       },
       {
@@ -2441,7 +2454,8 @@ data:extend({
     name = "nullius-flotation-cell-3",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-      icon_size = 32
+      icon_size = 64,
+	  icon_mipmaps = 4
     }},
     subgroup = "water-treatment",
     order = "nullius-cdb",
@@ -2454,7 +2468,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 32
+        icon_size = 64,
+	    icon_mipmaps = 4
       },
       {
         icon = ICONPATH .. "flip1.png",
@@ -2514,7 +2529,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 32,
+	    icon_size = 64,
+	    icon_mipmaps = 4,
         tint = {0.8, 0.8, 1, 1}
       },
       {
@@ -2573,7 +2589,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 32
+        icon_size = 64,
+	    icon_mipmaps = 4
       },
       {
         icon = ICONPATH .. "flip2.png",
@@ -3473,8 +3490,9 @@ data:extend({
     name = "nullius-small-tank-1",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/storage-tank-3.png",
-        icon_size = 32,
+        icon = "__angelspetrochem__/graphics/icons/petrochem-inline-tank.png",
+        icon_size = 64,
+	    icon_mipmaps = 4,
         tint = {0.8, 0.8, 0.4}
       }
     },
@@ -3520,8 +3538,9 @@ data:extend({
     name = "nullius-small-tank-2",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/storage-tank-3.png",
-        icon_size = 32
+        icon = "__angelspetrochem__/graphics/icons/petrochem-inline-tank.png",
+        icon_size = 64,
+	    icon_mipmaps = 4
       }
     },
     subgroup = "tanks",
@@ -3567,8 +3586,9 @@ data:extend({
     type = "item",
     name = "nullius-large-tank-1",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
-      icon_size = 32,
+      icon = "__angelspetrochem__/graphics/icons/petrochem-gas-tank.png",
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.75, 0.75, 0.6}
     }},
     subgroup = "tanks",
@@ -3596,8 +3616,9 @@ data:extend({
     type = "item",
     name = "nullius-large-tank-2",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
-      icon_size = 32,
+      icon = "__angelspetrochem__/graphics/icons/petrochem-gas-tank.png",
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.85, 0.85, 0.95}
     }},
     subgroup = "tanks",
@@ -3625,8 +3646,9 @@ data:extend({
     type = "item",
     name = "nullius-large-tank-3",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/storage-tank-1.png",
-      icon_size = 32
+      icon = "__angelspetrochem__/graphics/icons/petrochem-gas-tank.png",
+      icon_size = 64,
+	  icon_mipmaps = 4
     }},
     subgroup = "tanks",
     order = "nullius-bdd",
@@ -4804,7 +4826,8 @@ data:extend({
     name = "nullius-nanofabricator-1",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-      icon_size = 32,
+      icon_size = 64,
+	  icon_mipmaps = 4,
       tint = {0.6, 0.75, 0.75}
     }},
     subgroup = "chemical-plant",
@@ -4817,7 +4840,8 @@ data:extend({
     name = "nullius-nanofabricator-2",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-      icon_size = 32
+      icon_size = 64,
+	  icon_mipmaps = 4
     }},
     subgroup = "chemical-plant",
     order = "nullius-ccb",
@@ -4830,7 +4854,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-        icon_size = 32
+        icon_size = 64,
+	    icon_mipmaps = 4
       },
       {
         icon = ICONPATH .. "flip1.png",
@@ -4902,7 +4927,8 @@ data:extend({
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-        icon_size = 32
+        icon_size = 64,
+	    icon_mipmaps = 4
       },
       {
         icon = ICONPATH .. "flip2.png",
