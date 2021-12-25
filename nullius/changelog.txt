@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.14
+Date: 24.12.2021
+  Bugfixes:
+    - Get working with the latest Angel's graphical updates.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.13
+Date: 09.12.2021
+  Bugfixes:
+    - Fix boxed substation 3 recipe.
+  Balancing:
+    - Combine personal hangar 3/4 from 2 charging ports into 1 faster one.
+  Changes:
+    - Require Factorio version 1.1.39+, since Nullius is using a new event.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.12
 Date: 27.11.2021
   Bugfixes:

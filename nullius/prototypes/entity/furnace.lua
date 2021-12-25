@@ -997,20 +997,8 @@ data:extend({
       },
       off_when_no_fluid_recipe = true
     },
-    animation = {
-      layers = {{
-        filename = "__angelsrefining__/graphics/entity/ore-crusher/1ore-crusher.png",
-        tint = {r = 0.6, g = 0.6, b = 0.6},
-        priority = "extra-high",
-        width = 128,
-        height = 128,
-        frame_count = 16,
-        line_length = 4,
-        shift = {0.45, -0.25},
-        animation_speed = 0.4
-      }}
-    },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    animation = util.table.deepcopy(data.raw["assembling-machine"]["ore-crusher"].animation),
+    vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["burner-ore-crusher"].working_sound,
   },
 
@@ -1063,21 +1051,7 @@ data:extend({
       },
       off_when_no_fluid_recipe = true
     },
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/ore-crusher/1ore-crusher.png",
-          priority = "extra-high",
-          width = 128,
-          height = 128,
-          frame_count = 16,
-          line_length = 4,
-          shift = {0.45, -0.25},
-          animation_speed = 0.5,
-          tint = {0.6, 0.65, 0.85}
-        }
-      }
-    }
+    animation = util.table.deepcopy(data.raw["assembling-machine"]["ore-crusher-2"].animation)
   },
 
   {
@@ -1128,22 +1102,19 @@ data:extend({
       },
       off_when_no_fluid_recipe = true
     },
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/ore-crusher/1ore-crusher.png",
-          priority = "extra-high",
-          width = 128,
-          height = 128,
-          frame_count = 16,
-          line_length = 4,
-          shift = {0.45, -0.25},
-          animation_speed = 0.6
-        }
-      }
-    }
-  },
+    animation = util.table.deepcopy(data.raw["assembling-machine"]["ore-crusher-3"].animation)
+  }
+})
 
+data.raw["assembling-machine"]["nullius-crusher-1"].animation.layers[1].tint = {0.6, 0.6, 0.6}
+data.raw["assembling-machine"]["nullius-crusher-2"].animation.layers[1].tint = {0.6, 0.65, 0.85}
+if (data.raw["assembling-machine"]["nullius-crusher-1"].animation.layers[1].hr_version ~= nil) then
+data.raw["assembling-machine"]["nullius-crusher-1"].animation.layers[1].hr_version.tint = {0.6, 0.6, 0.6}
+data.raw["assembling-machine"]["nullius-crusher-2"].animation.layers[1].hr_version.tint = {0.6, 0.65, 0.85}
+end
+
+
+data:extend({
   {
     type = "assembling-machine",
     name = "nullius-flotation-cell-1",
@@ -1205,18 +1176,8 @@ data:extend({
         pipe_connections = {{ position = {2.5, 0.5} }}
       }
     },
-    animation = {
-      filename = "__angelsrefining__/graphics/entity/ore-floatation-cell/1ore-floatation-cell.png",
-      priority = "extra-high",
-      width = 192,
-      height = 192,
-      frame_count = 16,
-      line_length = 4,
-      shift = {0.3, 0.5},
-      animation_speed = 0.5,
-      scale = 0.81,
-      tint = {0.77, 0.77, 0.60, 1}
-    },
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].animation, 0.81),
+	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].working_visualisations, 0.81),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
     pipe_covers = pipecoverspictures()
@@ -1285,20 +1246,10 @@ data:extend({
         pipe_connections = {{ position = {2.5, 0.5} }}
       }
     },
-    animation = {
-      filename = "__angelsrefining__/graphics/entity/ore-floatation-cell/1ore-floatation-cell.png",
-      priority = "extra-high",
-      width = 192,
-      height = 192,
-      frame_count = 16,
-      line_length = 4,
-      shift = {0.3, 0.5},
-      animation_speed = 0.5,
-      scale = 0.81,
-      tint = {0.8, 0.8, 1, 1}
-    },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].animation, 0.81),
+	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].working_visualisations, 0.81),
+    vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    working_sound = data.raw["assembling-machine"]["ore-floatation-cell-2"].working_sound,
     pipe_covers = pipecoverspictures()
   },
 
@@ -1368,22 +1319,33 @@ data:extend({
         pipe_connections = {{ position = {2.5, 0.5} }}
       }
     },
-    animation = {
-      filename = "__angelsrefining__/graphics/entity/ore-floatation-cell/1ore-floatation-cell.png",
-      priority = "extra-high",
-      width = 192,
-      height = 192,
-      frame_count = 16,
-      line_length = 4,
-      shift = {0.3, 0.5},
-      animation_speed = 0.6,
-      scale = 0.81
-    },
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].animation, 0.81),
+	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].working_visualisations, 0.81),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
+    working_sound = data.raw["assembling-machine"]["ore-floatation-cell-3"].working_sound,
     pipe_covers = pipecoverspictures()
   }
 })
+
+local function tint_flotation_dir(dir, speed, tint)
+  dir.layers[1].animation_speed = speed
+  if (tint ~= nil) then dir.layers[1].tint = tint end
+  if (dir.layers[1].hr_version ~= nil) then
+    dir.layers[1].hr_version.animation_speed = speed
+    if (tint ~= nil) then dir.layers[1].hr_version.tint = tint end  
+  end
+end
+local function tint_flotation_cell(num, speed, tint)
+  local anim = data.raw["assembling-machine"]["nullius-flotation-cell-"..num].animation
+  tint_flotation_dir(anim.north, speed, tint)
+  tint_flotation_dir(anim.east, speed, tint)
+  tint_flotation_dir(anim.south, speed, tint)
+  tint_flotation_dir(anim.west, speed, tint)
+end
+tint_flotation_cell(1, 0.4, {0.77, 0.77, 0.60})
+tint_flotation_cell(2, 0.5, {0.8, 0.8, 1})
+tint_flotation_cell(3, 0.6, nil)
+
 
 data:extend({
   {

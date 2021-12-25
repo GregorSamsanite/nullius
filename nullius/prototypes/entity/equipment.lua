@@ -372,7 +372,7 @@ data:extend({
       input_flow_limit = "1.8MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "800kW",
+    charging_energy = "1.5MW",
 
     robot_limit = 25,
     construction_radius = 16,
@@ -393,7 +393,7 @@ data:extend({
     recharging_light = {intensity = 0.4, size = 5},
     stationing_offset = {0, -0.6},
     charging_station_shift = {0, 0.5},
-    charging_station_count = 2,
+    charging_station_count = 1,
     charging_distance = 1.6,
     charging_threshold_distance = 5,
     categories = {"cybernetic"}
@@ -422,7 +422,7 @@ data:extend({
       input_flow_limit = "1.8MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "800kW",
+    charging_energy = "1.5MW",
 
     robot_limit = 25,
     construction_radius = 16,
@@ -443,7 +443,7 @@ data:extend({
     recharging_light = {intensity = 0.4, size = 5},
     stationing_offset = {0, -0.6},
     charging_station_shift = {0, 0.5},
-    charging_station_count = 2,
+    charging_station_count = 1,
     charging_distance = 1.6,
     charging_threshold_distance = 5,
     categories = {"cybernetic"}

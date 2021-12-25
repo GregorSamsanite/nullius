@@ -907,8 +907,9 @@ data:extend({
     type = "item",
     name = "nullius-crusher-1",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/ore-crusher-burner.png",
-      icon_size = 32
+      icon = "__angelsrefining__/graphics/icons/ore-crusher.png",
+      icon_size = 64, icon_mipmaps = 4,
+	  tint = {0.6, 0.6, 0.6}
     }},
     subgroup = "ore-processing",
     order = "nullius-bb",
@@ -919,8 +920,9 @@ data:extend({
     type = "item",
     name = "nullius-crusher-2",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/ore-crusher-2.png",
-      icon_size = 32
+      icon = "__angelsrefining__/graphics/icons/ore-crusher.png",
+      icon_size = 64, icon_mipmaps = 4,
+	  tint = {0.6, 0.65, 0.85}
     }},
     subgroup = "ore-processing",
     order = "nullius-bc",
@@ -932,7 +934,7 @@ data:extend({
     name = "nullius-crusher-3",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/ore-crusher.png",
-      icon_size = 32
+      icon_size = 64, icon_mipmaps = 4
     }},
     subgroup = "ore-processing",
     order = "nullius-bd",
@@ -3208,7 +3210,8 @@ data:extend({
       {"nullius-box-grid-battery-1", 1},
       {"nullius-box-reinforced-concrete", 10}
     },
-    result = "nullius-substation-3"
+    result = "nullius-substation-3",
+    result_count = 5
   },
 
   {

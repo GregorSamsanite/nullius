@@ -631,29 +631,13 @@ data:extend({
       drain = "30kW"
     },
     energy_usage = "470kW",
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/crystallizer/crystallizer.png",
-          width = 192,
-          height = 192,
-          frame_count = 1,
-          scale = 0.775,
-          shift = {0.5*0.775, -0.5*0.775},
-          tint = {0.6, 0.75, 0.75}
-        }
-      }
-    },
-    vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
-    working_sound = {
-      sound = {filename = "__base__/sound/oil-refinery.ogg"},
-      idle_sound = {filename = "__base__/sound/idle1.ogg", volume = 0.6},
-      apparent_volume = 2.5
-    },
+    animation = scale_image(data.raw["assembling-machine"]["crystallizer"].animation, 0.775),
+    vehicle_impact_sound = data.raw["assembling-machine"]["crystallizer"].vehicle_impact_sound,
+    working_sound = data.raw["assembling-machine"]["crystallizer"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -661,7 +645,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -669,7 +653,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -677,7 +661,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 2,
@@ -687,6 +671,11 @@ data:extend({
     }
   }
 })
+
+data.raw["assembling-machine"]["nullius-nanofabricator-1"].animation.layers[1].tint = {0.6, 0.75, 0.75}
+if (data.raw["assembling-machine"]["nullius-nanofabricator-1"].animation.layers[1].hr_version ~= nil) then
+data.raw["assembling-machine"]["nullius-nanofabricator-1"].animation.layers[1].hr_version.tint = {0.6, 0.75, 0.75}
+end
 
 data:extend({
   {
@@ -714,24 +703,14 @@ data:extend({
       drain = "60kW"
     },
     energy_usage = "940kW",
-    animation = {
-      layers = {
-        {
-          filename = "__angelsrefining__/graphics/entity/crystallizer/crystallizer.png",
-          width = 192,
-          height = 192,
-          frame_count = 1,
-          scale = 0.775,
-          shift = {0.5*0.775, -0.5*0.775}
-        }
-      }
-    },
+    animation = scale_image(data.raw["assembling-machine"]["crystallizer-2"].animation, 0.775),
     vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -740,7 +719,8 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -749,7 +729,8 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -758,7 +739,8 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 3,
@@ -796,7 +778,8 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[1].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -805,7 +788,8 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[2].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -814,7 +798,8 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[3].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -3,
@@ -823,7 +808,8 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = crystallizerpipepictures(),
+        pipe_picture = data.raw["assembling-machine"]
+		    ["nullius-nanofabricator-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 3,
