@@ -147,6 +147,12 @@ if data.raw['string-setting']['alien-biomes-include-grass-yellow'] then
    data.raw['string-setting']['alien-biomes-include-grass-yellow'].allowed_values = {"Disabled"}
 end
 
+if data.raw['string-setting']['angels-enable-auto-barreling'] then
+   data.raw['string-setting']['angels-enable-auto-barreling'].hidden = true
+   data.raw['string-setting']['angels-enable-auto-barreling'].default_value = "Disabled"
+   data.raw['string-setting']['angels-enable-auto-barreling'].allowed_values = {"Disabled"}
+end
+
 if data.raw['bool-setting']['angels-enable-converter'] then
    data.raw['bool-setting']['angels-enable-converter'].hidden = true
    data.raw['bool-setting']['angels-enable-converter'].forced_value = true

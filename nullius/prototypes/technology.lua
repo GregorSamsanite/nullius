@@ -161,7 +161,7 @@ data:extend({
     type = "technology",
     name = "nullius-water-filtration-1",
     order = "nullius-bd",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/water-treatment.png",
     effects = {
       {
@@ -910,7 +910,7 @@ data:extend({
     type = "technology",
     name = "nullius-mineral-processing-1",
     order = "nullius-ce",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/ore-sorting.png",
     effects = {
       {
@@ -966,7 +966,7 @@ data:extend({
     type = "technology",
     name = "nullius-water-filtration-2",
     order = "nullius-ce",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/water-treatment.png",
     effects = {
       {
@@ -1065,7 +1065,7 @@ data:extend({
     type = "technology",
     name = "nullius-flotation-1",
     order = "nullius-cf",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/hydro-refining.png",
     effects = {
       {
@@ -2498,7 +2498,7 @@ data:extend({
     type = "technology",
     name = "nullius-mineral-processing-2",
     order = "nullius-df",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/ore-sorting.png",
     effects = {
       {
@@ -2948,7 +2948,7 @@ data:extend({
     type = "technology",
     name = "nullius-water-filtration-3",
     order = "nullius-dh",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/water-treatment.png",
     effects = {
       {
@@ -3300,7 +3300,7 @@ data:extend({
     type = "technology",
     name = "nullius-flotation-2",
     order = "nullius-dk",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/hydro-refining.png",
     effects = {
       {
@@ -4074,7 +4074,7 @@ data:extend({
     type = "technology",
     name = "nullius-nanotechnology-1",
     order = "nullius-ed",
-    icon_size = 32,
+    icon_size = 64,
     icon = "__angelsrefining__/graphics/icons/crystallizer.png",
     effects = {
       {
@@ -9571,7 +9571,7 @@ data:extend({
     type = "technology",
     name = "nullius-water-filtration-4",
     order = "nullius-fg",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/water-treatment.png",
     effects = {
       {
@@ -9625,7 +9625,7 @@ data:extend({
     type = "technology",
     name = "nullius-mineral-processing-3",
     order = "nullius-fg",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/ore-sorting.png",
     effects = {
       {
@@ -9745,7 +9745,7 @@ data:extend({
     type = "technology",
     name = "nullius-flotation-3",
     order = "nullius-fh",
-    icon_size = 128,
+    icon_size = 256,
     icon = "__angelsrefining__/graphics/technology/hydro-refining.png",
     effects = {
       {
@@ -10319,7 +10319,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-chemical-engineering-3", "nullius-air-separation-3"}
+    prerequisites = {"nullius-limestone-processing-4", "nullius-air-separation-3", "nullius-hydrology-2"}
   },
   {
     type = "technology",
@@ -10409,6 +10409,32 @@ data:extend({
     },
     prerequisites = {"nullius-wind-power-3", "nullius-calcium-production"}
   },
+  {
+    type = "technology",
+    name = "nullius-silicon-production-3",
+    order = "nullius-fk",
+	icons = data.raw.item["nullius-polycrystalline-silicon"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-polycrystalline-silicon-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-polycrystalline-silicon-2"
+      }
+    },
+    unit = {
+      count = 2200,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 45
+    },
+    prerequisites = {"nullius-air-separation-3", "nullius-chemical-engineering-3"}
+  },
 
   {
     type = "technology",
@@ -10463,7 +10489,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-steelmaking-3", "nullius-aluminum-production-3"}
+    prerequisites = {"nullius-steelmaking-3", "nullius-aluminum-production-3", "nullius-silicon-production-3"}
   },
   {
     type = "technology",
@@ -10757,7 +10783,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-geothermal-power-3"}
+    prerequisites = {"nullius-geothermal-power-3", "nullius-silicon-production-3"}
   },
   {
     type = "technology",
@@ -11050,7 +11076,7 @@ data:extend({
     type = "technology",
     name = "nullius-nanotechnology-2",
     order = "nullius-fp",
-    icon_size = 32,
+    icon_size = 64,
     icon = "__angelsrefining__/graphics/icons/crystallizer.png",
     effects = {
       {

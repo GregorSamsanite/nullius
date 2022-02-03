@@ -1620,6 +1620,23 @@ data:extend({
       {"nullius-demolition-drone", 1}
     },
     result = "companion-defense-equipment"
+  },
+  {
+    type = "recipe",
+    name = "nullius-companion-fuel",
+    enabled = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-hydrogen-canister", 3},
+      {"processed-fuel", 1}
+    },
+    results = {
+      {type="item", name="rocket-booster", amount=3},
+      {type="item", name="nullius-canister", amount=3}
+    },
+    main_product = "rocket-booster"
   }
 })
 end

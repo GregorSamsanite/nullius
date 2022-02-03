@@ -1,5 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local FLUIDPATH = ICONPATH .. "fluid/"
 
 data:extend({
   {
@@ -992,6 +993,7 @@ data:extend({
     enabled = false,
     icon_size = 32,
     category = "ore-crushing",
+    subgroup = "masonry-material",
     order = "nullius-nc",
     energy_required = 4,
     ingredients = {{"nullius-gravel", 6}},
@@ -4450,8 +4452,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-polycrystalline-silicon",
+    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", 1},
     enabled = false,
     category = "basic-chemistry",
+    order = "nullius-fb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-hydrogen"].flow_color,
       secondary = data.raw.fluid["nullius-chlorine"].flow_color
@@ -4471,25 +4475,12 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-monocrystalline-silicon",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "nanotechnology",
-    energy_required = 16,
-    ingredients = {
-      {type="item", name="nullius-polycrystalline-silicon", amount=5},
-      {type="fluid", name="nullius-argon", amount=10, fluidbox_index=1}
-    },
-    result = "nullius-monocrystalline-silicon",
-    result_count = 3
-  },
-  {
-    type = "recipe",
     name = "nullius-boxed-polycrystalline-silicon",
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", 1},
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-silicon",
+    order = "nullius-fb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-hydrogen"].flow_color,
       secondary = data.raw.fluid["nullius-chlorine"].flow_color
@@ -4506,6 +4497,103 @@ data:extend({
       {type="fluid", name="nullius-chlorine", amount=75}
     },
     main_product = "nullius-box-polycrystalline-silicon"
+  },
+  {
+    type = "recipe",
+    name = "nullius-polycrystalline-silicon-2",
+    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", 2},
+    icons = {
+	  {
+        icon = "__angelssmelting__/graphics/icons/silicon-mono.png",
+        icon_size = 32,
+        tint = {0.8, 0.75, 0.7, 0.9}
+      },
+      {
+        icon = FLUIDPATH .. "atom.png",
+        icon_size = 64,
+        scale = 0.2,
+        shift = {-11, -11},
+	    tint = {164, 140, 204}
+      }
+    },
+    enabled = false,
+    category = "basic-chemistry",
+    order = "nullius-fc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-argon"].flow_color,
+      secondary = data.raw.fluid["nullius-chlorine"].flow_color
+    },
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-silicon-ingot", amount=5},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=75, fluidbox_index=1},
+      {type="fluid", name="nullius-argon", amount=4, fluidbox_index=3}
+    },
+    results = {
+      {type="item", name="nullius-polycrystalline-silicon", amount=4},
+      {type="fluid", name="nullius-hydrogen", amount=30},
+      {type="fluid", name="nullius-chlorine", amount=20}
+    },
+    main_product = "nullius-polycrystalline-silicon"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-polycrystalline-silicon-2",
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", 2},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+	  {
+        icon = "__angelssmelting__/graphics/icons/silicon-mono.png",
+        icon_size = 32,
+        tint = {0.8, 0.75, 0.7, 0.9},
+		scale = 0.9
+      },
+      {
+        icon = FLUIDPATH .. "atom.png",
+        icon_size = 64,
+        scale = 0.18,
+        shift = {-10, -10},
+	    tint = {164, 140, 204}
+      }
+    },
+    enabled = false,
+    category = "basic-chemistry",
+    subgroup = "boxed-silicon",
+    order = "nullius-fc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-argon"].flow_color,
+      secondary = data.raw.fluid["nullius-chlorine"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="item", name="nullius-box-silicon-ingot", amount=5},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=375, fluidbox_index=1},
+      {type="fluid", name="nullius-argon", amount=20, fluidbox_index=3}
+    },
+    results = {
+      {type="item", name="nullius-box-polycrystalline-silicon", amount=4},
+      {type="fluid", name="nullius-hydrogen", amount=150},
+      {type="fluid", name="nullius-chlorine", amount=100}
+    },
+    main_product = "nullius-box-polycrystalline-silicon"
+  },
+  {
+    type = "recipe",
+    name = "nullius-monocrystalline-silicon",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+    energy_required = 16,
+    ingredients = {
+      {type="item", name="nullius-polycrystalline-silicon", amount=5},
+      {type="fluid", name="nullius-argon", amount=10, fluidbox_index=1}
+    },
+    result = "nullius-monocrystalline-silicon",
+    result_count = 3
   },
   {
     type = "recipe",
@@ -6451,17 +6539,17 @@ data:extend({
     name = "nullius-graphene",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 24,
+    energy_required = 64,
     ingredients = {
-      {type="item", name="nullius-graphite", amount=3},
-      {type="item", name="nullius-monocrystalline-silicon", amount=2},
-      {type="fluid", name="nullius-acid-nitric", amount=10, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-argon", amount=3, fluidbox_index=2}
+      {type="item", name="nullius-graphite", amount=8},
+      {type="item", name="nullius-monocrystalline-silicon", amount=4},
+      {type="fluid", name="nullius-acid-nitric", amount=35, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-argon", amount=6, fluidbox_index=2}
     },
     results = {
-      {type="item", name="nullius-graphene", amount=1},
-      {type="item", name="nullius-silica", amount=2},
-      {type="fluid", name="nullius-wastewater", amount=12}
+      {type="item", name="nullius-graphene", amount=3},
+      {type="item", name="nullius-silica", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=30}
     },
     main_product = "nullius-graphene"
   },
@@ -6472,17 +6560,17 @@ data:extend({
     category = "nanotechnology",
     subgroup = "boxed-organic-2",
     order = "nullius-j",
-    energy_required = 120,
+    energy_required = 320,
     ingredients = {
-      {type="item", name="nullius-box-graphite", amount=3},
-      {type="item", name="nullius-box-monocrystalline-silicon", amount=2},
-      {type="fluid", name="nullius-acid-nitric", amount=50, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-argon", amount=15, fluidbox_index=2},
+      {type="item", name="nullius-box-graphite", amount=8},
+      {type="item", name="nullius-box-monocrystalline-silicon", amount=4},
+      {type="fluid", name="nullius-acid-nitric", amount=175, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-argon", amount=30, fluidbox_index=2},
     },
     results = {
-      {type="item", name="nullius-box-graphene", amount=1},
-      {type="item", name="nullius-box-silica", amount=2},
-      {type="fluid", name="nullius-wastewater", amount=60}
+      {type="item", name="nullius-box-graphene", amount=3},
+      {type="item", name="nullius-box-silica", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=150}
     },
     main_product = "nullius-box-graphene"
   },

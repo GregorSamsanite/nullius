@@ -385,6 +385,10 @@ data.raw["battery-equipment"]["jetpack-3"].localised_description =
   {"equipment-description.nullius-jetpack-3"}
 data.raw["battery-equipment"]["jetpack-4"].localised_description =
   {"equipment-description.nullius-jetpack-4"}
+data.raw.item["jetpack-1"].subgroup = "jetpack"
+data.raw.item["jetpack-2"].subgroup = "jetpack"
+data.raw.item["jetpack-3"].subgroup = "jetpack"
+data.raw.item["jetpack-4"].subgroup = "jetpack"
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-2"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-3"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-4"].equipment_categories, "armor-jetpack")
@@ -1204,4 +1208,11 @@ end
 if mods["Companion_Drones"] then
   data.raw["item-subgroup"]["companion"].group = "equipment"
   data.raw["item-subgroup"]["companion"].order = "gg"
+  -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"
+  table.insert(data.raw["technology"]["nullius-hydrocarbon-combustion-2"].effects,
+    {type = "unlock-recipe", recipe = "nullius-companion-fuel"})
+  data.raw["item"]["rocket-booster"].subgroup = "companion"
+  data.raw["item"]["rocket-booster"].order = "r"
+  data.raw["item"]["rocket-booster"].localised_name = {"item-name.nullius-companion-fuel"}
+  data.raw["item"]["rocket-booster"].localised_description = {"item-description.nullius-companion-fuel"}
 end

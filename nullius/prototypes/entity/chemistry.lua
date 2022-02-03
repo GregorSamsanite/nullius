@@ -246,6 +246,7 @@ data:extend({
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-mirror-hydro-plant-3",
     animation = data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation,
+    working_visualisations = data.raw["assembling-machine"]["nullius-hydro-plant-2"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
 
@@ -314,6 +315,7 @@ data:extend({
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
     animation = data.raw["assembling-machine"]["nullius-hydro-plant-3"].animation,
+    working_visualisations = data.raw["assembling-machine"]["nullius-hydro-plant-3"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
 

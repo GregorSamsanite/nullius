@@ -16,6 +16,10 @@ data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
 data.raw.item["rocket-fuel"].icon_size = 64
 data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
 data.raw.item["copper-cable"].icon_size = 64
+data.raw.item["copper-cable"].icons = {{
+  icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+  icon_size = 64
+}}
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 

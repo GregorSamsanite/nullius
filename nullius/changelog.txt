@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.15
+Date: 02.02.2022
+  Features:
+    - New polycrystalline silicon recipe.
+  Balancing:
+    - Adjust ratio of silicon consumed by graphene recipe.
+  Changes:
+    - Hide unsupported auto-barreling mod option.
+  Graphics:
+    - Fix animations of mirrored hydro plant and flotation cell.
+    - Fix small tanks' third pipe connection appearance.
+    - Fix scale of higher resolution technology icons.
+    - Fix insulated wire graphic with certain mod combinations.
+  Modding:
+    - Add recipe for refueling companion drone.
+    - Change jetpack item grouping.
+  Info:
+    - Add range information to radar tooltip description.
+    - Mention reduced compressed gas vent speed in chimney tooltip.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.14
 Date: 24.12.2021
   Bugfixes:

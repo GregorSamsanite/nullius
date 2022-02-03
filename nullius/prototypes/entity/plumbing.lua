@@ -1902,19 +1902,41 @@ data:extend({
             {
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
+              x = 0,
               width = 142,
               height = 199,
-              x = 0,
               scale = 0.5,
               shift = {0, -0.24},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              x = 142,
+			  y = 117,
+              width = 29,
+              height = 62,
+              scale = 0.5,
+              shift = {-0.88, 0.52},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              x = 171,
+			  y = 141,
+              width = 11,
+              height = 38,
+              scale = 0.5,
+              shift = {-0.57, 0.705},
               tint = {0.8, 0.8, 0.4}
             },
 			{
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
+              x = 0,
               width = 207,
               height = 199,
-              x = 0,
               shift = {0.52, 0.28},
               draw_as_shadow = true,
               scale = 0.5
@@ -1926,9 +1948,9 @@ data:extend({
             {
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
+              x = 142,
               width = 142,
               height = 199,
-              x = 142,
               scale = 0.5,
               shift = {0, -0.24},
               tint = {0.8, 0.8, 0.4}
@@ -1936,9 +1958,9 @@ data:extend({
 			{
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
+              x = 207,
               width = 207,
               height = 199,
-              x = 207,
               shift = {0.52, 0.28},
               draw_as_shadow = true,
               scale = 0.5
@@ -1950,19 +1972,30 @@ data:extend({
             {
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
+              x = 284,
               width = 142,
               height = 199,
-              x = 284,
               scale = 0.5,
               shift = {0, -0.24},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              x = 559,
+			  y = 48,
+              width = 9,
+              height = 62,
+              scale = 0.5,
+              shift = {1, -0.58},
               tint = {0.8, 0.8, 0.4}
             },
 			{
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
+              x = 414,
               width = 207,
               height = 199,
-              x = 414,
               shift = {0.52, 0.28},
               draw_as_shadow = true,
               scale = 0.5
@@ -1974,19 +2007,30 @@ data:extend({
             {
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
               priority = "extra-high",
+              x = 426,
               width = 142,
               height = 199,
-              x = 426,
               scale = 0.5,
               shift = {0, -0.24},
+              tint = {0.8, 0.8, 0.4}
+            },
+            {
+              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
+              priority = "extra-high",
+              x = 74,
+			  y = 136,
+			  width = 62,
+              height = 63,
+              scale = 0.5,
+              shift = {0.55, 0.82},
               tint = {0.8, 0.8, 0.4}
             },
 			{
               filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank-shadow.png",
               priority = "extra-high",
+              x = 621,
               width = 207,
               height = 199,
-              x = 621,
               shift = {0.52, 0.28},
               draw_as_shadow = true,
               scale = 0.5
@@ -2007,98 +2051,6 @@ data:extend({
     circuit_wire_max_distance = default_circuit_wire_max_distance
   }
 })
-
-
---[[
-        north = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 96,
-              scale = 0.495,
-              shift = {0.62, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {-1.23, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            }
-          }
-        },
-        east = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 256,
-              height = 320,
-              x = 256,
-              scale = 0.495,
-              shift = {0, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            }
-          }
-        },
-        south = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 144,
-              height = 320,
-              x = 512,
-              scale = 0.495,
-              shift = {-0.87, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 96,
-              height = 320,
-              x = 912,
-              scale = 0.495,
-              shift = {0.98, -0.5},
-              tint = {0.8, 0.8, 0.4}
-            }
-          }
-        },
-        west = {
-          layers = {
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 256,
-              height = 200,
-              x = 768,
-              scale = 0.495,
-              shift = {0, -1.43},
-              tint = {0.8, 0.8, 0.4}
-            },
-            {
-              filename = "__angelspetrochem__/graphics/entity/petrochem-inline-tank/hr-petrochem-inline-tank.png",
-              priority = "extra-high",
-              width = 256,
-              height = 120,
-              x = 0,
-              y = 200,
-              scale = 0.495,
-              shift = {0, 1.04},
-              tint = {0.8, 0.8, 0.4}
-            }
-          }
-        }
---]]
-
 
 
 data:extend({
@@ -2141,11 +2093,13 @@ data:extend({
 
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.north.layers[1].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.north.layers[2].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.north.layers[3].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.east.layers[1].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.south.layers[1].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.south.layers[2].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[1].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[2].tint = nil
+data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[3].tint = nil
 
 data:extend({
   {

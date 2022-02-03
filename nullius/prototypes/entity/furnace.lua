@@ -1370,6 +1370,7 @@ data:extend({
     module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     animation = data.raw["assembling-machine"]["nullius-flotation-cell-2"].animation,
+    working_visualisations = data.raw["assembling-machine"]["nullius-flotation-cell-2"].working_visualisations,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
 
@@ -1428,6 +1429,7 @@ data:extend({
     module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     animation = data.raw["assembling-machine"]["nullius-flotation-cell-3"].animation,
+    working_visualisations = data.raw["assembling-machine"]["nullius-flotation-cell-3"].working_visualisations,
     energy_source = data.raw["assembling-machine"]["nullius-flotation-cell-3"].energy_source,
     resistances = data.raw["assembling-machine"]["nullius-flotation-cell-3"].resistances,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },

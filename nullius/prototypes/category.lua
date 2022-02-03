@@ -340,6 +340,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "jetpack",
+    group = "equipment",
+    order = "ej"
+  },
+  {
+    type = "item-subgroup",
     name = "vehicle",
     group = "equipment",
     order = "fc"
