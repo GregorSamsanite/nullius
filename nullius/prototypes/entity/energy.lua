@@ -1615,7 +1615,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_level = 4,
         base_area = 5,
-        pipe_connections = {{ position = {-2.5, -1.5} }}
+        pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
 
@@ -1880,7 +1880,7 @@ data:extend({
         base_level = 5,
         height = 2,
         base_area = 5,
-        pipe_connections = {{ position = {-2.5, -1.5} }}
+        pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
 
@@ -2110,7 +2110,7 @@ data:extend({
         base_level = 6,
         height = 2,
         base_area = 10,
-        pipe_connections = {{ position = {-2.5, -1.5} }}
+        pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
 
@@ -2246,7 +2246,7 @@ data:extend({
         base_level = 6,
         height = 2,
         base_area = 10,
-        pipe_connections = {{ position = {-2.5, -1.5} }}
+        pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
 
@@ -2528,12 +2528,12 @@ data:extend({
       tint = {0.85, 0.75, 1}
     },
     picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
-    consumption = "30MW",
+    consumption = "25MW",
     neighbour_bonus = 0,
     heat_buffer = {
       max_temperature = 300,
       specific_heat = "18MJ",
-      max_transfer = "120MW",
+      max_transfer = "100MW",
       minimum_glow_temperature = 200,
       connections =    data.raw.reactor["nuclear-reactor"].heat_buffer.connections
     },
@@ -2575,12 +2575,12 @@ data:extend({
       scale = 0.5
     },
     picture = data.raw.reactor["nullius-geothermal-reactor-1"].picture,
-    consumption = "80MW",
+    consumption = "60MW",
     neighbour_bonus = 0,
     heat_buffer = {
       max_temperature = 400,
       specific_heat = "80MJ",
-      max_transfer = "500MW",
+      max_transfer = "400MW",
       minimum_glow_temperature = 250,
       connections =    data.raw.reactor["nuclear-reactor"].heat_buffer.connections
     },

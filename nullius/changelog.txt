@@ -1,4 +1,30 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 11.02.2022
+  Balancing:
+    - Reduce heat production of geothermal plant 2 and 3 by 16% to 25%.
+    - Reduce iron cost of motor 1, turbine 1, and wind turbine 1.
+    - Increase iron cost of steel ingots by 15 to 20%.
+    - Boost output of benzene reforming recipe by around 50%.
+    - Iron Ingot 2 and 3 require slightly more ore, but less graphite/energy.
+    - Reduce cost of 2nd recipe for lamp 1, but increase cost of 1st a bit.
+    - Reduce energy value of benzene combustion.
+  Bugfixes:
+    - Fix a crash when picking up launcher before terraforming drone lands.
+    - Make all output fluid boxes one way only, to workaround an inserter bug.
+  Changes:
+    - Adjust biology tech tree to make botany dependent on nitrogen chemistry.
+    - Make maintenance tech a prereq of automation 2.
+    - Add small margin between beacon ranges to avoid rounding errors in mods.
+    - Remove Informatron from optional dependency list.
+  Modding:
+    - Add support for Inventory Sensor mod.
+    - Add support for Railway Motor Car mod.
+  Info:
+    - Change description of Broadcasting 5 technology.
+  Translation:
+    - Russian updated for 1.2.15 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
 Version: 1.2.15
 Date: 02.02.2022
   Features:

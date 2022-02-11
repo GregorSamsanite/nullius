@@ -250,7 +250,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-        pipe_connections = {{ position = {0, -2} }}
+        pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -375,7 +375,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 2,
-        pipe_connections = {{ position = {0, -2} }}
+        pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -473,7 +473,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 2,
-        pipe_connections = {{ position = {-0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -789,7 +789,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-        pipe_connections = {{ position = {2, -1} }}
+        pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -868,7 +868,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 1.5,
-        pipe_connections = {{ position = {2, -1} }}
+        pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -943,7 +943,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = 2,
-        pipe_connections = {{ position = {2, -1} }}
+        pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -993,7 +993,7 @@ data:extend({
         base_level = 1,
         base_area = 3,
         height = 2,
-        pipe_connections = {{ position = {0, -2} }}
+        pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -1044,10 +1044,10 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
-        base_area = 3,
+        base_level = 1.5,
+        base_area = 4,
         height = 2,
-        pipe_connections = {{ position = {0, -2} }}
+        pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -1095,10 +1095,10 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
-        base_area = 3,
+        base_level = 2,
+        base_area = 5,
         height = 2,
-        pipe_connections = {{ position = {0, -2} }}
+        pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
     },
@@ -1166,14 +1166,14 @@ data:extend({
         pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-        pipe_connections = {{ position = {0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_picture = floatationpipepictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-        pipe_connections = {{ position = {2.5, 0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
 	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].animation, 0.81),
@@ -1235,7 +1235,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
-        pipe_connections = {{ position = {0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
@@ -1243,7 +1243,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
-        pipe_connections = {{ position = {2.5, 0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
 	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].animation, 0.81),
@@ -1307,7 +1307,7 @@ data:extend({
         base_area = 5,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
@@ -1316,7 +1316,7 @@ data:extend({
         base_area = 5,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {2.5, 0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
 	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].animation, 0.81),
@@ -1397,7 +1397,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
-        pipe_connections = {{ position = {2.5, -0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },
       {
         production_type = "output",
@@ -1405,7 +1405,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
-        pipe_connections = {{ position = {-0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       }
     }
   },
@@ -1461,7 +1461,7 @@ data:extend({
         base_area = 5,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {2.5, -0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },
       {
         production_type = "output",
@@ -1470,7 +1470,7 @@ data:extend({
         base_area = 5,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {-0.5, -2.5} }}
+        pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       }
     }
   }

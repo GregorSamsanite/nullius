@@ -734,7 +734,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-backup-turbine-1", 2},
-      {"nullius-power-pole-1", 3}
+      {"nullius-power-pole-1", 2}
     },
     result = "nullius-wind-turbine-1"
   },
@@ -748,7 +748,7 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {"nullius-box-backup-turbine-1", 2},
-      {"nullius-box-power-pole-1", 3}
+      {"nullius-box-power-pole-1", 2}
     },
     result = "nullius-box-wind-turbine-1"
   },
@@ -2631,9 +2631,9 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-crafting",
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
-      {"nullius-graphite", 1},
+      {"nullius-graphite", 2},
       {"nullius-glass", 1},
       {"nullius-iron-sheet", 1}
     },
@@ -2661,14 +2661,14 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 3,
+    energy_required = 6,
     ingredients = {
       {"nullius-carbon-fiber", 1},
-      {"nullius-glass", 1},
-      {"nullius-aluminum-sheet", 1}
+      {"nullius-glass", 2},
+      {"nullius-aluminum-sheet", 2}
     },
     result = "small-lamp",
-    result_count = 3
+    result_count = 5
   },
   {
     type = "recipe",
@@ -2679,14 +2679,14 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-rail",
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-carbon-fiber", 1},
-      {"nullius-box-glass", 1},
-      {"nullius-box-aluminum-sheet", 1}
+      {"nullius-box-glass", 2},
+      {"nullius-box-aluminum-sheet", 2}
     },
     result = "nullius-box-lamp-1",
-    result_count = 3
+    result_count = 5
   },
   {
     type = "recipe",

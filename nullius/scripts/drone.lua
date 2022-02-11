@@ -64,14 +64,17 @@ function safe_demolition(event, size)
   local s = game.surfaces[event.surface_index]
   local a = area_bound(area_center(event), size)
   local source = event.source_entity
-  local force = source.force
   s.destroy_decoratives{area=a}
   local entities = s.find_entities(a)
   for _, e in pairs(entities) do
     if (e.valid and e.is_entity_with_health and e.destructible and (e ~= source) and
-      (e.type == "simple-entity") and (string.find(e.name, "rock") ~= nil)) then
-      e.damage(30000, force, "explosion", source)
-  end
+        (e.type == "simple-entity") and (string.find(e.name, "rock") ~= nil)) then
+	  if (source ~= nil) then
+        e.damage(30000, source.force, "explosion", source)
+	  else
+        e.destroy({do_cliff_correction = true})	    
+	  end
+    end
   end
   entities = s.find_entities(a)
   for _, e in pairs(entities) do
@@ -80,7 +83,7 @@ function safe_demolition(event, size)
       ((e.type == "corpse") and (e.name ~= "transport-caution-corpse") and
                  (e.name ~= "invisible-transport-caution-corpse")))) then
       e.destroy({do_cliff_correction = true})
-  end
+    end
   end
 end
 

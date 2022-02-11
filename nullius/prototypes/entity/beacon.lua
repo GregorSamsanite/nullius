@@ -26,7 +26,7 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.3,
+    supply_area_distance = 3.29,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
@@ -197,7 +197,7 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.3,
+    supply_area_distance = 3.29,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
@@ -423,7 +423,7 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.3,
+    supply_area_distance = 3.29,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
@@ -648,7 +648,7 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 12.3,
+    supply_area_distance = 12.29,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
@@ -816,7 +816,7 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 12.3,
+    supply_area_distance = 12.29,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,

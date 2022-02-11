@@ -1625,7 +1625,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {"nullius-motor-1", 1},
-      {"nullius-iron-sheet", 3},
+      {"nullius-iron-sheet", 2},
       {"nullius-iron-gear", 1},
       {"nullius-pipe-1", 2}
     },
@@ -1641,7 +1641,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-box-motor-1", 1},
-      {"nullius-box-iron-sheet", 3},
+      {"nullius-box-iron-sheet", 2},
       {"nullius-box-iron-gear", 1},
       {"nullius-box-pipe-1", 2}
     },

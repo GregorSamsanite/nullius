@@ -2207,7 +2207,6 @@ data:extend({
     prerequisites = {"nullius-electromagnetism-2", "nullius-actuation-2"},
     ignore_tech_cost_multiplier = true
   },
-
   {
     type = "technology",
     name = "nullius-maintenance",
@@ -2233,9 +2232,10 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-logistics-2"},
+    prerequisites = {"nullius-actuation-2"},
     ignore_tech_cost_multiplier = true
   },
+
   {
     type = "technology",
     name = "nullius-computation",
@@ -2425,7 +2425,7 @@ data:extend({
       },
       time = 20
     },
-    prerequisites = {"nullius-logistics-2", "nullius-signal-processing"}
+    prerequisites = {"nullius-logistics-2", "nullius-signal-processing", "nullius-maintenance"}
   },
 
   {
@@ -2637,7 +2637,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-robotics-1", "nullius-maintenance"}
+    prerequisites = {"nullius-robotics-1", "nullius-mining-2"}
   },
   {
     type = "technology",
@@ -12746,7 +12746,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-biology-2"}
+    prerequisites = {"nullius-biology-2", "nullius-nitrogen-chemistry-3"}
   },
   {
     type = "technology",
@@ -13217,7 +13217,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-zoology-1", "nullius-nitrogen-chemistry-3"}
+    prerequisites = {"nullius-zoology-1", "nullius-solar-power-3"}
   },
   {
     type = "technology",
@@ -13908,6 +13908,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-broadcasting-5",
+    localised_description = {"technology-description.nullius-broadcasting-5"},
     order = "nullius-gm",
     icon = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
     icon_size = 128,
@@ -13927,7 +13928,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-rocket-science-3"}
+    prerequisites = {"nullius-rocket-science-3", "nullius-miniaturization-3"}
   },
   {
     type = "technology",
@@ -13952,7 +13953,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-battery-storage-5", "nullius-rocket-science-3"}
+    prerequisites = {"nullius-battery-storage-5", "nullius-biochemistry-7"}
   },
   {
     type = "technology",

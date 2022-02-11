@@ -1640,3 +1640,56 @@ data:extend({
   }
 })
 end
+
+
+if mods["railway-motor-car"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-railway-motorcar-1",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 15,
+    ingredients = {
+      {"nullius-locomotive-1", 1},
+      {"nullius-large-chest-1", 1},
+	  {"nullius-small-assembler-1", 1}
+    },
+    result = "railway-motor-car-equipment"
+  },
+  {
+    type = "recipe",
+    name = "nullius-railway-motorcar-2",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 25,
+    ingredients = {
+      {"railway-motor-car-equipment", 1},
+      {"nullius-solar-locomotive", 1},
+      {"nullius-small-assembler-3", 1}
+    },
+    result = "railway-motor-car-nuclear-equipment"
+  }
+})
+end
+
+
+if mods["Inventory Sensor"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-item-sensor",
+    enabled = false,
+	always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-sensor-1", 1},
+      {"green-wire", 3}
+    },
+    result = "item-sensor"
+  }
+})
+end

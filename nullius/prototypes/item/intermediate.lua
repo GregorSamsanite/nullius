@@ -634,10 +634,10 @@ data:extend({
     name = "nullius-crushed-iron-ore",
     enabled = false,
     category = "ore-crushing",
-    energy_required = 6,
-    ingredients = {{"iron-ore", 8}},
+    energy_required = 5,
+    ingredients = {{"iron-ore", 6}},
     results = {
-      {type="item", name="nullius-crushed-iron-ore", amount=7},
+      {type="item", name="nullius-crushed-iron-ore", amount=5},
       {type="item", name="stone", amount=1}
     },
     main_product = "nullius-crushed-iron-ore"
@@ -648,10 +648,10 @@ data:extend({
     enabled = false,
     category = "ore-crushing",
     subgroup = "boxed-iron",
-    energy_required = 30,
-    ingredients = {{"nullius-box-iron-ore", 8}},
+    energy_required = 25,
+    ingredients = {{"nullius-box-iron-ore", 6}},
     results = {
-      {type="item", name="nullius-box-crushed-iron-ore", amount=7},
+      {type="item", name="nullius-box-crushed-iron-ore", amount=5},
       {type="item", name="nullius-box-stone", amount=1}
     },
     main_product = "nullius-box-crushed-iron-ore"
@@ -1210,13 +1210,13 @@ data:extend({
     },
     enabled = false,
     category = "dry-smelting",
-    energy_required = 15,
+    energy_required = 18,
     ingredients = {
-      {"nullius-crushed-iron-ore", 8},
+      {"nullius-crushed-iron-ore", 11},
       {"nullius-graphite", 1}
     },
     results = {
-      {type="item", name="nullius-iron-ingot", amount=6},
+      {type="item", name="nullius-iron-ingot", amount=8},
       {type="item", name="nullius-gravel", amount=2}
     },
     main_product = "nullius-iron-ingot"
@@ -1241,17 +1241,17 @@ data:extend({
     },
     enabled = false,
     category = "vent-smelting",
-    energy_required = 18,
+    energy_required = 20,
     ingredients = {
-      {"nullius-iron-oxide", 7},
+      {"nullius-iron-oxide", 8},
       {"nullius-crushed-limestone", 2},
       {"nullius-graphite", 2}
     },
     results = {
-      {type="item", name="nullius-iron-ingot", amount=9},
+      {type="item", name="nullius-iron-ingot", amount=10},
       {type="item", name="nullius-gravel", amount=2},
       {type="item", name="nullius-lime", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=40}
+      {type="fluid", name="nullius-carbon-dioxide", amount=50}
     },
     main_product = "nullius-iron-ingot"
   },
@@ -1261,17 +1261,17 @@ data:extend({
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-iron",
-    energy_required = 18,
+    energy_required = 20,
     ingredients = {
-      {"nullius-box-iron-oxide", 7},
+      {"nullius-box-iron-oxide", 8},
       {"nullius-box-crushed-limestone", 2},
       {"nullius-box-graphite", 2}
     },
     results = {
-      {type="item", name="nullius-box-iron-ingot", amount=9},
+      {type="item", name="nullius-box-iron-ingot", amount=10},
       {type="item", name="nullius-box-gravel", amount=2},
       {type="item", name="nullius-box-lime", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=200}
+      {type="fluid", name="nullius-carbon-dioxide", amount=250}
     },
     main_product = "nullius-box-iron-ingot"
   },
@@ -1294,7 +1294,7 @@ data:extend({
     category = "machine-casting",
     energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-iron-ingot", amount=5},
+      {type="item", name="nullius-iron-ingot", amount=6},
       {type="fluid", name="nullius-oxygen", amount=60}
     },
     results = {
@@ -1325,7 +1325,7 @@ data:extend({
     category = "wet-smelting",
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-iron-ingot", amount=11},
+      {type="item", name="nullius-iron-ingot", amount=13},
       {type="item", name="nullius-lime", amount=2},
       {type="fluid", name="nullius-oxygen", amount=100}
     },
@@ -1346,7 +1346,7 @@ data:extend({
     order = "nullius-ab",
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-box-iron-ingot", amount=11},
+      {type="item", name="nullius-box-iron-ingot", amount=13},
       {type="item", name="nullius-box-lime", amount=2},
       {type="fluid", name="nullius-oxygen", amount=500}
     },
@@ -1378,13 +1378,13 @@ data:extend({
     category = "wet-smelting",
     energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-iron-ingot", amount=30},
+      {type="item", name="nullius-iron-ingot", amount=36},
       {type="item", name="nullius-calcium", amount=5},
       {type="item", name="nullius-boron", amount=1},
       {type="fluid", name="nullius-oxygen", amount=300}
     },
     results = {
-      {type="item", name="nullius-steel-ingot", amount=24},
+      {type="item", name="nullius-steel-ingot", amount=25},
       {type="item", name="nullius-gravel", amount=5},
       {type="item", name="nullius-crushed-limestone", amount=4}
     },
@@ -1418,13 +1418,13 @@ data:extend({
     order = "nullius-ac",
     energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-box-iron-ingot", amount=30},
+      {type="item", name="nullius-box-iron-ingot", amount=36},
       {type="item", name="nullius-box-calcium", amount=5},
       {type="item", name="nullius-box-boron", amount=1},
       {type="fluid", name="nullius-oxygen", amount=1500}
     },
     results = {
-      {type="item", name="nullius-box-steel-ingot", amount=24},
+      {type="item", name="nullius-box-steel-ingot", amount=25},
       {type="item", name="nullius-box-gravel", amount=5},
       {type="item", name="nullius-box-crushed-limestone", amount=4}
     },
@@ -3773,7 +3773,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {"nullius-iron-wire", 2},
-      {"nullius-iron-plate", 2},
+      {"nullius-iron-plate", 1},
       {"nullius-plastic", 1},
       {"nullius-iron-rod", 1}
     },
@@ -3790,7 +3790,7 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {"nullius-box-insulated-wire", 1},
-      {"nullius-box-iron-plate", 2},
+      {"nullius-box-iron-plate", 1},
       {"nullius-box-iron-rod", 1}
     },
     result = "nullius-box-motor-1"

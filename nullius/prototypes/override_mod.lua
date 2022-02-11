@@ -252,19 +252,19 @@ data.raw.technology["nullius-mass-production-2"].prerequisites = {
   "long-inserters-2", "nullius-weaving-1"
 }
 
-data.raw.technology["long-inserters-2"].order = "nullius-df"
+data.raw.technology["long-inserters-2"].order = "nullius-dd"
 data.raw.technology["long-inserters-2"].prerequisites = {
   "nullius-maintenance", "long-inserters-1"}
-data.raw.technology["long-inserters-2"].unit = { count = 100,
+data.raw.technology["long-inserters-2"].unit = { count = 80,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 20
 }
 else
-data.raw.technology["long-inserters-1"].order = "nullius-df"
+data.raw.technology["long-inserters-1"].order = "nullius-dd"
 data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["long-inserters-1"].unit = { count = 100,
+data.raw.technology["long-inserters-1"].unit = { count = 60,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 20
 }
@@ -1215,4 +1215,44 @@ if mods["Companion_Drones"] then
   data.raw["item"]["rocket-booster"].order = "r"
   data.raw["item"]["rocket-booster"].localised_name = {"item-name.nullius-companion-fuel"}
   data.raw["item"]["rocket-booster"].localised_description = {"item-description.nullius-companion-fuel"}
+end
+
+
+if mods["railway-motor-car"] then
+  data.raw["battery-equipment"]["railway-motor-car-equipment"].localised_name =
+      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 1}
+  data.raw["item"]["railway-motor-car-equipment"].localised_name =
+      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 1}
+  data.raw["item"]["railway-motor-car-equipment"].subgroup = "jetpack"
+  data.raw["battery-equipment"]["railway-motor-car-equipment"].categories = {"cybernetic"}
+  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].localised_name =
+      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 2}
+  data.raw["item"]["railway-motor-car-nuclear-equipment"].localised_name =
+      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 2}
+  data.raw["item"]["railway-motor-car-nuclear-equipment"].subgroup = "jetpack"
+  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].localised_description =
+      {"item-description.railway-motor-car-equipment"}
+  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].categories = {"cybernetic"}
+  data.raw["locomotive"]["railway-motor-car-train"].localised_name =
+      {"", {"entity-name.railway-motor-car-train"}, " ", 1}
+  data.raw["locomotive"]["railway-motor-car-train"].weight = 250
+  data.raw["locomotive"]["railway-motor-car-train"].max_power = "600kW"
+  data.raw["locomotive"]["railway-motor-car-train"].max_speed = 1.11111111
+  data.raw["locomotive"]["railway-motor-car-nuclear-train"].localised_name =
+      {"", {"entity-name.railway-motor-car-train"}, " ", 2}
+  data.raw["locomotive"]["railway-motor-car-nuclear-train"].weight = 325
+  data.raw["locomotive"]["railway-motor-car-nuclear-train"].max_power = "1.2MW"
+  data.raw["locomotive"]["railway-motor-car-nuclear-train"].max_speed = 2.5
+  table.insert(data.raw["technology"]["nullius-personal-transportation-1"].effects,
+    {type = "unlock-recipe", recipe = "nullius-railway-motorcar-1"})
+  table.insert(data.raw["technology"]["nullius-personal-transportation-4"].effects,
+    {type = "unlock-recipe", recipe = "nullius-railway-motorcar-2"})
+end
+
+
+if mods["Inventory Sensor"] then
+  data.raw.item["item-sensor"].subgroup = "circuit-network"
+  data.raw.item["item-sensor"].order = "nullius-s"
+  table.insert(data.raw["technology"]["nullius-sensors-1"].effects,
+    {type = "unlock-recipe", recipe = "nullius-item-sensor"})
 end

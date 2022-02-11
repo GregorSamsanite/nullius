@@ -665,7 +665,7 @@ data:extend({
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 2,
-        pipe_connections = {{ position = {2.5, 0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       },
       off_when_no_fluid_recipe = true
     }
@@ -745,7 +745,7 @@ data:extend({
         base_area = 3,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {2.5, 0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       },
       off_when_no_fluid_recipe = true
     }
@@ -814,7 +814,7 @@ data:extend({
         base_area = 3,
         base_level = 3,
         height = 2,
-        pipe_connections = {{ position = {2.5, -0.5} }}
+        pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },
       off_when_no_fluid_recipe = true
     }

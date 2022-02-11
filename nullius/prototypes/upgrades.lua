@@ -482,7 +482,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-miniaturization-2", "nullius-botany-1"},
+    prerequisites = {"nullius-miniaturization-2", "nullius-nitrogen-chemistry-3"},
     max_level = "infinite",
     upgrade = true
   },

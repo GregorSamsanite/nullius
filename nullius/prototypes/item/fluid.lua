@@ -3623,8 +3623,8 @@ data:extend({
       {type="fluid", name="nullius-oxygen", amount=130}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=400},
-      {type="fluid", name="nullius-carbon-dioxide", amount=70}
+      {type="fluid", name="nullius-steam", amount=350},
+      {type="fluid", name="nullius-carbon-dioxide", amount=75}
     },
     main_product = "nullius-steam"
   },
@@ -3652,12 +3652,12 @@ data:extend({
     order = "nullius-fd",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-benzene", amount=8},
-      {type="fluid", name="nullius-oxygen", amount=125}
+      {type="fluid", name="nullius-benzene", amount=12},
+      {type="fluid", name="nullius-oxygen", amount=150}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=425},
-      {type="fluid", name="nullius-carbon-dioxide", amount=75}
+      {type="fluid", name="nullius-steam", amount=400},
+      {type="fluid", name="nullius-carbon-dioxide", amount=80}
     },
     main_product = "nullius-steam"
   },
@@ -3920,14 +3920,14 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-benzene", amount=10},
-      {type="fluid", name="nullius-steam", amount=125}
+      {type="fluid", name="nullius-steam", amount=80}
     },
     results = {
-      {type="fluid", name="nullius-hydrogen", amount=80},
-      {type="fluid", name="nullius-carbon-monoxide", amount=40},
-      {type="fluid", name="nullius-carbon-dioxide", amount=25}
+      {type="fluid", name="nullius-hydrogen", amount=120},
+      {type="fluid", name="nullius-carbon-monoxide", amount=60},
+      {type="fluid", name="nullius-carbon-dioxide", amount=30}
     },
-    main_product = "nullius-carbon-monoxide"
+    main_product = "nullius-hydrogen"
   }
 })
 
