@@ -13616,6 +13616,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-turret"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-shield"
       }
     },
     unit = {
@@ -13627,7 +13631,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-zoology-3", "nullius-cybernetics-6"}
+    prerequisites = {"nullius-zoology-3", "nullius-cybernetics-6", "nullius-antimatter-containment"}
   },
 
   {
@@ -13714,7 +13718,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-wildlife-management", "nullius-antimatter-containment"}
+    prerequisites = {"nullius-wildlife-management"}
   },
   {
     type = "technology",

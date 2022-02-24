@@ -811,6 +811,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-battery-2", amount=1},
       {type="item", name="nullius-box-copper-sheet", amount=2},
+      {type="item", name="nullius-box-sodium-sulfate", amount=3},
       {type="item", name="nullius-antimatter", amount=1},
       {type="item", name="nullius-efficiency-module-3", amount=1}
     },
@@ -1651,6 +1652,35 @@ data:extend({
       {type="item", name="nullius-graphene", amount=4}
     },
     result = "nullius-leg-augmentation-4"
+  },
+
+  {
+    type = "item",
+    name = "nullius-shield",
+    localised_description = {"equipment-description.nullius-shield"},
+    icons = {{
+      icon = "__base__/graphics/icons/energy-shield-equipment.png",
+      icon_size = 64,
+      icon_mipmaps = 4
+    }},
+    placed_as_equipment_result = "nullius-shield",
+    subgroup = "equipment",
+    order = "nullius-e",
+    stack_size = 10
+  },
+  {
+    type = "recipe",
+    name = "nullius-shield",
+    enabled = false,
+    category = "small-crafting",
+    always_show_made_in = true,
+    energy_required = 20,
+    ingredients = {
+      {"nullius-antimatter", 3},
+      {"nullius-levitation-field-2", 2},
+      {"nullius-beacon-3", 1}
+    },
+    result = "nullius-shield"
   },
 
   {

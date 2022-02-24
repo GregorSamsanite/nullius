@@ -1256,3 +1256,21 @@ if mods["Inventory Sensor"] then
   table.insert(data.raw["technology"]["nullius-sensors-1"].effects,
     {type = "unlock-recipe", recipe = "nullius-item-sensor"})
 end
+
+
+if mods["crafting_combinator"] then
+  data.raw.item["crafting_combinator:crafting-combinator"].order = "nullius-rb"
+  data.raw.item["crafting_combinator:recipe-combinator"].order = "nullius-rc"
+  table.insert(data.raw["technology"]["nullius-computation"].effects,
+    {type = "unlock-recipe", recipe = "nullius-crafting-combinator"})
+  table.insert(data.raw["technology"]["nullius-computation"].effects,
+    {type = "unlock-recipe", recipe = "nullius-recipe-combinator"})
+end
+
+
+if mods["GCKI"] then
+  data.raw.item["car-key"].subgroup = "vehicle"
+  data.raw.item["car-key"].order = "nullius-g"
+  table.insert(data.raw["technology"]["nullius-broadcasting-1"].effects,
+    {type = "unlock-recipe", recipe = "nullius-car-key"})
+end

@@ -1587,10 +1587,10 @@ data:extend({
     enabled = false,
 	always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 10,
+    energy_required = 5,
     ingredients = {
-      {"nullius-levitation-field-2", 3},
-      {"nullius-beacon-3", 1}
+      {"nullius-shield", 1},
+      {"nullius-efficiency-module-3", 1}
     },
     result = "companion-shield-equipment"
   },
@@ -1692,4 +1692,55 @@ data:extend({
     result = "item-sensor"
   }
 })
+end
+
+
+if mods["crafting_combinator"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-crafting-combinator",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"constant-combinator", 1},
+        {"red-wire", 1}
+      },
+      result = "crafting_combinator:crafting-combinator"
+    },
+    {
+      type = "recipe",
+      name = "nullius-recipe-combinator",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"arithmetic-combinator", 1},
+        {"red-wire", 2}
+      },
+      result = "crafting_combinator:recipe-combinator"
+    }
+  })
+end
+
+
+if mods["GCKI"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-car-key",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 3,
+      ingredients = {
+        {"programmable-speaker", 1},
+        {"arithmetic-combinator", 1}
+      },
+      result = "car-key"
+    }
+  })
 end

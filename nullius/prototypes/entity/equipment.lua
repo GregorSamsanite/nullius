@@ -1313,5 +1313,37 @@ data:extend({
         }
       }
     }
+  },
+  
+  {
+    type = "energy-shield-equipment",
+    name = "nullius-shield",
+    sprite = {
+      filename = "__base__/graphics/equipment/energy-shield-equipment.png",
+      width = 64,
+      height = 64,
+      priority = "medium",
+      hr_version = {
+        filename = "__base__/graphics/equipment/hr-energy-shield-equipment.png",
+        width = 128,
+        height = 128,
+        priority = "medium",
+        scale = 0.5
+      }
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    max_shield_value = 500,
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "500kJ",
+      input_flow_limit = "500kW",
+      usage_priority = "primary-input"
+    },
+    energy_per_shield = "20kJ",
+    categories = {"cybernetic"}
   }
 })
