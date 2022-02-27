@@ -59,7 +59,8 @@ for i=0,7 do
   end
 end
 
-local power_value = {1500, 4000, 12000}
+local outputMultiplyer = settings.startup["nullius-wind-turbine-energy-output-multiplyer"].value
+local power_value = {1500*outputMultiplyer, 4000*outputMultiplyer, 12000*outputMultiplyer}
 for i=1,3 do
   local scale = 0.4 + (i * 0.2)
   local power = power_value[i]
