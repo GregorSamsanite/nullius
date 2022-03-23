@@ -161,6 +161,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
     category = "nanotechnology",
     subgroup = "biology-oil",
     order = "nullius-bb",
@@ -212,6 +213,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+	allow_decomposition = false,
     category = "distillation",
     subgroup = "biology-oil",
     order = "nullius-bc",
@@ -351,6 +353,8 @@ data:extend({
       {element_tint["carbon"], element_tint["carbon"], element_tint["hydrogen"]}
     ),
     enabled = false,
+	allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "biology-oil",
     order = "nullius-g",
@@ -381,6 +385,8 @@ data:extend({
       data.raw.fluid["nullius-fatty-acids"].icons[4]
     },
     enabled = false,
+	allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "boxed-biology",
     order = "nullius-o",
@@ -408,6 +414,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/glycerol.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "biology-oil",
     order = "nullius-h",
@@ -861,6 +868,8 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+	allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "ore-flotation",
     subgroup = "biology-algae",
     order = "nullius-f",
@@ -881,7 +890,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-biomass-cultivation",
-    localised_name = {"recipe-name.nullius-biomass-cultivation"},
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-biomass-cultivation"}},
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/light-oil.png",
@@ -900,6 +909,8 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+	allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "ore-flotation",
     subgroup = "boxed-biology",
     order = "nullius-fd",
@@ -3001,7 +3012,7 @@ data:extend({
       {"nullius-aluminum-wire", 2},
       {"nullius-wood", 1}
     },
-    result = "nullius-power-pole-1",
+    result = "small-electric-pole",
     result_count = 2
   },
   {
@@ -3056,12 +3067,12 @@ data:extend({
     order = "nullius-cc",
     energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-power-pole-1", amount=1},
+      {type="item", name="small-electric-pole", amount=1},
       {type="item", name="copper-cable", amount=4},
       {type="item", name="nullius-wood", amount=3},
       {type="fluid", name="nullius-epoxy", amount=2}
     },
-    result = "nullius-power-pole-2",
+    result = "medium-electric-pole",
     result_count = 3
   },
   {
@@ -3597,6 +3608,7 @@ data:extend({
     type = "recipe",
     name = "nullius-ichthyology-pack",
     enabled = false,
+	allow_decomposition = false,
     category = "small-fluid-assembly",
     energy_required = 120,
     ingredients = {

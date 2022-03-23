@@ -1274,3 +1274,9 @@ if mods["GCKI"] then
   table.insert(data.raw["technology"]["nullius-broadcasting-1"].effects,
     {type = "unlock-recipe", recipe = "nullius-car-key"})
 end
+
+
+if mods["holographic_signs"] then
+  data.raw.item["hs_holo_sign"].order = "nullius-sh"
+  data.raw.item["hs_holo_sign"].stack_size = 50
+end

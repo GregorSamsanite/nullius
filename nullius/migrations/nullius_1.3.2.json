@@ -1,0 +1,14 @@
+{
+  "item":
+  [
+    ["nullius-power-pole-1", "small-electric-pole"],
+    ["nullius-power-pole-2", "medium-electric-pole"],
+	["nullius-substation-1", "substation"]
+  ],
+  "entity":
+  [
+    ["nullius-power-pole-1", "small-electric-pole"],
+    ["nullius-power-pole-2", "medium-electric-pole"],
+	["nullius-substation-1", "substation"]
+  ]
+}

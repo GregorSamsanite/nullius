@@ -34,10 +34,6 @@ data.raw.item["stone"].stack_size = 50
 data.raw.item["red-wire"].order = "nullius-c"
 data.raw.item["green-wire"].order = "nullius-d"
 data.raw.item["power-switch"].order = "nullius-h"
-data.raw.item["copper-cable"].icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png"
-data.raw.item["copper-cable"].icon_size = 64
-data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
-data.raw.item["copper-cable"].order = "nullius-d"
 
 data.raw["constant-combinator"]["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
@@ -116,8 +112,6 @@ data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = 2
 data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = 1.5
 data.raw.item["rocket-fuel"].burnt_result = "nullius-alumina"
 data.raw.item["rocket-fuel"].stack_size = 20
-data.raw.item["rocket-fuel"].icon = "__base__/graphics/icons/rocket-fuel.png"
-data.raw.item["rocket-fuel"].icon_size = 64
 
 data.raw.tile["landfill"].placeable_by = {item = "nullius-land-fill-gravel", count = 1}
 data.raw.item["stone-brick"].stack_size = 500
@@ -512,19 +506,6 @@ data.raw.corpse["behemoth-worm-corpse"].minable = {
 }
 
 
-
-data.raw.item["big-electric-pole"].subgroup = "electric-pole"
-data.raw.item["big-electric-pole"].order = "nullius-cb"
-data.raw.item["big-electric-pole"].stack_size = 50
-data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
-data.raw.item["big-electric-pole"].icons = {{
-  icon = ENTICONPATH .. "large-pole-1.png",
-  icon_size = 64, icon_mipmaps = 4
-}}
-if mods["reskins-bobs"] then
-label_icon("big-electric-pole", 1, "yellow")
-end
-
 data.raw["electric-pole"]["big-electric-pole"].pictures.layers = {
   {
     filename = ENTITYPATH .. "poles/large-pole-1-entity.png",
@@ -537,14 +518,65 @@ data.raw["electric-pole"]["big-electric-pole"].pictures.layers = {
   },
   data.raw["electric-pole"]["big-electric-pole"].pictures.layers[2].hr_version
 }
-data.raw["electric-pole"]["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
 data.raw["electric-pole"]["big-electric-pole"].resistances =
     {{ type = "impact", decrease = 100, percent = 90 }}
-data.raw["electric-pole"]["big-electric-pole"].icons =
-    data.raw.item["big-electric-pole"].icons
-data.raw["electric-pole"]["big-electric-pole"].maximum_wire_distance = 32.5
-data.raw["electric-pole"]["big-electric-pole"].fast_replaceable_group = "pylon"
-data.raw["electric-pole"]["big-electric-pole"].next_upgrade = "nullius-pylon-2"
+
+data.raw["electric-pole"]["small-electric-pole"].pictures.layers = {
+  {
+    filename = ENTITYPATH .. "poles/hr-pole1.png",
+    priority = "extra-high",
+    width = 72,
+    height = 220,
+    direction_count = 4,
+    shift = util.by_pixel(1.5, -42.5),
+    scale = 0.5
+  },
+  data.raw["electric-pole"]["small-electric-pole"].pictures.layers[2]
+}
+data.raw["electric-pole"]["small-electric-pole"].resistances =
+    {{ type = "impact", decrease = 50, percent = 80 }}
+	
+data.raw["electric-pole"]["medium-electric-pole"].pictures.layers = {
+  {
+    filename = ENTITYPATH .. "poles/hr-pole2.png",
+    priority = "extra-high",
+    width = 72,
+    height = 220,
+    direction_count = 4,
+    shift = util.by_pixel(1.5, -42.5),
+    scale = 0.5
+  },
+  data.raw["electric-pole"]["small-electric-pole"].pictures.layers[2]
+}
+data.raw["electric-pole"]["medium-electric-pole"].resistances =
+    {{ type = "impact", decrease = 50, percent = 90 }}
+data.raw["electric-pole"]["medium-electric-pole"].corpse =
+    data.raw["electric-pole"]["small-electric-pole"].corpse
+data.raw["electric-pole"]["medium-electric-pole"].dying_explosion =
+    data.raw["electric-pole"]["small-electric-pole"].dying_explosion
+data.raw["electric-pole"]["medium-electric-pole"].selection_box =
+    data.raw["electric-pole"]["small-electric-pole"].selection_box
+data.raw["electric-pole"]["medium-electric-pole"].drawing_box =
+    data.raw["electric-pole"]["small-electric-pole"].drawing_box
+data.raw["electric-pole"]["medium-electric-pole"].connection_points =
+    data.raw["electric-pole"]["small-electric-pole"].connection_points
+data.raw["electric-pole"]["medium-electric-pole"].water_reflection =
+    data.raw["electric-pole"]["small-electric-pole"].water_reflection
+	
+data.raw["electric-pole"]["substation"].pictures.layers = {
+  {
+    filename = ENTITYPATH .. "poles/substation-1-entity.png",
+    priority = "high",
+    width = 138,
+    height = 270,
+    direction_count = 4,
+    shift = util.by_pixel(0, 1-32),
+    scale = 0.5
+  },
+  data.raw["electric-pole"]["substation"].pictures.layers[2]
+}
+data.raw["electric-pole"]["substation"].resistances =
+    {{ type = "impact", decrease = 100, percent = 90 }}
 
 
 for _,shortcut in pairs(data.raw.shortcut) do

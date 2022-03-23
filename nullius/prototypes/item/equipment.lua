@@ -1019,7 +1019,7 @@ data:extend({
     category = "medium-crafting",
     energy_required = 4,
     ingredients = {
-      {"nullius-power-pole-2", 1},
+      {"medium-electric-pole", 1},
       {"nullius-capacitor", 3},
       {"programmable-speaker", 1}
     },
@@ -2682,10 +2682,6 @@ label_icon("nullius-solar-panel-2", 2, "red")
 label_icon("nullius-solar-panel-3", 3, "blue")
 label_icon("nullius-solar-panel-4", 4, "green")
 end
-
-label_icon("nullius-substation-1", 1, "yellow")
-label_icon("nullius-substation-2", 2, "blue")
-label_icon("nullius-substation-3", 3, "green")
 
 label_icon("nullius-locomotive-1", 1, "yellow", "item-with-entity-data")
 label_icon("nullius-locomotive-2", 2, "red", "item-with-entity-data")

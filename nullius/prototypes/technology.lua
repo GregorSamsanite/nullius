@@ -4424,6 +4424,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-steel-ingot-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-thermite"
       }
     },
     unit = {
@@ -6855,6 +6859,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-steel-ingot-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-thermite"
       },
       {
         type = "unlock-recipe",

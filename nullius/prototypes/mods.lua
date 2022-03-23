@@ -138,7 +138,7 @@ data:extend({
       {"stone-brick", 200},
       {"nullius-mortar", 60},
       {"nullius-glass", 40},
-      {"nullius-substation-1", 4},
+      {"substation", 4},
       {"small-lamp", 4}
     },
     result = "factory-1",
@@ -1743,4 +1743,47 @@ if mods["GCKI"] then
       result = "car-key"
     }
   })
+end
+
+
+if mods["holographic_signs"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-holographic-sign",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 3,
+    ingredients = {
+      {"constant-combinator", 2},
+      {"small-lamp", 3},
+      {"nullius-aluminum-plate", 1},
+	  {"nullius-glass", 2}
+    },
+    result = "hs_holo_sign"
+  },
+  {
+    type = "technology",
+    name = "nullius-holographics",
+    order = "nullius-df",
+    icon = "__holographic_signs__/graphics/hologram_ico.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-holographic-sign"
+      }
+    },
+    unit = {
+      count = 50,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+      },
+      time = 25
+    },
+    prerequisites = {"nullius-computation"}
+  }
+})
 end

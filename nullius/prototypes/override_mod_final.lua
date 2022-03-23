@@ -86,8 +86,10 @@ if mods["Transport_Drones"] then
     end
   end
 
-  data.raw.recipe["fuel-depots"].ingredients[1].amount = 1
-  data.raw.recipe["fuel-depots"].overload_multiplier = 40
-  data.raw.recipe["fuel-depots"].energy_required = 60
-  data.raw.recipe["fuel-depots"].show_amount_in_title = false
+  if (data.raw.recipe["fuel-depots"] ~= nil) then
+    data.raw.recipe["fuel-depots"].ingredients[1].amount = 1
+    data.raw.recipe["fuel-depots"].overload_multiplier = 40
+    data.raw.recipe["fuel-depots"].energy_required = 60
+    data.raw.recipe["fuel-depots"].show_amount_in_title = false
+  end
 end

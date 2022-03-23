@@ -23,6 +23,8 @@ data.raw.item["copper-cable"].icons = {{
 data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 
+
+data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
 data.raw.item["big-electric-pole"].subgroup = "electric-pole"
 data.raw.item["big-electric-pole"].order = "nullius-cb"
 data.raw.item["big-electric-pole"].stack_size = 50
@@ -30,15 +32,69 @@ data.raw.item["big-electric-pole"].icons = {{
   icon = ENTICONPATH .. "large-pole-1.png",
   icon_size = 64, icon_mipmaps = 4
 }}
-if mods["reskins-bobs"] then
 label_icon("big-electric-pole", 1, "yellow")
-end
-data.raw["electric-pole"]["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
+data.raw["electric-pole"]["big-electric-pole"].localised_name =
+    data.raw.item["big-electric-pole"].localised_name
 data.raw["electric-pole"]["big-electric-pole"].icons =
     data.raw.item["big-electric-pole"].icons
 data.raw["electric-pole"]["big-electric-pole"].maximum_wire_distance = 32.5
 data.raw["electric-pole"]["big-electric-pole"].fast_replaceable_group = "pylon"
 data.raw["electric-pole"]["big-electric-pole"].next_upgrade = "nullius-pylon-2"
+
+data.raw.item["small-electric-pole"].localised_name = {"entity-name.nullius-power-pole-1"}
+data.raw.item["small-electric-pole"].subgroup = "electric-pole"
+data.raw.item["small-electric-pole"].order = "nullius-bb"
+data.raw.item["small-electric-pole"].stack_size = 100
+data.raw.item["small-electric-pole"].icons = {{
+  icon = ENTICONPATH .. "pole1.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+label_icon("small-electric-pole", 1, "yellow")
+data.raw["electric-pole"]["small-electric-pole"].localised_name =
+    data.raw.item["small-electric-pole"].localised_name
+data.raw["electric-pole"]["small-electric-pole"].icons =
+    data.raw.item["small-electric-pole"].icons
+data.raw["electric-pole"]["small-electric-pole"].maximum_wire_distance = 8.5
+data.raw["electric-pole"]["small-electric-pole"].supply_area_distance = 3.5
+data.raw["electric-pole"]["small-electric-pole"].fast_replaceable_group = "power-pole"
+data.raw["electric-pole"]["small-electric-pole"].next_upgrade = "medium-electric-pole"
+
+data.raw.item["medium-electric-pole"].localised_name = {"entity-name.nullius-power-pole-2"}
+data.raw.item["medium-electric-pole"].subgroup = "electric-pole"
+data.raw.item["medium-electric-pole"].order = "nullius-bc"
+data.raw.item["medium-electric-pole"].stack_size = 100
+data.raw.item["medium-electric-pole"].icons = {{
+  icon = ENTICONPATH .. "pole2.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+label_icon("medium-electric-pole", 2, "red")
+data.raw["electric-pole"]["medium-electric-pole"].localised_name =
+    data.raw.item["medium-electric-pole"].localised_name
+data.raw["electric-pole"]["medium-electric-pole"].icons =
+    data.raw.item["medium-electric-pole"].icons
+data.raw["electric-pole"]["medium-electric-pole"].maximum_wire_distance = 11.5
+data.raw["electric-pole"]["medium-electric-pole"].supply_area_distance = 4.5
+data.raw["electric-pole"]["medium-electric-pole"].fast_replaceable_group = "power-pole"
+data.raw["electric-pole"]["medium-electric-pole"].next_upgrade = "nullius-power-pole-3"
+
+data.raw.item["substation"].localised_name = {"entity-name.nullius-substation-1"}
+data.raw.item["substation"].subgroup = "electric-pole"
+data.raw.item["substation"].order = "nullius-db"
+data.raw.item["substation"].stack_size = 50
+data.raw.item["substation"].icons = {{
+  icon = ENTICONPATH .. "substation1.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+label_icon("substation", 1, "yellow")
+data.raw["electric-pole"]["substation"].localised_name =
+    data.raw.item["substation"].localised_name
+data.raw["electric-pole"]["substation"].icons = data.raw.item["substation"].icons
+data.raw["electric-pole"]["substation"].collision_box = {{-0.65, -0.65}, {0.65, 0.65}}
+data.raw["electric-pole"]["substation"].maximum_wire_distance = 24.5
+data.raw["electric-pole"]["substation"].supply_area_distance = 12
+data.raw["electric-pole"]["substation"].fast_replaceable_group = "pylon"
+data.raw["electric-pole"]["substation"].next_upgrade = "nullius-substation-2"
+
 
 -- Workaround issues with Squeak_Through
 data.raw["mining-drill"]["nullius-geothermal-build-1"].collision_box =

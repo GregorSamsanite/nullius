@@ -2998,7 +2998,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-power-pole-1", 8},
+      {"small-electric-pole", 8},
       {"nullius-medium-tank-1", 3},
       {"nullius-filter-1", 2},
       {"nullius-priority-valve", 4}
@@ -3015,7 +3015,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {"nullius-priority-electrolyzer-1", 1},
-      {"nullius-power-pole-1", 1}
+      {"small-electric-pole", 1}
     },
     result = "nullius-surge-electrolyzer-1"
   },

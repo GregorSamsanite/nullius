@@ -199,7 +199,7 @@ data:extend({
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
-      time = 20
+      time = 25
     },
     prerequisites = {"nullius-mining-2", "nullius-mining-productivity-9"},
     upgrade = true
@@ -221,7 +221,7 @@ data:extend({
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
-      time = 25
+      time = 30
     },
     prerequisites = {"nullius-mining-productivity-10", "nullius-silica-processing-2"},
     upgrade = true

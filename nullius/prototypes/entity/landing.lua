@@ -3,14 +3,15 @@ local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
-local wreck_flags =
-{
+local wreck_flags = {
   "placeable-player",
   "player-creation",
   "hidden",
   "not-rotatable",
   "placeable-off-grid",
-  "not-blueprintable"
+  "not-blueprintable",
+  "not-in-kill-statistics",
+  "not-flammable"
 }
 
 data:extend({
@@ -522,7 +523,7 @@ data:extend({
     minable = {
       mining_time = 1,
       results = {
-        {type="item", name="nullius-power-pole-1", amount=40},
+        {type="item", name="small-electric-pole", amount=40},
         {type="item", name="big-electric-pole", amount=6},
         {type="item", name="nullius-broken-pylon", amount=18},
         {type="item", name="nullius-grid-battery-1", amount=5},

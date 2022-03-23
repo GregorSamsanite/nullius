@@ -106,7 +106,8 @@ end
 
 for _,type in pairs(item_types_list) do
   for _,item in pairs(data.raw[type]) do
-    if (not table_contains(item.flags, "hidden") and (string.sub(item.name, 1, 8) ~= "nullius-")) then
+    if (not table_contains(item.flags, "hidden") and
+	    (string.sub(item.name, 1, 8) ~= "nullius-")) then
       if (item.flags == nil) then
         item.flags = {}
       end
@@ -163,7 +164,9 @@ for _,type in pairs(item_types_list) do
   end
 end
 for _,fluid in pairs(data.raw.fluid) do
-  if (string.sub(fluid.name, 1, 8) ~= "nullius-") then
+  if ((string.sub(fluid.name, 1, 8) ~= "nullius-") and
+      ((fluid.order == nil) or
+	  (string.sub(fluid.order, 1, 8) ~= "nullius-"))) then
     fluid.subgroup = "unused-fluid"
     fluid.hidden = true
   end

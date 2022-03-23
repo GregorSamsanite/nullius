@@ -1045,6 +1045,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
+	allow_decomposition = false,
     category = "nullius-water-treatment",
     energy_required = 25,
     ingredients = {
@@ -1082,6 +1083,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
+	allow_decomposition = false,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
@@ -1101,6 +1103,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
+	allow_decomposition = false,
     category = "basic-chemistry",
     subgroup = "boxed-science",
     crafting_machine_tint = {
@@ -1741,6 +1744,7 @@ data:extend({
       nil
     ),
     enabled = false,
+	allow_decomposition = false,
     category = "nullius-water-treatment",
     subgroup = "waste-management",
     order = "nullius-db",
@@ -1757,6 +1761,7 @@ data:extend({
     type = "recipe",
     name = "nullius-heavy-water",
     enabled = false,
+	allow_decomposition = false,
     category = "distillation",
     subgroup = "waste-management",
     order = "nullius-dc",
@@ -2061,6 +2066,8 @@ data:extend({
     no_productivity = true,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
+    allow_decomposition = false,
     category = "nullius-water-treatment",
     subgroup = "boxed-fluid",
     order = "nullius-d",
@@ -2306,6 +2313,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_decomposition = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-cb",
@@ -2329,6 +2337,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_decomposition = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-cc",
@@ -2353,6 +2362,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_decomposition = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-cd",
@@ -2372,6 +2382,8 @@ data:extend({
     name = "nullius-residual-gas",
     localised_name = {"fluid-name.nullius-residual-gas"},
     enabled = false,
+	allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-ce",
@@ -2397,6 +2409,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-db",
@@ -2421,6 +2434,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-dc",
@@ -2445,6 +2459,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-eb",
@@ -2469,6 +2484,7 @@ data:extend({
       nil
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-ec",
@@ -2494,6 +2510,7 @@ data:extend({
       nil
     ),
     enabled = false,
+	allow_decomposition = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-fb",
@@ -2519,6 +2536,7 @@ data:extend({
       nil
     ),
     enabled = false,
+	allow_decomposition = false,
     category = "distillation",
     subgroup = "air-filtration",
     order = "nullius-fc",
@@ -2539,6 +2557,7 @@ data:extend({
     name = "nullius-boxed-volcanic",
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-volcanic-separation"}},
     enabled = false,
+	allow_decomposition = false,
     category = "distillation",
     subgroup = "boxed-fluid",
     order = "nullius-b",
@@ -2620,6 +2639,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "carbon",
     order = "nullius-b",
@@ -2647,6 +2667,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "compressed-organic",
     order = "nullius-b",
@@ -2741,6 +2762,7 @@ data:extend({
       {{"__base__/graphics/icons/coal-dark-background.png", 64}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "carbon",
     order = "nullius-d",
@@ -2774,6 +2796,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "boxed-organic-1",
     order = "nullius-bm",
@@ -3042,6 +3065,7 @@ data:extend({
     type = "recipe",
     name = "nullius-butadiene",
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-ethylene"].flow_color },
     energy_required = 1,
@@ -3059,6 +3083,7 @@ data:extend({
     type = "recipe",
     name = "nullius-styrene",
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-benzene"].flow_color,
@@ -3355,6 +3380,7 @@ data:extend({
       }
     },
     enabled = false,
+	allow_decomposition = false,
     category = "boiling",
     subgroup = "boiling",
     order = "nullius-f",
@@ -3375,6 +3401,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-condensation"},
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
     icon_size = 64,
     icons = {
       {
@@ -3425,6 +3452,7 @@ data:extend({
     order = "nullius-db",
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-hydrogen", amount=200},
@@ -3456,6 +3484,7 @@ data:extend({
     order = "nullius-dc",
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=65},
@@ -3488,6 +3517,7 @@ data:extend({
     order = "nullius-dd",
     show_amount_in_title = false,
     always_show_products = true,
+    allow_as_intermediate = false,
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=90},
@@ -3517,6 +3547,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-eb",
@@ -3549,6 +3580,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-ec",
@@ -3582,6 +3614,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-fb",
@@ -3614,6 +3647,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-fc",
@@ -3647,6 +3681,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-fd",
@@ -3680,6 +3715,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "combustion",
     subgroup = "combustion",
     order = "nullius-fe",
@@ -3712,6 +3748,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "wet-smelting",
     subgroup = "organic-material-1",
     order = "nullius-bd",
@@ -3741,6 +3778,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "wet-smelting",
     subgroup = "organic-material-1",
     order = "nullius-be",
@@ -3837,6 +3875,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/ethylene.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "carbon",
     order = "nullius-pb",
@@ -3863,6 +3902,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/propene.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "carbon",
     order = "nullius-pc",
@@ -3888,6 +3928,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/methane.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "compressed-organic",
     order = "nullius-g",
@@ -3914,6 +3955,7 @@ data:extend({
       {{"__angelspetrochem__/graphics/icons/molecules/benzene.png", 72}}
     ),
     enabled = false,
+    allow_as_intermediate = false,
     category = "distillation",
     subgroup = "carbon",
     order = "nullius-q",
@@ -4608,6 +4650,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-b",
@@ -4631,6 +4675,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-c",
@@ -4654,6 +4700,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-d",
@@ -4677,6 +4725,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-e",
@@ -4700,6 +4750,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-f",
@@ -4723,6 +4775,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-g",
@@ -4746,6 +4800,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-h",
@@ -4769,6 +4825,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-i",
@@ -4792,6 +4850,8 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "decompression",
     subgroup = "decompression",
     order = "nullius-j",
@@ -5312,6 +5372,7 @@ data:extend({
     type = "recipe",
     name = "nullius-bpa",
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     order = "nullius-cb",
     crafting_machine_tint = {
@@ -5348,6 +5409,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "organic-material-1",
     order = "nullius-cc",
@@ -5371,6 +5433,7 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-bpa",
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "boxed-organic-1",
     order = "nullius-cb",
@@ -5414,6 +5477,7 @@ data:extend({
       }
     },
     enabled = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "boxed-organic-1",
     order = "nullius-cc",

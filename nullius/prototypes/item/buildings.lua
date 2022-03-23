@@ -734,7 +734,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-backup-turbine-1", 2},
-      {"nullius-power-pole-1", 2}
+      {"small-electric-pole", 2}
     },
     result = "nullius-wind-turbine-1"
   },
@@ -2038,7 +2038,7 @@ data:extend({
     ingredients = {
       {"programmable-speaker", 1},
       {"constant-combinator", 2},
-      {"nullius-power-pole-2", 1},
+      {"medium-electric-pole", 1},
       {"nullius-iron-sheet", 2},
       {"nullius-capacitor", 1}
     },
@@ -2104,7 +2104,7 @@ data:extend({
       {"nullius-sensor-2", 2},
       {"nullius-optical-cable", 4},
       {"nullius-relay-1", 1},
-      {"nullius-substation-1", 1}
+      {"substation", 1}
     },
     result = "nullius-beacon-2"
   },
@@ -2137,7 +2137,7 @@ data:extend({
       {"nullius-box-sensor-2", 2},
       {"nullius-box-optical-cable", 4},
       {"nullius-box-relay-1", 1},
-      {"nullius-substation-1", 5}
+      {"substation", 5}
     },
     result = "nullius-beacon-2",
     result_count = 5
@@ -2732,30 +2732,6 @@ data:extend({
 
   {
     type = "item",
-    name = "nullius-power-pole-1",
-    icons = {{
-      icon = ENTICONPATH .. "pole1.png",
-      icon_size = 64, icon_mipmaps = 4
-    }},
-    subgroup = "electric-pole",
-    order = "nullius-bb",
-    place_result = "nullius-power-pole-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-power-pole-2",
-    icons = {{
-      icon = ENTICONPATH .. "pole2.png",
-      icon_size = 64, icon_mipmaps = 4
-    }},
-    subgroup = "electric-pole",
-    order = "nullius-bc",
-    place_result = "nullius-power-pole-2",
-    stack_size = 100
-  },
-  {
-    type = "item",
     name = "nullius-power-pole-3",
     icons = {{
       icon = ENTICONPATH .. "pole3.png",
@@ -2804,18 +2780,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-substation-1",
-    icons = {{
-      icon = ENTICONPATH .. "substation1.png",
-      icon_size = 64, icon_mipmaps = 4
-    }},
-    subgroup = "electric-pole",
-    order = "nullius-db",
-    place_result = "nullius-substation-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
     name = "nullius-substation-2",
     icons = {{
       icon = "__base__/graphics/icons/substation.png",
@@ -2851,7 +2815,7 @@ data:extend({
       {"nullius-iron-rod", 1},
       {"nullius-plastic", 1}
     },
-    result = "nullius-power-pole-1"
+    result = "small-electric-pole"
   },
   {
     type = "recipe",
@@ -2878,11 +2842,11 @@ data:extend({
     always_show_made_in = true,
     energy_required = 3,
     ingredients = {
-      {"nullius-power-pole-1", 1},
+      {"small-electric-pole", 1},
       {"copper-cable", 2},
       {"nullius-aluminum-rod", 1}
     },
-    result = "nullius-power-pole-2"
+    result = "medium-electric-pole"
   },
   {
     type = "recipe",
@@ -2907,7 +2871,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 4,
     ingredients = {
-      {"nullius-power-pole-2", 1},
+      {"medium-electric-pole", 1},
       {"red-wire", 3},
       {"nullius-fiberglass", 2},
       {"nullius-ceramic-powder", 1}
@@ -2974,7 +2938,7 @@ data:extend({
     category = "large-crafting",
     energy_required = 4,
     ingredients = {
-      {"nullius-power-pole-2", 1},
+      {"medium-electric-pole", 1},
       {"copper-cable", 4},
       {"nullius-steel-beam", 3}
     },
@@ -3073,12 +3037,12 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"big-electric-pole", 1},
-      {"nullius-power-pole-2", 1},
+      {"medium-electric-pole", 1},
       {"power-switch", 1},
       {"concrete", 6},
       {"nullius-transformer", 1}
     },
-    result = "nullius-substation-1"
+    result = "substation"
   },
   {
     type = "recipe",
@@ -3110,7 +3074,7 @@ data:extend({
       {"nullius-box-concrete", 3},
       {"nullius-box-transformer", 1}
     },
-    result = "nullius-substation-1",
+    result = "substation",
     result_count = 5
   },
   {
@@ -3121,7 +3085,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-substation-1", 1},
+      {"substation", 1},
       {"nullius-pylon-2", 1},
       {"nullius-power-pole-3", 1},
       {"nullius-sensor-1", 2},
@@ -3153,7 +3117,7 @@ data:extend({
     always_show_products = true,
     energy_required = 45,
     ingredients = {
-      {"nullius-substation-1", 5},
+      {"substation", 5},
       {"nullius-box-pylon-2", 1},
       {"nullius-box-power-pole-3", 1},
       {"nullius-box-sensor-1", 2},
@@ -3589,13 +3553,10 @@ label_icon("nullius-solar-collector-1", 1, "red")
 label_icon("nullius-solar-collector-2", 2, "orange")
 label_icon("nullius-solar-collector-3", 3, "yellow")
 
-label_icon("nullius-power-pole-1", 1, "yellow")
-label_icon("nullius-power-pole-2", 2, "red")
 label_icon("nullius-power-pole-3", 3, "blue")
 label_icon("nullius-power-pole-4", 4, "orange")
 label_icon("nullius-pylon-2", 2, "blue")
 label_icon("nullius-pylon-3", 3, "purple")
-label_icon("nullius-substation-1", 1, "yellow")
 label_icon("nullius-substation-2", 2, "blue")
 label_icon("nullius-substation-3", 3, "green")
 label_icon("nullius-lamp-1b", 1, "yellow", "recipe")
