@@ -1,0 +1,12 @@
+{
+  "item":
+  [
+    ["nullius-medium-tank-1", "storage-tank"],
+    ["nullius-sensor-node-1", "radar"]
+  ],
+  "entity":
+  [
+    ["nullius-medium-tank-1", "storage-tank"],
+    ["nullius-sensor-node-1", "radar"]
+  ]
+}

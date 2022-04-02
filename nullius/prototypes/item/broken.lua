@@ -129,7 +129,11 @@ data:extend({
     name = "nullius-broken-sensor-node",
     localised_name = {"item-name.nullius-broken", {"entity-name.nullius-sensor-node-1"}},
     icons = {
-      data.raw.item["nullius-sensor-node-1"].icons[1],
+	  {
+        icon =  "__base__/graphics/icons/radar.png",
+        icon_size = 64, icon_mipmaps = 4,
+        tint = {0.9, 0.9, 0.65}
+      },
       broken_overlay
     },
     subgroup = "broken",
@@ -149,7 +153,7 @@ data.raw.item["nullius-broken-grid-battery"].icons =
 table.insert(data.raw.item["nullius-broken-grid-battery"].icons,
     broken_overlay)
 data.raw.item["nullius-broken-sensor-node"].icons =
-    util.table.deepcopy(data.raw.item["nullius-sensor-node-1"].icons)
+    util.table.deepcopy(data.raw.item["radar"].icons)
 table.insert(data.raw.item["nullius-broken-sensor-node"].icons,
     broken_overlay)
 end
@@ -375,6 +379,6 @@ data:extend({
       {"decider-combinator", 1},
       {"small-lamp", 2}
     },
-    result = "nullius-sensor-node-1"
+    result = "radar"
   }
 })

@@ -24,6 +24,58 @@ data.raw.item["copper-cable"].subgroup = "electronic-intermediate"
 data.raw.item["copper-cable"].order = "nullius-d"
 
 
+data.raw.item["storage-tank"].stack_size = 50
+data.raw.item["storage-tank"].icons = {{
+  icon = "__base__/graphics/icons/storage-tank.png",
+  icon_size = 64, icon_mipmaps = 4
+}}
+data.raw["storage-tank"]["storage-tank"].icons = data.raw.item["storage-tank"].icons
+data.raw["storage-tank"]["storage-tank"].fluid_box.height = 1.7
+data.raw["storage-tank"]["storage-tank"].fluid_box.base_area = 88.235295
+if mods["reskins-bobs"] then
+data.raw["storage-tank"]["storage-tank"].pictures =
+    data.raw["storage-tank"]["nullius-medium-tank-original"].pictures
+end
+
+if mods["reskins-bobs"] then
+data.raw.item["radar"].icons = {
+  {
+    icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-base.png",
+    icon_size = 64, icon_mipmaps = 4
+  },
+  {
+    icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-mask.png",
+    icon_size = 64, icon_mipmaps = 4, tint = tiercolor("yellow")
+  },
+  {
+    icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-highlights.png",
+    icon_size = 64, icon_mipmaps = 4, tint = {1, 1, 1, 0}
+  }
+}
+label_icon("radar", 1, "yellow")
+data.raw["radar"]["radar"].pictures =
+    data.raw["radar"]["nullius-sensor-node-original"].pictures
+else
+data.raw.item["radar"].icons = {{
+  icon =  "__base__/graphics/icons/radar.png",
+  icon_size = 64, icon_mipmaps = 4,
+  tint = {0.9, 0.9, 0.65}
+}}
+data.raw["radar"]["radar"].pictures.layers[1].tint = {0.9, 0.9, 0.65}
+data.raw["radar"]["radar"].pictures.layers[1].hr_version.tint = {0.9, 0.9, 0.65}
+end
+data.raw.item["radar"].stack_size = 20
+data.raw["radar"]["radar"].icons = data.raw.item["radar"].icons
+data.raw["radar"]["radar"].fast_replaceable_group = "sensor-node"
+data.raw["radar"]["radar"].next_upgrade = "nullius-sensor-node-2"
+data.raw["radar"]["radar"].max_distance_of_sector_revealed = 5
+data.raw["radar"]["radar"].max_distance_of_nearby_sector_revealed = 3
+data.raw["radar"]["radar"].energy_per_sector = "12MJ"
+data.raw["radar"]["radar"].energy_per_nearby_scan = "200kJ"
+data.raw["radar"]["radar"].energy_usage = "100kW"
+data.raw["radar"]["radar"].rotation_speed = 0.005
+
+
 data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
 data.raw.item["big-electric-pole"].subgroup = "electric-pole"
 data.raw.item["big-electric-pole"].order = "nullius-cb"

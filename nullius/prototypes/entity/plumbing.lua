@@ -1669,51 +1669,6 @@ data:extend({
 
   {
     type = "storage-tank",
-    name = "nullius-medium-tank-1",
-    icon = "__base__/graphics/icons/storage-tank.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"placeable-player", "player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-medium-tank-1"},
-    max_health = 400,
-    next_upgrade = "nullius-medium-tank-2",
-    fast_replaceable_group = "medium-tank",
-    corpse = "storage-tank-remnants",
-    dying_explosion = "storage-tank-explosion",
-    collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
-    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", percent = 75 }
-    },
-    damaged_trigger_effect = data.raw["storage-tank"]["storage-tank"].damaged_trigger_effect,
-    fluid_box = {
-      height = 1.7,
-      base_area = 88.235295,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { position = {-1, -2} },
-        { position = {2, 1} },
-        { position = {1, 2} },
-        { position = {-2, -1} }
-      }
-    },
-    two_direction_only = true,
-    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
-    pictures = data.raw["storage-tank"]["storage-tank"].pictures,
-    flow_length_in_ticks = 360,
-    vehicle_impact_sound = data.raw["storage-tank"]["storage-tank"].vehicle_impact_sound,
-    open_sound = data.raw["storage-tank"]["storage-tank"].open_sound,
-    close_sound = data.raw["storage-tank"]["storage-tank"].close_sound,
-    working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
-    circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
-    circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
-    water_reflection = data.raw["storage-tank"]["storage-tank"].water_reflection
-  },
-
-  {
-    type = "storage-tank",
     name = "nullius-medium-tank-2",
     icons = data.raw.item["nullius-medium-tank-2"].icons,
     flags = {"placeable-player", "player-creation"},
@@ -3419,3 +3374,9 @@ data:extend({
     pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/tungsten/")
   }
 })
+
+if mods["reskins-bobs"] then
+  local oldtank = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
+  oldtank.name = "nullius-medium-tank-original"
+  data:extend({ oldtank })
+end

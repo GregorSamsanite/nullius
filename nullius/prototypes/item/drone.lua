@@ -526,7 +526,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 20,
     ingredients = {
-      {"nullius-sensor-node-1", 1},
+      {"radar", 1},
       {"nullius-beacon-1", 1},
       {"nullius-hangar-1", 1},
       {"nullius-missile-launcher", 4},

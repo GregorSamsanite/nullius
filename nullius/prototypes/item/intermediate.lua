@@ -1283,7 +1283,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-thermite",
-    localised_name = {"recipe-name.nullius-thermite"},
+	localised_name = {"recipe-name.nullius-aluminothermic", {"item-name.nullius-iron-ingot"}},
     icons = {
       {
         icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
@@ -1317,7 +1317,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-thermite",
-    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-thermite"}},
+	localised_name = {"recipe-name.nullius-aluminothermic",
+	    {"item-name.nullius-box", {"item-name.nullius-iron-ingot"}}},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -1506,6 +1507,44 @@ data:extend({
       {type="item", name="nullius-box-steel-ingot", amount=25},
       {type="item", name="nullius-box-gravel", amount=5},
       {type="item", name="nullius-box-crushed-limestone", amount=4}
+    },
+    main_product = "nullius-box-steel-ingot"
+  },
+  {
+    type = "recipe",
+    name = "nullius-steel-ingot-hydrogen",
+    localised_name = {"recipe-name.nullius-hydrogen", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen.png",
+        icon_size = 72,
+        scale = 0.18,
+        shift = {8, -10}
+      }
+    },
+    enabled = false,
+    category = "bulk-smelting",
+    subgroup = "boxed-steel",
+    order = "nullius-ad",
+    energy_required = 60,
+    ingredients = {
+      {type="item", name="nullius-box-iron-oxide", amount=11},
+      {type="item", name="nullius-graphite", amount=1},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=250}
+    },
+    results = {
+      {type="item", name="nullius-box-steel-ingot", amount=10},
+      {type="fluid", name="nullius-sludge", amount=80}
     },
     main_product = "nullius-box-steel-ingot"
   },
@@ -4319,7 +4358,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-aluminum-ingot", amount=9},
-      {type="fluid", name="nullius-carbon-monoxide", amount=60}
+      {type="fluid", name="nullius-carbon-monoxide", amount=50}
     },
     main_product = "nullius-aluminum-ingot"
   },
@@ -4356,7 +4395,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-aluminum-ingot", amount=9},
-      {type="fluid", name="nullius-carbon-monoxide", amount=300}
+      {type="fluid", name="nullius-carbon-monoxide", amount=250}
     },
     main_product = "nullius-box-aluminum-ingot"
   },
@@ -4383,7 +4422,7 @@ data:extend({
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-alumina", amount=11},
-      {type="item", name="nullius-graphite", amount=6},
+      {type="item", name="nullius-graphite", amount=7},
       {type="item", name="nullius-soda-ash", amount=1},
       {type="fluid", name="nullius-water", amount=25}
     },
@@ -4391,7 +4430,7 @@ data:extend({
       {type="item", name="nullius-aluminum-ingot", amount=6},
       {type="item", name="nullius-aluminum-carbide", amount=7},
       {type="item", name="nullius-sodium-hydroxide", amount=1},
-      {type="fluid", name="nullius-carbon-monoxide", amount=60}
+      {type="fluid", name="nullius-carbon-monoxide", amount=40}
     },
     main_product = "nullius-aluminum-ingot"
   },
@@ -4424,7 +4463,7 @@ data:extend({
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-box-alumina", amount=11},
-      {type="item", name="nullius-box-graphite", amount=6},
+      {type="item", name="nullius-box-graphite", amount=7},
       {type="item", name="nullius-box-soda-ash", amount=1},
       {type="fluid", name="nullius-water", amount=125}
     },
@@ -4432,7 +4471,42 @@ data:extend({
       {type="item", name="nullius-box-aluminum-ingot", amount=6},
       {type="item", name="nullius-box-aluminum-carbide", amount=7},
       {type="item", name="nullius-box-sodium-hydroxide", amount=1},
-      {type="fluid", name="nullius-carbon-monoxide", amount=300}
+      {type="fluid", name="nullius-carbon-monoxide", amount=200}
+    },
+    main_product = "nullius-box-aluminum-ingot"
+  },
+  {
+    type = "recipe",
+    name = "nullius-aluminum-ingot-electrolytic",
+    localised_name = {"recipe-name.nullius-electrolytic",
+	    {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}},
+    icons = {
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.5
+      },
+	  {
+        icon = ICONPATH .. "salt.png",
+        icon_size = 64,
+        tint = {0.4, 0.6, 0.8},
+		scale = 0.23,
+        shift = {9, -10}
+      }
+    },
+    enabled = false,
+    subgroup = "aluminum-ingot",
+    order = "nullius-ge",
+    category = "nullius-electrolysis",
+    energy_required = 9,
+    ingredients = {
+      {type="item", name="nullius-box-alumina", amount=6},
+      {type="item", name="nullius-eutectic-salt", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-box-aluminum-ingot", amount=8},
+      {type="fluid", name="nullius-oxygen", amount=250}
     },
     main_product = "nullius-box-aluminum-ingot"
   },
@@ -4905,7 +4979,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
-    category = "tiny-assembly",
+    category = "medium-only-assembly",
     subgroup = "boxed-mechanical",
     order = "nullius-bd",
     energy_required = 30,
@@ -6499,7 +6573,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
-    category = "tiny-crafting",
+    category = "medium-only-assembly",
     subgroup = "boxed-hangar",
     order = "nullius-ge",
     energy_required = 150,

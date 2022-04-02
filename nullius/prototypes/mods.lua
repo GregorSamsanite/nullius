@@ -93,7 +93,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 15,
     ingredients = {
-      {"nullius-sensor-node-1", 1},
+      {"radar", 1},
       {"programmable-speaker", 2}
     },
     result = "aai-signal-receiver",
@@ -171,7 +171,7 @@ data:extend({
       {"stone-wall", 150},
       {"gate", 15},
       {"nullius-grid-battery-1", 8},
-      {"nullius-sensor-node-1", 1}
+      {"radar", 1}
     },
     result = "factory-3",
     enabled = false

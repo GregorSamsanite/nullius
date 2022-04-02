@@ -363,6 +363,27 @@ data.raw["rail-chain-signal"]["rail-chain-signal"].order = "nullius-g"
 data.raw.item["rail-chain-signal"].subgroup = "railway"
 data.raw.item["rail-chain-signal"].order = "nullius-g"
 
+
+data.raw.item["storage-tank"].subgroup = "tanks"
+data.raw.item["storage-tank"].order = "nullius-bcb"
+data.raw["storage-tank"]["storage-tank"].localised_name = {"entity-name.nullius-medium-tank-1"}
+data.raw["storage-tank"]["storage-tank"].localised_description = {"entity-description.nullius-medium-tank-1"}
+data.raw["storage-tank"]["storage-tank"].max_health = 400
+data.raw["storage-tank"]["storage-tank"].next_upgrade = "nullius-medium-tank-2"
+data.raw["storage-tank"]["storage-tank"].fast_replaceable_group = "medium-tank"
+data.raw["storage-tank"]["storage-tank"].resistances = {
+  { type = "impact", decrease = 100, percent = 90 },
+  { type = "fire", percent = 75 }
+}
+
+data.raw.item["radar"].subgroup = "laboratory"
+data.raw.item["radar"].order = "nullius-db"
+data.raw["radar"]["radar"].localised_name = {"entity-name.nullius-sensor-node-1"}
+data.raw["radar"]["radar"].localised_description = {"entity-description.nullius-sensor-node-1"}
+data.raw["radar"]["radar"].max_health = 200
+data.raw["radar"]["radar"].resistances = {{ type = "impact", decrease = 50, percent = 80 }}
+
+
 data.raw["repair-tool"]["repair-pack"].icon = "__base__/graphics/icons/repair-pack.png"
 data.raw["repair-tool"]["repair-pack"].icon_size = 64
 data.raw["repair-tool"]["repair-pack"].icon_mipmaps = 4

@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+Date: 27.03.2022
+  Features:
+    - New boxer building, a single tile building that boxes/unboxes quickly.
+    - New hydrogen based steel ingot recipe.
+    - New electrolytic aluminum ingot recipe.
+  Balancing:
+    - Move compressed air and oxygen a bit earlier in the tech tree.
+    - Make small miner 1 a little cheaper.
+    - Increase speed of boxing recipes.
+    - Reduce carbon byproduct of Aluminum Ingot 3.
+  Changes:
+    - Map medium tank 1 to vanilla storage tank and sensor node 1 to radar.
+  Bugfixes:
+    - Fix name of boxed power pole 1 and 2.
+    - Put a few biology recipes under fluid assembly categories.
+    - Fix a few boxed recipes that were in the wrong size category.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.2
 Date: 22.03.2022
   Features:

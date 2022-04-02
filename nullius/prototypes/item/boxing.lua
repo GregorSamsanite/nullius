@@ -66,7 +66,7 @@ local function create_boxed_item(base_name, group, box_order,
       always_show_products = true,
       allow_as_intermediate = false,
       no_productivity = true,
-      energy_required = 2,
+      energy_required = 1,
       ingredients = {
         {full_name, 4*ratio}
       },
@@ -119,6 +119,9 @@ data.raw.item["stack-inserter"].localised_name = {"entity-name.nullius-inserter-
 data.raw.item["stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-3"}
 data.raw.item["express-stack-inserter"].localised_name = {"entity-name.nullius-inserter-4"}
 data.raw.item["express-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-4"}
+data.raw.item["storage-tank"].localised_name = {"entity-name.nullius-medium-tank-1"}
+data.raw.item["small-electric-pole"].localised_name = {"entity-name.nullius-power-pole-1"}
+data.raw.item["medium-electric-pole"].localised_name = {"entity-name.nullius-power-pole-2"}
 
 data.raw.item["stone-brick"].stack_size = 500
 data.raw.item["concrete"].stack_size = 500
@@ -345,7 +348,7 @@ create_boxed_item("wind-turbine-1", "fluid-energy", "bb")
 create_boxed_item("wind-turbine-2", "fluid-energy", "bc")
 create_boxed_item("small-tank-1", "tank", "bb")
 create_boxed_item("small-tank-2", "tank", "bc")
-create_boxed_item("medium-tank-1", "tank", "cb")
+create_boxed_item("medium-tank-1", "tank", "cb", "storage-tank")
 create_boxed_item("medium-tank-2", "tank", "cc")
 create_boxed_item("medium-tank-3", "tank", "cd")
 create_boxed_item("gate", "terrain", "f", "gate")

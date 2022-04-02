@@ -463,6 +463,34 @@ data:extend({
 
   {
     type = "item",
+    name = "nullius-boxer",
+	icons = {{
+      icon = "__angelssmelting__/graphics/icons/powder-mixer-ico.png",
+      icon_size = 64, icon_mipmaps = 4,
+      scale = 0.5
+    }},
+    subgroup = "assembler",
+    order = "nullius-fb",
+    place_result = "nullius-boxer",
+    stack_size = 100
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxer",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 4,
+    ingredients = {
+      {"nullius-small-assembler-2", 1},
+      {"stack-inserter", 1},
+      {"nullius-speed-module-1", 1}
+    },
+    result = "nullius-boxer"
+  },
+
+  {
+    type = "item",
     name = "nullius-small-miner-1",
     icons = {{
       icon = ENTICONPATH .. "miner1.png",
@@ -509,8 +537,8 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {"nullius-motor-1", 2},
-      {"nullius-iron-gear", 3},
-      {"nullius-iron-plate", 4}
+      {"nullius-iron-gear", 2},
+      {"nullius-iron-plate", 3}
     },
     result = "nullius-small-miner-1",
     result_count = 2
@@ -1947,7 +1975,7 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {"nullius-chemical-plant-2", 1},
-      {"nullius-sensor-node-1", 1},
+      {"radar", 1},
       {"nullius-beacon-1", 1},
       {"nullius-processor-1", 8},
       {"stack-filter-inserter", 2},
@@ -2261,20 +2289,6 @@ data:extend({
   },
 
   {
-    type = "item",
-    name = "nullius-sensor-node-1",
-    icons = {{
-      icon =  "__base__/graphics/icons/radar.png",
-      icon_size = 64,
-      icon_mipmaps = 4,
-      tint = {0.9, 0.9, 0.65}
-    }},
-    subgroup = "laboratory",
-    order = "nullius-db",
-    place_result = "nullius-sensor-node-1",
-    stack_size = 20
-  },
-  {
     type = "recipe",
     name = "nullius-sensor-node-1",
     enabled = false,
@@ -2288,7 +2302,7 @@ data:extend({
       {"nullius-iron-sheet", 3},
       {"nullius-motor-2", 1}
     },
-    result = "nullius-sensor-node-1"
+    result = "radar"
   },
   {
     type = "recipe",
@@ -2321,7 +2335,7 @@ data:extend({
       {"nullius-box-iron-sheet", 3},
       {"nullius-box-motor-2", 1}
     },
-    result = "nullius-sensor-node-1",
+    result = "radar",
     result_count = 5
   },
 
@@ -2347,7 +2361,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-sensor-node-1", 1},
+      {"radar", 1},
       {"nullius-sensor-2", 3},
       {"nullius-hard-glass", 4},
       {"nullius-fiberglass", 4},
@@ -2380,7 +2394,7 @@ data:extend({
     order = "nullius-sc",
     energy_required = 45,
     ingredients = {
-      {"nullius-sensor-node-1", 5},
+      {"radar", 5},
       {"nullius-box-sensor-2", 3},
       {"nullius-box-hard-glass", 4},
       {"nullius-box-fiberglass", 4},
@@ -3520,7 +3534,7 @@ data.raw.item["nullius-large-beacon-2"].icons = {
   }
 }
 
-data.raw.item["nullius-sensor-node-1"].icons = {
+data.raw.item["radar"].icons = {
   {
     icon = "__reskins-bobs__/graphics/icons/warfare/radar/radar-icon-base.png",
     icon_size = 64, icon_mipmaps = 4
@@ -3535,10 +3549,10 @@ data.raw.item["nullius-sensor-node-1"].icons = {
   }
 }
 data.raw.item["nullius-sensor-node-2"].icons =
-    util.table.deepcopy(data.raw.item["nullius-sensor-node-1"].icons)
+    util.table.deepcopy(data.raw.item["radar"].icons)
 data.raw.item["nullius-sensor-node-2"].icons[2].tint = tiercolor("red")
 data.raw.item["nullius-sensor-node-3"].icons =
-    util.table.deepcopy(data.raw.item["nullius-sensor-node-1"].icons)
+    util.table.deepcopy(data.raw.item["radar"].icons)
 data.raw.item["nullius-sensor-node-3"].icons[2].tint = tiercolor("blue")
 end
 
@@ -3599,7 +3613,6 @@ label_icon("nullius-foundry-1", 1, "green")
 label_icon("nullius-foundry-2", 2, "blue")
 label_icon("nullius-foundry-3", 3, "red")
 
-label_icon("nullius-sensor-node-1", 1, "yellow")
 label_icon("nullius-sensor-node-2", 2, "red")
 label_icon("nullius-sensor-node-3", 3, "blue")
 label_icon("nullius-beacon-1", 1, "yellow")

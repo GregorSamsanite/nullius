@@ -6,86 +6,6 @@ local BASEENTITY = "__base__/graphics/entity/"
 data:extend({
   {
     type = "radar",
-    name = "nullius-sensor-node-1",
-    icons = data.raw.item["nullius-sensor-node-1"].icons,
-    flags = {"placeable-player", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-sensor-node-1"},
-    max_health = 200,
-    fast_replaceable_group = "sensor-node",
-    next_upgrade = "nullius-sensor-node-2",
-    corpse = "radar-remnants",
-    dying_explosion = "radar-explosion",
-    resistances = {{ type = "impact", decrease = 50, percent = 80 }},
-    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
-    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    damaged_trigger_effect = data.raw.radar["radar"].damaged_trigger_effect,
-    energy_per_sector = "12MJ",
-    max_distance_of_sector_revealed = 5,
-    max_distance_of_nearby_sector_revealed = 3,
-    energy_per_nearby_scan = "200kJ",
-    energy_source = { type = "electric", usage_priority = "secondary-input" },
-    energy_usage = "100kW",
-    integration_patch = data.raw.radar["radar"].integration_patch,
-    vehicle_impact_sound = data.raw.radar["radar"].vehicle_impact_sound,
-    working_sound = data.raw.radar["radar"].working_sound,
-    radius_minimap_visualisation_color = { r = 0.059, g = 0.092, b = 0.235, a = 0.275 },
-    rotation_speed = 0.005,
-    water_reflection = data.raw.radar["radar"].water_reflection,
-
-    pictures = {
-      layers = {
-        {
-          filename = BASEENTITY .. "radar/radar.png",
-          priority = "low",
-          width = 98,
-          height = 128,
-          apply_projection = false,
-          direction_count = 64,
-          line_length = 8,
-          shift = util.by_pixel(1, -16),
-          tint = {0.9, 0.9, 0.65},
-          hr_version = {
-            filename = BASEENTITY .. "radar/hr-radar.png",
-            priority = "low",
-            width = 196,
-            height = 254,
-            apply_projection = false,
-            direction_count = 64,
-            line_length = 8,
-            shift = util.by_pixel(1, -16),
-            tint = {0.9, 0.9, 0.65},
-            scale = 0.5
-          }
-        },
-        {
-          filename = BASEENTITY .. "radar/radar-shadow.png",
-          priority = "low",
-          width = 172,
-          height = 94,
-          apply_projection = false,
-          direction_count = 64,
-          line_length = 8,
-          shift = util.by_pixel(39,3),
-          draw_as_shadow = true,
-          hr_version = {
-            filename = BASEENTITY .. "radar/hr-radar-shadow.png",
-            priority = "low",
-            width = 343,
-            height = 186,
-            apply_projection = false,
-            direction_count = 64,
-            line_length = 8,
-            shift = util.by_pixel(39.25,3),
-            draw_as_shadow = true,
-            scale = 0.5
-          }
-        }
-      }
-    },
-  },
-
-  {
-    type = "radar",
     name = "nullius-sensor-node-2",
     icons = data.raw.item["nullius-sensor-node-2"].icons,
     flags = {"placeable-player", "player-creation"},
@@ -1085,7 +1005,9 @@ end
 
 
 if mods["reskins-bobs"] then
-data.raw.radar["nullius-sensor-node-1"].pictures = { layers = {
+local oldradar = util.table.deepcopy(data.raw["radar"]["radar"])
+oldradar.name = "nullius-sensor-node-original"
+oldradar.pictures = { layers = {
   data.raw.radar["nullius-sensor-node-3"].pictures.layers[1],
   {
     filename = "__reskins-bobs__/graphics/entity/warfare/radar/radar-mask.png",
@@ -1135,13 +1057,12 @@ data.raw.radar["nullius-sensor-node-1"].pictures = { layers = {
   },
   data.raw.radar["nullius-sensor-node-3"].pictures.layers[2]
 }}
+data:extend({ oldradar })
 
-data.raw.radar["nullius-sensor-node-2"].pictures =
-    util.table.deepcopy(data.raw.radar["nullius-sensor-node-1"].pictures)
+data.raw.radar["nullius-sensor-node-2"].pictures = util.table.deepcopy(oldradar.pictures)
 data.raw.radar["nullius-sensor-node-2"].pictures.layers[2].tint = tiercolor("red")
 data.raw.radar["nullius-sensor-node-2"].pictures.layers[2].hr_version.tint = tiercolor("red")
-data.raw.radar["nullius-sensor-node-3"].pictures =
-    util.table.deepcopy(data.raw.radar["nullius-sensor-node-1"].pictures)
+data.raw.radar["nullius-sensor-node-3"].pictures = util.table.deepcopy(oldradar.pictures)
 data.raw.radar["nullius-sensor-node-3"].pictures.layers[2].tint = tiercolor("blue")
 data.raw.radar["nullius-sensor-node-3"].pictures.layers[2].hr_version.tint = tiercolor("blue")
 end

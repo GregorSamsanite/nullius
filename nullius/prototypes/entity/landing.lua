@@ -254,7 +254,7 @@ data:extend({
       mining_time = 1.5,
       results = {
         {type="item", name="nullius-seawater-intake-1", amount=2},
-        {type="item", name="nullius-medium-tank-1", amount=5}
+        {type="item", name="storage-tank", amount=5}
       }
     },
     collision_box = {{-1.1, -0.6}, {1.0, 1.0}},

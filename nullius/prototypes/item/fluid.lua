@@ -4405,7 +4405,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     no_productivity = true,
-    category = "small-assembly",
+    category = "small-fluid-assembly",
     order = "nullius-fc",
     energy_required = 1,
     ingredients = {
@@ -4422,7 +4422,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     no_productivity = true,
-    category = "small-assembly",
+    category = "small-fluid-assembly",
     subgroup = "boxed-canister",
     order = "nullius-fc",
     energy_required = 5,
@@ -5754,7 +5754,7 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "aluminum-ingot",
+    subgroup = "aluminum-product",
     order = "nullius-o",
     energy_required = 20,
     ingredients = {

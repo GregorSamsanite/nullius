@@ -3283,6 +3283,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-air-filter-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-compressed-air"
       }
     },
     unit = {
@@ -6602,15 +6606,27 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-compressed-oxygen"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-hydrogen-combustion-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-hydrogen-canister-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-methanol-canister-2"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-mirror-combustion-chamber-3"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-unmirror-combustion-chamber-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-compressed-air"
       },
       {
         type = "unlock-recipe",
@@ -7159,7 +7175,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-compressed-oxygen"
+        recipe = "nullius-methane-combustion-2"
       },
       {
         type = "unlock-recipe",
@@ -8186,22 +8202,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-hydrogen-combustion-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-methane-combustion-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-hydrogen-canister-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-methanol-canister-2"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-pressure-monoxide-to-graphite"
       },
       {
@@ -8532,12 +8532,61 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-distribution-2", "nullius-high-pressure-chemistry", "nullius-land-fill-4"}
+    prerequisites = {"nullius-high-pressure-chemistry", "nullius-land-fill-4", "nullius-geothermal-power-2"}
   },
   {
     type = "technology",
-    name = "nullius-barreling-3",
+    name = "nullius-robot-cargo-1",
     order = "nullius-ep",
+    icon = "__base__/graphics/technology/worker-robots-storage.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "worker-robot-storage",
+        modifier = 1
+      }
+    },
+    unit = {
+      count = 1000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-exploration-1", "nullius-inserter-capacity-2", "nullius-locomotion-2"},
+    upgrade = true
+  },
+  {
+    type = "technology",
+    name = "nullius-packaging-6",
+    order = "nullius-ep",
+    icon = "__angelssmelting__/graphics/technology/powder-mixer-tech.png",
+    icon_size = 256,
+    icon_mipmaps = 2,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxer"
+      }
+    },
+    unit = {
+      count = 800,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-inserter-capacity-2", "nullius-distribution-2"}
+  },
+
+  {
+    type = "technology",
+    name = "nullius-barreling-3",
+    order = "nullius-eq",
     icon_size = 128,
     icon = "__angelsrefining__/graphics/technology/barrel-tech.png",
     effects = {
@@ -8623,34 +8672,8 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-pressure-containment", "nullius-distribution-2"},
+    prerequisites = {"nullius-pressure-containment", "nullius-packaging-6"},
   },
-  {
-    type = "technology",
-    name = "nullius-robot-cargo-1",
-    order = "nullius-ep",
-    icon = "__base__/graphics/technology/worker-robots-storage.png",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    effects = {
-      {
-        type = "worker-robot-storage",
-        modifier = 1
-      }
-    },
-    unit = {
-      count = 1000,
-      ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}
-      },
-      time = 35
-    },
-    prerequisites = {"nullius-exploration-1", "nullius-inserter-capacity-2", "nullius-locomotion-2"},
-    upgrade = true
-  },
-
   {
     type = "technology",
     name = "nullius-organic-chemistry-6",
@@ -8959,7 +8982,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-mass-production-5", "nullius-robot-cargo-1", "nullius-geothermal-power-2"}
+    prerequisites = {"nullius-mass-production-5", "nullius-packaging-6", "nullius-robot-cargo-1"}
   },
   {
     type = "technology",
@@ -10142,6 +10165,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-bauxite-flotation-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-aluminum-ingot-electrolytic"
       }
     },
     unit = {
@@ -10344,6 +10371,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-steel-ingot-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-steel-ingot-hydrogen"
       }
     },
     unit = {

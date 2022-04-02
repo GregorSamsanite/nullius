@@ -818,5 +818,43 @@ data:extend({
       },
       off_when_no_fluid_recipe = true
     }
+  },
+
+  {
+    type = "furnace",
+    name = "nullius-boxer",
+    icons = data.raw.item["nullius-boxer"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "nullius-boxer"},
+    max_health = 100,
+    corpse = "steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    collision_box = {{-0.25, -0.25}, {0.25, 0.25}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    drawing_box = {{-0.52, -0.82}, {0.52, 0.52}},
+    result_inventory_size = 1,
+    source_inventory_size = 1,
+    crafting_categories = {"packaging"},
+    crafting_speed = 4,
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions_per_minute = 0.1,
+	  drain = "5kW"
+	},
+    energy_usage = "395kW",
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.4 },
+    working_sound = {
+      sound = {
+        { filename = "__base__/sound/assembling-machine-t1-1.ogg", volume = 0.6 },
+        { filename = "__base__/sound/assembling-machine-t1-2.ogg", volume = 0.6 }
+      },
+      idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.5 },
+      apparent_volume = 0.5
+    },
+    animation = scale_image(data.raw["assembling-machine"]["powder-mixer"].animation, 0.52)
   }
 })
+
+data.raw["furnace"]["nullius-boxer"].animation.layers[1].tint = {0.88, 0.92, 1}
+data.raw["furnace"]["nullius-boxer"].animation.layers[1].hr_version.tint = {0.88, 0.92, 1}

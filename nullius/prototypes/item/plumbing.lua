@@ -1335,7 +1335,7 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {"nullius-small-furnace-1", 1},
-      {"nullius-medium-tank-1", 1}
+      {"storage-tank", 1}
     },
     result = "nullius-combustion-chamber-1"
   },
@@ -1731,7 +1731,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "large-crafting",
+    category = "huge-assembly",
     subgroup = "boxed-fluid-energy",
     energy_required = 10,
     ingredients = {
@@ -1797,7 +1797,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "large-crafting",
+    category = "huge-assembly",
     subgroup = "boxed-fluid-energy",
     energy_required = 15,
     ingredients = {
@@ -2268,7 +2268,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {"nullius-small-furnace-1", 1},
-      {"nullius-medium-tank-1", 1},
+      {"storage-tank", 1},
       {"nullius-priority-valve", 2},
       {"nullius-chimney-1", 1},
       {"nullius-filter-1", 2}
@@ -2709,7 +2709,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {"nullius-small-assembler-1", 1},
-      {"nullius-medium-tank-1", 2},
+      {"storage-tank", 2},
       {"nullius-filter-1", 2},
       {"nullius-priority-valve", 2},
       {"nullius-glass", 4}
@@ -2999,7 +2999,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"small-electric-pole", 8},
-      {"nullius-medium-tank-1", 3},
+      {"storage-tank", 3},
       {"nullius-filter-1", 2},
       {"nullius-priority-valve", 4}
     },
@@ -3354,19 +3354,6 @@ data:extend({
   },
 
   {
-    type = "item",
-    name = "nullius-medium-tank-1",
-    icons = {{
-      icon = "__base__/graphics/icons/storage-tank.png",
-      icon_size = 64,
-      icon_mipmaps = 4
-    }},
-    subgroup = "tanks",
-    order = "nullius-bcb",
-    place_result = "nullius-medium-tank-1",
-    stack_size = 50
-  },
-  {
     type = "recipe",
     name = "nullius-medium-tank-1",
     enabled = false,
@@ -3378,7 +3365,7 @@ data:extend({
       {"nullius-iron-rod", 1},
       {"nullius-pipe-1", 3}
     },
-    result = "nullius-medium-tank-1"
+    result = "storage-tank"
   },
   {
     type = "recipe",
@@ -3417,7 +3404,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 8,
     ingredients = {
-      {"nullius-medium-tank-1", 1},
+      {"storage-tank", 1},
       {"nullius-steel-sheet", 5},
       {"nullius-steel-rod", 2},
       {"nullius-plastic", 3},
