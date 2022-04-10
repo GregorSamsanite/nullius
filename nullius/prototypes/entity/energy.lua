@@ -3535,6 +3535,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-0.5, -2.2}, {0.5, 2.2}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {
@@ -3564,6 +3565,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-2.2, -0.5}, {2.2, 0.5}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {
@@ -3593,6 +3595,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-0.5, -2.2}, {0.5, 2.2}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {
@@ -3622,6 +3625,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-2.2, -0.5}, {2.2, 0.5}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {
@@ -3651,6 +3655,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-0.5, -2.2}, {0.5, 2.2}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {
@@ -3680,6 +3685,7 @@ data:extend({
     order = "c",
     flags = {"placeable-neutral","player-creation"},
     collision_box = {{-2.2, -0.5}, {2.2, 0.5}},
+	collision_mask = { },
     selectable_in_game = false,
     gui_mode = "none",
     heat_buffer = {

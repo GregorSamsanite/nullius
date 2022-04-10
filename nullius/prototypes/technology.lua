@@ -8691,6 +8691,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-benzene-reforming"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-plastic-pex"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-plastic-pex"
       }
     },
     unit = {

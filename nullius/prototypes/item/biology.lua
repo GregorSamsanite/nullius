@@ -2983,10 +2983,10 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=1}
     },
     results = {
-      {type="item", name="nullius-small-chest-1", amount=2},
+      {type="item", name="wooden-chest", amount=2},
       {type="item", name="nullius-cellulose", amount=1}
     },
-    main_product = "nullius-small-chest-1"
+    main_product = "wooden-chest"
   },
 
   {

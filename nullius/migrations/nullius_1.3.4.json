@@ -1,0 +1,24 @@
+{
+  "item":
+  [
+    ["nullius-small-chest-1", "wooden-chest"],
+    ["nullius-small-chest-2", "iron-chest"],
+    ["nullius-small-chest-3", "steel-chest"],
+    ["nullius-small-storage-chest-2", "logistic-chest-storage"],
+    ["nullius-small-supply-chest-2", "logistic-chest-passive-provider"],
+    ["nullius-small-demand-chest-2", "logistic-chest-requester"],
+    ["nullius-small-buffer-chest-2", "logistic-chest-buffer"],
+    ["nullius-small-dispatch-chest-2", "logistic-chest-active-provider"]
+  ],
+  "entity":
+  [
+    ["nullius-small-chest-1", "wooden-chest"],
+    ["nullius-small-chest-2", "iron-chest"],
+    ["nullius-small-chest-3", "steel-chest"],
+    ["nullius-small-storage-chest-2", "logistic-chest-storage"],
+    ["nullius-small-supply-chest-2", "logistic-chest-passive-provider"],
+    ["nullius-small-demand-chest-2", "logistic-chest-requester"],
+    ["nullius-small-buffer-chest-2", "logistic-chest-buffer"],
+    ["nullius-small-dispatch-chest-2", "logistic-chest-active-provider"]
+  ]
+}

@@ -600,6 +600,98 @@ data.raw["electric-pole"]["substation"].resistances =
     {{ type = "impact", decrease = 100, percent = 90 }}
 
 
+data.raw.item["wooden-chest"].localised_name =
+    {"entity-name.nullius-small-chest-1"}
+data.raw["container"]["wooden-chest"].localised_name =
+    {"entity-name.nullius-small-chest-1"}
+data.raw["container"]["wooden-chest"].max_health = 200
+data.raw["container"]["wooden-chest"].resistances = {
+    { type = "impact", decrease = 100, percent = 90 },
+    { type = "fire", percent = 75 }
+}
+
+data.raw.item["iron-chest"].localised_name =
+    {"entity-name.nullius-small-chest-2"}
+data.raw["container"]["iron-chest"].localised_name =
+    {"entity-name.nullius-small-chest-2"}
+data.raw["container"]["iron-chest"].max_health = 350
+data.raw["container"]["iron-chest"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+
+data.raw.item["steel-chest"].localised_name =
+    {"entity-name.nullius-small-chest-3"}
+data.raw["container"]["steel-chest"].localised_name =
+    {"entity-name.nullius-small-chest-3"}
+data.raw["container"]["steel-chest"].max_health = 500
+data.raw["container"]["steel-chest"].resistances =
+    data.raw["container"]["iron-chest"].resistances
+
+data.raw.item["logistic-chest-storage"].localised_name =
+    {"entity-name.nullius-small-storage-chest-2"}
+data.raw.item["logistic-chest-storage"].localised_description =
+    {"entity-description.nullius-storage-chest"}
+data.raw["logistic-container"]["logistic-chest-storage"].localised_name =
+    {"entity-name.nullius-small-storage-chest-2"}
+data.raw["logistic-container"]["logistic-chest-storage"].localised_description =
+    {"entity-description.nullius-storage-chest"}
+data.raw["logistic-container"]["logistic-chest-storage"].max_health = 400
+data.raw["logistic-container"]["logistic-chest-storage"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+
+data.raw.item["logistic-chest-passive-provider"].localised_name =
+    {"entity-name.nullius-small-supply-chest-2"}
+data.raw.item["logistic-chest-passive-provider"].localised_description =
+    {"entity-description.nullius-supply-chest"}
+data.raw["logistic-container"]["logistic-chest-passive-provider"].localised_name =
+    {"entity-name.nullius-small-supply-chest-2"}
+data.raw["logistic-container"]["logistic-chest-passive-provider"].localised_description =
+    {"entity-description.nullius-supply-chest"}
+data.raw["logistic-container"]["logistic-chest-passive-provider"].max_health = 400
+data.raw["logistic-container"]["logistic-chest-passive-provider"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+
+data.raw.item["logistic-chest-requester"].localised_name =
+    {"entity-name.nullius-small-demand-chest-2"}
+data.raw.item["logistic-chest-requester"].localised_description =
+    {"entity-description.nullius-demand-chest"}
+data.raw["logistic-container"]["logistic-chest-requester"].localised_name =
+    {"entity-name.nullius-small-demand-chest-2"}
+data.raw["logistic-container"]["logistic-chest-requester"].localised_description =
+    {"entity-description.nullius-demand-chest"}
+data.raw["logistic-container"]["logistic-chest-requester"].max_health = 400
+data.raw["logistic-container"]["logistic-chest-requester"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+
+data.raw.item["logistic-chest-buffer"].localised_name =
+    {"entity-name.nullius-small-buffer-chest-2"}
+data.raw.item["logistic-chest-buffer"].localised_description =
+    {"entity-description.nullius-buffer-chest"}
+data.raw["logistic-container"]["logistic-chest-buffer"].localised_name =
+    {"entity-name.nullius-small-buffer-chest-2"}
+data.raw["logistic-container"]["logistic-chest-buffer"].localised_description =
+    {"entity-description.nullius-buffer-chest"}
+data.raw["logistic-container"]["logistic-chest-buffer"].max_health = 400
+data.raw["logistic-container"]["logistic-chest-buffer"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+
+data.raw.item["logistic-chest-active-provider"].localised_name =
+    {"entity-name.nullius-small-dispatch-chest-2"}
+data.raw.item["logistic-chest-active-provider"].localised_description =
+    {"entity-description.nullius-dispatch-chest"}
+data.raw["logistic-container"]["logistic-chest-active-provider"].localised_name =
+    {"entity-name.nullius-small-dispatch-chest-2"}
+data.raw["logistic-container"]["logistic-chest-active-provider"].localised_description =
+    {"entity-description.nullius-dispatch-chest"}
+data.raw["logistic-container"]["logistic-chest-active-provider"].max_health = 400
+data.raw["logistic-container"]["logistic-chest-active-provider"].resistances =
+    data.raw["container"]["wooden-chest"].resistances
+	
+
+data.raw["mining-drill"]["burner-mining-drill"].resource_categories = {"unused-resource"}
+data.raw["mining-drill"]["electric-mining-drill"].resource_categories = {"unused-resource"}
+data.raw["mining-drill"]["pumpjack"].resource_categories = {"unused-resource"}
+
+
 for _,shortcut in pairs(data.raw.shortcut) do
   if ((shortcut.technology_to_unlock == "construction-robotics") or
       (shortcut.technology_to_unlock == "personal-roboport-equipment")) then

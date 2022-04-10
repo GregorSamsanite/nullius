@@ -329,7 +329,7 @@ data:extend({
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
-      {type="item", name="nullius-small-chest-1", amount=1},
+      {type="item", name="wooden-chest", amount=1},
       {type="item", name="underground-belt", amount=1}
     },
     result = "chute-miniloader"
@@ -369,7 +369,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {type="item", name="miniloader", amount=1},
-      {type="item", name="nullius-small-chest-2", amount=1},
+      {type="item", name="iron-chest", amount=1},
       {type="item", name="fast-underground-belt", amount=2},
       {type="item", name="turbo-inserter", amount=2}
     },
@@ -384,7 +384,7 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {type="item", name="fast-miniloader", amount=1},
-      {type="item", name="nullius-small-chest-3", amount=1},
+      {type="item", name="steel-chest", amount=1},
       {type="item", name="express-underground-belt", amount=1},
       {type="item", name="stack-inserter", amount=2}
     },
@@ -399,7 +399,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="express-miniloader", amount=1},
-      {type="item", name="nullius-small-storage-chest-2", amount=1},
+      {type="item", name="logistic-chest-storage", amount=1},
       {type="item", name="ultimate-underground-belt", amount=1},
       {type="item", name="express-stack-inserter", amount=2}
     },
@@ -424,7 +424,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {type="item", name="miniloader", amount=1},
-      {type="item", name="nullius-small-chest-2", amount=1},
+      {type="item", name="iron-chest", amount=1},
       {type="item", name="fast-underground-belt", amount=2},
       {type="item", name="turbo-filter-inserter", amount=2}
     },
@@ -439,7 +439,7 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {type="item", name="fast-filter-miniloader", amount=1},
-      {type="item", name="nullius-small-chest-3", amount=1},
+      {type="item", name="steel-chest", amount=1},
       {type="item", name="express-underground-belt", amount=1},
       {type="item", name="stack-filter-inserter", amount=2}
     },
@@ -454,7 +454,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="express-filter-miniloader", amount=1},
-      {type="item", name="nullius-small-storage-chest-2", amount=1},
+      {type="item", name="logistic-chest-storage", amount=1},
       {type="item", name="ultimate-underground-belt", amount=1},
       {type="item", name="express-stack-filter-inserter", amount=2}
     },
@@ -1784,6 +1784,25 @@ data:extend({
       time = 25
     },
     prerequisites = {"nullius-computation"}
+  }
+})
+end
+
+
+if mods["Shuttle_Train_Continued"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-shuttle-lite",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 8,
+    ingredients = {
+      {"radar", 1},
+      {"nullius-robot-frame-1", 1}
+    },
+    result = "shuttle-lite"
   }
 })
 end

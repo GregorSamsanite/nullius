@@ -222,7 +222,7 @@ end
 if (settings.startup["miniloader-enable-standard"].value and
       not settings.startup["miniloader-enable-chute"].value) then
   data.raw.recipe["nullius-miniloader-1"].ingredients = {
-    {type="item", name="nullius-small-chest-1", amount=1},
+    {type="item", name="wooden-chest", amount=1},
     {type="item", name="underground-belt", amount=2},
     {type="item", name="inserter", amount=2}
   }
@@ -230,7 +230,7 @@ end
 if (settings.startup["miniloader-enable-filter"].value and
       not settings.startup["miniloader-enable-standard"].value) then
   data.raw.recipe["nullius-filter-miniloader-2"].ingredients = {
-    {type="item", name="nullius-small-chest-2", amount=1},
+    {type="item", name="iron-chest", amount=1},
     {type="item", name="fast-underground-belt", amount=2},
     {type="item", name="turbo-filter-inserter", amount=3}
   }
@@ -1279,4 +1279,12 @@ end
 if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
   data.raw.item["hs_holo_sign"].stack_size = 50
+end
+
+
+if mods["Shuttle_Train_Continued"] then
+  data.raw.item["shuttle-lite"].subgroup = "railway"
+  data.raw.item["shuttle-lite"].order = "nullius-s"
+  table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
+    {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
 end

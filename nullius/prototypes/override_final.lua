@@ -1,6 +1,8 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local BASEENTITY = "__base__/graphics/entity/"
+
 
 data.raw.item["stone-brick"].subgroup = "masonry"
 data.raw.item["stone-brick"].order = "nullius-b"
@@ -146,6 +148,113 @@ data.raw["electric-pole"]["substation"].maximum_wire_distance = 24.5
 data.raw["electric-pole"]["substation"].supply_area_distance = 12
 data.raw["electric-pole"]["substation"].fast_replaceable_group = "pylon"
 data.raw["electric-pole"]["substation"].next_upgrade = "nullius-substation-2"
+
+
+data.raw.item["wooden-chest"].icons =
+    {{ icon = ENTICONPATH .. "chest1.png", icon_size = 64 }}
+data.raw.item["wooden-chest"].subgroup = "storage"
+data.raw.item["wooden-chest"].order = "nullius-bb"
+data.raw.item["wooden-chest"].stack_size = 100
+
+data.raw.item["iron-chest"].icons =
+    {{ icon = ENTICONPATH .. "chest2.png", icon_size = 64 }}
+data.raw.item["iron-chest"].subgroup = "storage"
+data.raw.item["iron-chest"].order = "nullius-bc"
+data.raw.item["iron-chest"].stack_size = 100
+
+data.raw.item["steel-chest"].icons =
+    {{ icon = ENTICONPATH .. "chest3s.png", icon_size = 64 }}
+data.raw.item["steel-chest"].subgroup = "storage"
+data.raw.item["steel-chest"].order = "nullius-bd"
+data.raw.item["steel-chest"].stack_size = 100
+
+data.raw["container"]["wooden-chest"].picture =
+    util.table.deepcopy(data.raw.container["iron-chest"].picture)
+data.raw["container"]["iron-chest"].picture =
+    util.table.deepcopy(data.raw.container["steel-chest"].picture)
+data.raw["container"]["steel-chest"].picture = { layers = {
+  {
+    filename = ENTITYPATH .. "chest/chest3e.png",
+    priority = "extra-high",
+    width = 68,
+    height = 84,
+    shift = util.by_pixel(0, -1),
+    scale = 0.5
+  },
+  {
+    filename = BASEENTITY .. "infinity-chest/hr-infinity-chest-shadow.png",
+    priority = "extra-high",
+    width = 116,
+    height = 48,
+    shift = util.by_pixel(12, 6),
+    draw_as_shadow = true,
+    scale = 0.5
+  }
+}}
+	
+data.raw["container"]["wooden-chest"].icons = data.raw.item["wooden-chest"].icons
+data.raw["container"]["wooden-chest"].inventory_size = 10
+data.raw["container"]["iron-chest"].icons = data.raw.item["iron-chest"].icons
+data.raw["container"]["iron-chest"].inventory_size = 20
+data.raw["container"]["steel-chest"].icons = data.raw.item["steel-chest"].icons
+data.raw["container"]["steel-chest"].inventory_size = 30
+data.raw["container"]["wooden-chest"].next_upgrade = "iron-chest"
+data.raw["container"]["iron-chest"].next_upgrade = "steel-chest"
+data.raw["container"]["steel-chest"].next_upgrade = nil
+
+
+data.raw.item["logistic-chest-storage"].icons =
+    {{ icon = ENTICONPATH .. "chest-storage1.png", icon_size = 64 }}
+data.raw.item["logistic-chest-storage"].subgroup = "small-logistic-storage"
+data.raw.item["logistic-chest-storage"].order = "nullius-bc"
+data.raw.item["logistic-chest-storage"].stack_size = 100
+
+data.raw.item["logistic-chest-passive-provider"].icons =
+    {{ icon = ENTICONPATH .. "chest-supply1.png", icon_size = 64 }}
+data.raw.item["logistic-chest-passive-provider"].subgroup = "small-logistic-storage"
+data.raw.item["logistic-chest-passive-provider"].order = "nullius-cc"
+data.raw.item["logistic-chest-passive-provider"].stack_size = 100
+
+data.raw.item["logistic-chest-requester"].icons =
+    {{ icon = ENTICONPATH .. "chest-demand1.png", icon_size = 64 }}
+data.raw.item["logistic-chest-requester"].subgroup = "small-logistic-storage"
+data.raw.item["logistic-chest-requester"].order = "nullius-dc"
+data.raw.item["logistic-chest-requester"].stack_size = 100
+
+data.raw.item["logistic-chest-buffer"].icons =
+    {{ icon = ENTICONPATH .. "chest-buffer1.png", icon_size = 64 }}
+data.raw.item["logistic-chest-buffer"].subgroup = "small-logistic-storage"
+data.raw.item["logistic-chest-buffer"].order = "nullius-ec"
+data.raw.item["logistic-chest-buffer"].stack_size = 100
+
+data.raw.item["logistic-chest-active-provider"].icons =
+    {{ icon = ENTICONPATH .. "chest-dispatch1.png", icon_size = 64 }}
+data.raw.item["logistic-chest-active-provider"].subgroup = "small-logistic-storage"
+data.raw.item["logistic-chest-active-provider"].order = "nullius-fc"
+data.raw.item["logistic-chest-active-provider"].stack_size = 100
+
+data.raw["logistic-container"]["logistic-chest-storage"].icons =
+    data.raw.item["logistic-chest-storage"].icons
+data.raw["logistic-container"]["logistic-chest-storage"].inventory_size = 30
+data.raw["logistic-container"]["logistic-chest-passive-provider"].icons =
+    data.raw.item["logistic-chest-passive-provider"].icons
+data.raw["logistic-container"]["logistic-chest-passive-provider"].inventory_size = 30
+data.raw["logistic-container"]["logistic-chest-requester"].icons =
+    data.raw.item["logistic-chest-requester"].icons
+data.raw["logistic-container"]["logistic-chest-requester"].inventory_size = 30
+data.raw["logistic-container"]["logistic-chest-requester"].max_logistic_slots = 8
+data.raw["logistic-container"]["logistic-chest-buffer"].icons =
+    data.raw.item["logistic-chest-buffer"].icons
+data.raw["logistic-container"]["logistic-chest-buffer"].inventory_size = 30
+data.raw["logistic-container"]["logistic-chest-buffer"].max_logistic_slots = 6
+data.raw["logistic-container"]["logistic-chest-active-provider"].icons =
+    data.raw.item["logistic-chest-active-provider"].icons
+data.raw["logistic-container"]["logistic-chest-active-provider"].inventory_size = 30
+data.raw["logistic-container"]["logistic-chest-storage"].next_upgrade = nil
+data.raw["logistic-container"]["logistic-chest-passive-provider"].next_upgrade = nil
+data.raw["logistic-container"]["logistic-chest-requester"].next_upgrade = nil
+data.raw["logistic-container"]["logistic-chest-buffer"].next_upgrade = nil
+data.raw["logistic-container"]["logistic-chest-active-provider"].next_upgrade = nil
 
 
 -- Workaround issues with Squeak_Through

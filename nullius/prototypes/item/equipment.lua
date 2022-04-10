@@ -226,7 +226,7 @@ data:extend({
       {"nullius-textile", 20},
       {"nullius-robot-frame-3", 4},
       {"nullius-efficiency-module-2", 2},
-      {"nullius-small-storage-chest-2", 1}
+      {"logistic-chest-storage", 1}
     },
     result = "nullius-chassis-4"
   },
@@ -1851,7 +1851,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-small-chest-2", 3},
+      {"iron-chest", 3},
       {"nullius-steel-beam", 4},
       {"nullius-steel-plate", 5},
       {"nullius-steel-rod", 3},
@@ -2265,7 +2265,7 @@ data:extend({
       {"nullius-logistic-bot-2", 2},
       {"nullius-robot-frame-3", 1},
       {"nullius-speed-module-2", 1},
-      {"nullius-small-buffer-chest-2", 1}
+      {"logistic-chest-buffer", 1}
     },
     result = "nullius-logistic-bot-3"
   },
@@ -2281,7 +2281,7 @@ data:extend({
       {"nullius-box-logistic-bot-2", 2},
       {"nullius-box-robot-frame-3", 1},
       {"nullius-box-speed-module-2", 1},
-      {"nullius-small-buffer-chest-2", 5}
+      {"logistic-chest-buffer", 5}
     },
     result = "nullius-box-logistic-bot-3"
   },

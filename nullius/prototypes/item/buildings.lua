@@ -282,7 +282,7 @@ data:extend({
     ingredients = {
       {"inserter", 1},
       {"transport-belt", 1},
-      {"nullius-small-chest-1", 1}
+      {"wooden-chest", 1}
     },
     result = "nullius-small-assembler-1"
   },
@@ -297,7 +297,7 @@ data:extend({
       {"nullius-small-assembler-1", 1},
       {"repair-pack", 2},
       {"splitter", 1},
-      {"nullius-small-chest-2", 2}
+      {"iron-chest", 2}
     },
     result = "nullius-small-assembler-2"
   },
@@ -1016,42 +1016,6 @@ data:extend({
   },
 
   {
-    type = "item",
-    name = "nullius-small-chest-1",
-    icons = {{
-      icon = ENTICONPATH .. "chest1.png",
-      icon_size = 64
-    }},
-    subgroup = "storage",
-    order = "nullius-bb",
-    place_result = "nullius-small-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest2.png",
-      icon_size = 64
-    }},
-    subgroup = "storage",
-    order = "nullius-bc",
-    place_result = "nullius-small-chest-2",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-chest-3",
-    icons = {{
-      icon = ENTICONPATH .. "chest3s.png",
-      icon_size = 64
-    }},
-    subgroup = "storage",
-    order = "nullius-bd",
-    place_result = "nullius-small-chest-3",
-    stack_size = 100
-  },
-  {
     type = "recipe",
     name = "nullius-small-chest-1",
     enabled = false,
@@ -1062,7 +1026,7 @@ data:extend({
       {"nullius-iron-sheet", 2},
       {"nullius-iron-rod", 1}
     },
-    result = "nullius-small-chest-1"
+    result = "wooden-chest"
   },
   {
     type = "recipe",
@@ -1072,12 +1036,12 @@ data:extend({
     always_show_made_in = true,
     energy_required = 3,
     ingredients = {
-      {"nullius-small-chest-1", 1},
+      {"wooden-chest", 1},
       {"nullius-steel-sheet", 4},
       {"nullius-steel-rod", 2},
       {"nullius-rubber", 1}
     },
-    result = "nullius-small-chest-2"
+    result = "iron-chest"
   },
   {
     type = "recipe",
@@ -1087,12 +1051,12 @@ data:extend({
     always_show_made_in = true,
     energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-small-chest-2", amount=1},
+      {type="item", name="iron-chest", amount=1},
       {type="item", name="nullius-titanium-sheet", amount=4},
       {type="item", name="nullius-titanium-rod", amount=2},
       {type="fluid", name="nullius-epoxy", amount=4, fluidbox_index=1}
     },
-    result = "nullius-small-chest-3"
+    result = "steel-chest"
   },
 
   {
@@ -1128,7 +1092,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-small-chest-2", 5},
+      {"iron-chest", 5},
       {"nullius-aluminum-plate", 4}
     },
     result = "nullius-large-chest-1"
@@ -1142,7 +1106,7 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {"nullius-large-chest-1", 1},
-      {"nullius-small-chest-3", 4},
+      {"steel-chest", 4},
       {"nullius-titanium-plate", 4}
     },
     result = "nullius-large-chest-2"
@@ -1172,18 +1136,6 @@ data:extend({
     subgroup = "small-logistic-storage",
     order = "nullius-bb",
     place_result = "nullius-small-storage-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-storage-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest-storage1.png",
-      icon_size = 64
-    }},
-    subgroup = "small-logistic-storage",
-    order = "nullius-bc",
-    place_result = "nullius-small-storage-chest-2",
     stack_size = 100
   },
   {
@@ -1232,7 +1184,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 2,
     ingredients = {
-      {"nullius-small-chest-2", 1},
+      {"iron-chest", 1},
       {"programmable-speaker", 1},
       {"arithmetic-combinator", 1}
     },
@@ -1262,11 +1214,11 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-small-storage-chest-1", 1},
-      {"nullius-small-chest-3", 1},
+      {"steel-chest", 1},
       {"nullius-relay-2", 1},
       {"nullius-processor-2", 1}
     },
-    result = "nullius-small-storage-chest-2"
+    result = "logistic-chest-storage"
   },
   {
     type = "recipe",
@@ -1277,7 +1229,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {"nullius-large-storage-chest-1", 1},
-      {"nullius-small-storage-chest-2", 1},
+      {"logistic-chest-storage", 1},
       {"nullius-large-chest-2", 1},
       {"express-stack-filter-inserter", 1}
     },
@@ -1308,18 +1260,6 @@ data:extend({
     subgroup = "small-logistic-storage",
     order = "nullius-cb",
     place_result = "nullius-small-supply-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-supply-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest-supply1.png",
-      icon_size = 64
-    }},
-    subgroup = "small-logistic-storage",
-    order = "nullius-cc",
-    place_result = "nullius-small-supply-chest-2",
     stack_size = 100
   },
   {
@@ -1395,9 +1335,9 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-small-supply-chest-1", 1},
-      {"nullius-small-storage-chest-2", 1}
+      {"logistic-chest-storage", 1}
     },
-    result = "nullius-small-supply-chest-2"
+    result = "logistic-chest-passive-provider"
   },
   {
     type = "recipe",
@@ -1437,18 +1377,6 @@ data:extend({
     subgroup = "small-logistic-storage",
     order = "nullius-db",
     place_result = "nullius-small-demand-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-demand-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest-demand1.png",
-      icon_size = 64
-    }},
-    subgroup = "small-logistic-storage",
-    order = "nullius-dc",
-    place_result = "nullius-small-demand-chest-2",
     stack_size = 100
   },
   {
@@ -1524,9 +1452,9 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-small-demand-chest-1", 1},
-      {"nullius-small-storage-chest-2", 1}
+      {"logistic-chest-storage", 1}
     },
-    result = "nullius-small-demand-chest-2"
+    result = "logistic-chest-requester"
   },
   {
     type = "recipe",
@@ -1566,18 +1494,6 @@ data:extend({
     subgroup = "small-logistic-storage",
     order = "nullius-eb",
     place_result = "nullius-small-buffer-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-buffer-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest-buffer1.png",
-      icon_size = 64
-    }},
-    subgroup = "small-logistic-storage",
-    order = "nullius-ec",
-    place_result = "nullius-small-buffer-chest-2",
     stack_size = 100
   },
   {
@@ -1653,9 +1569,9 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-small-buffer-chest-1", 1},
-      {"nullius-small-storage-chest-2", 1}
+      {"logistic-chest-storage", 1}
     },
-    result = "nullius-small-buffer-chest-2"
+    result = "logistic-chest-buffer"
   },
   {
     type = "recipe",
@@ -1695,18 +1611,6 @@ data:extend({
     subgroup = "small-logistic-storage",
     order = "nullius-fb",
     place_result = "nullius-small-dispatch-chest-1",
-    stack_size = 100
-  },
-  {
-    type = "item",
-    name = "nullius-small-dispatch-chest-2",
-    icons = {{
-      icon = ENTICONPATH .. "chest-dispatch1.png",
-      icon_size = 64
-    }},
-    subgroup = "small-logistic-storage",
-    order = "nullius-fc",
-    place_result = "nullius-small-dispatch-chest-2",
     stack_size = 100
   },
   {
@@ -1782,9 +1686,9 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-small-dispatch-chest-1", 1},
-      {"nullius-small-storage-chest-2", 1}
+      {"logistic-chest-storage", 1}
     },
-    result = "nullius-small-dispatch-chest-2"
+    result = "logistic-chest-active-provider"
   },
   {
     type = "recipe",

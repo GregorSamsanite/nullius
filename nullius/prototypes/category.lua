@@ -4,6 +4,11 @@ local CATEGORYPATH = "__nullius__/graphics/category/"
 
 data:extend({
   {
+    type = "resource-category",
+    name = "unused-resource"
+  },
+
+  {
     type = "recipe-category",
     name = "hand-crafting",
   },

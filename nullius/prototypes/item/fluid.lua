@@ -3879,9 +3879,9 @@ data:extend({
     category = "distillation",
     subgroup = "carbon",
     order = "nullius-pb",
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=120}
+      {type="fluid", name="nullius-ethylene", amount=135}
     },
     results = {
       {type="fluid", name="nullius-methane", amount=50},
@@ -3906,9 +3906,9 @@ data:extend({
     category = "distillation",
     subgroup = "carbon",
     order = "nullius-pc",
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
-      {type="fluid", name="nullius-propene", amount=80}
+      {type="fluid", name="nullius-propene", amount=90}
     },
     results = {
       {type="fluid", name="nullius-methane", amount=30},
@@ -3934,12 +3934,12 @@ data:extend({
     order = "nullius-g",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-methane", amount=20},
+      {type="fluid", name="nullius-compressed-methane", amount=18},
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=20}
     },
     results = {
-      {type="fluid", name="nullius-compressed-hydrogen", amount=30},
-      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=25}
+      {type="fluid", name="nullius-compressed-hydrogen", amount=24},
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=20}
     },
     main_product = "nullius-compressed-carbon-monoxide"
   },
@@ -5209,7 +5209,7 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-    order = "nullius-bd",
+    order = "nullius-be",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acrylonitrile"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -5227,11 +5227,31 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-plastic",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pc-abs"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/styrene.png",
+        icon_size = 72,
+        scale = 0.18,
+        shift = {9, -8}
+      }
+    },
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-      subgroup = "boxed-organic-1",
+    subgroup = "boxed-organic-1",
+    order = "nullius-dc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acrylonitrile"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -5244,6 +5264,92 @@ data:extend({
       {type="fluid", name="nullius-acrylonitrile", amount=15}
     },
     result = "nullius-box-plastic",
+    result_count = 8
+  },
+  {
+    type = "recipe",
+    name = "nullius-plastic-pex",
+    localised_name = {"recipe-name.nullius-pex"},
+    icons = {
+      {
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/ethylene.png",
+        icon_size = 72,
+        scale = 0.2,
+        shift = {10, -9}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+    category = "basic-chemistry",
+    order = "nullius-bd",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ethylene"].flow_color,
+      secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-ethylene", amount=265},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=30},
+      {type="item", name="nullius-silicon-ingot", amount=1},
+      {type="item", name="nullius-aluminum-wire", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-plastic", amount=40},
+      {type="fluid", name="nullius-sludge", amount=40}
+    },
+    main_product = "nullius-plastic",
+    result_count = 40
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-plastic-pex",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pex"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/ethylene.png",
+        icon_size = 72,
+        scale = 0.18,
+        shift = {9, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+    category = "basic-chemistry",
+    subgroup = "boxed-organic-1",
+    order = "nullius-db",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ethylene"].flow_color,
+      secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-ethylene", amount=265},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=30},
+      {type="item", name="nullius-silicon-ingot", amount=1},
+      {type="item", name="nullius-aluminum-wire", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-box-plastic", amount=8},
+      {type="fluid", name="nullius-sludge", amount=40}
+    },
+    main_product = "nullius-box-plastic",
     result_count = 8
   },
 

@@ -70,7 +70,7 @@ data:extend({
     connection_points = data.raw["electric-pole"]["medium-electric-pole"].connection_points,
     radius_visualisation_picture = data.raw["electric-pole"]["medium-electric-pole"].radius_visualisation_picture,
     water_reflection = data.raw["electric-pole"]["medium-electric-pole"].water_reflection,
-    pictures = data.raw["electric-pole"]["medium-electric-pole"].pictures
+    pictures = util.table.deepcopy(data.raw["electric-pole"]["medium-electric-pole"].pictures)
   },
 
   {
@@ -189,7 +189,7 @@ data:extend({
     connection_points = data.raw["electric-pole"]["substation"].connection_points,
     radius_visualisation_picture = data.raw["electric-pole"]["substation"].radius_visualisation_picture,
     water_reflection = data.raw["electric-pole"]["substation"].water_reflection,
-    pictures = data.raw["electric-pole"]["substation"].pictures
+    pictures = util.table.deepcopy(data.raw["electric-pole"]["substation"].pictures)
   },
 
   {
