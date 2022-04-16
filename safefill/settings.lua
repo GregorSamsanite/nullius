@@ -3,16 +3,16 @@ data:extend({
     type = "string-setting",
     name = "safefill-cost",
     setting_type = "startup",
-    default_value = "Normal",
-    allowed_values = {"Cheap", "Normal", "Expensive"},
+    default_value = "normal",
+    allowed_values = {"cheap", "normal", "expensive"},
     order = "b"
   },
   {
     type = "string-setting",
     name = "safefill-depth",
     setting_type = "startup",
-    default_value = "All depths",
-    allowed_values = {"All depths", "Shallow only", "No shallow", "No deep", "Medium only"},
+    default_value = "all-depths",
+    allowed_values = {"all-depths", "shallow-only", "no-shallow", "no-deep", "medium-only"},
     order = "c"
   },
   {

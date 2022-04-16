@@ -12,18 +12,18 @@ local do_shallow = true
 local do_medium = true
 local do_deep = true
 local expected = 3
-if ((settings.startup["safefill-depth"].value == "No shallow") or
-    (settings.startup["safefill-depth"].value == "Medium only")) then
+if ((settings.startup["safefill-depth"].value == "no-shallow") or
+    (settings.startup["safefill-depth"].value == "medium-only")) then
   do_shallow = false
   expected = expected - 1
 end
-if (settings.startup["safefill-depth"].value == "Shallow only") then
+if (settings.startup["safefill-depth"].value == "shallow-only") then
   do_medium = false
   expected = expected - 1
 end
-if ((settings.startup["safefill-depth"].value == "No deep") or
-    (settings.startup["safefill-depth"].value == "Medium only") or
-	(settings.startup["safefill-depth"].value == "Shallow only")) then
+if ((settings.startup["safefill-depth"].value == "no-deep") or
+    (settings.startup["safefill-depth"].value == "medium-only") or
+	(settings.startup["safefill-depth"].value == "shallow-only")) then
   do_deep = false
   expected = expected - 1
 end
@@ -57,7 +57,7 @@ function create_waterfill(suffix, tilename, suborder, active, layer)
     result = safename
   }
 
-  if (settings.startup["safefill-cost"].value == "Expensive") then
+  if (settings.startup["safefill-cost"].value == "expensive") then
     if mods["nullius"] then
       recipe.category = "large-crafting"
     else
@@ -129,7 +129,7 @@ if mods["nullius"] then
   data.raw.recipe["safefill-deep"].no_productivity = true
 end
 
-if (settings.startup["safefill-cost"].value == "Expensive") then
+if (settings.startup["safefill-cost"].value == "expensive") then
   data.raw.recipe["safefill-shallow"].energy_required = 10
   data.raw.recipe["safefill-medium"].energy_required = 5
   data.raw.recipe["safefill-deep"].energy_required = 4
@@ -183,7 +183,7 @@ if (settings.startup["safefill-cost"].value == "Expensive") then
   }
   data.raw.recipe["safefill-shallow"].main_product = "safefill-shallow"
   data.raw.recipe["safefill-deep"].main_product = "safefill-deep"
-elseif (settings.startup["safefill-cost"].value == "Cheap") then
+elseif (settings.startup["safefill-cost"].value == "cheap") then
   data.raw.recipe["safefill-shallow"].energy_required = 3
   data.raw.recipe["safefill-medium"].energy_required = 2
   data.raw.recipe["safefill-deep"].energy_required = 1
@@ -258,7 +258,7 @@ if settings.startup["safefill-green-water"].value then
     data.raw.recipe["safefill-deepgreen"].no_productivity = true
   end
 
-  if (settings.startup["safefill-cost"].value == "Expensive") then
+  if (settings.startup["safefill-cost"].value == "expensive") then
     data.raw.recipe["safefill-mud"].energy_required = 8
     data.raw.recipe["safefill-green"].energy_required = 5
     data.raw.recipe["safefill-deepgreen"].energy_required = 4
@@ -316,7 +316,7 @@ if settings.startup["safefill-green-water"].value then
     }
     data.raw.recipe["safefill-mud"].main_product = "safefill-mud"
     data.raw.recipe["safefill-deepgreen"].main_product = "safefill-deepgreen"
-  elseif (settings.startup["safefill-cost"].value == "Cheap") then
+  elseif (settings.startup["safefill-cost"].value == "cheap") then
     data.raw.recipe["safefill-mud"].energy_required = 2
     data.raw.recipe["safefill-green"].energy_required = 2
     data.raw.recipe["safefill-deepgreen"].energy_required = 1
@@ -430,7 +430,7 @@ data:extend({
 })
 end
 
-if (settings.startup["safefill-cost"].value == "Expensive") then
+if (settings.startup["safefill-cost"].value == "expensive") then
   if mods["nullius"] then
     data.raw.technology["nullius-irrigation"].unit.count = 1200
     data.raw.technology["nullius-irrigation"].prerequisites = {"nullius-land-fill-4"}
@@ -446,7 +446,7 @@ if (settings.startup["safefill-cost"].value == "Expensive") then
 	data.raw.technology["nullius-irrigation"].prerequisites =
 	  {"cliff-explosives", "chemical-science-pack", "concrete", "landfill"}
   end
-elseif (settings.startup["safefill-cost"].value == "Cheap") then
+elseif (settings.startup["safefill-cost"].value == "cheap") then
   if mods["nullius"] then
     data.raw.technology["nullius-irrigation"].prerequisites = {"nullius-land-fill-2"}
     data.raw.technology["nullius-irrigation"].unit = {
