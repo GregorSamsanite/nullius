@@ -687,7 +687,7 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-      results = { {type="item", name="nullius-small-miner-1", amount=5} }
+      results = { {type="item", name="nullius-small-miner-1", amount=3} }
     },
     collision_box = {{-1.2, -0.7}, {1.2, 0.7}},
     selection_box = {{-1.5, -1}, {1.5, 1}},

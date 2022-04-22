@@ -2759,7 +2759,7 @@ data:extend({
     minable = {mining_time = 0.2, result = "nullius-pump-2"},
     max_health = 200,
     fast_replaceable_group = "pump",
-    next_upgrade = "nullius-pump-3",
+    next_upgrade = "pump",
     corpse = "pump-remnants",
     dying_explosion = "pump-explosion",
     collision_box = {{-0.29, -0.9}, {0.29, 0.9}},
@@ -2896,55 +2896,6 @@ data:extend({
         }
       }
     }
-  },
-
-  {
-    type = "pump",
-    name = "nullius-pump-3",
-    icon = "__base__/graphics/icons/pump.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-pump-3"},
-    max_health = 250,
-    fast_replaceable_group = "pump",
-    corpse = "pump-remnants",
-    dying_explosion = "pump-explosion",
-    collision_box = {{-0.29, -0.9}, {0.29, 0.9}},
-    selection_box = {{-0.5, -1}, {0.5, 1}},
-    working_sound = data.raw.pump["pump"].working_sound,
-    damaged_trigger_effect = data.raw.pump["pump"].damaged_trigger_effect,
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", decrease = 20, percent = 50 }
-    },
-    fluid_box = {
-      base_area = 1,
-      height = 10,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { position = {0, -1.5}, type = "output" },
-        { position = {0, 1.5}, type = "input" }
-      }
-    },
-    energy_source = {
-      type = "electric",
-      usage_priority = "secondary-input"
-    },
-    energy_usage = "30kW",
-    pumping_speed = 160,
-    vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
-    open_sound = data.raw.pump["pump"].open_sound,
-    close_sound = data.raw.pump["pump"].close_sound,
-    fluid_wagon_connector_frame_count = 35,
-    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
-    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
-    fluid_animation = data.raw.pump["pump"].fluid_animation,
-    glass_pictures = data.raw.pump["pump"].glass_pictures,
-    circuit_wire_connection_points = circuit_connector_definitions["pump"].points,
-    circuit_connector_sprites = circuit_connector_definitions["pump"].sprites,
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animations = data.raw.pump["pump"].animations
   },
 
   {
@@ -3102,41 +3053,6 @@ data:extend({
 
   {
     type = "pipe",
-    name = "nullius-pipe-1",
-    icons = data.raw.item["nullius-pipe-1"].icons,
-    flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
-    minable = {mining_time = 0.1, result = "nullius-pipe-1"},
-    max_health = 100,
-    corpse = "pipe-remnants",
-    dying_explosion = "pipe-explosion",
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", decrease = 20, percent = 50 }
-    },
-    fast_replaceable_group = "pipe",
-    next_upgrade = "nullius-pipe-2",
-    collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
-    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["pipe"]["pipe"].damaged_trigger_effect,
-    fluid_box = {
-      height = 0.8,
-      base_area = 1.5,
-      pipe_connections = {
-        { position = {0, -1} },
-        { position = {1, 0} },
-        { position = {0, 1} },
-        { position = {-1, 0} }
-      }
-    },
-    vehicle_impact_sound = data.raw["pipe"]["pipe"].vehicle_impact_sound,
-    pictures = data.raw["pipe"]["pipe"].pictures,
-    working_sound = data.raw["pipe"]["pipe"].working_sound,
-    horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
-    vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
-  },
-
-  {
-    type = "pipe",
     name = "nullius-pipe-2",
     icons = data.raw.item["nullius-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
@@ -3241,40 +3157,6 @@ data:extend({
 
   {
     type = "pipe-to-ground",
-    name = "nullius-underground-pipe-1",
-    icons = data.raw.item["nullius-underground-pipe-1"].icons,
-    flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-underground-pipe-1"},
-    max_health = 150,
-    corpse = "pipe-to-ground-remnants",
-    dying_explosion = "pipe-to-ground-explosion",
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", decrease = 20, percent = 50 }
-    },
-    fast_replaceable_group = "pipe",
-    next_upgrade = "nullius-underground-pipe-2",
-    collision_box = {{-0.29, -0.25}, {0.25, 0.2}},
-    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
-    fluid_box = {
-      height = 0.8,
-      base_area = 1.875,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { position = {0, -1} },
-        {
-          position = {0, 1},
-          max_underground_distance = 11
-        }
-      }
-    },
-    vehicle_impact_sound = data.raw["pipe-to-ground"]["pipe-to-ground"].vehicle_impact_sound,
-    pictures = data.raw["pipe-to-ground"]["pipe-to-ground"].pictures
-  },
-
-  {
-    type = "pipe-to-ground",
     name = "nullius-underground-pipe-2",
     icons = data.raw.item["nullius-underground-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
@@ -3375,8 +3257,11 @@ data:extend({
   }
 })
 
-if mods["reskins-bobs"] then
+
+if mods["reskins-library"] then
   local oldtank = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
   oldtank.name = "nullius-medium-tank-original"
-  data:extend({ oldtank })
+  local oldpump = util.table.deepcopy(data.raw["pump"]["pump"])
+  oldpump.name = "nullius-pump-original"
+  data:extend({ oldtank, oldpump })
 end

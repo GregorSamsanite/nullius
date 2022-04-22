@@ -886,9 +886,9 @@ data.raw.technology["transport-system"].unit = {
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
   }
 }
-data.raw.technology["transport-depot-circuits"].order = "nullius-dm"
+data.raw.technology["transport-depot-circuits"].order = "nullius-dk"
 data.raw.technology["transport-depot-circuits"].prerequisites = {
-  "transport-system", "nullius-traffic-control", "nullius-distribution-1" }
+  "transport-system", "nullius-traffic-control", "nullius-empiricism-2" }
 data.raw.technology["transport-depot-circuits"].unit = {
   count = 150, time = 30,
   ingredients = {
@@ -1287,4 +1287,116 @@ if mods["Shuttle_Train_Continued"] then
   data.raw.item["shuttle-lite"].order = "nullius-s"
   table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
     {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
+end
+
+
+if mods["FluidMustFlow"] then
+  data.raw.item["duct-small"].subgroup = "nullius-ducts"
+  data.raw.item["duct"].subgroup = "nullius-ducts"
+  data.raw.item["duct-long"].subgroup = "nullius-ducts"
+  data.raw.item["duct-underground"].subgroup = "nullius-ducts"
+  data.raw.item["duct-curve"].subgroup = "nullius-ducts"
+  data.raw.item["duct-t-junction"].subgroup = "nullius-ducts"
+  data.raw.item["duct-cross"].subgroup = "nullius-ducts"
+  data.raw.item["duct-end-point-outtake"].subgroup = "nullius-ducts"
+  data.raw.item["duct-end-point-intake"].subgroup = "nullius-ducts"
+  data.raw.item["non-return-duct"].subgroup = "nullius-ducts"
+
+  data.raw.item["duct-small"].order = "nullius-b"
+  data.raw.item["duct"].order = "nullius-c"
+  data.raw.item["duct-long"].order = "nullius-d"
+  data.raw.item["duct-underground"].order = "nullius-e"
+  data.raw.item["duct-curve"].order = "nullius-f"
+  data.raw.item["duct-t-junction"].order = "nullius-g"
+  data.raw.item["duct-cross"].order = "nullius-h"
+  data.raw.item["duct-end-point-outtake"].order = "nullius-i"
+  data.raw.item["duct-end-point-intake"].order = "nullius-j"
+  data.raw.item["non-return-duct"].order = "nullius-k"
+
+  local duct_box = data.raw["pipe-to-ground"]["duct-underground"].fluid_box
+  duct_box.pipe_connections[2].max_underground_distance = duct_box.pipe_connections[2].max_underground_distance - 2
+end
+
+
+if mods["railloader"] then
+  data.raw.item["railloader"].subgroup = "miniloader"
+  data.raw.item["railloader"].order = "nullius-rb"
+  data.raw.item["railunloader"].subgroup = "miniloader"
+  data.raw.item["railunloader"].order = "nullius-rc"
+end
+
+
+if mods["RenaiTransportation"] then
+  data.raw.technology["RTFocusedFlinging"].localised_name =
+    {"technology-name.nullius-precision-ballistics"}
+  data.raw.technology["RTFocusedFlinging"].order = "nullius-cg"
+  data.raw.technology["RTFocusedFlinging"].prerequisites =
+    {"nullius-logistic-ballistics-2", "nullius-mechanical-separation"}
+  data.raw.technology["RTFocusedFlinging"].unit = {
+    count = 8,
+    ingredients = {{"nullius-geology-pack", 1}, {"nullius-mechanical-pack", 1}},
+    time = 10
+  }
+
+  table.insert(data.raw.technology["nullius-freight-logistics"].prerequisites,
+    "nullius-logistic-ballistics-5")
+  table.insert(data.raw.technology["nullius-personal-transportation-1"].prerequisites,
+    "nullius-logistic-ballistics-4")
+
+  data.raw.item["PlayerLauncherItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["PlayerLauncherItem"].order = "nullius-b"
+  data.raw.item["HatchRTItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["HatchRTItem"].order = "nullius-cb"
+  data.raw.item["HatchRTItem"].stack_size = 100
+  data.raw.item["RTThrower-EjectorHatchRTItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["RTThrower-EjectorHatchRTItem"].order = "nullius-cc"
+  data.raw.item["RTThrower-EjectorHatchRTItem"].stack_size = 100
+  data.raw.item["OpenContainerItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["OpenContainerItem"].order = "nullius-db"
+  data.raw.item["OpenContainerItem"].stack_size = 100
+  data.raw["container"]["OpenContainer"].inventory_size = 10
+  data.raw.item["BouncePlateItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["BouncePlateItem"].order = "nullius-eb"
+  data.raw.item["DirectedBouncePlateItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["DirectedBouncePlateItem"].order = "nullius-ec"
+  data.raw.item["SignalBouncePlateItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["SignalBouncePlateItem"].order = "nullius-ed"
+  data.raw.item["DirectorBouncePlateItem"].subgroup = "nullius-renai-bounce"
+  data.raw.item["DirectorBouncePlateItem"].order = "nullius-ee"
+
+  data.raw.item["RTTrainRampItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainRampItem"].order = "nullius-bb"
+  data.raw.item["RTMagnetTrainRampItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTMagnetTrainRampItem"].order = "nullius-bc"
+  data.raw.item["RTTrainBouncePlateItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainBouncePlateItem"].order = "nullius-cb"
+  data.raw.item["RTTrainBouncePlateItem"].stack_size = 20
+  data.raw.item["RTTrainDirectedBouncePlateItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainDirectedBouncePlateItem"].order = "nullius-cc"
+  data.raw.item["RTTrainDirectedBouncePlateItem"].stack_size = 20
+  data.raw.item["RTImpactUnloaderItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactUnloaderItem"].order = "nullius-db"
+  data.raw.item["RTImpactWagonItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactWagonItem"].order = "nullius-dc"
+  data.raw.gun["RTZiplineItem"].subgroup = "nullius-renai-ramp"
+  data.raw.gun["RTZiplineItem"].order = "nullius-eb"
+  data.raw.ammo["RTZiplineControlsItem"].subgroup = "nullius-renai-ramp"
+  data.raw.ammo["RTZiplineControlsItem"].order = "nullius-ec"
+  data.raw.ammo["RTZiplineCrankControlsItem"].subgroup = "nullius-renai-ramp"
+  data.raw.ammo["RTZiplineCrankControlsItem"].order = "nullius-ed"
+
+  data.raw["cargo-wagon"]["RTImpactWagon"].inventory_size = 50
+  data.raw["cargo-wagon"]["RTImpactWagon"].max_health = 800
+  data.raw["cargo-wagon"]["RTImpactWagon"].weight = 1200
+  data.raw["cargo-wagon"]["RTImpactWagon"].max_speed = 2
+  data.raw["cargo-wagon"]["RTImpactWagon"].fast_replaceable_group = "cargo-wagon"
+  data.raw["cargo-wagon"]["RTImpactWagon"].braking_force = 2.5
+  data.raw["cargo-wagon"]["RTImpactWagon"].friction_force = 0.4
+  data.raw["cargo-wagon"]["RTImpactWagon"].resistances = {
+    { type = "impact", decrease = 80, percent = 90 },
+    { type = "poison", decrease = 40, percent = 80 },
+    { type = "fire", decrease = 20, percent = 50 },
+    { type = "physical", decrease = 20, percent = 20 },
+    { type = "explosion", decrease = 20, percent = 20 }
+  }
 end

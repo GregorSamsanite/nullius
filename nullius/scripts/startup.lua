@@ -169,6 +169,7 @@ script.on_event(defines.events.on_player_created,
 	end
     player.insert({name="nullius-solar-panel-1", count=10})
     player.insert({name="nullius-grid-battery-1", count=5})
+	player.insert({name="nullius-small-miner-1", count=2})
 
     if not global.init_ran then
       global.init_ran = true

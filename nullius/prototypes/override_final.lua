@@ -34,7 +34,7 @@ data.raw.item["storage-tank"].icons = {{
 data.raw["storage-tank"]["storage-tank"].icons = data.raw.item["storage-tank"].icons
 data.raw["storage-tank"]["storage-tank"].fluid_box.height = 1.7
 data.raw["storage-tank"]["storage-tank"].fluid_box.base_area = 88.235295
-if mods["reskins-bobs"] then
+if mods["reskins-library"] then
 data.raw["storage-tank"]["storage-tank"].pictures =
     data.raw["storage-tank"]["nullius-medium-tank-original"].pictures
 end
@@ -255,6 +255,31 @@ data.raw["logistic-container"]["logistic-chest-passive-provider"].next_upgrade =
 data.raw["logistic-container"]["logistic-chest-requester"].next_upgrade = nil
 data.raw["logistic-container"]["logistic-chest-buffer"].next_upgrade = nil
 data.raw["logistic-container"]["logistic-chest-active-provider"].next_upgrade = nil
+
+
+data.raw["pipe"]["pipe"].next_upgrade = "nullius-pipe-2"
+data.raw["pipe-to-ground"]["pipe-to-ground"].next_upgrade = "nullius-underground-pipe-2"
+data.raw["pipe"]["pipe"].fluid_box.height = 0.8
+data.raw["pipe"]["pipe"].fluid_box.base_area = 1.5
+data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.height = 0.8
+data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.base_area = 1.875
+data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.max_underground_distance = 11
+data.raw.item["pipe"].stack_size = 200
+data.raw.item["pipe-to-ground"].stack_size = 100
+
+
+data.raw.item["pump"].stack_size = 50
+data.raw["pump"]["pump"].fast_replaceable_group = "pump"
+data.raw["pump"]["pump"].next_upgrade = nil
+data.raw["pump"]["pump"].fluid_box.height = 10
+data.raw["pump"]["pump"].pumping_speed = 160
+if mods["reskins-library"] then
+  data.raw["pump"]["pump"].animations = data.raw["pump"]["nullius-pump-original"].animations
+  data.raw.item["pump"].icons = {{
+    icon = "__base__/graphics/icons/pump.png",
+    icon_size = 64, icon_mipmaps = 4
+  }}
+end
 
 
 -- Workaround issues with Squeak_Through

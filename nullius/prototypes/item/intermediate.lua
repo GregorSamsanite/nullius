@@ -261,7 +261,7 @@ data:extend({
     order = "nullius-dc",
     energy_required = 80,
     ingredients = {
-      {"nullius-pump-3", 1},
+      {"pump", 1},
       {"nullius-steel-cable", 5}
     },
     result = "nullius-mechanical-pack",

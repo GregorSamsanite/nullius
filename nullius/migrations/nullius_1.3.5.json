@@ -1,0 +1,32 @@
+{
+  "item":
+  [
+    ["nullius-pipe-1", "pipe"],
+    ["nullius-underground-pipe-1", "pipe-to-ground"],
+    ["nullius-pump-3", "pump"],
+    ["nullius-thermal-tank-2", "nullius-thermal-tank-3"],
+    ["nullius-thermal-tank-1", "nullius-thermal-tank-2"]
+  ],
+  "entity":
+  [
+    ["nullius-pipe-1", "pipe"],
+    ["nullius-underground-pipe-1", "pipe-to-ground"],
+    ["nullius-pump-3", "pump"],
+    ["nullius-thermal-tank-2", "nullius-thermal-tank-3"],
+    ["nullius-thermal-tank-1", "nullius-thermal-tank-2"],
+    ["nullius-thermal-tank-horizontal-2", "nullius-thermal-tank-horizontal-3"],
+    ["nullius-thermal-tank-horizontal-1", "nullius-thermal-tank-horizontal-2"],
+    ["nullius-thermal-tank-vertical-2", "nullius-thermal-tank-vertical-3"],
+    ["nullius-thermal-tank-vertical-1", "nullius-thermal-tank-vertical-2"]
+  ],
+  "recipe":
+  [
+    ["nullius-thermal-tank-2", "nullius-thermal-tank-3"],
+    ["nullius-thermal-tank-1", "nullius-thermal-tank-2"]
+  ],
+  "technology":
+  [
+    ["nullius-thermal-storage-2", "nullius-thermal-storage-3"],
+    ["nullius-thermal-storage-1", "nullius-thermal-storage-2"]
+  ]
+}

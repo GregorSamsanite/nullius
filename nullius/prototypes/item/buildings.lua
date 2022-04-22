@@ -926,7 +926,7 @@ data:extend({
       {"nullius-foundry-2", 2},
       {"nullius-medium-furnace-3", 1},
       {"nullius-medium-assembler-3", 1},
-      {"nullius-thermal-tank-1", 1}
+      {"nullius-thermal-tank-2", 1}
     },
     result = "nullius-foundry-3"
   },
@@ -3114,7 +3114,7 @@ data:extend({
     category = "huge-crafting",
     energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-thermal-tank-2", amount=3},
+      {type="item", name="nullius-thermal-tank-3", amount=3},
       {type="item", name="nullius-box-heat-pipe-3", amount=2},
       {type="item", name="nullius-lab-2", amount=1},
       {type="item", name="nullius-box-hazard-concrete", amount=5},

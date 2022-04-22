@@ -368,7 +368,7 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {"transport-belt", 10},
-      {"nullius-underground-pipe-1", 2}
+      {"pipe-to-ground", 2}
     },
     result = "underground-belt",
     result_count = 2

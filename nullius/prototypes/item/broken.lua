@@ -200,7 +200,7 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {"nullius-broken-hydro-plant", 1},
-      {"nullius-pipe-1", 4}
+      {"pipe", 4}
     },
     result = "nullius-hydro-plant-1"
   },

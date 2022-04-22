@@ -137,6 +137,9 @@ data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic
 data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
 data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
 data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
+data.raw.item["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
+data.raw.item["pipe-to-ground"].localised_name = {"entity-name.nullius-underground-pipe-1"}
+data.raw.item["pump"].localised_name = {"entity-name.nullius-pump-3"}
 
 data.raw.item["empty-barrel"].stack_size = 20
 data.raw.item["iron-ore"].stack_size = 50
@@ -144,6 +147,9 @@ data.raw.item["copper-ore"].stack_size = 50
 data.raw.item["uranium-ore"].stack_size = 50
 data.raw.item["stone-wall"].stack_size = 200
 data.raw.item["gate"].stack_size = 100
+data.raw.item["pipe"].stack_size = 200
+data.raw.item["pipe-to-ground"].stack_size = 100
+data.raw.item["pump"].stack_size = 50
 
 data.raw.item["transport-belt"].stack_size = 200
 data.raw.item["underground-belt"].stack_size = 100
@@ -225,7 +231,7 @@ create_boxed_item("polycrystalline-silicon", "silicon", "f")
 create_boxed_item("monocrystalline-silicon", "silicon", "g")
 create_boxed_item("acid-boric", "glass", "i")
 create_boxed_item("boron", "glass", "j")
-create_boxed_item("pipe-1", "pipe", "b")
+create_boxed_item("pipe-1", "pipe", "b", "pipe")
 create_boxed_item("pipe-2", "pipe", "d")
 create_boxed_item("pipe-3", "pipe", "f")
 create_boxed_item("cement", "glass", "l")
@@ -259,7 +265,7 @@ create_boxed_item("fiberglass", "glass", "e")
 create_boxed_item("processor-1", "electrical", "fb")
 create_boxed_item("sensor-2", "electrical", "h")
 create_boxed_item("battery-1", "renewable", "eb", nil, nil, nil, {"equipment-name.nullius-battery-1"})
-create_boxed_item("underground-pipe-1", "pipe", "c")
+create_boxed_item("underground-pipe-1", "pipe", "c", "pipe-to-ground")
 create_boxed_item("underground-pipe-2", "pipe", "e")
 create_boxed_item("underground-pipe-3", "pipe", "g")
 create_boxed_item("eutectic-salt", "sodium", "g")
@@ -369,7 +375,7 @@ create_boxed_item("inserter-4", "inserter", "g", "express-stack-inserter")
 create_boxed_item("filter-inserter-4", "inserter", "h", "express-stack-filter-inserter")
 create_boxed_item("belt-4", "belt", "be", "ultimate-transport-belt")
 create_boxed_item("underground-belt-4", "belt", "ce", "ultimate-underground-belt")
-create_boxed_item("pump-3", "plumbing", "fd")
+create_boxed_item("pump-3", "plumbing", "fd", "pump")
 create_boxed_item("small-pump-2", "plumbing", "hc")
 create_boxed_item("backup-turbine-3", "fluid-energy", "ddb")
 create_boxed_item("standard-turbine-3", "fluid-energy", "ddc")

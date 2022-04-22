@@ -172,7 +172,7 @@ end
 
 
 function build_thermal_tank(entity, level)
-  if ((level < 1) or (level > 2)) then return end
+  if ((level < 1) or (level > 3)) then return end
 
   local direction = entity.direction
   local dirname = "vertical"

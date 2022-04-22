@@ -685,7 +685,51 @@ data.raw["logistic-container"]["logistic-chest-active-provider"].localised_descr
 data.raw["logistic-container"]["logistic-chest-active-provider"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-active-provider"].resistances =
     data.raw["container"]["wooden-chest"].resistances
-	
+
+
+data.raw.item["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
+data.raw.item["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
+data.raw["pipe"]["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
+data.raw["pipe"]["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
+data.raw.item["pipe-to-ground"].localised_name =
+    {"entity-name.nullius-underground-pipe-1"}
+data.raw.item["pipe-to-ground"].localised_description =
+    {"entity-description.nullius-underground-pipe-1"}
+data.raw["pipe-to-ground"]["pipe-to-ground"].localised_name =
+    {"entity-name.nullius-underground-pipe-1"}
+data.raw["pipe-to-ground"]["pipe-to-ground"].localised_description =
+    {"entity-description.nullius-underground-pipe-1"}
+
+data.raw["pipe"]["pipe"].resistances = {
+  { type = "impact", decrease = 100, percent = 90 },
+  { type = "fire", decrease = 20, percent = 50 }
+}
+data.raw["pipe-to-ground"]["pipe-to-ground"].resistances =
+    data.raw["pipe"]["pipe"].resistances
+data.raw["pipe-to-ground"]["pipe-to-ground"].collision_box =
+    data.raw["pipe-to-ground"]["nullius-underground-pipe-2"].collision_box
+data.raw.item["pipe"].subgroup = "pipes"
+data.raw.item["pipe"].order = "nullius-b"
+data.raw.item["pipe-to-ground"].subgroup = "pipes"
+data.raw.item["pipe-to-ground"].order = "nullius-c"
+label_icon("pipe", 1, "grey")
+label_icon("pipe-to-ground", 1, "grey")
+
+
+data.raw["pump"]["pump"].localised_name = {"entity-name.nullius-pump-3"}
+data.raw["pump"]["pump"].localised_description = {"entity-description.nullius-pump-3"}
+data.raw.item["pump"].localised_name = {"entity-name.nullius-pump-3"}
+data.raw.item["pump"].localised_description = {"entity-description.nullius-pump-3"}
+data.raw.item["pump"].subgroup = "pumping"
+data.raw.item["pump"].order = "nullius-bd"
+data.raw["pump"]["pump"].energy_source.drain = nil
+data.raw["pump"]["pump"].energy_usage = "30kW"
+data.raw["pump"]["pump"].max_health = 250
+data.raw["pump"]["pump"].resistances = {
+  { type = "impact", decrease = 100, percent = 90 },
+  { type = "fire", decrease = 20, percent = 50 }
+}
+
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_categories = {"unused-resource"}
 data.raw["mining-drill"]["electric-mining-drill"].resource_categories = {"unused-resource"}

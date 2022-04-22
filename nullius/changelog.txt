@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.6
+Date: 21.04.2022
+  Bugfixes:
+    - Fix an incompatibility with Squeak Through in previous update.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.5
+Date: 21.04.2022
+  Features:
+    - New lower tech thermal tank (thermal tank 1 and 2 become 2 and 3).
+  Changes:
+    - Thermal tank 2 recipe (previously 1) changed to include new tank 1.
+  Balancing:
+    - Improve energy density of thermal tank 2 and 3.
+    - Start with some miners per player, to accelerate very early multiplayer.
+  Modding:
+    - Add support for Fluid Must Flow mod.
+    - Add support for Renai Transportation mod.
+    - Add support for Bulk Rail Loader mod.
+  Graphics:
+    - Fix tier overlay of tier 4 belt with artisinal reskin.
+  Translation:
+    - Russian updated for 1.3.4 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
 Version: 1.3.4
 Date: 09.04.2022
   Features:

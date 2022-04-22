@@ -3378,6 +3378,28 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-thermal-storage-1",
+    order = "nullius-dl",
+    icon = "__nullius__/graphics/icons/entity/thermaltank1.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-thermal-tank-1"
+      }
+    },
+    unit = {
+      count = 150,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-energy-distribution-3", "nullius-flotation-2"}
+  },
+  {
+    type = "technology",
     name = "nullius-barreling-2",
     order = "nullius-dk",
     icon_size = 128,
@@ -4742,7 +4764,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-waste-reclamation"}
+    prerequisites = {"nullius-waste-reclamation", "nullius-thermal-storage-1"}
   },
   {
     type = "technology",
@@ -7224,10 +7246,10 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-thermal-storage-1",
+    name = "nullius-thermal-storage-2",
     order = "nullius-en",
-    icon_size = 32,
-    icon = "__angelspetrochem__/graphics/icons/polymerization-chamber-ico.png",
+    icon = "__nullius__/graphics/icons/entity/thermaltank2.png",
+	icon_size = 64,
     effects = {
       {
         type = "unlock-recipe",
@@ -7239,7 +7261,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-thermal-tank-1"
+        recipe = "nullius-thermal-tank-2"
       }
     },
     unit = {
@@ -7294,7 +7316,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-thermal-storage-1", "nullius-titanium-working"}
+    prerequisites = {"nullius-thermal-storage-2", "nullius-titanium-working"}
   },
   {
     type = "technology",
@@ -7980,7 +8002,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-mass-production-3", "nullius-freight-transportation-2", "nullius-thermal-storage-1"}
+    prerequisites = {"nullius-mass-production-3", "nullius-freight-transportation-2", "nullius-thermal-storage-2"}
   },
   {
     type = "technology",
@@ -10576,10 +10598,10 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-thermal-storage-2",
+    name = "nullius-thermal-storage-3",
     order = "nullius-fl",
-    icon_size = 32,
-    icon = "__angelspetrochem__/graphics/icons/polymerization-chamber-ico.png",
+    icon = "__nullius__/graphics/icons/entity/thermaltank3.png",
+	icon_size = 64,
     effects = {
       {
         type = "unlock-recipe",
@@ -10599,7 +10621,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-thermal-tank-2"
+        recipe = "nullius-thermal-tank-3"
       }
     },
     unit = {
@@ -10695,7 +10717,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-titanium-production-3", "nullius-thermal-storage-2", "nullius-battery-storage-3"}
+    prerequisites = {"nullius-titanium-production-3", "nullius-thermal-storage-3", "nullius-battery-storage-3"}
   },
   {
     type = "technology",
@@ -10722,7 +10744,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-volcanism-2", "nullius-thermal-storage-2", "nullius-battery-storage-4"}
+    prerequisites = {"nullius-volcanism-2", "nullius-thermal-storage-3", "nullius-battery-storage-4"}
   },
   {
     type = "technology",

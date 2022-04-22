@@ -28,20 +28,52 @@ if settings.startup["reskins-lib-icon-tier-labeling"].value == true then
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw.item["express-stack-filter-inserter"].icons[7].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
-  data.raw.item["ultimate-transport-belt"].icons[3].icon =
-      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw.item["ultimate-transport-belt"].icons[4].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
-  data.raw.item["ultimate-underground-belt"].icons[3].icon =
+  data.raw.item["ultimate-transport-belt"].icons[5].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw.item["ultimate-underground-belt"].icons[4].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
-  data.raw.item["ultimate-splitter"].icons[3].icon =
+  data.raw.item["ultimate-underground-belt"].icons[5].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw.item["ultimate-splitter"].icons[4].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-splitter"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw["repair-tool"]["repair-pack"].icons[4] = nil
   data.raw["repair-tool"]["repair-pack"].icons[5] = nil
+
+if mods["miniloader"] then
+  data.raw.item["ultimate-miniloader"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-miniloader"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+if settings.startup["miniloader-enable-filter"].value then
+  data.raw.item["ultimate-filter-miniloader"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["ultimate-filter-miniloader"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+end
+end
+
+if mods["RenaiTransportation"] then
+  data.raw.item["RTThrower-turbo-inserter-Item"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["RTThrower-turbo-inserter-Item"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].icons[6].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].icons[7].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
+  data.raw.item["RTThrower-express-stack-inserter-Item"].icons[4].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["RTThrower-express-stack-inserter-Item"].icons[5].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].icons[6].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].icons[7].icon =
+      "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
+end
 end
 end
 
@@ -92,4 +124,107 @@ if mods["Transport_Drones"] then
     data.raw.recipe["fuel-depots"].energy_required = 60
     data.raw.recipe["fuel-depots"].show_amount_in_title = false
   end
+end
+
+
+if mods["RenaiTransportation"] then
+  data.raw.recipe["nullius-thrower-2"].ingredients = {
+    {"RTThrower-inserter-Item", 1},
+    {"turbo-inserter", 1},
+	{"nullius-motor-2", 1}
+  }
+  data.raw.recipe["nullius-filter-thrower-2"].ingredients = {
+    {"RTThrower-inserter-Item", 1},
+    {"turbo-filter-inserter", 1},
+	{"nullius-motor-2", 1}
+  }
+  data.raw.recipe["nullius-thrower-3"].ingredients = {
+    {"RTThrower-turbo-inserter-Item", 1},
+    {"stack-inserter", 2}
+  }
+  data.raw.recipe["nullius-filter-thrower-3"].ingredients = {
+    {"RTThrower-turbo-filter-inserter-Item", 1},
+    {"stack-filter-inserter", 2}
+  }
+  data.raw.recipe["nullius-thrower-4"].ingredients = {
+    {"RTThrower-stack-inserter-Item", 1},
+    {"express-stack-inserter", 2}
+  }
+  data.raw.recipe["nullius-filter-thrower-4"].ingredients = {
+    {"RTThrower-stack-filter-inserter-Item", 1},
+    {"express-stack-filter-inserter", 2}
+  }
+  data.raw.recipe["nullius-ejector-hatch"].ingredients = {
+    {"HatchRTItem", 1},
+	{"RTThrower-turbo-inserter-Item", 1},
+    {"fast-underground-belt", 1}
+  }
+  data.raw.recipe["nullius-player-thrower"].ingredients = {
+    {"RTThrower-inserter-Item", 1},
+    {"nullius-steel-plate", 2}
+  }
+
+  data.raw.recipe["RTThrower-inserter-Recipe"].enabled = false
+  data.raw.item["RTThrower-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 1}
+  data.raw.inserter["RTThrower-inserter"].localised_name = {"entity-name.nullius-thrower", 1}
+  data.raw.item["RTThrower-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-inserter-Item"].order = "nullius-bb"
+  data.raw.inserter["RTThrower-inserter"].rotation_speed = 0.0083333333
+  data.raw.inserter["RTThrower-inserter"].energy_per_rotation = "56KJ"
+  data.raw.inserter["RTThrower-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-inserter"].energy_source.drain = "2kW"
+  data.raw.item["RTThrower-turbo-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 2}
+  data.raw.inserter["RTThrower-turbo-inserter"].localised_name = {"entity-name.nullius-thrower", 2}
+  data.raw.item["RTThrower-turbo-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-turbo-inserter-Item"].order = "nullius-cb"
+  data.raw.inserter["RTThrower-turbo-inserter"].rotation_speed = 0.016666667
+  data.raw.inserter["RTThrower-turbo-inserter"].energy_per_rotation = "56KJ"
+  data.raw.inserter["RTThrower-turbo-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-turbo-inserter"].energy_source.drain = "4kW"
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 2}
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 2}
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].order = "nullius-cc"
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].rotation_speed = 0.016666667
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].energy_per_rotation = "56KJ"
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].energy_source.drain = "4kW"
+  data.raw.item["RTThrower-stack-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 3}
+  data.raw.inserter["RTThrower-stack-inserter"].localised_name = {"entity-name.nullius-thrower", 3}
+  data.raw.item["RTThrower-stack-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-stack-inserter-Item"].order = "nullius-db"
+  data.raw.inserter["RTThrower-stack-inserter"].rotation_speed = 0.016666667
+  data.raw.inserter["RTThrower-stack-inserter"].energy_per_rotation = "114KJ"
+  data.raw.inserter["RTThrower-stack-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-stack-inserter"].energy_source.drain = "6kW"
+  data.raw.item["RTThrower-stack-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 3}
+  data.raw.inserter["RTThrower-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 3}
+  data.raw.item["RTThrower-stack-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-stack-filter-inserter-Item"].order = "nullius-dc"
+  data.raw.inserter["RTThrower-stack-filter-inserter"].rotation_speed = 0.016666667
+  data.raw.inserter["RTThrower-stack-filter-inserter"].energy_per_rotation = "114KJ"
+  data.raw.inserter["RTThrower-stack-filter-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-stack-filter-inserter"].energy_source.drain = "6kW"
+  data.raw.item["RTThrower-express-stack-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 4}
+  data.raw.inserter["RTThrower-express-stack-inserter"].localised_name = {"entity-name.nullius-thrower", 4}
+  data.raw.item["RTThrower-express-stack-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-express-stack-inserter-Item"].order = "nullius-eb"
+  data.raw.inserter["RTThrower-express-stack-inserter"].rotation_speed = 0.033333333
+  data.raw.inserter["RTThrower-express-stack-inserter"].energy_per_rotation = "115KJ"
+  data.raw.inserter["RTThrower-express-stack-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-express-stack-inserter"].energy_source.drain = "10kW"
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 4}
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 4}
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].order = "nullius-ec"
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].rotation_speed = 0.033333333
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].energy_per_rotation = "115KJ"
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].energy_source.drain = "10kW"
+  data.raw.inserter["PlayerLauncher"].rotation_speed = 0.033333333
+  data.raw.inserter["RTThrower-EjectorHatchRT"].rotation_speed = 0.016666667
+  data.raw.inserter["RTThrower-EjectorHatchRT"].extension_speed = 0.04
+  data.raw.inserter["RTThrower-EjectorHatchRT"].energy_per_rotation = "56KJ"
+  data.raw.inserter["RTThrower-EjectorHatchRT"].energy_per_movement = "1W"
+  data.raw.inserter["RTThrower-EjectorHatchRT"].energy_source.drain = "4kW"
 end

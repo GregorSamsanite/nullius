@@ -2865,12 +2865,12 @@ data:extend({
     placeable_by = {item = "nullius-thermal-tank-1", count = 1},
     subgroup = "heat-storage",
     order = "ucb",
-    max_health = 300,
+    max_health = 200,
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     resistances = {
-      { type = "fire", decrease = 100, percent = 90 },
-      { type = "impact", decrease = 50, percent = 80 }
+      { type = "fire", decrease = 60, percent = 90 },
+      { type = "impact", decrease = 40, percent = 80 }
     },
     energy_source = {
       type = "electric",
@@ -2880,7 +2880,7 @@ data:extend({
       render_no_power_icon = false,
       render_no_network_icon = false
     },
-    consumption = "5kW",
+    consumption = "2kW",
     working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
@@ -2924,10 +2924,10 @@ data:extend({
     },
     neighbour_bonus = 0,
     heat_buffer = {
-      max_temperature = 500,
-      specific_heat = "6MJ",
-      max_transfer = "60MW",
-      minimum_glow_temperature = 200,
+      max_temperature = 250,
+      specific_heat = "4MJ",
+      max_transfer = "25MW",
+      minimum_glow_temperature = 120,
       connections = {
         {
           position = {0, 1},
@@ -2954,7 +2954,7 @@ data:extend({
     placeable_by = {item = "nullius-thermal-tank-2", count = 1},
     subgroup = "heat-storage",
     order = "ucc",
-    max_health = 400,
+    max_health = 300,
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     resistances = {
@@ -2969,7 +2969,7 @@ data:extend({
       render_no_power_icon = false,
       render_no_network_icon = false
     },
-    consumption = "20kW",
+    consumption = "5kW",
     working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
     vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
     light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
@@ -2999,6 +2999,95 @@ data:extend({
           width = 180,
           height = 180,
           scale = 0.73,
+          shift = {0.28,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.28,-0.3},
+          draw_as_shadow = true,
+        },
+      }
+    },
+    neighbour_bonus = 0,
+    heat_buffer = {
+      max_temperature = 500,
+      specific_heat = "8MJ",
+      max_transfer = "60MW",
+      minimum_glow_temperature = 200,
+      connections = {
+        {
+          position = {0, 1},
+          direction = defines.direction.south
+        },
+        {
+          position = {-1, 0},
+          direction = defines.direction.west
+        }
+      },
+      pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.pipe_covers,
+      heat_pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.heat_pipe_covers
+    }
+  },
+
+  {
+    type = "reactor",
+    name = "nullius-thermal-tank-3",
+    localised_name = {"entity-name.nullius-thermal-tank-3"},
+    localised_description = {"entity-description.nullius-thermal-tank-3"},
+    icons = data.raw.item["nullius-thermal-tank-3"].icons,
+    flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable"},
+    minable = { mining_time = 1, result = "nullius-thermal-tank-3" },
+    placeable_by = {item = "nullius-thermal-tank-3", count = 1},
+    subgroup = "heat-storage",
+    order = "ucd",
+    max_health = 400,
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    resistances = {
+      { type = "fire", decrease = 100, percent = 90 },
+      { type = "impact", decrease = 50, percent = 80 }
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "tertiary",
+      emissions_per_minute = 0.02,
+      drain = "0W",
+      render_no_power_icon = false,
+      render_no_network_icon = false
+    },
+    consumption = "20kW",
+    working_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].working_sound,
+    vehicle_impact_sound = data.raw["assembling-machine"]["angels-chemical-furnace"].vehicle_impact_sound,
+    light = {intensity = 0.4, size = 2.9, shift = {0.0, 0.0}, color = {r = 1.0, g = 0.5, b = 0.0}},
+    picture = {
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank3.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3}
+        },
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank-shadow.png",
+          width = 230,
+          height = 180,
+          scale = 0.73,
+          shift = {0.3,-0.3},
+          draw_as_shadow = true,
+        },
+      }
+    },
+    working_light_picture = {
+      layers = {
+        {
+          filename = ENTITYPATH .. "thermaltank/thermaltank3.png",
+          width = 180,
+          height = 180,
+          scale = 0.73,
           shift = {0.3,-0.3}
         },
         {
@@ -3014,7 +3103,7 @@ data:extend({
     neighbour_bonus = 0,
     heat_buffer = {
       max_temperature = 1500,
-      specific_heat = "15MJ",
+      specific_heat = "20MJ",
       max_transfer = "200MW",
       minimum_glow_temperature = 250,
       connections = {
@@ -3082,8 +3171,8 @@ local function thermal_tank(tier, vert)
   tank.flags = {"placeable-neutral", "player-creation" }
   tank.order = "t"..tier..ord
   tank.fast_replaceable_group = "thermal-tank"
-  if (tier == 1) then
-    tank.next_upgrade = "nullius-thermal-tank-"..dir.."-2"
+  if (tier < 3) then
+    tank.next_upgrade = "nullius-thermal-tank-"..dir.."-"..(tier+1)
   end
   data:extend({ tank })
 end
@@ -3092,6 +3181,8 @@ thermal_tank(1, false)
 thermal_tank(1, true)
 thermal_tank(2, false)
 thermal_tank(2, true)
+thermal_tank(3, false)
+thermal_tank(3, true)
 
 
 data:extend({
@@ -3104,7 +3195,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "not-upgradable", "hidden", "not-deconstructable" },
     minable = { mining_time = 1, result = "nullius-thermal-tank-1" },
     subgroup = "heat-storage",
-    order = "ubb",
+    order = "ubc",
     max_health = 300,
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
@@ -3116,7 +3207,7 @@ data:extend({
     two_direction_only = true,
     fluid_box = {
       height = 2,
-      base_area = 100,
+      base_area = 5,
       pipe_connections = {
         { position = {2, 0} },
         { position = {-2, 0} }
@@ -3129,7 +3220,7 @@ data:extend({
         north = {
           layers = {
             {
-              filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
+              filename = ENTITYPATH .. "thermaltank/thermaltank3.png",
               width = 180,
               height = 180,
               scale = 0.73,
@@ -3162,7 +3253,7 @@ data:extend({
         east = {
           layers = {
             {
-              filename = ENTITYPATH .. "thermaltank/thermaltank2.png",
+              filename = ENTITYPATH .. "thermaltank/thermaltank3.png",
               width = 180,
               height = 180,
               scale = 0.73,
@@ -3212,25 +3303,57 @@ data:extend({
     localised_name = {"entity-name.nullius-thermal-tank-2"},
     localised_description = {"entity-description.nullius-thermal-tank-2"},
     icons = data.raw.item["nullius-thermal-tank-2"].icons,
-    flags = {"placeable-neutral", "player-creation", "not-upgradable", "hidden", "not-deconstructable"},
+    flags = {"placeable-neutral", "player-creation", "not-upgradable", "hidden", "not-deconstructable" },
     minable = { mining_time = 1, result = "nullius-thermal-tank-2" },
     subgroup = "heat-storage",
     order = "ubc",
+    max_health = 300,
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    resistances = {
+      { type = "fire", decrease = 80, percent = 90 },
+      { type = "impact", decrease = 50, percent = 80 }
+    },
+    fast_replaceable_group = "thermal-tank",
+    two_direction_only = true,
+    fluid_box = {
+      height = 2,
+      base_area = 20,
+      pipe_connections = {
+        { position = {2, 0} },
+        { position = {-2, 0} }
+      }
+    },
+    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
+    flow_length_in_ticks = 120,
+    pictures = data.raw["storage-tank"]["nullius-thermal-tank-build-1"].pictures
+  },
+  {
+    type = "storage-tank",
+    name = "nullius-thermal-tank-build-3",
+    localised_name = {"entity-name.nullius-thermal-tank-3"},
+    localised_description = {"entity-description.nullius-thermal-tank-3"},
+    icons = data.raw.item["nullius-thermal-tank-3"].icons,
+    flags = {"placeable-neutral", "player-creation", "not-upgradable", "hidden", "not-deconstructable"},
+    minable = { mining_time = 1, result = "nullius-thermal-tank-3" },
+    subgroup = "heat-storage",
+    order = "ubd",
     max_health = 400,
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     resistances = {
       { type = "fire", decrease = 100, percent = 90 },
-      { type = "impact", decrease = 50, percent = 80 }
+      { type = "impact", decrease = 60, percent = 80 }
     },
     fast_replaceable_group = "thermal-tank",
+    two_direction_only = true,
     fluid_box = {
       height = 2,
-      base_area = 750,
-      pipe_connections = {{
-        positions = {{0, -2}, {2, 0}, {0, 2}, {-2, 0}},
-        type = "input-output"
-      }}
+      base_area = 150,
+      pipe_connections = {
+        { position = {2, 0} },
+        { position = {-2, 0} }
+      }
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
     flow_length_in_ticks = 120,
