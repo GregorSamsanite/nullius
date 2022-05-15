@@ -235,6 +235,11 @@ if (settings.startup["miniloader-enable-filter"].value and
     {type="item", name="turbo-filter-inserter", amount=3}
   }
 end
+
+table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-miniloader-1")
+table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"nullius-miniloader-2")
+table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-miniloader-3")
+table.insert(data.raw.technology["nullius-inserter-capacity-5"].prerequisites,"nullius-miniloader-4")
 end
 
 
@@ -245,12 +250,8 @@ data.raw.technology["long-inserters-1"].unit = { count = 15,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-data.raw.technology["nullius-projection-1"].prerequisites = {
-  "nullius-cybernetics-2", "long-inserters-2"}
-data.raw.technology["nullius-mass-production-2"].prerequisites = {
-  "nullius-logistic-robot-1", "nullius-concrete-1",
-  "long-inserters-2", "nullius-weaving-1"
-}
+data.raw.technology["nullius-mineral-processing-2"].prerequisites = {
+  "nullius-checkpoint-limestone", "long-inserters-2"}
 
 data.raw.technology["long-inserters-2"].order = "nullius-dd"
 data.raw.technology["long-inserters-2"].prerequisites = {
@@ -394,6 +395,10 @@ table.insert(data.raw["equipment-grid"]["nullius-armor-grid-3"].equipment_catego
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-4"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-5"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-6"].equipment_categories, "armor-jetpack")
+table.insert(data.raw.technology["nullius-robot-speed-1"].prerequisites,"nullius-jetpack-1")
+table.insert(data.raw.technology["nullius-electromagnetism-3"].prerequisites,"nullius-jetpack-2")
+table.insert(data.raw.technology["nullius-braking-8"].prerequisites,"nullius-jetpack-3")
+table.insert(data.raw.technology["nullius-cybernetics-7"].prerequisites,"nullius-jetpack-4")
 end
 
 
@@ -565,7 +570,8 @@ data.raw.technology["advanced-underground-piping"].localised_name = {"",
   {"technology-name.advanced-underground-piping"}, " ", 1}
 data.raw.technology["advanced-underground-piping"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t2.png"
-data.raw.technology["advanced-underground-piping"].prerequisites = {"nullius-hydrology-1"}
+data.raw.technology["advanced-underground-piping"].prerequisites = {"nullius-checkpoint-freshwater"}
+table.insert(data.raw.technology["nullius-volcanism-1"].prerequisites,"advanced-underground-piping")
 data.raw.technology["advanced-underground-piping"].order = "nullius-df"
 data.raw.technology["advanced-underground-piping"].unit = {
   count = 200, time = 20,
@@ -615,8 +621,8 @@ data.raw.technology["advanced-underground-piping-t2"].localised_description =
   {"technology-description.advanced-underground-piping"}
 data.raw.technology["advanced-underground-piping-t2"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t3.png"
-data.raw.technology["advanced-underground-piping-t2"].prerequisites =
-  {"nullius-plumbing-5", "advanced-underground-piping"}
+data.raw.technology["advanced-underground-piping-t2"].prerequisites = {"nullius-checkpoint-large-tank"}
+table.insert(data.raw.technology["nullius-pressure-containment"].prerequisites,"advanced-underground-piping-t2")
 data.raw.technology["advanced-underground-piping-t2"].order = "nullius-ek"
 data.raw.technology["advanced-underground-piping-t2"].unit = {
   count = 600, time = 30,
@@ -658,8 +664,8 @@ data.raw.technology["advanced-underground-piping-t3"].localised_description =
   {"technology-description.advanced-underground-piping"}
 data.raw.technology["advanced-underground-piping-t3"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t1.png"
-data.raw.technology["advanced-underground-piping-t3"].prerequisites =
-  {"nullius-hydrology-2", "advanced-underground-piping-t2"}
+data.raw.technology["advanced-underground-piping-t3"].prerequisites = {"nullius-chemical-engineering-3"}
+table.insert(data.raw.technology["nullius-volcanism-2"].prerequisites,"advanced-underground-piping-t3")
 data.raw.technology["advanced-underground-piping-t3"].order = "nullius-fi"
 data.raw.technology["advanced-underground-piping-t3"].unit = {
   count = 2000, time = 45,
@@ -1219,30 +1225,30 @@ end
 
 
 if mods["railway-motor-car"] then
-  data.raw["battery-equipment"]["railway-motor-car-equipment"].localised_name =
-      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 1}
-  data.raw["item"]["railway-motor-car-equipment"].localised_name =
-      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 1}
-  data.raw["item"]["railway-motor-car-equipment"].subgroup = "jetpack"
-  data.raw["battery-equipment"]["railway-motor-car-equipment"].categories = {"cybernetic"}
-  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].localised_name =
-      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 2}
-  data.raw["item"]["railway-motor-car-nuclear-equipment"].localised_name =
-      {"", {"equipment-name.railway-motor-car-equipment"}, " ", 2}
-  data.raw["item"]["railway-motor-car-nuclear-equipment"].subgroup = "jetpack"
-  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].localised_description =
-      {"item-description.railway-motor-car-equipment"}
-  data.raw["battery-equipment"]["railway-motor-car-nuclear-equipment"].categories = {"cybernetic"}
-  data.raw["locomotive"]["railway-motor-car-train"].localised_name =
-      {"", {"entity-name.railway-motor-car-train"}, " ", 1}
-  data.raw["locomotive"]["railway-motor-car-train"].weight = 250
-  data.raw["locomotive"]["railway-motor-car-train"].max_power = "600kW"
-  data.raw["locomotive"]["railway-motor-car-train"].max_speed = 1.11111111
-  data.raw["locomotive"]["railway-motor-car-nuclear-train"].localised_name =
-      {"", {"entity-name.railway-motor-car-train"}, " ", 2}
-  data.raw["locomotive"]["railway-motor-car-nuclear-train"].weight = 325
-  data.raw["locomotive"]["railway-motor-car-nuclear-train"].max_power = "1.2MW"
-  data.raw["locomotive"]["railway-motor-car-nuclear-train"].max_speed = 2.5
+  data.raw["battery-equipment"]["railway-motor-car-base"].localised_name =
+      {"", {"equipment-name.railway-motor-car-base"}, " ", 1}
+  data.raw["item"]["railway-motor-car-base"].localised_name =
+      {"", {"equipment-name.railway-motor-car-base"}, " ", 1}
+  data.raw["item"]["railway-motor-car-base"].subgroup = "jetpack"
+  data.raw["battery-equipment"]["railway-motor-car-base"].categories = {"cybernetic"}
+  data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_name =
+      {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
+  data.raw["item"]["railway-motor-car-nuclear"].localised_name =
+      {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
+  data.raw["item"]["railway-motor-car-nuclear"].subgroup = "jetpack"
+  data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_description =
+      {"item-description.railway-motor-car-base"}
+  data.raw["battery-equipment"]["railway-motor-car-nuclear"].categories = {"cybernetic"}
+  data.raw["locomotive"]["railway-motor-car-base"].localised_name =
+      {"", {"entity-name.railway-motor-car-base"}, " ", 1}
+  data.raw["locomotive"]["railway-motor-car-base"].weight = 250
+  data.raw["locomotive"]["railway-motor-car-base"].max_power = "600kW"
+  data.raw["locomotive"]["railway-motor-car-base"].max_speed = 1.11111111
+  data.raw["locomotive"]["railway-motor-car-nuclear"].localised_name =
+      {"", {"entity-name.railway-motor-car-base"}, " ", 2}
+  data.raw["locomotive"]["railway-motor-car-nuclear"].weight = 325
+  data.raw["locomotive"]["railway-motor-car-nuclear"].max_power = "1.2MW"
+  data.raw["locomotive"]["railway-motor-car-nuclear"].max_speed = 2.5
   table.insert(data.raw["technology"]["nullius-personal-transportation-1"].effects,
     {type = "unlock-recipe", recipe = "nullius-railway-motorcar-1"})
   table.insert(data.raw["technology"]["nullius-personal-transportation-4"].effects,

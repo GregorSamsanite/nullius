@@ -66,6 +66,7 @@ local function create_boxed_item(base_name, group, box_order,
       always_show_products = true,
       allow_as_intermediate = false,
       no_productivity = true,
+	  hide_from_stats = true,
       energy_required = 1,
       ingredients = {
         {full_name, 4*ratio}
@@ -87,6 +88,7 @@ local function create_boxed_item(base_name, group, box_order,
       allow_decomposition = false,
       allow_as_intermediate = false,
       no_productivity = true,
+	  hide_from_stats = true,
       energy_required = 0.2,
       ingredients = {
         {"nullius-box-"..base_name, 1}

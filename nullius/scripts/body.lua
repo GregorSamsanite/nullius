@@ -20,7 +20,7 @@ function add_chart_tag(player, character)
       text=name, last_user=player})
   if (global.nullius_tag_android == nil) then
     global.nullius_tag_android = {}
-  global.nullius_android_tag = {}
+    global.nullius_android_tag = {}
   end
   global.nullius_tag_android[ctag.tag_number] = character
   global.nullius_android_tag[character.unit_number] = ctag
@@ -29,7 +29,7 @@ end
 function switch_body(player, target)
   local target_vehicle = nil
   if ((target.vehicle ~= nil) and ((target.vehicle.type == "car") or
-    (target.vehicle.type == "spider-vehicle"))) then
+      (target.vehicle.type == "spider-vehicle"))) then
     target_vehicle = target.vehicle
   end
 
@@ -38,7 +38,7 @@ function switch_body(player, target)
   if (tag ~= nil) then
     global.nullius_android_tag[target.unit_number] = nil
     if (tag.valid) then
-        if (global.nullius_android_name == nil) then
+      if (global.nullius_android_name == nil) then
         global.nullius_android_name = {}
       end
       global.nullius_android_name[target.unit_number] = tag.text
@@ -53,15 +53,15 @@ function switch_body(player, target)
   player.set_controller{type=defines.controllers.character, character=target}
 
   if ((vehicle ~= nil) and (character ~= nil)) then
-  if (((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) and
+    if (((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) and
         (vehicle.get_passenger() == nil)) then
-    vehicle.set_passenger(character)
-  elseif ((vehicle.type == "locomotive") and
-      (vehicle.get_driver() == nil)) then
-    vehicle.set_driver(character)
-  else
-    add_chart_tag(player, character)
-  end
+      vehicle.set_passenger(character)
+    elseif ((vehicle.type == "locomotive") and
+        (vehicle.get_driver() == nil)) then
+      vehicle.set_driver(character)
+    else
+      add_chart_tag(player, character)
+    end
   else
     add_chart_tag(player, character)
   end
@@ -75,8 +75,8 @@ function switch_body(player, target)
 
   if ((target_vehicle ~= nil) and (target_vehicle.get_driver() == nil) and
       (target == target_vehicle.get_passenger())) then
-  target_vehicle.set_passenger(nil)
-  target_vehicle.set_driver(target)
+    target_vehicle.set_passenger(nil)
+    target_vehicle.set_driver(target)
   end
 end
 
@@ -92,7 +92,7 @@ function update_queue(player, oldchar)
   local queue = global.nullius_body_queue[player.index]
   if (queue == nil) then
     queue = {}
-  queue.nodes = {}
+    queue.nodes = {}
     global.nullius_body_queue[player.index] = queue
   end
   local node1 = queue.nodes[oldchar.unit_number]
@@ -100,7 +100,7 @@ function update_queue(player, oldchar)
     node1 = { body = oldchar, unit = oldchar.unit_number }
     node1.next = node1
     node1.prev = node1
-  queue.nodes[oldchar.unit_number] = node1
+    queue.nodes[oldchar.unit_number] = node1
   end
 
   local node2 = queue.nodes[newchar.unit_number]
@@ -112,9 +112,9 @@ function update_queue(player, oldchar)
     queue.nodes[newchar.unit_number] = node2
   else
     local n2n = node2.next
-  local n2p = node2.prev
+    local n2p = node2.prev
     n2n.prev = n2p
-  n2p.next = n2n
+    n2p.next = n2n
   end
 
   local nn = node1.next
@@ -154,7 +154,7 @@ function cycle_body(player, rev)
 
   local node = nil
   if (player.character ~= nil) then
-  node = queue.nodes[player.character.unit_number]
+    node = queue.nodes[player.character.unit_number]
   end
   if ((node == nil) and (queue.last_index ~= nil)) then
     node = queue.nodes[queue.last_index]
@@ -257,7 +257,7 @@ function change_character_entity(oldunit, newchar)
     local node = queue.nodes[oldunit]
     if (node ~= nil) then
       node.body = newchar
-    node.unit = newunit
+      node.unit = newunit
       queue.nodes[oldunit] = nil
       queue.nodes[newunit] = node
     end
@@ -276,12 +276,26 @@ script.on_event(defines.events.on_player_respawned, function(event)
   if (global.nullius_body_queue == nil) then return end
   local queue = global.nullius_body_queue[player.index]
   if (queue == nil) then return end
-  if (queue[newchar.unit_number] ~= nil) then return end
+  if (queue.nodes[newchar.unit_number] ~= nil) then return end
 
   for _,node in pairs(queue.nodes) do
     if ((node.body == nil) or (not node.body.valid)) then
-    change_character_entity(node.unit, newchar)
+      change_character_entity(node.unit, newchar)
     return
   end
   end
+end)
+
+script.on_event(defines.events.on_player_joined_game, function(event)
+  local player = game.players[event.player_index]
+  local newchar = player.character
+  if ((newchar == nil) or (not newchar.valid)) then return end
+
+  if (global.nullius_body_queue == nil) then return end
+  local queue = global.nullius_body_queue[player.index]
+  if (queue == nil) then return end
+  local node = queue.nodes[newchar.unit_number]
+  if (node == nil) then return end
+  
+  node.body = newchar
 end)

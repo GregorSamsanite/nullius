@@ -39,6 +39,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-seawater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -52,6 +53,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-freshwater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -65,6 +67,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-wastewater", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -78,6 +81,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-brine", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -90,6 +94,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-caustic-solution", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -102,6 +107,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-calcium-chloride-solution", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -115,6 +121,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-saline", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -128,6 +135,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-water", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -140,6 +148,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-heavy-water", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -152,6 +161,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-methanol", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -164,6 +174,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-amino-acids", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -177,6 +188,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-nucleotides", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -190,6 +202,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-protocell", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -203,6 +216,7 @@ data:extend({
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-bacteria", amount=100}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -216,6 +230,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-air", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -228,6 +243,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-air", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -240,6 +256,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-nitrogen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -252,6 +269,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-nitrogen", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -264,6 +282,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-hydrogen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -276,6 +295,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-deuterium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -288,6 +308,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-tritium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -300,6 +321,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-hydrogen", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -312,6 +334,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-volcanic-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -324,6 +347,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-argon", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -336,6 +360,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-argon", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -348,6 +373,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-helium", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -360,6 +386,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-helium", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -373,6 +400,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-steam", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -385,6 +413,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-residual-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -397,6 +426,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-residual-gas", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -409,6 +439,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-trace-gas", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -421,6 +452,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-trace-gas", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -433,6 +465,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-oxygen", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -445,6 +478,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-oxygen", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -457,6 +491,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-carbon-dioxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -469,6 +504,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-carbon-dioxide", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -481,6 +517,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-carbon-monoxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -493,6 +530,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-carbon-monoxide", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -505,6 +543,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-sulfur-dioxide", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -517,6 +556,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-methane", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -529,6 +569,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-compressed-methane", amount=50}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
@@ -541,6 +582,7 @@ data:extend({
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
     hide_from_player_crafting = true,
+	hide_from_stats = true,
     energy_required = 1,
     ingredients = {{type="fluid", name="nullius-ammonia", amount=100}},
     results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}

@@ -10,7 +10,7 @@ local boxed_item_type_list = {
   "repair-tool"
 }
 
-local function boxed_icons(itemname)
+local function boxed_icons(itemname, suffix)
   local base_item = data.raw.item[itemname]
   if (base_item == nil) then
     for _,ityp in pairs(boxed_item_type_list) do
@@ -34,17 +34,21 @@ local function boxed_icons(itemname)
   end
   if ((base_icon == nil) or (base_size == nil)) then return nil end
 
+  local backdrop = "crate.png"
   local icon_scale = 0.9
-  if (suffix == "acrylic-fiber") then
-    icon_scale = 1
-  elseif (suffix == "carbon-fiber") then
-    icon_scale = 1.1
+  if (suffix ~= nil) then
+    if (suffix == "acrylic-fiber") then
+      icon_scale = 1
+    elseif (suffix == "carbon-fiber") then
+      icon_scale = 1
+	  backdrop = "boxing.png"
+    end
   end
   local base_scale = icon_scale * 32 / base_size
 
   local box_icon = {
     {
-      icon = ICONPATH .. "crate.png",
+      icon = ICONPATH .. backdrop,
       icon_size = 64
     },
     {
@@ -55,7 +59,7 @@ local function boxed_icons(itemname)
     }
   }
   local unbox_icon = util.table.deepcopy(box_icon)
-  unbox_icon[1].icon = ICONPATH .. "uncrate.png"
+  unbox_icon[1].icon = ICONPATH .. "un" .. backdrop
 
   if (icons ~= nil) then
     for layer=2,9 do
@@ -92,7 +96,7 @@ end
 for _,recipe in pairs(data.raw.recipe) do
   if (string.sub(recipe.name, 1, 14) == "nullius-unbox-") then
     local suffix = string.sub(recipe.name, 15, -1)
-    local icons = boxed_icons(recipe.result)
+    local icons = boxed_icons(recipe.result, suffix)
     if (icons ~= nil) then
       data.raw.item["nullius-box-"..suffix].icons = icons.boxed
       recipe.icons = icons.unboxed

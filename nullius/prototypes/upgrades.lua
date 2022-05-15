@@ -56,7 +56,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-mining-productivity-2"},
+    prerequisites = {"nullius-mining-productivity-2", "nullius-checkpoint-iron-ore"},
     upgrade = true
   },
   {
@@ -113,7 +113,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1}},
       time = 15
     },
-    prerequisites = {"nullius-mining-productivity-5"},
+    prerequisites = {"nullius-mining-productivity-5", "nullius-checkpoint-sandstone"},
     upgrade = true
   },
   {
@@ -179,7 +179,7 @@ data:extend({
       },
       time = 20
     },
-    prerequisites = {"nullius-mining-productivity-8"},
+    prerequisites = {"nullius-mining-productivity-8", "nullius-checkpoint-bauxite"},
     upgrade = true
   },
   {
@@ -201,7 +201,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-mining-2", "nullius-mining-productivity-9"},
+    prerequisites = {"nullius-checkpoint-limestone", "nullius-mining-productivity-9"},
     upgrade = true
   },
   {
@@ -360,7 +360,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-mining-productivity-16", "nullius-limestone-processing-3"},
+    prerequisites = {"nullius-checkpoint-mining", "nullius-limestone-processing-4"},
     upgrade = true
   },
   {
@@ -406,7 +406,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-mining-productivity-18", "nullius-demolitions-2"},
+    prerequisites = {"nullius-mining-productivity-18", "nullius-construction-robot-3"},
     upgrade = true
   },
   {
@@ -429,7 +429,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-mining-productivity-19", "nullius-terraforming-2"},
+    prerequisites = {"nullius-mining-productivity-19", "nullius-terraforming-2", "nullius-checkpoint-excavation-drone"},
     upgrade = true
   },
 
@@ -510,7 +510,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-copper-production"},
+    prerequisites = {"nullius-checkpoint-copper-ingot"},
     max_level = "infinite",
     upgrade = true
   },
@@ -574,7 +574,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-cybernetics-6", "nullius-woodworking"},
+    prerequisites = {"nullius-cybernetics-6", "nullius-checkpoint-wood"},
     max_level = "infinite",
     upgrade = true
   },
@@ -819,7 +819,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-antimatter-containment", "nullius-inserter-capacity-4"},
+    prerequisites = {"nullius-checkpoint-antimatter", "nullius-inserter-capacity-7"},
     max_level = "infinite",
     upgrade = true
   }

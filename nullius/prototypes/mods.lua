@@ -282,7 +282,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-freight-logistics", "nullius-logistics-2", "nullius-miniloader-1"}
+    prerequisites = {"nullius-freight-logistics", "nullius-logistics-2"}
   },
   {
     type = "technology",
@@ -299,7 +299,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-storage-3", "nullius-miniloader-2"}
+    prerequisites = {"nullius-storage-3"}
   },
   {
     type = "technology",
@@ -316,7 +316,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-distribution-3", "nullius-miniloader-3"}
+    prerequisites = {"nullius-distribution-3"}
   }
 })
 if settings.startup["miniloader-enable-chute"].value then
@@ -596,7 +596,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-locomotion-2", "nullius-jetpack-1"}
+    prerequisites = {"nullius-cybernetics-4"}
   },
   {
     type = "technology",
@@ -621,7 +621,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-rocket-science-1", "nullius-jetpack-2"}
+    prerequisites = {"nullius-checkpoint-rocket-fuel"}
   },
   {
     type = "technology",
@@ -647,7 +647,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-rocket-science-3", "nullius-jetpack-3"}
+    prerequisites = {"nullius-rocket-science-3"}
   },
 
   {
@@ -1656,7 +1656,7 @@ data:extend({
       {"nullius-large-chest-1", 1},
 	  {"nullius-small-assembler-1", 1}
     },
-    result = "railway-motor-car-equipment"
+    result = "railway-motor-car-base"
   },
   {
     type = "recipe",
@@ -1670,7 +1670,7 @@ data:extend({
       {"nullius-solar-locomotive", 1},
       {"nullius-small-assembler-3", 1}
     },
-    result = "railway-motor-car-nuclear-equipment"
+    result = "railway-motor-car-nuclear"
   }
 })
 end

@@ -1,18 +1,4 @@
-local function init_broken()
-  global.nullius_broken_status = {}
-  global.nullius_broken_status["nullius-broken-air-filter"] = 3
-  global.nullius_broken_status["nullius-broken-hydro-plant"] = 2
-  global.nullius_broken_status["nullius-broken-electrolyzer"] = 1
-  global.nullius_broken_status["nullius-broken-chemical-plant"] = 6
-  global.nullius_broken_status["nullius-broken-foundry"] = 2
-  global.nullius_broken_status["nullius-broken-assembler"] = 3
-  global.nullius_broken_status["nullius-broken-pylon"] = 18
-  global.nullius_broken_status["nullius-broken-solar-panel"] = 15
-  global.nullius_broken_status["nullius-broken-grid-battery"] = 10
-  global.nullius_broken_status["nullius-broken-sensor-node"] = 2
-end
-
-local function broken_disabled(name)
+function broken_disabled(name)
   if (global.nullius_broken_status == nil) then
     return true
   end
@@ -21,6 +7,13 @@ local function broken_disabled(name)
     return true
   end
   return false
+end
+
+function broken_finished(name)
+  global.nullius_broken_status[name] = nil
+  for _, force in pairs(game.forces) do
+    force.recipes[name].enabled = false
+  end
 end
 
 local function broken_crafted(name)
@@ -32,10 +25,7 @@ local function broken_crafted(name)
     return
   end
   if (count < 2) then
-    global.nullius_broken_status[name] = nil
-    for _, force in pairs(game.forces) do
-      force.recipes[name].enabled = false
-    end
+    broken_finished(name)
   else
     global.nullius_broken_status[name] = (count - 1)
   end
@@ -43,6 +33,7 @@ end
 
 
 local function init_tech(force)
+  if (not force.research_enabled) then return end
   for _, tech in pairs(force.technologies) do
     if ((string.sub(tech.name, 1, 8) ~= "nullius-") and
       (string.sub(tech.order, 1, 8) ~= "nullius-")) then
@@ -67,6 +58,13 @@ local function init_tech(force)
       recipe.enabled = false
   end
   end
+
+  if (force.technologies["nullius-inorganic-chemistry-2"].researched) then
+    -- Hack for version 1.3.7 split of chemistry research
+    force.technologies["nullius-inorganic-chemistry-1"].researched = true
+  end
+
+  init_force_checkpoints(force)
 end
 
 local function init_techs()
@@ -77,9 +75,9 @@ end
 
 script.on_event(defines.events.on_player_joined_game,
   function(event)
-  local player = game.players[event.player_index]
+    local player = game.players[event.player_index]
     init_tech(player.force)
-  update_mission_player(player)
+    update_mission_player(player)
   end
 )
 
@@ -100,7 +98,8 @@ local function reset_config()
   end
   if (remote.interfaces["silo_script"] ~= nil) then
     remote.call("silo_script", "set_no_victory", true)
-  end  
+  end
+  init_checkpoint_prereqs()
 end
 
 script.on_init(
@@ -181,6 +180,7 @@ script.on_event(defines.events.on_player_created,
       player.surface.daytime = 0.7
       landing_site(player.surface, {-5, -6})
       init_broken()
+	  reset_checkpoints(player.force)
     end
 
     if game.is_multiplayer() then
@@ -194,13 +194,15 @@ script.on_event(defines.events.on_player_created,
 
 script.on_event(defines.events.on_research_finished,
   function(event)
+    local techname = event.research.name
     if (global.nullius_broken_status ~= nil) then
-      if (event.research.name == "nullius-experimental-chemistry") then
+      if (techname == "nullius-experimental-chemistry") then
         init_techs()
-      elseif (event.research.name == "nullius-distillation-1") then
+      elseif (techname == "nullius-distillation-1") then
         broken_crafted("nullius-broken-electrolyzer")
       end
     end
+	update_checkpoint_list(techname)
   end
 )
 

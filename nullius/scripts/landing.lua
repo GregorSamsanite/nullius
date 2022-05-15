@@ -110,11 +110,11 @@ function landing_site(surface, loc)
   main_ship.insert({name="nullius-foundry-1", count=1})
   main_ship.insert({name="nullius-broken-foundry", count=2})
   main_ship.insert({name="nullius-hydro-plant-1", count=1})
-  main_ship.insert({name="nullius-broken-hydro-plant", count=2})
+  main_ship.insert({name="nullius-broken-hydro-plant", count=3})
   main_ship.insert({name="nullius-distillery-1", count=2})
   main_ship.insert({name="nullius-broken-electrolyzer", count=1})
   main_ship.insert({name="nullius-chemical-plant-1", count=2})
-  main_ship.insert({name="nullius-broken-chemical-plant", count=6})
+  main_ship.insert({name="nullius-broken-chemical-plant", count=7})
 
   for _, part in pairs (ship_parts) do
     local part_position = nil

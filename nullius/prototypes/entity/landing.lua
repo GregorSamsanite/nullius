@@ -148,7 +148,8 @@ data:extend({
       results = {
         {type="item", name="nullius-small-furnace-2", amount=1},
         {type="item", name="nullius-chimney-1", amount=2},
-        {type="item", name="nullius-outfall-1", amount=2}
+        {type="item", name="nullius-outfall-1", amount=2},
+        {type="item", name="storage-tank", amount=2}
       }
     },
     collision_box = {{-1.6, -1.6}, {1.3, 1.3}},
@@ -254,7 +255,7 @@ data:extend({
       mining_time = 1.5,
       results = {
         {type="item", name="nullius-seawater-intake-1", amount=2},
-        {type="item", name="storage-tank", amount=5}
+        {type="item", name="storage-tank", amount=4}
       }
     },
     collision_box = {{-1.1, -0.6}, {1.0, 1.0}},

@@ -785,7 +785,7 @@ data:extend({
     name = "nullius-one-way-valve-1",
     localised_name = {"", {"entity-name.nullius-one-way-valve"}, " ", 1},
     enabled = false,
-    category = "tiny-crafting",
+    category = "small-crafting",
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,

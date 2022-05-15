@@ -1,4 +1,5 @@
 require("scripts.mission")
+require("scripts.checkpoint")
 require("scripts.drone")
 require("scripts.wind")
 require("scripts.geothermal")

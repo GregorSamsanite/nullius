@@ -457,7 +457,7 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=5},
+      {type="item", name="nullius-box-astronomy-pack", amount=3},
       {type="item", name="nullius-box-chemical-pack", amount=4},
       {type="item", name="nullius-canister", amount=1}
     },
@@ -742,8 +742,8 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-bacteria-genome", amount=1},
       {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=3},
-      {type="item", name="nullius-box-climatology-pack", amount=4}
+      {type="item", name="nullius-box-astronomy-pack", amount=1},
+      {type="item", name="nullius-box-climatology-pack", amount=3}
     },
     results = {
       {type="item", name="nullius-algae-genome", amount=1},
@@ -998,8 +998,8 @@ data:extend({
       {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=1, fluidbox_index=2},
       {type="item", name="nullius-algae-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=4},
-      {type="item", name="nullius-box-geology-pack", amount=5}
+      {type="item", name="nullius-box-astronomy-pack", amount=2},
+      {type="item", name="nullius-box-geology-pack", amount=4}
     },
     results = {
       {type="item", name="nullius-grass-genome", amount=1},
@@ -1493,8 +1493,8 @@ data:extend({
       {type="fluid", name="nullius-nucleotides", amount=10, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=2, fluidbox_index=2},
       {type="item", name="nullius-algae-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=6},
-      {type="item", name="nullius-box-geology-pack", amount=4}
+      {type="item", name="nullius-box-astronomy-pack", amount=2},
+      {type="item", name="nullius-box-geology-pack", amount=3}
     },
     results = {
       {type="item", name="nullius-worm-genome", amount=1},
@@ -1820,8 +1820,8 @@ data:extend({
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
       {type="item", name="nullius-grass-genome", amount=2},
-      {type="item", name="nullius-box-astronomy-pack", amount=3},
-      {type="item", name="nullius-box-mechanical-pack", amount=8}
+      {type="item", name="nullius-box-astronomy-pack", amount=1},
+      {type="item", name="nullius-box-mechanical-pack", amount=6}
     },
     results = {
       {type="item", name="nullius-tree-genome", amount=1},
@@ -2218,8 +2218,8 @@ data:extend({
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
       {type="item", name="nullius-worm-genome", amount=2},
-      {type="item", name="nullius-box-astronomy-pack", amount=4},
-      {type="item", name="nullius-box-mechanical-pack", amount=6}
+      {type="item", name="nullius-box-astronomy-pack", amount=1},
+      {type="item", name="nullius-box-mechanical-pack", amount=4}
     },
     results = {
       {type="item", name="nullius-fish-genome", amount=1},
@@ -2537,8 +2537,8 @@ data:extend({
       {type="fluid", name="nullius-nucleotides", amount=15, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=3, fluidbox_index=2},
       {type="item", name="nullius-fish-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=12},
-      {type="item", name="nullius-box-physics-pack", amount=10}
+      {type="item", name="nullius-box-astronomy-pack", amount=3},
+      {type="item", name="nullius-box-physics-pack", amount=12}
     },
     results = {
       {type="item", name="nullius-arthropod-genome", amount=1},
@@ -3558,8 +3558,8 @@ data:extend({
     energy_required = 90,
     ingredients = {
       {type="item", name="nullius-algae-progenitor", amount=1},
-      {type="item", name="nullius-algae", amount=50},
-      {type="fluid", name="nullius-bacteria", amount=100}
+      {type="item", name="nullius-algae", amount=80},
+      {type="fluid", name="nullius-bacteria", amount=150}
     },
     result = "nullius-microbiology-pack"
   },
@@ -3572,8 +3572,8 @@ data:extend({
     energy_required = 120,
     ingredients = {
       {type="item", name="nullius-grass-progenitor", amount=1},
-      {type="item", name="nullius-grass", amount=50},
-      {type="item", name="nullius-box-cellulose", amount=40}
+      {type="item", name="nullius-grass", amount=60},
+      {type="item", name="nullius-box-cellulose", amount=60}
     },
     result = "nullius-botany-pack"
   },
@@ -3586,8 +3586,8 @@ data:extend({
     energy_required = 160,
     ingredients = {
       {type="item", name="nullius-tree-progenitor", amount=1},
-      {type="item", name="nullius-tree", amount=25},
-      {type="item", name="nullius-box-wood", amount=20}
+      {type="item", name="nullius-tree", amount=40},
+      {type="item", name="nullius-box-wood", amount=40}
     },
     result = "nullius-dendrology-pack"
   },
@@ -3599,8 +3599,8 @@ data:extend({
     energy_required = 100,
     ingredients = {
       {type="item", name="nullius-worm-progenitor", amount=1},
-      {type="item", name="nullius-worm", amount=40},
-      {type="fluid", name="nullius-carbon-dioxide", amount=2000}
+      {type="item", name="nullius-worm", amount=50},
+      {type="fluid", name="nullius-carbon-dioxide", amount=3000}
     },
     result = "nullius-nematology-pack"
   },
@@ -3613,8 +3613,8 @@ data:extend({
     energy_required = 120,
     ingredients = {
       {type="item", name="nullius-fish-progenitor", amount=1},
-      {type="item", name="nullius-fish", amount=30},
-      {type="fluid", name="nullius-wastewater", amount=2000}
+      {type="item", name="nullius-fish", amount=40},
+      {type="fluid", name="nullius-wastewater", amount=3000}
     },
     result = "nullius-ichthyology-pack"
   },
@@ -3627,7 +3627,7 @@ data:extend({
     energy_required = 200,
     ingredients = {
       {type="item", name="nullius-arthropod-progenitor", amount=1},
-      {type="item", name="nullius-arthropod", amount=20},
+      {type="item", name="nullius-arthropod", amount=30},
       {type="item", name="nullius-box-plastic", amount=10}
     },
     result = "nullius-zoology-pack"

@@ -1,14 +1,46 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 14.05.2022
+  Features:
+    - New checkpoint system added to tech tree.
+    - New brine boiling recipe.
+    - New caustic solution recipe and neutralization recipe.
+    - New mod specific achievements.
+  Balancing:
+    - Make PVC plastic a bit cheaper.
+    - Fix sulfur positive gypsum/sodium sulfate loop.
+    - Reduce sulfur dioxide and increase carbon monoxide in volcanic gas.
+    - Reduce physical science costs of biology.  Increase biological costs.
+    - 1 extra broken hydro plant, broken chemical plant, medium tank at start.
+  Changes:
+    - Numerous adjustments to tech tree prerequisites.
+    - Don't count voiding/boxing/unboxing/compressing in production stats.
+    - Split inorganic chemistry into 2 techs, 1 earlier in tree.
+    - Remaining vanilla achievements hidden.
+    - Allow broken item repair recipes to be crafted by assemblers.
+    - Unlock mission panel early if terraforming drone is used.
+    - One way valve 1 can be crafted in medium assembler.
+  Bugfixes:
+    - Fix a problem with body switching queue in multiplayer mode.
+    - Correct a mismatch between boxed and unboxed iron oxide.
+  Graphics:
+    - Swap some fluid recipe molecule icons for consistency in input/output.
+    - Make boxed carbon fiber icon easier to discern.	
+  Modding:
+    - Fix an incompatibility with recent update of Railway Motor Car mod.
+    - Some optional mod techs are incorporated as prereqs if enabled.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.6
 Date: 21.04.2022
   Bugfixes:
     - Fix an incompatibility with Squeak Through in previous update.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.5
-Date: 21.04.2022
+Date: 20.04.2022
   Features:
     - New lower tech thermal tank (thermal tank 1 and 2 become 2 and 3).
   Changes:
+    - Map pipe 1 to vanilla pipe and pump 3 to vanilla pump.
     - Thermal tank 2 recipe (previously 1) changed to include new tank 1.
   Balancing:
     - Improve energy density of thermal tank 2 and 3.

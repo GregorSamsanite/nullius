@@ -101,7 +101,8 @@ function set_mission_goal(goal, amount, force)
 end
 
 function bump_mission_goal(goal, amount, force)
-  if (global.nullius_mission_status ~= nil) then
+  if (amount ~= 0) then
+    create_mission()
     set_mission_goal(goal, (global.nullius_mission_count[goal] + amount), force)
   end
 end
@@ -110,12 +111,12 @@ function create_mission()
   if (global.nullius_mission_status == nil) then
     global.nullius_mission_status = {}
     global.nullius_mission_count = {}
-  global.nullius_mission_show = {}
+    global.nullius_mission_show = {}
     global.nullius_mission_complete = false
-  for i = 1, 11 do
-    global.nullius_mission_count[i] = 0
-    global.nullius_mission_status[i] = 0
-  end
+    for i = 1, 11 do
+      global.nullius_mission_count[i] = 0
+      global.nullius_mission_status[i] = 0
+    end
     update_mission_global()
   end
 end
