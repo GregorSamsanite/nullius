@@ -73,6 +73,26 @@ local function init_techs()
   end
 end
 
+--[[
+local function check_version(event)
+  local version_info = event.mod_changes["nullius"]
+  if (version_info == nil) then return end
+  local previous = version_info.old_version
+  if (previous == nil) then return end
+
+  local dot1 = string.find(previous, ".")
+  if (dot1 == nil) then return end
+  local dot2 = string.find(previous, ".", (dot1 + 1))
+  if (dot2 == nil) then return end
+  local sub1 = tonumber(string.sub(previous, 1, (dot1 - 1)))
+  local sub2 = tonumber(string.sub(previous, (dot1 + 1), (dot2 - 1)))
+  local sub3 = tonumber(string.sub(previous, (dot2 + 1)))
+  if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
+  local version = (((sub1 * 100) + sub2) * 100) + sub3
+end
+--]]
+
+
 script.on_event(defines.events.on_player_joined_game,
   function(event)
     local player = game.players[event.player_index]
@@ -113,14 +133,16 @@ script.on_init(
       remote.call("freeplay", "set_chart_distance", 300)
     end
     update_mission_global()
+	init_vents()
   end
 )
 
 script.on_configuration_changed(
-  function(cfg)
+  function(event)
     reset_config()
     init_techs()
     update_mission_global()
+	migrate_vents()
   end
 )
 

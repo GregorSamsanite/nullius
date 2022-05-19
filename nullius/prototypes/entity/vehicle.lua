@@ -406,7 +406,7 @@ data:extend({
     energy_per_hit_point = 1,
     guns = {
       "nullius-mecha-gun", "nullius-mecha-launcher",
-      "nullius-mecha-drone-launcher-1", "nullius-mecha-drone-launcher-2"
+      "nullius-mecha-drone-launcher-1", "nullius-drone-cannon"
     },
     inventory_size = 120,
     trash_inventory_size = 20,

@@ -26,14 +26,14 @@ local checkpoint_data = {
   ["wind-power"] = {{ CHK_BUILD, STT_NET, 5, {{"nullius-wind-base-1"},{"nullius-wind-build-1"}} }},
   ["energy-storage"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-surge-electrolyzer-1"}} },
 			{ CHK_FLUID, STT_CONSUME, 1000, {{"nullius-steam"}} }},
-  ["iron-ingot-2"] = {{ CHK_ITEM, STT_CONSUME, 250, {{"nullius-iron-ingot"}} }},
+  ["iron-ingot-2"] = {{ CHK_ITEM, STT_CONSUME, 1500, {{"nullius-iron-ingot"}} }},
   ["steel-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-steel-ingot"}} }},
   ["glass"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-glass"}} }},
   ["plastic-2"] = {{ CHK_ITEM, STT_CONSUME, 250, {{"nullius-plastic"}} }},
   ["rubber"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-rubber"}} }},
-  ["aluminum-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-aluminum-ingot"}} }},
+  ["aluminum-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-aluminum-ingot"}} }},
   ["polycrystalline-silicon"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-polycrystalline-silicon"}} }},
-  ["mineral-dust"] = {{ CHK_ITEM, STT_PRODUCE, 200, {{"nullius-mineral-dust"}} }},
+  ["mineral-dust"] = {{ CHK_ITEM, STT_CONSUME, 200, {{"nullius-mineral-dust"}} }},
   ["mass-production"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-medium-furnace-1"}} },
 			{ CHK_BUILD, STT_NET, 6, {{"nullius-medium-assembler-1"}} }},
   ["freight-transportation"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-water-canister"}} }},
@@ -296,8 +296,12 @@ local function update_checkpoint_force(force, tick)
   
   if ((progress >= count) or (count < 1)) then
     if (tech ~= nil) then
-	  if (force.research_queue_enabled and
-	      (force.current_research ~= nil) and
+	  if ((force.current_research == nil) or
+          (force.current_research.name ~= tech.name)) then
+	    force.print({"technology-description.nullius-complete-checkpoint",
+		    tech.localised_name[2]}, {0.3, 0.75, 0.4})
+	  end
+	  if (force.research_queue_enabled and (force.current_research ~= nil) and
           (force.current_research.name ~= tech.name)) then
 		-- When checkpoint is in research queue, researching item
 		-- clears anything else in queue that has it as a dependency.

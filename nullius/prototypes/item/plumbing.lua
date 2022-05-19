@@ -3707,7 +3707,7 @@ data:extend({
     type = "recipe",
     name = "nullius-extractor-1",
     enabled = false,
-    category = "huge-crafting",
+    category = "large-crafting",
     always_show_made_in = true,
     energy_required = 20,
     ingredients = {

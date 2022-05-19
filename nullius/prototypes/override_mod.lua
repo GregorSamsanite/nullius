@@ -250,12 +250,10 @@ data.raw.technology["long-inserters-1"].unit = { count = 15,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-data.raw.technology["nullius-mineral-processing-2"].prerequisites = {
-  "nullius-checkpoint-limestone", "long-inserters-2"}
+table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"long-inserters-2")
 
 data.raw.technology["long-inserters-2"].order = "nullius-dd"
-data.raw.technology["long-inserters-2"].prerequisites = {
-  "nullius-maintenance", "long-inserters-1"}
+data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
 data.raw.technology["long-inserters-2"].unit = { count = 80,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 20
@@ -264,28 +262,30 @@ else
 data.raw.technology["long-inserters-1"].order = "nullius-dd"
 data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["long-inserters-1"].unit = { count = 60,
-  ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
-  time = 20
+data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication"}
+data.raw.technology["long-inserters-1"].unit = { count = 30,
+  ingredients = {{"nullius-mechanical-pack", 1}},
+  time = 6
 }
 end
 
 if mods["bobinserters"] then
 if (settings.startup["bobmods-inserters-long2"].value == true) then
-data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-toolmaking-1"}
+data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-checkpoint-steel-ingot"}
 data.raw.technology["near-inserters"].order = "nullius-cf"
 data.raw.technology["near-inserters"].unit = { count = 25,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
+table.insert(data.raw.technology["nullius-toolmaking-1"].prerequisites,"near-inserters")
 else
-data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-locomotion-1"}
+data.raw.technology["near-inserters"].prerequisites = {"nullius-maintenance"}
 data.raw.technology["near-inserters"].order = "nullius-dg"
-data.raw.technology["near-inserters"].unit = { count = 150,
+data.raw.technology["near-inserters"].unit = { count = 100,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 25
 }
+table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"near-inserters")
 end
 
 data.raw.technology["more-inserters-1"].order = "nullius-df"
@@ -293,13 +293,9 @@ data.raw.technology["more-inserters-1"].unit = { count = 200,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 30
 }
-if (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["more-inserters-1"].prerequisites = {
-  "long-inserters-2", "near-inserters", "nullius-optimization-2"}
-else
-data.raw.technology["more-inserters-1"].prerequisites = {
-  "long-inserters-1", "near-inserters", "nullius-cybernetics-2"}
-end
+  "nullius-metalworking-2", "nullius-locomotion-1"}
+table.insert(data.raw.technology["nullius-cybernetics-2"].prerequisites,"more-inserters-1")
 
 if settings.startup["bobmods-inserters-more2"].value == true then
 data.raw.technology["more-inserters-2"].order = "nullius-ek"
@@ -310,8 +306,8 @@ data.raw.technology["more-inserters-2"].unit = { count = 600,
   },
   time = 35
 }
-data.raw.technology["more-inserters-2"].prerequisites = {
-  "nullius-logistics-3", "more-inserters-1"}
+data.raw.technology["more-inserters-2"].prerequisites = {"nullius-logistics-3"}
+table.insert(data.raw.technology["nullius-inserter-capacity-1"].prerequisites,"more-inserters-2")
 end
 end
 
@@ -894,7 +890,7 @@ data.raw.technology["transport-system"].unit = {
 }
 data.raw.technology["transport-depot-circuits"].order = "nullius-dk"
 data.raw.technology["transport-depot-circuits"].prerequisites = {
-  "transport-system", "nullius-traffic-control", "nullius-empiricism-2" }
+  "transport-system", "nullius-traffic-control" }
 data.raw.technology["transport-depot-circuits"].unit = {
   count = 150, time = 30,
   ingredients = {
@@ -1183,6 +1179,11 @@ for _, recipe in pairs(data.raw.recipe) do
     end
   end
 end
+
+table.insert(data.raw.technology["nullius-mechanical-separation"].prerequisites,"nullius-typesetting-1")
+table.insert(data.raw.technology["nullius-empiricism-1"].prerequisites,"nullius-typesetting-2")
+table.insert(data.raw.technology["nullius-empiricism-2"].prerequisites,"nullius-typesetting-3")
+table.insert(data.raw.technology["nullius-miniaturization-2"].prerequisites,"nullius-typesetting-4")
 end
 
 
@@ -1405,4 +1406,11 @@ if mods["RenaiTransportation"] then
     { type = "physical", decrease = 20, percent = 20 },
     { type = "explosion", decrease = 20, percent = 20 }
   }
+end
+
+
+if mods["Warehousing"] then
+table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-warehousing-1")
+table.insert(data.raw.technology["nullius-venting-2"].prerequisites,"nullius-warehousing-3")
+table.insert(data.raw.technology["nullius-mass-production-5"].prerequisites,"nullius-warehousing-4")
 end

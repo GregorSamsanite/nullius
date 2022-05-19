@@ -1,4 +1,35 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.2
+Date: 19.05.2022
+  Balancing:
+    - Moved long inserters tech a bit earlier to late mechanical engineering.
+  Changes:
+    - Allow locomotive 1 and extractor 1 to be crafted in medium assembler.
+    - Minor changes to some mechanical and electrical prerequisites.
+  Bugfixes:
+    - Fix iron utilization checkpoint description.
+  Modding:
+    - Integrate Bob's adjustable inserters into tech tree as prerequisites.
+  Graphics:
+    - Adjust alignment of chimney smoke to match updated Angel's graphics.
+  Translation:
+    - Russian updated for 1.4.1 (thanks Shadow_Man).
+---------------------------------------------------------------------------------------------------
+Version: 1.4.1
+Date: 17.05.2022
+  Features:
+    - Give notifications when checkpoints are completed.
+    - New biolubricant recipe.
+  Balancing:
+    - Increase Iron utilization checkpoint threshold.
+  Changes:
+    - Change mineral dust checkpoint from produce to consume.
+    - Change recipe for repairing broken sensor node to be available earlier.
+    - Change broken solar panel recipe crafting machine to foundry.
+  Modding:
+    - Fix an unintended dependency between bulk rail loader and miniloader.
+    - Integrate some optional mods into tech tree as prerequisites.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 14.05.2022
   Features:

@@ -1739,7 +1739,7 @@ data:extend({
     type = "recipe",
     name = "nullius-locomotive-1",
     enabled = false,
-    category = "huge-crafting",
+    category = "large-crafting",
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {

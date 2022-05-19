@@ -326,7 +326,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     no_productivity = true,
-    category = "large-crafting",
+    category = "hand-casting",
     subgroup = "broken",
     order = "nullius-q",
     energy_required = 8,
@@ -376,7 +376,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"nullius-broken-sensor-node", 1},
-      {"decider-combinator", 1},
+      {"nullius-glass", 2},
       {"small-lamp", 2}
     },
     result = "radar"

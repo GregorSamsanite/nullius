@@ -230,6 +230,43 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-biolubricant",
+    localised_name = {"recipe-name.nullius-biolubricant"},
+    icons = {
+      {
+		icon = "__base__/graphics/icons/fluid/lubricant.png",
+		icon_size = 64,
+		icon_mipmaps = 4
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/light-oil.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.2,
+        shift = {-12, -10}
+      }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	allow_decomposition = false,
+    category = "distillation",
+    subgroup = "biology-oil",
+    order = "nullius-bd",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-oil", amount=20},
+      {type="fluid", name="nullius-steam", amount=20}
+    },
+    results = {
+      {type="fluid", name="nullius-lubricant", amount=10},
+      {type="fluid", name="nullius-methane", amount=12},
+      {type="fluid", name="nullius-carbon-monoxide", amount=15}
+    },
+    main_product = "nullius-lubricant"
+  },
+  {
+    type = "recipe",
     name = "nullius-biodiesel",
     enabled = false,
     show_amount_in_title = false,

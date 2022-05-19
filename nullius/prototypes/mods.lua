@@ -1080,7 +1080,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-concrete-1", "nullius-warehousing-1"}
+    prerequisites = {"nullius-concrete-1"}
   },
   {
     type = "technology",
@@ -1161,7 +1161,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-distribution-2", "nullius-warehousing-3"}
+    prerequisites = {"nullius-distribution-2"}
   },
 
   {
@@ -1397,7 +1397,7 @@ data:extend({
         {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-typesetting-1", "nullius-aluminum-working"},
+    prerequisites = {"nullius-checkpoint-aluminum-ingot"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1432,7 +1432,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-typesetting-2", "nullius-empiricism-2"}
+    prerequisites = {"nullius-glassmaking-1", "nullius-checkpoint-concrete"}
   },
   {
     type = "technology",
@@ -1468,7 +1468,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-typesetting-3", "nullius-copper-production", "nullius-uranium-processing"}
+    prerequisites = {"nullius-copper-production", "nullius-uranium-processing"}
   }
 })
 end
@@ -2043,6 +2043,16 @@ end
 
 
 if mods["railloader"] then
+if not mods["miniloader"] then
+  data:extend({
+    {
+      type = "item-subgroup",
+      name = "miniloader",
+      group = "logistics",
+      order = "cam"
+    }
+  })
+end
 data:extend({
   {
     type = "recipe",
@@ -2617,7 +2627,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-distribution-1", "nullius-projection-1"}
+    prerequisites = {"nullius-distribution-1"}
   },
   {
     type = "technology",
@@ -2725,7 +2735,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+    prerequisites = {"nullius-braking-1", "nullius-logistic-ballistics-6"}
   },
   {
     type = "technology",

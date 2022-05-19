@@ -1725,7 +1725,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 8
     },
-    prerequisites = {"nullius-checkpoint-aluminum-ingot", "nullius-metallurgy-2"},
+    prerequisites = {"nullius-aluminum-production", "nullius-metallurgy-2"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1796,7 +1796,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-checkpoint-polycrystalline-silicon", "nullius-aluminum-working", "nullius-cybernetics-1"},
+    prerequisites = {"nullius-checkpoint-polycrystalline-silicon", "nullius-checkpoint-aluminum-ingot", "nullius-cybernetics-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1834,7 +1834,7 @@ data:extend({
         {"nullius-mechanical-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-hydrocarbon-combustion-1"},
+    prerequisites = {"nullius-checkpoint-aluminum-ingot", "nullius-hydrocarbon-combustion-1"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1868,7 +1868,7 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-boiling-1"}
+    prerequisites = {"nullius-boiling-1", "long-inserters-1"}
   },
   {
     type = "technology",
@@ -2543,7 +2543,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-checkpoint-limestone", "long-inserters-1"},
+    prerequisites = {"nullius-checkpoint-limestone"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2684,7 +2684,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-limestone"},
+    prerequisites = {"nullius-checkpoint-limestone", "nullius-hydrology-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -13666,6 +13666,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-glycerol-to-ech"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-biolubricant"
       }
     },
     unit = {

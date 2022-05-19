@@ -383,7 +383,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-iron-ingot"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 250, "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
+	    {"technology-description.nullius-item", 1500, "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -525,7 +525,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-aluminum-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-aluminum-ingot", {"item-name.nullius-aluminum-ingot"}}},
+	    {"technology-description.nullius-item", 50, "nullius-aluminum-ingot", {"item-name.nullius-aluminum-ingot"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -545,7 +545,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-aluminum-production"},
+    prerequisites = {"nullius-aluminum-working"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -578,9 +578,9 @@ data:extend({
   {
     type = "technology",
     name = "nullius-checkpoint-mineral-dust",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
-	    {"item-name.nullius-mineral-dust"}}},
-    localised_description = {"technology-description.nullius-produce",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-disposal",
+	    {"item-name.nullius-gravel"}}},
+    localised_description = {"technology-description.nullius-consume",
 	    {"technology-description.nullius-item", 200, "nullius-mineral-dust", {"item-name.nullius-mineral-dust"}}},
     order = "nullius-yc",
     icons = {
