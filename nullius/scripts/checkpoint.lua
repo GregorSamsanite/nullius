@@ -299,7 +299,7 @@ local function update_checkpoint_force(force, tick)
 	  if ((force.current_research == nil) or
           (force.current_research.name ~= tech.name)) then
 	    force.print({"technology-description.nullius-complete-checkpoint",
-		    tech.localised_name[2]}, {0.3, 0.75, 0.4})
+		    "[technology="..tech.name.."]"}, {1, 0.75, 0.4})
 	  end
 	  if (force.research_queue_enabled and (force.current_research ~= nil) and
           (force.current_research.name ~= tech.name)) then
