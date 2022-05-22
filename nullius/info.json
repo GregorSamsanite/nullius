@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "factorio_version": "1.1",
   "title": "Nullius",
   "author": "Anachrony",
@@ -14,7 +14,7 @@
     "? RecipeBook >= 2.7.1",
     "? underground-pipe-pack >= 1.1.2",
     "(?) Transport_Drones >= 1.0.4",
-	"(?) RenaiTransportation >= 0.9.11",
+	"(?) RenaiTransportation >= 1.0.0",
     "(?) boblibrary >= 1.1.4",
     "(?) IRobot >= 1.1.0",
     "! aai-industry"

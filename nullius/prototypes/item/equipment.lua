@@ -1380,6 +1380,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-levitation-field-1",
+    localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
     localised_description = {"equipment-description.nullius-levitation-field"},
     icons = {{
       icon = "__base__/graphics/icons/belt-immunity-equipment.png",
@@ -1389,7 +1390,7 @@ data:extend({
     placed_as_equipment_result = "nullius-levitation-field-1",
     subgroup = "equipment",
     order = "nullius-db",
-    stack_size = 5
+    stack_size = 20
   },
   {
     type = "item",
@@ -1403,7 +1404,7 @@ data:extend({
     placed_as_equipment_result = "nullius-levitation-field-2",
     subgroup = "equipment",
     order = "nullius-dc",
-    stack_size = 5
+    stack_size = 10
   },
   {
     type = "recipe",
@@ -1411,16 +1412,34 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 15,
+    energy_required = 12,
     ingredients = {
-      {"copper-cable", 10},
-      {"nullius-plastic", 8},
-      {"nullius-iron-rod", 6},
-      {"nullius-sensor-1", 2},
-      {"programmable-speaker", 3},
-      {"nullius-capacitor", 4}
+      {"copper-cable", 6},
+      {"nullius-plastic", 4},
+      {"nullius-iron-rod", 3},
+      {"nullius-sensor-1", 1},
+      {"programmable-speaker", 2},
+      {"nullius-capacitor", 3}
     },
     result = "nullius-levitation-field-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-levitation-field-1",
+    enabled = false,
+    category = "small-crafting",
+	subgroup = "boxed-demolition",
+    always_show_made_in = true,
+    energy_required = 60,
+    ingredients = {
+      {"nullius-box-insulated-wire", 6},
+      {"nullius-box-plastic", 4},
+      {"nullius-box-iron-rod", 3},
+      {"nullius-box-sensor-1", 1},
+      {"nullius-box-antenna", 2},
+      {"nullius-box-capacitor", 3}
+    },
+    result = "nullius-box-levitation-field-1"
   },
   {
     type = "recipe",
@@ -1451,8 +1470,7 @@ data:extend({
     placed_as_equipment_result = "nullius-night-vision-1",
     subgroup = "equipment",
     order = "nullius-cb",
-    default_request_amount = 1,
-    stack_size = 5
+    stack_size = 20
   },
   {
     type = "item",
@@ -1463,8 +1481,7 @@ data:extend({
     placed_as_equipment_result = "nullius-night-vision-2",
     subgroup = "equipment",
     order = "nullius-cc",
-    default_request_amount = 1,
-    stack_size = 5
+    stack_size = 10
   },
   {
     type = "item",
@@ -1475,8 +1492,7 @@ data:extend({
     placed_as_equipment_result = "nullius-night-vision-3",
     subgroup = "equipment",
     order = "nullius-cd",
-    default_request_amount = 1,
-    stack_size = 5
+    stack_size = 10
   },
 
   {
@@ -1485,14 +1501,30 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 10,
     ingredients = {
       {"nullius-sensor-1", 2},
       {"nullius-glass", 2},
-      {"nullius-aluminum-sheet", 2},
+      {"nullius-aluminum-sheet", 1},
       {"nullius-capacitor", 2}
     },
     result = "nullius-night-vision-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-night-vision-1",
+    enabled = false,
+    category = "small-crafting",
+	subgroup = "boxed-demolition",
+    always_show_made_in = true,
+    energy_required = 50,
+    ingredients = {
+      {"nullius-box-sensor-1", 2},
+      {"nullius-box-glass", 2},
+      {"nullius-box-aluminum-sheet", 1},
+      {"nullius-box-capacitor", 2}
+    },
+    result = "nullius-box-night-vision-1"
   },
   {
     type = "recipe",

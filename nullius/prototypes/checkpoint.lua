@@ -187,20 +187,19 @@ data:extend({
     order = "nullius-yb",
     icons = {
       {
-        icon = BASEICON .. "stone-furnace.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "stone-furnace.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_mipmaps = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-geology-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-geology-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-metallurgy-1"},
@@ -217,20 +216,19 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = ICONPATH .. "fluid/purewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "fluid/purewater.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-electrolysis-2"},
@@ -247,19 +245,18 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = ICONPATH .. "fluid/sodium-hydroxide.png",
+        icon = ICONPATH .. "fluid/unbarrel.png",
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "fluid/sodium-hydroxide.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.64
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-checkpoint-water", "nullius-chemical-engineering-1"},
@@ -325,21 +322,20 @@ data:extend({
 	    {"technology-description.nullius-item", 5, "nullius-wind-turbine-1", {"entity-name.nullius-wind-base-1"}}},
     order = "nullius-yc",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
 	    icon = "__nullius__/graphics/technology/tech_windturbine1.png",
-	    icon_size = 254
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 3.96875,
-		tint = {0.6, 0.6, 0.6, 0.6}
+	    icon_size = 254,
+		scale = 0.2519
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-wind-power-1"},
@@ -358,20 +354,21 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = BASEICON .. "fluid/steam.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "fluid/steam.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.9,
+		tint = {0.8, 0.8, 0.8, 0.8}
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1},
+	      {"nullius-requirement-build", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-energy-storage-1"},
@@ -387,21 +384,20 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
-        icon_size = 256,
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.2
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-steelmaking-1"},
@@ -472,20 +468,20 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = BASEICON .. "plastic-bar.png",
+        icon = ICONPATH .. "uncrate.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "plastic-bar.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-organic-chemistry-2"},
@@ -585,20 +581,20 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = ICONPATH .. "uncrate.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-waste-management", "nullius-inorganic-chemistry-2"},
@@ -617,21 +613,20 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = "__base__/graphics/technology/automation-1.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/automation-1.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-mass-production-1"},
@@ -656,13 +651,13 @@ data:extend({
         icon = ICONPATH .. "checkpoint.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		tint = {0.6, 0.6, 0.6, 0.6},
+		scale = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-freight-transportation-1"},
@@ -737,17 +732,16 @@ data:extend({
 	    {"technology-description.nullius-item", 3, "nullius-lab-1", {"entity-name.nullius-lab-1"}}},
     order = "nullius-yd",
     icons = {
-	  data.raw.item["nullius-lab-1"].icons[1],
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+        icon_mipmaps = 4
+      },
+	  data.raw.item["nullius-lab-1"].icons[1]
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-empiricism-1"},
@@ -758,28 +752,28 @@ data:extend({
     name = "nullius-checkpoint-sensor",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-sensor-1"}}},
-    localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-sensor-1", {"item-name.nullius-sensor-1"}}},
+    localised_description = {"technology-description.nullius-consume",
+	    {"technology-description.nullius-item", 100, "nullius-sensor-1", {"item-name.nullius-sensor-1"}}},
     order = "nullius-yd",
     icons = {
       {
-        icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
+        icon = ICONPATH .. "uncrate.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-sensors-1"},
+    prerequisites = {"nullius-sensors-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -795,21 +789,20 @@ data:extend({
     order = "nullius-yd",
     icons = {
       {
-        icon = "__base__/graphics/technology/automated-rail-transportation.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/automated-rail-transportation.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-freight-logistics"},
@@ -877,25 +870,24 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-compressed-nitrogen",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
-	    {"fluid-name.nullius-compressed-nitrogen"}}},
+	    {"technology-name.nullius-energy-storage"}}},
     localised_description = {"technology-description.nullius-consume",
 	    {"technology-description.nullius-fluid", 1000, "nullius-compressed-nitrogen", {"fluid-name.nullius-compressed-nitrogen"}}},
     order = "nullius-yd",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/nitrogen.png",
+        icon = ICONPATH .. "fluid/unbarrel.png",
         icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__angelspetrochem__/graphics/icons/molecules/nitrogen.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.64
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-energy-storage-2"},
@@ -911,20 +903,19 @@ data:extend({
     order = "nullius-yd",
     icons = {
       {
-        icon = ICONPATH .. "fluid/freshwater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "fluid/freshwater.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-hydrology-1"},
@@ -976,21 +967,20 @@ data:extend({
     order = "nullius-yd",
     icons = {
       {
-        icon = "__base__/graphics/technology/logistic-robotics.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/logistic-robotics.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-logistic-robot-1"},
@@ -1009,21 +999,20 @@ data:extend({
     order = "nullius-yd",
     icons = {
       {
-        icon = "__base__/graphics/technology/logistics-2.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/logistics-2.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-logistics-2"},
@@ -1092,21 +1081,20 @@ data:extend({
 	    {"technology-description.nullius-item", 10, "nullius-chemical-plant-2", {"entity-name.nullius-chemical-plant-2"}}},
     order = "nullius-yd",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__angelspetrochem__/graphics/technology/chemical-plant-tech.png",
-	    icon_size = 128
-      },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 2,
-		tint = {0.6, 0.6, 0.6, 0.6}
+	    icon_size = 128,
+		scale = 0.5
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-electrical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-chemical-engineering-2"},
@@ -1152,20 +1140,18 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/propene.png",
-        icon_size = 72
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon = "__angelspetrochem__/graphics/icons/molecules/propene.png",
+        icon_size = 72,
+		scale = 0.568
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-metallurgy-3", "nullius-explosives-1"},
@@ -1264,21 +1250,20 @@ data:extend({
 	    {"technology-description.nullius-item", 5000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
-        icon_size = 32
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_size = 32,
+		scale = 1.6
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-metallurgy-3"},
@@ -1293,21 +1278,21 @@ data:extend({
 	    {"technology-description.nullius-item", 5000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__angelssmelting__/graphics/icons/powder-lead.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-metallurgy-3"},
@@ -1337,7 +1322,7 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-exploration-1"},
@@ -1433,21 +1418,21 @@ data:extend({
 	    {"technology-description.nullius-item", 100, "nullius-ceramic-powder", {"item-name.nullius-ceramic-powder"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-ceramics"},
@@ -1462,22 +1447,21 @@ data:extend({
 	    {"technology-description.nullius-item", 25, "cliff-explosives", {"item-name.nullius-explosive"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
 		icon = "__base__/graphics/technology/explosives.png",
 		icon_size = 256,
-		icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		icon_mipmaps = 4,
+		scale = 0.2
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-demolitions-1"},
@@ -1492,27 +1476,26 @@ data:extend({
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
 		    60, "nullius-logistic-bot-1", {"entity-name.nullius-logistic-bot-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    6, "nullius-charger-1", {"entity-name.nullius-charger-1"}}}, "\n",
+		    6, "nullius-charger-2", {"entity-name.nullius-charger-2"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
 		    4, "nullius-small-demand-chest-1", {"entity-name.nullius-small-demand-chest-1"}}}},
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/logistic-robotics.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/logistic-robotics.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-robotics-2", "nullius-packaging-2"},
@@ -1525,27 +1508,26 @@ data:extend({
 	    {"technology-name.nullius-construction-robot"}}},
     localised_description = {"",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    30, "nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}, "\n",
+		    25, "nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    4, "nullius-relay-1", {"entity-name.nullius-relay-1"}}}},
+		    4, "nullius-relay-2", {"entity-name.nullius-relay-2"}}}},
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/construction-robotics.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/construction-robotics.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-robotics-2", "nullius-demolitions-1"},
@@ -1589,21 +1571,20 @@ data:extend({
 	    {"technology-description.nullius-item", 4, "nullius-large-tank-2", {"entity-name.nullius-large-tank-2"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__angelspetrochem__/graphics/icons/petrochem-gas-tank.png",
         icon_size = 64,
 	    icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-plumbing-5"},
@@ -1618,21 +1599,20 @@ data:extend({
 	    {"technology-description.nullius-item", 4, "nullius-substation-2", {"entity-name.nullius-substation-2"}}},
     order = "nullius-ye",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/icons/substation.png",
         icon_size = 64,
 	    icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-energy-distribution-4"},
@@ -1651,21 +1631,20 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/logistics-3.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/logistics-3.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-logistics-3"},
@@ -1680,17 +1659,16 @@ data:extend({
 	    {"technology-description.nullius-item", 10, "nullius-lab-2", {"entity-name.nullius-lab-2"}}},
     order = "nullius-ye",
     icons = {
-	  data.raw.item["nullius-lab-2"].icons[1],
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+        icon_mipmaps = 4
+      },
+	  data.raw.item["nullius-lab-2"].icons[1]
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-empiricism-4"},
@@ -1738,21 +1716,20 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/tank.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/tank.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-braking-4"},
@@ -1778,7 +1755,7 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-geothermal-power-2", "nullius-high-pressure-chemistry"},
@@ -1794,17 +1771,16 @@ data:extend({
 		    {"entity-name.nullius-large-beacon-1"}}},
     order = "nullius-ye",
     icons = {
-	  data.raw.item["nullius-large-beacon-1"].icons[1],
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+        icon_mipmaps = 4
+      },
+	  data.raw.item["nullius-large-beacon-1"].icons[1]
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-optimization-4"},
@@ -1850,20 +1826,18 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/benzene.png",
-        icon_size = 72
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon = "__angelspetrochem__/graphics/icons/molecules/benzene.png",
+        icon_size = 72,
+		scale = 0.568
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-high-pressure-chemistry"},
@@ -1880,21 +1854,20 @@ data:extend({
 		    {"entity-name.nullius-large-miner-1"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/icons/electric-mining-drill.png",
         icon_size = 64,
         icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-physics"},
@@ -1936,21 +1909,20 @@ data:extend({
 	    {"technology-description.nullius-item", 40, "nullius-pump-2", {"entity-name.nullius-pump-2"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/icons/pump.png",
         icon_size = 64,
         icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-electromagnetism-3"},
@@ -1966,20 +1938,19 @@ data:extend({
     order = "nullius-yf",
     icons = {
       {
-        icon = "__nullius__/graphics/technology/logistics-4.png",
-	    icon_size = 254
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 3.969,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon = "__nullius__/graphics/technology/logistics-4.png",
+	    icon_size = 254,
+		scale = 0.2519
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-logistics-4"},
@@ -1995,20 +1966,19 @@ data:extend({
     order = "nullius-yf",
     icons = {
       {
-        icon = "__base__/graphics/icons/assembling-machine-3.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__base__/graphics/icons/assembling-machine-3.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_mipmaps = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-automation-3"},
@@ -2039,13 +2009,13 @@ data:extend({
         icon = ICONPATH .. "checkpoint.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		tint = {0.6, 0.6, 0.6, 0.6},
+		scale = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-mining-productivity-16", "nullius-mineral-processing-3"},
@@ -2061,20 +2031,19 @@ data:extend({
     order = "nullius-yf",
     icons = {
       {
-        icon = ICONPATH .. "android1.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "android1.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_mipmaps = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-artificial-intelligence-1"},
@@ -2237,22 +2206,21 @@ data:extend({
 		    "nullius-box-processor-2", {"item-name.nullius-processor-2"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/technology/advanced-electronics-2.png",
         icon_size = 256,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.2
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-optimization-5"},
@@ -2267,21 +2235,21 @@ data:extend({
 	    {"technology-description.nullius-item", 1, "nullius-missile-2", {"item-name.nullius-missile-2"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/icons/atomic-bomb.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-demolitions-2"},
@@ -2296,22 +2264,21 @@ data:extend({
 	    {"technology-description.nullius-item", 5, "rocket-fuel", {"item-name.rocket-fuel"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/technology/rocket-fuel.png",
         icon_size = 256,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.2
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-rocket-science-1"},
@@ -2327,20 +2294,19 @@ data:extend({
     order = "nullius-yf",
     icons = {
       {
-        icon = "__base__/graphics/icons/spidertron.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__base__/graphics/icons/spidertron.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_mipmaps = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-personal-transportation-4"},
@@ -2356,21 +2322,21 @@ data:extend({
 		    {"item-name.nullius-excavation-drone"}}},
     order = "nullius-yf",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = ICONPATH .. "excavation.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-terraforming-1"},
@@ -2431,7 +2397,7 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-asteroid-mining-1"},
@@ -2461,7 +2427,7 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-asteroid-mining-1"},
@@ -2477,21 +2443,21 @@ data:extend({
 		    {"item-name.nullius-spent-breeder-cell"}}},
     order = "nullius-yg",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = ICONPATH .. "breeder-spent.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-nuclear-power-2"},
@@ -2532,21 +2498,21 @@ data:extend({
 	    {"technology-description.nullius-item", 1, "nullius-antimatter", {"item-name.nullius-antimatter"}}},
     order = "nullius-yg",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = ICONPATH .. "antimatter.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-antimatter-containment"},
@@ -2592,22 +2558,21 @@ data:extend({
 		    "nullius-box-processor-3", {"item-name.nullius-processor-3"}}},
     order = "nullius-yg",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/technology/advanced-electronics-2.png",
         icon_size = 256,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.2
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-optimization-6"},
@@ -2623,21 +2588,21 @@ data:extend({
 		    "nullius-box-wood", {"item-name.nullius-wood"}}},
     order = "nullius-yg",
     icons = {
+      {
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
 	  {
         icon = "__base__/graphics/icons/wood.png",
         icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-woodworking"},
@@ -2683,20 +2648,19 @@ data:extend({
     order = "nullius-yg",
     icons = {
       {
-        icon = ICONPATH .. "android2.png",
+        icon = BASEICON .. "blueprint.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "android2.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+        icon_mipmaps = 4
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-artificial-intelligence-2"},
@@ -2712,19 +2676,19 @@ data:extend({
     order = "nullius-yg",
     icons = {
       {
-        icon = ICONPATH .. "asteroid-miner-2.png",
-        icon_size = 64
+        icon = ICONPATH .. "uncrate.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = ICONPATH .. "asteroid-miner-2.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-asteroid-mining-2"},
@@ -2740,20 +2704,20 @@ data:extend({
     order = "nullius-yg",
     icons = {
       {
-        icon = "__base__/graphics/icons/crash-site-spaceship.png",
+        icon = ICONPATH .. "uncrate.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
+        icon = "__base__/graphics/icons/crash-site-spaceship.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.8
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-rocket-science-3"},
@@ -2769,21 +2733,20 @@ data:extend({
     order = "nullius-yg",
     icons = {
       {
-        icon = "__base__/graphics/technology/solar-energy.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/solar-energy.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-biochemistry-7"},
@@ -2799,21 +2762,20 @@ data:extend({
     order = "nullius-yg",
     icons = {
       {
-        icon = "__base__/graphics/technology/electric-energy-acumulators.png",
-        icon_size = 256,
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
         icon_mipmaps = 4
       },
       {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
+        icon = "__base__/graphics/technology/electric-energy-acumulators.png",
+        icon_size = 256,
         icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
+		scale = 0.25
       }
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
     prerequisites = {"nullius-battery-storage-6"},

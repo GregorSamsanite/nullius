@@ -12,7 +12,7 @@ local box_stack_size = {
 
 
 local function create_boxed_item(base_name, group, box_order,
-        full_name, category, stack_size, icon_scale, localname)
+        full_name, category, stack_size)
   if (full_name == nil) then
     full_name = "nullius-"..base_name
   end
@@ -35,15 +35,13 @@ local function create_boxed_item(base_name, group, box_order,
     box_stack = math.max(1, math.floor((2 * stack_size / ratio)))
   end
 
-  if (localname == nil) then
-    localname = {"item-name."..full_name}
-    if (item.localised_name ~= nil) then
-      localname = item.localised_name
-    elseif (item.place_result ~= nil) then
-      localname = {"entity-name."..item.place_result}
-    elseif (item.placed_as_equipment_result ~= nil) then
-      localname = {"equipment-name."..item.placed_as_equipment_result}
-    end
+  local localname = {"item-name."..full_name}
+  if (item.localised_name ~= nil) then
+    localname = item.localised_name
+  elseif (item.place_result ~= nil) then
+    localname = {"entity-name."..item.place_result}
+  elseif (item.placed_as_equipment_result ~= nil) then
+    localname = {"equipment-name."..item.placed_as_equipment_result}
   end
 
   data:extend({
@@ -266,7 +264,7 @@ create_boxed_item("antenna", "circuit", "h", "programmable-speaker")
 create_boxed_item("fiberglass", "glass", "e")
 create_boxed_item("processor-1", "electrical", "fb")
 create_boxed_item("sensor-2", "electrical", "h")
-create_boxed_item("battery-1", "renewable", "eb", nil, nil, nil, {"equipment-name.nullius-battery-1"})
+create_boxed_item("battery-1", "renewable", "eb")
 create_boxed_item("underground-pipe-1", "pipe", "c", "pipe-to-ground")
 create_boxed_item("underground-pipe-2", "pipe", "e")
 create_boxed_item("underground-pipe-3", "pipe", "g")
@@ -274,7 +272,9 @@ create_boxed_item("eutectic-salt", "sodium", "g")
 create_boxed_item("bearing", "mechanical", "e")
 create_boxed_item("motor-1", "mechanical", "cb")
 create_boxed_item("motor-2", "mechanical", "cc")
-create_boxed_item("repair-pack", "demolition", "b", "repair-pack", "repair-tool")
+create_boxed_item("repair-pack", "demolition", "bb", "repair-pack", "repair-tool")
+create_boxed_item("night-vision-1", "demolition", "bc")
+create_boxed_item("levitation-field-1", "demolition", "bd")
 create_boxed_item("transformer", "electrical", "c")
 create_boxed_item("power-switch", "circuit", "g", "power-switch")
 create_boxed_item("one-way-valve", "plumbing", "b")
@@ -388,7 +388,7 @@ create_boxed_item("solar-panel-3", "renewable", "cd")
 create_boxed_item("calcium", "calcium", "g")
 create_boxed_item("power-pole-4", "power-pole", "ce")
 create_boxed_item("pylon-3", "power-pole", "dd")
-create_boxed_item("battery-2", "renewable", "ec", nil, nil, nil, {"equipment-name.nullius-battery-2"})
+create_boxed_item("battery-2", "renewable", "ec")
 create_boxed_item("grid-battery-2", "renewable", "dc")
 create_boxed_item("heat-pipe-3", "heat-energy", "cd")
 create_boxed_item("processor-2", "electrical", "fc")

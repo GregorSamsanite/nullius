@@ -59,12 +59,8 @@ local function init_tech(force)
   end
   end
 
-  if (force.technologies["nullius-inorganic-chemistry-2"].researched) then
-    -- Hack for version 1.3.7 split of chemistry research
-    force.technologies["nullius-inorganic-chemistry-1"].researched = true
-  end
-
   init_force_checkpoints(force)
+  init_legacy_recipes(force)
 end
 
 local function init_techs()
@@ -72,25 +68,6 @@ local function init_techs()
     init_tech(force)
   end
 end
-
---[[
-local function check_version(event)
-  local version_info = event.mod_changes["nullius"]
-  if (version_info == nil) then return end
-  local previous = version_info.old_version
-  if (previous == nil) then return end
-
-  local dot1 = string.find(previous, ".")
-  if (dot1 == nil) then return end
-  local dot2 = string.find(previous, ".", (dot1 + 1))
-  if (dot2 == nil) then return end
-  local sub1 = tonumber(string.sub(previous, 1, (dot1 - 1)))
-  local sub2 = tonumber(string.sub(previous, (dot1 + 1), (dot2 - 1)))
-  local sub3 = tonumber(string.sub(previous, (dot2 + 1)))
-  if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
-  local version = (((sub1 * 100) + sub2) * 100) + sub3
-end
---]]
 
 
 script.on_event(defines.events.on_player_joined_game,
@@ -130,7 +107,7 @@ script.on_init(
     if (remote.interfaces["freeplay"] ~= nil) then
       remote.call("freeplay", "set_skip_intro", true)
       remote.call("freeplay", "set_disable_crashsite", true)
-      remote.call("freeplay", "set_chart_distance", 300)
+      remote.call("freeplay", "set_chart_distance", 250)
     end
     update_mission_global()
 	init_vents()
@@ -139,6 +116,7 @@ script.on_init(
 
 script.on_configuration_changed(
   function(event)
+    migrate_version(event)
     reset_config()
     init_techs()
     update_mission_global()
@@ -147,7 +125,7 @@ script.on_configuration_changed(
 )
 
 local chart_starting_area = function()
-  local r = global.chart_distance or 300
+  local r = global.chart_distance or 250
   local force = game.forces.player
   local surface = game.surfaces[1]
   local origin = force.get_spawn_position(surface)

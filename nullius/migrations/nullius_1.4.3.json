@@ -1,0 +1,15 @@
+{
+  "recipe":
+  [
+    ["nullius-robot-frame-1", "nullius-legacy-robot-frame-1"],
+    ["nullius-robot-frame-2", "nullius-legacy-robot-frame-2"],
+    ["nullius-boxed-robot-frame-1", "nullius-legacy-boxed-robot-frame-1"],
+    ["nullius-boxed-robot-frame-2", "nullius-legacy-boxed-robot-frame-2"]
+  ],
+  "technology":
+  [
+    ["nullius-sensors-3", "nullius-sensors-4"],
+    ["nullius-sensors-2", "nullius-sensors-3"],
+    ["nullius-sensors-1", "nullius-sensors-2"]
+  ]
+}

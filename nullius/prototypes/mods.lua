@@ -120,7 +120,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-logistic-robot-1", "nullius-sensors-1"}
+    prerequisites = {"nullius-logistic-robot-1", "nullius-sensors-2"}
   }
 })
 end
@@ -1324,12 +1324,6 @@ data:extend({
     result = "warehouse-active-provider"
   }
 })
-
-
-if mods["Factorissimo2"] then
-table.insert(data.raw.technology["nullius-warehousing-3"].prerequisites,
-  "factory-connection-type-chest")
-end
 end
 
 
@@ -1484,7 +1478,7 @@ data:extend({
     category = "medium-crafting",
     energy_required = 5,
     ingredients = {
-      {"nullius-small-dispatch-chest-1", 1},
+      {"nullius-small-demand-chest-1", 1},
       {"nullius-relay-2", 1}
     },
     result = "logistic-chest-botUpgrader"

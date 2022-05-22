@@ -313,9 +313,9 @@ data:extend({
     ingredients = {
       {"nullius-small-assembler-2", 2},
       {"nullius-hangar-1", 1},
-      {"nullius-construction-bot-2", 2},
+      {"nullius-construction-bot-2", 1},
       {"nullius-large-buffer-chest-1", 1},
-      {"express-stack-filter-inserter", 3}
+      {"express-stack-filter-inserter", 2}
     },
     result = "nullius-small-assembler-3",
     result_count = 2
@@ -394,7 +394,7 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {"nullius-medium-assembler-2", 1},
-      {"nullius-small-assembler-3", 1},
+      {"nullius-small-assembler-3", 2},
       {"nullius-charger-2", 1},
       {"nullius-logistic-bot-2", 1},
       {"express-transport-belt", 4},
@@ -453,7 +453,7 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {"nullius-large-assembler-1", 1},
-      {"nullius-medium-assembler-3", 1},
+      {"nullius-medium-assembler-3", 2},
       {"nullius-relay-2", 1},
       {"gate", 2},
       {"nullius-substation-2", 1}

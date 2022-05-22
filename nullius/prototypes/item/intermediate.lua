@@ -82,6 +82,40 @@ data:extend({
   },
   {
     type = "tool",
+    name = "nullius-requirement-build",
+    order = "nullius-arb",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/construction-robot.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      }
+    },
+    subgroup = "research-pack",
+    stack_size = 1,
+    durability = 1,
+    durability_description_key = "description.science-pack-remaining-amount-key",
+    durability_description_value = "description.science-pack-remaining-amount-value"
+  },
+  {
+    type = "tool",
+    name = "nullius-requirement-consume",
+    order = "nullius-arc",
+    icons = {
+      {
+        icon = ICONPATH .. "unboxing.png",
+        icon_size = 64
+      }
+    },
+    subgroup = "research-pack",
+    stack_size = 1,
+    durability = 1,
+    durability_description_key = "description.science-pack-remaining-amount-key",
+    durability_description_value = "description.science-pack-remaining-amount-value"
+  },
+
+  {
+    type = "tool",
     name = "nullius-geology-pack",
     order = "nullius-b",
     icons = {
@@ -6448,14 +6482,15 @@ data:extend({
     always_show_products = true,
     always_show_made_in = true,
     category = "tiny-crafting",
-    energy_required = 12,
+    energy_required = 15,
     ingredients = {
-      {"nullius-standard-turbine-1", 1},
-      {"nullius-capacitor", 2},
-      {"turbo-filter-inserter", 2},
-      {"constant-combinator", 2},
-      {"programmable-speaker", 1},
-      {"nullius-aluminum-sheet", 3}
+      {"nullius-standard-turbine-2", 1},
+      {"nullius-capacitor", 4},
+      {"turbo-filter-inserter", 3},
+      {"constant-combinator", 3},
+      {"programmable-speaker", 2},
+      {"nullius-sensor-1", 2},
+      {"nullius-aluminum-plate", 3}
     },
     result = "nullius-robot-frame-1",
     result_count = 2
@@ -6470,6 +6505,56 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-hangar",
     order = "nullius-gb",
+    energy_required = 75,
+    ingredients = {
+      {"nullius-box-standard-turbine-2", 1},
+      {"nullius-box-capacitor", 4},
+      {"nullius-box-filter-inserter-2", 3},
+      {"nullius-box-memory-circuit", 3},
+      {"nullius-box-antenna", 2},
+      {"nullius-box-sensor-1", 2},
+      {"nullius-box-aluminum-plate", 3}
+    },
+    result = "nullius-box-robot-frame-1",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-robot-frame-1",
+    enabled = false,
+	hidden = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-assembly",
+    order = "nullius-cbl",
+    energy_required = 12,
+    ingredients = {
+      {"nullius-standard-turbine-1", 1},
+      {"nullius-capacitor", 2},
+      {"turbo-filter-inserter", 2},
+      {"constant-combinator", 2},
+      {"programmable-speaker", 1},
+      {"nullius-aluminum-sheet", 3}
+    },
+    result = "nullius-robot-frame-1",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-robot-frame-1",
+    enabled = false,
+	hidden = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "medium-only-assembly",
+    subgroup = "boxed-hangar",
+    order = "nullius-gbl",
     energy_required = 60,
     ingredients = {
       {"nullius-box-standard-turbine-1", 1},
@@ -6490,16 +6575,15 @@ data:extend({
     always_show_products = true,
     always_show_made_in = true,
     category = "tiny-crafting",
-    energy_required = 15,
+    energy_required = 10,
     ingredients = {
       {"nullius-robot-frame-1", 1},
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-levitation-field-1", 1},
       {"nullius-battery-1", 2},
-      {"nullius-sensor-1", 2},
-      {"nullius-fiberglass", 5}
+      {"nullius-night-vision-1", 1},
+      {"nullius-fiberglass", 3}
     },
-    result = "nullius-robot-frame-2",
-    result_count = 2
+    result = "nullius-robot-frame-2"
   },
   {
     type = "recipe",
@@ -6511,6 +6595,52 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-hangar",
     order = "nullius-gc",
+    energy_required = 50,
+    ingredients = {
+      {"nullius-box-robot-frame-1", 1},
+      {"nullius-box-levitation-field-1", 1},
+      {"nullius-box-battery-1", 2},
+      {"nullius-box-night-vision-1", 1},
+      {"nullius-box-fiberglass", 3}
+    },
+    result = "nullius-box-robot-frame-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-robot-frame-2",
+    enabled = false,
+	hidden = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-assembly",
+    order = "nullius-ccl",
+    energy_required = 15,
+    ingredients = {
+      {"nullius-robot-frame-1", 1},
+      {"nullius-standard-turbine-2", 1},
+      {"nullius-battery-1", 3},
+      {"nullius-sensor-1", 2},
+      {"nullius-fiberglass", 5}
+    },
+    result = "nullius-robot-frame-2",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-robot-frame-2",
+    enabled = false,
+	hidden = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "medium-only-assembly",
+    subgroup = "boxed-hangar",
+    order = "nullius-gcl",
     energy_required = 75,
     ingredients = {
       {"nullius-box-robot-frame-1", 1},
@@ -6530,7 +6660,7 @@ data:extend({
     always_show_products = true,
     always_show_made_in = true,
     category = "tiny-crafting",
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {"nullius-robot-frame-2", 2},
       {"nullius-standard-turbine-3", 1},
@@ -6552,7 +6682,7 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-hangar",
     order = "nullius-gd",
-    energy_required = 100,
+    energy_required = 125,
     ingredients = {
       {"nullius-box-robot-frame-2", 2},
       {"nullius-box-standard-turbine-3", 1},

@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.3
+Date: 21.05.2022
+  Translation:
+    - Korean language localization added by x2605!
+  Balancing:
+    - Moved sensors and rail signals to earlier in electrical engineering.
+    - Increase cost of robot frame 1 and 2, but allow the old recipe to still
+      be used by factories already automating it, for backward compatibility.
+    - Reduce cost of small assembler 3, but increase medium and large 3.
+    - Adjust bot 2 checkpoints to require tier 2 relay/charger.
+    - Reduce default initial charting distance.
+    - Reduce cost, increase stack size of levitation field and night vision.
+  Changes:
+    - Change the name of compressed nitrogen checkpoint to be more of a clue.
+    - Added boxed recipe for levitation field 1 and night vision 1.
+  Graphics:
+    - Add visual indicators to differentiate consume and build checkpoints.
+    - Improved appearance of checkpoint notifications.
+  Modding:
+    - Integrate Transport Drones and Factorissimo2 into as tech prerequisites.
+    - Fix a problem with Renai burner thrower recipe showing up at start.
+    - Make robot replacer available a bit sooner.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.2
 Date: 19.05.2022
   Balancing:

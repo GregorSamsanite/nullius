@@ -2452,7 +2452,59 @@ data:extend({
     },
     prerequisites = {"nullius-checkpoint-logistics", "nullius-signal-processing", "nullius-maintenance"}
   },
+  {
+    type = "technology",
+    name = "nullius-sensors-1",
+    order = "nullius-de",
+    icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-sensor-1"
+      }
+    },
+    unit = {
+      count = 80,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 20
+    },
+    prerequisites = {"nullius-computation", "nullius-checkpoint-logistics"},
+    ignore_tech_cost_multiplier = true
+  },
 
+  {
+    type = "technology",
+    name = "nullius-traffic-control",
+    order = "nullius-df",
+    icon = "__base__/graphics/technology/rail-signals.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-rail-signal"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-chain-signal"
+      }
+    },
+    unit = {
+      count = 60,
+      ingredients = {
+        {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 25
+    },
+    prerequisites = {"nullius-sensors-1", "nullius-checkpoint-freight-logistics"},
+    ignore_tech_cost_multiplier = true
+  },
   {
     type = "technology",
     name = "nullius-robotics-1",
@@ -2490,7 +2542,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-freight-logistics", "nullius-computation", "nullius-automation-2"}
+    prerequisites = {"nullius-energy-storage-2", "nullius-traffic-control", "nullius-automation-2"}
   },
   {
     type = "technology",
@@ -2804,7 +2856,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-optimization", "nullius-automation-2"},
+    prerequisites = {"nullius-checkpoint-optimization", "nullius-automation-2", "nullius-sensors-1"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -2828,7 +2880,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-optimization-2", "nullius-checkpoint-freight-logistics"},
+    prerequisites = {"nullius-optimization-2", "nullius-traffic-control"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -3108,16 +3160,12 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-sensors-1",
+    name = "nullius-sensors-2",
     order = "nullius-di",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/radar.png",
     effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-sensor-1"
-      },
       {
         type = "unlock-recipe",
         recipe = "nullius-sensor-node-1"
@@ -3241,34 +3289,6 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-geothermal-power-1", "nullius-distillation-2", "nullius-air-filtration-2"},
-  },
-  {
-    type = "technology",
-    name = "nullius-traffic-control",
-    order = "nullius-dj",
-    icon = "__base__/graphics/technology/rail-signals.png",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-rail-signal"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-chain-signal"
-      }
-    },
-    unit = {
-      count = 100,
-      ingredients = {
-        {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
-      },
-      time = 30
-    },
-    prerequisites = {"nullius-checkpoint-sensor"},
-    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -3398,7 +3418,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-mass-production-2", "nullius-cybernetics-2", "nullius-traffic-control"}
+    prerequisites = {"nullius-mass-production-2", "nullius-cybernetics-2"}
   },
   {
     type = "technology",
@@ -6554,7 +6574,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-sensors-2",
+    name = "nullius-sensors-3",
     order = "nullius-ek",
     icon_size = 64,
     icon = "__base__/graphics/icons/radar.png",
@@ -6735,6 +6755,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-architecture-1",
+    localised_name = {"technology-name.nullius-architecture"},
     order = "nullius-el",
     icon = "__base__/graphics/technology/gate.png",
     icon_size = 256,
@@ -6794,7 +6815,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-logistic-robot-2", "nullius-sensors-2"}
+    prerequisites = {"nullius-logistic-robot-2", "nullius-sensors-3"}
   },
   {
     type = "technology",
@@ -7148,7 +7169,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-architecture-1", "nullius-sensors-2"},
+    prerequisites = {"nullius-architecture-1", "nullius-sensors-3"},
   },
   {
     type = "technology",
@@ -7425,6 +7446,22 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-construction-bot-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-night-vision-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-night-vision-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-levitation-field-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-levitation-field-1"
       },
       {
         type = "unlock-recipe",
@@ -8958,6 +8995,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-logistic-bot-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-night-vision-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-levitation-field-1"
       },
       {
         type = "unlock-recipe",
@@ -11598,7 +11643,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-sensors-3",
+    name = "nullius-sensors-4",
     order = "nullius-fs",
     icon_size = 64,
     icon = "__base__/graphics/icons/radar.png",
@@ -11673,7 +11718,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-sensors-3", "nullius-personal-transportation-3"}
+    prerequisites = {"nullius-sensors-4", "nullius-personal-transportation-3"}
   },
   {
     type = "technology",
@@ -11717,7 +11762,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-sensors-3", "nullius-inserter-capacity-5"}
+    prerequisites = {"nullius-sensors-4", "nullius-inserter-capacity-5"}
   },
 
   {

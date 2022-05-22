@@ -164,6 +164,7 @@ if mods["RenaiTransportation"] then
     {"nullius-steel-plate", 2}
   }
 
+  data.raw.recipe["RTThrower-burner-inserter-Recipe"].enabled = false
   data.raw.recipe["RTThrower-inserter-Recipe"].enabled = false
   data.raw.item["RTThrower-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 1}
   data.raw.inserter["RTThrower-inserter"].localised_name = {"entity-name.nullius-thrower", 1}

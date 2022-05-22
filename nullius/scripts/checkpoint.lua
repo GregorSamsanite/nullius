@@ -41,7 +41,7 @@ local checkpoint_data = {
 
   ["volcanic-gas"] = {{ CHK_FLUID, STT_PRODUCE, 5000, {{"nullius-volcanic-gas"}} }},
   ["lab"] = {{ CHK_BUILD, STT_NET, 3, {{"nullius-lab-1"}} }},
-  ["sensor"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-sensor-1"}} }},
+  ["sensor"] = {{ CHK_ITEM, STT_CONSUME, 100, {{"nullius-sensor-1"}} }},
   ["freight-logistics"] = {{ CHK_BUILD, STT_NET, 2, {{"train-stop"}} },
 			{ CHK_BUILD, STT_NET, 150, {{"straight-rail"},{"curved-rail",4}} }},
   ["limestone"] = {{ CHK_ITEM, STT_PRODUCE, 500, {{"nullius-limestone"}} }},
@@ -73,10 +73,10 @@ local checkpoint_data = {
   ["ceramic-powder"] = {{ CHK_ITEM, STT_CONSUME, 100, {{"nullius-ceramic-powder"}} }},
   ["explosive"] = {{ CHK_ITEM, STT_CONSUME, 25, {{"cliff-explosives"}} }},
   ["logistic-robot-2"] = {{ CHK_ITEM, STT_PRODUCE, 60, {{"nullius-logistic-bot-1"}} },
-			{ CHK_BUILD, STT_NET, 6, {{"nullius-charger-1"}} },
+			{ CHK_BUILD, STT_NET, 6, {{"nullius-charger-2"}} },
 			{ CHK_BUILD, STT_NET, 4, {{"nullius-small-demand-chest-1"}} }},
-  ["construction-robot"] = {{ CHK_ITEM, STT_PRODUCE, 30, {{"nullius-construction-bot-1"}} },
-			{ CHK_BUILD, STT_NET, 4, {{"nullius-relay-1"}} }},
+  ["construction-robot"] = {{ CHK_ITEM, STT_PRODUCE, 25, {{"nullius-construction-bot-1"}} },
+			{ CHK_BUILD, STT_NET, 4, {{"nullius-relay-2"}} }},
   ["processor"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-processor-1"}} }},
   ["large-tank"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-large-tank-2"}} }},
   ["substation"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-substation-2"}} }},
@@ -206,6 +206,7 @@ function init_force_checkpoints(force)
 end
 
 function update_checkpoint_list(techname)
+  if (global.checkpoint_prereqs == nil) then return end
   if (global.checkpoint_prereqs[techname] == true) then
     for _, force in pairs(game.forces) do
 	  if (force.research_enabled) then
