@@ -2190,7 +2190,7 @@ data:extend({
     subgroup = "robot",
     order = "nullius-cb",
     place_result = "nullius-logistic-bot-1",
-    stack_size = 50
+    stack_size = 20
   },
   {
     type = "item",
@@ -2202,7 +2202,7 @@ data:extend({
     subgroup = "robot",
     order = "nullius-cc",
     place_result = "nullius-logistic-bot-2",
-    stack_size = 50
+    stack_size = 20
   },
   {
     type = "item",
@@ -2214,7 +2214,7 @@ data:extend({
     subgroup = "robot",
     order = "nullius-cd",
     place_result = "nullius-logistic-bot-3",
-    stack_size = 50
+    stack_size = 20
   },
   {
     type = "item",
@@ -2226,7 +2226,7 @@ data:extend({
     subgroup = "robot",
     order = "nullius-ce",
     place_result = "nullius-logistic-bot-4",
-    stack_size = 50
+    stack_size = 20
   },
   {
     type = "recipe",

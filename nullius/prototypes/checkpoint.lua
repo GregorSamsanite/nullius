@@ -354,15 +354,16 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = ICONPATH .. "fluid/unbarrel.png",
-        icon_size = 64
+        icon = BASEICON .. "steam-turbine.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = BASEICON .. "fluid/steam.png",
         icon_size = 64,
         icon_mipmaps = 4,
 		scale = 0.9,
-		tint = {0.8, 0.8, 0.8, 0.8}
+		tint = {0.75, 0.75, 0.75, 0.75}
       }
     },
     unit = {
@@ -876,13 +877,15 @@ data:extend({
     order = "nullius-yd",
     icons = {
       {
-        icon = ICONPATH .. "fluid/unbarrel.png",
-        icon_size = 64
+        icon = BASEICON .. "steam-turbine.png",
+        icon_size = 64,
+        icon_mipmaps = 4
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/nitrogen.png",
         icon_size = 64,
-		scale = 0.64
+		scale = 0.64,
+		tint = {0.85, 0.85, 0.85, 0.85}
       }
     },
     unit = {

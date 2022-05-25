@@ -35,35 +35,43 @@ function switch_body(player, target)
 
   if (global.nullius_android_tag ~= nil) then
     local tag = global.nullius_android_tag[target.unit_number]
-  if (tag ~= nil) then
-    global.nullius_android_tag[target.unit_number] = nil
-    if (tag.valid) then
-      if (global.nullius_android_name == nil) then
-        global.nullius_android_name = {}
+    if (tag ~= nil) then
+      global.nullius_android_tag[target.unit_number] = nil
+      if (tag.valid) then
+        if (global.nullius_android_name == nil) then
+          global.nullius_android_name = {}
+        end
+        global.nullius_android_name[target.unit_number] = tag.text
+        global.nullius_tag_android[tag.tag_number] = nil
+        tag.destroy()
       end
-      global.nullius_android_name[target.unit_number] = tag.text
-      global.nullius_tag_android[tag.tag_number] = nil
-      tag.destroy()
     end
   end
+
+  local oldchar = player.character
+  local vehicle = player.vehicle  
+  if (target.surface ~= player.surface) then
+    player.set_controller{type=defines.controllers.ghost}
+    if (not player.teleport(target.position, target.surface)) then
+	  player.set_controller{type=defines.controllers.character, character=oldchar}
+	  return
+	end
   end
 
-  local character = player.character
-  local vehicle = player.vehicle
   player.set_controller{type=defines.controllers.character, character=target}
 
-  if ((vehicle ~= nil) and (character ~= nil)) then
+  if ((vehicle ~= nil) and (oldchar ~= nil)) then
     if (((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) and
         (vehicle.get_passenger() == nil)) then
-      vehicle.set_passenger(character)
+      vehicle.set_passenger(oldchar)
     elseif ((vehicle.type == "locomotive") and
         (vehicle.get_driver() == nil)) then
-      vehicle.set_driver(character)
+      vehicle.set_driver(oldchar)
     else
-      add_chart_tag(player, character)
+      add_chart_tag(player, oldchar)
     end
   else
-    add_chart_tag(player, character)
+    add_chart_tag(player, oldchar)
   end
 
   if (global.nullius_body_queue ~= nil) then
@@ -176,21 +184,21 @@ function cycle_body(player, rev)
   while ((body == nil) or (not body.valid) or (body.type ~= "character") or
       (body.player ~= nil) or (body.force ~= player.force)) do
     local np = node.prev
-  local nn = node.next
+    local nn = node.next
     if ((nn == nil) or (np == nil) or (nn.prev == nil) or
-      (np.next == nil) or (nn == node) or (np == node)) then
+        (np.next == nil) or (nn == node) or (np == node)) then
       global.nullius_body_queue[player.index] = nil
       return
-  end
+    end
     if ((body == nil) or (not body.valid) or (body.type ~= "character")) then
       np.next = nn
-    nn.prev = np
-    node.next = node
-    node.prev = node
-  end
-  if (node == orgnode) then return end
-  if (rev) then node = np else node = nn end
-  body = node.body
+      nn.prev = np
+      node.next = node
+      node.prev = node
+    end
+    if (node == orgnode) then return end
+    if (rev) then node = np else node = nn end
+    body = node.body
   end
 
   switch_body(player, body)

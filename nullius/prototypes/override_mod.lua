@@ -6,6 +6,7 @@ data.raw["train-stop"]["logistic-train-stop"].subgroup = "railway"
 data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ecb"
 data.raw.item["logistic-train-stop"].subgroup = "railway"
 data.raw.item["logistic-train-stop"].order = "nullius-ecb"
+table.insert(data.raw.technology["nullius-braking-1"].prerequisites,"nullius-logistic-train-network")
 end
 
 
@@ -46,7 +47,7 @@ table.insert(data.raw.technology["nullius-construction-robot-2"].prerequisites,"
 
 data.raw.technology["factory-architecture-t3"].order = "nullius-e"
 data.raw.technology["factory-architecture-t3"].prerequisites = {
-    "factory-preview", "nullius-mass-production-5"}
+    "nullius-packaging-6", "nullius-mass-production-5"}
 data.raw.technology["factory-architecture-t3"].effects =
     {{type = "unlock-recipe", recipe = "nullius-factory-3"}}
 data.raw.technology["factory-architecture-t3"].unit = {
@@ -117,6 +118,7 @@ data.raw.technology["factory-interior-upgrade-display"].unit = {
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}}
 }
+table.insert(data.raw.technology["nullius-packaging-5"].prerequisites,"factory-interior-upgrade-display")
 
 data.raw.technology["factory-preview"].order = "nullius-e"
 data.raw.technology["factory-preview"].prerequisites = {
@@ -382,6 +384,7 @@ data.raw.technology["teleporter"].effects = {
 data.raw.item["teleporter"].subgroup = "vehicle"
 data.raw.item["teleporter"].order = "nullius-f"
 data.raw.item["teleporter"].stack_size = 5
+table.insert(data.raw.technology["nullius-nuclear-power-2"].prerequisites,"teleporter")
 end
 
 
@@ -1192,6 +1195,7 @@ for _, recipe in pairs(data.raw.recipe) do
       recipe.energy_required = 1
       recipe.category = "medium-crafting"
       recipe.enabled = false
+	  recipe.always_show_made_in = true
 
       local order = "nullius-"..newmaterial.order
       local sz = string.sub(recipe.name, 11, 15)
@@ -1306,7 +1310,12 @@ if mods["crafting_combinator"] then
   table.insert(data.raw["technology"]["nullius-computation"].effects,
     {type = "unlock-recipe", recipe = "nullius-crafting-combinator"})
   table.insert(data.raw["technology"]["nullius-computation"].effects,
-    {type = "unlock-recipe", recipe = "nullius-recipe-combinator"})
+    {type = "unlock-recipe", recipe = "nullius-recipe-combinator"})  
+end
+
+
+if mods["stack-combinator"] then
+  table.insert(data.raw.technology["nullius-optimization-2"].prerequisites,"stack-combinator") 
 end
 
 
@@ -1321,6 +1330,7 @@ end
 if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
   data.raw.item["hs_holo_sign"].stack_size = 50
+  table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-holographics")
 end
 
 
@@ -1357,6 +1367,7 @@ if mods["FluidMustFlow"] then
 
   local duct_box = data.raw["pipe-to-ground"]["duct-underground"].fluid_box
   duct_box.pipe_connections[2].max_underground_distance = duct_box.pipe_connections[2].max_underground_distance - 2
+  table.insert(data.raw.technology["nullius-barreling-3"].prerequisites,"nullius-ducts")
 end
 
 
@@ -1365,6 +1376,7 @@ if mods["railloader"] then
   data.raw.item["railloader"].order = "nullius-rb"
   data.raw.item["railunloader"].subgroup = "miniloader"
   data.raw.item["railunloader"].order = "nullius-rc"
+  table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-rail-loader")
 end
 
 
@@ -1384,6 +1396,31 @@ if mods["RenaiTransportation"] then
     "nullius-logistic-ballistics-5")
   table.insert(data.raw.technology["nullius-personal-transportation-1"].prerequisites,
     "nullius-logistic-ballistics-4")
+  table.insert(data.raw.technology["nullius-locomotion-3"].prerequisites,
+    "nullius-logistic-ballistics-8")
+  table.insert(data.raw.technology["nullius-checkpoint-freight-logistics"].prerequisites,
+    "nullius-ziplining")
+
+  if mods["Transport_Drones"] then
+    table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
+      "nullius-freight-ballistics-1")
+	data.raw.technology["nullius-freight-ballistics-1"].prerequisites =
+	  {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+    table.insert(data.raw.technology["nullius-freight-ballistics-3"].prerequisites,
+	    "transport-drone-speed-2")
+  else
+    table.insert(data.raw.technology["nullius-freight-ballistics-2"].prerequisites,
+      "nullius-freight-ballistics-1")  
+  end
+  
+  if (mods["bobinserters"] and
+      (settings.startup["bobmods-inserters-more2"].value == true)) then
+    table.insert(data.raw.technology["more-inserters-2"].prerequisites,
+	    "nullius-logistic-ballistics-7")
+  else
+    table.insert(data.raw.technology["nullius-inserter-capacity-1"].prerequisites,
+	    "nullius-logistic-ballistics-7")
+  end
 
   data.raw.item["PlayerLauncherItem"].subgroup = "nullius-renai-bounce"
   data.raw.item["PlayerLauncherItem"].order = "nullius-b"
@@ -1441,4 +1478,15 @@ if mods["RenaiTransportation"] then
     { type = "physical", decrease = 20, percent = 20 },
     { type = "explosion", decrease = 20, percent = 20 }
   }
+end
+
+
+if mods["safefill"] then
+table.insert(data.raw.technology["nullius-checkpoint-large-tank"].prerequisites,"nullius-irrigation")
+end
+
+
+if mods["aai-signal-transmission"] then
+table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,
+    "nullius-aai-signal-transmission")
 end

@@ -106,7 +106,7 @@ data:extend({
     localised_name = {"technology-name.aai-signal-transmission"},
     localised_description = {"technology-description.aai-signal-transmission"},
     icon = "__aai-signal-transmission__/graphics/technology/signal-transmission.png",
-    icon_size = 128,
+    icon_size = 256,
     order = "nullius-dj",
     effects = {
       { type = "unlock-recipe", recipe = "nullius-aai-signal-sender" },
@@ -120,7 +120,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-logistic-robot-1", "nullius-sensors-2"}
+    prerequisites = {"nullius-checkpoint-sensor", "nullius-mass-production-2"}
   }
 })
 end
@@ -2145,7 +2145,7 @@ data:extend({
       {"inserter", 2},
       {"nullius-motor-1", 1}
     },
-    result = "RTThrower-inserter-Item"
+    result = "inserter"
   },
   {
     type = "recipe",
@@ -2159,7 +2159,7 @@ data:extend({
       {"turbo-inserter", 1},
 	  {"nullius-motor-2", 1}
     },
-    result = "RTThrower-turbo-inserter-Item"
+    result = "turbo-inserter"
   },
   {
     type = "recipe",
@@ -2173,7 +2173,7 @@ data:extend({
       {"turbo-filter-inserter", 1},
 	  {"nullius-motor-2", 1}
     },
-    result = "RTThrower-turbo-filter-inserter-Item"
+    result = "turbo-filter-inserter"
   },
   {
     type = "recipe",
@@ -2186,7 +2186,7 @@ data:extend({
       {"RTThrower-turbo-inserter-Item", 1},
       {"stack-inserter", 2}
     },
-    result = "RTThrower-stack-inserter-Item"
+    result = "stack-inserter"
   },
   {
     type = "recipe",
@@ -2199,7 +2199,7 @@ data:extend({
       {"RTThrower-turbo-filter-inserter-Item", 1},
       {"stack-filter-inserter", 2}
     },
-    result = "RTThrower-stack-filter-inserter-Item"
+    result = "stack-filter-inserter"
   },
   {
     type = "recipe",
@@ -2212,7 +2212,7 @@ data:extend({
       {"RTThrower-stack-inserter-Item", 1},
       {"express-stack-inserter", 2}
     },
-    result = "RTThrower-express-stack-inserter-Item"
+    result = "express-stack-inserter"
   },
   {
     type = "recipe",
@@ -2225,7 +2225,7 @@ data:extend({
       {"RTThrower-stack-filter-inserter-Item", 1},
       {"express-stack-filter-inserter", 2}
     },
-    result = "RTThrower-express-stack-filter-inserter-Item"
+    result = "express-stack-filter-inserter"
   },
   {
     type = "recipe",
@@ -2756,7 +2756,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-freight-ballistics-1", "nullius-organic-chemistry-5", "nullius-braking-2"}
+    prerequisites = {"nullius-organic-chemistry-5", "nullius-braking-2"}
   },
   {
     type = "technology",
@@ -2783,7 +2783,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-logistic-ballistics-7", "nullius-braking-5"}
+    prerequisites = {"nullius-braking-5"}
   },
   {
     type = "technology",

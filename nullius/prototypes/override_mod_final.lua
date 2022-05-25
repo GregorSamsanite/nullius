@@ -228,4 +228,12 @@ if mods["RenaiTransportation"] then
   data.raw.inserter["RTThrower-EjectorHatchRT"].energy_per_rotation = "56KJ"
   data.raw.inserter["RTThrower-EjectorHatchRT"].energy_per_movement = "1W"
   data.raw.inserter["RTThrower-EjectorHatchRT"].energy_source.drain = "4kW"
+
+  data.raw.recipe["nullius-thrower-1"].result = "RTThrower-inserter-Item"
+  data.raw.recipe["nullius-thrower-2"].result = "RTThrower-turbo-inserter-Item"
+  data.raw.recipe["nullius-filter-thrower-2"].result = "RTThrower-turbo-filter-inserter-Item"
+  data.raw.recipe["nullius-thrower-3"].result = "RTThrower-stack-inserter-Item"
+  data.raw.recipe["nullius-filter-thrower-3"].result = "RTThrower-stack-filter-inserter-Item"
+  data.raw.recipe["nullius-thrower-4"].result = "RTThrower-express-stack-inserter-Item"
+  data.raw.recipe["nullius-filter-thrower-4"].result = "RTThrower-express-stack-filter-inserter-Item"
 end

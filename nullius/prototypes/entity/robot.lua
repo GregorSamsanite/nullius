@@ -181,12 +181,12 @@ data:extend({
     dying_explosion = "logistic-robot-explosion",
     max_payload_size = 1,
     speed = 0.0555555,
-    max_energy = "600kJ",
-    energy_per_tick = "0.0666667kJ",
+    max_energy = "1.2MJ",
+    energy_per_tick = "0.133333333kJ",
     speed_multiplier_when_out_of_energy = 0.2,
-    energy_per_move = "3.6kJ",
-    min_to_charge = 0.2,
-    max_to_charge = 0.95,
+    energy_per_move = "7.2kJ",
+    min_to_charge = 0.3,
+    max_to_charge = 0.9,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
     cargo_centered = {0.0, 0.2},
@@ -215,11 +215,11 @@ data:extend({
     dying_explosion = "logistic-robot-explosion",
     max_payload_size = 2,
     speed = 0.0925926,
-    max_energy = "1.5MJ",
-    energy_per_tick = "0.1333333kJ",
+    max_energy = "2.5MJ",
+    energy_per_tick = "0.266666666kJ",
     speed_multiplier_when_out_of_energy = 0.2,
-    energy_per_move = "2.88kJ",
-    min_to_charge = 0.2,
+    energy_per_move = "5.76kJ",
+    min_to_charge = 0.25,
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
@@ -249,10 +249,10 @@ data:extend({
     dying_explosion = "logistic-robot-explosion",
     max_payload_size = 4,
     speed = 0.1388889,
-    max_energy = "4MJ",
-    energy_per_tick = "0.2kJ",
+    max_energy = "6MJ",
+    energy_per_tick = "0.4kJ",
     speed_multiplier_when_out_of_energy = 0.2,
-    energy_per_move = "2.4kJ",
+    energy_per_move = "4.8kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
@@ -283,10 +283,10 @@ data:extend({
     dying_explosion = "logistic-robot-explosion",
     max_payload_size = 6,
     speed = 0.185185185,
-    max_energy = "8MJ",
-    energy_per_tick = "0.3333333333kJ",
+    max_energy = "12MJ",
+    energy_per_tick = "0.66666666kJ",
     speed_multiplier_when_out_of_energy = 0.2,
-    energy_per_move = "1.8kJ",
+    energy_per_move = "3.6kJ",
     min_to_charge = 0.2,
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
@@ -326,7 +326,7 @@ data:extend({
       buffer_capacity = "25MJ"
     },
     recharge_minimum = "5MJ",
-    energy_usage = "15kW",
+    energy_usage = "200kW",
     -- per one charge slot
     charging_energy = "450kW",
     logistics_radius = 16.5,
@@ -487,7 +487,7 @@ data:extend({
       buffer_capacity = "50MJ"
     },
     recharge_minimum = "10MJ",
-    energy_usage = "30kW",
+    energy_usage = "300kW",
     -- per one charge slot
     charging_energy = "900kW",
     logistics_radius = 24.5,
@@ -647,7 +647,7 @@ data:extend({
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",
-    energy_usage = "75kW",
+    energy_usage = "500kW",
     -- per one charge slot
     charging_energy = "1.8MW",
     logistics_radius = 32.5,
@@ -807,7 +807,7 @@ data:extend({
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",
-    energy_usage = "75kW",
+    energy_usage = "400kW",
     -- per one charge slot
     charging_energy = "1.8MW",
     logistics_radius = 33,
@@ -966,7 +966,7 @@ data:extend({
       buffer_capacity = "2MW"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "5kW",
+    energy_usage = "12kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 16.5,
@@ -1027,7 +1027,7 @@ data:extend({
       buffer_capacity = "4MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "8kW",
+    energy_usage = "20kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 24.5,
@@ -1088,7 +1088,7 @@ data:extend({
       buffer_capacity = "10MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "12kW",
+    energy_usage = "30kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 32.5,
@@ -1148,7 +1148,7 @@ data:extend({
       buffer_capacity = "25MJ"
     },
     recharge_minimum = "1kJ",
-    energy_usage = "20kW",
+    energy_usage = "50kW",
     -- per one charge slot
     charging_energy = "1kW",
     logistics_radius = 48.5,
@@ -1212,7 +1212,7 @@ data:extend({
       buffer_capacity = "20MJ"
     },
     recharge_minimum = "1MJ",
-    energy_usage = "5kW",
+    energy_usage = "50kW",
     -- per one charge slot
     charging_energy = "600kW",
 
@@ -1292,7 +1292,7 @@ data:extend({
       buffer_capacity = "40MJ"
     },
     recharge_minimum = "2MJ",
-    energy_usage = "10kW",
+    energy_usage = "100kW",
     -- per one charge slot
     charging_energy = "1.2MW",
 
@@ -1371,7 +1371,7 @@ data:extend({
       buffer_capacity = "100MJ"
     },
     recharge_minimum = "5MJ",
-    energy_usage = "25kW",
+    energy_usage = "200kW",
     -- per one charge slot
     charging_energy = "2.4MW",
 
@@ -1449,7 +1449,7 @@ data:extend({
       buffer_capacity = "100MJ"
     },
     recharge_minimum = "5MJ",
-    energy_usage = "25kW",
+    energy_usage = "150kW",
     -- per one charge slot
     charging_energy = "2.4MW",
 

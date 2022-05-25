@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.4
+Date: 25.05.2022
+  Balancing:
+    - Double logistic bot power usage.
+    - Decrease logistic bot stack size.
+    - Increase hangar/charger/relay passive power drain.
+  Bugfixes:
+    - Fix the behavior of body switching queue across multiple surfaces.
+    - Fix missing description of surge compressors.
+  Changes:
+    - Change tier 1 surge electrolyzer recipes with larger size than base item.
+    - Allow compressor 1, electrolyzer 1 reprioritization in medium assemblers.
+  Modding:
+    - Integrate various optional mods into tech tree as prerequisites.
+    - Don't make Factorissimo2 preview tech a prereq for anything else.
+    - Fix a conflict between crafting combinator and Renai Transportation.
+    - Fix a problem with AAI signal transmission icon.
+    - Show crafting methods for text plate recipes.
+  Graphics:
+    - Change background icon of energy storage checkpoints to be more helpful.
+  Info:
+    - Make turbine description more explicit.  Add to compressor description.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.3
 Date: 21.05.2022
   Translation:
