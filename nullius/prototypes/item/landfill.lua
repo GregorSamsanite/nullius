@@ -91,7 +91,7 @@ data:extend({
     name = "nullius-land-fill-gravel",
     localised_name = {"recipe-name.nullius-land-fill-grey-1"},
     order = "nullius-dbb",
-    energy_required = 1,
+    energy_required = 2,
     enabled = false,
     category = "hand-crushing",
     always_show_made_in = true,
@@ -109,7 +109,7 @@ data:extend({
     name = "nullius-land-fill-sand",
     localised_name = {"recipe-name.nullius-land-fill-tan-1"},
     order = "nullius-dcb",
-    energy_required = 1,
+    energy_required = 2,
     enabled = false,
     category = "hand-crushing",
     always_show_made_in = true,
@@ -127,7 +127,7 @@ data:extend({
     name = "nullius-land-fill-bauxite",
     localised_name = {"recipe-name.nullius-land-fill-brown-1"},
     order = "nullius-ddb",
-    energy_required = 3,
+    energy_required = 6,
     enabled = false,
     category = "hand-crushing",
     always_show_made_in = true,
@@ -145,7 +145,7 @@ data:extend({
     name = "nullius-land-fill-iron",
     localised_name = {"recipe-name.nullius-land-fill-red-1"},
     order = "nullius-deb",
-    energy_required = 1,
+    energy_required = 2,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -162,7 +162,7 @@ data:extend({
     name = "nullius-land-fill-limestone",
     localised_name = {"recipe-name.nullius-land-fill-beige-1"},
     order = "nullius-dfb",
-    energy_required = 4,
+    energy_required = 8,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -193,7 +193,7 @@ data:extend({
       }
     },
     order = "nullius-dbc",
-    energy_required = 4,
+    energy_required = 8,
     enabled = false,
     category = "hand-crushing",
     always_show_made_in = true,
@@ -215,7 +215,7 @@ data:extend({
     always_show_products = true,
     category = "hand-crushing",
     subgroup = "boxed-terrain",
-    energy_required = 8,
+    energy_required = 16,
     ingredients = {
       {"nullius-box-gravel", 4},
       {"nullius-box-concrete", 3}
@@ -243,7 +243,7 @@ data:extend({
       }
     },
     order = "nullius-dcc",
-    energy_required = 3,
+    energy_required = 6,
     enabled = false,
     category = "ore-crushing",
     always_show_made_in = true,
@@ -265,7 +265,7 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     subgroup = "boxed-terrain",
-    energy_required = 3,
+    energy_required = 6,
     ingredients = {
       {"nullius-box-sand", 2},
       {"nullius-box-yellow-concrete", 1}
@@ -293,7 +293,7 @@ data:extend({
       }
     },
     order = "nullius-ddc",
-    energy_required = 2,
+    energy_required = 4,
     enabled = false,
     category = "ore-crushing",
     always_show_made_in = true,
@@ -315,7 +315,7 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     subgroup = "boxed-terrain",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-crushed-bauxite", 6},
       {"nullius-box-brown-concrete", 5}
@@ -343,7 +343,7 @@ data:extend({
       }
     },
     order = "nullius-dec",
-    energy_required = 2,
+    energy_required = 4,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -363,7 +363,7 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     subgroup = "boxed-terrain",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-crushed-iron-ore", 8},
       {"nullius-box-red-concrete", 5}
@@ -391,7 +391,7 @@ data:extend({
       }
     },
     order = "nullius-dfc",
-    energy_required = 2,
+    energy_required = 4,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -411,7 +411,7 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     subgroup = "boxed-terrain",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-crushed-limestone", 5},
       {"nullius-box-reinforced-concrete", 2}
@@ -440,7 +440,7 @@ data:extend({
     },
     subgroup = "masonry",
     order = "nullius-as",
-    energy_required = 1,
+    energy_required = 2,
     category = "ore-crushing",
     enabled = false,
     always_show_made_in = true,
@@ -484,7 +484,7 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-terrain",
     order = "nullius-is",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-land-fill-gravel", amount=3},
       {type="item", name="nullius-box-land-fill-sand", amount=2},

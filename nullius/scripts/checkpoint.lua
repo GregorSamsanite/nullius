@@ -25,6 +25,7 @@ local checkpoint_data = {
   ["caustic-solution"] = {{ CHK_FLUID, STT_CONSUME, 250, {{"nullius-caustic-solution"}} }},
   ["wind-power"] = {{ CHK_BUILD, STT_NET, 5, {{"nullius-wind-base-1"},{"nullius-wind-build-1"}} }},
   ["energy-storage"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-surge-electrolyzer-1"}} },
+			{ CHK_BUILD, STT_NET, 1, {{"nullius-backup-turbine-1"}} },
 			{ CHK_FLUID, STT_CONSUME, 1000, {{"nullius-steam"}} }},
   ["iron-ingot-2"] = {{ CHK_ITEM, STT_CONSUME, 1500, {{"nullius-iron-ingot"}} }},
   ["steel-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-steel-ingot"}} }},
@@ -36,7 +37,8 @@ local checkpoint_data = {
   ["mineral-dust"] = {{ CHK_ITEM, STT_CONSUME, 200, {{"nullius-mineral-dust"}} }},
   ["mass-production"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-medium-furnace-1"}} },
 			{ CHK_BUILD, STT_NET, 6, {{"nullius-medium-assembler-1"}} }},
-  ["freight-transportation"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-water-canister"}} }},
+  ["freight-transportation"] = {{ CHK_ITEM, STT_CONSUME, 3, {{"nullius-hydrogen-canister"}} },
+			{ CHK_ITEM, STT_CONSUME, 2, {{"nullius-water-canister"}} }},
   ["lubricant"] = {{ CHK_FLUID, STT_PRODUCE, 250, {{"nullius-lubricant"}} }},
 
   ["volcanic-gas"] = {{ CHK_FLUID, STT_PRODUCE, 5000, {{"nullius-volcanic-gas"}} }},

@@ -2810,3 +2810,185 @@ data:extend({
   }
 })
 end
+
+
+if mods["DisplayPlates"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-display-plate-small-steel",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-rubber", 1},
+      {"nullius-glass", 1},
+      {"nullius-steel-sheet", 2}
+    },
+    result = "iron-display-small"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-medium-steel",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"iron-display-small", 4},
+	  {"small-lamp", 1}
+    },
+    result = "iron-display-medium"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-large-steel",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"iron-display-small", 9},
+	  {"small-lamp", 4}
+    },
+    result = "iron-display"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-small-aluminum",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-rubber", 1},
+      {"nullius-glass", 1},
+      {"nullius-aluminum-sheet", 3}
+    },
+    result = "steel-display-small"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-medium-aluminum",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"steel-display-small", 4},
+	  {"small-lamp", 1}
+    },
+    result = "steel-display-medium"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-large-aluminum",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"steel-display-small", 9},
+	  {"small-lamp", 4}
+    },
+    result = "steel-display"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-small-plastic",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-rubber", 1},
+      {"nullius-glass", 1},
+      {"nullius-plastic", 4}
+    },
+    result = "copper-display-small"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-medium-plastic",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"copper-display-small", 4},
+	  {"small-lamp", 1}
+    },
+    result = "copper-display-medium"
+  },
+  {
+    type = "recipe",
+    name = "nullius-display-plate-large-plastic",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"copper-display-small", 9},
+	  {"small-lamp", 4}
+    },
+    result = "copper-display"
+  },
+  {
+    type = "technology",
+    name = "nullius-display-plates",
+    localised_name = {"technology-name.nullius-display-plates"},
+    localised_description = {"technology-description.nullius-display-plates"},
+    icon = "__DisplayPlates__/graphics/entities/steel-display-small.png",
+    icon_size = 80,
+    order = "nullius-cc",
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-small-steel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-medium-steel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-large-steel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-small-aluminum"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-medium-aluminum"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-large-aluminum"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-small-plastic"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-medium-plastic"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-display-plate-large-plastic"
+      }
+    },
+    unit = {
+      count = 20,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}
+      },
+      time = 5
+    },
+    prerequisites = {"nullius-illumination-1", "nullius-aluminum-working", "nullius-checkpoint-rubber"}
+  }
+})
+end

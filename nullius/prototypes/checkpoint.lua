@@ -350,7 +350,9 @@ data:extend({
 	    {"technology-description.nullius-consume", {"technology-description.nullius-fluid",
 		    1000, "nullius-steam", {"fluid-name.nullius-steam"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-surge-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}},
+		    1, "nullius-surge-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    1, "nullius-backup-turbine-1", {"entity-name.nullius-backup-turbine-1"}}}},
     order = "nullius-yc",
     icons = {
       {
@@ -638,9 +640,11 @@ data:extend({
     name = "nullius-checkpoint-freight-transportation",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-freight-transportation"}}},
-    localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-water-canister",
-		    {"item-name.nullius-water-canister"}}},
+    localised_description = {"",
+	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
+		    3, "nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
+	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
+		    2, "nullius-water-canister", {"item-name.nullius-water-canister"}}}},
     order = "nullius-yc",
     icons = {
       {
@@ -1186,7 +1190,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-toolmaking-2"},
+    prerequisites = {"nullius-toolmaking-5"},
     ignore_tech_cost_multiplier = true
   },
   {

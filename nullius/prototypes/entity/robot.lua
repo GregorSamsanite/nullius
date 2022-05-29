@@ -1511,9 +1511,13 @@ data:extend({
 })
 
 
-local android2 = util.table.deepcopy(data.raw.character["character"])
+local android1 = data.raw.character["character"]
+android1.order = "nullius-akb"
+local android2 = util.table.deepcopy(android1)
 android2.name = "nullius-android-2"
 android2.localised_name = {"", {"item-name.nullius-android"}, " ", 2}
+android2.icons = data.raw.item["nullius-android-2"].icons
+android2.order = "nullius-akc"
 android2.selection_box = {{-0.4, -1.55}, {0.4, 0.2}}
 android2.animations = scale_image(android2.animations, 1.1)
 android2.animations[2].armors = {"nullius-chassis-3", "nullius-chassis-4"}

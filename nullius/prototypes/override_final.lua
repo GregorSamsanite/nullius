@@ -363,6 +363,11 @@ for _,character in pairs(data.raw["character"]) do
   character.respawn_time = 4
   character.flags = {"placeable-off-grid", "not-on-map", "not-flammable"}
   character.localised_description = {"entity-description.nullius-android"}
+
+  if ((character.name ~= "character") and
+      (character.name ~= "nullius-android-2")) then
+    table.insert(character.flags,"hidden")
+  end
 end
 
 for _,tip in pairs(data.raw["tips-and-tricks-item"]) do

@@ -585,7 +585,7 @@ data:extend({
     enabled = false,
     category = "huge-crafting",
     always_show_made_in = true,
-    energy_required = 8,
+    energy_required = 12,
     ingredients = {
       {"nullius-cargo-wagon-2", 1},
       {"nullius-drone-launcher-1", 1}
@@ -612,7 +612,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
-    energy_required = 12,
+    energy_required = 20,
     ingredients = {
       {"nullius-drone-carrier-1", 1},
       {"nullius-cargo-wagon-3", 1},
@@ -732,7 +732,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "nanotechnology",
-    energy_required = 200,
+    energy_required = 250,
     ingredients = {
       {"nullius-chassis-3", 1},
       {"nullius-construction-bot-2", 3},
@@ -752,7 +752,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "nanotechnology",
-    energy_required = 300,
+    energy_required = 400,
     ingredients = {
       {"nullius-android-1", 1},
       {"nullius-chassis-5", 1},

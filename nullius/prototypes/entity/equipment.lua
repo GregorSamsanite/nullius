@@ -253,7 +253,9 @@ data:extend({
     type = "roboport-equipment",
     name = "nullius-hangar-1",
     order = "gb",
-    localised_description = {"equipment-description.nullius-hangar"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-hangar"},
+		{"entity-description.nullius-megajoule", 4}},
     sprite = {
       filename = EQUIPPATH .. "hangar1.png",
       width = 128,
@@ -303,7 +305,9 @@ data:extend({
     type = "roboport-equipment",
     name = "nullius-hangar-2",
     order = "gc",
-    localised_description = {"equipment-description.nullius-hangar"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-hangar"},
+		{"entity-description.nullius-megajoule", 10}},
     sprite = {
       filename = "__base__/graphics/equipment/hr-personal-roboport-mk2-equipment.png",
       width = 128,
@@ -353,7 +357,9 @@ data:extend({
     type = "roboport-equipment",
     name = "nullius-hangar-3",
     order = "gd",
-    localised_description = {"equipment-description.nullius-hangar"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-hangar"},
+		{"entity-description.nullius-megajoule", 30}},
     sprite = {
       filename = EQUIPPATH .. "hangar3.png",
       width = 128,
@@ -403,7 +409,9 @@ data:extend({
     type = "roboport-equipment",
     name = "nullius-hangar-4",
     order = "ge",
-    localised_description = {"equipment-description.nullius-hangar"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-hangar"},
+		{"entity-description.nullius-megajoule", 20}},
     sprite = {
       filename = EQUIPPATH .. "hangar3.png", --hangar 4 is just a smaller version of h3
       width = 128,
@@ -452,8 +460,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-1",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-charger"},
+		{"entity-description.nullius-megajoule", 4}},
     order = "hb",
-    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad.png",
       width = 32,
@@ -501,8 +511,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-2",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-charger"},
+		{"entity-description.nullius-megajoule", 10}},
     order = "hc",
-    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-2.png",
       width = 32,
@@ -550,8 +562,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-3",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-charger"},
+		{"entity-description.nullius-megajoule", 30}},
     order = "hd",
-    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
       width = 32,
@@ -599,8 +613,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-charger-4",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-charger"},
+		{"entity-description.nullius-megajoule", 20}},
     order = "he",
-    localised_description = {"equipment-description.nullius-charger"},
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
       width = 32,
@@ -648,8 +664,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-1",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-relay"},
+		{"entity-description.nullius-kilojoule", 200}},
     order = "ib",
-    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander.png",
       width = 32,
@@ -700,8 +718,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-2",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-relay"},
+		{"entity-description.nullius-kilojoule", 400}},
     order = "ic",
-    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-2.png",
       width = 32,
@@ -752,8 +772,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-3",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-relay"},
+		{"entity-description.nullius-megajoule", 1}},
     order = "id",
-    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-4.png",
       width = 32,
@@ -804,8 +826,10 @@ data:extend({
   {
     type = "roboport-equipment",
     name = "nullius-relay-4",
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-relay"},
+		{"entity-description.nullius-megajoule", 2}},
     order = "ie",
-    localised_description = {"equipment-description.nullius-relay"},
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
       width = 32,
@@ -822,7 +846,7 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-      buffer_capacity = "1.5MJ",
+      buffer_capacity = "2MJ",
       input_flow_limit = "100kW",
       usage_priority = "secondary-input",
       drain = "75kW"
@@ -857,6 +881,7 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-1",
+    localised_description = data.raw.item["nullius-night-vision-1"].localised_description,
     order = "eb",
     sprite = {
       filename = "__base__/graphics/equipment/night-vision-equipment.png",
@@ -887,6 +912,7 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-2",
+    localised_description = data.raw.item["nullius-night-vision-2"].localised_description,
     order = "ec",
     sprite = {
       filename = EQUIPPATH .. "night-vision-2.png",
@@ -917,6 +943,7 @@ data:extend({
   {
     type = "night-vision-equipment",
     name = "nullius-night-vision-3",
+    localised_description = data.raw.item["nullius-night-vision-3"].localised_description,
     order = "ed",
     sprite = {
       filename = EQUIPPATH .. "night-vision-3.png",
@@ -948,7 +975,7 @@ data:extend({
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-1",
     localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
-    localised_description = {"equipment-description.nullius-levitation-field"},
+    localised_description = data.raw.item["nullius-levitation-field-1"].localised_description,
     order = "fb",
     sprite = {
       filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
@@ -975,7 +1002,7 @@ data:extend({
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-2",
     localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 2},
-    localised_description = {"equipment-description.nullius-levitation-field"},
+    localised_description = data.raw.item["nullius-levitation-field-2"].localised_description,
     order = "fc",
     sprite = {
       filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
@@ -1002,6 +1029,7 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-1",
+    localised_description = data.raw.item["nullius-leg-augmentation-1"].localised_description,
     order = "db",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
@@ -1030,6 +1058,7 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-2",
+    localised_description = data.raw.item["nullius-leg-augmentation-2"].localised_description,
     order = "dc",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
@@ -1058,6 +1087,7 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-3",
+    localised_description = data.raw.item["nullius-leg-augmentation-3"].localised_description,
     order = "dd",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
@@ -1085,6 +1115,7 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-4",
+    localised_description = data.raw.item["nullius-leg-augmentation-4"].localised_description,
     order = "de",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
@@ -1318,6 +1349,7 @@ data:extend({
   {
     type = "energy-shield-equipment",
     name = "nullius-shield",
+    localised_description = data.raw.item["nullius-shield"].localised_description,
     sprite = {
       filename = "__base__/graphics/equipment/energy-shield-equipment.png",
       width = 64,

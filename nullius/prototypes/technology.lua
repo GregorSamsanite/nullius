@@ -728,7 +728,7 @@ data:extend({
       },
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       }
     },
     unit = {
@@ -814,6 +814,31 @@ data:extend({
     prerequisites = {"nullius-venting-1", "nullius-mechanical-engineering-1"},
     ignore_tech_cost_multiplier = true
   },
+  {
+    type = "technology",
+    name = "nullius-toolmaking-1",
+    order = "nullius-cc",
+    icon = "__base__/graphics/technology/steel-axe.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 0.5
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 0.25
+      }
+    },
+    unit = {
+      count = 3,
+      ingredients = {{"nullius-mechanical-pack", 1}},
+      time = 6
+    },
+    prerequisites = {"nullius-mechanical-engineering-1"},
+    ignore_tech_cost_multiplier = true
+  },
 
   {
     type = "technology",
@@ -858,7 +883,7 @@ data:extend({
       ingredients = {{"nullius-mechanical-pack", 1}},
       time = 12
     },
-    prerequisites = {"nullius-logistics-1", "nullius-actuation-1", "nullius-energy-distribution-1"},
+    prerequisites = {"nullius-logistics-1", "nullius-actuation-1", "nullius-toolmaking-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1173,7 +1198,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-toolmaking-1",
+    name = "nullius-toolmaking-2",
     order = "nullius-cg",
     icon = "__base__/graphics/technology/steel-axe.png",
     icon_size = 256,
@@ -1181,11 +1206,11 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.25
+        modifier = 0.5
       }
     },
     unit = {
@@ -1334,7 +1359,7 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-toolmaking-1", "nullius-flotation-1"},
+    prerequisites = {"nullius-toolmaking-2", "nullius-flotation-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1378,7 +1403,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 8
     },
-    prerequisites = {"nullius-silica-processing-1", "nullius-toolmaking-1"},
+    prerequisites = {"nullius-silica-processing-1", "nullius-toolmaking-2"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1728,6 +1753,26 @@ data:extend({
     prerequisites = {"nullius-aluminum-production", "nullius-metallurgy-2"},
     ignore_tech_cost_multiplier = true
   },
+  {
+    type = "technology",
+    name = "nullius-insulation-1",
+    order = "nullius-ck",
+	icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-insulated-wire-1"
+      }
+    },
+    unit = {
+      count = 15,
+      ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
+      time = 6
+    },
+    prerequisites = {"nullius-aluminum-working", "nullius-checkpoint-rubber"},
+    ignore_tech_cost_multiplier = true
+  },
 
   {
     type = "technology",
@@ -1784,10 +1829,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-insulated-wire-1"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-capacitor"
       }
     },
@@ -1796,7 +1837,8 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-checkpoint-polycrystalline-silicon", "nullius-checkpoint-aluminum-ingot", "nullius-cybernetics-1"},
+    prerequisites = {"nullius-checkpoint-polycrystalline-silicon", "nullius-checkpoint-aluminum-ingot",
+	    "nullius-cybernetics-1", "nullius-insulation-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1834,7 +1876,7 @@ data:extend({
         {"nullius-mechanical-pack", 1}},
       time = 5
     },
-    prerequisites = {"nullius-checkpoint-aluminum-ingot", "nullius-hydrocarbon-combustion-1"},
+    prerequisites = {"nullius-checkpoint-aluminum-ingot", "nullius-insulation-1", "nullius-hydrocarbon-combustion-1"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -2005,6 +2047,33 @@ data:extend({
     ignore_tech_cost_multiplier = true
   },
 
+  {
+    type = "technology",
+    name = "nullius-toolmaking-3",
+    order = "nullius-dc",
+    icon = "__base__/graphics/technology/personal-laser-defense-equipment.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 0.5
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 0.5
+      }
+    },
+    unit = {
+      count = 15,
+      ingredients = {
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 10
+    },
+    prerequisites = {"nullius-electrical-engineering"},
+    ignore_tech_cost_multiplier = true
+  },
   {
     type = "technology",
     name = "nullius-energy-distribution-2",
@@ -2257,7 +2326,7 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-actuation-2"},
+    prerequisites = {"nullius-actuation-2", "nullius-toolmaking-3"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -2344,7 +2413,7 @@ data:extend({
       },
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       }
     },
     unit = {
@@ -3706,6 +3775,33 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-toolmaking-4",
+    order = "nullius-dl",
+    icon = "__base__/graphics/technology/steel-axe.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 0.5
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 0.5
+      }
+    },
+    unit = {
+      count = 200,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-cybernetics-2"}
+  },
+  {
+    type = "technology",
     name = "nullius-plumbing-4",
     order = "nullius-dl",
     icon = "__base__/graphics/technology/fluid-handling.png",
@@ -3850,7 +3946,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-empiricism-2", "nullius-robot-speed-1"}
+    prerequisites = {"nullius-empiricism-2", "nullius-robot-speed-1", "nullius-toolmaking-4"}
   },
   {
     type = "technology",
@@ -5624,7 +5720,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-toolmaking-2",
+    name = "nullius-toolmaking-5",
     order = "nullius-ei",
     icon = "__base__/graphics/technology/personal-laser-defense-equipment.png",
     icon_size = 256,
@@ -5632,11 +5728,11 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.25
+        modifier = 1
       },
       {
         type = "character-resource-reach-distance",
@@ -6186,7 +6282,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-toolmaking-2", "nullius-explosives-2"}
+    prerequisites = {"nullius-toolmaking-5", "nullius-explosives-2"}
   },
 
   {
@@ -6751,6 +6847,29 @@ data:extend({
     },
     prerequisites = {"nullius-actuation-3", "nullius-checkpoint-titanium-ingot"}
   },
+  {
+    type = "technology",
+    name = "nullius-insulation-2",
+    order = "nullius-em",
+    icon = "__angelssmelting__/graphics/icons/roll-manganese.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-insulation"
+      }
+    },
+    unit = {
+      count = 400,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-concrete-2", "nullius-packaging-3"}
+  },
 
   {
     type = "technology",
@@ -6761,10 +6880,6 @@ data:extend({
     icon_size = 256,
     icon_mipmaps = 4,
     effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-insulation"
-      },
       {
         type = "unlock-recipe",
         recipe = "nullius-wall"
@@ -6787,7 +6902,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-concrete-2", "nullius-construction-robot-2"}
+    prerequisites = {"nullius-insulation-2", "nullius-construction-robot-2"}
   },
   {
     type = "technology",
@@ -7323,7 +7438,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-architecture-1", "nullius-energy-storage-3", "nullius-logistics-3"}
+    prerequisites = {"nullius-insulation-2", "nullius-energy-storage-3", "nullius-logistics-3"}
   },
   {
     type = "technology",
@@ -8098,6 +8213,34 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-toolmaking-6",
+    order = "nullius-eo",
+    icon = "__base__/graphics/technology/steel-axe.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 0.5
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 1
+      }
+    },
+    unit = {
+      count = 750,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-mass-production-4", "nullius-checkpoint-productivity-module"}
+  },
+  {
+    type = "technology",
     name = "nullius-locomotion-2",
     order = "nullius-eo",
     icon = "__base__/graphics/technology/exoskeleton-equipment.png",
@@ -8364,7 +8507,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-checkpoint-productivity-module", "nullius-checkpoint-exploration"}
+    prerequisites = {"nullius-toolmaking-6", "nullius-checkpoint-exploration"}
   },
   {
     type = "technology",
@@ -8668,7 +8811,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-inserter-capacity-2", "nullius-distribution-2"}
+    prerequisites = {"nullius-inserter-capacity-2", "nullius-distribution-2", "nullius-toolmaking-6"}
   },
 
   {
@@ -9250,7 +9393,7 @@ data:extend({
       },
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       }
     },
     unit = {
@@ -9432,7 +9575,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-toolmaking-3",
+    name = "nullius-toolmaking-7",
     order = "nullius-fe",
     icon = "__base__/graphics/technology/steel-axe.png",
     icon_size = 256,
@@ -9440,11 +9583,11 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.5
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.25
+        modifier = 1
       },
       {
         type = "character-resource-reach-distance",
@@ -9517,7 +9660,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-toolmaking-3"}
+    prerequisites = {"nullius-toolmaking-7"}
   },
   {
     type = "technology",
@@ -9777,7 +9920,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-toolmaking-3", "nullius-logistics-4"}
+    prerequisites = {"nullius-toolmaking-7", "nullius-logistics-4"}
   },
   {
     type = "technology",
@@ -11321,6 +11464,33 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-toolmaking-8",
+    order = "nullius-fq",
+    icon = "__base__/graphics/technology/personal-laser-defense-equipment.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 0.5
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 1
+      }
+    },
+    unit = {
+      count = 3500,
+      ingredients = {
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		{"nullius-physics-pack", 1}
+      },
+      time = 50
+    },
+    prerequisites = {"nullius-checkpoint-processor-2", "nullius-locomotion-4"}
+  },
+  {
+    type = "technology",
     name = "nullius-miniaturization-1",
     order = "nullius-fq",
     icon = "__base__/graphics/technology/electronics.png",
@@ -11574,7 +11744,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-logistic-robot-3", "nullius-solar-thermal-power-3"}
+    prerequisites = {"nullius-logistic-robot-3", "nullius-solar-thermal-power-3", "nullius-toolmaking-8"}
   },
 
   {
@@ -12334,6 +12504,35 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-toolmaking-9",
+    order = "nullius-gd",
+    icon = "__base__/graphics/technology/personal-laser-defense-equipment.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-mining-speed",
+        modifier = 1
+      },
+      {
+        type = "character-crafting-speed",
+        modifier = 1
+      }
+    },
+    unit = {
+      count = 8000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 2},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-checkpoint-cybernetics"}
+  },
+  {
+    type = "technology",
     name = "nullius-copper-production",
     order = "nullius-gd",
     icon = "__angelssmelting__/graphics/technology/smelting-copper-tech.png",
@@ -12670,7 +12869,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-copper-ingot"}
+    prerequisites = {"nullius-checkpoint-copper-ingot", "nullius-toolmaking-9"}
   },
 
   {
@@ -12712,7 +12911,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-electronics-4", "nullius-robot-speed-5", "nullius-checkpoint-cybernetics"}
+    prerequisites = {"nullius-electronics-4", "nullius-robot-speed-5"}
   },
   {
     type = "technology",

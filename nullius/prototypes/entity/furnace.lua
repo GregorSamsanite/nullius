@@ -1176,7 +1176,7 @@ data:extend({
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
-	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].animation, 0.81),
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].animation.east, 0.81),
 	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell"].working_visualisations, 0.81),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell"].working_sound,
@@ -1246,7 +1246,7 @@ data:extend({
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
-	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].animation, 0.81),
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].animation.east, 0.81),
 	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-2"].working_visualisations, 0.81),
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell-2"].working_sound,
@@ -1319,7 +1319,7 @@ data:extend({
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
-	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].animation, 0.81),
+	animation = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].animation.east, 0.81),
 	working_visualisations = scale_image(data.raw["assembling-machine"]["ore-floatation-cell-3"].working_visualisations, 0.81),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["ore-floatation-cell-3"].working_sound,
@@ -1336,11 +1336,10 @@ local function tint_flotation_dir(dir, speed, tint)
   end
 end
 local function tint_flotation_cell(num, speed, tint)
-  local anim = data.raw["assembling-machine"]["nullius-flotation-cell-"..num].animation
-  tint_flotation_dir(anim.north, speed, tint)
-  tint_flotation_dir(anim.east, speed, tint)
-  tint_flotation_dir(anim.south, speed, tint)
-  tint_flotation_dir(anim.west, speed, tint)
+  local machine = data.raw["assembling-machine"]["nullius-flotation-cell-"..num]
+  tint_flotation_dir(machine.animation, speed, tint)
+  machine.working_visualisations[5] = nil
+  machine.working_visualisations[6] = nil
 end
 tint_flotation_cell(1, 0.4, {0.77, 0.77, 0.60})
 tint_flotation_cell(2, 0.5, {0.8, 0.8, 1})

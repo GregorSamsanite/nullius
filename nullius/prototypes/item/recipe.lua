@@ -11,7 +11,7 @@ data:extend({
     order = "nullius-bb",
     allow_decomposition = false,
     always_show_made_in = true,
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {"stone", 2}
     },
@@ -29,7 +29,7 @@ data:extend({
     subgroup = "boxed-terrain",
     allow_decomposition = false,
     always_show_made_in = true,
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-stone", 4}
     },
@@ -116,7 +116,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-crafting",
-    energy_required = 5,
+    energy_required = 6,
     ingredients = {
       {"nullius-motor-1", 1},
       {"nullius-iron-gear", 2},
@@ -134,7 +134,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {"nullius-box-motor-1", 1},
       {"nullius-box-steel-gear", 1},
@@ -149,7 +149,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {"inserter", 1},
       {"nullius-motor-1", 1},
@@ -165,7 +165,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 15,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-inserter-1", 1},
       {"nullius-box-motor-1", 1},
@@ -180,7 +180,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {"turbo-inserter", 1},
       {"decider-combinator", 1}
@@ -194,7 +194,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-box-inserter-2", 1},
       {"nullius-box-logic-circuit", 1}
@@ -208,7 +208,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 4,
+    energy_required = 7,
     ingredients = {
       {"turbo-filter-inserter", 1},
       {"nullius-motor-2", 1},
@@ -224,7 +224,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 20,
+    energy_required = 35,
     ingredients = {
       {"nullius-box-filter-inserter-2", 1},
       {"nullius-box-motor-2", 1},
@@ -239,7 +239,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
       {"stack-inserter", 1},
       {"nullius-sensor-1", 1}
@@ -253,7 +253,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 5,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-inserter-3", 1},
       {"nullius-box-sensor-1", 1}
@@ -267,7 +267,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 6,
+    energy_required = 12,
     ingredients = {
       {"stack-filter-inserter", 2},
       {"nullius-motor-3", 1},
@@ -283,7 +283,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 30,
+    energy_required = 60,
     ingredients = {
       {"nullius-box-filter-inserter-3", 2},
       {"nullius-box-motor-3", 1},
@@ -298,7 +298,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 1,
+    energy_required = 4,
     ingredients = {
       {"express-stack-inserter", 1},
       {"nullius-sensor-2", 1}
@@ -312,7 +312,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 5,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-inserter-4", 1},
       {"nullius-box-sensor-2", 1}
@@ -328,7 +328,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {"nullius-motor-1", 1},
       {"nullius-iron-gear", 2},
@@ -347,7 +347,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 12,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-motor-1", 1},
       {"nullius-box-iron-gear", 1},
@@ -443,7 +443,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {type="item", name="transport-belt", amount=6},
       {type="item", name="nullius-motor-2", amount=1},
@@ -463,7 +463,7 @@ data:extend({
     always_show_products = true,
     category = "large-fluid-assembly",
     subgroup = "boxed-belt",
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-belt-1", amount=6},
       {type="item", name="nullius-box-motor-2", amount=1},
@@ -482,7 +482,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {"fast-transport-belt", 10},
       {"underground-belt", 1},
@@ -500,7 +500,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-belt-2", 10},
       {"nullius-box-underground-belt-1", 1},
@@ -517,7 +517,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {"fast-underground-belt", 1},
       {"splitter", 1},
@@ -547,7 +547,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {"nullius-box-underground-belt-2", 1},
       {"splitter", 5},
@@ -566,7 +566,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="fast-transport-belt", amount=8},
       {type="item", name="nullius-textile", amount=4},
@@ -585,7 +585,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 25,
+    energy_required = 50,
     ingredients = {
       {type="item", name="nullius-box-belt-2", amount=8},
       {type="item", name="nullius-box-textile", amount=4},
@@ -603,7 +603,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"express-transport-belt", 12},
       {"fast-underground-belt", 2},
@@ -621,7 +621,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-belt-3", 12},
       {"nullius-box-underground-belt-2", 2},
@@ -638,7 +638,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"express-underground-belt", 1},
       {"fast-splitter", 1},
@@ -668,7 +668,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-inserter",
     order = "nullius-pb",
-    energy_required = 25,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-underground-belt-3", 1},
       {"fast-splitter", 5},
@@ -686,7 +686,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {type="item", name="express-transport-belt", amount=16},
       {type="item", name="nullius-motor-3", amount=2},
@@ -706,7 +706,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 75,
+    energy_required = 100,
     ingredients = {
       {type="item", name="nullius-box-belt-3", amount=16},
       {type="item", name="nullius-box-motor-3", amount=2},
@@ -725,7 +725,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-crafting",
-    energy_required = 8,
+    energy_required = 12,
     ingredients = {
       {"ultimate-transport-belt", 16},
       {"express-underground-belt", 2},
@@ -743,7 +743,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-belt",
-    energy_required = 40,
+    energy_required = 60,
     ingredients = {
       {"nullius-box-belt-4", 16},
       {"nullius-box-underground-belt-3", 2},
@@ -760,7 +760,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-crafting",
-    energy_required = 10,
+    energy_required = 16,
     ingredients = {
       {"ultimate-underground-belt", 2},
       {"express-splitter", 2},
@@ -790,7 +790,7 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-inserter",
     order = "nullius-pc",
-    energy_required = 50,
+    energy_required = 80,
     ingredients = {
       {"nullius-box-underground-belt-4", 2},
       {"express-splitter", 10},
@@ -808,7 +808,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {"nullius-steel-beam", 2},
       {"nullius-plastic", 3},
@@ -827,7 +827,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 15,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-steel-beam", 2},
       {"nullius-box-plastic", 3},
@@ -844,7 +844,7 @@ data:extend({
     enabled = false,
     category = "medium-crafting",
     always_show_made_in = true,
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"nullius-steel-sheet", 5},
       {"decider-combinator", 2},
@@ -860,7 +860,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-rail",
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-steel-sheet", 5},
       {"nullius-box-logic-circuit", 2},
@@ -875,7 +875,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
       {"decider-combinator", 1},
       {"small-lamp", 3},
@@ -890,7 +890,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-rail",
     always_show_made_in = true,
-    energy_required = 5,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
       {"nullius-box-lamp-1", 3},
@@ -904,7 +904,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {"rail-signal", 1},
       {"copper-cable", 2}
@@ -918,7 +918,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-rail",
     always_show_made_in = true,
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-box-rail-signal", 1},
       {"nullius-box-insulated-wire", 2}
@@ -932,7 +932,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {"copper-cable", 2},
       {"nullius-steel-sheet", 1},
@@ -948,7 +948,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-circuit",
     always_show_made_in = true,
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-box-insulated-wire", 2},
       {"nullius-box-steel-sheet", 1},
@@ -965,7 +965,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 2,
+    energy_required = 5,
     ingredients = {
       {"copper-cable", 5},
       {"decider-combinator", 1}
@@ -982,7 +982,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 10,
+    energy_required = 25,
     ingredients = {
       {"nullius-box-insulated-wire", 5},
       {"nullius-box-logic-circuit", 1}
@@ -998,7 +998,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {"red-wire", 5}
     },
@@ -1014,7 +1014,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-box-red-wire", 5}
     },
@@ -1028,7 +1028,7 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 2,
+    energy_required = 4,
     ingredients = {
       {"refined-concrete", 4},
       {"nullius-steel-beam", 3},
@@ -1044,7 +1044,7 @@ data:extend({
     category = "huge-assembly",
     subgroup = "boxed-terrain",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-reinforced-concrete", 2},
       {"nullius-box-steel-beam", 3},
@@ -1059,7 +1059,7 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 3,
+    energy_required = 5,
     ingredients = {
       {"stone-wall", 1},
       {"nullius-steel-plate", 2},
@@ -1077,7 +1077,7 @@ data:extend({
     category = "huge-assembly",
     subgroup = "boxed-terrain",
     always_show_made_in = true,
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {"nullius-box-wall", 1},
       {"nullius-box-steel-plate", 2},

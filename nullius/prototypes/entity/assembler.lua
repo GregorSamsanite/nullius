@@ -7,6 +7,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-small-assembler-1",
+	order = "nullius-mbb",
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -74,6 +75,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-medium-assembler-1",
+	order = "nullius-mcb",
     icon_size = 64,
     icons = data.raw.item["nullius-medium-assembler-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -184,6 +186,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-large-assembler-1",
+	order = "nullius-mdb",
     icons = data.raw.item["nullius-large-assembler-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-large-assembler-1"},
@@ -274,6 +277,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-small-assembler-2",
+	order = "nullius-mbc",
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -324,6 +328,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-small-assembler-3",
+	order = "nullius-mbd",
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-3"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -384,6 +389,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-medium-assembler-2",
+	order = "nullius-mcc",
     icon_size = 64,
     icons = data.raw.item["nullius-medium-assembler-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -467,6 +473,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-medium-assembler-3",
+	order = "nullius-mcd",
     icon_size = 64,
     icons = data.raw.item["nullius-medium-assembler-3"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -549,6 +556,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-large-assembler-2",
+	order = "nullius-mdc",
     icons = data.raw.item["nullius-large-assembler-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-large-assembler-2"},

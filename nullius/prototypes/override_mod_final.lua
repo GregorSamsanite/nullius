@@ -169,7 +169,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 1}
   data.raw.inserter["RTThrower-inserter"].localised_name = {"entity-name.nullius-thrower", 1}
   data.raw.item["RTThrower-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-inserter-Item"].order = "nullius-bb"
+  data.raw.item["RTThrower-inserter-Item"].order = "nullius-tbb"
+  data.raw.inserter["RTThrower-inserter"].order = "nullius-tbb"
   data.raw.inserter["RTThrower-inserter"].rotation_speed = 0.0083333333
   data.raw.inserter["RTThrower-inserter"].energy_per_rotation = "56KJ"
   data.raw.inserter["RTThrower-inserter"].energy_per_movement = "1W"
@@ -177,7 +178,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-turbo-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 2}
   data.raw.inserter["RTThrower-turbo-inserter"].localised_name = {"entity-name.nullius-thrower", 2}
   data.raw.item["RTThrower-turbo-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-turbo-inserter-Item"].order = "nullius-cb"
+  data.raw.item["RTThrower-turbo-inserter-Item"].order = "nullius-tcb"
+  data.raw.inserter["RTThrower-turbo-inserter"].order = "nullius-tcb"
   data.raw.inserter["RTThrower-turbo-inserter"].rotation_speed = 0.016666667
   data.raw.inserter["RTThrower-turbo-inserter"].energy_per_rotation = "56KJ"
   data.raw.inserter["RTThrower-turbo-inserter"].energy_per_movement = "1W"
@@ -185,7 +187,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-turbo-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 2}
   data.raw.inserter["RTThrower-turbo-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 2}
   data.raw.item["RTThrower-turbo-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-turbo-filter-inserter-Item"].order = "nullius-cc"
+  data.raw.item["RTThrower-turbo-filter-inserter-Item"].order = "nullius-tcc"
+  data.raw.inserter["RTThrower-turbo-filter-inserter"].order = "nullius-tcc"
   data.raw.inserter["RTThrower-turbo-filter-inserter"].rotation_speed = 0.016666667
   data.raw.inserter["RTThrower-turbo-filter-inserter"].energy_per_rotation = "56KJ"
   data.raw.inserter["RTThrower-turbo-filter-inserter"].energy_per_movement = "1W"
@@ -193,7 +196,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-stack-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 3}
   data.raw.inserter["RTThrower-stack-inserter"].localised_name = {"entity-name.nullius-thrower", 3}
   data.raw.item["RTThrower-stack-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-stack-inserter-Item"].order = "nullius-db"
+  data.raw.item["RTThrower-stack-inserter-Item"].order = "nullius-tdb"
+  data.raw.inserter["RTThrower-stack-inserter"].order = "nullius-tdb"
   data.raw.inserter["RTThrower-stack-inserter"].rotation_speed = 0.016666667
   data.raw.inserter["RTThrower-stack-inserter"].energy_per_rotation = "114KJ"
   data.raw.inserter["RTThrower-stack-inserter"].energy_per_movement = "1W"
@@ -201,7 +205,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-stack-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 3}
   data.raw.inserter["RTThrower-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 3}
   data.raw.item["RTThrower-stack-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-stack-filter-inserter-Item"].order = "nullius-dc"
+  data.raw.item["RTThrower-stack-filter-inserter-Item"].order = "nullius-tdc"
+  data.raw.inserter["RTThrower-stack-filter-inserter"].order = "nullius-tdc"
   data.raw.inserter["RTThrower-stack-filter-inserter"].rotation_speed = 0.016666667
   data.raw.inserter["RTThrower-stack-filter-inserter"].energy_per_rotation = "114KJ"
   data.raw.inserter["RTThrower-stack-filter-inserter"].energy_per_movement = "1W"
@@ -209,7 +214,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-express-stack-inserter-Item"].localised_name = {"entity-name.nullius-thrower", 4}
   data.raw.inserter["RTThrower-express-stack-inserter"].localised_name = {"entity-name.nullius-thrower", 4}
   data.raw.item["RTThrower-express-stack-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-express-stack-inserter-Item"].order = "nullius-eb"
+  data.raw.item["RTThrower-express-stack-inserter-Item"].order = "nullius-teb"
+  data.raw.inserter["RTThrower-express-stack-inserter"].order = "nullius-teb"
   data.raw.inserter["RTThrower-express-stack-inserter"].rotation_speed = 0.033333333
   data.raw.inserter["RTThrower-express-stack-inserter"].energy_per_rotation = "115KJ"
   data.raw.inserter["RTThrower-express-stack-inserter"].energy_per_movement = "1W"
@@ -217,7 +223,8 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTThrower-express-stack-filter-inserter-Item"].localised_name = {"entity-name.nullius-filter-thrower", 4}
   data.raw.inserter["RTThrower-express-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-thrower", 4}
   data.raw.item["RTThrower-express-stack-filter-inserter-Item"].subgroup = "nullius-renai-thrower"
-  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].order = "nullius-ec"
+  data.raw.item["RTThrower-express-stack-filter-inserter-Item"].order = "nullius-tec"
+  data.raw.inserter["RTThrower-express-stack-filter-inserter"].order = "nullius-tec"
   data.raw.inserter["RTThrower-express-stack-filter-inserter"].rotation_speed = 0.033333333
   data.raw.inserter["RTThrower-express-stack-filter-inserter"].energy_per_rotation = "115KJ"
   data.raw.inserter["RTThrower-express-stack-filter-inserter"].energy_per_movement = "1W"

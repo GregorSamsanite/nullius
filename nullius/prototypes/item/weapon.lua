@@ -396,7 +396,7 @@ data:extend({
     always_show_products = true,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {"cliff-explosives", 5},
       {"nullius-steel-sheet", 3},
@@ -417,7 +417,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-demolition",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-explosive", 5},
       {"nullius-box-steel-sheet", 3},
@@ -611,7 +611,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
     },
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {type="fluid", name="nullius-acid-nitric", amount=18},
       {type="fluid", name="nullius-acid-sulfuric", amount=18},
@@ -637,7 +637,7 @@ data:extend({
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
     },
     always_show_made_in = true,
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {type="fluid", name="nullius-acid-nitric", amount=90},
       {type="fluid", name="nullius-acid-sulfuric", amount=90},

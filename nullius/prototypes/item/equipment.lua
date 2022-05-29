@@ -187,7 +187,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-steel-plate", 12},
       {"nullius-rubber", 8},
@@ -201,7 +201,7 @@ data:extend({
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
-    energy_required = 40,
+    energy_required = 60,
     ingredients = {
       {"nullius-titanium-plate", 20},
       {"nullius-ceramic-powder", 15},
@@ -218,7 +218,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "hand-casting",
-    energy_required = 60,
+    energy_required = 120,
     ingredients = {
       {"nullius-titanium-plate", 20},
       {"nullius-ceramic-powder", 20},
@@ -236,7 +236,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "hand-casting",
-    energy_required = 120,
+    energy_required = 250,
     ingredients = {
       {"nullius-box-titanium-plate", 8},
       {"nullius-box-ceramic-powder", 6},
@@ -254,7 +254,7 @@ data:extend({
     name = "nullius-chassis-6",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 300,
+    energy_required = 500,
     ingredients = {
       {"nullius-chassis-5", 1},
       {"nullius-solar-panel-4", 3},
@@ -403,7 +403,7 @@ data:extend({
     name = "nullius-solar-panel-3",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-solar-panel-2", amount=2},
       {type="item", name="nullius-lithium", amount=1},
@@ -426,7 +426,7 @@ data:extend({
     enabled = false,
     category = "nanotechnology",
     subgroup = "boxed-renewable",
-    energy_required = 25,
+    energy_required = 200,
     ingredients = {
       {type="item", name="nullius-box-solar-panel-2", amount=2},
       {type="item", name="nullius-box-lithium", amount=1},
@@ -448,7 +448,7 @@ data:extend({
     name = "nullius-solar-panel-4",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 40,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-solar-panel-3", amount=3},
       {type="item", name="nullius-solar-collector-3", amount=2},
@@ -839,6 +839,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hangar-1",
+    localised_description = {"equipment-description.nullius-hangar"},
     icons = {{
       icon = "__base__/graphics/icons/roboport.png",
       icon_size = 64,
@@ -854,6 +855,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hangar-2",
+    localised_description = {"equipment-description.nullius-hangar"},
     icons = {{
       icon = "__base__/graphics/icons/roboport.png",
       icon_size = 64,
@@ -869,6 +871,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hangar-3",
+    localised_description = {"equipment-description.nullius-hangar"},
     icons = {{
       icon = "__base__/graphics/icons/roboport.png",
       icon_size = 64,
@@ -884,6 +887,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-hangar-4",
+    localised_description = {"equipment-description.nullius-hangar"},
     icons = {{
       icon = ICONPATH .. "hangar.png",
       icon_size = 64,
@@ -917,7 +921,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 6,
+    energy_required = 15,
     ingredients = {
       {name="nullius-hangar-1", amount=1},
       {name="nullius-large-storage-chest-1", amount=1},
@@ -933,7 +937,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 10,
+    energy_required = 30,
     ingredients = {
       {name="nullius-hangar-2", amount=1},
       {name="nullius-large-buffer-chest-2", amount=1},
@@ -950,7 +954,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "nanotechnology",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {name="nullius-hangar-3", amount=1},
       {name="nullius-yield-module-4", amount=1},
@@ -962,6 +966,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-charger-1",
+    localised_description = {"equipment-description.nullius-charger"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/roboport-chargepad.png",
       icon_size = 32
@@ -975,6 +980,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-charger-2",
+    localised_description = {"equipment-description.nullius-charger"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/roboport-chargepad-2.png",
       icon_size = 32
@@ -988,6 +994,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-charger-3",
+    localised_description = {"equipment-description.nullius-charger"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
       icon_size = 32
@@ -1001,6 +1008,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-charger-4",
+    localised_description = {"equipment-description.nullius-charger"},
     icons = {{
       icon = ICONPATH .. "charger.png",
       icon_size = 64
@@ -1046,7 +1054,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-charger-1", 1},
       {"nullius-grid-battery-1", 1},
@@ -1061,7 +1069,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-hangar",
-    energy_required = 25,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-charger-1", 1},
       {"nullius-box-grid-battery-1", 1},
@@ -1075,7 +1083,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 6,
+    energy_required = 20,
     ingredients = {
       {"nullius-charger-2", 1},
       {"nullius-relay-2", 1},
@@ -1090,7 +1098,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-hangar",
-    energy_required = 30,
+    energy_required = 100,
     ingredients = {
       {"nullius-box-charger-2", 1},
       {"nullius-box-relay-2", 1},
@@ -1104,7 +1112,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "nanotechnology",
-    energy_required = 6,
+    energy_required = 25,
     ingredients = {
       {"nullius-charger-3", 1},
       {"nullius-substation-3", 1},
@@ -1120,7 +1128,7 @@ data:extend({
     always_show_made_in = true,
     category = "nanotechnology",
     subgroup = "boxed-hangar",
-    energy_required = 30,
+    energy_required = 125,
     ingredients = {
       {"nullius-box-charger-3", 1},
       {"nullius-substation-3", 5},
@@ -1133,6 +1141,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-relay-1",
+    localised_description = {"equipment-description.nullius-relay"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/logistic-zone-expander.png",
       icon_size = 32
@@ -1146,6 +1155,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-relay-2",
+    localised_description = {"equipment-description.nullius-relay"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/logistic-zone-expander-2.png",
       icon_size = 32
@@ -1159,6 +1169,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-relay-3",
+    localised_description = {"equipment-description.nullius-relay"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/logistic-zone-expander-4.png",
       icon_size = 32
@@ -1172,6 +1183,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-relay-4",
+    localised_description = {"equipment-description.nullius-relay"},
     icons = {{
       icon = "__boblogistics__/graphics/icons/logistic-zone-expander-3.png",
       tint = {0.85, 1, 0.9},
@@ -1220,7 +1232,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"nullius-relay-1", 1},
       {"nullius-sensor-1", 2},
@@ -1236,7 +1248,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-beacon",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-relay-1", 1},
       {"nullius-box-sensor-1", 2},
@@ -1251,7 +1263,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 6,
+    energy_required = 20,
     ingredients = {
       {"nullius-relay-2", 2},
       {"nullius-sensor-2", 2},
@@ -1268,7 +1280,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-beacon",
-    energy_required = 30,
+    energy_required = 100,
     ingredients = {
       {"nullius-box-relay-2", 2},
       {"nullius-box-sensor-2", 2},
@@ -1283,7 +1295,7 @@ data:extend({
     name = "nullius-relay-4",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 8,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-relay-3", 1},
       {"nullius-box-copper-wire", 3},
@@ -1334,7 +1346,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {"decider-combinator", 1},
       {"inserter", 1},
@@ -1351,7 +1363,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-demolition",
     always_show_made_in = true,
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
       {"nullius-box-inserter-1", 1},
@@ -1367,7 +1379,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"repair-pack", 2},
       {"nullius-steel-plate", 2},
@@ -1381,7 +1393,9 @@ data:extend({
     type = "item",
     name = "nullius-levitation-field-1",
     localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
-    localised_description = {"equipment-description.nullius-levitation-field"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-levitation-field"},
+		{"entity-description.nullius-kilojoule", 100}},
     icons = {{
       icon = "__base__/graphics/icons/belt-immunity-equipment.png",
       icon_size = 64,
@@ -1395,7 +1409,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-levitation-field-2",
-    localised_description = {"equipment-description.nullius-levitation-field"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-levitation-field"},
+		{"entity-description.nullius-kilojoule", 200}},
     icons = {{
       icon = ICONPATH .. "levitation2.png",
       icon_size = 64,
@@ -1464,7 +1480,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-night-vision-1",
-    localised_description = {"equipment-description.nullius-night-vision-1"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-night-vision-1"},
+		{"entity-description.nullius-kilojoule", 150}},
     icon = "__base__/graphics/equipment/night-vision-equipment.png",
     icon_size = 64,
     placed_as_equipment_result = "nullius-night-vision-1",
@@ -1475,7 +1493,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-night-vision-2",
-    localised_description = {"equipment-description.nullius-night-vision-2"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-night-vision-2"},
+		{"entity-description.nullius-kilojoule", 400}},
     icon = ICONPATH .. "night-vision-2.png",
     icon_size = 64,
     placed_as_equipment_result = "nullius-night-vision-2",
@@ -1486,7 +1506,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-night-vision-3",
-    localised_description = {"equipment-description.nullius-night-vision-3"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-night-vision-3"},
+		{"entity-description.nullius-megajoule", 1}},
     icon = ICONPATH .. "night-vision-3.png",
     icon_size = 64,
     placed_as_equipment_result = "nullius-night-vision-3",
@@ -1559,7 +1581,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-leg-augmentation-1",
-    localised_description = {"equipment-description.nullius-leg-augmentation-1"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-leg-augmentation"},
+		{"entity-description.nullius-megajoule", 6}},
     icons = {{
       icon = "__base__/graphics/icons/exoskeleton-equipment.png",
       icon_size = 64,
@@ -1592,7 +1616,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-leg-augmentation-2",
-    localised_description = {"equipment-description.nullius-leg-augmentation-2"},
+    localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-leg-augmentation"},
+		{"entity-description.nullius-megajoule", 15}},
     icons = {{
       icon = "__base__/graphics/icons/exoskeleton-equipment.png",
       icon_size = 64,
@@ -1626,7 +1652,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-leg-augmentation-3",
-    localised_description = {"equipment-description.nullius-leg-augmentation-3"},
+	localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-leg-augmentation"},
+		{"entity-description.nullius-megajoule", 30}},
     icons = {{
       icon = "__base__/graphics/icons/exoskeleton-equipment.png",
       icon_size = 64,
@@ -1659,7 +1687,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-leg-augmentation-4",
-    localised_description = {"equipment-description.nullius-leg-augmentation-4"},
+	localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-leg-augmentation"},
+		{"entity-description.nullius-megajoule", 30}},
     icons = {{
       icon = ICONPATH .. "legs.png",
       icon_size = 64
@@ -1675,7 +1705,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "nanotechnology",
-    energy_required = 60,
+    energy_required = 80,
     ingredients = {
       {type="item", name="nullius-leg-augmentation-3", amount=2},
       {type="item", name="nullius-robot-frame-4", amount=1},
@@ -1689,7 +1719,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-shield",
-    localised_description = {"equipment-description.nullius-shield"},
+	localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-shield"},
+		{"entity-description.nullius-kilojoule", 500}},
     icons = {{
       icon = "__base__/graphics/icons/energy-shield-equipment.png",
       icon_size = 64,
@@ -1790,7 +1822,7 @@ data:extend({
     enabled = false,
     category = "huge-crafting",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {"nullius-locomotive-1", 1},
       {"nullius-cargo-wagon-2", 1},
@@ -1807,7 +1839,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
-    energy_required = 15,
+    energy_required = 40,
     ingredients = {
       {"nullius-locomotive-2", 1},
       {"nullius-combustion-chamber-3", 1},
@@ -1823,7 +1855,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
-    energy_required = 15,
+    energy_required = 40,
     ingredients = {
       {"nullius-locomotive-2", 1},
       {"nullius-solar-panel-2", 8},
@@ -1897,7 +1929,7 @@ data:extend({
     enabled = false,
     category = "large-fluid-assembly",
     always_show_made_in = true,
-    energy_required = 6,
+    energy_required = 12,
     ingredients = {
       {type="item", name="nullius-cargo-wagon-1", amount=1},
       {type="item", name="nullius-large-chest-1", amount=3},
@@ -1914,7 +1946,7 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 8,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-cargo-wagon-2", amount=2},
       {type="item", name="nullius-large-storage-chest-2", amount=2},
@@ -1984,7 +2016,7 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {"nullius-fluid-wagon-1", 1},
       {"nullius-cargo-wagon-2", 1},
@@ -1998,7 +2030,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 8,
+    energy_required = 20,
     ingredients = {
       {"nullius-fluid-wagon-2", 1},
       {"nullius-large-tank-2", 1},
@@ -2428,7 +2460,7 @@ data:extend({
     name = "nullius-car-1",
     enabled = false,
     category = "large-fluid-assembly",
-    energy_required = 8,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-locomotive-1", amount=1},
       {type="item", name="small-lamp", amount=2},
@@ -2444,7 +2476,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 12,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-car-1", amount=1},
       {type="item", name="nullius-locomotive-2", amount=1},
@@ -2461,7 +2493,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-car-2", amount=1},
       {type="item", name="nullius-solar-locomotive", amount=1},
@@ -2474,7 +2506,7 @@ data:extend({
     name = "nullius-truck-1",
     enabled = false,
     category = "huge-fluid-assembly",
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-car-2", amount=2},
       {type="item", name="nullius-steel-beam", amount=12},
@@ -2490,7 +2522,7 @@ data:extend({
     name = "nullius-truck-2",
     enabled = false,
     category = "huge-crafting",
-    energy_required = 30,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-truck-1", amount=1},
       {type="item", name="nullius-locomotive-3", amount=1},
@@ -2530,7 +2562,7 @@ data:extend({
     name = "nullius-mecha",
     enabled = false,
     category = "huge-crafting",
-    energy_required = 120,
+    energy_required = 200,
     ingredients = {
       {type="item", name="nullius-car-3", amount=1},
       {type="item", name="nullius-drone-launcher-2", amount=2},

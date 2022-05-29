@@ -1,15 +1,49 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.6
+Date: 29.05.2022
+  Balancing:
+    - Add more and stronger hand crafting and mining speed bonus tech levels.
+    - Increase crafting time of tier 2 and 3 buildings and equipment.
+  Features:
+    - Add insulation technology providing a couple of recipes a bit earlier.
+  Bugfixes:
+    - Fix that inserter capacity bonuses were not showing up in bonus window.
+  Changes:
+    - Adjust freight transportation checkpoint to be easier to figure out.
+    - Adjust energy storage 1 checkpoint to be easier to figure out.
+    - Shorten long list of characters listed as crafting machines with mods.
+  Graphics:
+    - Change icon of android 2 entity.
+  Modding:
+    - Make Display Plates a bit cheaper.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.5
+Date: 27.05.2022
+  Modding:
+    - Add support for the Display Plates mod.
+    - Fix weird conflict with Nullius, Companion Drones, and Transport Drones.
+    - Swap initial Companion Drone coal with drone fuel a while after start.
+  Bugfixes:
+    - Fix mismatched boxed recipes for pipe 1 and robot frame 3.
+  Changes:
+    - Change verb of building checkpoints from "build" to "place".
+  Info:
+    - Add energy buffer capacities to equipment descriptions.
+    - Add information to Solar collector description about variable efficiency.
+    - Add information on temperature range to Stirling engine descriptions.
+  Graphics:
+    - Fix alignment of pipes for updated Angel's flotation cell graphics.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.4
 Date: 25.05.2022
   Balancing:
     - Double logistic bot power usage.
     - Decrease logistic bot stack size.
-    - Increase hangar/charger/relay passive power drain.
+    - Increase hangar/charger/relay buildings passive power drain.
   Bugfixes:
     - Fix the behavior of body switching queue across multiple surfaces.
     - Fix missing description of surge compressors.
   Changes:
-    - Change tier 1 surge electrolyzer recipes with larger size than base item.
     - Allow compressor 1, electrolyzer 1 reprioritization in medium assemblers.
   Modding:
     - Integrate various optional mods into tech tree as prerequisites.

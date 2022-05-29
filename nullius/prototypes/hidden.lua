@@ -199,7 +199,9 @@ end
 
 for _,type in pairs(hide_entity_list) do
   for _,entity in pairs(data.raw[type]) do
-    if (string.sub(entity.name, 1, 8) ~= "nullius-") then
+    if ((string.sub(entity.name, 1, 8) ~= "nullius-") and
+        ((entity.order == nil) or
+	        (string.sub(entity.order, 1, 8) ~= "nullius-"))) then
       if (entity.flags == nil) then
         entity.flags = {}
       end

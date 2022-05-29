@@ -1,3 +1,15 @@
+local function fuel_companion_drones()
+  local entities = game.surfaces[1].find_entities_filtered{
+      name="companion", type="spider-vehicle"}
+  for _,drone in pairs(entities) do
+    local num = drone.remove_item({name="coal", count=500})
+	if (num > 0) then
+	  drone.insert({name="rocket-booster", count=num})
+	end
+  end
+end
+
+
 function broken_disabled(name)
   if (global.nullius_broken_status == nil) then
     return true
@@ -13,6 +25,12 @@ function broken_finished(name)
   global.nullius_broken_status[name] = nil
   for _, force in pairs(game.forces) do
     force.recipes[name].enabled = false
+  end
+
+  if (script.active_mods["Companion_Drones"] and
+      (global.nullius_companion_fix == nil)) then
+    fuel_companion_drones()
+	global.nullius_companion_fix = true
   end
 end
 
@@ -110,7 +128,6 @@ script.on_init(
       remote.call("freeplay", "set_chart_distance", 250)
     end
     update_mission_global()
-	init_vents()
   end
 )
 
@@ -120,7 +137,6 @@ script.on_configuration_changed(
     reset_config()
     init_techs()
     update_mission_global()
-	migrate_vents()
   end
 )
 

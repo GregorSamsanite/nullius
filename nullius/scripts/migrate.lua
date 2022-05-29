@@ -21,6 +21,28 @@ local function legacy_recipe(force, techname, recipename)
   global.nullius_legacy[force.index]["nullius-legacy-"..recipename] = techname
 end
 
+
+local function added_techs(techlist)
+  for _, force in pairs(game.forces) do
+    if (force.research_enabled) then
+      for _, tech in pairs(force.technologies) do
+        if (tech.enabled and tech.researched) then
+          for _, prereq in pairs(tech.prerequisites) do
+	        if (prereq.enabled and (not prereq.researched)) then
+			  for _, newtech in pairs(techlist) do
+			    if (newtech == prereq.name) then
+				  prereq.researched = true
+				end
+		      end
+			end
+		  end
+		end
+	  end
+	end
+  end
+end
+
+
 function migrate_version(event)
   local version_info = event.mod_changes["nullius"]
   if (version_info == nil) then return end
@@ -36,7 +58,12 @@ function migrate_version(event)
   local sub3 = tonumber(string.sub(previous, (dot2 + 1)))
   if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
   local version = (((sub1 * 100) + sub2) * 100) + sub3
-  
+
+  if (version >= 10406) then return end
+  added_techs({"nullius-toolmaking-1", "nullius-toolmaking-3",
+      "nullius-toolmaking-4", "nullius-toolmaking-6", "nullius-toolmaking-8",
+      "nullius-toolmaking-9", "nullius-insulation-1", "nullius-insulation-2"})
+
   if (version >= 10403) then return end
   for _, force in pairs(game.forces) do
     if (force.research_enabled) then

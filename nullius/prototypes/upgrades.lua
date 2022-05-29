@@ -135,7 +135,7 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-toolmaking-1", "nullius-land-fill-2", "nullius-mining-productivity-6"},
+    prerequisites = {"nullius-toolmaking-2", "nullius-land-fill-2", "nullius-mining-productivity-6"},
     upgrade = true
   },
   {
@@ -545,7 +545,7 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-toolmaking-4",
+    name = "nullius-toolmaking-10",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/steel-axe.png",
     icon_size = 256,
@@ -553,11 +553,11 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.2
+        modifier = 0.5
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.1
+        modifier = 0.5
       },
       {
         type = "character-health-bonus",
@@ -565,7 +565,7 @@ data:extend({
       }
     },
     unit = {
-      count_formula = "12500*(2^(L-4))",
+      count_formula = "12500*(2^(L-10))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},

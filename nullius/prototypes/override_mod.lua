@@ -291,7 +291,7 @@ data.raw.technology["near-inserters"].unit = { count = 25,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-table.insert(data.raw.technology["nullius-toolmaking-1"].prerequisites,"near-inserters")
+table.insert(data.raw.technology["nullius-toolmaking-2"].prerequisites,"near-inserters")
 else
 data.raw.technology["near-inserters"].prerequisites = {"nullius-maintenance"}
 data.raw.technology["near-inserters"].order = "nullius-dg"
@@ -1429,6 +1429,7 @@ if mods["RenaiTransportation"] then
   data.raw.item["HatchRTItem"].stack_size = 100
   data.raw.item["RTThrower-EjectorHatchRTItem"].subgroup = "nullius-renai-bounce"
   data.raw.item["RTThrower-EjectorHatchRTItem"].order = "nullius-cc"
+  data.raw.inserter["RTThrower-EjectorHatchRT"].order = "nullius-ucc"
   data.raw.item["RTThrower-EjectorHatchRTItem"].stack_size = 100
   data.raw.item["OpenContainerItem"].subgroup = "nullius-renai-bounce"
   data.raw.item["OpenContainerItem"].order = "nullius-db"
@@ -1489,4 +1490,31 @@ end
 if mods["aai-signal-transmission"] then
 table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,
     "nullius-aai-signal-transmission")
+end
+
+
+if mods["DisplayPlates"] then
+if mods["textplates"] then
+table.insert(data.raw.technology["nullius-typesetting-2"].prerequisites,"nullius-display-plates")
+else
+table.insert(data.raw.technology["nullius-empiricism-1"].prerequisites,"nullius-display-plates")
+end
+data.raw["simple-entity-with-owner"]["iron-display-small"].localised_name =
+    {"entity-name.nullius-display-plate-small-steel"}
+data.raw["simple-entity-with-owner"]["iron-display-medium"].localised_name =
+    {"entity-name.nullius-display-plate-medium-steel"}
+data.raw["simple-entity-with-owner"]["iron-display"].localised_name =
+    {"entity-name.nullius-display-plate-large-steel"}
+data.raw["simple-entity-with-owner"]["steel-display-small"].localised_name =
+    {"entity-name.nullius-display-plate-small-aluminum"}
+data.raw["simple-entity-with-owner"]["steel-display-medium"].localised_name =
+    {"entity-name.nullius-display-plate-medium-aluminum"}
+data.raw["simple-entity-with-owner"]["steel-display"].localised_name =
+    {"entity-name.nullius-display-plate-large-aluminum"}
+data.raw["simple-entity-with-owner"]["copper-display-small"].localised_name =
+    {"entity-name.nullius-display-plate-small-plastic"}
+data.raw["simple-entity-with-owner"]["copper-display-medium"].localised_name =
+    {"entity-name.nullius-display-plate-medium-plastic"}
+data.raw["simple-entity-with-owner"]["copper-display"].localised_name =
+    {"entity-name.nullius-display-plate-large-plastic"}
 end
