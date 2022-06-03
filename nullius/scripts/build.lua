@@ -83,6 +83,7 @@ function update_tick()
   update_geothermal()
   update_solar()
   update_checkpoints()
+  update_oxygen()
 end
 
 script.on_event(defines.events.on_tick, update_tick)

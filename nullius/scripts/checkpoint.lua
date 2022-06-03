@@ -88,7 +88,8 @@ local checkpoint_data = {
   ["productivity-module"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-productivity-module-1"}} }},
   ["truck"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-truck-1"}} }},
   ["stirling-engine"] = {{ CHK_BUILD, STT_NET, 20, {{"nullius-stirling-engine-2"}} }},
-  ["large-beacon"] = {{ CHK_BUILD, STT_NET, 8, {{"nullius-large-beacon-1"}} }},
+  ["large-beacon"] = {{ CHK_BUILD, STT_NET, 8, {{"nullius-large-beacon-1"}} },
+			{ CHK_BUILD, STT_NET, 12, {{"nullius-beacon-2"}} }},
   ["large-furnace"] = {{ CHK_ITEM, STT_PRODUCE, 10, {{"nullius-box-iron-ingot"}} }},
   ["benzene"] = {{ CHK_FLUID, STT_CONSUME, 20000, {{"nullius-benzene"}} }},
 
@@ -114,6 +115,9 @@ local checkpoint_data = {
   ["mecha"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-mecha"}} }},
   ["excavation-drone"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-excavation-drone"}} }},
 
+  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 2500000000,
+				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}} },
+			{ CHK_FLUID, STT_PRODUCE, 2500000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},
   ["uranium-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-uranium-1"}} }},
   ["copper-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-copper-1"}} }},
@@ -143,7 +147,7 @@ local broken_data = {
   ["chemical-plant"] = 7,
   ["foundry"] = 2,
   ["assembler"] = 3,
-  ["pylon"] = 18,
+  ["pylon"] = 24,
   ["solar-panel"] = 15,
   ["grid-battery"] = 10,
   ["sensor-node"] = 2

@@ -1742,7 +1742,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-air-filtration",
-    enabled = false,
+    enabled = true,
     hide_from_player_crafting = true,
     category = "air-filtration",
     subgroup = "air-filtration",
@@ -1757,7 +1757,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-freshwater",
-    enabled = false,
+    enabled = true,
     hide_from_player_crafting = true,
     category = "water-pumping",
     subgroup = "nullius-water-treatment",
@@ -2885,6 +2885,29 @@ data:extend({
       {type="fluid", name="nullius-hydrogen", amount=125}
     }
   },
+  {
+    type = "recipe",
+    name = "nullius-carbon-dioxide-electrolysis",
+    localised_name = {"recipe-name.nullius-carbon-dioxide-electrolysis"},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+		    {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72}},
+      {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]},
+      {{"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}}
+    ),
+    enabled = false,
+    category = "nullius-electrolysis",
+    subgroup = "compressed-organic",
+    order = "nullius-cc",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=40}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=40},
+      {type="fluid", name="nullius-compressed-oxygen", amount=20}
+    }
+  },
 
   {
     type = "recipe",
@@ -3268,7 +3291,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-      subgroup = "boxed-organic-2",
+    subgroup = "boxed-organic-2",
     order = "nullius-c",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-butadiene"].flow_color,
@@ -3968,6 +3991,41 @@ data:extend({
       {type="fluid", name="nullius-compressed-hydrogen", amount=150}
     },
     main_product = "nullius-box-graphite"
+  },
+  {
+    type = "recipe",
+    name = "nullius-carbon-deposition",
+    localised_name = {"recipe-name.nullius-carbon-deposition"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png",
+        icon_size = 72,
+        scale = 0.18,
+        shift = {-7, -7}
+      }
+    },
+    enabled = false,
+    category = "compression",
+    subgroup = "boxed-organic-1",
+    order = "nullius-bf",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=40}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=20},
+      {type="item", name="nullius-box-graphite", amount=1}
+    }
   },
 
   {
@@ -5375,8 +5433,8 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "boxed-organic-1",
-    order = "nullius-dc",
+    subgroup = "boxed-organic-2",
+    order = "nullius-bb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acrylonitrile"].flow_color,
       secondary = data.raw.fluid["nullius-styrene"].flow_color
@@ -5457,8 +5515,8 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "boxed-organic-1",
-    order = "nullius-db",
+    subgroup = "boxed-organic-2",
+    order = "nullius-bc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ethylene"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color

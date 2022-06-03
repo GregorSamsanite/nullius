@@ -59,6 +59,12 @@ function migrate_version(event)
   if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
   local version = (((sub1 * 100) + sub2) * 100) + sub3
 
+  if (version >= 10407) then return end
+  migrate_oxygen()
+  for _,player in pairs(game.players) do
+    player.clear_recipe_notifications()
+  end
+
   if (version >= 10406) then return end
   added_techs({"nullius-toolmaking-1", "nullius-toolmaking-3",
       "nullius-toolmaking-4", "nullius-toolmaking-6", "nullius-toolmaking-8",

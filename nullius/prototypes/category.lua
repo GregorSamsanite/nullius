@@ -1305,6 +1305,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "nc",
+    name = "boxed-land-fill",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
     order = "o",
     name = "boxing-concrete",
     group = "boxing",

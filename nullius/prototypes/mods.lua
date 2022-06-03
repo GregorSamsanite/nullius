@@ -266,7 +266,8 @@ data:extend({
       },
       time = 6
     },
-    prerequisites = {"nullius-storage-2"}
+    prerequisites = {"nullius-storage-2"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -1056,7 +1057,8 @@ data:extend({
         {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-storage-2"}
+    prerequisites = {"nullius-aluminum-working", "nullius-storage-2"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2504,7 +2506,8 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-logistics-1", "nullius-actuation-1"}
+    prerequisites = {"nullius-logistics-1", "nullius-actuation-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2523,7 +2526,8 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-logistic-ballistics-1", "nullius-steelmaking-1", "nullius-wind-power-1"}
+    prerequisites = {"nullius-logistic-ballistics-1", "nullius-steelmaking-1", "nullius-wind-power-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2542,7 +2546,8 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"RTFocusedFlinging", "nullius-plumbing-3"}
+    prerequisites = {"RTFocusedFlinging", "nullius-plumbing-3"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2565,7 +2570,8 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-logistic-ballistics-3", "nullius-organic-chemistry-3"}
+    prerequisites = {"nullius-logistic-ballistics-3", "nullius-organic-chemistry-3"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2591,7 +2597,8 @@ data:extend({
       },
       time = 20
     },
-    prerequisites = {"nullius-actuation-2", "nullius-electromagnetism-2"}
+    prerequisites = {"nullius-actuation-2", "nullius-electromagnetism-2"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2707,7 +2714,8 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-energy-distribution-2", "nullius-personal-transportation-1"}
+    prerequisites = {"nullius-energy-distribution-2", "nullius-personal-transportation-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2988,7 +2996,8 @@ data:extend({
       },
       time = 5
     },
-    prerequisites = {"nullius-illumination-1", "nullius-aluminum-working", "nullius-checkpoint-rubber"}
+    prerequisites = {"nullius-illumination-1", "nullius-aluminum-working", "nullius-checkpoint-rubber"},
+    ignore_tech_cost_multiplier = true
   }
 })
 end

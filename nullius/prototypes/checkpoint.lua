@@ -1772,10 +1772,12 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-large-beacon",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
-	    {"entity-name.nullius-large-beacon-1"}}},
-    localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 8, "nullius-large-beacon-1",
-		    {"entity-name.nullius-large-beacon-1"}}},
+	    {"technology-name.nullius-broadcasting"}}},
+    localised_description = {"",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    8, "nullius-large-beacon-1", {"entity-name.nullius-large-beacon-1"}}}, "\n",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    12, "nullius-beacon-2", {"entity-name.nullius-beacon-2"}}}},
     order = "nullius-ye",
     icons = {
       {
@@ -2816,6 +2818,36 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-cybernetics-7"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-carbon-sequestration",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
+	    {"technology-name.nullius-carbon-sequestration"}}},
+    localised_description = {"",
+	    {"technology-description.nullius-consume", {"technology-description.nullius-fluid",
+		    2500000000, "nullius-carbon-dioxide", {"fluid-name.nullius-carbon-dioxide"}}},"\n",
+	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid",
+		    2500000000, "nullius-oxygen", {"fluid-name.nullius-oxygen"}}}},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = ICONPATH .. "fluid/unbarrel.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png",
+        icon_size = 72,
+		scale = 0.568
+      }
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-biochemistry-1", "nullius-land-fill-5"},
     ignore_tech_cost_multiplier = true
   }
 })

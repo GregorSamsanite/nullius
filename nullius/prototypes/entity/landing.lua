@@ -525,8 +525,8 @@ data:extend({
       mining_time = 1,
       results = {
         {type="item", name="small-electric-pole", amount=40},
-        {type="item", name="big-electric-pole", amount=6},
-        {type="item", name="nullius-broken-pylon", amount=18},
+        {type="item", name="big-electric-pole", amount=8},
+        {type="item", name="nullius-broken-pylon", amount=24},
         {type="item", name="nullius-grid-battery-1", amount=5},
         {type="item", name="nullius-broken-grid-battery", amount=10}
       }

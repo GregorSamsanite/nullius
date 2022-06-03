@@ -282,11 +282,13 @@ data.raw.technology["long-inserters-1"].unit = { count = 30,
   time = 6
 }
 end
+data.raw.technology["long-inserters-1"].ignore_tech_cost_multiplier = true
 
 if mods["bobinserters"] then
 if (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-checkpoint-steel-ingot"}
 data.raw.technology["near-inserters"].order = "nullius-cf"
+data.raw.technology["near-inserters"].ignore_tech_cost_multiplier = true
 data.raw.technology["near-inserters"].unit = { count = 25,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8

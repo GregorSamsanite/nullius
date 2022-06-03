@@ -112,6 +112,45 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-boxed-pipe-iron",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-iron-pipe"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/pipe.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.27,
+        shift = {7, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "boxed-pipe",
+    order = "nullius-bc",
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    energy_required = 10,
+    ingredients = {
+      {"nullius-box-iron-rod", 1}
+    },
+    result = "nullius-box-pipe-1",
+    result_count = 3
+  },
+  {
+    type = "recipe",
     name = "nullius-underground-pipe-1",
     enabled = false,
     always_show_made_in = true,
@@ -232,6 +271,44 @@ data:extend({
       {"nullius-steel-rod", 2}
     },
     result = "nullius-pipe-2",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-pipe-steel",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-steel-pipe"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__boblogistics__/graphics/icons/pipe/copper-tungsten-pipe.png",
+        icon_size = 32,
+		scale = 0.9
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.27,
+        shift = {7, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    always_show_made_in = true,
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "boxed-pipe",
+    order = "nullius-dc",
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    energy_required = 20,
+    ingredients = {
+      {"nullius-box-steel-rod", 2}
+    },
+    result = "nullius-box-pipe-2",
     result_count = 3
   },
   {
@@ -1174,7 +1251,7 @@ data:extend({
     ingredients = {
       {"nullius-air-filter-2", 3},
       {"nullius-surge-compressor-2", 1},
-      {"nullius-filter-2", 4},
+      {"nullius-filter-2", 6},
       {"pump", 2},
       {"nullius-chimney-2", 1},
       {"stone-wall", 8}
@@ -2311,7 +2388,7 @@ data:extend({
       {"nullius-distillery-2", 2},
       {"nullius-hydro-plant-2", 1},
       {"nullius-air-filter-2", 1},
-      {"nullius-filter-2", 3},
+      {"nullius-filter-2", 4},
       {"nullius-large-furnace-1", 1},
       {"nullius-thermal-tank-2", 2},
       {"nullius-barrel-pump-1", 1}
@@ -2751,7 +2828,8 @@ data:extend({
       {"nullius-chemical-plant-2", 2},
       {"nullius-lab-2", 1},
       {"nullius-flotation-cell-2", 1},
-      {"nullius-box-hard-glass", 4}
+      {"nullius-box-hard-glass", 4},
+	  {"nullius-filter-2", 3}
     },
     result = "nullius-chemical-plant-3"
   },

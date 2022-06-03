@@ -310,7 +310,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"nullius-broken-pylon", 1},
-      {"nullius-iron-rod", 2}
+      {"nullius-iron-rod", 3}
     },
     result = "big-electric-pole"
   },

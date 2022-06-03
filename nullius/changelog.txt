@@ -1,4 +1,30 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.7
+Date: 03.06.2022
+  Features:
+    - Oxygen mission objective now accumulates gradually over time, based on
+      both photosynthesis and oxygen vented (minus reducing agents vented).
+    - New tier of landfill tech facilitating automated solid waste disposal.
+    - New Carbon Sequestration tech tier and checkpoint, with new recipes.
+  Bugfixes:
+    - Fix a problem simultaneously upgrading suppressed beacons and modules.
+    - Clear stuck "new" recipe notification symbol on fluid category.
+  Balancing:
+    - Adjust ignore tech multiplier techs now that rail signals are earlier.
+    - Increased belts, inserters, and pylons at landing site a bit.
+    - Made broken pylon repair recipe a bit more expensive.
+    - Increased use of filter 2 in tier 3 chemistry buildings.
+  Changes:
+    - Change chemical plant 3 recipe to require filter 2.
+    - Mark toolmaking techs as upgrades.
+    - Allow boxed versions of original grey and tan landfill recipe.
+    - Allow boxed versions of iron and steel pipe recipes.
+    - Unlock hidden recipes for air and freshwater by default without tech.
+    - Change large beacon checkpoint to also require small beacons and rename.
+    - Track 2 digits after decimal place for mission objective progress.
+  Graphics:
+    - Change icons for mining productivity and large furnace techs.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.6
 Date: 29.05.2022
   Balancing:

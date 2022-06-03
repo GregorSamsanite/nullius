@@ -106,6 +106,24 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-boxed-land-fill-gravel",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-grey-1"}},
+    order = "nullius-bb",
+    energy_required = 10,
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-crushing",
+    subgroup = "boxed-land-fill",
+    ingredients = {
+      {"nullius-box-gravel", 5},
+      {"nullius-box-sand", 1}
+    },
+    result = "nullius-box-land-fill-gravel"
+  },
+  {
+    type = "recipe",
     name = "nullius-land-fill-sand",
     localised_name = {"recipe-name.nullius-land-fill-tan-1"},
     order = "nullius-dcb",
@@ -121,6 +139,24 @@ data:extend({
     },
     result = "nullius-land-fill-sand",
     result_count = 4
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-land-fill-sand",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-tan-1"}},
+    order = "nullius-cb",
+    energy_required = 5,
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-crushing",
+    subgroup = "boxed-land-fill",
+    ingredients = {
+      {"nullius-box-sand", 5},
+      {"nullius-box-gravel", 1}
+    },
+    result = "nullius-box-land-fill-sand"
   },
   {
     type = "recipe",
@@ -209,12 +245,33 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-land-fill-grey",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-grey-2"}},
+    order = "nullius-bc",
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-grey.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__base__/graphics/icons/concrete.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.18,
+        shift = {-11, -11}
+      }
+    },
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "hand-crushing",
-    subgroup = "boxed-terrain",
+    category = "ore-crushing",
+    subgroup = "boxed-land-fill",
     energy_required = 16,
     ingredients = {
       {"nullius-box-gravel", 4},
@@ -259,12 +316,33 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-land-fill-tan",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-land-fill-tan-2"}},
+    order = "nullius-cc",
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-tan.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__base__/graphics/icons/concrete.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.18,
+        shift = {-11, -11}
+      }
+    },
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
+    subgroup = "boxed-land-fill",
     energy_required = 6,
     ingredients = {
       {"nullius-box-sand", 2},
@@ -314,7 +392,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
+    subgroup = "boxed-land-fill",
+    order = "nullius-db",
     energy_required = 40,
     ingredients = {
       {"nullius-box-crushed-bauxite", 6},
@@ -362,7 +441,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
+    subgroup = "boxed-land-fill",
+    order = "nullius-eb",
     energy_required = 40,
     ingredients = {
       {"nullius-box-crushed-iron-ore", 8},
@@ -410,7 +490,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
+    subgroup = "boxed-land-fill",
+    order = "nullius-fb",
     energy_required = 20,
     ingredients = {
       {"nullius-box-crushed-limestone", 5},
@@ -449,7 +530,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-land-fill-gravel", amount=3},
       {type="item", name="nullius-land-fill-sand", amount=2},
-      {type="fluid", name="nullius-sludge", amount=25}
+      {type="fluid", name="nullius-sludge", amount=30}
     },
     result = "nullius-land-fill-bauxite",
     result_count = 10
@@ -482,16 +563,173 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
-    order = "nullius-is",
+    subgroup = "boxed-land-fill",
+	order = "nullius-dc",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-land-fill-gravel", amount=3},
       {type="item", name="nullius-box-land-fill-sand", amount=2},
-      {type="fluid", name="nullius-sludge", amount=250}
+      {type="fluid", name="nullius-sludge", amount=300}
     },
     result = "nullius-box-land-fill-bauxite",
     result_count = 10
+  },
+  {
+    type = "recipe",
+    name = "nullius-land-fill-dust",
+    localised_name = {"recipe-name.nullius-land-fill-dust"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.225,
+        shift = {-9, -10}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-crushing",
+    subgroup = "boxed-land-fill",
+    order = "nullius-dd",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-iron", amount=2},
+      {type="item", name="nullius-box-land-fill-sand", amount=1},
+      {type="item", name="nullius-box-mineral-dust", amount=15},
+      {type="fluid", name="nullius-freshwater", amount=400}
+    },
+    result = "nullius-box-land-fill-bauxite",
+    result_count = 8
+  },
+  {
+    type = "recipe",
+    name = "nullius-carbon-sink",
+    localised_name = {"recipe-name.nullius-carbon-sink"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-grey.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.2,
+        shift = {-9, -9}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-crushing",
+    subgroup = "boxed-land-fill",
+    order = "nullius-bd",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-limestone", amount=4},
+      {type="item", name="nullius-box-plastic", amount=1},
+      {type="item", name="nullius-box-rubber", amount=1},
+      {type="item", name="nullius-box-graphite", amount=30}
+    },
+    result = "nullius-box-land-fill-gravel",
+    result_count = 12
+  },
+
+  {
+    type = "recipe",
+    name = "nullius-dumping-rock",
+    localised_name = {"recipe-name.nullius-dumping-rock"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "terraforming-grey.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    no_productivity = true,
+    category = "ore-crushing",
+    subgroup = "boxed-terrain",
+    order = "nullius-kb",
+    energy_required = 720,
+    ingredients = {
+      {type="item", name="nullius-terraforming-drone-grey", amount=5},
+      {type="item", name="nullius-box-land-fill-gravel", amount=2500},
+      {type="item", name="nullius-box-rocket-fuel", amount=4}
+    },
+    results = {
+      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-construction-bot-3", amount=8}
+    },
+    main_product = "nullius-excavation-drone"
+  },
+  {
+    type = "recipe",
+    name = "nullius-dumping-dirt",
+    localised_name = {"recipe-name.nullius-dumping-dirt"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "terraforming-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    no_productivity = true,
+    category = "ore-crushing",
+    subgroup = "boxed-terrain",
+    order = "nullius-kc",
+    energy_required = 720,
+    ingredients = {
+      {type="item", name="nullius-terraforming-drone-brown", amount=5},
+      {type="item", name="nullius-box-land-fill-bauxite", amount=2500},
+	  {type="item", name="nullius-box-rocket-fuel", amount=4}
+    },
+    results = {
+      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-construction-bot-3", amount=8}
+    },
+    main_product = "nullius-excavation-drone"
   },
 
   {

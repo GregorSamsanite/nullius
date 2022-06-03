@@ -34,9 +34,14 @@ function update_small_beacon(entity)
   for _,ghost in pairs(ghosts) do
 	if (ghost.valid and (ghost.proxy_target == entity) and
 	     (ghost.item_requests ~= nil)) then
+	  local found = false
 	  modrequest = { }
 	  for modind, modval in pairs(ghost.item_requests) do
 	    modrequest[modind] = modval
+		found = true
+	  end
+	  if (not found) then
+	    modrequest = nil
 	  end
 	  ghost.destroy()
 	  break

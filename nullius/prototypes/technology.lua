@@ -80,10 +80,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-climatology-pack-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-air-filtration"
       }
     },
     unit = {
@@ -837,7 +833,8 @@ data:extend({
       time = 6
     },
     prerequisites = {"nullius-mechanical-engineering-1"},
-    ignore_tech_cost_multiplier = true
+    ignore_tech_cost_multiplier = true,
+    upgrade = true
   },
 
   {
@@ -1219,7 +1216,8 @@ data:extend({
       time = 8
     },
     prerequisites = {"nullius-steelworking"},
-    ignore_tech_cost_multiplier = true
+    ignore_tech_cost_multiplier = true,
+    upgrade = true
   },
   {
     type = "technology",
@@ -1719,7 +1717,8 @@ data:extend({
       },
       time = 5
     },
-    prerequisites = {"nullius-cybernetics-1", "nullius-silicon-production-1"}
+    prerequisites = {"nullius-cybernetics-1", "nullius-silicon-production-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -1910,7 +1909,8 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-boiling-1", "long-inserters-1"}
+    prerequisites = {"nullius-boiling-1", "long-inserters-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -1956,7 +1956,8 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 8
     },
-    prerequisites = {"nullius-freight-transportation-1", "nullius-checkpoint-lubricant"}
+    prerequisites = {"nullius-freight-transportation-1", "nullius-checkpoint-lubricant"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2072,6 +2073,7 @@ data:extend({
       time = 10
     },
     prerequisites = {"nullius-electrical-engineering"},
+    upgrade = true,
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2131,7 +2133,8 @@ data:extend({
       ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-electrical-engineering", "nullius-chirality-1"}
+    prerequisites = {"nullius-electrical-engineering", "nullius-chirality-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2153,7 +2156,8 @@ data:extend({
       },
       time = 10
     },
-    prerequisites = {"nullius-electrical-engineering", "nullius-personal-transportation-1"}
+    prerequisites = {"nullius-electrical-engineering", "nullius-personal-transportation-1"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2205,8 +2209,7 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-electromagnetism-2"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-electromagnetism-2"}
   },
   {
     type = "technology",
@@ -2392,8 +2395,7 @@ data:extend({
       },
       time = 20
     },
-    prerequisites = {"nullius-pumping-2", "nullius-energy-distribution-2"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-pumping-2", "nullius-energy-distribution-2"}
   },
   {
     type = "technology",
@@ -2424,8 +2426,7 @@ data:extend({
       },
       time = 20
     },
-    prerequisites = {"nullius-geology-2", "nullius-automation-2"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-geology-2", "nullius-automation-2"}
   },
   {
     type = "technology",
@@ -2438,10 +2439,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-well-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-freshwater"
       },
       {
         type = "unlock-recipe",
@@ -2637,8 +2634,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-computation", "nullius-maintenance"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-computation", "nullius-maintenance"}
   },
   {
     type = "technology",
@@ -2664,8 +2660,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-checkpoint-limestone"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-checkpoint-limestone"}
   },
   {
     type = "technology",
@@ -2731,8 +2726,7 @@ data:extend({
       },
       time = 25
     },
-    prerequisites = {"nullius-electrolysis-3", "nullius-signal-processing", "nullius-hydrology-1"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-electrolysis-3", "nullius-signal-processing", "nullius-hydrology-1"}
   },
 
   {
@@ -2805,8 +2799,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-limestone", "nullius-hydrology-1"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-checkpoint-limestone", "nullius-hydrology-1"}
   },
   {
     type = "technology",
@@ -2829,8 +2822,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-mineral-processing-2", "nullius-checkpoint-freshwater"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-mineral-processing-2", "nullius-checkpoint-freshwater"}
   },
   {
     type = "technology",
@@ -2855,8 +2847,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-compressed-nitrogen"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-checkpoint-compressed-nitrogen"}
   },
   {
     type = "technology",
@@ -2925,8 +2916,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-optimization", "nullius-automation-2", "nullius-sensors-1"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-checkpoint-optimization", "nullius-automation-2", "nullius-sensors-1"}
   },
 
   {
@@ -2949,8 +2939,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-optimization-2", "nullius-traffic-control"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-optimization-2", "nullius-traffic-control"}
   },
   {
     type = "technology",
@@ -3030,8 +3019,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-limestone-processing-1", "nullius-silica-processing-2", "nullius-nitrogen-chemistry-1"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-limestone-processing-1", "nullius-silica-processing-2", "nullius-nitrogen-chemistry-1"}
   },
   {
     type = "technology",
@@ -3248,8 +3236,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-glassmaking-1", "nullius-broadcasting-1"},
-    ignore_tech_cost_multiplier = true
+    prerequisites = {"nullius-glassmaking-1", "nullius-broadcasting-1"}
   },
   {
     type = "technology",
@@ -3798,7 +3785,8 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-cybernetics-2"}
+    prerequisites = {"nullius-cybernetics-2"},
+    upgrade = true
   },
   {
     type = "technology",
@@ -5748,7 +5736,8 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-cybernetics-3"}
+    prerequisites = {"nullius-cybernetics-3"},
+    upgrade = true
   },
 
   {
@@ -7019,7 +7008,7 @@ data:extend({
     type = "technology",
     name = "nullius-mass-production-3",
     order = "nullius-em",
-    icon = "__base__/graphics/technology/automation-2.png",
+    icon = "__base__/graphics/technology/advanced-material-processing-2.png",
     icon_size = 256,
     icon_mipmaps = 4,
     effects = {
@@ -7987,11 +7976,19 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-pipe-iron"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-boxed-underground-pipe-1"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-pipe-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-pipe-steel"
       },
       {
         type = "unlock-recipe",
@@ -8237,7 +8234,8 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-mass-production-4", "nullius-checkpoint-productivity-module"}
+    prerequisites = {"nullius-mass-production-4", "nullius-checkpoint-productivity-module"},
+    upgrade = true
   },
   {
     type = "technology",
@@ -8687,7 +8685,15 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-land-fill-gravel"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-boxed-land-fill-grey"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-land-fill-sand"
       },
       {
         type = "unlock-recipe",
@@ -9603,7 +9609,8 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-actuation-4", "nullius-mining-3"}
+    prerequisites = {"nullius-actuation-4", "nullius-mining-3"},
+    upgrade = true
   },
 
   {
@@ -9996,8 +10003,9 @@ data:extend({
     type = "technology",
     name = "nullius-metallurgy-4",
     order = "nullius-fh",
-    icon_size = 64,
-    icon = "__base__/graphics/icons/electric-furnace.png",
+    icon = "__base__/graphics/technology/advanced-material-processing-2.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -11487,7 +11495,8 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-checkpoint-processor-2", "nullius-locomotion-4"}
+    prerequisites = {"nullius-checkpoint-processor-2", "nullius-locomotion-4"},
+    upgrade = true
   },
   {
     type = "technology",
@@ -12195,6 +12204,37 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-land-fill-5",
+    order = "nullius-fw",
+    icon = ENTICONPATH.."landfill-grey.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-land-fill-dust"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-dumping-rock"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-dumping-dirt"
+      }
+    },
+    unit = {
+      count = 4000,
+      ingredients = {
+        {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1},
+		{"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-terraforming-2", "nullius-checkpoint-excavation-drone"}
+  },
+  {
+    type = "technology",
     name = "nullius-terraforming-3",
     order = "nullius-fw",
     icon = "__base__/graphics/technology/concrete.png",
@@ -12311,7 +12351,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-terraforming-2", "nullius-personal-transportation-4", "nullius-braking-8"}
+    prerequisites = {"nullius-personal-transportation-4", "nullius-braking-8"}
   },
 
   {
@@ -12529,7 +12569,8 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-cybernetics"}
+    prerequisites = {"nullius-checkpoint-cybernetics"},
+    upgrade = true
   },
   {
     type = "technology",
@@ -12721,6 +12762,37 @@ data:extend({
       time = 600
     },
     prerequisites = {"nullius-biochemistry-1"}
+  },
+  {
+    type = "technology",
+    name = "nullius-carbon-sequestration-3",
+    order = "nullius-gd",
+    icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
+    icon_size = 72,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-carbon-dioxide-electrolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-carbon-deposition"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-carbon-sink"
+      }
+    },
+    unit = {
+      count = 5000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-checkpoint-carbon-sequestration"}
   },
 
   {
@@ -13088,7 +13160,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-biology-2", "nullius-nitrogen-chemistry-3"}
+    prerequisites = {"nullius-nitrogen-chemistry-3", "nullius-carbon-sequestration-3"}
   },
   {
     type = "technology",
