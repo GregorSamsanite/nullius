@@ -357,7 +357,7 @@ data:extend({
     ingredients = {
       {type="item", name="chute-miniloader", amount=1},
       {type="item", name="underground-belt", amount=1},
-      {type="item", name="inserter", amount=2}
+      {type="item", name="inserter", amount=4}
     },
     result = "miniloader"
   },
@@ -372,7 +372,7 @@ data:extend({
       {type="item", name="miniloader", amount=1},
       {type="item", name="iron-chest", amount=1},
       {type="item", name="fast-underground-belt", amount=2},
-      {type="item", name="turbo-inserter", amount=2}
+      {type="item", name="turbo-inserter", amount=3}
     },
     result = "fast-miniloader"
   },
@@ -427,7 +427,7 @@ data:extend({
       {type="item", name="miniloader", amount=1},
       {type="item", name="iron-chest", amount=1},
       {type="item", name="fast-underground-belt", amount=2},
-      {type="item", name="turbo-filter-inserter", amount=2}
+      {type="item", name="turbo-filter-inserter", amount=3}
     },
     result = "fast-filter-miniloader"
   },

@@ -115,9 +115,9 @@ local checkpoint_data = {
   ["mecha"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-mecha"}} }},
   ["excavation-drone"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-excavation-drone"}} }},
 
-  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 2500000000,
+  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 2000000000,
 				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}} },
-			{ CHK_FLUID, STT_PRODUCE, 2500000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
+			{ CHK_FLUID, STT_PRODUCE, 3000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},
   ["uranium-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-uranium-1"}} }},
   ["copper-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-copper-1"}} }},
@@ -265,6 +265,15 @@ local function test_checkpoint_req(force, req)
       value = stats.get_output_count(itemname)
     elseif (calc == STT_NET) then
       value = stats.get_input_count(itemname) - stats.get_output_count(itemname)
+	  if (item[3] ~= nil) then
+	    if (value < item[3]) then
+		  item[3] = value
+		else
+	      value = value - item[3]
+		end
+	  elseif (value < 0) then
+	    item[3] = value
+	  end
     end
 	if (item[2] ~= nil) then value = (value * item[2]) end
 	count = count + value
@@ -300,7 +309,7 @@ local function update_checkpoint_force(force, tick)
     progress = progress + test_checkpoint_req(force, req)
 	count = count + 1
   end
-  
+
   if ((progress >= count) or (count < 1)) then
     if (tech ~= nil) then
 	  if ((force.current_research == nil) or

@@ -3,6 +3,50 @@ local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local BASEENTITY = "__base__/graphics/entity/"
 
+
+local function hydro_animation(basename, newtint)
+  local baselayer = scale_image(
+      data.raw["assembling-machine"][basename].animation.layers[1], 0.725)
+  baselayer.tint = newtint
+  if (baselayer.hr_version ~= nil) then
+    baselayer.hr_version.tint = newtint
+  end
+
+  local vertical = { layers = {
+    {
+	  filename = "__angelsrefining__/graphics/entity/hydro-plant/hr-hydro-plant-pipe-connections.png",
+      priority = "extra-high",
+      width = 200,
+      height = 100,
+      x = 920,
+      y = 0,
+      frame_count = 1,
+      scale = 0.356,
+      shift = {-0.98, -2.12}
+    },
+    {  
+      filename = "__angelsrefining__/graphics/entity/hydro-plant/hr-hydro-plant-pipe-connections.png",
+      priority = "extra-high",
+      width = 200,
+      height = 100,
+      x = 1170,
+      y = 0,
+      frame_count = 1,
+      scale = 0.356,
+      shift = {0.95, -2.12}
+    },
+	baselayer
+  }}
+
+  return {
+    north = vertical,
+	east = baselayer,
+	south = vertical,
+	west = baselayer
+  }
+end
+
+
 data:extend({
   {
     type = "assembling-machine",
@@ -29,9 +73,9 @@ data:extend({
     next_upgrade = "nullius-hydro-plant-2",
     module_specification = { module_slots = 1 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
-	animation = scale_image(data.raw["assembling-machine"]["hydro-plant"].animation, 0.714),
+	animation = hydro_animation("hydro-plant",{0.77, 0.77, 0.68}),
 	working_visualisations = scale_image(
-	    data.raw["assembling-machine"]["hydro-plant"].working_visualisations, 0.714),
+	    data.raw["assembling-machine"]["hydro-plant"].working_visualisations, 0.725),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant"].working_sound,
     fluid_boxes = {
@@ -98,9 +142,9 @@ data:extend({
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
     next_upgrade = "nullius-hydro-plant-3",
-	animation = scale_image(data.raw["assembling-machine"]["hydro-plant-2"].animation, 0.714),
+	animation = hydro_animation("hydro-plant-2",{0.8, 0.8, 0.9}),
 	working_visualisations = scale_image(
-	    data.raw["assembling-machine"]["hydro-plant-2"].working_visualisations, 0.714),
+	    data.raw["assembling-machine"]["hydro-plant-2"].working_visualisations, 0.725),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant-2"].working_sound,
     fluid_boxes = {
@@ -168,9 +212,9 @@ data:extend({
     module_specification = { module_slots = 3 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     fast_replaceable_group = "hydro-plant",
-	animation = scale_image(data.raw["assembling-machine"]["hydro-plant-3"].animation, 0.714),
+    animation = hydro_animation("hydro-plant-3"),
 	working_visualisations = scale_image(
-	    data.raw["assembling-machine"]["hydro-plant-3"].working_visualisations, 0.714),
+	    data.raw["assembling-machine"]["hydro-plant-3"].working_visualisations, 0.725),
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["hydro-plant-3"].working_sound,
     fluid_boxes = {
@@ -215,12 +259,12 @@ data:extend({
   }
 })
 
-data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].tint = {0.77, 0.77, 0.68}
-data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation.layers[1].tint = {0.8, 0.8, 0.9}
-if (data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].hr_version ~= nil) then
-data.raw["assembling-machine"]["nullius-hydro-plant-1"].animation.layers[1].hr_version.tint = {0.77, 0.77, 0.68}
-data.raw["assembling-machine"]["nullius-hydro-plant-2"].animation.layers[1].hr_version.tint = {0.8, 0.8, 0.9}
-end
+data.raw["assembling-machine"]["nullius-hydro-plant-1"].working_visualisations[4] = nil
+data.raw["assembling-machine"]["nullius-hydro-plant-1"].working_visualisations[5] = nil
+data.raw["assembling-machine"]["nullius-hydro-plant-2"].working_visualisations[4] = nil
+data.raw["assembling-machine"]["nullius-hydro-plant-2"].working_visualisations[5] = nil
+data.raw["assembling-machine"]["nullius-hydro-plant-3"].working_visualisations[4] = nil
+data.raw["assembling-machine"]["nullius-hydro-plant-3"].working_visualisations[5] = nil
 
 data:extend({
   {

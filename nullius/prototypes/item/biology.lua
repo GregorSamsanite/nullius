@@ -641,6 +641,94 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-glycolysis",
+    localised_name = {"recipe-name.nullius-glycolysis"},
+    icons = {
+      data.raw.fluid["nullius-glycerol"].icons[2],
+      data.raw.fluid["nullius-glycerol"].icons[3],
+      data.raw.fluid["nullius-glycerol"].icons[4],
+      {
+        icon = ICONPATH .. "sugar.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = {-9, -11}
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/glycerol.png",
+        icon_size = 72,
+		scale = 0.23,
+		shift = {-8, 12}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "distillation",
+    subgroup = "biology-bacteria",
+    order = "nullius-fg",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-glycerol"].flow_color },
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-sugar", amount=10},
+      {type="fluid", name="nullius-saline", amount=80},
+      {type="fluid", name="nullius-bacteria", amount=1}
+    },
+    results = {
+      {type="fluid", name="nullius-glycerol", amount=60},
+      {type="fluid", name="nullius-methane", amount=15},
+      {type="fluid", name="nullius-wastewater", amount=40}
+    },
+    main_product = "nullius-glycerol"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-glycolysis",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-glycolysis"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      data.raw.fluid["nullius-glycerol"].icons[2],
+      data.raw.fluid["nullius-glycerol"].icons[3],
+      data.raw.fluid["nullius-glycerol"].icons[4],
+      {
+        icon = ICONPATH .. "sugar.png",
+        icon_size = 64,
+        scale = 0.23,
+        shift = {-8, -10}
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/glycerol.png",
+        icon_size = 72,
+		scale = 0.21,
+		shift = {-7, 11}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "distillation",
+    subgroup = "boxed-biology",
+    order = "nullius-fg",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-glycerol"].flow_color },
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-box-sugar", amount=2},
+      {type="fluid", name="nullius-saline", amount=80},
+      {type="fluid", name="nullius-bacteria", amount=1}
+    },
+    results = {
+      {type="fluid", name="nullius-glycerol", amount=60},
+      {type="fluid", name="nullius-methane", amount=15},
+      {type="fluid", name="nullius-wastewater", amount=40}
+    },
+    main_product = "nullius-glycerol"
+  },
+  {
+    type = "recipe",
     name = "nullius-amino-acid-metabolism",
     localised_name = {"recipe-name.nullius-metabolism", {"fluid-name.nullius-amino-acids"}},
     icons = {
@@ -930,15 +1018,19 @@ data:extend({
     localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-biomass-cultivation"}},
     icons = {
       {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
         icon = "__base__/graphics/icons/fluid/light-oil.png",
         icon_size = 64,
         icon_mipmaps = 4,
-        scale = 0.5
+        scale = 0.45
       },
       {
         icon = ICONPATH .. "algae.png",
         icon_size = 64,
-        scale = 0.36,
+        scale = 0.33,
         shift = {-4, -4}
       }
     },
@@ -2497,6 +2589,42 @@ data:extend({
       {type="fluid", name="nullius-sludge", amount=15}
     },
     main_product = "nullius-sludge"
+  },
+  {
+    type = "recipe",
+    name = "nullius-lithium-chloride-disposal",
+    localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-lithium-chloride"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "seawater.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "sugar.png",
+        icon_size = 64,
+        tint = { 0.9, 0.75, 1 },
+        scale = 0.38,
+        shift = {-6, -8}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "nullius-water-treatment",
+    subgroup = "biology-fish",
+    order = "nullius-l",
+    energy_required = 2,
+    ingredients = {
+      {type="fluid", name="nullius-freshwater", amount=450},
+      {type="fluid", name="nullius-brine", amount=150},
+      {type="item", name="nullius-lithium-chloride", amount=1}
+    },
+    results = {
+      {type="fluid", name="nullius-seawater", amount=500}
+    },
+    main_product = "nullius-seawater"
   },
 
   {

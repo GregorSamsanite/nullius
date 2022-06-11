@@ -1,4 +1,51 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.9
+Date: 11.06.2022
+  Features:
+    - New higher tech electrical prototype and chemical sample recipes.
+    - New physics tier recipe for rutile disposal into mineral dust.
+    - New end game recipe for disposing of surplus lithium chloride from fish.
+    - New biochemistry recipe for splitting sugar into glycerol.
+    - New biochemistry recipe for converting surplus graphene to carbon fiber.
+  Balancing:
+    - Reduce steam cost of desalination 2.
+    - Reduce ammonia byproduct of carbon fiber.
+  Graphics:
+    - Fix incorrect large miner 2 graphic.
+  Info:
+    - Add a description for nuclear fuels.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.8
+Date: 05.06.2022
+  Features:
+    - Add tooltips when hovering over mission objectives.
+    - Add an overall mission status percentage indicator.
+    - Give a chat notification when a mission objective is completed.
+    - Give a message when mission panel is first unlocked.
+  Balancing:
+    - Improve ratios of thermitic iron recipe.
+    - Require less CO2 and more O2 in carbon sequestration checkpoint.
+    - Reduce steam output of salt, lithium, and calcium chloride recipes.
+  Bugfixes:
+    - Work around a checkpoint bug if a mod fails to update build statistics.
+  Changes:
+    - Move carbon sequestration checkpoint from before to after the tech.
+    - Force certain important Alien Biome terrain color settings on.
+    - Combine titanium and copper boxing/unboxing into the same row.
+  Info:
+    - Add throughput information to pipe descriptions.
+    - Add number of request slots to description of demand and buffer chests.
+    - Fix carbon sequestration checkpoint to show it allows compressed fluids.
+    - More information in asteroid miner description about expected yield.
+    - Include information on drone effects in their remote's description.
+  Graphics:
+    - Improve misaligned pipe connection in newer Angel's hydro plant graphic.
+    - Fix background of boxed biomass cultivation recipe.
+  Modding:
+    - Make miniloader 1 and 2 a bit more expensive.
+    - Put holographic signs under display plates item subgroup if available.
+    - Move antenna to Factorissimo row when many combinator mods are active.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.7
 Date: 03.06.2022
   Features:

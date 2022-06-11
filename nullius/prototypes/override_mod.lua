@@ -238,7 +238,7 @@ if (settings.startup["miniloader-enable-standard"].value and
   data.raw.recipe["nullius-miniloader-1"].ingredients = {
     {type="item", name="wooden-chest", amount=1},
     {type="item", name="underground-belt", amount=2},
-    {type="item", name="inserter", amount=2}
+    {type="item", name="inserter", amount=4}
   }
 end
 if (settings.startup["miniloader-enable-filter"].value and
@@ -246,7 +246,7 @@ if (settings.startup["miniloader-enable-filter"].value and
   data.raw.recipe["nullius-filter-miniloader-2"].ingredients = {
     {type="item", name="iron-chest", amount=1},
     {type="item", name="fast-underground-belt", amount=2},
-    {type="item", name="turbo-filter-inserter", amount=3}
+    {type="item", name="turbo-filter-inserter", amount=4}
   }
 end
 
@@ -1333,6 +1333,9 @@ if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
   data.raw.item["hs_holo_sign"].stack_size = 50
   table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-holographics")
+if mods["DisplayPlates"] then
+  data.raw.item["hs_holo_sign"].subgroup = "display-plates"
+end
 end
 
 
@@ -1501,6 +1504,16 @@ table.insert(data.raw.technology["nullius-typesetting-2"].prerequisites,"nullius
 else
 table.insert(data.raw.technology["nullius-empiricism-1"].prerequisites,"nullius-display-plates")
 end
+data.raw.item["iron-display-small"].order = "nullius-bb"
+data.raw.item["iron-display-medium"].order = "nullius-bc"
+data.raw.item["iron-display"].order = "nullius-bd"
+data.raw.item["steel-display-small"].order = "nullius-cb"
+data.raw.item["steel-display-medium"].order = "nullius-cc"
+data.raw.item["steel-display"].order = "nullius-cd"
+data.raw.item["copper-display-small"].order = "nullius-db"
+data.raw.item["copper-display-medium"].order = "nullius-dc"
+data.raw.item["copper-display"].order = "nullius-dd"
+
 data.raw["simple-entity-with-owner"]["iron-display-small"].localised_name =
     {"entity-name.nullius-display-plate-small-steel"}
 data.raw["simple-entity-with-owner"]["iron-display-medium"].localised_name =
@@ -1519,4 +1532,10 @@ data.raw["simple-entity-with-owner"]["copper-display-medium"].localised_name =
     {"entity-name.nullius-display-plate-medium-plastic"}
 data.raw["simple-entity-with-owner"]["copper-display"].localised_name =
     {"entity-name.nullius-display-plate-large-plastic"}
+end
+
+
+if (mods["Inventory Sensor"] and mods["crafting_combinator"] and
+    mods["stack-combinator"] and mods["Factorissimo2"]) then
+  data.raw.item["programmable-speaker"].subgroup = "factorissimo2"
 end

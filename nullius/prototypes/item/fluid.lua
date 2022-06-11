@@ -1065,19 +1065,12 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__base__/graphics/icons/fluid/steam.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        scale = 0.27,
-        shift = {1, 7},
-        tint = {r=1, g=1, b=1, a=0.75}
-      },
-      {
         icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
         icon_mipmaps = 4,
-        scale = 0.25,
-        shift = {12, -9}
+        scale = 0.3,
+        shift = {0, 6},
+        tint = {r=1, g=1, b=0.8, a=1}
       }
     },
     show_amount_in_title = false,
@@ -1085,6 +1078,7 @@ data:extend({
     enabled = false,
 	allow_decomposition = false,
     category = "basic-chemistry",
+    subgroup = "research-pack-2",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
       secondary = data.raw.fluid["nullius-nitrogen"].flow_color
@@ -1135,6 +1129,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-chemical-pack",
+    localised_name = {"", {"item-name.nullius-chemical-pack"}, " ", 1},
     enabled = false,
     category = "basic-chemistry",
     show_amount_in_title = false,
@@ -1158,6 +1153,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-chemical-pack",
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-chemical-pack"}}, " ", 1},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -1178,6 +1174,59 @@ data:extend({
     },
     result = "nullius-box-chemical-pack",
     result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-chemical-pack-2",
+    localised_name = {"", {"item-name.nullius-chemical-pack"}, " ", 2},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/logistic-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+	  {
+        icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.2,
+        shift = {0, 5},
+        tint = {r=0.9, g=0.8, b=0.9, a=0.9}
+	  }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "basic-chemistry",
+    subgroup = "research-pack-2",
+    order = "nullius-fd",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-glycerol"].flow_color,
+      secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
+    },
+    energy_required = 200,
+    ingredients = {
+      {type="item", name="nullius-acid-sulfuric-barrel", amount=2},
+      {type="item", name="nullius-styrene-barrel", amount=1},
+      {type="item", name="nullius-solvent-barrel", amount=1},
+      {type="item", name="nullius-glycerol-barrel", amount=1},
+      {type="item", name="nullius-underground-pipe-3", amount=1},
+      {type="item", name="nullius-filter-2", amount=1},
+      {type="item", name="nullius-box-eutectic-salt", amount=2},
+      {type="item", name="nullius-box-calcium-chloride", amount=3}
+    },
+    results = {
+      {type="item", name="nullius-box-chemical-pack", amount=8},
+      {type="item", name="nullius-sludge-barrel", amount=1},
+      {type="item", name="nullius-wastewater-barrel", amount=1},
+      {type="item", name="nullius-hydrogen-chloride-barrel", amount=1}
+    },
+    main_product = "nullius-box-chemical-pack"
   },
 
   {
@@ -1890,11 +1939,11 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=250},
-      {type="fluid", name="nullius-steam", amount=50}
+      {type="fluid", name="nullius-steam", amount=25}
     },
     results = {
-      {type="fluid", name="nullius-water", amount=125},
-      {type="fluid", name="nullius-wastewater", amount=75},
+      {type="fluid", name="nullius-water", amount=120},
+      {type="fluid", name="nullius-wastewater", amount=70},
       {type="fluid", name="nullius-brine", amount=60}
     }
   },
@@ -2060,7 +2109,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-salt", amount=3},
-      {type="fluid", name="nullius-steam", amount=60},
+      {type="fluid", name="nullius-steam", amount=40},
       {type="fluid", name="nullius-saline", amount=15}
     },
     main_product = "nullius-salt"
@@ -2079,7 +2128,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-salt", amount=3},
-      {type="fluid", name="nullius-steam", amount=300},
+      {type="fluid", name="nullius-steam", amount=200},
       {type="fluid", name="nullius-saline", amount=75}
     },
     main_product = "nullius-box-salt"
@@ -2318,7 +2367,7 @@ data:extend({
       {type="item", name="nullius-salt", amount=25},
       {type="item", name="nullius-lithium-chloride", amount=1},
       {type="fluid", name="nullius-saline", amount=150},
-      {type="fluid", name="nullius-steam", amount=400}
+      {type="fluid", name="nullius-steam", amount=300}
     },
     main_product = "nullius-lithium-chloride"
   },
@@ -2338,7 +2387,7 @@ data:extend({
       {type="item", name="nullius-box-salt", amount=25},
       {type="item", name="nullius-box-lithium-chloride", amount=1},
       {type="fluid", name="nullius-saline", amount=750},
-      {type="fluid", name="nullius-steam", amount=2000}
+      {type="fluid", name="nullius-steam", amount=1500}
     },
     main_product = "nullius-box-lithium-chloride"
   },

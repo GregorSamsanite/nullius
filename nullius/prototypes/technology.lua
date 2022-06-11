@@ -2017,6 +2017,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-electrical-engineering",
+    localised_name = {"", {"technology-name.nullius-electrical-engineering"}, " ", 1},
     order = "nullius-db",
     icons = {
       {
@@ -3963,6 +3964,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-experimental-chemistry",
+    localised_name = {"", {"technology-name.nullius-experimental-chemistry"}, " ", 1},
     order = "nullius-eb",
     icon = "__base__/graphics/technology/logistic-science-pack.png",
     icon_size = 256,
@@ -10589,6 +10591,30 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-experimental-chemistry-2",
+    order = "nullius-fk",
+    icon = "__base__/graphics/technology/logistic-science-pack.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-chemical-pack-2"
+      }
+    },
+    unit = {
+      count = 1800,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		{"nullius-chemical-pack", 3}, {"nullius-physics-pack", 1}
+      },
+      time = 45
+    },
+    prerequisites = {"nullius-battery-storage-3", "nullius-calcium-production"}
+  },
+  {
+    type = "technology",
     name = "nullius-volcanism-2",
     order = "nullius-fk",
     icon = "__base__/graphics/technology/oil-gathering.png",
@@ -10609,7 +10635,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-limestone-processing-4", "nullius-air-separation-3", "nullius-hydrology-2"}
+    prerequisites = {"nullius-air-separation-3", "nullius-experimental-chemistry-2"}
   },
   {
     type = "technology",
@@ -10772,6 +10798,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-titanium-ingot-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-rutile-disposal"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-rutile-disposal"
       }
     },
     unit = {
@@ -10996,7 +11030,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-electrolysis-4", "nullius-checkpoint-helium"}
+    prerequisites = {"nullius-electrolysis-4", "nullius-checkpoint-helium", "nullius-experimental-chemistry-2"}
   },
   {
     type = "technology",
@@ -11633,6 +11667,46 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-electrical-engineering-2",
+    order = "nullius-fr",
+    icons = {
+      {
+        icon = "__base__/graphics/technology/production-science-pack.png",
+        icon_size = 256,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__base__/graphics/icons/processing-unit.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 1.1,
+        shift = {0, 34},
+        tint = {r=1, g=1, b=1, a=0.5}
+      }
+    },
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-electrical-pack-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-electrical-pack-2"
+      }
+    },
+    unit = {
+      count = 3000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 3},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 55
+    },
+    prerequisites = {"nullius-miniaturization-1", "nullius-toolmaking-8"}
+  },
+  {
+    type = "technology",
     name = "nullius-inserter-capacity-5",
     order = "nullius-fr",
     icon = "__base__/graphics/technology/inserter-capacity.png",
@@ -11841,7 +11915,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-broadcasting-3", "nullius-miniaturization-1"}
+    prerequisites = {"nullius-broadcasting-3", "nullius-electrical-engineering-2"}
   },
 
   {
@@ -12792,7 +12866,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-carbon-sequestration"}
+    prerequisites = {"nullius-biochemistry-1", "nullius-land-fill-5"}
   },
 
   {
@@ -13160,7 +13234,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-nitrogen-chemistry-3", "nullius-carbon-sequestration-3"}
+    prerequisites = {"nullius-nitrogen-chemistry-3", "nullius-checkpoint-carbon-sequestration"}
   },
   {
     type = "technology",
@@ -13750,6 +13824,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-wood-burning"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-lithium-chloride-disposal"
       }
     },
     unit = {
@@ -14077,6 +14155,22 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-cellulose-pyrolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-glycolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-glycolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-carbon-nanotubes"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-carbon-nanotubes"
       }
     },
     unit = {

@@ -560,7 +560,13 @@ data:extend({
     type = "item-subgroup",
     name = "research-pack",
     group = "intermediate-products",
-    order = "l"
+    order = "lb"
+  },
+  {
+    type = "item-subgroup",
+    name = "research-pack-2",
+    group = "intermediate-products",
+    order = "lc"
   },
   {
     type = "item-subgroup",

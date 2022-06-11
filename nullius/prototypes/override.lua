@@ -660,11 +660,12 @@ data.raw["logistic-container"]["logistic-chest-passive-provider"].resistances =
 data.raw.item["logistic-chest-requester"].localised_name =
     {"entity-name.nullius-small-demand-chest-2"}
 data.raw.item["logistic-chest-requester"].localised_description =
-    {"entity-description.nullius-demand-chest"}
+    {"entity-description.nullius-request-slots",
+	    {"entity-description.nullius-demand-chest"}, 8}
 data.raw["logistic-container"]["logistic-chest-requester"].localised_name =
     {"entity-name.nullius-small-demand-chest-2"}
 data.raw["logistic-container"]["logistic-chest-requester"].localised_description =
-    {"entity-description.nullius-demand-chest"}
+    data.raw.item["logistic-chest-requester"].localised_description
 data.raw["logistic-container"]["logistic-chest-requester"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-requester"].resistances =
     data.raw["container"]["wooden-chest"].resistances
@@ -672,11 +673,12 @@ data.raw["logistic-container"]["logistic-chest-requester"].resistances =
 data.raw.item["logistic-chest-buffer"].localised_name =
     {"entity-name.nullius-small-buffer-chest-2"}
 data.raw.item["logistic-chest-buffer"].localised_description =
-    {"entity-description.nullius-buffer-chest"}
+    {"entity-description.nullius-request-slots",
+	    {"entity-description.nullius-buffer-chest"}, 6}
 data.raw["logistic-container"]["logistic-chest-buffer"].localised_name =
     {"entity-name.nullius-small-buffer-chest-2"}
 data.raw["logistic-container"]["logistic-chest-buffer"].localised_description =
-    {"entity-description.nullius-buffer-chest"}
+    data.raw.item["logistic-chest-buffer"].localised_description
 data.raw["logistic-container"]["logistic-chest-buffer"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-buffer"].resistances =
     data.raw["container"]["wooden-chest"].resistances

@@ -85,6 +85,7 @@ if data.raw['int-setting']['bobmods-logistics-storagetankbase'] then
    data.raw['int-setting']['bobmods-logistics-storagetankbase'].allowed_values = {25}
 end
 
+
 if data.raw['string-setting']['alien-biomes-disable-vegetation'] then
    data.raw['string-setting']['alien-biomes-disable-vegetation'].hidden = true
    data.raw['string-setting']['alien-biomes-disable-vegetation'].default_value = "Enabled"
@@ -95,57 +96,47 @@ if data.raw['string-setting']['alien-biomes-remove-obsolete-tiles'] then
    data.raw['string-setting']['alien-biomes-remove-obsolete-tiles'].default_value = "Disabled"
    data.raw['string-setting']['alien-biomes-remove-obsolete-tiles'].allowed_values = {"Disabled"}
 end
+if data.raw['string-setting']['alien-biomes-include-coastal-shallows'] then
+   data.raw['string-setting']['alien-biomes-include-coastal-shallows'].hidden = true
+   data.raw['string-setting']['alien-biomes-include-coastal-shallows'].default_value = "Enabled"
+   data.raw['string-setting']['alien-biomes-include-coastal-shallows'].allowed_values = {"Enabled"}
+end
 
-if data.raw['string-setting']['alien-biomes-include-grass-blue'] then
-   data.raw['string-setting']['alien-biomes-include-grass-blue'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-blue'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-blue'].allowed_values = {"Disabled"}
+local biome_setting_enable = {
+  "dirt-aubergine", "sand-aubergine",
+  "dirt-beige", "sand-beige",
+  "dirt-black", "sand-black",
+  "dirt-brown", "sand-brown",
+  "dirt-cream", "sand-cream",
+  "dirt-grey", "sand-grey",
+  "dirt-red", "sand-red",
+  "volcanic-orange"
+}
+for _, setting in pairs(biome_setting_enable) do
+  local settingname = "alien-biomes-include-"..setting
+  if data.raw['string-setting'][settingname] then
+     data.raw['string-setting'][settingname].hidden = true
+     data.raw['string-setting'][settingname].default_value = "Enabled"
+     data.raw['string-setting'][settingname].allowed_values = {"Enabled"}
+  end
 end
-if data.raw['string-setting']['alien-biomes-include-grass-green'] then
-   data.raw['string-setting']['alien-biomes-include-grass-green'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-green'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-green'].allowed_values = {"Disabled"}
+
+local biome_grass_color = {
+"blue", "green",
+"mauve", "olive",
+"orange", "purple",
+"red", "turquoise",
+"violet", "yellow"
+}
+for _, setting in pairs(biome_grass_color) do
+  local settingname = "alien-biomes-include-grass-"..setting
+  if data.raw['string-setting'][settingname] then
+     data.raw['string-setting'][settingname].hidden = true
+     data.raw['string-setting'][settingname].default_value = "Disabled"
+     data.raw['string-setting'][settingname].allowed_values = {"Disabled"}
+  end
 end
-if data.raw['string-setting']['alien-biomes-include-grass-mauve'] then
-   data.raw['string-setting']['alien-biomes-include-grass-mauve'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-mauve'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-mauve'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-olive'] then
-   data.raw['string-setting']['alien-biomes-include-grass-olive'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-olive'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-olive'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-orange'] then
-   data.raw['string-setting']['alien-biomes-include-grass-orange'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-orange'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-orange'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-purple'] then
-   data.raw['string-setting']['alien-biomes-include-grass-purple'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-purple'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-purple'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-red'] then
-   data.raw['string-setting']['alien-biomes-include-grass-red'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-red'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-red'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-turquoise'] then
-   data.raw['string-setting']['alien-biomes-include-grass-turquoise'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-turquoise'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-turquoise'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-violet'] then
-   data.raw['string-setting']['alien-biomes-include-grass-violet'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-violet'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-violet'].allowed_values = {"Disabled"}
-end
-if data.raw['string-setting']['alien-biomes-include-grass-yellow'] then
-   data.raw['string-setting']['alien-biomes-include-grass-yellow'].hidden = true
-   data.raw['string-setting']['alien-biomes-include-grass-yellow'].default_value = "Disabled"
-   data.raw['string-setting']['alien-biomes-include-grass-yellow'].allowed_values = {"Disabled"}
-end
+
 
 if data.raw['string-setting']['angels-enable-auto-barreling'] then
    data.raw['string-setting']['angels-enable-auto-barreling'].hidden = true

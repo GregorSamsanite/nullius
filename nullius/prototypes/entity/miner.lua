@@ -2452,7 +2452,7 @@ data:extend({
               repeat_count = 5,
               scale = 0.6666
             },
-            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.east.layers[2]
+            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.south.layers[2]
           }
         },
         west = {
@@ -2470,8 +2470,8 @@ data:extend({
               repeat_count = 5,
               scale = 0.6666
             },
-            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.east.layers[2],
-            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.east.layers[3]
+            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.west.layers[2],
+            data.raw["mining-drill"]["nullius-large-miner-1"].graphics_set.animation.west.layers[3]
           }
         }
       },
