@@ -212,7 +212,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-water"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 5000, "nullius-water", {"fluid-name.nullius-water"}}},
+	    {"technology-description.nullius-fluid", 10000, "nullius-water", {"fluid-name.nullius-water"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -231,7 +231,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-electrolysis-2"},
+    prerequisites = {"nullius-checkpoint-energy-storage", "nullius-flotation-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -259,7 +259,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-checkpoint-water", "nullius-chemical-engineering-1"},
+    prerequisites = {"nullius-electrolysis-2", "nullius-air-filtration-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -633,6 +633,40 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-mass-production-1"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-plumbing",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
+	    {"technology-name.nullius-plumbing"}}},
+    localised_description = {"",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    10, "nullius-pump-1", {"entity-name.nullius-pump-1"}}}, "\n",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    10, "nullius-medium-tank-2", {"entity-name.nullius-medium-tank-2"}}}, "\n",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    6, "nullius-relief-valve", {"entity-name.nullius-relief-valve"}}}},
+    order = "nullius-yc",
+    icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__base__/graphics/technology/fluid-handling.png",
+        icon_size = 256,
+        icon_mipmaps = 4,
+		scale = 0.25
+      }
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-mechanical-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-barreling-1", "nullius-boiling-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1349,7 +1383,7 @@ data:extend({
         icon = ICONPATH .. "checkpoint.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		scale = 0.5,
+		scale = 2,
 		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
@@ -1687,7 +1721,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-productivity-module-1"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-productivity-module-1",
+	    {"technology-description.nullius-item", 50, "nullius-productivity-module-1",
 		    {"item-name.nullius-productivity-module-1"}}},
     order = "nullius-ye",
     icons = {
@@ -1709,7 +1743,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-optimization-4"},
+    prerequisites = {"nullius-broadcasting-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1792,7 +1826,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-optimization-4"},
+    prerequisites = {"nullius-broadcasting-2"},
     ignore_tech_cost_multiplier = true
   },
   {

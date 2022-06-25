@@ -8,7 +8,6 @@ data:extend({
   {
     type = "item",
     name = "nullius-land-fill-gravel",
-    localised_description = {"item-description.landfill"},
     icon = ENTICONPATH .. "landfill-grey.png",
     icon_size = 64,
     icon_mipmaps = 4,
@@ -24,7 +23,6 @@ data:extend({
   {
     type = "item",
     name = "nullius-land-fill-sand",
-    localised_description = {"item-description.landfill"},
     icon = ENTICONPATH .. "landfill-tan.png",
     icon_size = 64,
     icon_mipmaps = 4,
@@ -40,7 +38,6 @@ data:extend({
   {
     type = "item",
     name = "nullius-land-fill-bauxite",
-    localised_description = {"item-description.landfill"},
     icon = ENTICONPATH .. "landfill-brown.png",
     icon_size = 64,
     icon_mipmaps = 4,
@@ -56,7 +53,6 @@ data:extend({
   {
     type = "item",
     name = "nullius-land-fill-iron",
-    localised_description = {"item-description.landfill"},
     icon = ENTICONPATH .. "landfill-red.png",
     icon_size = 64,
     icon_mipmaps = 4,
@@ -72,7 +68,6 @@ data:extend({
   {
     type = "item",
     name = "nullius-land-fill-limestone",
-    localised_description = {"item-description.landfill"},
     icon = ENTICONPATH .. "landfill-beige.png",
     icon_size = 64,
     icon_mipmaps = 4,

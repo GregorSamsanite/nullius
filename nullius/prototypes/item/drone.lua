@@ -438,7 +438,6 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    no_productivity = true,
     energy_required = 10,
     ingredients = {
       {"nullius-sensor-2", 1},

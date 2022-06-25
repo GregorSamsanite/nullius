@@ -589,6 +589,8 @@ data:extend({
     order = "nullius-bb",
     enabled = false,
     always_show_made_in = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "hand-crafting",
     energy_required = 30,
     ingredients = {
@@ -682,5 +684,45 @@ data:extend({
       {type="fluid", name="nullius-compressed-helium", amount=20, fluidbox_index=1}
     },
     result = "nullius-turret"
+  },
+
+  {
+	type = "selection-tool",
+	name = "nullius-rock-picker",
+	icons = {{
+	  icon = ICONPATH.."rockpicker.png",
+	  icon_size = 128
+    }},
+	flags = {"not-stackable"},
+    subgroup = "demolitions",
+    order = "nullius-r",
+	stack_size = 1,
+	selection_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
+	alt_selection_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
+	selection_mode = {"any-entity"},
+	alt_selection_mode = {"any-entity"},
+	selection_cursor_box_type = "entity",
+	alt_selection_cursor_box_type = "entity",
+	entity_type_filters = {"simple-entity",
+	    "item-entity", "rail-remnants", "corpse"},
+	alt_entity_type_filters = {"rail-remnants", "corpse"}
+  },
+  {
+    type = "recipe",
+    name = "nullius-rock-picker",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "large-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-car-1", amount=1},
+      {type="item", name="nullius-sensor-1", amount=2},
+      {type="item", name="nullius-small-miner-2", amount=1},
+      {type="item", name="fast-splitter", amount=1},
+	  {type="item", name="nullius-hydrogen-canister", amount=8}
+    },
+    result = "nullius-rock-picker"
   }
 })

@@ -110,6 +110,8 @@ local biome_setting_enable = {
   "dirt-cream", "sand-cream",
   "dirt-grey", "sand-grey",
   "dirt-red", "sand-red",
+  "dirt-tan", "sand-tan",
+  "dirt-white", "sand-white",
   "volcanic-orange"
 }
 for _, setting in pairs(biome_setting_enable) do

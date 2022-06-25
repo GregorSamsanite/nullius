@@ -2567,10 +2567,9 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/wire-platinum.png",
-        icon_size = 32,
-        tint = { 0.1, 0.1, 0.15 },
-        scale = 0.6,
+        icon = ICONPATH .. "carbon-fiber.png",
+        icon_size = 128,
+        scale = 0.15,
         shift = {8, -8}
       }
     },

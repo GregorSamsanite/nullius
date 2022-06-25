@@ -34,6 +34,9 @@ data.raw.item["stone"].stack_size = 50
 data.raw.item["red-wire"].order = "nullius-c"
 data.raw.item["green-wire"].order = "nullius-d"
 data.raw.item["power-switch"].order = "nullius-h"
+data.raw["power-switch"]["power-switch"].localised_description = {"",
+    {"entity-description.power-switch"}, {"entity-description.nullius-power-switch",
+	    {"item-name.nullius-insulated-wire"}, "copper-cable"}}
 
 data.raw["constant-combinator"]["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
@@ -122,6 +125,11 @@ data.raw.tile["clay-bricks"].walking_speed_modifier = 1.4
 data.raw.tile["clay-bricks"].vehicle_friction_modifier = 0.7
 data.raw.tile["clay-bricks"].localised_name = {"tile-name.nullius-refractory-brick"}
 data.raw.tile["clay-bricks"].placeable_by = {item = "nullius-refractory-brick", count = 1}
+if (data.raw.tile["clay-bricks"].transitions == nil) then
+  data.raw.tile["clay-bricks"].transitions = data.raw.tile["stone-path"].transitions
+  data.raw.tile["clay-bricks"].transitions_between_transitions =
+      data.raw.tile["stone-path"].transitions_between_transitions
+end
 data.raw.item["concrete"].stack_size = 500
 data.raw.tile["concrete"].walking_speed_modifier = 1.5
 data.raw.tile["concrete"].vehicle_friction_modifier = 0.6
@@ -165,6 +173,71 @@ data.raw.tile["black-refined-concrete"].walking_speed_modifier = 1.6
 data.raw.tile["black-refined-concrete"].vehicle_friction_modifier = 0.5
 data.raw.tile["black-refined-concrete"].minable = {mining_time = 0.1, result = "nullius-black-concrete"}
 data.raw.tile["black-refined-concrete"].localised_name = {"item-name.nullius-black-concrete"}
+
+
+data.raw.tile["mineral-grey-dirt-1"].map_color = {r = 119, g = 120, b = 115}
+data.raw.tile["mineral-grey-dirt-2"].map_color = {r = 91, g = 94, b = 90}
+data.raw.tile["mineral-grey-dirt-3"].map_color = {r = 94, g = 98, b = 100}
+data.raw.tile["mineral-grey-dirt-4"].map_color = {r = 94, g = 100, b = 97}
+data.raw.tile["mineral-grey-dirt-5"].map_color = {r = 86, g = 90, b = 89}
+data.raw.tile["mineral-grey-dirt-6"].map_color = {r = 84, g = 85, b = 86}
+data.raw.tile["mineral-grey-sand-1"].map_color = {r = 116, g = 119, b = 116}
+data.raw.tile["mineral-grey-sand-2"].map_color = {r = 111, g = 114, b = 113}
+data.raw.tile["mineral-grey-sand-3"].map_color = {r = 108, g = 109, b = 112}
+
+data.raw.tile["mineral-cream-sand-2"].map_color = {r = 186, g = 179, b = 125}
+data.raw.tile["mineral-cream-dirt-2"].map_color = {r = 144, g = 136, b = 90}
+data.raw.tile["mineral-tan-sand-1"].map_color = {r = 168, g = 132, b = 80}
+data.raw.tile["mineral-tan-sand-2"].map_color = {r = 156, g = 128, b = 78}
+data.raw.tile["mineral-tan-sand-3"].map_color = {r = 144, g = 111, b = 67}
+
+data.raw.tile["mineral-beige-dirt-1"].map_color = {r = 115, g = 105, b = 88}
+data.raw.tile["mineral-beige-dirt-2"].map_color = {r = 105, g = 96, b = 78}
+data.raw.tile["mineral-beige-dirt-3"].map_color = {r = 99, g = 91, b = 75}
+data.raw.tile["mineral-beige-dirt-4"].map_color = {r = 92, g = 83, b = 67}
+data.raw.tile["mineral-beige-dirt-5"].map_color = {r = 120, g = 107, b = 83}
+data.raw.tile["mineral-beige-dirt-6"].map_color = {r = 131, g = 118, b = 94}
+
+data.raw.tile["mineral-brown-dirt-1"].map_color = {r = 90, g = 63, b = 46}
+data.raw.tile["mineral-brown-dirt-2"].map_color = {r = 71, g = 52, b = 38}
+data.raw.tile["mineral-brown-dirt-3"].map_color = {r = 67, g = 47, b = 35}
+data.raw.tile["mineral-brown-dirt-4"].map_color = {r = 61, g = 43, b = 31}
+data.raw.tile["mineral-brown-dirt-5"].map_color = {r = 76, g = 55, b = 43}
+data.raw.tile["mineral-brown-dirt-6"].map_color = {r = 115, g = 81, b = 61}
+data.raw.tile["mineral-tan-dirt-4"].map_color = {r = 82, g = 59, b = 36}
+
+data.raw.tile["mineral-red-dirt-1"].map_color = {r = 100, g = 49, b = 38}
+data.raw.tile["mineral-red-dirt-2"].map_color = {r = 75, g = 38, b = 30}
+data.raw.tile["mineral-red-dirt-4"].map_color = {r = 69, g = 33, b = 25}
+data.raw.tile["mineral-red-dirt-6"].map_color = {r = 124, g = 64, b = 51}
+
+data.raw.tile["mineral-white-sand-3"].layer = 21
+data.raw.tile["mineral-brown-sand-2"].layer = 17
+data.raw.tile["mineral-beige-sand-1"].layer = 22
+data.raw.tile["mineral-tan-dirt-6"].layer = 24
+
+for _,variant in pairs(data.raw.tile["water-mud"].variants) do
+  if (variant.picture ~= nil) then
+    variant.tint = {0.75, 1, 0.75, 1}
+	variant.hr_version.tint = {0.75, 1, 0.75, 1}
+  else
+    for _,subvariant in pairs(variant) do
+      subvariant.tint = {0.75, 1, 0.75, 1}
+	  subvariant.hr_version.tint = {0.75, 1, 0.75, 1}
+	end
+  end
+end
+
+data.raw.tile["grass-1"].map_color={r=54, g=57, b=12}
+data.raw.tile["grass-2"].map_color={r=68, g=65, b=14}
+data.raw.tile["grass-3"].map_color={r=66, g=57, b=20}
+data.raw.tile["grass-4"].map_color={r=62, g=52, b=18}
+
+data.raw.fish.fish.flags = {"placeable-neutral"}
+data.raw.fish.fish.map_color = {r=104, g=120, b=64}
+data.raw.fish.fish.collision_box = {{-0.45, -0.45}, {0.45, 0.45}}
+data.raw.fish.fish.selection_box = {{-0.3, -0.3}, {0.3, 0.3}}
+
 
 data.raw.item["transport-belt"].subgroup = "belt"
 data.raw.item["transport-belt"].order = "nullius-bb"
@@ -738,7 +811,14 @@ data.raw["pump"]["pump"].resistances = {
   { type = "impact", decrease = 100, percent = 90 },
   { type = "fire", decrease = 20, percent = 50 }
 }
-
+data.raw.pump.pump.animations.north = { layers = {
+  data.raw.pump["nullius-pump-1"].animations.north.layers[1],
+  data.raw.pump.pump.animations.north
+}}
+data.raw.pump.pump.animations.south = { layers = {
+  data.raw.pump["nullius-pump-1"].animations.south.layers[1],
+  data.raw.pump.pump.animations.south
+}}
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_categories = {"unused-resource"}
 data.raw["mining-drill"]["electric-mining-drill"].resource_categories = {"unused-resource"}

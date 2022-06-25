@@ -129,7 +129,7 @@ end
 
 function bump_mission_goal(goal, amount, force)
   if (amount ~= 0) then
-    create_mission()
+    create_mission(force)
     set_mission_goal(goal, (global.nullius_mission_count[goal] + amount), force)
   end
 end
@@ -222,7 +222,7 @@ function migrate_oxygen()
 end
 
 
-function create_mission()
+function create_mission(force)
   if (global.nullius_mission_status == nil) then
     global.nullius_mission_status = {}
     global.nullius_mission_count = {}
@@ -239,14 +239,19 @@ function create_mission()
       global.nullius_mission_status[i] = 0
     end
     update_mission_global()
-	game.show_message_dialog{text = {"nullius-mission"}}
+
+	if (not game.is_multiplayer()) then
+      game.show_message_dialog{text = {"nullius-mission"}}
+	elseif (force ~= nil) then
+	  force.print({"nullius-mission"})
+    end
   end
 end
 
 function rocket_launched(event)
   local rocket = event.rocket
   if (rocket and rocket.valid) then
-    create_mission()
+    create_mission(force)
     local payload = rocket.get_inventory(defines.inventory.rocket).get_contents()
     if (payload["nullius-probe"] ~= nil) then
       bump_mission_goal(1, 1, rocket.force)

@@ -32,16 +32,117 @@ data:extend({
     },
     energy_source = {type = "void"},
     energy_usage = "1kW",
-	animation = scale_image(data.raw["furnace"]["angels-flare-stack"].animation, 0.85),
+
+	animation = {
+      north = {
+        layers = {
+          {
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack.png",
+            priority = "extra-high",
+            frame_count = 1,
+            width = 142,
+            height = 429,
+            shift = {0.06, -1.62},
+            scale = 0.5 * 0.85
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack-shadow.png",
+            priority = "extra-high",
+            width = 382,
+            height = 135,
+            frame_count = 1,
+            shift = {1.68, 0.37},
+            scale = 0.5 * 0.85
+          }
+        }
+      },
+      east = {
+        layers = {
+          {
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack.png",
+            priority = "extra-high",
+            width = 142,
+            height = 429,
+            x = 142,
+            frame_count = 1,
+            shift = {-0.1, -1.67},
+            scale = 0.5 * 0.85
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack-shadow.png",
+            priority = "extra-high",
+            width = 382,
+            height = 135,
+            x = 382,
+            frame_count = 1,
+            shift = {1.52, 0.32},
+            scale = 0.5 * 0.85
+          }
+        }
+      },
+      south = {
+        layers = {
+          {
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack.png",
+            priority = "extra-high",
+            width = 142,
+            height = 429,
+            x = 284,
+            frame_count = 1,
+            shift = {-0.06, -1.83},
+            scale = 0.5 * 0.85
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack-shadow.png",
+            priority = "extra-high",
+            width = 382,
+            height = 135,
+            x = 764,
+            frame_count = 1,
+            shift = {1.56, 0.16},
+            scale = 0.5 * 0.85
+          }
+        }
+      },
+      west = {
+        layers = {
+          {
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack.png",
+            priority = "extra-high",
+            width = 142,
+            height = 429,
+            x = 426,
+            frame_count = 1,
+            shift = {0.1, -1.78},
+            scale = 0.5 * 0.85
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__angelspetrochem__/graphics/entity/flare-stack/hr-flare-stack-shadow.png",
+            priority = "extra-high",
+            width = 382,
+            height = 135,
+            x = 1146,
+            frame_count = 1,
+            shift = {1.72, 0.21},
+            scale = 0.5 * 0.85
+          }
+        }
+      }
+    },
+
     working_visualisations = {
       {
         apply_recipe_tint = "primary",
         constant_speed = true,
         render_layer = "wires",
-        north_position = {-0.15, -5.55},
-        east_position = {-0.19, -5.65},
-        south_position = {-0.04, -5.7},
-        west_position = {-0.01, -5.55},
+        north_position = {-0.09, -5.45},
+        east_position = {-0.29, -5.59},
+        south_position = {-0.1, -5.8},
+        west_position = {0.09, -5.61},
         animation = {
           filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
           frame_count = 47,

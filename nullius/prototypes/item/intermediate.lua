@@ -4166,7 +4166,7 @@ data:extend({
     stack_size = 500,
     place_as_tile = {
       result = "clay-bricks",
-      condition_size = 4,
+      condition_size = 1,
       condition = { "water-tile" }
     }
   },
@@ -6091,9 +6091,8 @@ data:extend({
     type = "item",
     name = "nullius-carbon-fiber",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/wire-platinum.png",
-      icon_size = 32,
-      tint = { 0.1, 0.1, 0.15 }
+      icon = ICONPATH .. "carbon-fiber.png",
+      icon_size = 128
     }},
     subgroup = "organic-material-1",
     order = "nullius-e",
@@ -6141,9 +6140,8 @@ data:extend({
     localised_name = {"recipe-name.nullius-carbon-nanotubes"},
     icons = {
 	  {
-        icon = "__angelssmelting__/graphics/icons/wire-platinum.png",
-        icon_size = 32,
-        tint = { 0.1, 0.1, 0.15 }
+        icon = ICONPATH .. "carbon-fiber.png",
+        icon_size = 128
       },
       {
         icon = ICONPATH .. "plate.png",
@@ -6178,10 +6176,9 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__angelssmelting__/graphics/icons/wire-platinum.png",
-        icon_size = 32,
-        tint = { 0.1, 0.1, 0.15 },
-		scale = 0.9
+	    icon = ICONPATH .. "carbon-fiber.png",
+        icon_size = 128,
+		scale = 0.225
       },
       {
         icon = ICONPATH .. "plate.png",

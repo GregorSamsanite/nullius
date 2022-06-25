@@ -1,5 +1,7 @@
+util = require("util")
 require("scripts.mission")
 require("scripts.checkpoint")
+require("scripts.landfill")
 require("scripts.drone")
 require("scripts.wind")
 require("scripts.geothermal")

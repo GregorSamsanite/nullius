@@ -233,5 +233,11 @@ for _, recipe in pairs(data.raw.recipe) do
       (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
       (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
     recipe.enabled = false
+	recipe.allow_as_intermediate = false
+	recipe.allow_decomposition = false
+	if (recipe.order == nil) then recipe.order = "zzz-hidden" end
   end
 end
+
+data.raw.recipe["pipe"].normal.result = "stone-pipe"
+data.raw.recipe["pipe"].expensive.result = "stone-pipe"

@@ -612,8 +612,16 @@ data:extend({
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     working_sound = data.raw["assembling-machine"]["nullius-large-assembler-1"].working_sound
-  },
+  }
+})
 
+local nanofab_pipes = util.table.deepcopy(
+    data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture)
+nanofab_pipes.south = util.table.deepcopy(
+    data.raw["pipe-to-ground"]["pipe-to-ground"].pictures.down.hr_version)
+nanofab_pipes.south.shift = {0, -1}
+
+data:extend({
   {
     type = "assembling-machine",
     name = "nullius-nanofabricator-1",
@@ -645,7 +653,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
+        pipe_picture = nanofab_pipes,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -653,7 +661,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
+        pipe_picture = nanofab_pipes,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -661,7 +669,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
+        pipe_picture = nanofab_pipes,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = -2,
@@ -669,7 +677,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = data.raw["assembling-machine"]["crystallizer"].fluid_boxes[1].pipe_picture,
+        pipe_picture = nanofab_pipes,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
         base_level = 2,

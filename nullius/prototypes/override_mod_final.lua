@@ -83,7 +83,9 @@ if mods["Transport_Drones"] then
     if (string.sub(recipe.name, 1, 8) == "request-") then
       local product = string.sub(recipe.name, 9, -1)
       local item = data.raw.item[product]
-      if (item ~= nil) then
+      local fluid = data.raw.fluid[product]
+      if ((item ~= nil) and ((fluid == nil) or (recipe.results == nil) or
+	      (recipe.results[1].type ~= "fluid"))) then
         recipe.icons = item.icons
         recipe.icon = item.icon
         recipe.icon_size = item.icon_size
@@ -99,21 +101,18 @@ if mods["Transport_Drones"] then
           {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false}
         }
         recipe.energy_required = 600
-      else
-        local fluid = data.raw.fluid[product]
-        if (fluid ~= nil) then
-          recipe.icons = fluid.icons
-          recipe.icon = fluid.icon
-          recipe.icon_size = fluid.icon_size
-          recipe.subgroup = fluid.subgroup
-          recipe.order = fluid.order
-          recipe.always_show_products = true
-          recipe.show_amount_in_title = false
-          recipe.overload_multiplier = 40
-          recipe.ingredients[2].amount = 15000
-          recipe.results[1].amount = 500000
-          recipe.energy_required = 600
-        end
+      elseif (fluid ~= nil) then
+        recipe.icons = fluid.icons
+        recipe.icon = fluid.icon
+        recipe.icon_size = fluid.icon_size
+        recipe.subgroup = fluid.subgroup
+        recipe.order = fluid.order
+        recipe.always_show_products = true
+        recipe.show_amount_in_title = false
+        recipe.overload_multiplier = 40
+        recipe.ingredients[2].amount = 15000
+        recipe.results[1].amount = 500000
+        recipe.energy_required = 600
       end
     end
   end

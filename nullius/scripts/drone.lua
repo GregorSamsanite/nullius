@@ -1,4 +1,4 @@
-function scout_effect(event, range)
+function scout_effect(event, range, halt)
   if (event.source_entity ~= nil) then
     local s = game.surfaces[event.surface_index]
     local px = event.target_position.x
@@ -6,6 +6,7 @@ function scout_effect(event, range)
     local d = 16 + (range * 32)
     local bound = {{x = (px - d), y = (py - d)}, {x = (px + d), y = (py + d)}}
     event.source_entity.force.chart(s, bound)
+	if (halt) then s.force_generate_chunk_requests() end 
   end
 end
 
@@ -36,10 +37,10 @@ function corner_offset(center, distance, direction)
 end
 
 
-function demolition_effect(event)
-  scout_effect(event, 2)
+function demolition_effect(event, range)
+  scout_effect(event, math.floor((range + 31) / 32))
   local s = game.surfaces[event.surface_index]
-  local a = area_bound(area_center(event), 64)
+  local a = area_bound(area_center(event), range)
   local source = event.source_entity
   local force = source.force
   s.destroy_decoratives{area=a}
@@ -62,7 +63,8 @@ end
 
 function safe_demolition(event, size)
   local s = game.surfaces[event.surface_index]
-  local a = area_bound(area_center(event), size)
+  local center = area_center(event)
+  local a = area_bound(center, size)
   local source = event.source_entity
   s.destroy_decoratives{area=a}
   local entities = s.find_entities(a)
@@ -76,7 +78,8 @@ function safe_demolition(event, size)
 	  end
     end
   end
-  entities = s.find_entities(a)
+
+  entities = s.find_entities(area_bound(center, (size + 3)))
   for _, e in pairs(entities) do
     if (e.valid and ((e.type == "item-entity") or (e.type == "optimized-decorative") or
           (e.type == "cliff") or (e.type == "rail-remnants") or
@@ -106,58 +109,75 @@ function terraform_score(name)
 end
 
 function excavation_effect(event)
-  demolition_effect(event)
-  local s = game.surfaces[event.surface_index]
-  local c = area_center(event)
-  local a = area_bound(c, 64)
-  local newtiles = { }
-  local score = 0
-  local tiles = s.find_tiles_filtered{area=a}
-
-  for i, t in pairs(tiles) do
-    local n = t.name
-  score = score + terraform_score(n)
-  local p = t.position
-  if ((n == "deepwater") or ((p.x >= (c.x - 34)) and (p.x <= (c.x + 34)) and
-      (p.y >= (c.y - 34)) and (p.y < (c.y + 34)))) then
-    n = "deepwater"
-  elseif ((n == "water") or ((p.x >= (c.x - 52)) and (p.x <= (c.x + 52)) and
-      (p.y >= (c.y - 52)) and (p.y < (c.y + 52)))) then
-    n = "water"
-  elseif ((n == "water-shallow") or ((p.x >= (c.x - 60)) and (p.x <= (c.x + 60)) and
-      (p.y >= (c.y - 60)) and (p.y < (c.y + 60)))) then
-    n = "water-shallow"
-  else
-    n = "nuclear-ground"
-  end
-    newtiles[i] = {name = n, position = p}
-  end
-
-  s.set_tiles(newtiles)
+  local surface = game.surfaces[event.surface_index]
+  local center = area_center(event)
+  surface.request_to_generate_chunks(center, 4)
+  surface.force_generate_chunk_requests()
+  demolition_effect(event, 80)
+  local score = excavate_area(surface, center)
   if (event.source_entity ~= nil) then
     bump_mission_goal(9, score, event.source_entity.force)
   end
 end
 
 function terraforming_effect(event, tile, terraform_mult)
-  scout_effect(event, 2)
-  safe_demolition(event, 64)
-  local s = game.surfaces[event.surface_index]
-  local c = area_center(event)
-  local a = area_bound(c, 64)
-  local newtiles = { }
-  local score = 0
-
-  local tiles = s.find_tiles_filtered{area=a}
-  for i, t in pairs(tiles) do
-    newtiles[i] = {name = tile, position = t.position}
-  score = score + terraform_score(t.name)
-  end
-  s.set_tiles(newtiles)
-
+  local surface = game.surfaces[event.surface_index]
+  local center = area_center(event)
+  surface.request_to_generate_chunks(center, 4)
+  surface.force_generate_chunk_requests()
+  scout_effect(event, 3)
+  safe_demolition(event, 80)
+  local score = landfill_area(surface, center, tile)
   if (event.source_entity ~= nil) then
     bump_mission_goal(9, (score * terraform_mult), event.source_entity.force)
   end
+end
+
+function paving_effect(event, tile)
+  local surface = game.surfaces[event.surface_index]
+  local center = area_center(event)
+  surface.request_to_generate_chunks(center, 3)
+  surface.force_generate_chunk_requests()
+  scout_effect(event, 3)
+  safe_demolition(event, 64)
+
+  local cx = center.x - 0.5
+  local cy = center.y - 0.5
+  local tiles = surface.find_tiles_filtered{area=area_bound(center, 67)}
+  local newind = 0
+  local newtiles = { }
+
+  for _,t in pairs(tiles) do
+    local newname = nil
+	local dx = math.abs(t.position.x - cx)
+	local dy = math.abs(t.position.y - cy)
+	local dist = math.max(dx, dy)
+
+	if (dist < 64) then
+	  newname = tile
+	elseif (dist < 65) then
+	  local oname = t.name
+	  if ((oname == "water") or (oname == "deepwater")) then
+	    newname = "water-shallow"
+	  elseif ((oname == "water-green") or (oname == "deepwater-green")) then
+		newname = "water-mud"
+	  end
+	elseif (dist < 66) then
+	  local oname = t.name
+	  if (oname == "deepwater") then
+	    newname = "water"
+	  elseif (oname == "deepwater-green") then
+		newname = "water-green"
+	  end
+	end
+
+	if (newname ~= nil) then
+	  newind = newind + 1
+      newtiles[newind] = {name = newname, position = t.position}
+	end
+  end
+
+  surface.set_tiles(newtiles, true, "abort_on_collision")
 end
 
 
@@ -168,7 +188,9 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
   local c = tile_center(event)
   local a = area_bound(c, (size+2))
   local newtiles = { }
-  local tiles = s.find_tiles_filtered{area=a, position=c, radius=(size+1.5), collision_mask="water-tile"}
+  local tiles = s.find_tiles_filtered{area=a, position=c, radius=(size+1.5),
+    name={"deepwater", "water", "water-shallow",
+	    "deepwater-green", "water-green", "water-mud"}}
   local j = 0
   for i, t in pairs(tiles) do
     j = j + 1
@@ -225,46 +247,88 @@ function count_decoratives(s, a, l, n)
 end
 
 function algaculture_effect(event)
-  scout_effect(event, 3)
+  scout_effect(event, 3, true)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local a = area_bound(c, 80)
   local land_count = s.count_tiles_filtered{area=a, position=c, radius=80, limit=12000, collision_mask="ground-tile"}
   local land_bonus = 1.0 + (math.min(land_count, 12000) / 6000)
-  local nearby_count = count_decoratives(s, a, 150, "nullius-algae")
-  local algae_count = math.floor((((820 * math.random()) + 400) * land_bonus) / (math.min(nearby_count, 150) + 50))
+  local nearby_count = count_decoratives(s, a, 120, "nullius-algae")
+  local algae_count = math.floor((((500 * math.random()) + 250) * land_bonus) / (math.min(nearby_count, 120) + 30))
 
   local b = area_bound(c, 66)
-  local water_tiles = s.find_tiles_filtered{area=b, position=c, radius=64, collision_mask="water-tile"}
+  local water_tiles = s.find_tiles_filtered{area=b, position=c, radius=64,
+      name={"deepwater", "water", "water-shallow",
+	      "deepwater-green", "water-green", "water-mud"}}
   local water_count = count_list(water_tiles)
   algae_count = math.min(algae_count, math.floor(water_count / 3))
   local water_score = {
     ["water"] = 0.6,
     ["deepwater"] = 0.3,
-    ["water-green"] = 0.7,
-    ["deepwater-green"] = 0.4,
+    ["water-green"] = 0.4,
+    ["deepwater-green"] = 0.2,
     ["water-shallow"] = 1,
-    ["water-mud"] = 0.9
+    ["water-mud"] = 0.7
   }
 
   for _ = 1, algae_count do
     local t = water_tiles[math.floor(math.min(water_count, 1 + (math.random() * water_count)))]
-  if (count_decoratives(s, rectangle_bound(t.position, 1, 0.5), 2, "nullius-algae") < 1) then
-    local p = t.position
-    local nearby1 = count_decoratives(s, rectangle_bound(p, 2, 1), 8, "nullius-algae")
-    local nearby2 = count_decoratives(s, rectangle_bound(p, 4, 2), 8, "nullius-algae")
-    local nearby3 = count_decoratives(s, rectangle_bound(p, 8, 4), 16, "nullius-algae")
-    local nearby4 = count_decoratives(s, rectangle_bound(p, 16, 8), 32, "nullius-algae")
-    local odds = (6.6 / (6 + (nearby1 * 8) + (nearby2 * 4) + (nearby3 * 2) + nearby4)) - 0.1
-    if (water_score[t.name] ~= nil) then
-      odds = odds * water_score[t.name]
-    else
-      odds = odds * 0.5
+    if (count_decoratives(s, rectangle_bound(t.position, 1, 0.5), 2, "nullius-algae") < 1) then
+      local p = t.position
+      local nearby1 = count_decoratives(s, rectangle_bound(p, 2, 1), 8, "nullius-algae")
+      local nearby2 = count_decoratives(s, rectangle_bound(p, 4, 2), 8, "nullius-algae")
+      local nearby3 = count_decoratives(s, rectangle_bound(p, 8, 4), 16, "nullius-algae")
+      local nearby4 = count_decoratives(s, rectangle_bound(p, 16, 8), 32, "nullius-algae")
+      local odds = (6.6 / (6 + (nearby1 * 8) + (nearby2 * 4) + (nearby3 * 2) + nearby4)) - 0.1
+      if (water_score[t.name] ~= nil) then
+        odds = odds * water_score[t.name]
+      else
+        odds = odds * 0.5
+      end
+
+	  local rv = math.random()
+      if (rv < odds) then
+        s.create_decoratives{check_collision=true,
+		    decoratives={{name="nullius-algae", position=p, amount=1}}}
+		if (count_decoratives(s, rectangle_bound(t.position, 1, 0.5),
+		    2, "nullius-algae") > 0) then
+	      local near_tiles = s.find_tiles_filtered{area=area_bound(c, 5),
+		      position=p, radius=4.6, name={"deepwater", "water", "water-shallow",
+	              "deepwater-green", "water-green", "water-mud"}}
+		  for _,nt in pairs(near_tiles) do
+		    local dx = (nt.position.x - p.x) / 1.2
+		    local dy = nt.position.y - p.y
+		    local dist = (dx * dx) + (dy * dy)
+		    local threshold = (0.8 + rv + odds + math.random())
+		    local newtiles = { }
+		    local newind = 0
+		    if (dist < (threshold * threshold)) then
+		      local newname = nil
+			  local oldname = nt.name
+			  if (oldname == "water") then
+			    newname = "water-green"
+			  elseif (oldname == "deepwater") then
+			    newname = "deepwater-green"
+			  elseif (oldname == "water-shallow") then
+			    if (dist < ((threshold - 1) * (threshold - 1))) then
+				  newname = "water-green"
+				else
+			      newname = "water-mud"
+				end
+			  elseif ((oldname == "water-mud") and
+			      (dist < ((threshold - 1) * (threshold - 1)))) then
+				newname = "water-green"
+			  end
+			  if (newname ~= nil) then
+			    newind = newind + 1
+	            newtiles[newind] = { name = newname, position = nt.position }
+			  end
+	        end
+            s.set_tiles(newtiles, true, "abort_on_collision")
+		  end
+		end
+      end
     end
-    if (math.random() < odds) then
-      s.create_decoratives{check_collision=true, decoratives={{name="nullius-algae", position=p, amount=1}}}
-    end
-  end
   end
 
   if (event.source_entity ~= nil) then
@@ -300,14 +364,16 @@ function init_grass_matrix()
 end
 
 function horticulture_effect(event)
-  scout_effect(event, 3)
+  scout_effect(event, 3, true)
   local s = game.surfaces[event.surface_index]
   local c = area_center(event)
   local water_count = {}
   for i = 1, 4 do
     local p = corner_offset(c, 64, i)
   local a = area_bound(p, 96)
-    water_count[i] = s.count_tiles_filtered{area=a, position=p, radius=95, limit=8000, collision_mask="water-tile"}
+    water_count[i] = s.count_tiles_filtered{area=a, position=p, radius=95, limit=8000,
+	    name={"deepwater", "water", "water-shallow",
+	        "deepwater-green", "water-green", "water-mud"}}
   end
 
   local grid = {}
@@ -496,7 +562,9 @@ function arboriculture_effect(event)
     local angle = 2 * math.pi * math.random()
   local distance = (math.random() * 96) + (math.random() * 48) - 72
     local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
-    local overlap_water = s.count_tiles_filtered{area=area_bound(p, 1), limit=2, collision_mask="water-tile"}
+    local overlap_water = s.count_tiles_filtered{area=area_bound(p, 1), limit=2,
+	    name={"deepwater", "water", "water-shallow",
+	        "deepwater-green", "water-green", "water-mud"}}
   local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 1.5), limit=2}
   if ((overlap_obstacle < 1) and (overlap_water < 1)) then
     local ore_count = s.count_entities_filtered{area=area_bound(p, 32), position=p, radius=30, limit=200, type="resource"}
@@ -523,22 +591,73 @@ function entomology_effect(event)
 
   for _ = 1, attempt_count do
     local angle = 2 * math.pi * math.random()
-  local distance = (math.random() * 96) + (math.random() * 48) - 72
+    local distance = (math.random() * 96) + (math.random() * 48) - 72
     local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
-  local o = area_bound(p, 5)
-  local overlap_decorative = count_decoratives(s, o, 2, "worms-decal")
-    local overlap_water = s.count_tiles_filtered{area=o, position=p, radius=4, limit=4, collision_mask="water-tile"}
-  if ((overlap_decorative < 1) and (overlap_water < 3)) then
-    local a = area_bound(p, 25)
+    local o = area_bound(p, 5)
+    local overlap_decorative = count_decoratives(s, o, 2, "worms-decal")
+    local overlap_water = s.count_tiles_filtered{area=o, position=p, radius=4, limit=4,
+	    name={"deepwater", "water", "water-shallow",
+	        "deepwater-green", "water-green", "water-mud"}}
+
+    if ((overlap_decorative < 1) and (overlap_water < 3)) then
+      local a = area_bound(p, 25)
       local grass_count = s.count_tiles_filtered{area=a, position=p, radius=24, limit=1000,
         collision_mask="ground-tile", name={"grass-1", "grass-2", "grass-4"}}
-    local tree_count = s.count_entities_filtered{area=a, position=p, radius=24, limit=12, type="tree"}
-    local worm_count = count_decoratives(s, a, 10, "worms-decal")
-    local odds = ((grass_count / 200) + (tree_count / 2) - worm_count) / 10
-    if (math.random() < odds) then
-      s.create_decoratives{check_collision=true, decoratives={{name="worms-decal", position=p, amount=1}}}
+      local tree_count = s.count_entities_filtered{area=a, position=p, radius=24, limit=12, type="tree"}
+      local worm_count = count_decoratives(s, a, 10, "worms-decal")
+      local odds = ((grass_count / 200) + (tree_count / 2) - worm_count) / 10
+	  local rv = math.random()
+      if (rv < odds) then
+	    local change_ground = false
+        s.create_decoratives{check_collision=true, decoratives={{name="worms-decal", position=p, amount=1}}}
+		if (count_decoratives(s, o, 2, "worms-decal")) then
+		  change_ground = true
+		end
+
+		if (change_ground) then
+	      local near_tiles = s.find_tiles_filtered{area=o,
+		      position=p, radius=4.4, collision_mask="ground-tile"}
+		  for _,nt in pairs(near_tiles) do
+		    local dx = nt.position.x - p.x
+		    local dy = nt.position.y - p.y
+		    local dist = (dx * dx) + (dy * dy)
+		    local threshold = (1 + (1.6 * (rv + math.random())))
+		    local newtiles = { }
+		    local newind = 0
+		    if (dist < (threshold * threshold)) then
+		      local newname = nil
+			  local oldname = nt.name
+			  if (oldname == "grass-1") then
+			    if (dist < ((threshold - 1) * (threshold - 1))) then
+				  newname = "grass-3"
+				else
+			      newname = "grass-2"
+				end
+			  elseif (oldname == "grass-2") then
+			    if (dist < ((threshold - 1) * (threshold - 1))) then
+				  newname = "grass-4"
+				else
+			      newname = "grass-3"
+				end
+			  elseif (oldname == "grass-3") then
+			    if (dist < ((threshold - 1) * (threshold - 1))) then
+				  newname = "dry-dirt"
+				else
+			      newname = "grass-4"
+				end
+			  else
+			    newname = "dry-dirt"
+			  end
+			  if (newname ~= nil) then
+			    newind = newind + 1
+	            newtiles[newind] = { name = newname, position = nt.position }
+			  end
+	        end
+            s.set_tiles(newtiles, true, "abort_on_collision")
+		  end
+		end
+      end
     end
-  end
   end
 
   if (event.source_entity ~= nil) then
@@ -580,7 +699,9 @@ function husbandry_effect(event)
   scout_effect(event, 2)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
-  local overlap_water = s.count_tiles_filtered{area=area_bound(c, 4), limit=2, collision_mask="water-tile"}
+  local overlap_water = s.count_tiles_filtered{area=area_bound(c, 4), limit=2,
+      name={"deepwater", "water", "water-shallow",
+	        "deepwater-green", "water-green", "water-mud"}}
   local overlap_nest = s.count_entities_filtered{area=area_bound(c, 4), name="biter-spawner", limit=2}
 
   if ((overlap_nest < 1) and (overlap_water < 1)) then
@@ -613,11 +734,11 @@ end
 function trigger_effect(event)
   if (string.find(event.effect_id, "nullius%-") == 1) then
     if (event.effect_id == "nullius-scout-drone-effect-1") then
-      scout_effect(event, 3)
+      scout_effect(event, 3, true)
     elseif (event.effect_id == "nullius-scout-drone-effect-2") then
-      scout_effect(event, 6)
+      scout_effect(event, 6, true)
     elseif (event.effect_id == "nullius-demolition-drone-effect") then
-      demolition_effect(event)
+      demolition_effect(event, 64)
     elseif (event.effect_id == "nullius-excavation-drone-effect") then
       excavation_effect(event)
   elseif (string.find(event.effect_id, "terraforming%-drone%-effect%-", 9) == 9) then
@@ -634,23 +755,23 @@ function trigger_effect(event)
       end
   elseif (string.find(event.effect_id, "paving%-drone%-effect%-", 9) == 9) then
     if (event.effect_id == "nullius-paving-drone-effect-grey") then
-        terraforming_effect(event, "refined-concrete", 0)
+        paving_effect(event, "refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-hazard") then
-        terraforming_effect(event, "refined-hazard-concrete-left", 0)
+        paving_effect(event, "refined-hazard-concrete-left")
     elseif (event.effect_id == "nullius-paving-drone-effect-red") then
-        terraforming_effect(event, "red-refined-concrete", 0)
+        paving_effect(event, "red-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-blue") then
-        terraforming_effect(event, "blue-refined-concrete", 0)
+        paving_effect(event, "blue-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-yellow") then
-        terraforming_effect(event, "yellow-refined-concrete", 0)
+        paving_effect(event, "yellow-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-green") then
-        terraforming_effect(event, "green-refined-concrete", 0)
+        paving_effect(event, "green-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-purple") then
-        terraforming_effect(event, "purple-refined-concrete", 0)
+        paving_effect(event, "purple-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-brown") then
-        terraforming_effect(event, "brown-refined-concrete", 0)
+        paving_effect(event, "brown-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-black") then
-        terraforming_effect(event, "black-refined-concrete", 0)
+        paving_effect(event, "black-refined-concrete")
     end
   elseif (string.find(event.effect_id, "guide%-drone%-effect%-", 9) == 9) then
     if (event.effect_id == "nullius-guide-drone-effect-iron-1") then

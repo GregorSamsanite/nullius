@@ -2362,6 +2362,16 @@ data:extend({
     animations = {
       north = {
         layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.46}
+          },
           {
             filename = BASEENTITY .. "pump/hr-pump-north.png",
             width = 103,
@@ -2410,6 +2420,16 @@ data:extend({
       },
       south = {
         layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.5}
+          },
           {
             filename = BASEENTITY .. "pump/hr-pump-south.png",
             width = 114,
@@ -2511,6 +2531,16 @@ data:extend({
     animations = {
       north = {
         layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.46}
+          },
           {
             filename = BASEENTITY .. "pump/hr-pump-north.png",
             width = 103,
@@ -2559,6 +2589,16 @@ data:extend({
       },
       south = {
         layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.5}
+          },
           {
             filename = BASEENTITY .. "pump/hr-pump-south.png",
             width = 114,

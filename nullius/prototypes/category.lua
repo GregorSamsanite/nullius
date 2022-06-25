@@ -827,6 +827,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "k",
+    name = "compressed-air",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
     order = "l",
     name = "compression",
     group = "fluids",

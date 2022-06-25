@@ -845,7 +845,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["air"], element_tint["residual"], element_tint["air"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-b",
     base_color = {r = 32, g = 144, b = 255},
     flow_color = {r = 32, g = 144, b = 255},
@@ -860,7 +860,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-c",
     base_color = {r = 122, g = 175, b = 232},
     flow_color = {r = 122, g = 175, b = 232},
@@ -876,7 +876,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-d",
     base_color = {r = 152, g = 176, b = 204},
     flow_color = {r = 152, g = 176, b = 204},
@@ -892,7 +892,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["nitrogen"], element_tint["nitrogen"], element_tint["nitrogen"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-e",
     base_color = { r = 40, g = 80, b = 192},
     flow_color = { r = 40, g = 80, b = 192},
@@ -907,7 +907,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["argon"], element_tint["argon"], element_tint["argon"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-f",
     base_color = { r = 164, g = 140, b = 204},
     flow_color = { r = 164, g = 140, b = 204},
@@ -922,7 +922,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["helium"], element_tint["helium"], element_tint["helium"]}
     ),
-    subgroup = "compression",
+    subgroup = "compressed-air",
     order = "nullius-g",
     base_color = { r = 224, g = 200, b = 255},
     flow_color = { r = 224, g = 200, b = 255},
@@ -4724,6 +4724,40 @@ data:extend({
       {type="fluid", name="nullius-compressed-air", amount=65}
     },
     main_product = "nullius-compressed-air"
+  },
+  {
+    type = "recipe",
+    name = "nullius-compressed-residual-gas",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hide_from_stats = true,
+    category = "compression",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-residual-gas", amount=200}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-residual-gas", amount=50}
+    },
+    main_product = "nullius-compressed-residual-gas"
+  },
+  {
+    type = "recipe",
+    name = "nullius-compressed-trace-gas",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hide_from_stats = true,
+    category = "compression",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-trace-gas", amount=120}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-trace-gas", amount=30}
+    },
+    main_product = "nullius-compressed-trace-gas"
   },
   {
     type = "recipe",

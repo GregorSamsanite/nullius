@@ -1,12 +1,14 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
+
 if mods["LogisticTrainNetwork"] then
 data.raw["train-stop"]["logistic-train-stop"].subgroup = "railway"
 data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ecb"
 data.raw.item["logistic-train-stop"].subgroup = "railway"
 data.raw.item["logistic-train-stop"].order = "nullius-ecb"
-table.insert(data.raw.technology["nullius-braking-1"].prerequisites,"nullius-logistic-train-network")
+table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-logistic-train-network")
+data.raw.technology["nullius-optimization-1"].ignore_tech_cost_multiplier = true
 end
 
 
@@ -110,7 +112,7 @@ data.raw.technology["factory-interior-upgrade-lights"].unit = {
 
 data.raw.technology["factory-interior-upgrade-display"].order = "nullius-e"
 data.raw.technology["factory-interior-upgrade-display"].prerequisites = {
-    "factory-recursion-t1", "nullius-aesthetics"}
+    "factory-recursion-t1", "nullius-aesthetics-2"}
 data.raw.technology["factory-interior-upgrade-display"].unit = {
     count = 4*factory_mult, time = 35,
     ingredients = {
@@ -264,7 +266,7 @@ data.raw.technology["long-inserters-1"].unit = { count = 15,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"long-inserters-2")
+table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"long-inserters-2")
 
 data.raw.technology["long-inserters-2"].order = "nullius-dd"
 data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
@@ -301,7 +303,7 @@ data.raw.technology["near-inserters"].unit = { count = 100,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 25
 }
-table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"near-inserters")
+table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"near-inserters")
 end
 
 data.raw.technology["more-inserters-1"].order = "nullius-df"
@@ -337,8 +339,8 @@ data.raw.technology["train-manager"].unit = {
   },
   time = 30
 }
-data.raw.technology["train-manager"].prerequisites = {
-  "nullius-distribution-1", "nullius-braking-1"}
+data.raw.technology["train-manager"].prerequisites = {"nullius-distribution-1"}
+table.insert(data.raw.technology["nullius-braking-1"].prerequisites,"train-manager")
 data.raw.technology["train-manager"].effects = {
   {
     type = "unlock-recipe",
@@ -357,10 +359,6 @@ data.raw.technology["train-manager"].effects = {
     recipe = "nullius-train-config"
   }
 }
-if mods["LogisticTrainNetwork"] then
-data.raw.technology["train-manager"].prerequisites =
-  { "nullius-logistic-train-network" }
-end
 end
 
 
@@ -761,6 +759,19 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
         cover.layers[1].tint = tint
         cover.layers[1].hr_version.tint = tint
       end
+
+	  local subdir = string.sub(junction.pictures.up.filename, 1, 50)
+      junction.pictures.up = { layers = {
+	    {
+          filename = subdir .. "pipe-covers/hr-pipe-cover-north.png",
+          priority = "extra-high",
+          width = 128, height = 128,
+		  shift = {0, -1},
+		  tint = tint,
+          scale = 0.5
+		},
+		junction.pictures.up.hr_version
+      }}
     end
 
     local basename = junction.name
@@ -818,13 +829,12 @@ if mods["Warehousing"] then
   data.raw.item["warehouse-active-provider"].order = "nullius-fc"
   
   table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-warehousing-1")
+  table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,"nullius-warehousing-2")
   table.insert(data.raw.technology["nullius-mass-production-5"].prerequisites,"nullius-warehousing-4")
-
 if mods["Factorissimo2"] then
-  table.insert(data.raw.technology["nullius-warehousing-3"].prerequisites,"factory-connection-type-chest")
-  table.insert(data.raw.technology["nullius-experimental-chemistry"].prerequisites,"nullius-warehousing-3")
+  table.insert(data.raw.technology["factory-interior-upgrade-lights"].prerequisites,"nullius-warehousing-3")
 else
-  table.insert(data.raw.technology["nullius-venting-2"].prerequisites,"nullius-warehousing-3")
+  table.insert(data.raw.technology["nullius-packaging-2"].prerequisites,"nullius-warehousing-3")
 end
 end
 
@@ -984,6 +994,9 @@ data.raw.technology["transport-drone-speed-3"].unit = {
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
     {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
   }
+}
+data.raw.technology["transport-drone-speed-3"].effects[2] = {
+  type = "unlock-recipe", recipe = "fast-road"
 }
 data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
 data.raw.technology["transport-drone-capacity-3"].prerequisites = {
@@ -1174,6 +1187,29 @@ data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 500
 data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -2
 data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 4
 data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 250
+
+data.raw.item["fast-road"].stack_size = 500
+data.raw.item["fast-road"].subgroup = "concrete"
+data.raw.item["fast-road"].order = "nullius-ar"
+data.raw.item["fast-road"].icons[1].tint = { 0.66, 0.66, 0.66 }
+data.raw.tile["transport-drone-road-better"].tint = {0.66, 0.66, 0.66}
+data.raw.item["nullius-black-concrete"].icons[1].tint = { 0.4, 0.4, 0.4 }
+data.raw.tile["black-refined-concrete"].tint = {0.4, 0.4, 0.4}
+
+data.raw.recipe["fast-road"].icons = data.raw.item["fast-road"].icons
+data.raw.recipe["fast-road"].subgroup = "concrete"
+data.raw.recipe["fast-road"].order = "nullius-ar"
+data.raw.recipe["fast-road"].always_show_made_in = true
+data.raw.recipe["fast-road"].show_amount_in_title = false
+data.raw.recipe["fast-road"].always_show_products = true
+data.raw.recipe["fast-road"].category = "large-crafting"
+data.raw.recipe["fast-road"].energy_required = 30
+data.raw.recipe["fast-road"].result_count = 8
+data.raw.recipe["fast-road"].ingredients = {
+  {"road", 50},
+  {"nullius-box-black-concrete", 6},
+  {"road-network-reader", 1}
+}
 end
 
 

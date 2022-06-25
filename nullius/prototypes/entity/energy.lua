@@ -3961,6 +3961,24 @@ data:extend({
           shift = util.by_pixel(40.5, 9.25),
           scale = 0.5
         }
+      },
+      {
+        filename = BASEENTITY .. "pipe-covers/hr-pipe-cover-south.png",
+        width = 128,
+        height = 128,
+        scale = 0.5,
+		frame_count = 1,
+		repeat_count = 32,
+		shift = {0, 2.96}
+      },
+      {
+        filename = BASEENTITY .. "heat-pipe/hr-heat-pipe-ending-down-1.png",
+        width = 64,
+        height = 27,
+        scale = 0.5,
+		frame_count = 1,
+		repeat_count = 32,
+		shift = {0, 2.56}
       }
     }
   }

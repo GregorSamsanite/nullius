@@ -18,14 +18,15 @@ data:extend({
       }
     },
     unit = {
-      count = 300,
+      count = 100,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
-      time = 30
+      time = 25
     },
-    prerequisites = {"nullius-distribution-1", "nullius-traffic-control"}
+    prerequisites = {"nullius-checkpoint-optimization", "nullius-traffic-control"},
+	ignore_tech_cost_multiplier = true
   },
   {
     type = "recipe",
@@ -317,7 +318,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-distribution-3"}
+    prerequisites = {"nullius-distribution-4"}
   }
 })
 if settings.startup["miniloader-enable-chute"].value then
@@ -1082,7 +1083,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-concrete-1"}
+    prerequisites = {"nullius-mass-production-2"}
   },
   {
     type = "technology",
@@ -1103,11 +1104,19 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-warehouse-requester"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-storehouse-passive-provider"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-storehouse-storage"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-storehouse-requester"
       }
     },
     unit = {
@@ -1118,7 +1127,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-distribution-1", "nullius-warehousing-2"}
+    prerequisites = {"nullius-distribution-2"}
   },
   {
     type = "technology",
@@ -1131,19 +1140,11 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-warehouse-requester"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-warehouse-buffer"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-warehouse-active-provider"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-storehouse-requester"
       },
       {
         type = "unlock-recipe",
@@ -1163,7 +1164,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-distribution-2"}
+    prerequisites = {"nullius-distribution-3"}
   },
 
   {
@@ -1204,7 +1205,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"storehouse-basic", 1},
-      {"nullius-small-storage-chest-1", 2}
+      {"nullius-large-storage-chest-1", 1}
     },
     result = "storehouse-storage"
   },
@@ -1217,7 +1218,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"warehouse-basic", 1},
-      {"nullius-small-storage-chest-1", 5}
+      {"nullius-large-storage-chest-1", 2}
     },
     result = "warehouse-storage"
   },
@@ -1230,7 +1231,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {"storehouse-basic", 1},
-      {"nullius-small-supply-chest-1", 2}
+      {"nullius-large-supply-chest-1", 1}
     },
     result = "storehouse-passive-provider"
   },
@@ -1243,7 +1244,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"warehouse-basic", 1},
-      {"nullius-small-supply-chest-1", 5}
+      {"nullius-large-supply-chest-1", 2}
     },
     result = "warehouse-passive-provider"
   },

@@ -1,4 +1,86 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.14
+Date: 25.06.2022
+  Features:
+    - Algae turns nearby water green.
+    - Worms alters nearby terrain.
+  Changes:
+    - Swap order of Optimization 4 and Broadcasting 2.
+    - Move large logistic chest recipes to an earlier tech.
+  Balancing:
+    - Increase requirement of productivity module checkpoint.
+    - Increase effect of nearby algae on new algae.
+  Graphics:
+    - Make fish visible from map view.
+    - Add a pipe cover to north/south facing stirling engine.
+    - Fix a gap in nanofabricator south pipe connection.
+    - Fix carbon fiber checkpoint check mark size.
+    - Adjust grass map color.
+  Modding:
+    - Move Warehousing 3 tech and change supply and storage warehouse recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.13
+Date: 22.06.2022
+  Features:
+    - Compression recipes for residual and trace gas.
+  Bugfixes:
+    - Fix a multiplayer crash with new message for unlocking mission panel.
+  Graphics:
+    - New icon for carbon fiber, with more contrast for dark backgrounds.
+  Modding:
+    - Support Transport Drones fast road tiles.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.12
+Date: 21.06.2022
+  Features:
+    - New plumbing checkpoint in late mechanical engineering.
+  Graphics:
+    - Improve the appearance of excavation drone similarly to terraforming.
+    - Fix gap in north or south facing pump pipe connections.
+  Bugfixes:
+    - Fix a bug in decomposition display of pipe 1 ingredients.
+    - Fix mecha's second drone launcher.
+  Balancing:
+    - Move LTN to earlier in electrical engineering.
+    - Allow productivity modules for scout remotes.
+  Changes:
+    - Don't allow improvised explosive recipe as hand craft intermediate.
+    - Increase demolition radius of terraforming drone
+  Info:
+    - Add more information to description of pumps, tanks, and valves.
+    - Add a mention of insulated wire in power switch description.
+    - Add clarification to chimney 1 and outfall 1 description.
+  Modding:
+    - Fix a bad interaction with Attach Notes and Transport Drones mods.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.11
+Date: 18.06.2022
+  Features:
+    - Add a rock picker tool used to clear decoratives.
+  Graphics:
+    - Fix alignment of newer chimney 1 sprite relative to pipe connections.
+    - Change gravel landfill coast tile.
+  Changes:
+    - Adjust caustic solution and water checkpoint prerequisites.
+  Optimization:
+    - Speed up scout drone map reveal.
+  Modding:
+    - Fix graphic of advanced underground pipe covers.
+  Info:
+    - Summarize effects of different landfill options.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.10
+Date: 16.06.2022
+  Bugfixes:
+    - Refractory brick can now be built near water or Transport Drone roads.
+  Graphics:
+    - Improve appearance of terraforming and landfill to blend into landscape.
+    - Adjust the map color tints and layer levels of some terrain tiles.
+  Changes:
+    - Water adjacent to landfill becomes shallow.
+  Info:
+    - Add void information to description of rutile, lithium chloride, sugar.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.9
 Date: 11.06.2022
   Features:
