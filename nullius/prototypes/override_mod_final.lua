@@ -43,7 +43,7 @@ if settings.startup["reskins-lib-icon-tier-labeling"].value == true then
   data.raw["repair-tool"]["repair-pack"].icons[4] = nil
   data.raw["repair-tool"]["repair-pack"].icons[5] = nil
 
-if mods["miniloader"] then
+if (mods["miniloader"] and mods["reskins-compatibility"]) then
   data.raw.item["ultimate-miniloader"].icons[4].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
   data.raw.item["ultimate-miniloader"].icons[5].icon =

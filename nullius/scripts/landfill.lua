@@ -255,7 +255,7 @@ function landfill_area(surface, center, tilename)
   end
 
   local max_matrix = 0
-  matrix = census_to_matrix(census)
+  local matrix = census_to_matrix(census)
   for i=1,4 do
     for j=1,4 do
 	  local mv = (matrix[i][j] + (math.random() * 3200)) * 1500
@@ -290,6 +290,7 @@ function landfill_area(surface, center, tilename)
 	  end
 	end
   end
+  if (borderind < 1) then return 0 end
   
   local propnames = { }
   propnames[1] = "elevation"
@@ -630,7 +631,7 @@ function excavate_area(surface, center)
   census[0][1] = count_water(surface, {{x-32,y+32},{x+32,y+128}})
 
   local max_matrix = 0
-  matrix = census_to_matrix(census)
+  local matrix = census_to_matrix(census)
   for i=1,4 do
     for j=1,4 do
 	  local mv = (matrix[i][j] + (math.random() * 3200)) * 1600
@@ -678,6 +679,7 @@ function excavate_area(surface, center)
 	  end
 	end
   end
+  if (borderind < 1) then return 0 end
 
   local propnames = { }
   propnames[1] = "elevation"
@@ -815,5 +817,298 @@ function excavate_area(surface, center)
   end
 
   surface.set_tiles(newtiles)
-  return score  
+  return score
+end
+
+
+local function init_grass_matrix()
+  local ret = {}
+  for mx = 1, 8 do
+    ret[mx] = {}
+    for my = 1, 8 do
+      ret[mx][my] = {}
+      local sum = 0
+      for gx = 1, 5 do
+        ret[mx][my][gx] = {}
+        local dx = (gx * 8) - mx - 19.5
+        for gy = 1, 5 do
+          local dy = (gy * 8) - my - 19.5
+          local value = math.max((1 / ((dx * dx) + (dy * dy))) - 0.0025, 0)
+          ret[mx][my][gx][gy] = value
+          sum = sum + value
+        end
+      end
+      for gx = 1, 5 do
+        for gy = 1, 5 do
+          ret[mx][my][gx][gy] = ret[mx][my][gx][gy] / sum
+        end
+      end
+    end
+  end
+  return ret
+end
+
+local function subtract_grid_obstacle(grid, value, x, y)
+  local gx = math.floor(x / 8) + 19
+  local gy = math.floor(y / 8) + 19
+  local mx = x % 8
+  local my = y % 8
+
+  local xpos = 0
+  if (mx < 4) then
+    gx = gx - 1
+    xpos = (4 + mx) / 8
+  else
+    xpos = (mx - 4) / 8
+  end
+  local ypos = 0
+  if (my < 4) then
+    gy = gy - 1
+    ypos = (4 + my) / 8
+  else
+    ypos = (my - 4) / 8
+  end
+
+  grid[gx][gy] = math.max(-100,
+	  (grid[gx][gy] - (value * (1 - xpos) * (1 - ypos))))
+  grid[gx+1][gy] = math.max(-100,
+	  (grid[gx+1][gy] - (value * xpos * (1 - ypos))))
+  grid[gx][gy+1] = math.max(-100,
+	  (grid[gx][gy+1] - (value * (1 - xpos) * ypos)))
+  grid[gx+1][gy+1] = math.max(-100,
+	  (grid[gx+1][gy+1] - (value * xpos * ypos)))
+end
+
+local function count_grass(surface, a)
+  return surface.count_tiles_filtered{area=a, limit=10000,
+      name={"grass-1", "grass-2", "grass-3", "grass-4"}}
+end
+
+function grass_area(surface, center)
+  local water_count = {}
+  for i = 1, 4 do
+    local p = corner_offset(center, 96, i)
+    water_count[i] = surface.count_tiles_filtered{area=area_bound(p, 128),
+	    position=p, radius=127, limit=12000,
+	    name={"deepwater", "water", "water-shallow",
+	        "deepwater-green", "water-green", "water-mud"}}
+  end
+
+  local grid = {}
+  for xi = 1, 36 do
+    grid[xi] = {}
+    local xfactor = 0
+    if (xi > 34.5) then
+      xfactor = 1
+    elseif (xi > 2.5) then
+      xfactor = (xi - 2.5) / 32
+    end
+
+    for yi = 1, 36 do
+      local yfactor = 0
+      if (yi > 34.5) then
+        yfactor = 1
+      elseif (yi > 2.5) then
+        yfactor = (yi - 2.5) / 32
+      end
+
+      local nw = (1 - xfactor) * (1 - yfactor) * water_count[1]
+      local ne = xfactor * (1 - yfactor) * water_count[2]
+      local sw = (1 - xfactor) * yfactor * water_count[3]
+      local se = xfactor * yfactor * water_count[4]
+      grid[xi][yi] = math.max(0, math.min(40, ((nw + ne + sw + se) / 300)))
+    end
+  end
+
+  local cx = center.x
+  local cy = center.y
+  local vicinity = area_bound(center, 104)
+  local rocks = surface.find_entities_filtered{
+      area=vicinity, type={"simple-entity", "resource", "cliff"}}
+  for _, e in pairs(rocks) do
+    if (e.valid and (e.position ~= nil) and (e.selection_box ~= nil)) then
+      local rx = e.position.x - cx
+      local ry = e.position.y - cy
+      local sx = e.selection_box.right_bottom.x - e.selection_box.left_top.x
+      local sy = e.selection_box.right_bottom.y - e.selection_box.left_top.y
+      local area = math.max(0, (sx * sy * 2))
+	  subtract_grid_obstacle(grid, area, rx, ry)
+    end
+  end
+
+  local worms = surface.find_decoratives_filtered{
+      area=vicinity, name={"worms-decal"}}
+  for _, w in pairs(worms) do
+    local rx = w.position.x - cx
+	local ry = w.position.y - cy
+	subtract_grid_obstacle(grid, 10, rx, ry)
+  end
+
+  local census = { [-1]={ }, [0]={ [0]=0 }, [1]={ } }
+  census[-1][-1] = count_grass(surface, {{cx-192,cy-192}, {cx-64,cy-64}})
+  census[-1][1] = count_grass(surface, {{cx-192,cy+64}, {cx-64,cy+192}})
+  census[1][-1] = count_grass(surface, {{cx+64,cy-192}, {cx+192,cy-64}})
+  census[1][1] = count_grass(surface, {{cx+64,cy+64}, {cx+192,cy+192}})
+  census[-1][0] = count_grass(surface, {{cx-192,cy-64}, {cx-64,cy+64}})
+  census[1][0] = count_grass(surface, {{cx+64,cy-64}, {cx+192,cy+64}})
+  census[0][-1] = count_grass(surface, {{cx-64,cy-192}, {cx+64,cy-64}})
+  census[0][1] = count_grass(surface, {{cx-64,cy+64}, {cx+64,cy+192}})
+
+  local matrix = census_to_matrix(census)
+  for i=1,4 do
+    for j=1,4 do
+	  matrix[i][j] = (matrix[i][j] + (math.random() * 10000)) * 4000
+	end
+  end
+
+  local grass_matrix = init_grass_matrix()
+  local land_tiles = surface.find_tiles_filtered{
+      area=area_bound(center, 128), collision_mask="ground-tile"}
+  local candidates = { }
+  local candtiles = { }
+  local candnum = 0
+
+  for _, t in pairs(land_tiles) do
+    local prefix = string.sub(t.name, 1, 6)
+	local oldlvl = 0
+	if (prefix == "minera") then
+	  oldlvl = 3
+	  if (string.sub(t.name, -6, -3) ~= "dirt") then
+	    oldlvl = oldlvl - 1
+	  end
+	  local midfix = string.sub(t.name, 9, 14)
+	  if ((midfix == "black-") or (midfix == "purple") or
+	      (midfix == "violet") or (midfix == "auberg")) then
+		oldlvl = oldlvl - 1
+	  end
+    elseif (prefix == "grass-") then
+	  local variation = tonumber(string.sub(t.name, -1, -1))
+	  if ((variation > 1) and (variation < 5)) then
+	    oldlvl = 8 - variation
+	  end
+	elseif (prefix == "volcan") then
+	  if (string.sub(t.name, -1, -1) == "1") then
+	    oldlvl = 1
+	  end
+	elseif (prefix == "landfi") then
+	  oldlvl = 2
+	elseif (prefix == "dry-di") then
+	  oldlvl = 3
+	end
+
+	if (oldlvl > 0) then
+      local tx = t.position.x - cx
+      local ty = t.position.y - cy
+	  local dx = (tx + 0.5) * (tx + 0.5)
+	  local dy = (ty + 0.5) * (ty + 0.5)
+	  local rawdist = (dx * dx) + (dy * dy)
+
+      local bx = (tx + 200) / 80
+	  local by = (ty + 200) / 80
+	  local xv = 0
+	  local xi = 1
+	  local yv = 0
+	  local yi = 1
+	  if (bx > 1) then
+	    if (bx >= 4) then
+	      xi = 3
+	      xv = 1
+	    else
+		  xi = math.floor(bx)
+		  xv = bx - xi
+	    end
+	  end
+	  if (by > 1) then
+	    if (by >= 4) then
+	      yi = 3
+		  yv = 1
+	    else
+		  yi = math.floor(by)
+		  yv = by - yi
+	    end
+	  end
+	  local dist = (rawdist -
+	      ((matrix[xi][yi] * (1 - xv) * (1 - yv)) +
+	        (matrix[xi+1][yi] * xv * (1 - yv)) +
+	        (matrix[xi][yi+1] * (1 - xv) * yv) +
+		    (matrix[xi+1][yi+1] * xv * yv)))
+
+	  if (dist < 180000000) then
+        local mx = math.floor(tx % 8) + 1
+        local my = math.floor(ty % 8) + 1
+        local gx = math.floor(tx / 8) + 16
+        local gy = math.floor(ty / 8) + 16
+        local score = ((oldlvl - math.random()) * 5)
+        for ix = 1, 5 do
+          for iy = 1, 5 do
+            score = score + (grid[gx + ix][gy + iy] *
+		        grass_matrix[mx][my][ix][iy])
+          end
+        end
+
+		if (score > -40) then
+		  dist = math.max(0, dist - 60000000)
+		  candnum = candnum + 1
+		  candtiles[candnum] = t.position
+		  candidates[candnum] = {
+		  	tile = t, score = score, dist = dist,
+		    oldlvl = math.max(0, (oldlvl - 3))
+		  }
+		end
+	  end
+	end
+  end
+  if (candnum < 1) then return 0 end
+
+  local propnames = { }
+  propnames[1] = "elevation"
+  propnames[2] = "temperature"
+  propnames[3] = "moisture"
+  local properties = surface.calculate_tile_properties(propnames, candtiles)
+  local elevation = properties["elevation"]
+  local temperature = properties["temperature"]
+  local moisture = properties["moisture"]
+  local newtiles = { }
+  local newind = 0
+  local ret = 0
+
+  for i, c in pairs(candidates) do
+	local elev = elevation[i]
+	local temp = temperature[i]
+	local moist = moisture[i]
+	if (elev == nil) then elev = 16 end
+	if (temp == nil) then temp = 5 end
+    if (moist == nil) then moist = 0.4 end
+	temp = ((temp + 6) / 52)
+	elev = math.max(0, math.min(1, ((64 - elev) / 80)))
+	temp = math.max(0, math.min(1, (4 * temp * (1 - temp))))
+	moist = math.max(0, math.min(1, (1 - (moist * moist))))
+	local adjust = math.min(40, ((elev + temp + moist) *
+	    (1.5 + elev) * (1.5 + temp) * (1.5 + moist)))
+	local score1 = (c.score + (2 * adjust) - 20)
+	local score2 = (score1 - (c.dist / 1400000))
+
+	if (score2 > 0) then
+	  local dist = c.dist - (score2 * 600000)
+	  if (dist < 50000000) then
+	    local newlvl = 1
+		if (score2 > 50) then
+		  newlvl = 4
+		elseif (score2 > 30) then
+		  newlvl = 3
+		elseif (score2 > 15) then
+		  newlvl = 2
+		end
+		if (newlvl > c.oldlvl) then
+	      newind = newind + 1
+	      newtiles[newind] = { name = "grass-"..(5 - newlvl),
+		      position = c.tile.position }
+		  ret = ret + newlvl - c.oldlvl
+		end
+	  end
+	end
+  end
+
+  surface.set_tiles(newtiles)
+  return ret
 end

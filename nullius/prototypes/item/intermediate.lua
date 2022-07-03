@@ -297,13 +297,13 @@ data:extend({
     category = "medium-crafting",
     subgroup = "research-pack-2",
     order = "nullius-dc",
-    energy_required = 80,
+    energy_required = 60,
     ingredients = {
       {"pump", 1},
-      {"nullius-steel-cable", 5}
+      {"nullius-steel-cable", 3}
     },
     result = "nullius-mechanical-pack",
-    result_count = 15
+    result_count = 25
   },
   {
     type = "recipe",
@@ -335,13 +335,13 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-science",
     order = "nullius-dc",
-    energy_required = 400,
+    energy_required = 300,
     ingredients = {
       {"nullius-box-pump-3", 1},
-      {"nullius-box-steel-cable", 5}
+      {"nullius-box-steel-cable", 3}
     },
     result = "nullius-box-mechanical-pack",
-    result_count = 15
+    result_count = 25
   },
 
   {
@@ -4127,12 +4127,12 @@ data:extend({
     energy_required = 16,
     ingredients = {
       {type="item", name="nullius-motor-2", amount=1},
-      {type="item", name="nullius-aluminum-wire", amount=8},
+      {type="item", name="nullius-aluminum-wire", amount=6},
       {type="item", name="nullius-heat-pipe-2", amount=1},
-      {type="item", name="nullius-titanium-plate", amount=4},
-      {type="item", name="nullius-textile", amount=3},
+      {type="item", name="nullius-titanium-plate", amount=3},
+      {type="item", name="nullius-textile", amount=2},
       {type="item", name="nullius-bearing", amount=1},
-      {type="fluid", name="nullius-epoxy", amount=6, fluidbox_index=1}
+      {type="fluid", name="nullius-epoxy", amount=5, fluidbox_index=1}
     },
     result = "nullius-motor-3"
   },
@@ -4146,12 +4146,12 @@ data:extend({
     energy_required = 80,
     ingredients = {
       {type="item", name="nullius-box-motor-2", amount=1},
-      {type="item", name="nullius-box-aluminum-wire", amount=8},
+      {type="item", name="nullius-box-aluminum-wire", amount=6},
       {type="item", name="nullius-box-heat-pipe-2", amount=1},
-      {type="item", name="nullius-box-titanium-plate", amount=4},
-      {type="item", name="nullius-box-textile", amount=3},
+      {type="item", name="nullius-box-titanium-plate", amount=3},
+      {type="item", name="nullius-box-textile", amount=2},
       {type="item", name="nullius-box-bearing", amount=1},
-      {type="fluid", name="nullius-epoxy", amount=30, fluidbox_index=1}
+      {type="fluid", name="nullius-epoxy", amount=25, fluidbox_index=1}
     },
     result = "nullius-box-motor-3"
   },
@@ -4336,12 +4336,12 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-crushed-bauxite", amount=7},
       {type="fluid", name="nullius-caustic-solution", amount=40},
-      {type="fluid", name="nullius-acid-sulfuric", amount=15}
+      {type="fluid", name="nullius-acid-sulfuric", amount=10}
     },
     results = {
       {type="item", name="nullius-aluminum-hydroxide", amount=6},
       {type="fluid", name="nullius-sludge", amount=25},
-      {type="fluid", name="nullius-sulfur-dioxide", amount=3}
+      {type="fluid", name="nullius-sulfur-dioxide", amount=2}
     },
     main_product = "nullius-aluminum-hydroxide"
   },
@@ -4374,12 +4374,12 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-crushed-bauxite", amount=7},
       {type="fluid", name="nullius-caustic-solution", amount=200},
-      {type="fluid", name="nullius-acid-sulfuric", amount=75}
+      {type="fluid", name="nullius-acid-sulfuric", amount=50}
     },
     results = {
       {type="item", name="nullius-box-aluminum-hydroxide", amount=6},
       {type="fluid", name="nullius-sludge", amount=125},
-      {type="fluid", name="nullius-sulfur-dioxide", amount=15}
+      {type="fluid", name="nullius-sulfur-dioxide", amount=10}
     },
     main_product = "nullius-box-aluminum-hydroxide"
   },
@@ -7397,14 +7397,14 @@ data:extend({
     name = "nullius-enriched-uranium",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
-      {type="item", name="nullius-uranium", amount=4},
-      {type="fluid", name="nullius-tritium", amount=2, fluidbox_index=1}
+      {type="item", name="nullius-uranium", amount=7},
+      {type="fluid", name="nullius-tritium", amount=3, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-enriched-uranium", amount=1},
-      {type="item", name="nullius-mineral-dust", amount=4},
+      {type="item", name="nullius-enriched-uranium", amount=2},
+      {type="item", name="nullius-mineral-dust", amount=6},
       {type="fluid", name="nullius-deuterium", amount=2, fluidbox_index=1}
     },
     main_product = "nullius-enriched-uranium"

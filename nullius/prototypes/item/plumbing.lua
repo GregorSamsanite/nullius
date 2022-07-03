@@ -4346,7 +4346,7 @@ data:extend({
       {type="item", name="nullius-heat-pipe-2", amount=5},
       {type="item", name="nullius-pipe-4", amount=4},
       {type="item", name="nullius-small-pump-2", amount=1},
-      {type="fluid", name="nullius-compressed-helium", amount=30}
+      {type="fluid", name="nullius-compressed-helium", amount=40}
     },
     result = "nullius-heat-pipe-3",
     result_count = 4
@@ -4364,7 +4364,7 @@ data:extend({
       {type="item", name="nullius-box-heat-pipe-2", amount=5},
       {type="item", name="nullius-box-pipe-4", amount=4},
       {type="item", name="nullius-box-small-pump-2", amount=1},
-      {type="fluid", name="nullius-compressed-helium", amount=250}
+      {type="fluid", name="nullius-compressed-helium", amount=200}
     },
     result = "nullius-box-heat-pipe-3",
     result_count = 4

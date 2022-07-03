@@ -2067,13 +2067,13 @@ data:extend({
     category = "nullius-electrolysis",
     subgroup = "nullius-water-treatment",
     order = "nullius-k",
-    energy_required = 10,
+    energy_required = 8,
     ingredients = {
-      {type="fluid", name="nullius-heavy-water", amount=40}
+      {type="fluid", name="nullius-heavy-water", amount=30}
     },
     results = {
-      {type="fluid", name="nullius-deuterium", amount=80},
-      {type="fluid", name="nullius-oxygen", amount=80},
+      {type="fluid", name="nullius-deuterium", amount=60},
+      {type="fluid", name="nullius-oxygen", amount=60},
       {type="fluid", name="nullius-tritium", amount=1}
     },
     main_product = "nullius-deuterium"
@@ -6282,7 +6282,7 @@ data:extend({
     icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fusion-cell",
-    fuel_value = "2GJ",
+    fuel_value = "3GJ",
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.4,
     subgroup = "nuclear",
@@ -6335,7 +6335,7 @@ data:extend({
       primary = data.raw.fluid["nullius-deuterium"].flow_color,
       secondary = data.raw.fluid["nullius-tritium"].flow_color
     },
-    energy_required = 8,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
       {type="fluid", name="nullius-deuterium", amount=7},

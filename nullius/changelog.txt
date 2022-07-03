@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.15
+Date: 02.07.2022
+  Features:
+    - New grass drone implementation with improved appearance.
+      Grass drone covers more area and tolerates more environments.
+  Balancing:
+    - Make basic fusion cells more powerful and tritium cheaper.
+    - Make mechanical prototype 2 recipe significantly cheaper.
+    - Grass goal increased and is a higher proportion of oxygen production.
+    - Make motor 3 a bit cheaper.
+    - Make solar train slightly faster.
+    - Make enriched uranium a little cheaper.
+    - Use less acid in bauxite flotation 2.
+  Bugfixes:
+    - Fixed discrepancy between heat pipe 3 boxed and unboxed recipes.
+    - Fix an incompatibility with certain combinations of reskin mods.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.14
 Date: 25.06.2022
   Features:
