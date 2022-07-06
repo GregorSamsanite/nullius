@@ -83,8 +83,8 @@ end
 function set_mission_goal(goal, amount, force)
   if (global.nullius_mission_complete) then return end
 
-  local mission_target = {10, 144, 1500, 20000000,
-      2000, 400, 250, 50, 2500000, 20, 12}
+  local mission_target = {10, 144, 1800, 18000000,
+      32000, 750, 320, 60, 2500000, 20, 12}
   local count = global.nullius_mission_count
   local status = global.nullius_mission_status
   local oldstatus = status[goal]

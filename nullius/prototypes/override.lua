@@ -81,11 +81,11 @@ label_icon("small-lamp", 1, "yellow")
 data.raw["lamp"]["small-lamp"].icons = data.raw.item["small-lamp"].icons
 
 data.raw.item["stone-wall"].stack_size = 200
-data.raw.item["stone-wall"].subgroup = "masonry"
+data.raw.item["stone-wall"].subgroup = "concrete"
 data.raw.item["stone-wall"].order = "nullius-e"
 data.raw["wall"]["stone-wall"].localised_description = {"entity-description.nullius-wall"}
 data.raw.item["gate"].stack_size = 100
-data.raw.item["gate"].subgroup = "masonry"
+data.raw.item["gate"].subgroup = "concrete"
 data.raw.item["gate"].order = "nullius-f"
 data.raw["gate"]["gate"].localised_description = {"entity-description.nullius-gate"}
 
@@ -157,6 +157,9 @@ data.raw.tile["blue-refined-concrete"].walking_speed_modifier = 1.6
 data.raw.tile["blue-refined-concrete"].vehicle_friction_modifier = 0.5
 data.raw.tile["blue-refined-concrete"].minable = {mining_time = 0.1, result = "nullius-blue-concrete"}
 data.raw.tile["blue-refined-concrete"].localised_name = {"item-name.nullius-blue-concrete"}
+data.raw.tile["yellow-refined-concrete"].variants = data.raw.tile["nullius-white-concrete"].variants
+data.raw.tile["yellow-refined-concrete"].tint = { r = 0.85, g = 0.75, b = 0.25 }
+data.raw.tile["yellow-refined-concrete"].map_color = { r = 0.8, g = 0.7, b = 0.1 }
 data.raw.tile["yellow-refined-concrete"].walking_speed_modifier = 1.6
 data.raw.tile["yellow-refined-concrete"].vehicle_friction_modifier = 0.5
 data.raw.tile["yellow-refined-concrete"].minable = {mining_time = 0.1, result = "nullius-yellow-concrete"}
@@ -495,7 +498,7 @@ data.raw["item-subgroup"]["armor"].order = "c"
 data.raw["item-subgroup"]["equipment"].group = "equipment"
 data.raw["item-subgroup"]["equipment"].order = "e"
 data.raw["item-subgroup"]["belt"].order = "cb"
-data.raw["item-subgroup"]["terrain"].order = "l"
+data.raw["item-subgroup"]["terrain"].order = "lc"
 data.raw["item-subgroup"]["smelting-machine"].order = "f"
 data.raw["item-subgroup"]["raw-material"].order = "b"
 data.raw["item-subgroup"]["circuit-network"].order = "e"
@@ -518,13 +521,16 @@ data.raw["spider-leg"]["spidertron-leg-7"].movement_acceleration = 0.08
 data.raw["spider-leg"]["spidertron-leg-8"].initial_movement_speed = 0.16
 data.raw["spider-leg"]["spidertron-leg-8"].movement_acceleration = 0.08
 
-data.raw.tree["tree-08"].minable = {
-  mining_particle = "wooden-particle",
-  mining_time = 1,
-  result = "nullius-tree",
-  count = 1,
-  mining_trigger = data.raw.tree["tree-08"].minable.mining_trigger
-}
+for i=1,9 do
+  local treedata = data.raw.tree["tree-0"..i]
+  treedata.minable = {
+    mining_particle = "wooden-particle",
+    mining_time = 1,
+    result = "nullius-tree",
+    count = 1,
+    mining_trigger = treedata.minable.mining_trigger
+  }
+end
 data.raw.fish["fish"].minable = {
   mining_time = 0.4,
   result = "nullius-fish",
@@ -831,5 +837,64 @@ for _,shortcut in pairs(data.raw.shortcut) do
     shortcut.technology_to_unlock = nil
   elseif (shortcut.technology_to_unlock == "exoskeleton-equipment") then
     shortcut.technology_to_unlock = "nullius-cybernetics-4"
+  end
+end
+
+
+local landfill_tiles = {
+  ["mineral-grey-dirt-1"] = "nullius-land-fill-gravel",
+  ["mineral-grey-dirt-2"] = "nullius-land-fill-gravel",
+  ["mineral-grey-dirt-3"] = "nullius-land-fill-gravel",
+  ["mineral-grey-dirt-4"] = "nullius-land-fill-gravel",
+  ["mineral-grey-dirt-5"] = "nullius-land-fill-gravel",
+  ["mineral-grey-dirt-6"] = "nullius-land-fill-gravel",
+  ["mineral-grey-sand-1"] = "nullius-land-fill-gravel",
+  ["mineral-grey-sand-2"] = "nullius-land-fill-gravel",
+  ["mineral-grey-sand-3"] = "nullius-land-fill-gravel",
+
+  ["mineral-cream-sand-1"] = "nullius-land-fill-sand",
+  ["mineral-cream-sand-2"] = "nullius-land-fill-sand",
+  ["mineral-cream-sand-3"] = "nullius-land-fill-sand",
+  ["mineral-cream-dirt-1"] = "nullius-land-fill-sand",
+  ["mineral-cream-dirt-2"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-1"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-2"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-3"] = "nullius-land-fill-sand",
+  ["mineral-beige-sand-1"] = "nullius-land-fill-sand",
+
+  ["mineral-brown-dirt-1"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-2"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-3"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-4"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-5"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-6"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-2"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-3"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-4"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-6"] = "nullius-land-fill-bauxite",
+
+  ["mineral-red-dirt-1"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-2"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-3"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-4"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-5"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-6"] = "nullius-land-fill-iron",
+  ["mineral-red-sand-2"] = "nullius-land-fill-iron",
+  ["mineral-brown-sand-2"] = "nullius-land-fill-iron",
+
+  ["mineral-beige-dirt-1"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-2"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-3"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-4"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-5"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-6"] = "nullius-land-fill-limestone",
+  ["mineral-white-sand-3"] = "nullius-land-fill-limestone"
+}
+
+for tilename,landfill in pairs(landfill_tiles) do
+  local tile = data.raw.tile[tilename]
+  if ((tile ~= nil) and (tile.placeable_by == nil)) then
+    tile.placeable_by = {item=landfill, count=1}
+	tile.can_be_part_of_blueprint = true
   end
 end

@@ -6,11 +6,11 @@ local BASEENTITY = "__base__/graphics/entity/"
 
 data.raw.item["stone-brick"].subgroup = "masonry"
 data.raw.item["stone-brick"].order = "nullius-b"
-data.raw.item["concrete"].subgroup = "masonry"
-data.raw.item["concrete"].order = "nullius-d"
+data.raw.item["concrete"].subgroup = "concrete"
+data.raw.item["concrete"].order = "nullius-b"
 data.raw.item["refined-concrete"].subgroup = "concrete"
 data.raw.item["refined-concrete"].order = "nullius-c"
-data.raw.item["refined-hazard-concrete"].subgroup = "concrete"
+data.raw.item["refined-hazard-concrete"].subgroup = "colored-concrete"
 data.raw.item["refined-hazard-concrete"].order = "nullius-e"
 data.raw.tile["landfill"].layer = 18
 data.raw.resource["uranium-ore"].minable.fluid_amount = nil

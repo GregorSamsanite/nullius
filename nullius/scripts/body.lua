@@ -134,22 +134,18 @@ end
 
 function upload_mind(player, target)
   if ((target.type == "car") or (target.type == "spider-vehicle")) then
-  target = target.get_passenger()
-    if ((target == nil) or (not target.valid)) then
-    return
-  end
+    target = target.get_passenger()
+    if ((target == nil) or (not target.valid)) then return end
   elseif (target.type == "locomotive") then
-  target = target.get_driver()
-    if ((target == nil) or (not target.valid)) then
-    return
-  end
+    target = target.get_driver()
+    if ((target == nil) or (not target.valid)) then return end
   end
   if ((target.type ~= "character") or (target.player ~= nil) or
       (target.force ~= player.force)) then
     return
   end
   local oldchar = player.character
-  if (target == oldchar) then return end
+  if ((target == oldchar) or (oldchar == nil)) then return end
 
   switch_body(player, target)
   update_queue(player, oldchar)
@@ -160,10 +156,8 @@ function cycle_body(player, rev)
   local queue = global.nullius_body_queue[player.index]
   if (queue == nil) then return end
 
-  local node = nil
-  if (player.character ~= nil) then
-    node = queue.nodes[player.character.unit_number]
-  end
+  if (player.character == nil) then return end
+  local node = queue.nodes[player.character.unit_number]
   if ((node == nil) and (queue.last_index ~= nil)) then
     node = queue.nodes[queue.last_index]
   end
@@ -294,7 +288,7 @@ script.on_event(defines.events.on_player_respawned, function(event)
   end
 end)
 
-script.on_event(defines.events.on_player_joined_game, function(event)
+local function rematerialize_body(event)
   local player = game.players[event.player_index]
   local newchar = player.character
   if ((newchar == nil) or (not newchar.valid)) then return end
@@ -306,4 +300,8 @@ script.on_event(defines.events.on_player_joined_game, function(event)
   if (node == nil) then return end
   
   node.body = newchar
-end)
+end
+
+script.on_event(defines.events.on_player_joined_game, rematerialize_body)
+script.on_event(defines.events.on_player_toggled_map_editor,
+    rematerialize_body)

@@ -37,6 +37,7 @@ require("prototypes.technology")
 require("prototypes.checkpoint")
 require("prototypes.upgrades")
 require("prototypes.mods")
+require("prototypes.yafc")
 require("prototypes.inputs")
 require("prototypes.achievements")
 

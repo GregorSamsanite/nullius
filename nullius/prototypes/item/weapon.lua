@@ -28,6 +28,7 @@ data:extend({
         "nullius-paving-drone-blue",
         "nullius-paving-drone-yellow",
         "nullius-paving-drone-green",
+        "nullius-paving-drone-white",
         "nullius-paving-drone-purple",
         "nullius-paving-drone-brown",
         "nullius-paving-drone-black",

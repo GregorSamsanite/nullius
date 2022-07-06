@@ -959,4 +959,78 @@ data:extend({
       u_transition_mask = { count = 1, line_length = 1, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
     }
   },
+
+  {
+    type = "tile",
+    name = "nullius-white-concrete",
+	localised_name = {"item-name.nullius-white-concrete"},
+    order = "nullius-ccw",
+    minable = {mining_time = 0.1, result = "nullius-white-concrete"},
+    collision_mask = {"ground-tile"},
+    walking_speed_modifier = 1.6,
+    vehicle_friction_modifier = 0.5,
+    layer = 66,
+    map_color={r=0.85, g=0.85, b=0.85},
+    needs_correction = false,
+
+    transition_overlay_layer_offset = data.raw.tile["refined-concrete"].transition_overlay_layer_offset,
+    decorative_removal_probability = data.raw.tile["refined-concrete"].decorative_removal_probability,
+    transitions = data.raw.tile["refined-concrete"].transitions,
+	transitions_between_transitions = data.raw.tile["refined-concrete"].transitions_between_transitions,
+    mined_sound = data.raw.tile["refined-concrete"].mined_sound,
+	walking_sound = data.raw.tile["refined-concrete"].walking_sound,
+	build_sound = data.raw.tile["refined-concrete"].build_sound,
+	scorch_mark_color = data.raw.tile["refined-concrete"].scorch_mark_color,
+	pollution_absorption_per_second = data.raw.tile["refined-concrete"].pollution_absorption_per_second,
+	trigger_effect = data.raw.tile["refined-concrete"].trigger_effect,
+	
+    variants = {
+      material_background = {
+	    picture = ENTITYPATH.."concrete/white-concrete.png",
+        count = 8,
+        scale = 0.5
+      },
+      inner_corner = {
+        picture = ENTITYPATH.."concrete/white-concrete-inner-corner.png",
+        count = 16,
+        scale = 0.5
+      },
+      outer_corner = {
+        picture = ENTITYPATH.."concrete/white-concrete-outer-corner.png",
+        count = 8,
+        scale = 0.5
+      },
+      side = {
+        picture = ENTITYPATH.."concrete/white-concrete-side.png",
+		count = 16,
+        scale = 0.5
+      },
+      u_transition = {
+        picture = ENTITYPATH.."concrete/white-concrete-u.png",
+        count = 8,
+        scale = 0.5
+      },
+      o_transition = {
+        picture = ENTITYPATH.."concrete/white-concrete-o.png",
+        count = 4,
+        scale = 0.5
+      },
+      main = data.raw.tile["refined-concrete"].variants.main,
+      inner_corner_mask = data.raw.tile["refined-concrete"].variants.inner_corner_mask,
+	  outer_corner_mask = data.raw.tile["refined-concrete"].variants.outer_corner_mask,
+	  side_mask = data.raw.tile["refined-concrete"].variants.side_mask,
+	  u_transition_mask = data.raw.tile["refined-concrete"].variants.u_transition_mask,
+	  o_transition_mask = data.raw.tile["refined-concrete"].variants.o_transition_mask
+    }
+  }
 })
+
+local orange = util.copy(data.raw.tile["nullius-white-concrete"])
+orange.name = "nullius-orange-concrete"
+orange.localised_name = {"item-name.nullius-orange-concrete"}
+orange.order = "nullius-cco"
+orange.minable = {mining_time = 0.1, result = "nullius-orange-concrete"}
+orange.tint = { r = 0.85, g = 0.55, b = 0.15 }
+orange.map_color = { r = 0.75, g = 0.45, b = 0.1 }
+orange.layer = orange.layer + 3
+data:extend{orange}

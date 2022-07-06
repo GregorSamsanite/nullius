@@ -52,12 +52,20 @@ function update_small_beacon(entity)
   if ((count >= 1) and (count <= 4)) then
     newname = newname.."-"..count
   end
+  local was_deconstruct = entity.to_be_deconstructed()
+  local oldforce = entity.force
+
   global.nullius_in_beacon_replace = true
   local newentity = entity.surface.create_entity{name = newname,
-      force = entity.force, position = entity.position, spill = false,
+      force = oldforce, position = entity.position, spill = false,
 	  fast_replace = true, create_build_effect_smoke = false}
   global.nullius_in_beacon_replace = nil
-  
+
+  if (newentity == nil) then return end
+  if (was_deconstruct and (oldforce ~= nil)) then
+    newentity.order_deconstruction(oldforce)
+  end
+
   if (modrequest ~= nil) then
     newentity.surface.create_entity{name = "item-request-proxy",
         force = newentity.force, position = newentity.position,

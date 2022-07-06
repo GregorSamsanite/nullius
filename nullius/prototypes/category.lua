@@ -315,7 +315,13 @@ data:extend({
     type = "item-subgroup",
     name = "concrete",
     group = "logistics",
-    order = "o"
+    order = "ob"
+  },
+  {
+    type = "item-subgroup",
+    name = "colored-concrete",
+    group = "logistics",
+    order = "oc"
   },
 
   {
@@ -1299,6 +1305,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "ml",
+    name = "boxed-land-fill",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
     order = "n",
     name = "boxing-terrain",
     group = "boxing",
@@ -1313,12 +1325,6 @@ data:extend({
     type = "item-subgroup",
     order = "n",
     name = "boxed-terrain",
-    group = "boxed",
-  },
-  {
-    type = "item-subgroup",
-    order = "nc",
-    name = "boxed-land-fill",
     group = "boxed",
   },
   {
@@ -1729,6 +1735,10 @@ data:extend({
   {
     type = "ammo-category",
     name = "nullius-paving-drone-grey"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-white"
   },
   {
     type = "ammo-category",

@@ -5309,7 +5309,7 @@ data:extend({
     type = "recipe",
     name = "nullius-concrete-1",
     localised_name = {"", {"item-name.concrete"}, " ", 1},
-    order = "nullius-db",
+    order = "nullius-bb",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -5341,7 +5341,7 @@ data:extend({
         shift = {-10, -10}
       }
     },
-    order = "nullius-dc",
+    order = "nullius-bc",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -5364,8 +5364,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    order = "nullius-ax",
-    subgroup = "boxed-concrete",
+    subgroup = "boxed-terrain",
+    order = "nullius-d",
     energy_required = 80,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=3},
@@ -5405,7 +5405,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    subgroup = "boxed-concrete",
+    subgroup = "boxed-terrain",
+    order = "nullius-e",
     energy_required = 90,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=3},
@@ -5428,7 +5429,7 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 1.000, g = 0.266, b = 0.241 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-db",
     stack_size = 500,
     place_as_tile = {
@@ -5483,7 +5484,7 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 0.343, g = 0.683, b = 1.000 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-dc",
     stack_size = 500,
     place_as_tile = {
@@ -5540,11 +5541,11 @@ data:extend({
     type = "item",
     name = "nullius-yellow-concrete",
     icons = {{
-      icon = "__base__/graphics/icons/refined-concrete.png",
+      icon = ICONPATH.."entity/white-concrete.png",
       icon_size = 64, icon_mipmaps = 4,
-      tint = { r = 1.000, g = 0.828, b = 0.231 }
+      tint = { r = 0.9, g = 0.8, b = 0.2 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-dd",
     stack_size = 500,
     place_as_tile = {
@@ -5601,8 +5602,8 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 0.173, g = 0.824, b = 0.250 }
     }},
-    subgroup = "concrete",
-    order = "nullius-de",
+    subgroup = "colored-concrete",
+    order = "nullius-dec",
     stack_size = 500,
     place_as_tile = {
       result = "green-refined-concrete",
@@ -5654,7 +5655,7 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 0.821, g = 0.440, b = 0.998 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-df",
     stack_size = 500,
     place_as_tile = {
@@ -5707,7 +5708,7 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 0.757, g = 0.522, b = 0.371 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-dg",
     stack_size = 500,
     place_as_tile = {
@@ -5760,7 +5761,7 @@ data:extend({
       icon_size = 64, icon_mipmaps = 4,
       tint = { r = 0.5, g = 0.5, b = 0.5 }
     }},
-    subgroup = "concrete",
+    subgroup = "colored-concrete",
     order = "nullius-dh",
     stack_size = 500,
     place_as_tile = {
@@ -5807,6 +5808,117 @@ data:extend({
     },
     result = "nullius-box-black-concrete",
     result_count = 30
+  },
+  
+  {
+    type = "item",
+    name = "nullius-white-concrete",
+    icons = {{
+      icon = ICONPATH.."entity/white-concrete.png",
+      icon_size = 64, icon_mipmaps = 4
+    }},
+    subgroup = "colored-concrete",
+    order = "nullius-ad",
+    stack_size = 500,
+    place_as_tile = {
+      result = "nullius-white-concrete",
+      condition_size = 1,
+      condition = { "water-tile" }
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-white-concrete",
+    enabled = false,
+    no_productivity = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "basic-chemistry",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="refined-concrete", amount=60},
+      {type="item", name="nullius-rutile", amount=1},
+	  {type="item", name="nullius-crushed-limestone", amount=1},
+      {type="fluid", name="nullius-epoxy", amount=3},
+      {type="fluid", name="nullius-solvent", amount=4}
+    },
+    result = "nullius-white-concrete",
+    result_count = 60
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-white-concrete",
+    enabled = false,
+    no_productivity = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "basic-chemistry",
+    subgroup = "boxed-concrete",
+    energy_required = 150,
+    ingredients = {
+      {type="item", name="nullius-box-reinforced-concrete", amount=30},
+      {type="item", name="nullius-box-rutile", amount=1},
+	  {type="item", name="nullius-box-crushed-limestone", amount=1},
+      {type="fluid", name="nullius-epoxy", amount=15},
+      {type="fluid", name="nullius-solvent", amount=20}
+    },
+    result = "nullius-box-white-concrete",
+    result_count = 30
+  },
+
+  {
+    type = "item",
+    name = "nullius-orange-concrete",
+    icons = {{
+      icon = ICONPATH.."entity/white-concrete.png",
+      icon_size = 64, icon_mipmaps = 4,
+      tint = { r = 0.9, g = 0.5, b = 0.1 }
+    }},
+    subgroup = "colored-concrete",
+    order = "nullius-deb",
+    stack_size = 500,
+    place_as_tile = {
+      result = "nullius-orange-concrete",
+      condition_size = 1,
+      condition = { "water-tile" }
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-orange-concrete",
+    enabled = false,
+    no_productivity = true,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "large-crafting",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-yellow-concrete", amount=15},
+      {type="item", name="nullius-red-concrete", amount=10},
+      {type="item", name="nullius-white-concrete", amount=5}
+    },
+    result = "nullius-orange-concrete",
+    result_count = 30
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-orange-concrete",
+    enabled = false,
+    no_productivity = true,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "huge-assembly",
+    subgroup = "boxed-concrete",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-box-yellow-concrete", amount=3},
+      {type="item", name="nullius-box-red-concrete", amount=2},
+      {type="item", name="nullius-box-white-concrete", amount=1}
+    },
+    result = "nullius-box-orange-concrete",
+    result_count = 6
   },
 
   {

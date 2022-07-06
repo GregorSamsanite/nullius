@@ -332,7 +332,7 @@ function algaculture_effect(event)
   end
 
   if (event.source_entity ~= nil) then
-    local new_count = count_decoratives(s, nil, 6000, "nullius-algae")
+    local new_count = count_decoratives(s, nil, 10000, "nullius-algae")
     set_mission_goal(3, new_count, event.source_entity.force)
   end
 end
@@ -351,33 +351,87 @@ function horticulture_effect(event)
 end
 
 function arboriculture_effect(event)
-  scout_effect(event, 3)
+  scout_effect(event, 4)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local a = area_bound(c, 96)
-  local worm_count = count_decoratives(s, area_bound(c, 96), 5, "worms-decal")
-  local fumarole_count = s.count_entities_filtered{area=area_bound(c, 256), position=c, radius=256, limit=10, name="nullius-fumarole"}
-  local count = (math.random() * 2) + (worm_count * (2 + (3 * math.random()))) - (fumarole_count * 1.5)
+  local worm_count = count_decoratives(s, area_bound(c, 96), 10, "worms-decal")
+  local fumarole_count = s.count_entities_filtered{area=area_bound(c, 256),
+      position=c, radius=256, limit=20, name="nullius-fumarole"}
+  local count = 24 * (1 + (math.random() * 2) - fumarole_count +
+      (math.sqrt(worm_count) * (2 + (4 * math.random()))))
+  local bump_count = 0
+  local propnames = {[1] = "temperature", [2] = "moisture"}
 
   for _ = 1, count do
-    local angle = 2 * math.pi * math.random()
-  local distance = (math.random() * 96) + (math.random() * 48) - 72
-    local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
-    local overlap_water = s.count_tiles_filtered{area=area_bound(p, 1), limit=2,
+    local angle = (8 * math.pi * math.random())
+    local distance = ((math.random() * 120) + (math.random() * 64) - 92)
+    local p = {x = c.x + (math.cos(angle) * distance),
+	    y = c.y + (math.sin(angle) * distance)}
+    local overlap_water = s.count_tiles_filtered{area=area_bound(p, 1.2), limit=2,
 	    name={"deepwater", "water", "water-shallow",
 	        "deepwater-green", "water-green", "water-mud"}}
-  local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 1.5), limit=2}
-  if ((overlap_obstacle < 1) and (overlap_water < 1)) then
-    local ore_count = s.count_entities_filtered{area=area_bound(p, 32), position=p, radius=30, limit=200, type="resource"}
-    if (math.random() < ((200 - ore_count) / 200)) then
-      s.create_entity({name="tree-08", amount=1, position=p})
-    end
-  end
+	if (overlap_water < 1) then
+      local overlap_obstacle = s.count_entities_filtered{
+	      area=area_bound(p, 1.2), limit=2}
+      if (overlap_obstacle < 1) then
+		local near_tiles = s.find_tiles_filtered{area=area_bound(p, 1.8),
+		    radius=1.6, collision_mask="ground-tile"}
+		local near_num = 0
+		for _,nt in pairs(near_tiles) do
+		  near_num = near_num + 1
+	    end
+		local near = near_tiles[math.floor(1 + (math.random() * near_num))]
+
+		if (near ~= nil) then
+		  local level = grass_level(near.name)
+		  local rf = (2.5 * math.random())
+		  if ((rf * rf) < level) then
+            local ore_count = s.count_entities_filtered{area=area_bound(p, 21),
+		        position=p, radius=20, limit=100, type="resource"}
+            if ((ore_count < 1) or (math.random() < (1 - (ore_count / 100)))) then
+              local properties = s.calculate_tile_properties(propnames,
+			      {[1]=near.position})
+              local temp = properties["temperature"][1]
+              local moist = properties["moisture"][1]
+			  if (temp == nil) then temp = 5 end
+			  if (moist == nil) then moist = 0.4 end
+			  temp = math.max(0, math.min(1, ((temp + 6) / 52)))
+			  moist = math.max(0, math.min(1, moist))
+			  local temp_score = (4 * temp * (1 - temp))
+			  local moist_score = (1 - ((1 - moist) * (1 - moist)))
+
+			  if ((math.random() * 4) < (2 + temp_score + moist_score)) then
+			    local ti = ((2 * temp) + math.random())
+			    local mi = ((2 * moist) + math.random())
+				local treenum = 8
+				if (ti < 1) then
+				  if (mi < 1) then treenum = 1
+				  elseif (mi > 2) then treenum = 9
+				  else treenum = 2 end
+				elseif (ti > 2) then
+				  if (mi < 1) then treenum = 6
+				  elseif (mi > 2) then treenum = 4
+				  else treenum = 3 end
+				else
+				  if (mi < 1) then treenum = 8
+				  elseif (mi > 2) then treenum = 7
+				  else treenum = 5 end
+				end
+                if (s.create_entity({name="tree-0"..treenum,
+				    amount=1, position=p}) ~= nil) then
+				  bump_count = bump_count + 1
+				end
+			  end
+			end
+		  end
+        end
+      end
+	end
   end
 
   if (event.source_entity ~= nil) then
-    local new_count = s.count_entities_filtered{name="tree-08", limit=8000}
-    set_mission_goal(5, new_count, event.source_entity.force)
+    bump_mission_goal(5, bump_count, event.source_entity.force)
   end
 end
 
@@ -462,7 +516,7 @@ function entomology_effect(event)
   end
 
   if (event.source_entity ~= nil) then
-    local new_count = count_decoratives(s, nil, 800, "worms-decal")
+    local new_count = count_decoratives(s, nil, 1000, "worms-decal")
     set_mission_goal(6, new_count, event.source_entity.force)
   end
 end
@@ -471,10 +525,10 @@ function aquaculture_effect(event)
   scout_effect(event, 3)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
-  local a = area_bound(c, 96)
-  local algae_count = count_decoratives(s, a, 50, "nullius-algae")
-  local fish_count = s.count_entities_filtered{area=a, limit=30, type="fish"}
-  local attempt_count = ((((math.random() * 31) + (5 * algae_count)) / (10 + fish_count)) - 3) / 2
+  local a = area_bound(c, 128)
+  local algae_count = count_decoratives(s, a, 40, "nullius-algae")
+  local fish_count = s.count_entities_filtered{area=a, limit=40, type="fish"}
+  local attempt_count = ((((math.random() * 31) + (6 * algae_count)) / (10 + fish_count)) - 3) / 2
   if (global.nullius_mission_status[2] < 68) then
     attempt_count = attempt_count - ((68 - global.nullius_mission_status[2]) / 2)
   end
@@ -491,7 +545,7 @@ function aquaculture_effect(event)
   end
 
   if (event.source_entity ~= nil) then
-    local new_count = s.count_entities_filtered{name="fish", limit=500}
+    local new_count = s.count_entities_filtered{name="fish", limit=800}
     set_mission_goal(7, new_count, event.source_entity.force)
   end
 end
@@ -569,6 +623,8 @@ function trigger_effect(event)
         paving_effect(event, "green-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-purple") then
         paving_effect(event, "purple-refined-concrete")
+    elseif (event.effect_id == "nullius-paving-drone-effect-white") then
+        paving_effect(event, "nullius-white-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-brown") then
         paving_effect(event, "brown-refined-concrete")
     elseif (event.effect_id == "nullius-paving-drone-effect-black") then

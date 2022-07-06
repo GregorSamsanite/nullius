@@ -1190,7 +1190,7 @@ data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 250
 
 data.raw.item["fast-road"].stack_size = 500
 data.raw.item["fast-road"].subgroup = "concrete"
-data.raw.item["fast-road"].order = "nullius-ar"
+data.raw.item["fast-road"].order = "nullius-cr"
 data.raw.item["fast-road"].icons[1].tint = { 0.66, 0.66, 0.66 }
 data.raw.tile["transport-drone-road-better"].tint = {0.66, 0.66, 0.66}
 data.raw.item["nullius-black-concrete"].icons[1].tint = { 0.4, 0.4, 0.4 }
@@ -1198,7 +1198,7 @@ data.raw.tile["black-refined-concrete"].tint = {0.4, 0.4, 0.4}
 
 data.raw.recipe["fast-road"].icons = data.raw.item["fast-road"].icons
 data.raw.recipe["fast-road"].subgroup = "concrete"
-data.raw.recipe["fast-road"].order = "nullius-ar"
+data.raw.recipe["fast-road"].order = "nullius-cr"
 data.raw.recipe["fast-road"].always_show_made_in = true
 data.raw.recipe["fast-road"].show_amount_in_title = false
 data.raw.recipe["fast-road"].always_show_products = true
@@ -1525,6 +1525,7 @@ end
 
 if mods["safefill"] then
 table.insert(data.raw.technology["nullius-checkpoint-large-tank"].prerequisites,"nullius-irrigation")
+data.raw["item-subgroup"]["safefill"].order = "lb"
 end
 
 

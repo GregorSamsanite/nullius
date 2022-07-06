@@ -884,6 +884,36 @@ local function count_grass(surface, a)
       name={"grass-1", "grass-2", "grass-3", "grass-4"}}
 end
 
+function grass_level(tilename)
+  local prefix = string.sub(tilename, 1, 6)
+  local ret = 0
+  if (prefix == "minera") then
+	ret = 3
+	if (string.sub(tilename, -6, -3) ~= "dirt") then
+	  ret = ret - 1
+	end
+	local midfix = string.sub(tilename, 9, 14)
+	if ((midfix == "black-") or (midfix == "purple") or
+	    (midfix == "violet") or (midfix == "auberg")) then
+	  ret = ret - 1
+	end
+  elseif (prefix == "grass-") then
+	local variation = tonumber(string.sub(tilename, -1, -1))
+	if ((variation > 0) and (variation < 5)) then
+	  ret = 8 - variation
+	end
+  elseif (prefix == "volcan") then
+	if (string.sub(tilename, -1, -1) == "1") then
+	  ret = 1
+	end
+  elseif (prefix == "landfi") then
+	ret = 2
+  elseif (prefix == "dry-di") then
+	ret = 3
+  end
+  return ret
+end
+
 function grass_area(surface, center)
   local water_count = {}
   for i = 1, 4 do
@@ -969,34 +999,8 @@ function grass_area(surface, center)
   local candnum = 0
 
   for _, t in pairs(land_tiles) do
-    local prefix = string.sub(t.name, 1, 6)
-	local oldlvl = 0
-	if (prefix == "minera") then
-	  oldlvl = 3
-	  if (string.sub(t.name, -6, -3) ~= "dirt") then
-	    oldlvl = oldlvl - 1
-	  end
-	  local midfix = string.sub(t.name, 9, 14)
-	  if ((midfix == "black-") or (midfix == "purple") or
-	      (midfix == "violet") or (midfix == "auberg")) then
-		oldlvl = oldlvl - 1
-	  end
-    elseif (prefix == "grass-") then
-	  local variation = tonumber(string.sub(t.name, -1, -1))
-	  if ((variation > 1) and (variation < 5)) then
-	    oldlvl = 8 - variation
-	  end
-	elseif (prefix == "volcan") then
-	  if (string.sub(t.name, -1, -1) == "1") then
-	    oldlvl = 1
-	  end
-	elseif (prefix == "landfi") then
-	  oldlvl = 2
-	elseif (prefix == "dry-di") then
-	  oldlvl = 3
-	end
-
-	if (oldlvl > 0) then
+	local oldlvl = grass_level(t.name)
+	if ((oldlvl > 0) and (oldlvl < 7)) then
       local tx = t.position.x - cx
       local ty = t.position.y - cy
 	  local dx = (tx + 0.5) * (tx + 0.5)
@@ -1082,23 +1086,16 @@ function grass_area(surface, center)
 	temp = ((temp + 6) / 52)
 	elev = math.max(0, math.min(1, ((64 - elev) / 80)))
 	temp = math.max(0, math.min(1, (4 * temp * (1 - temp))))
-	moist = math.max(0, math.min(1, (1 - (moist * moist))))
-	local adjust = math.min(40, ((elev + temp + moist) *
-	    (1.5 + elev) * (1.5 + temp) * (1.5 + moist)))
-	local score1 = (c.score + (2 * adjust) - 20)
+	moist = math.max(0, math.min(1, (1 - ((1 - moist) * (1 - moist)))))
+	local adjust = ((elev + temp + moist) *
+	    (1.5 + elev) * (1 + temp) * (1 + moist))
+	local score1 = (c.score + (2 * adjust) - 5)
 	local score2 = (score1 - (c.dist / 1400000))
 
 	if (score2 > 0) then
 	  local dist = c.dist - (score2 * 600000)
 	  if (dist < 50000000) then
-	    local newlvl = 1
-		if (score2 > 50) then
-		  newlvl = 4
-		elseif (score2 > 30) then
-		  newlvl = 3
-		elseif (score2 > 15) then
-		  newlvl = 2
-		end
+	    local newlvl = math.min(4, math.floor((score2 / 16) + 1))
 		if (newlvl > c.oldlvl) then
 	      newind = newind + 1
 	      newtiles[newind] = { name = "grass-"..(5 - newlvl),

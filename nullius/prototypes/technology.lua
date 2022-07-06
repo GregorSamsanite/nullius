@@ -6375,6 +6375,14 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-box-white-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-white-concrete"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-box-red-concrete"
       },
       {
@@ -6396,6 +6404,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-yellow-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-orange-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-orange-concrete"
       },
       {
         type = "unlock-recipe",
@@ -7285,6 +7301,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-white-concrete"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-red-concrete"
       },
       {
@@ -7298,6 +7318,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-purple-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-orange-concrete"
       },
       {
         type = "unlock-recipe",
@@ -8701,6 +8725,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-white-concrete"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-boxed-red-concrete"
       },
       {
@@ -8718,6 +8746,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-purple-concrete"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-orange-concrete"
       },
       {
         type = "unlock-recipe",
@@ -12372,6 +12404,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-paving-remote-grey"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-paving-drone-white"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-paving-remote-white"
       },
       {
         type = "unlock-recipe",

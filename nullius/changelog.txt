@@ -1,4 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.16
+Date: 05.07.2022
+  Features:
+    - Add YAFC presets for starting items, asteroid mining, and checkpoints.
+    - Add white and orange colored concrete.
+  Balancing:
+    - Trees spawn much more densely and more are required for mission goal. 
+    - Trees are more sensitive to terrain and environmental conditions.
+    - Trees get diminishing returns from proximity to multiple worms.
+    - Make fish a little easier to spawn.
+    - Adjust some biology mission goal thresholds.
+  Bugfixes:
+    - Fix a bug with /editor mode messing up body switching queue.
+    - Fix a problem with suppressed small beacon deconstruction cancellation.
+  Changes:
+    - Make tiles placed by new landfill implementation blueprintable.
+    - Minor tweaks to grass seeding algorithm.
+    - Rearrange terrain item columns to make room for more colored concrete.
+  Graphics:
+    - Different tree types spawn in different environmetal conditions.
+    - Make yellow colored concrete brighter.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.15
 Date: 02.07.2022
   Features:
