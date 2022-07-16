@@ -710,7 +710,6 @@ data:extend({
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     crafting_categories = {"nanotechnology"},
     fast_replaceable_group = "nanofabricator",
-    next_upgrade = "nullius-nanofabricator-2",
     crafting_speed = 2,
     energy_source = {
       type = "electric",

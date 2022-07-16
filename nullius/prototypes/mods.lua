@@ -127,7 +127,7 @@ data:extend({
 end
 
 
-if mods["Factorissimo2"] then
+if mods["Factorissimo2"] or mods["factorissimo-2-notnotmelon"] then
 data:extend({
   {
     type = "recipe",
@@ -176,10 +176,14 @@ data:extend({
     },
     result = "factory-3",
     enabled = false
-  },
+  }
+})
+
+if mods["factorissimo-2-notnotmelon"] then
+data:extend({
   {
     type = "recipe",
-    name = "nullius-factory-circuit-input",
+    name = "nullius-factory-circuit-connector",
     category = "small-crafting",
     always_show_made_in = true,
     energy_required = 2,
@@ -187,20 +191,22 @@ data:extend({
       {"green-wire", 3},
       {"arithmetic-combinator", 1}
     },
-    result = "factory-circuit-input",
+    result = "factory-circuit-connector",
     enabled = false
-  },
+  }
+})
+else
+data:extend({
   {
     type = "recipe",
-    name = "nullius-factory-circuit-output",
-    category = "small-crafting",
+    name = "nullius-factory-requester-chest",
+    category = "medium-crafting",
     always_show_made_in = true,
-    no_productivity = true,
-    energy_required = 0.5,
+    energy_required = 10,
     ingredients = {
-      {"factory-circuit-input", 1}
+      {"nullius-small-demand-chest-1", 4}
     },
-    result = "factory-circuit-output",
+    result = "factory-requester-chest",
     enabled = false
   },
   {
@@ -231,17 +237,32 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-factory-requester-chest",
-    category = "medium-crafting",
+    name = "nullius-factory-circuit-input",
+    category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 2,
     ingredients = {
-      {"nullius-small-demand-chest-1", 4}
+      {"green-wire", 3},
+      {"arithmetic-combinator", 1}
     },
-    result = "factory-requester-chest",
+    result = "factory-circuit-input",
+    enabled = false
+  },
+  {
+    type = "recipe",
+    name = "nullius-factory-circuit-output",
+    category = "small-crafting",
+    always_show_made_in = true,
+    no_productivity = true,
+    energy_required = 0.5,
+    ingredients = {
+      {"factory-circuit-input", 1}
+    },
+    result = "factory-circuit-output",
     enabled = false
   }
 })
+end
 end
 
 

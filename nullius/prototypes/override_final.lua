@@ -35,10 +35,10 @@ data.raw.item["storage-tank"].icons = {{
 data.raw["storage-tank"]["storage-tank"].icons = data.raw.item["storage-tank"].icons
 data.raw["storage-tank"]["storage-tank"].fluid_box.height = 1.7
 data.raw["storage-tank"]["storage-tank"].fluid_box.base_area = 88.235295
-if mods["reskins-library"] then
 data.raw["storage-tank"]["storage-tank"].pictures =
-    data.raw["storage-tank"]["nullius-medium-tank-original"].pictures
-end
+    util.table.deepcopy(data.raw["storage-tank"]["nullius-medium-tank-3"].pictures)
+data.raw["storage-tank"]["storage-tank"].pictures.picture.sheets[1].tint = {0.9, 0.8, 0.6}
+
 
 if mods["reskins-bobs"] then
 data.raw.item["radar"].icons = {
@@ -275,12 +275,17 @@ data.raw["pump"]["pump"].next_upgrade = nil
 data.raw["pump"]["pump"].fluid_box.height = 10
 data.raw["pump"]["pump"].pumping_speed = 160
 if mods["reskins-library"] then
-  data.raw["pump"]["pump"].animations = data.raw["pump"]["nullius-pump-original"].animations
   data.raw.item["pump"].icons = {{
     icon = "__base__/graphics/icons/pump.png",
     icon_size = 64, icon_mipmaps = 4
   }}
 end
+data.raw.pump.pump.animations =
+    util.table.deepcopy(data.raw.pump["nullius-pump-1"].animations)
+data.raw.pump.pump.animations.north.layers[3] = nil
+data.raw.pump.pump.animations.east.layers[2] = nil
+data.raw.pump.pump.animations.south.layers[3] = nil
+data.raw.pump.pump.animations.west.layers[2] = nil
 
 
 -- Workaround issues with Squeak_Through

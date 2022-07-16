@@ -13357,6 +13357,34 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-wildlife-management-1",
+    order = "nullius-gg",
+    icon = "__base__/graphics/technology/military.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-rifle"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-magazine-2"
+      }
+    },
+    unit = {
+      count = 8000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-zoology-1", "nullius-checkpoint-copper-ingot", "nullius-uranium-processing"}
+  },
+  {
+    type = "technology",
     name = "nullius-miniaturization-2",
     order = "nullius-gg",
     icon = "__base__/graphics/technology/electronics.png",
@@ -13693,7 +13721,8 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-robotics-4", "nullius-optimization-7"}
+    prerequisites = {"nullius-robotics-4", "nullius-optimization-7",
+	    "nullius-wildlife-management-1"}
   },
   {
     type = "technology",
@@ -14193,7 +14222,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-wildlife-management",
+    name = "nullius-wildlife-management-2",
     order = "nullius-gj",
     icon = "__base__/graphics/technology/laser-turret.png",
     icon_size = 256,
@@ -14320,7 +14349,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-wildlife-management"}
+    prerequisites = {"nullius-wildlife-management-2"}
   },
   {
     type = "technology",

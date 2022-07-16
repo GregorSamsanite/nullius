@@ -817,14 +817,6 @@ data.raw["pump"]["pump"].resistances = {
   { type = "impact", decrease = 100, percent = 90 },
   { type = "fire", decrease = 20, percent = 50 }
 }
-data.raw.pump.pump.animations.north = { layers = {
-  data.raw.pump["nullius-pump-1"].animations.north.layers[1],
-  data.raw.pump.pump.animations.north
-}}
-data.raw.pump.pump.animations.south = { layers = {
-  data.raw.pump["nullius-pump-1"].animations.south.layers[1],
-  data.raw.pump.pump.animations.south
-}}
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_categories = {"unused-resource"}
 data.raw["mining-drill"]["electric-mining-drill"].resource_categories = {"unused-resource"}

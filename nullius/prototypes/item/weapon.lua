@@ -89,6 +89,38 @@ data:extend({
       sound = data.raw["gun"]["tank-machine-gun"].attack_parameters.sound
     }
   },
+  {
+    type = "gun",
+    name = "nullius-car-gun-2",
+    localised_name = {"item-name.nullius-gun"},
+    localised_description = {"item-description.nullius-gun"},
+    icon = "__base__/graphics/icons/submachine-gun.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    flags = {"hidden"},
+    subgroup = "gun",
+    order = "nullius-xb",
+    stack_size = 1,
+    attack_parameters = {
+      type = "projectile",
+      ammo_category = "bullet",
+      cooldown = 10,
+      movement_slow_down_factor = 0.5,
+      shell_particle = {
+        name = "shell-particle",
+        direction_deviation = 0.1,
+        speed = 0.1,
+        speed_deviation = 0.03,
+        center = {0, 0},
+        creation_distance = -0.6875,
+        starting_frame_speed = 0.4,
+        starting_frame_speed_deviation = 0.1
+      },
+      projectile_creation_distance = 0.65,
+      range = 72,
+      sound = data.raw["gun"]["tank-machine-gun"].attack_parameters.sound
+    }
+  },
 
   {
     type = "gun",
@@ -123,6 +155,39 @@ data:extend({
       sound = data.raw["gun"]["tank-machine-gun"].attack_parameters.sound
     }
   },
+  {
+    type = "gun",
+    name = "nullius-truck-gun-2",
+    localised_name = {"item-name.nullius-gun"},
+    localised_description = {"item-description.nullius-gun"},
+    icon = "__base__/graphics/icons/tank-cannon.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    flags = {"hidden"},
+    subgroup = "gun",
+    order = "nullius-xd",
+    stack_size = 1,
+    attack_parameters = {
+      type = "projectile",
+      ammo_category = "bullet",
+      cooldown = 6,
+      movement_slow_down_factor = 0.3,
+      shell_particle = {
+        name = "shell-particle",
+        direction_deviation = 0.1,
+        speed = 0.1,
+        speed_deviation = 0.03,
+        center = {0, 0},
+        creation_distance = -0.6875,
+        starting_frame_speed = 0.4,
+        starting_frame_speed_deviation = 0.1
+      },
+      projectile_center = {-0.15625, -0.07812},
+      projectile_creation_distance = 1,
+      range = 80,
+      sound = data.raw["gun"]["tank-machine-gun"].attack_parameters.sound
+    }
+  },
 
   {
     type = "gun",
@@ -154,7 +219,7 @@ data:extend({
       projectile_creation_distance = -0.5,
       projectile_center = {0, 0.3},
       projectile_orientation_offset = 0.03125,
-      range = 64,
+      range = 80,
       sound = data.raw["gun"]["tank-machine-gun"].attack_parameters.sound
     }
   },
@@ -290,7 +355,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "demolitions",
-    order = "nullius-c",
+    order = "nullius-cb",
     stack_size = 10,
     attack_parameters = {
       type = "projectile",
@@ -326,6 +391,51 @@ data:extend({
       {"nullius-rubber", 1}
     },
     result = "nullius-gun"
+  },
+
+  {
+    type = "gun",
+    name = "nullius-rifle",
+    icon = "__base__/graphics/icons/submachine-gun.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    subgroup = "demolitions",
+    order = "nullius-cc",
+    stack_size = 5,
+    attack_parameters = {
+      type = "projectile",
+      ammo_category = "bullet",
+      cooldown = 6,
+      movement_slow_down_factor = 0.4,
+      shell_particle = {
+        name = "shell-particle",
+        direction_deviation = 0.15,
+        speed = 0.15,
+        speed_deviation = 0.05,
+        center = {0, 0.1},
+        creation_distance = -0.5,
+        starting_frame_speed = 0.5,
+        starting_frame_speed_deviation = 0.15
+      },
+      projectile_creation_distance = 1.125,
+      range = 72,
+      sound = data.raw["gun"]["submachine-gun"].attack_parameters.sound
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-rifle",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-gun", 2},
+      {"nullius-titanium-plate", 4},
+      {"nullius-motor-3", 1},
+      {"nullius-sensor-2", 1}
+    },
+    result = "nullius-rifle"
   },
 
   {
@@ -498,11 +608,12 @@ data:extend({
   {
     type = "ammo",
     name = "nullius-magazine",
+	localised_name = {"", {"item-name.nullius-magazine"}, " ", 1},
     icon = "__base__/graphics/icons/piercing-rounds-magazine.png",
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "demolitions",
-    order = "nullius-e",
+    order = "nullius-eb",
     stack_size = 200,
     magazine_size = 10,
     ammo_type = {
@@ -550,6 +661,61 @@ data:extend({
     }
   },
   {
+    type = "ammo",
+    name = "nullius-magazine-2",
+	localised_name = {"", {"item-name.nullius-magazine"}, " ", 2},
+    icon = "__base__/graphics/icons/uranium-rounds-magazine.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    subgroup = "demolitions",
+    order = "nullius-ec",
+    stack_size = 200,
+    magazine_size = 10,
+    ammo_type = {
+      category = "bullet",
+      target_type = "position",
+      action = {
+        {
+          type = "direct",
+          action_delivery = {
+            type = "instant",
+            source_effects = {
+              type = "create-explosion",
+              entity_name = "explosion-gunshot"
+            },
+            target_effects = {
+              type = "create-entity",
+              entity_name = "explosion-hit",
+              offsets = {{0, 1}},
+              offset_deviation = {{-0.8, -0.8}, {0.8, 0.8}}
+            }
+          }
+        },
+        {
+          type = "area",
+          radius = 0.8,
+          action_delivery = {
+            type = "instant",
+            target_effects = {
+              {
+                type = "damage",
+                repeat_count = 5,
+                repeat_count_deviation = 3,
+                damage = { amount = 500, type = "physical"}
+              },
+              {
+                type = "damage",
+                repeat_count = 5,
+                repeat_count_deviation = 3,
+                damage = { amount = 200, type = "physical"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     type = "recipe",
     name = "nullius-magazine",
     enabled = false,
@@ -581,6 +747,23 @@ data:extend({
     },
     result = "nullius-box-magazine",
     result_count = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-magazine-2",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "hand-casting",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-box-magazine", 2},
+      {"nullius-uranium", 1},
+	  {"nullius-copper-sheet", 1}
+    },
+    result = "nullius-magazine-2",
+    result_count = 3
   },
 
   {

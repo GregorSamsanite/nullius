@@ -653,7 +653,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-wildlife-management"},
+    prerequisites = {"nullius-wildlife-management-2"},
     max_level = "infinite",
     upgrade = true
   },

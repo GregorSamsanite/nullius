@@ -6285,6 +6285,7 @@ data:extend({
     fuel_value = "3GJ",
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.4,
+	fuel_glow_color = {r=0.9, g=0, b=0.8, a=1},
     subgroup = "nuclear",
     order = "nullius-cb",
     stack_size = 20
@@ -6310,6 +6311,7 @@ data:extend({
     fuel_value = "500MJ",
     fuel_acceleration_multiplier = 1.5,
     fuel_top_speed_multiplier = 1.25,
+	fuel_glow_color = {r=0, g=0.6, b=0.9, a=1},
     subgroup = "nuclear",
     order = "nullius-db",
     stack_size = 20

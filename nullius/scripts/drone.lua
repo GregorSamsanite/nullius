@@ -355,11 +355,15 @@ function arboriculture_effect(event)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local a = area_bound(c, 96)
-  local worm_count = count_decoratives(s, area_bound(c, 96), 10, "worms-decal")
+  local worm_count = count_decoratives(s, a, 10, "worms-decal")
+  local turrets = s.count_entities_filtered{limit=10, area=a,
+	  name = {"small-worm-turret", "medium-worm-turret",
+	      "big-worm-turret", "behemoth-worm-turret"}}
+
   local fumarole_count = s.count_entities_filtered{area=area_bound(c, 256),
       position=c, radius=256, limit=20, name="nullius-fumarole"}
   local count = 24 * (1 + (math.random() * 2) - fumarole_count +
-      (math.sqrt(worm_count) * (2 + (4 * math.random()))))
+      (math.sqrt(worm_count + (turrets * 1.5)) * (2 + (4 * math.random()))))
   local bump_count = 0
   local propnames = {[1] = "temperature", [2] = "moisture"}
 
@@ -449,24 +453,53 @@ function entomology_effect(event)
     local distance = (math.random() * 96) + (math.random() * 48) - 72
     local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
     local o = area_bound(p, 5)
-    local overlap_decorative = count_decoratives(s, o, 2, "worms-decal")
+    local overlap_worm = count_decoratives(s, o, 2, "worms-decal")
     local overlap_water = s.count_tiles_filtered{area=o, position=p, radius=4, limit=4,
 	    name={"deepwater", "water", "water-shallow",
 	        "deepwater-green", "water-green", "water-mud"}}
+	overlap_worm = (overlap_worm + s.count_entities_filtered{limit=2, area=o,
+	    name = {"small-worm-turret", "medium-worm-turret",
+	        "big-worm-turret", "behemoth-worm-turret"}} +
+	    s.count_entities_filtered{limit=2, area=area_bound(p, 2)})
 
-    if ((overlap_decorative < 1) and (overlap_water < 3)) then
+    if ((overlap_worm < 1) and (overlap_water < 3)) then
       local a = area_bound(p, 25)
       local grass_count = s.count_tiles_filtered{area=a, position=p, radius=24, limit=1000,
-        collision_mask="ground-tile", name={"grass-1", "grass-2", "grass-4"}}
+          collision_mask="ground-tile", name={"grass-1", "grass-2", "grass-3", "grass-4"}}
       local tree_count = s.count_entities_filtered{area=a, position=p, radius=24, limit=12, type="tree"}
       local worm_count = count_decoratives(s, a, 10, "worms-decal")
+	  worm_count = worm_count + s.count_entities_filtered{limit=10, area=a,
+	      name = {"small-worm-turret", "medium-worm-turret",
+	          "big-worm-turret", "behemoth-worm-turret"}}
       local odds = ((grass_count / 200) + (tree_count / 2) - worm_count) / 10
 	  local rv = math.random()
       if (rv < odds) then
 	    local change_ground = false
-        s.create_decoratives{check_collision=true, decoratives={{name="worms-decal", position=p, amount=1}}}
-		if (count_decoratives(s, o, 2, "worms-decal")) then
-		  change_ground = true
+		local status = 0
+		if (global.nullius_mission_status ~= nil) then
+		  status = global.nullius_mission_status[6]
+		  if (status == nil) then status = 0 end
+		  status = math.max(0, math.min(100, status))
+		end
+		local evolution = (rv + (3 * math.random()) + (status / 40) - 4)
+
+		if (evolution > 0) then
+		  local wormsize = "small"
+		  if (evolution > 1.8) then wormsize = "behemoth"
+		  elseif (evolution > 1.2) then wormsize = "big"
+		  elseif (evolution > 0.6) then wormsize = "medium" end
+		  local wormname = wormsize.."-worm-turret"
+		  s.create_entity({name=wormname, amount=1, position=p})
+		  if (s.count_entities_filtered{limit=2,
+		      area=o, name = wormname} > 0) then
+		    change_ground = true
+		  end
+		else
+          s.create_decoratives{check_collision=true,
+		      decoratives={{name="worms-decal", position=p, amount=1}}}
+		  if (count_decoratives(s, o, 2, "worms-decal") > 0) then
+		    change_ground = true
+		  end
 		end
 
 		if (change_ground) then
@@ -516,8 +549,11 @@ function entomology_effect(event)
   end
 
   if (event.source_entity ~= nil) then
-    local new_count = count_decoratives(s, nil, 1000, "worms-decal")
-    set_mission_goal(6, new_count, event.source_entity.force)
+    local decals = count_decoratives(s, nil, 1000, "worms-decal")
+	local turrets = s.count_entities_filtered{limit=1000,
+	    name = {"small-worm-turret", "medium-worm-turret",
+		    "big-worm-turret", "behemoth-worm-turret"}}
+    set_mission_goal(6, (decals + turrets), event.source_entity.force)
   end
 end
 
@@ -535,13 +571,13 @@ function aquaculture_effect(event)
 
   for _ = 1, attempt_count do
     local angle = 2 * math.pi * math.random()
-  local distance = (math.random() * 96) + (math.random() * 48) - 72
+    local distance = (math.random() * 96) + (math.random() * 48) - 72
     local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
     local overlap_land = s.count_tiles_filtered{area=area_bound(p, 1), limit=2, collision_mask="ground-tile"}
-  local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 1.5), limit=2}
-  if ((overlap_obstacle < 1) and (overlap_land < 1)) then
-    s.create_entity({name="fish", amount=1, position=p})
-  end
+    local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 1.5), limit=2}
+    if ((overlap_obstacle < 1) and (overlap_land < 1)) then
+      s.create_entity({name="fish", amount=1, position=p})
+    end
   end
 
   if (event.source_entity ~= nil) then
@@ -551,38 +587,225 @@ function aquaculture_effect(event)
 end
 
 function husbandry_effect(event)
-  scout_effect(event, 2)
+  scout_effect(event, 4)
+
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
-  local overlap_water = s.count_tiles_filtered{area=area_bound(c, 4), limit=2,
+  local near = area_bound(c, 3.6)
+  local overlap_water = s.count_tiles_filtered{area=near, limit=2,
       name={"deepwater", "water", "water-shallow",
 	        "deepwater-green", "water-green", "water-mud"}}
-  local overlap_nest = s.count_entities_filtered{area=area_bound(c, 4), name="biter-spawner", limit=2}
+  local overlap_nest = s.count_entities_filtered{area=near, limit=2,
+      invert=true, type={"unit", "tree", "simple-entity", "item-entity",
+	      "artillery-projectile", "entity-ghost", "resource", "cliff"}}
+  if ((overlap_nest > 0) or (overlap_water > 0)) then return end
 
-  if ((overlap_nest < 1) and (overlap_water < 1)) then
-    local a = area_bound(c, 128)
-    local fish_count = s.count_entities_filtered{area=a, position=c, radius=128, limit=50, type="fish"}
-    local tree_count = s.count_entities_filtered{area=a, position=c, radius=128, limit=200, type="tree"}
-    local nest_count = s.count_entities_filtered{area=a, position=c, radius=128, limit=25, type="unit-spawner"}
-    local fumarole_count = s.count_entities_filtered{area=a, position=c, radius=128, limit=10, name="nullius-fumarole"}
-    local penalty = 5 * (5 + fumarole_count) * (2 + nest_count)
-    local bonus = math.max(0, (math.sqrt(fish_count * tree_count) * (global.nullius_mission_status[2] - 50) / 40))
-    local odds = math.sqrt(math.max(0, ((bonus / penalty) - 0.2)))
+  local far = area_bound(c, 160)
+  local mid = area_bound(c, 56)
+  local fish_count = s.count_entities_filtered{area=far,
+      position=c, radius=160, limit=30, type="fish"} +
+	  (2 * s.count_entities_filtered{area=mid,
+          position=c, radius=56, limit=10, type="fish"})
+  local tree_count = s.count_entities_filtered{area=far,
+	  position=c, radius=160, limit=120, type="tree"} +
+	  (2 * s.count_entities_filtered{area=mid,
+	      position=c, radius=56, limit=40, type="tree"})
+  local nest_count = s.count_entities_filtered{area=far,
+	  position=c, radius=160, limit=25, type="unit-spawner"} +
+	  (2 * s.count_entities_filtered{area=mid,
+	      position=c, radius=56, limit=10, type="unit-spawner"})
+  local fumarole_count = s.count_entities_filtered{area=far,
+	  position=c, radius=160, limit=10, name="nullius-fumarole"} +
+	  (2 * s.count_entities_filtered{area=mid,
+	      position=c, radius=56, limit=4, name="nullius-fumarole"})
+  local penalty = 4 * (5 + fumarole_count) * (3 + nest_count)
+  local bonus = (math.sqrt(fish_count * tree_count) *
+	  (global.nullius_mission_status[2] - 55) / 30)
+  local odds = math.sqrt(math.max(0, ((bonus / penalty) - 0.1))) - 0.2
+  if (math.random() > odds) then return end
 
-  if (math.random() < odds) then
-    if (global.nullius_mission_status[8] == 0) then
-      game.forces["enemy"].reset_evolution()
-    elseif (game.forces["enemy"].evolution_factor < 0.8) then
-      game.forces["enemy"].evolution_factor = game.forces["enemy"].evolution_factor + 0.01
+  local entities = s.find_entities_filtered{area=near, limit=2,
+      type={"unit", "tree", "simple-entity", "item-entity", "cliff"}}
+  for _, e in pairs(entities) do
+    if (e.valid and e.destructible) then
+      e.destroy({do_cliff_correction = true})
     end
-    s.create_entity({name="biter-spawner", amount=1, position=c})
+  end
 
-      if (event.source_entity ~= nil) then
-        local new_count = s.count_entities_filtered{name="biter-spawner", limit=500}
-        set_mission_goal(8, new_count, event.source_entity.force)
-      end
+  local nest = s.create_entity{name="biter-spawner", amount=1, position=c}
+  if ((nest == nil) or (global.nullius_mission_status == nil)) then return end
+  local old_status = global.nullius_mission_status[8]
+  if (old_status == nil) then old_status = 0 end
+  if (old_status == 0) then
+    game.forces["enemy"].reset_evolution()
+  elseif (game.forces["enemy"].evolution_factor < 0.8) then
+    game.forces["enemy"].evolution_factor =
+	    game.forces["enemy"].evolution_factor + 0.01
   end
+
+  if (event.source_entity == nil) then return end
+  local force = event.source_entity.force
+  if (force == nil) then return end
+  local new_status = 100
+  if (not global.nullius_mission_complete) then
+    local new_count = s.count_entities_filtered{name="biter-spawner", limit=500}
+    set_mission_goal(8, new_count, force)
+    new_status = global.nullius_mission_status[8]
   end
+
+  local invasions = global.nullius_invasions
+  if (invasions == nil) then invasions = 0 end
+  local cooldown = global.nullius_invasion_cooldown
+  if (cooldown ~= nil) then
+    global.nullius_invasion_cooldown = cooldown - 1
+	if (global.nullius_invasion_cooldown < 1) then
+	  global.nullius_invasion_cooldown = nil
+	end
+	return
+  end
+
+  if (old_status < 100) then
+    local odds = (new_status / 7.5) - invasions - 1.5
+    if (math.random() >= odds) then return end
+	cooldown = 2
+  elseif (invasions < 12) then
+    cooldown = 2
+  elseif (invasions < 18) then
+    cooldown = 1
+  end
+  invasions = invasions + 1
+
+  local waves = {
+    {{2, "small-biter"}},
+	{{4, "small-spitter"}},
+	{{3, "medium-biter"}},
+	{{2, "medium-biter"}, {4, "small-biter"}},
+	{{4, "medium-spitter"}, {4, "small-spitter"}},
+	{{3, "big-biter"}, {6, "medium-spitter"}},
+	{{4, "big-spitter"}, {6, "medium-biter"}},
+	{{2, "behemoth-biter"}, {2, "behemoth-spitter"}},
+	{{5, "behemoth-biter"}, {5, "behemoth-spitter"}},
+	{{40, "big-biter"}},
+	{{40, "big-spitter"}},
+	{{8, "behemoth-biter"}, {12, "big-spitter"}},
+	{{2, "behemoth-biter"}, {2, "behemoth-spitter"}},
+	{{8, "behemoth-spitter"}, {12, "big-biter"}},
+	{{20, "big-biter"}, {20, "big-spitter"}},
+	{{15, "behemoth-biter"}},
+	{{15, "behemoth-spitter"}},
+	{{5, "behemoth-biter"}},
+	{{10, "behemoth-biter"}, {5, "behemoth-spitter"}}
+  }
+
+  local waveind = invasions
+  if (waveind > 19) then waveind = (10 + (waveind % 10)) end
+  local group = nil
+  local origin = c
+  local breach = ((invasions % 5) == 3)
+  if (breach) then origin = event.source_entity.position end
+
+  for _,w in pairs(waves[waveind]) do
+    local unitcount = w[1]
+    local unitname = w[2]
+	local radius = (5 + (3 * math.sqrt(unitcount)))
+	local attempts = (4 * unitcount)
+    for i=1,attempts do
+	  if (unitcount > 0) then
+	    local angle = (8 * math.pi * math.random())
+        local distance = ((math.random() * radius) - (math.random() * radius))
+        local p = {x = origin.x + (math.cos(angle) * distance),
+	        y = origin.y + (math.sin(angle) * distance)}
+	    local box = area_bound(p, 1.1)
+        local overlap_water = s.count_tiles_filtered{area=box,
+		    limit=2, name={"deepwater", "water", "water-shallow",
+	            "deepwater-green", "water-green", "water-mud"}}
+        local overlap_entity = s.count_entities_filtered{area=box,
+		    limit=2, collision_mask = "object-layer"}
+		if ((overlap_water < 1) and (overlap_entity < 1)) then
+		  local unit = s.create_entity{name=unitname, amount=1, position=p}
+		  if ((unit ~= nil) and unit.valid) then
+		    unitcount = unitcount - 1
+            if (group == nil) then
+			  group = s.create_unit_group{position=p}
+			  if ((group ~= nil) and (not group.valid)) then group = nil end
+			end
+			if (group ~= nil) then group.add_member(unit) end
+          end
+		end
+	  end
+	end
+  end
+
+  if (group == nil) then return end
+  local player_odds = 0.4
+  if (breach) then
+    player_odds = 0.6
+    force.print({"objective-description.nullius-escape"})
+  end
+  local target = event.source_entity
+  local assassinate = false
+  global.nullius_invasions = invasions
+  global.nullius_invasion_cooldown = cooldown
+
+  if (math.random() < player_odds) then
+    local pcount = 0
+    for _,player in pairs(force.players) do
+	  pcount = pcount + 1
+	end
+	local target_player = force.players[1 +
+	    math.floor(math.random() * pcount)]
+	if ((target_player ~= nil) and (target_player.character ~= nil)) then
+	  target = target_player.character
+	  assassinate = breach
+	end
+  end
+
+  local command = {
+    type = defines.command.compound,
+	structure_type = defines.compound_command.return_last
+  }
+  if (assassinate) then
+    command.commands = {
+	  {
+	    type = defines.command.go_to_location,
+		destination_entity = target,
+		distraction = defines.distraction.none,
+		radius = 24
+	  },
+	  {
+	    type = defines.command.attack,
+		target = target,
+		distraction = defines.distraction.by_damage
+	  },
+	  {
+	    type = defines.command.go_to_location,
+		destination = origin,
+		radius = 24
+	  }
+	}
+  else
+    command.commands = {
+	  {
+	    type = defines.command.go_to_location,
+		destination = target.position,
+		radius = 24
+	  },
+	  {
+	    type = defines.command.attack_area,
+		destination = target.position,
+		radius = 128
+	  },
+	  {
+	    type = defines.command.wander,
+		ticks_to_wait = 18000
+	  }
+	}
+  end
+  command.commands[4] = {
+    type = defines.command.build_base,
+	destination = target.position
+  }
+  group.set_command(command)
 end
 
 

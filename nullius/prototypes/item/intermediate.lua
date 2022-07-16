@@ -7533,6 +7533,7 @@ data:extend({
     fuel_value = "4GJ",
     fuel_acceleration_multiplier = 2.2,
     fuel_top_speed_multiplier = 1.6,
+	fuel_glow_color = {r=0, g=1, b=0, a=1},
     subgroup = "nuclear",
     order = "nullius-eb",
     stack_size = 20
@@ -7596,6 +7597,7 @@ data:extend({
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-antimatter",
     fuel_value = "1GJ",
+	fuel_glow_color = {r=0.9, g=0.6, b=0, a=1},
     subgroup = "nuclear",
     order = "nullius-fb",
     stack_size = 20

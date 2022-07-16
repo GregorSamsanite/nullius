@@ -954,7 +954,7 @@ function grass_area(surface, center)
   local cy = center.y
   local vicinity = area_bound(center, 104)
   local rocks = surface.find_entities_filtered{
-      area=vicinity, type={"simple-entity", "resource", "cliff"}}
+      area=vicinity, type={"simple-entity", "resource", "cliff", "turret"}}
   for _, e in pairs(rocks) do
     if (e.valid and (e.position ~= nil) and (e.selection_box ~= nil)) then
       local rx = e.position.x - cx

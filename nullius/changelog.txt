@@ -1,4 +1,37 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.18
+Date: 15.07.2022
+  Features:
+    - Husbandry drones have a chance of triggering invasions.
+  Balancing:
+    - Make prime conditions for husbandry drones more lenient.
+    - Marginally increase friction coefficient of cars.
+    - Increase effect of terrain friction modifier on trucks.
+  Modding:
+    - Add tech for thermal connection in Factorissimo2 fork.
+    - Fix conflict with Factorissimo2 fork by removing factory request chest.
+    - Fix miniloader 3 to upgrade into miniloader 4.
+    - Reduce Transport Drone "fast road" friction modifier.
+  Graphics:
+    - Give nuclear reactors a different glow color depending on fuel.
+    - Improve appearance of valve and small pump pipe connections.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.17
+Date: 09.07.2022
+  Features:
+    - Worms become larger and more dangerous as mission goal advances.
+    - New tier of Wildlife Mangement with new gun and ammo tier.
+  Bugfixes:
+    - Fix upgrade field of Nanofabricator 2.
+    - Fix YAFC preset to mark asteroid ore entities rather than ore items.
+  Balancing:
+    - Increase firing rate and range of built-in gun in tier 3 vehicles.
+  Graphics:
+    - Fix appearance of north pipe connections of medium storage tanks.
+    - Changed appearance of medium tank 1.
+  Modding:
+    - Support notnotmelon fork of Factorissimo2.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.16
 Date: 05.07.2022
   Features:

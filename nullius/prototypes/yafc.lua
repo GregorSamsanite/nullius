@@ -24,11 +24,12 @@ local starting_items = {
   "nullius-distillery-1",
   "nullius-broken-electrolyzer",
   "nullius-chemical-plant-1",
-  "nullius-broken-chemical-plant",
-  "uranium-ore",
-  "copper-ore"
+  "nullius-broken-chemical-plant"
 }
 
+
+table.insert(data.script_enabled, {type = "entity", name = "uranium-ore"})
+table.insert(data.script_enabled, {type = "entity", name = "copper-ore"})
 
 for _, itemname in pairs(starting_items) do
   table.insert(data.script_enabled, {type = "item", name = itemname})

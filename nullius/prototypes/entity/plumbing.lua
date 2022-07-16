@@ -1091,7 +1091,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     flow_length_in_ticks = 360,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1103,12 +1104,23 @@ data:extend({
     pictures = {
       picture = {
         north = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
+              priority = "extra-high",
+              frames = 1,
+              width = 64,
+              height = 64
+			}
+		  }
         },
         east = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
@@ -1120,13 +1132,25 @@ data:extend({
           shift = {0, 0}
         },
         south = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
-          priority = "extra-high",
-          x = 128,
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0.05}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
+              priority = "extra-high",
+              x = 128,
+              frames = 1,
+              width = 64,
+              height = 64,
+              shift = {0, -0.05}
+			}
+		  }
         },
         west = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-inspector.png",
@@ -1136,7 +1160,7 @@ data:extend({
           width = 64,
           height = 64,
           shift = {0, 0}
-        },
+        }
       },
       fluid_background = data.raw["storage-tank"]["valve-return"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["valve-return"].pictures.window_background,
@@ -1168,7 +1192,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     flow_length_in_ticks = 360,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1180,12 +1205,23 @@ data:extend({
     pictures = {
       picture = {
         north = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
+              priority = "extra-high",
+              frames = 1,
+              width = 64,
+              height = 64
+			}
+		  }
         },
         east = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
@@ -1197,13 +1233,25 @@ data:extend({
           shift = {0, 0}
         },
         south = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
-          priority = "extra-high",
-          x = 128,
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0.05}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
+              priority = "extra-high",
+              x = 128,
+              frames = 1,
+              width = 64,
+              height = 64,
+              shift = {0, -0.05}
+			}
+		  }
         },
         west = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-overflow.png",
@@ -1213,7 +1261,7 @@ data:extend({
           width = 64,
           height = 64,
           shift = {0, 0}
-        },
+        }
       },
       fluid_background = data.raw["storage-tank"]["valve-return"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["valve-return"].pictures.window_background,
@@ -1245,7 +1293,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     flow_length_in_ticks = 360,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1257,12 +1306,23 @@ data:extend({
     pictures = {
       picture = {
         north = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
+              priority = "extra-high",
+              frames = 1,
+              width = 64,
+              height = 64
+			}
+		  }
         },
         east = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
@@ -1274,13 +1334,25 @@ data:extend({
           shift = {0, 0}
         },
         south = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
-          priority = "extra-high",
-          x = 128,
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0.05}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
+              priority = "extra-high",
+              x = 128,
+              frames = 1,
+              width = 64,
+              height = 64,
+              shift = {0, -0.05}
+			}
+		  }
         },
         west = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-converter.png",
@@ -1290,7 +1362,7 @@ data:extend({
           width = 64,
           height = 64,
           shift = {0, 0}
-        },
+        }
       },
       fluid_background = data.raw["storage-tank"]["valve-return"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["valve-return"].pictures.window_background,
@@ -1323,7 +1395,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     flow_length_in_ticks = 360,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1335,12 +1408,23 @@ data:extend({
     pictures = {
       picture = {
         north = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
-          priority = "extra-high",
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
+              priority = "extra-high",
+              frames = 1,
+              width = 64,
+              height = 64
+			}
+		  }
         },
         east = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
@@ -1352,13 +1436,25 @@ data:extend({
           shift = {0, 0}
         },
         south = {
-          filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
-          priority = "extra-high",
-          x = 128,
-          frames = 1,
-          width = 64,
-          height = 64,
-          shift = {0, -0.05}
+		  layers = {
+		    {
+              filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+              frames = 1,
+              width = 128,
+              height = 64,
+			  scale = 0.5,
+			  shift = {0, -0.5}
+			},
+		    {
+              filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
+              priority = "extra-high",
+              x = 128,
+              frames = 1,
+              width = 64,
+              height = 64,
+              shift = {0, -0.05}
+			}
+		  }
         },
         west = {
           filename = "__angelspetrochem__/graphics/entity/valve/valve-return.png",
@@ -1368,7 +1464,7 @@ data:extend({
           width = 64,
           height = 64,
           shift = {0, 0}
-        },
+        }
       },
       fluid_background = data.raw["storage-tank"]["valve-return"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["valve-return"].pictures.window_background,
@@ -1423,8 +1519,8 @@ data:extend({
             priority = "extra-high",
             frames = 2,
             width = 219,
-            height = 215,
-            shift = util.by_pixel(-0.25, 3.75),
+            height = 235,
+            shift = util.by_pixel(-0.25, -1.25),
             tint = {0.85, 0.9, 1},
             scale = 0.5
           },
@@ -1452,7 +1548,7 @@ data:extend({
       fluid_background = data.raw["storage-tank"]["storage-tank"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["storage-tank"].pictures.window_background,
       flow_sprite = data.raw["storage-tank"]["storage-tank"].pictures.flow_sprite,
-      gas_flow = data.raw["storage-tank"]["storage-tank"].pictures.gas_flow,
+      gas_flow = data.raw["storage-tank"]["storage-tank"].pictures.gas_flow
     }
   },
 
@@ -1500,8 +1596,8 @@ data:extend({
             priority = "extra-high",
             frames = 2,
             width = 219,
-            height = 215,
-            shift = util.by_pixel(-0.25, 3.75),
+            height = 235,
+            shift = util.by_pixel(-0.25, -1.25),
             scale = 0.5
           },
           {
@@ -1528,7 +1624,7 @@ data:extend({
       fluid_background = data.raw["storage-tank"]["storage-tank"].pictures.fluid_background,
       window_background = data.raw["storage-tank"]["storage-tank"].pictures.window_background,
       flow_sprite = data.raw["storage-tank"]["storage-tank"].pictures.flow_sprite,
-      gas_flow = data.raw["storage-tank"]["storage-tank"].pictures.gas_flow,
+      gas_flow = data.raw["storage-tank"]["storage-tank"].pictures.gas_flow
     }
   },
 
@@ -2673,7 +2769,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     energy_source = {
       type = "electric",
@@ -2690,12 +2787,24 @@ data:extend({
 
     animations = {
       north = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
-        priority = "extra-high",
-        frames = 1,
-        width = 64,
-        height = 64,
-        tint = {0.7, 0.7, 0.7}
+		layers = {
+		  {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+            frames = 1,
+            width = 128,
+            height = 64,
+		    scale = 0.5,
+			shift = {0, -0.5}
+		  },
+		  {
+            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 64,
+            height = 64,
+            tint = {0.7, 0.7, 0.7}
+		  }
+		}
       },
       east = {
         filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
@@ -2707,13 +2816,26 @@ data:extend({
         tint = {0.7, 0.7, 0.7}
       },
       south = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
-        priority = "extra-high",
-        frames = 1,
-        x = 128,
-        width = 64,
-        height = 64,
-        tint = {0.7, 0.7, 0.7}
+		layers = {
+		  {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+            frames = 1,
+            width = 128,
+            height = 64,
+		    scale = 0.5,
+			shift = {0, -0.5}
+		  },
+		  {
+            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            priority = "extra-high",
+            frames = 1,
+			x = 128,
+            width = 64,
+            height = 64,
+            tint = {0.7, 0.7, 0.7},
+            shift = {0, -0.05}
+		  }
+		}
       },
       west = {
         filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
@@ -2751,7 +2873,8 @@ data:extend({
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
-      }
+      },
+	  pipe_covers = pipecoverspictures()
     },
     energy_source = {
       type = "electric",
@@ -2768,11 +2891,23 @@ data:extend({
 
     animations = {
       north = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
-        priority = "extra-high",
-        frames = 1,
-        width = 64,
-        height = 64
+		layers = {
+		  {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+            frames = 1,
+            width = 128,
+            height = 64,
+		    scale = 0.5,
+			shift = {0, -0.5}
+		  },
+		  {
+            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 64,
+            height = 64
+		  }
+		}
       },
       east = {
         filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
@@ -2783,12 +2918,25 @@ data:extend({
         height = 64
       },
       south = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
-        priority = "extra-high",
-        frames = 1,
-        x = 128,
-        width = 64,
-        height = 64
+		layers = {
+		  {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
+            frames = 1,
+            width = 128,
+            height = 64,
+		    scale = 0.5,
+			shift = {0, -0.5}
+		  },
+		  {
+            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            priority = "extra-high",
+            frames = 1,
+			x = 128,
+            width = 64,
+            height = 64,
+            shift = {0, -0.05}
+		  }
+		}
       },
       west = {
         filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
@@ -3006,12 +3154,3 @@ data:extend({
     pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/tungsten/")
   }
 })
-
-
-if mods["reskins-library"] then
-  local oldtank = util.table.deepcopy(data.raw["storage-tank"]["storage-tank"])
-  oldtank.name = "nullius-medium-tank-original"
-  local oldpump = util.table.deepcopy(data.raw["pump"]["pump"])
-  oldpump.name = "nullius-pump-original"
-  data:extend({ oldtank, oldpump })
-end

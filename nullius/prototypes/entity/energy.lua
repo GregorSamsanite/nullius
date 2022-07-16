@@ -1,7 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
-
 local BASEENTITY = "__base__/graphics/entity/"
 
 function accumulator_picture(tint, repeat_count)
@@ -4129,8 +4128,17 @@ data:extend({
     lower_layer_picture = data.raw.reactor["nuclear-reactor"].lower_layer_picture,
     heat_lower_layer_picture = data.raw.reactor["nuclear-reactor"].heat_lower_layer_picture,
     picture = data.raw.reactor["nuclear-reactor"].picture,
-    working_light_picture = data.raw.reactor["nuclear-reactor"].working_light_picture,
-    light = {intensity = 0.6, size = 9.9, shift = {0.0, 0.0}, color = {r = 0.0, g = 1.0, b = 0.0}},
+    light = {intensity = 0.8, size = 9.9, shift = {0.0, 0.0}},
+	use_fuel_glow_color = true,
+    working_light_picture = {
+        filename = ENTITYPATH.."reactor/reactor-lights.png",
+        blend_mode = "additive",
+        draw_as_glow = true,
+        width = 320,
+        height = 320,
+        scale = 0.5,
+        shift = { -0.03125, -0.1875 }
+    },
     energy_source = {
       type = "burner",
       fuel_category = "nullius-nuclear",
