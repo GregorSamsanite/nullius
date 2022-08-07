@@ -470,8 +470,8 @@ data.raw["radar"]["radar"].resistances = {{ type = "impact", decrease = 50, perc
 data.raw["repair-tool"]["repair-pack"].icon = "__base__/graphics/icons/repair-pack.png"
 data.raw["repair-tool"]["repair-pack"].icon_size = 64
 data.raw["repair-tool"]["repair-pack"].icon_mipmaps = 4
-data.raw["repair-tool"]["repair-pack"].subgroup = "armor"
-data.raw["repair-tool"]["repair-pack"].order = "nullius-mb"
+data.raw["repair-tool"]["repair-pack"].subgroup = "tool-upgrades"
+data.raw["repair-tool"]["repair-pack"].order = "nullius-bb"
 data.raw.recipe["repair-pack"].order = "x"
 
 data.raw["character"]["character"].localised_name = {"", {"item-name.nullius-android"}, " ", 1}

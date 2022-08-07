@@ -1,48 +1,49 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local EQUIPPATH = "__nullius__/graphics/equipment/"
 
 data:extend({
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-1",
     width = 4,
-    height = 5,
-    equipment_categories = {"cybernetic"}
+    height = 6,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-2",
-    width = 5,
-    height = 6,
-    equipment_categories = {"cybernetic"}
+    width = 6,
+    height = 7,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-3",
-    width = 6,
-    height = 8,
-    equipment_categories = {"cybernetic"}
+    width = 7,
+    height = 10,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-4",
-    width = 8,
-    height = 10,
-    equipment_categories = {"cybernetic"}
+    width = 9,
+    height = 12,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-5",
     width = 10,
-    height = 12,
-    equipment_categories = {"cybernetic"}
+    height = 14,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
     name = "nullius-armor-grid-6",
     width = 10,
-    height = 15,
-    equipment_categories = {"cybernetic"}
+    height = 18,
+    equipment_categories = {"cybernetic", "android"}
   },
   {
     type = "equipment-grid",
@@ -226,7 +227,7 @@ data:extend({
       {"nullius-textile", 20},
       {"nullius-robot-frame-3", 4},
       {"nullius-efficiency-module-2", 2},
-      {"logistic-chest-storage", 1}
+      {"nullius-small-cargo-pod-2", 3}
     },
     result = "nullius-chassis-4"
   },
@@ -235,6 +236,28 @@ data:extend({
     name = "nullius-chassis-5",
     enabled = false,
     always_show_made_in = true,
+    category = "hand-casting",
+    energy_required = 250,
+    ingredients = {
+      {"nullius-box-titanium-plate", 8},
+      {"nullius-box-carbon-composite", 8},
+      {"nullius-armor-plate", 8},
+      {"nullius-box-robot-frame-4", 1},
+      {"nullius-leg-augmentation-3", 4},
+      {"nullius-box-productivity-module-3", 1},
+      {"nullius-large-cargo-pod-3", 2}
+    },
+    result = "nullius-chassis-5"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-chassis-5",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	order = "nullius-efl",
     category = "hand-casting",
     energy_required = 250,
     ingredients = {
@@ -1313,15 +1336,15 @@ data:extend({
       icon_mipmaps = 4,
       tint = {1, 0.6, 0.8}
     }},
-    subgroup = "armor",
-    order = "nullius-mc",
+    subgroup = "tool-upgrades",
+    order = "nullius-bc",
     stack_size = 100,
     capsule_action = {
       type = "use-on-self",
       attack_parameters = {
         type = "projectile",
         ammo_category = "capsule",
-        cooldown = 60,
+        cooldown = 20,
         range = 0,
         ammo_type = {
           category = "capsule",
@@ -1332,7 +1355,7 @@ data:extend({
               type = "instant",
               target_effects = {
                 type = "damage",
-                damage = {type = "physical", amount = -125}
+                damage = {type = "physical", amount = -200}
               }
             }
           }
@@ -1349,6 +1372,42 @@ data:extend({
     energy_required = 6,
     ingredients = {
       {"decider-combinator", 1},
+      {"nullius-fabrication-tool-1", 1},
+      {"nullius-steel-gear", 2},
+      {"nullius-plastic", 2},
+      {"nullius-aluminum-carbide", 1}
+    },
+    result = "repair-pack"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-repair-pack",
+    enabled = false,
+    category = "large-assembly",
+    subgroup = "boxed-demolition",
+    always_show_made_in = true,
+    energy_required = 30,
+    ingredients = {
+      {"nullius-box-logic-circuit", 1},
+      {"nullius-box-fabrication-tool-1", 1},
+      {"nullius-box-steel-gear", 2},
+      {"nullius-box-plastic", 2},
+      {"nullius-box-aluminum-carbide", 1}
+    },
+    result = "nullius-box-repair-pack"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-repair-pack",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "small-crafting",
+    always_show_made_in = true,
+    energy_required = 6,
+    ingredients = {
+      {"decider-combinator", 1},
       {"inserter", 1},
       {"nullius-steel-gear", 1},
       {"nullius-plastic", 1},
@@ -1358,8 +1417,11 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-boxed-repair-pack",
+    name = "nullius-legacy-boxed-repair-pack",
     enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "large-assembly",
     subgroup = "boxed-demolition",
     always_show_made_in = true,
@@ -1381,6 +1443,8 @@ data:extend({
     always_show_made_in = true,
     energy_required = 8,
     ingredients = {
+	  {"nullius-fabrication-tool-2", 1},
+	  {"turbo-filter-inserter", 1},
       {"repair-pack", 2},
       {"nullius-steel-plate", 2},
       {"nullius-rubber", 2}
@@ -1461,6 +1525,27 @@ data:extend({
     type = "recipe",
     name = "nullius-levitation-field-2",
     enabled = false,
+    category = "nanotechnology",
+    always_show_made_in = true,
+    energy_required = 20,
+    ingredients = {
+      {"nullius-levitation-field-1", 2},
+      {"nullius-ceramic-powder", 2},
+      {"nullius-carbon-composite", 3},
+      {"nullius-stabilizer-1", 1},
+      {"nullius-transformer", 1},
+      {"nullius-processor-3", 1},
+      {"nullius-copper-sheet", 4}
+    },
+    result = "nullius-levitation-field-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-levitation-field-2",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "nanotechnology",
     always_show_made_in = true,
     energy_required = 20,
@@ -1591,7 +1676,7 @@ data:extend({
       tint = {0.75, 0.75, 0.6}
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-1",
-    subgroup = "equipment",
+    subgroup = "leg-augmentation",
     order = "nullius-bb",
     stack_size = 5
   },
@@ -1626,7 +1711,7 @@ data:extend({
       tint = {0.8, 0.8, 0.95}
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-2",
-    subgroup = "equipment",
+    subgroup = "leg-augmentation",
     order = "nullius-bc",
     stack_size = 5
   },
@@ -1661,7 +1746,7 @@ data:extend({
       icon_mipmaps = 4
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-3",
-    subgroup = "equipment",
+    subgroup = "leg-augmentation",
     order = "nullius-bd",
     stack_size = 5
   },
@@ -1695,7 +1780,7 @@ data:extend({
       icon_size = 64
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-4",
-    subgroup = "equipment",
+    subgroup = "leg-augmentation",
     order = "nullius-be",
     stack_size = 5
   },
@@ -1718,6 +1803,133 @@ data:extend({
 
   {
     type = "item",
+    name = "nullius-quadrupedal-adaptation-1",
+    localised_description = {"equipment-description.nullius-buffer", {"",
+		{"equipment-description.nullius-bonus-cargo", 3}, "\n",
+	    {"equipment-description.nullius-penalty-craft", 25}, "\n",
+	    {"equipment-description.nullius-penalty-reach", 2}},
+		{"entity-description.nullius-megajoule", 8}},
+    icons = {{
+      icon = ICONPATH.."equipment/quadruped.png",
+      icon_size = 128,
+      tint = {0.75, 0.75, 0.6}
+    }},
+    placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-1",
+    subgroup = "leg-augmentation",
+    order = "nullius-cb",
+    stack_size = 5
+  },
+  {
+    type = "item",
+    name = "nullius-quadrupedal-adaptation-2",
+    localised_description = {"equipment-description.nullius-buffer", {"",
+		{"equipment-description.nullius-bonus-cargo", 5}, "\n",
+	    {"equipment-description.nullius-penalty-craft", 30}, "\n",
+	    {"equipment-description.nullius-penalty-reach", 2}},
+		{"entity-description.nullius-megajoule", 20}},
+    icons = {{
+      icon = ICONPATH.."equipment/quadruped.png",
+      icon_size = 128,
+      tint = {0.8, 0.8, 0.95}
+    }},
+    placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-2",
+    subgroup = "leg-augmentation",
+    order = "nullius-cc",
+    stack_size = 5
+  },
+  {
+    type = "item",
+    name = "nullius-quadrupedal-adaptation-3",
+    localised_description = {"equipment-description.nullius-buffer", {"",
+		{"equipment-description.nullius-bonus-cargo", 6}, "\n",
+	    {"equipment-description.nullius-penalty-craft", 40}, "\n",
+	    {"equipment-description.nullius-penalty-reach", 2}},
+		{"entity-description.nullius-megajoule", 40}},
+    icons = {{
+      icon = ICONPATH.."equipment/quadruped.png",
+      icon_size = 128
+    }},
+    placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-3",
+    subgroup = "leg-augmentation",
+    order = "nullius-cd",
+    stack_size = 5
+  },
+  {
+    type = "item",
+    name = "nullius-quadrupedal-adaptation-4",
+    localised_description = {"equipment-description.nullius-buffer", {"",
+		{"equipment-description.nullius-bonus-cargo", 6}, "\n",
+	    {"equipment-description.nullius-penalty-craft", 30}, "\n",
+	    {"equipment-description.nullius-penalty-reach", 2}},
+		{"entity-description.nullius-megajoule", 40}},
+    icons = {{
+      icon = ICONPATH.."equipment/quadruped-4.png",
+      icon_size = 128
+    }},
+    placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-4",
+    subgroup = "leg-augmentation",
+    order = "nullius-ce",
+    stack_size = 5
+  },
+  {
+    type = "recipe",
+    name = "nullius-quadrupedal-adaptation-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"nullius-leg-augmentation-1", 2},
+      {"nullius-steel-beam", 2},
+      {"red-wire", 4}
+    },
+    result = "nullius-quadrupedal-adaptation-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-quadrupedal-adaptation-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-leg-augmentation-2", 1},
+      {"nullius-quadrupedal-adaptation-1", 1},
+      {"nullius-steel-gear", 8}
+    },
+    result = "nullius-quadrupedal-adaptation-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-quadrupedal-adaptation-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 20,
+    ingredients = {
+      {"nullius-leg-augmentation-3", 2},
+      {"nullius-quadrupedal-adaptation-2", 1},
+      {"nullius-titanium-plate", 4}
+    },
+    result = "nullius-quadrupedal-adaptation-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-quadrupedal-adaptation-4",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-leg-augmentation-4", 1},
+      {"nullius-quadrupedal-adaptation-3", 1},
+      {"nullius-sensor-2", 2}
+    },
+    result = "nullius-quadrupedal-adaptation-4"
+  },
+
+  {
+    type = "item",
     name = "nullius-shield",
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-shield"},
@@ -1728,8 +1940,8 @@ data:extend({
       icon_mipmaps = 4
     }},
     placed_as_equipment_result = "nullius-shield",
-    subgroup = "equipment",
-    order = "nullius-e",
+    subgroup = "armor",
+    order = "nullius-h",
     stack_size = 10
   },
   {
@@ -1741,8 +1953,9 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {"nullius-antimatter", 3},
-      {"nullius-levitation-field-2", 2},
-      {"nullius-beacon-3", 1}
+      {"nullius-telekinesis-field-3", 1},
+      {"nullius-armor-plate", 1},
+	  {"nullius-optical-cable", 8}
     },
     result = "nullius-shield"
   },
@@ -1820,6 +2033,25 @@ data:extend({
     type = "recipe",
     name = "nullius-locomotive-2",
     enabled = false,
+    category = "huge-crafting",
+    always_show_made_in = true,
+    energy_required = 20,
+    ingredients = {
+      {"nullius-locomotive-1", 1},
+      {"nullius-cargo-wagon-2", 1},
+      {"nullius-portable-generator", 1},
+      {"nullius-motor-2", 4},
+      {"nullius-sensor-1", 1}
+    },
+    result = "nullius-locomotive-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-locomotive-2",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "huge-crafting",
     always_show_made_in = true,
     energy_required = 20,
@@ -2097,7 +2329,7 @@ data:extend({
     ingredients = {
       {"nullius-robot-frame-1", 1},
       {"decider-combinator", 1},
-      {"repair-pack", 1}
+      {"nullius-fabrication-tool-2", 1}
     },
     result = "nullius-construction-bot-1"
   },
@@ -2106,6 +2338,41 @@ data:extend({
     name = "nullius-boxed-construction-bot-1",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 25,
+    ingredients = {
+      {"nullius-box-robot-frame-1", 1},
+      {"nullius-box-logic-circuit", 1},
+      {"nullius-box-fabrication-tool-2", 1}
+    },
+    result = "nullius-box-construction-bot-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-construction-bot-1",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-robot-frame-1", 1},
+      {"decider-combinator", 1},
+      {"repair-pack", 1}
+    },
+    result = "nullius-construction-bot-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-construction-bot-1",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 25,
@@ -2126,7 +2393,8 @@ data:extend({
     ingredients = {
       {"nullius-construction-bot-1", 1},
       {"nullius-robot-frame-2", 1},
-      {"nullius-yield-module-1", 1}
+      {"nullius-yield-module-1", 1},
+      {"nullius-multi-tool-1", 1}
     },
     result = "nullius-construction-bot-2"
   },
@@ -2135,6 +2403,42 @@ data:extend({
     name = "nullius-boxed-construction-bot-2",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-box-construction-bot-1", 1},
+      {"nullius-box-robot-frame-2", 1},
+      {"nullius-box-yield-module-1", 1},
+      {"nullius-multi-tool-1", 5}
+    },
+    result = "nullius-box-construction-bot-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-construction-bot-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"nullius-construction-bot-1", 1},
+      {"nullius-robot-frame-2", 1},
+      {"nullius-yield-module-1", 1}
+    },
+    result = "nullius-construction-bot-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-construction-bot-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 30,
@@ -2156,7 +2460,7 @@ data:extend({
       {"nullius-construction-bot-2", 2},
       {"nullius-robot-frame-3", 1},
       {"nullius-productivity-module-1", 1},
-      {"nullius-small-miner-3", 1}
+      {"nullius-fabrication-tool-3", 1}
     },
     result = "nullius-construction-bot-3"
   },
@@ -2165,6 +2469,43 @@ data:extend({
     name = "nullius-boxed-construction-bot-3",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-box-construction-bot-2", 2},
+      {"nullius-box-robot-frame-3", 1},
+      {"nullius-box-productivity-module-1", 1},
+      {"nullius-fabrication-tool-3", 5}
+    },
+    result = "nullius-box-construction-bot-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-construction-bot-3",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-construction-bot-2", 2},
+      {"nullius-robot-frame-3", 1},
+      {"nullius-productivity-module-1", 1},
+      {"nullius-small-miner-3", 1}
+    },
+    result = "nullius-construction-bot-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-construction-bot-3",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 40,
@@ -2188,7 +2529,8 @@ data:extend({
     ingredients = {
       {"nullius-construction-bot-3", 3},
       {"nullius-robot-frame-4", 2},
-      {"nullius-productivity-module-3", 1}
+      {"nullius-productivity-module-3", 1},
+      {"nullius-multi-tool-2", 2}
     },
     result = "nullius-construction-bot-4",
     result_count = 2
@@ -2200,6 +2542,48 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 125,
+    ingredients = {
+      {"nullius-box-construction-bot-3", 3},
+      {"nullius-box-robot-frame-4", 2},
+      {"nullius-box-productivity-module-3", 1},
+      {"nullius-multi-tool-2", 10}
+    },
+    result = "nullius-box-construction-bot-4",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-construction-bot-4",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 25,
+    ingredients = {
+      {"nullius-construction-bot-3", 3},
+      {"nullius-robot-frame-4", 2},
+      {"nullius-productivity-module-3", 1}
+    },
+    result = "nullius-construction-bot-4",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-construction-bot-4",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 125,
@@ -2270,7 +2654,7 @@ data:extend({
     ingredients = {
       {"nullius-robot-frame-1", 1},
       {"arithmetic-combinator", 1},
-      {"nullius-small-storage-chest-1", 1}
+      {"nullius-small-cargo-pod-1", 1}
     },
     result = "nullius-logistic-bot-1"
   },
@@ -2279,6 +2663,41 @@ data:extend({
     name = "nullius-boxed-logistic-bot-1",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 25,
+    ingredients = {
+      {"nullius-box-robot-frame-1", 1},
+      {"nullius-box-arithmetic-circuit", 1},
+      {"nullius-small-cargo-pod-1", 5}
+    },
+    result = "nullius-box-logistic-bot-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-logistic-bot-1",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"nullius-robot-frame-1", 1},
+      {"arithmetic-combinator", 1},
+      {"nullius-small-storage-chest-1", 1}
+    },
+    result = "nullius-logistic-bot-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-logistic-bot-1",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 25,
@@ -2299,7 +2718,8 @@ data:extend({
     ingredients = {
       {"nullius-logistic-bot-1", 1},
       {"nullius-robot-frame-2", 1},
-      {"nullius-efficiency-module-1", 1}
+      {"nullius-efficiency-module-1", 1},
+      {"nullius-large-cargo-pod-1", 1}
     },
     result = "nullius-logistic-bot-2"
   },
@@ -2308,6 +2728,42 @@ data:extend({
     name = "nullius-boxed-logistic-bot-2",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 30,
+    ingredients = {
+      {"nullius-box-logistic-bot-1", 1},
+      {"nullius-box-robot-frame-2", 1},
+      {"nullius-box-efficiency-module-1", 1},
+      {"nullius-large-cargo-pod-1", 5}
+    },
+    result = "nullius-box-logistic-bot-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-logistic-bot-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"nullius-logistic-bot-1", 1},
+      {"nullius-robot-frame-2", 1},
+      {"nullius-efficiency-module-1", 1}
+    },
+    result = "nullius-logistic-bot-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-logistic-bot-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 30,
@@ -2329,7 +2785,7 @@ data:extend({
       {"nullius-logistic-bot-2", 2},
       {"nullius-robot-frame-3", 1},
       {"nullius-speed-module-2", 1},
-      {"logistic-chest-buffer", 1}
+      {"nullius-large-cargo-pod-2", 1}
     },
     result = "nullius-logistic-bot-3"
   },
@@ -2338,6 +2794,43 @@ data:extend({
     name = "nullius-boxed-logistic-bot-3",
     enabled = false,
     always_show_made_in = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-box-logistic-bot-2", 2},
+      {"nullius-box-robot-frame-3", 1},
+      {"nullius-box-speed-module-2", 1},
+      {"nullius-large-cargo-pod-2", 5}
+    },
+    result = "nullius-box-logistic-bot-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-logistic-bot-3",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-logistic-bot-2", 2},
+      {"nullius-robot-frame-3", 1},
+      {"nullius-speed-module-2", 1},
+      {"logistic-chest-buffer", 1}
+    },
+    result = "nullius-logistic-bot-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-logistic-bot-3",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 40,
@@ -2361,7 +2854,8 @@ data:extend({
     ingredients = {
       {"nullius-logistic-bot-3", 3},
       {"nullius-robot-frame-4", 2},
-      {"nullius-speed-module-4", 1}
+      {"nullius-speed-module-4", 1},
+      {"nullius-large-cargo-pod-3", 2}
     },
     result = "nullius-logistic-bot-4",
     result_count = 2
@@ -2373,6 +2867,48 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    category = "medium-only-assembly",
+    subgroup = "boxed-robot",
+    energy_required = 125,
+    ingredients = {
+      {"nullius-box-logistic-bot-3", 3},
+      {"nullius-box-robot-frame-4", 2},
+      {"nullius-box-speed-module-4", 1},
+      {"nullius-large-cargo-pod-3", 10}
+    },
+    result = "nullius-box-logistic-bot-4",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-logistic-bot-4",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "tiny-crafting",
+    energy_required = 25,
+    ingredients = {
+      {"nullius-logistic-bot-3", 3},
+      {"nullius-robot-frame-4", 2},
+      {"nullius-speed-module-4", 1}
+    },
+    result = "nullius-logistic-bot-4",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-logistic-bot-4",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-only-assembly",
     subgroup = "boxed-robot",
     energy_required = 125,
@@ -2526,7 +3062,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-truck-1", amount=1},
       {type="item", name="nullius-locomotive-3", amount=1},
-      {type="item", name="nullius-reactor", amount=1}
+      {type="item", name="nullius-portable-reactor", amount=1}
     },
     result = "nullius-truck-2"
   },
@@ -2568,8 +3104,9 @@ data:extend({
       {type="item", name="nullius-drone-launcher-2", amount=2},
       {type="item", name="nullius-solar-panel-2", amount=32},
       {type="item", name="nullius-grid-battery-2", amount=8},
-      {type="item", name="nullius-leg-augmentation-2", amount=8},
-      {type="item", name="nullius-efficiency-module-3", amount=4}
+      {type="item", name="nullius-quadrupedal-adaptation-2", amount=4},
+      {type="item", name="nullius-efficiency-module-3", amount=4},
+	  {type="item", name="nullius-stabilizer-1", amount=2}
     },
     result = "nullius-mecha"
   },
@@ -2581,9 +3118,11 @@ data:extend({
     energy_required = 600,
     ingredients = {
       {type="item", name="nullius-mecha", amount=2},
-      {type="item", name="nullius-leg-augmentation-4", amount=8},
+      {type="item", name="nullius-quadrupedal-adaptation-4", amount=4},
       {type="item", name="nullius-solar-panel-4", amount=8},
-      {type="item", name="nullius-grid-battery-3", amount=4}
+      {type="item", name="nullius-grid-battery-3", amount=4},
+	  {type="item", name="nullius-armor-plate", amount=16},
+	  {type="item", name="nullius-stabilizer-2", amount=2}
     },
     result = "nullius-mecha-2"
   },
@@ -2711,6 +3250,636 @@ data:extend({
       {"nullius-reactor", 1}
     },
     result = "nullius-probe"
+  },
+
+  {
+    type = "item",
+    name = "nullius-armor-plate",
+	icons = {{
+      icon = EQUIPPATH.."armor-plate.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-armor-plate",
+    subgroup = "armor",
+    order = "nullius-g",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-armor-plate",
+    enabled = false,
+    always_show_made_in = true,
+    category = "hand-casting",
+    energy_required = 12,
+    ingredients = {
+      {"nullius-steel-plate", 3},
+      {"nullius-ceramic-powder", 4},
+      {"nullius-plastic", 3},
+      {"nullius-textile", 2},
+      {"nullius-rubber", 1}
+    },
+    result = "nullius-armor-plate"
+  },
+
+  {
+    type = "item",
+    name = "nullius-small-cargo-pod-1",
+	icons = {{
+      icon = EQUIPPATH.."small-pod-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-small-cargo-pod-1",
+    subgroup = "cargo-pod",
+    order = "nullius-bb",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-small-cargo-pod-2",
+	icons = {{
+      icon = EQUIPPATH.."small-pod-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-small-cargo-pod-2",
+    subgroup = "cargo-pod",
+    order = "nullius-bc",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-large-cargo-pod-1",
+	icons = {{
+      icon = ICONPATH.."equipment/large-pod-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-large-cargo-pod-1",
+    subgroup = "cargo-pod",
+    order = "nullius-cb",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-large-cargo-pod-2",
+	icons = {{
+      icon = ICONPATH.."equipment/large-pod-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-large-cargo-pod-2",
+    subgroup = "cargo-pod",
+    order = "nullius-cc",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-large-cargo-pod-3",
+	icons = {{
+      icon = ICONPATH.."equipment/large-pod-3.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-large-cargo-pod-3",
+    subgroup = "cargo-pod",
+    order = "nullius-cd",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-trash-compactor",
+	icons = {{
+      icon = ICONPATH.."equipment/trash-compactor.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-trash-compactor",
+    subgroup = "cargo-pod",
+    order = "nullius-d",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-small-cargo-pod-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 3,
+    ingredients = {
+      {type="item", name="wooden-chest", amount=1},
+      {type="item", name="nullius-iron-wire", amount=1}
+    },
+    result = "nullius-small-cargo-pod-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-small-cargo-pod-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-small-cargo-pod-1", amount=1},
+      {type="item", name="nullius-textile", amount=2},
+      {type="item", name="logistic-chest-buffer", amount=1}
+    },
+    result = "nullius-small-cargo-pod-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-cargo-pod-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-small-cargo-pod-1", amount=2},
+      {type="item", name="nullius-large-chest-1", amount=1}
+    },
+    result = "nullius-large-cargo-pod-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-cargo-pod-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-large-cargo-pod-1", amount=1},
+      {type="item", name="nullius-large-storage-chest-1", amount=1},
+      {type="item", name="nullius-textile", amount=4},
+      {type="item", name="nullius-steel-cable", amount=2}
+    },
+    result = "nullius-large-cargo-pod-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-large-cargo-pod-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-large-cargo-pod-2", amount=1},
+      {type="item", name="nullius-small-cargo-pod-2", amount=2},
+      {type="item", name="nullius-large-buffer-chest-2", amount=1}
+    },
+    result = "nullius-large-cargo-pod-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-trash-compactor",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-large-cargo-pod-2", amount=1},
+      {type="item", name="nullius-crusher-2", amount=1},
+      {type="item", name="nullius-battery-1", amount=1}
+    },
+    result = "nullius-trash-compactor"
+  },
+
+  {
+    type = "item",
+    name = "nullius-fabrication-tool-1",
+	icons = {{
+      icon = ICONPATH.."equipment/fabrication-tool-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-fabrication-tool-1",
+    subgroup = "tool-upgrades",
+    order = "nullius-cb",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-fabrication-tool-2",
+	icons = {{
+      icon = ICONPATH.."equipment/fabrication-tool-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-fabrication-tool-2",
+    subgroup = "tool-upgrades",
+    order = "nullius-cc",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-fabrication-tool-3",
+	icons = {{
+      icon = ICONPATH.."equipment/fabrication-tool-3.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-fabrication-tool-3",
+    subgroup = "tool-upgrades",
+    order = "nullius-cd",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-mining-tool-1",
+	icons = {{
+      icon = ICONPATH.."equipment/mining-tool-1.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-mining-tool-1",
+    subgroup = "tool-upgrades",
+    order = "nullius-db",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-mining-tool-2",
+	icons = {{
+      icon = ICONPATH.."equipment/mining-tool-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-mining-tool-2",
+    subgroup = "tool-upgrades",
+    order = "nullius-dc",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-multi-tool-1",
+	icons = {{
+      icon = ICONPATH.."equipment/multi-tool-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-multi-tool-1",
+    subgroup = "tool-upgrades",
+    order = "nullius-eb",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-multi-tool-2",
+	icons = {{
+      icon = ICONPATH.."equipment/multi-tool-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-multi-tool-2",
+    subgroup = "tool-upgrades",
+    order = "nullius-ec",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-multi-tool-3",
+	icons = {{
+      icon = ICONPATH.."equipment/multi-tool-3.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-multi-tool-3",
+    subgroup = "tool-upgrades",
+    order = "nullius-ed",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-fabrication-tool-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-iron-plate", amount=1},
+      {type="item", name="nullius-iron-rod", amount=1},
+      {type="item", name="nullius-iron-gear", amount=1}
+    },
+    result = "nullius-fabrication-tool-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-fabrication-tool-1",
+    enabled = false,
+    always_show_made_in = true,
+	subgroup = "boxed-demolition",
+    category = "large-crafting",
+    energy_required = 25,
+    ingredients = {
+      {type="item", name="nullius-box-iron-plate", amount=1},
+      {type="item", name="nullius-box-iron-rod", amount=1},
+      {type="item", name="nullius-box-iron-gear", amount=1}
+    },
+    result = "nullius-box-fabrication-tool-1"
+  },    
+  {
+    type = "recipe",
+    name = "nullius-fabrication-tool-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-fabrication-tool-1", amount=1},
+      {type="item", name="repair-pack", amount=1},
+      {type="item", name="nullius-motor-2", amount=1},
+	  {type="item", name="nullius-capacitor", amount=1},
+	  {type="item", name="nullius-steel-rod", amount=2}
+    },
+    result = "nullius-fabrication-tool-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-fabrication-tool-2",
+    enabled = false,
+    always_show_made_in = true,
+	subgroup = "boxed-demolition",
+    category = "large-crafting",
+    energy_required = 40,
+    ingredients = {
+      {type="item", name="nullius-box-fabrication-tool-1", amount=1},
+      {type="item", name="nullius-box-repair-pack", amount=1},
+      {type="item", name="nullius-box-motor-2", amount=1},
+	  {type="item", name="nullius-box-capacitor", amount=1},
+	  {type="item", name="nullius-box-steel-rod", amount=2}
+    },
+    result = "nullius-box-fabrication-tool-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-fabrication-tool-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-fabrication-tool-2", amount=2},
+      {type="item", name="nullius-nanofabricator-1", amount=1},
+	  {type="item", name="nullius-battery-1", amount=1}
+    },
+    result = "nullius-fabrication-tool-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-mining-tool-1",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	always_show_made_in = true,
+    category = "hand-casting",
+    energy_required = 4,
+    ingredients = {
+      {type="item", name="nullius-iron-plate", amount=2},
+      {type="item", name="nullius-iron-rod", amount=2}
+    },
+    result = "nullius-mining-tool-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-mining-tool-2",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-mining-tool-1", amount=2},
+      {type="item", name="nullius-small-miner-3", amount=1},
+	  {type="item", name="nullius-battery-1", amount=1}
+    },
+    result = "nullius-mining-tool-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-multi-tool-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-fabrication-tool-2", amount=1},
+      {type="item", name="nullius-mining-tool-1", amount=1},
+      {type="item", name="nullius-sensor-1", amount=1},
+      {type="item", name="nullius-yield-module-1", amount=1},
+      {type="item", name="nullius-aluminum-rod", amount=2}
+    },
+    result = "nullius-multi-tool-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-multi-tool-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-multi-tool-1", amount=1},
+      {type="item", name="nullius-fabrication-tool-3", amount=1},
+      {type="item", name="nullius-mining-tool-2", amount=1},
+      {type="item", name="nullius-productivity-module-2", amount=1},
+      {type="item", name="nullius-lithium", amount=2}
+    },
+    result = "nullius-multi-tool-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-multi-tool-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "nanotechnology",
+    energy_required = 120,
+    ingredients = {
+      {type="item", name="nullius-multi-tool-2", amount=2},
+      {type="item", name="nullius-telekinesis-field-2", amount=1},
+      {type="item", name="nullius-yield-module-4", amount=1},
+      {type="item", name="nullius-copper-sheet", amount=2},
+      {type="item", name="nullius-enriched-uranium", amount=1}
+    },
+    result = "nullius-multi-tool-3"
+  },
+
+  {
+    type = "item",
+    name = "nullius-telekinesis-field-1",
+	icons = {{
+      icon = ICONPATH.."equipment/telekinesis-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-telekinesis-field-1",
+    subgroup = "equipment",
+    order = "nullius-gb",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-telekinesis-field-2",
+	icons = {{
+      icon = ICONPATH.."equipment/telekinesis-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-telekinesis-field-2",
+    subgroup = "equipment",
+    order = "nullius-gc",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-telekinesis-field-3",
+	icons = {{
+      icon = ICONPATH.."equipment/telekinesis-3.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-telekinesis-field-3",
+    subgroup = "equipment",
+    order = "nullius-gd",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-telekinesis-field-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-transformer", amount=2},
+      {type="item", name="nullius-levitation-field-1", amount=3},
+      {type="item", name="nullius-speed-module-1", amount=1}
+    },
+    result = "nullius-telekinesis-field-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-telekinesis-field-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "nanotechnology",
+    energy_required = 25,
+    ingredients = {
+      {type="item", name="nullius-telekinesis-field-1", amount=1},
+      {type="item", name="nullius-beacon-3", amount=1},
+      {type="item", name="nullius-multi-tool-1", amount=1},
+	  {type="item", name="nullius-battery-2", amount=1}
+    },
+    result = "nullius-telekinesis-field-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-telekinesis-field-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "nanotechnology",
+    energy_required = 80,
+    ingredients = {
+      {type="item", name="nullius-telekinesis-field-2", amount=2},
+      {type="item", name="nullius-levitation-field-2", amount=2},
+      {type="item", name="nullius-multi-tool-2", amount=1},
+      {type="item", name="nullius-copper-wire", amount=8}
+    },
+    result = "nullius-telekinesis-field-3"
+  },
+
+  {
+    type = "item",
+    name = "nullius-stabilizer-1",
+	icons = {{
+      icon = ICONPATH.."equipment/stabilizer-1.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-stabilizer-1",
+    subgroup = "leg-augmentation",
+    order = "nullius-eb",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-stabilizer-2",
+	icons = {{
+      icon = ICONPATH.."equipment/stabilizer-2.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-stabilizer-2",
+    subgroup = "leg-augmentation",
+    order = "nullius-ec",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-stabilizer-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-motor-3", amount=2},
+	  {type="item", name="nullius-sensor-2", amount=1},
+	  {type="item", name="nullius-battery-2", amount=1},
+	  {type="item", name="nullius-steel-plate", amount=3},
+	  {type="item", name="nullius-steel-gear", amount=3}
+    },
+    result = "nullius-stabilizer-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-stabilizer-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 60,
+    ingredients = {
+      {type="item", name="nullius-stabilizer-1", amount=2},
+	  {type="item", name="nullius-speed-module-4", amount=1},
+	  {type="item", name="nullius-uranium", amount=3},
+	  {type="item", name="nullius-battery-3", amount=1}
+    },
+    result = "nullius-stabilizer-2"
+  },
+
+  {
+    type = "item",
+    name = "nullius-portable-generator",
+    localised_description = {"equipment-description.nullius-portable-generator"},
+	icons = {{
+      icon = ICONPATH.."equipment/generator.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-portable-generator",
+    subgroup = "solar",
+    order = "nullius-db",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-portable-reactor",
+	localised_description = {"equipment-description.nullius-portable-reactor"},
+	icons = {{
+      icon = ICONPATH.."equipment/reactor.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-portable-reactor",
+    subgroup = "solar",
+    order = "nullius-dc",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-portable-generator",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-combustion-chamber-2", amount=1},
+	  {type="item", name="nullius-standard-turbine-2", amount=1},
+	  {type="item", name="nullius-large-cargo-pod-1", amount=1},
+	  {type="item", name="copper-cable", amount=6}
+    },
+    result = "nullius-portable-generator"
+  },
+  {
+    type = "recipe",
+    name = "nullius-portable-reactor",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 60,
+    ingredients = {
+      {type="item", name="nullius-portable-generator", amount=1},
+	  {type="item", name="nullius-reactor", amount=1},
+	  {type="item", name="nullius-stirling-engine-3", amount=1}
+    },
+    result = "nullius-portable-reactor"
   }
 })
 

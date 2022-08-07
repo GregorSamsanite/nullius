@@ -22,15 +22,26 @@ function update_engine(e, threshold, ratio, limit, speed)
   local storage = e.electric.electric_buffer_size - e.electric.energy
   local temp = e.heat.temperature
   local thermal = (temp - threshold) / 2
+  if ((thermal > 0) and (thermal < 8)) then
+    if (thermal < 1) then
+	  thermal = math.min(1, (thermal * 2))
+	else
+      thermal = math.min(8, (thermal * 1.5))
+	end
+  end
+
   local capacity = math.max(math.min((thermal * ratio), storage), 0)
   local production = math.min((capacity / 443.0), limit)
-  local delta = production * 443.0 / ratio
+  local delta = ((production * 443.0) / ratio)
   e.heat.temperature = temp - delta
   e.electric.power_production = production
 
-  local aspeed = speed * production / limit
-  if (aspeed > 0) then
-    aspeed = math.max(aspeed, (speed * 0.2))
+  local aspeed = (production / limit)
+  if (aspeed > 0.02) then
+    aspeed = math.max(aspeed, (speed * 0.15))
+	aspeed = math.min(1, (math.floor(aspeed * 200) / 200))
+  else
+    aspeed = 0
   end
 
   if (aspeed ~= e.last_speed) then
@@ -42,10 +53,10 @@ function update_engine(e, threshold, ratio, limit, speed)
 
     rendering.set_animation_speed(e.turbine, aspeed)
     rendering.set_animation_offset(e.turbine, offs)
-  if (e.shadow ~= 0) then
-    rendering.destroy(e.shadow)
-    e.shadow = 0
-  end
+    if (e.shadow ~= 0) then
+      rendering.destroy(e.shadow)
+      e.shadow = 0
+    end
   end
 end
 
@@ -54,26 +65,26 @@ function update_geothermal()
   for i,e in pairs(bucket[1]) do
     if (e.electric.valid) then
       update_engine(e, 120, 200000, 13333.33, 0.5)
-  else
-    destroy_stirling_engine(e)
-    bucket[1][i] = nil
-  end
+    else
+      destroy_stirling_engine(e)
+      bucket[1][i] = nil
+    end
   end
   for i,e in pairs(bucket[2]) do
     if (e.electric.valid) then
       update_engine(e, 100, 360000, 41666.67, 0.65)
-  else
-    destroy_stirling_engine(e)
-    bucket[2][i] = nil
-  end
+    else
+      destroy_stirling_engine(e)
+      bucket[2][i] = nil
+    end
   end
   for i,e in pairs(bucket[3]) do
     if (e.electric.valid) then
       update_engine(e, 80, 800000, 133333.33, 0.8)
-  else
-    destroy_stirling_engine(e)
-    bucket[3][i] = nil
-  end
+    else
+      destroy_stirling_engine(e)
+      bucket[3][i] = nil
+    end
   end
 end
 
@@ -101,7 +112,7 @@ function build_stirling_engine(entity, level)
   local orientation = nil
   if ((direction == defines.direction.north) or
       (direction == defines.direction.south)) then
-  orientation = "vertical"
+    orientation = "vertical"
   else
     orientation = "horizontal"
   end
@@ -113,6 +124,12 @@ function build_stirling_engine(entity, level)
   heat.minable = false
   entity.energy = 0
   entity.power_production = 0
+  
+  local buffer_size = { 8, 30, 120 }
+  local bsz = buffer_size[level]
+  if (bsz ~= nil) then
+    entity.electric_buffer_size = (bsz * 1000000)
+  end
 
   script.register_on_entity_destroyed(entity)
   local turbine = rendering.draw_animation{
@@ -124,11 +141,11 @@ function build_stirling_engine(entity, level)
   local bucket = global.nullius_stirling_buckets[unit % 443]
   bucket[level][unit] = {
     electric = entity,
-  heat = heat,
-  turbine = turbine,
-  shadow = 0,
-  last_offset = 0,
-  last_speed = 0
+    heat = heat,
+    turbine = turbine,
+    shadow = 0,
+    last_offset = 0,
+    last_speed = 0
   }
 end
 

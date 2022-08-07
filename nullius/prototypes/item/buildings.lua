@@ -278,6 +278,24 @@ data:extend({
     enabled = false,
     category = "medium-crafting",
     always_show_made_in = true,
+    energy_required = 5,
+    ingredients = {
+      {"inserter", 1},
+      {"transport-belt", 1},
+      {"wooden-chest", 1},
+      {"nullius-fabrication-tool-1", 1}
+    },
+    result = "nullius-small-assembler-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-small-assembler-1",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
     energy_required = 6,
     ingredients = {
       {"inserter", 1},
@@ -290,8 +308,26 @@ data:extend({
     type = "recipe",
     name = "nullius-small-assembler-2",
     enabled = false,
-    category = "medium-crafting",
     always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 12,
+    ingredients = {
+      {"nullius-small-assembler-1", 1},
+      {"nullius-fabrication-tool-2", 1},
+      {"splitter", 1},
+      {"iron-chest", 1}
+    },
+    result = "nullius-small-assembler-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-small-assembler-2",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	always_show_made_in = true,
+    category = "medium-crafting",
     energy_required = 12,
     ingredients = {
       {"nullius-small-assembler-1", 1},
@@ -533,6 +569,25 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    category = "medium-crafting",
+    energy_required = 4,
+    ingredients = {
+      {"nullius-motor-1", 1},
+      {"nullius-iron-gear", 1},
+      {"nullius-mining-tool-1", 1}
+    },
+    result = "nullius-small-miner-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-small-miner-1",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "medium-crafting",
     energy_required = 6,
     ingredients = {
@@ -1003,6 +1058,25 @@ data:extend({
     type = "recipe",
     name = "nullius-crusher-3",
     enabled = false,
+    category = "large-crafting",
+    always_show_made_in = true,
+    energy_required = 30,
+    ingredients = {
+      {"nullius-crusher-2", 1},
+      {"nullius-medium-miner-3", 1},
+      {"ultimate-splitter", 1},
+      {"nullius-box-wall", 2},
+	  {"nullius-trash-compactor", 1}
+    },
+    result = "nullius-crusher-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-crusher-3",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "large-crafting",
     always_show_made_in = true,
     energy_required = 30,
@@ -2181,6 +2255,25 @@ data:extend({
     name = "nullius-large-beacon-2",
     enabled = false,
     always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 120,
+    ingredients = {
+      {"nullius-large-beacon-1", 1},
+      {"nullius-beacon-3", 2},
+      {"nullius-telekinesis-field-2", 1},
+      {"nullius-sensor-node-3", 1},
+      {"nullius-productivity-module-2", 1}
+    },
+    result = "nullius-large-beacon-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-large-beacon-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "large-crafting",
     energy_required = 120,
     ingredients = {

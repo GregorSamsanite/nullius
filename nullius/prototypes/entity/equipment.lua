@@ -209,7 +209,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "1MW",
+    power = "800kW",
     categories = {"cybernetic"}
   }
 })
@@ -902,7 +902,7 @@ data:extend({
       usage_priority = "primary-input"
     },
     energy_input = "10kW",
-    categories = {"cybernetic"},
+    categories = {"android"},
     activate_sound = { filename = "__base__/sound/nightvision-on.ogg", volume = 0.6 },
     deactivate_sound = { filename = "__base__/sound/nightvision-off.ogg", volume = 0.6 },
     darkness_to_turn_on = 0.6,
@@ -933,7 +933,7 @@ data:extend({
       usage_priority = "primary-input"
     },
     energy_input = "16kW",
-    categories = {"cybernetic"},
+    categories = {"android"},
     activate_sound = { filename = "__base__/sound/nightvision-on.ogg", volume = 0.6 },
     deactivate_sound = { filename = "__base__/sound/nightvision-off.ogg", volume = 0.6 },
     darkness_to_turn_on = 0.4,
@@ -964,7 +964,7 @@ data:extend({
       usage_priority = "primary-input"
     },
     energy_input = "25kW",
-    categories = {"cybernetic"},
+    categories = {"android"},
     activate_sound = { filename = "__base__/sound/nightvision-on.ogg", volume = 0.6 },
     deactivate_sound = { filename = "__base__/sound/nightvision-off.ogg", volume = 0.6 },
     darkness_to_turn_on = 0.1,
@@ -1030,7 +1030,7 @@ data:extend({
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-1",
     localised_description = data.raw.item["nullius-leg-augmentation-1"].localised_description,
-    order = "db",
+    order = "dbb",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
       width = 128,
@@ -1054,12 +1054,11 @@ data:extend({
     movement_bonus = 0.25,
     categories = {"cybernetic"}
   },
-
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-2",
     localised_description = data.raw.item["nullius-leg-augmentation-2"].localised_description,
-    order = "dc",
+    order = "dbc",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
       width = 128,
@@ -1083,12 +1082,11 @@ data:extend({
     movement_bonus = 0.4,
     categories = {"cybernetic"}
   },
-
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-3",
     localised_description = data.raw.item["nullius-leg-augmentation-3"].localised_description,
-    order = "dd",
+    order = "dbd",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
       width = 128,
@@ -1111,12 +1109,11 @@ data:extend({
     movement_bonus = 0.5,
     categories = {"cybernetic"}
   },
-
   {
     type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-4",
     localised_description = data.raw.item["nullius-leg-augmentation-4"].localised_description,
-    order = "de",
+    order = "dbe",
     sprite = {
       filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
       width = 128,
@@ -1138,6 +1135,121 @@ data:extend({
     energy_consumption = "350kW",
     movement_bonus = 0.5,
     categories = {"cybernetic"}
+  },
+
+  {
+    type = "movement-bonus-equipment",
+    name = "nullius-upgrade-quadrupedal-adaptation-1",
+    localised_description = data.raw.item["nullius-quadrupedal-adaptation-1"].localised_description,
+    take_result = "nullius-quadrupedal-adaptation-1",
+    order = "dcb",
+    sprite = {
+      filename = EQUIPPATH.."quadruped.png",
+      width = 240,
+      height = 160,
+      priority = "medium",
+      scale = 1,
+      tint = {0.75, 0.75, 0.6}
+    },
+    shape = {
+      width = 5,
+      height = 4,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "8MJ",
+      input_flow_limit = "400kW",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "275kW",
+    movement_bonus = 0.4,
+    categories = {"android"}
+  },
+  {
+    type = "movement-bonus-equipment",
+    name = "nullius-upgrade-quadrupedal-adaptation-2",
+    localised_description = data.raw.item["nullius-quadrupedal-adaptation-2"].localised_description,
+	take_result = "nullius-quadrupedal-adaptation-2",
+    order = "dcc",
+    sprite = {
+      filename = EQUIPPATH.."quadruped.png",
+      width = 240,
+      height = 160,
+      priority = "medium",
+      scale = 1,
+      tint = {0.8, 0.8, 0.95}
+    },
+    shape = {
+      width = 5,
+      height = 4,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "20MJ",
+      input_flow_limit = "750kW",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "500kW",
+    movement_bonus = 0.6,
+    categories = {"android"}
+  },
+  {
+    type = "movement-bonus-equipment",
+    name = "nullius-upgrade-quadrupedal-adaptation-3",
+    localised_description = data.raw.item["nullius-quadrupedal-adaptation-3"].localised_description,
+	take_result = "nullius-quadrupedal-adaptation-3",
+    order = "dcd",
+    sprite = {
+      filename = EQUIPPATH.."quadruped.png",
+      width = 240,
+      height = 160,
+      priority = "medium",
+      scale = 1
+    },
+    shape = {
+      width = 5,
+      height = 4,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "40MJ",
+      input_flow_limit = "1MW",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "800kW",
+    movement_bonus = 0.75,
+    categories = {"android"}
+  },
+  {
+    type = "movement-bonus-equipment",
+    name = "nullius-upgrade-quadrupedal-adaptation-4",
+    localised_description = data.raw.item["nullius-quadrupedal-adaptation-4"].localised_description,
+	take_result = "nullius-quadrupedal-adaptation-4",
+    order = "dce",
+    sprite = {
+      filename = EQUIPPATH.."quadruped.png",
+      width = 240,
+      height = 160,
+      priority = "medium",
+      scale = 0.75
+    },
+    shape = {
+      width = 5,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "40MJ",
+      input_flow_limit = "1MW",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "600kW",
+    movement_bonus = 0.75,
+    categories = {"android"}
   },
 
   {
@@ -1349,6 +1461,7 @@ data:extend({
   {
     type = "energy-shield-equipment",
     name = "nullius-shield",
+	order = "s",
     localised_description = data.raw.item["nullius-shield"].localised_description,
     sprite = {
       filename = "__base__/graphics/equipment/energy-shield-equipment.png",
@@ -1377,5 +1490,642 @@ data:extend({
     },
     energy_per_shield = "20kJ",
     categories = {"cybernetic"}
+  },
+
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-armor-plate",
+    take_result = "nullius-armor-plate",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-armor", 100}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 1}},
+    order = "k",
+    sprite = {
+      filename = EQUIPPATH.."armor-plate.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-small-cargo-pod-1",
+    take_result = "nullius-small-cargo-pod-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-cargo", 1}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 0.6}},
+    order = "jbb",
+    sprite = {
+      filename = EQUIPPATH.."small-pod-1.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-small-cargo-pod-2",
+    take_result = "nullius-small-cargo-pod-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 0.8}},
+    order = "jbc",
+    sprite = {
+      filename = EQUIPPATH.."small-pod-2.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-large-cargo-pod-1",
+    take_result = "nullius-large-cargo-pod-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-cargo", 5}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 3}},
+    order = "jcb",
+    sprite = {
+      filename = EQUIPPATH.."large-pod-1.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-large-cargo-pod-2",
+    take_result = "nullius-large-cargo-pod-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-cargo", 8}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 4}},
+    order = "jcb",
+    sprite = {
+      filename = EQUIPPATH.."large-pod-2.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-large-cargo-pod-3",
+    take_result = "nullius-large-cargo-pod-3",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-cargo", 10}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 4}},
+    order = "jcb",
+    sprite = {
+      filename = EQUIPPATH.."large-pod-3.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-trash-compactor",
+    take_result = "nullius-trash-compactor",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-trash", 10}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 5}}},
+    order = "jd",
+    sprite = {
+      filename = EQUIPPATH.."trash-compactor.png",
+      width = 640,
+      height = 220,
+      priority = "medium",
+	  scale = 0.29
+    },
+    shape = {
+      width = 3,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "300kJ",
+      input_flow_limit = "30kW",
+	  drain = "5kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-fabrication-tool-1",
+    take_result = "nullius-fabrication-tool-1",
+    localised_description =
+	    {"equipment-description.nullius-bonus-craft", 25, 15},
+    order = "lbb",
+    sprite = {
+      filename = EQUIPPATH.."fabrication-tool-1.png",
+      width = 256,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "2MJ",
+      input_flow_limit = "600kW",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-fabrication-tool-2",
+    take_result = "nullius-fabrication-tool-2",
+    localised_description =
+	    {"equipment-description.nullius-bonus-craft", 40, 20},
+    order = "lbc",
+    sprite = {
+      filename = EQUIPPATH.."fabrication-tool-2.png",
+      width = 256,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "5MJ",
+      input_flow_limit = "2MW",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-fabrication-tool-3",
+    take_result = "nullius-fabrication-tool-3",
+    localised_description =
+	    {"equipment-description.nullius-bonus-craft", 120, 50},
+    order = "lbd",
+    sprite = {
+      filename = EQUIPPATH.."fabrication-tool-3.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "25MJ",
+      input_flow_limit = "12MW",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-mining-tool-1",
+    take_result = "nullius-mining-tool-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-mining", 60}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 4}}},
+    order = "lcb",
+    sprite = {
+      filename = EQUIPPATH.."mining-tool-1.png",
+      width = 128,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "100kJ",
+      input_flow_limit = "10kW",
+	  drain = "4kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-mining-tool-2",
+    take_result = "nullius-mining-tool-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 6}}},
+    order = "lcc",
+    sprite = {
+      filename = EQUIPPATH.."mining-tool-2.png",
+      width = 128,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "250kJ",
+      input_flow_limit = "30kW",
+	  drain = "6kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-multi-tool-1",
+    take_result = "nullius-multi-tool-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-craft", 50, 30}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 50}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 5}}},
+    order = "lcb",
+    sprite = {
+      filename = EQUIPPATH.."multi-tool-1.png",
+      width = 128,
+      height = 384,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "5MJ",
+      input_flow_limit = "2MW",
+	  drain = "5kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-multi-tool-2",
+    take_result = "nullius-multi-tool-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-craft", 70, 40}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 10}}},
+    order = "lcc",
+    sprite = {
+      filename = EQUIPPATH.."multi-tool-2.png",
+      width = 128,
+      height = 384,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "12MJ",
+      input_flow_limit = "6MW",
+	  drain = "10kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-multi-tool-3",
+    take_result = "nullius-multi-tool-3",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-craft", 80, 40}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 125}, "\n",
+	    {"equipment-description.nullius-bonus-reach", 2}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 15}}},
+    order = "lcd",
+    sprite = {
+      filename = EQUIPPATH.."multi-tool-3.png",
+      width = 128,
+      height = 384,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "20MJ",
+      input_flow_limit = "12MW",
+	  drain = "15kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-telekinesis-field-1",
+    take_result = "nullius-telekinesis-field-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-reach", 8}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 15}}},
+    order = "mb",
+    sprite = {
+      filename = EQUIPPATH.."telekinesis-1.png",
+      width = 240,
+      height = 360,
+      priority = "medium",
+	  scale = 0.53333
+    },
+    shape = {
+      width = 2,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "400kJ",
+      input_flow_limit = "30kW",
+	  drain = "15kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-telekinesis-field-2",
+    take_result = "nullius-telekinesis-field-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-reach", 12}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 50}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 20, 15}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 25}}},
+    order = "mc",
+    sprite = {
+      filename = EQUIPPATH.."telekinesis-2.png",
+      width = 240,
+      height = 360,
+      priority = "medium",
+	  scale = 0.53333
+    },
+    shape = {
+      width = 2,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "3MJ",
+      input_flow_limit = "1MW",
+	  drain = "25kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-telekinesis-field-3",
+    take_result = "nullius-telekinesis-field-3",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-reach", 16}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 40, 25}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 30}}},
+    order = "md",
+    sprite = {
+      filename = EQUIPPATH.."telekinesis-3.png",
+      width = 240,
+      height = 360,
+      priority = "medium",
+	  scale = 0.53333
+    },
+    shape = {
+      width = 2,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "8MJ",
+      input_flow_limit = "4MW",
+	  drain = "30kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-stabilizer-1",
+    take_result = "nullius-stabilizer-1",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-speed", 7}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 1}, "\n",
+		{"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 30}}},
+    order = "nb",
+    sprite = {
+      filename = EQUIPPATH.."stabilizer-1.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "700kJ",
+      input_flow_limit = "100kW",
+	  drain = "30kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-stabilizer-2",
+    take_result = "nullius-stabilizer-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-speed", 10}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
+		{"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 40}}},
+    order = "nc",
+    sprite = {
+      filename = EQUIPPATH.."stabilizer-2.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "1MJ",
+      input_flow_limit = "150kW",
+	  drain = "40kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"}
+  },
+  {
+    type = "generator-equipment",
+    name = "nullius-portable-generator",
+    order = "ob",
+    sprite = {
+      filename = EQUIPPATH.."generator.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.75
+    },
+    shape = {
+      width = 3,
+      height = 3,
+      type = "full"
+    },
+	power = "1.5MW",
+    energy_source = {
+      type = "burner",
+      usage_priority = "secondary-output"
+    },
+    burner = {
+      fuel_category = "vehicle",
+      effectivity = 1,
+      fuel_inventory_size = 5,
+      burnt_inventory_size = 5
+    },
+    categories = {"android"}
+  },
+  {
+    type = "generator-equipment",
+    name = "nullius-portable-reactor",
+    order = "oc",
+    sprite = {
+      filename = EQUIPPATH.."reactor.png",
+      width = 256,
+      height = 256,
+      priority = "medium"
+    },
+    shape = {
+      width = 4,
+      height = 4,
+      type = "full"
+    },
+	power = "6MW",
+    energy_source = {
+      type = "burner",
+      usage_priority = "secondary-output"
+    },
+    burner = {
+      fuel_category = "nullius-nuclear",
+      effectivity = 1,
+      fuel_inventory_size = 3,
+      burnt_inventory_size = 3
+    },
+    categories = {"android"}
   }
 })

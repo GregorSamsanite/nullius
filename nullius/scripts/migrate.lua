@@ -59,6 +59,54 @@ function migrate_version(event)
   if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
   local version = (((sub1 * 100) + sub2) * 100) + sub3
 
+  if (version >= 10500) then return end
+  for _, force in pairs(game.forces) do
+    if (force.research_enabled) then
+	  legacy_recipe(force, "nullius-automation", "small-assembler-1")
+	  legacy_recipe(force, "nullius-automation-2", "small-assembler-2")
+	  legacy_recipe(force, "nullius-mining-1", "small-miner-1")
+	  legacy_recipe(force, "nullius-mineral-processing-3", "crusher-3")
+	  legacy_recipe(force, "nullius-broadcasting-4", "large-beacon-2")
+	  legacy_recipe(force, "nullius-terraforming-1", "demolition-drone")
+	  legacy_recipe(force, "nullius-terraforming-1", "excavation-drone")
+	  legacy_recipe(force, "nullius-cybernetics-6", "chassis-5")
+	  legacy_recipe(force, "nullius-maintenance", "repair-pack")
+	  legacy_recipe(force, "nullius-mass-production-4", "boxed-repair-pack")
+	  legacy_recipe(force, "nullius-robotics-4", "levitation-field-2")
+	  legacy_recipe(force, "nullius-freight-transportation-2", "locomotive-2")
+	  legacy_recipe(force, "nullius-nanotechnology-1", "nanofabricator-1")
+	  legacy_recipe(force, "nullius-nanotechnology-2", "nanofabricator-2")
+	  legacy_recipe(force, "nullius-construction-robot-1", "construction-bot-1")
+	  legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-1")
+	  legacy_recipe(force, "nullius-construction-robot-2", "construction-bot-2")
+	  legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-2")
+	  legacy_recipe(force, "nullius-construction-robot-3", "construction-bot-3")
+	  legacy_recipe(force, "nullius-construction-robot-3", "boxed-construction-bot-3")
+	  legacy_recipe(force, "nullius-construction-robot-4", "construction-bot-4")
+	  legacy_recipe(force, "nullius-construction-robot-4", "boxed-construction-bot-4")
+	  legacy_recipe(force, "nullius-logistic-robot-1", "logistic-bot-1")
+	  legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-1")
+	  legacy_recipe(force, "nullius-logistic-robot-2", "logistic-bot-2")
+	  legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-2")
+	  legacy_recipe(force, "nullius-logistic-robot-3", "logistic-bot-3")
+	  legacy_recipe(force, "nullius-logistic-robot-3", "boxed-logistic-bot-3")
+	  legacy_recipe(force, "nullius-logistic-robot-4", "logistic-bot-4")
+	  legacy_recipe(force, "nullius-logistic-robot-4", "boxed-logistic-bot-4")
+	end
+  end
+  
+  if (version >= 10419) then return end
+  for _, force in pairs(game.forces) do
+    if (force.research_enabled) then
+      if (force.technologies["nullius-ceramics"].researched) then
+		force.technologies["nullius-ceramics-2"].researched = true
+      end
+      if (force.technologies["factory-connection-type-heat"] ~= nil) then
+		force.technologies["factory-connection-type-heat"].enabled = true
+      end
+	end
+  end
+
   if (version >= 10407) then return end
   migrate_oxygen()
   for _,player in pairs(game.players) do

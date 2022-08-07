@@ -1,11 +1,12 @@
 function scout_effect(event, range, halt)
-  if (event.source_entity ~= nil) then
+  local source = event.source_entity
+  if ((source ~= nil) and source.valid) then
     local s = game.surfaces[event.surface_index]
     local px = event.target_position.x
     local py = event.target_position.y
     local d = 16 + (range * 32)
     local bound = {{x = (px - d), y = (py - d)}, {x = (px + d), y = (py + d)}}
-    event.source_entity.force.chart(s, bound)
+    source.force.chart(s, bound)
 	if (halt) then s.force_generate_chunk_requests() end 
   end
 end
@@ -42,21 +43,29 @@ function demolition_effect(event, range)
   local s = game.surfaces[event.surface_index]
   local a = area_bound(area_center(event), range)
   local source = event.source_entity
-  local force = source.force
+  local force = nil
+  if ((source ~= nil) and source.valid) then force = source.force end
   s.destroy_decoratives{area=a}
   local entities = s.find_entities(a)
   for _, e in pairs(entities) do
     if (e.valid and e.is_entity_with_health and e.destructible and (e ~= source)) then
-      e.damage(30000, force, "explosion", source)
+	  if (force ~= nil) then
+        e.damage(30000, force, "explosion", source)
+	  else
+	    e.destroy({do_cliff_correction = true})
+	  end
+    end
   end
-  end
+
   entities = s.find_entities(a)
   for _, e in pairs(entities) do
     if (e.valid and not e.is_entity_with_health and
-      (e.type ~= "entity-ghost") and (e.type ~= "projectile") and (e.type ~= "explosion") and
-    (e.type ~= "trivial-smoke") and (e.type ~= "particle-source") and (e.type ~= "resource")) then
+        (e.type ~= "entity-ghost") and (e.type ~= "explosion") and
+	    (e.type ~= "projectile") and (e.type ~= "artillery-projectile") and
+        (e.type ~= "trivial-smoke") and (e.type ~= "particle-source") and
+		(e.type ~= "resource")) then
       e.destroy({do_cliff_correction = true})
-  end
+    end
   end
   s.destroy_decoratives{area=a}
 end
@@ -66,13 +75,15 @@ function safe_demolition(event, size)
   local center = area_center(event)
   local a = area_bound(center, size)
   local source = event.source_entity
+  local force = nil
+  if ((source ~= nil) and source.valid) then force = source.force end
   s.destroy_decoratives{area=a}
   local entities = s.find_entities(a)
   for _, e in pairs(entities) do
     if (e.valid and e.is_entity_with_health and e.destructible and (e ~= source) and
         (e.type == "simple-entity") and (string.find(e.name, "rock") ~= nil)) then
-	  if (source ~= nil) then
-        e.damage(30000, source.force, "explosion", source)
+	  if (force ~= nil) then
+        e.damage(30000, force, "explosion", source)
 	  else
         e.destroy({do_cliff_correction = true})	    
 	  end
@@ -115,7 +126,7 @@ function excavation_effect(event)
   surface.force_generate_chunk_requests()
   demolition_effect(event, 80)
   local score = excavate_area(surface, center)
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     bump_mission_goal(9, score, event.source_entity.force)
   end
 end
@@ -128,7 +139,7 @@ function terraforming_effect(event, tile, terraform_mult)
   scout_effect(event, 3)
   safe_demolition(event, 80)
   local score = landfill_area(surface, center, tile)
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     bump_mission_goal(9, (score * terraform_mult), event.source_entity.force)
   end
 end
@@ -226,7 +237,8 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
   end
   end
 
-  if ((goal_ind ~= nil) and (event.source_entity ~= nil)) then
+  if ((goal_ind ~= nil) and (event.source_entity ~= nil) and
+      event.source_entity.valid) then
     bump_mission_goal(goal_ind, goal_amount, event.source_entity.force)
   end
 end
@@ -331,7 +343,7 @@ function algaculture_effect(event)
     end
   end
 
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     local new_count = count_decoratives(s, nil, 10000, "nullius-algae")
     set_mission_goal(3, new_count, event.source_entity.force)
   end
@@ -345,7 +357,7 @@ function horticulture_effect(event)
   surface.force_generate_chunk_requests()
   scout_effect(event, 4)
   local score = grass_area(surface, center)
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     bump_mission_goal(4, score, event.source_entity.force)
   end
 end
@@ -434,7 +446,7 @@ function arboriculture_effect(event)
 	end
   end
 
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     bump_mission_goal(5, bump_count, event.source_entity.force)
   end
 end
@@ -548,7 +560,7 @@ function entomology_effect(event)
     end
   end
 
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     local decals = count_decoratives(s, nil, 1000, "worms-decal")
 	local turrets = s.count_entities_filtered{limit=1000,
 	    name = {"small-worm-turret", "medium-worm-turret",
@@ -580,7 +592,7 @@ function aquaculture_effect(event)
     end
   end
 
-  if (event.source_entity ~= nil) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     local new_count = s.count_entities_filtered{name="fish", limit=800}
     set_mission_goal(7, new_count, event.source_entity.force)
   end
@@ -643,8 +655,9 @@ function husbandry_effect(event)
 	    game.forces["enemy"].evolution_factor + 0.01
   end
 
-  if (event.source_entity == nil) then return end
-  local force = event.source_entity.force
+  local source = event.source_entity
+  if ((source == nil) or (not source.valid)) then return end
+  local force = source.force
   if (force == nil) then return end
   local new_status = 100
   if (not global.nullius_mission_complete) then
@@ -702,7 +715,7 @@ function husbandry_effect(event)
   local group = nil
   local origin = c
   local breach = ((invasions % 5) == 3)
-  if (breach) then origin = event.source_entity.position end
+  if (breach) then origin = source.position end
 
   for _,w in pairs(waves[waveind]) do
     local unitcount = w[1]
@@ -742,7 +755,7 @@ function husbandry_effect(event)
     player_odds = 0.6
     force.print({"objective-description.nullius-escape"})
   end
-  local target = event.source_entity
+  local target = source
   local assassinate = false
   global.nullius_invasions = invasions
   global.nullius_invasion_cooldown = cooldown

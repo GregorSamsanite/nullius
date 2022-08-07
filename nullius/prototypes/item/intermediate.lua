@@ -432,14 +432,14 @@ data:extend({
     category = "tiny-crafting",
     subgroup = "research-pack-2",
     order = "nullius-ed",
-    energy_required = 120,
+    energy_required = 160,
     ingredients = {
       {"nullius-processor-2", 1},
       {"nullius-sensor-2", 1},
       {"nullius-battery-2", 1}
     },
     result = "nullius-electrical-pack",
-	result_count = 30
+	result_count = 50
   },
   {
     type = "recipe",
@@ -472,14 +472,14 @@ data:extend({
     category = "tiny-assembly",
     subgroup = "boxed-science",
     order = "nullius-ed",
-    energy_required = 600,
+    energy_required = 800,
     ingredients = {
       {"nullius-box-processor-2", 1},
       {"nullius-box-sensor-2", 1},
       {"nullius-box-battery-2", 1}
     },
     result = "nullius-box-electrical-pack",
-	result_count = 30
+	result_count = 50
   },
 
   {
@@ -4239,22 +4239,61 @@ data:extend({
       icon_size = 32,
       tint = {1, 1, 1, 0.6}
     }},
-    subgroup = "silicon-product",
-    order = "nullius-i",
+    subgroup = "mechanical-intermediate",
+    order = "nullius-f",
     stack_size = 50
   },
   {
     type = "recipe",
     name = "nullius-crucible",
+	localised_name = {"", {"item-name.nullius-crucible"}, " ", 1},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    order = "nullius-fb",
     category = "machine-casting",
     energy_required = 30,
     ingredients = {
       {"nullius-silica", 15}
     },
     result = "nullius-crucible"
+  },
+  {
+    type = "recipe",
+    name = "nullius-crucible-2",
+    localised_name = {"", {"item-name.nullius-crucible"}, " ", 2},
+    icons = {
+      {
+        icon = "__angelssmelting__/graphics/icons/silicon-crucible.png",
+        icon_size = 32,
+        tint = {1, 1, 1, 0.6}
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.2,
+        shift = {-10, -12}
+      }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    order = "nullius-fc",
+    category = "machine-casting",
+    energy_required = 60,
+    ingredients = {
+      {type="item", name="nullius-box-alumina", amount=3},
+      {type="item", name="nullius-box-ceramic-powder", amount=1},
+	  {type="item", name="nullius-mortar", amount=2},
+	  {type="item", name="nullius-graphite", amount=1},
+      {type="fluid", name="nullius-water", amount=10}
+    },
+    results = {
+      {type="item", name="nullius-crucible", amount=8},
+      {type="fluid", name="nullius-sludge", amount=6}
+    },
+    main_product = "nullius-crucible"
   },
 
   {
@@ -7245,7 +7284,7 @@ data:extend({
       {type="item", name="nullius-fiberglass", amount=1},
       {type="item", name="nullius-monocrystalline-silicon", amount=2},
       {type="item", name="nullius-ceramic-powder", amount=1},
-      {type="item", name="constant-combinator", amount=3},
+      {type="item", name="constant-combinator", amount=2},
       {type="item", name="green-wire", amount=2},
       {type="fluid", name="nullius-acid-nitric", amount=3, fluidbox_index=2},
       {type="fluid", name="nullius-argon", amount=2, fluidbox_index=3}
@@ -7263,7 +7302,7 @@ data:extend({
       {type="item", name="nullius-box-fiberglass", amount=1},
       {type="item", name="nullius-box-monocrystalline-silicon", amount=2},
       {type="item", name="nullius-box-ceramic-powder", amount=1},
-      {type="item", name="nullius-box-memory-circuit", amount=3},
+      {type="item", name="nullius-box-memory-circuit", amount=2},
       {type="item", name="nullius-box-green-wire", amount=2},
       {type="fluid", name="nullius-acid-nitric", amount=15, fluidbox_index=2},
       {type="fluid", name="nullius-argon", amount=10, fluidbox_index=3}
@@ -7288,7 +7327,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-processor-1", amount=2},
-      {type="item", name="arithmetic-combinator", amount=3},
+      {type="item", name="arithmetic-combinator", amount=2},
       {type="item", name="nullius-battery-1", amount=1},
       {type="item", name="nullius-heat-pipe-2", amount=1},
       {type="item", name="nullius-graphene", amount=1},
@@ -7306,7 +7345,7 @@ data:extend({
     energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-processor-1", amount=2},
-      {type="item", name="nullius-box-arithmetic-circuit", amount=3},
+      {type="item", name="nullius-box-arithmetic-circuit", amount=2},
       {type="item", name="nullius-box-battery-1", amount=1},
       {type="item", name="nullius-box-heat-pipe-2", amount=1},
       {type="item", name="nullius-box-graphene", amount=1},
@@ -7366,9 +7405,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-transformer",
-    icon = "__base__/graphics/icons/fusion-reactor-equipment.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+    icon = ICONPATH.."transformer.png",
+    icon_size = 128,
     subgroup = "electronic-intermediate",
     order = "nullius-c",
     stack_size = 100

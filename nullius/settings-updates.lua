@@ -316,3 +316,9 @@ if data.raw['double-setting']['fuel-consumption-per-meter'] then
    data.raw['double-setting']['fuel-consumption-per-meter'].default_value = 0.06
    data.raw['double-setting']['fuel-consumption-per-meter'].allowed_values = {0.06}
 end
+
+if data.raw['string-setting']['railloader-allowed-items'] then
+   data.raw['string-setting']['railloader-allowed-items'].hidden = true
+   data.raw['string-setting']['railloader-allowed-items'].default_value = "any"
+   data.raw['string-setting']['railloader-allowed-items'].allowed_values = {"any"}
+end

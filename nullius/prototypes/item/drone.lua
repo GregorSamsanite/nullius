@@ -457,6 +457,24 @@ data:extend({
     ingredients = {
       {"nullius-scout-drone-2", 1},
       {"nullius-missile-launcher", 1},
+      {"nullius-box-missile-1", 2},
+      {"nullius-rock-picker", 1}
+    },
+    result = "nullius-demolition-drone"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-demolition-drone",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "small-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-scout-drone-2", 1},
+      {"nullius-missile-launcher", 1},
       {"nullius-box-missile-1", 2}
     },
     result = "nullius-demolition-drone"
@@ -481,6 +499,24 @@ data:extend({
     name = "nullius-excavation-drone",
     enabled = false,
     always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"nullius-demolition-drone", 1},
+      {"nullius-box-missile-2", 1},
+      {"nullius-trash-compactor", 1},
+      {"nullius-large-cargo-pod-2", 2}
+    },
+    result = "nullius-excavation-drone"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-excavation-drone",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "small-crafting",
     energy_required = 10,
     ingredients = {

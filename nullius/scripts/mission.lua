@@ -83,7 +83,7 @@ end
 function set_mission_goal(goal, amount, force)
   if (global.nullius_mission_complete) then return end
 
-  local mission_target = {10, 144, 1800, 18000000,
+  local mission_target = {10, 140, 1800, 16000000,
       32000, 750, 320, 60, 2500000, 20, 12}
   local count = global.nullius_mission_count
   local status = global.nullius_mission_status
@@ -93,11 +93,11 @@ function set_mission_goal(goal, amount, force)
       math.min(100, ((100 * count[goal]) / mission_target[goal]))) / 100)
 
   if ((goal >= 3) and (goal <= 5)) then
-    local algae_oxygen = (50 * count[3]) / (count[3] + (mission_target[3] / 2))
-    local grass_oxygen = (20 * count[4]) / (count[4] + (mission_target[4] / 2))
+    local algae_oxygen = (40 * count[3]) / (count[3] + (mission_target[3] / 2))
+    local grass_oxygen = (30 * count[4]) / (count[4] + (mission_target[4] / 2))
     local tree_oxygen = (30 * count[5]) / (count[5] + (mission_target[5] / 2))
     local total_oxygen = algae_oxygen + grass_oxygen + tree_oxygen
-	global.nullius_oxygen_bio_target = (107 * total_oxygen) / (150 - total_oxygen)
+	global.nullius_oxygen_bio_target = (108 * total_oxygen) / (150 - total_oxygen)
   end
 
   local finished = false
@@ -183,14 +183,14 @@ function update_oxygen()
 
   if (vent_force == nil) then return end
   if (vent_total > 0) then
-    vent_total = math.sqrt(vent_total) / 1800
+    vent_total = math.sqrt(vent_total) / 1600
   else
     vent_total = 0
   end
 
   local score = (current + vent_total)
   if ((prev_status + 0.001) < (math.floor(100 *
-      math.min(100, (score / 1.44))) / 100)) then
+      math.min(100, (score / 1.4))) / 100)) then
     set_mission_goal(2, score, vent_force)
   end
 end

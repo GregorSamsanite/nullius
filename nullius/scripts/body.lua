@@ -59,6 +59,7 @@ function switch_body(player, target)
   end
 
   player.set_controller{type=defines.controllers.character, character=target}
+  update_player_upgrades(player)
 
   if ((vehicle ~= nil) and (oldchar ~= nil)) then
     if (((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) and
@@ -242,36 +243,37 @@ function change_character_entity(oldunit, newchar)
 
   if (global.nullius_android_tag ~= nil) then
     local tag = global.nullius_android_tag[oldunit]
-  local name = global.nullius_android_name[oldunit]
-  if (tag ~= nil) then
-    global.nullius_android_tag[oldunit] = nil
+    local name = global.nullius_android_name[oldunit]
+    if (tag ~= nil) then
+      global.nullius_android_tag[oldunit] = nil
       global.nullius_android_tag[newunit] = tag
       global.nullius_tag_android[tag.tag_number] = newchar
-  end
-  if (name ~= nil) then
-    global.nullius_android_name[oldunit] = nil
-    global.nullius_android_name[newunit] = name
-  end
+    end
+    if (name ~= nil) then
+      global.nullius_android_name[oldunit] = nil
+      global.nullius_android_name[newunit] = name
+    end
   end
 
   if (global.nullius_body_queue ~= nil) then
     for _,queue in pairs(global.nullius_body_queue) do
-    local node = queue.nodes[oldunit]
-    if (node ~= nil) then
-      node.body = newchar
-      node.unit = newunit
-      queue.nodes[oldunit] = nil
-      queue.nodes[newunit] = node
+      local node = queue.nodes[oldunit]
+      if (node ~= nil) then
+        node.body = newchar
+        node.unit = newunit
+        queue.nodes[oldunit] = nil
+        queue.nodes[newunit] = node
+      end
+      if (queue.last_index == oldunit) then
+        queue.last_index = newunit
+      end
     end
-    if (queue.last_index == oldunit) then
-      queue.last_index = newunit
-    end
-  end
   end
 end
 
 script.on_event(defines.events.on_player_respawned, function(event)
   local player = game.players[event.player_index]
+  update_player_upgrades(player)
   local newchar = player.character
   if ((newchar == nil) or (not newchar.valid)) then return end
 
@@ -283,13 +285,14 @@ script.on_event(defines.events.on_player_respawned, function(event)
   for _,node in pairs(queue.nodes) do
     if ((node.body == nil) or (not node.body.valid)) then
       change_character_entity(node.unit, newchar)
-    return
-  end
+      return
+    end
   end
 end)
 
-local function rematerialize_body(event)
+function rematerialize_body(event)
   local player = game.players[event.player_index]
+  update_player_upgrades(player)
   local newchar = player.character
   if ((newchar == nil) or (not newchar.valid)) then return end
 
@@ -302,6 +305,5 @@ local function rematerialize_body(event)
   node.body = newchar
 end
 
-script.on_event(defines.events.on_player_joined_game, rematerialize_body)
 script.on_event(defines.events.on_player_toggled_map_editor,
     rematerialize_body)

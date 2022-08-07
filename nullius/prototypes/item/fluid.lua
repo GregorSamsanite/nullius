@@ -2359,15 +2359,15 @@ data:extend({
     enabled = false,
     category = "nullius-water-treatment",
     crafting_machine_tint = { primary = {0.9, 0.75, 1} },
-    energy_required = 30,
+    energy_required = 25,
     ingredients = {
-      {type="fluid", name="nullius-brine", amount=400}
+      {type="fluid", name="nullius-brine", amount=320}
     },
     results = {
-      {type="item", name="nullius-salt", amount=25},
+      {type="item", name="nullius-salt", amount=20},
       {type="item", name="nullius-lithium-chloride", amount=1},
-      {type="fluid", name="nullius-saline", amount=150},
-      {type="fluid", name="nullius-steam", amount=300}
+      {type="fluid", name="nullius-saline", amount=120},
+      {type="fluid", name="nullius-steam", amount=200}
     },
     main_product = "nullius-lithium-chloride"
   },
@@ -2379,15 +2379,15 @@ data:extend({
     subgroup = "boxed-sodium",
     order = "nullius-bc",
     crafting_machine_tint = { primary = {0.95, 0.8, 1} },
-    energy_required = 150,
+    energy_required = 125,
     ingredients = {
-      {type="fluid", name="nullius-brine", amount=2000}
+      {type="fluid", name="nullius-brine", amount=1600}
     },
     results = {
-      {type="item", name="nullius-box-salt", amount=25},
+      {type="item", name="nullius-box-salt", amount=20},
       {type="item", name="nullius-box-lithium-chloride", amount=1},
-      {type="fluid", name="nullius-saline", amount=750},
-      {type="fluid", name="nullius-steam", amount=1500}
+      {type="fluid", name="nullius-saline", amount=600},
+      {type="fluid", name="nullius-steam", amount=1000}
     },
     main_product = "nullius-box-lithium-chloride"
   },

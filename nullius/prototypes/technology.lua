@@ -218,6 +218,10 @@ data:extend({
       {
         type = "character-mining-speed",
         modifier = 0.5
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-mining-tool-1"
       }
     },
     unit = {
@@ -315,6 +319,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-small-chest-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-small-cargo-pod-1"
       }
     },
     unit = {
@@ -322,7 +330,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}},
       time = 3
     },
-    prerequisites = {"nullius-iron-working-1", "nullius-climatology-1"},
+    prerequisites = {"nullius-air-separation-1", "nullius-fabrication-tools"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -403,6 +411,10 @@ data:extend({
       {
         type = "character-crafting-speed",
         modifier = 0.25
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fabrication-tool-1"
       }
     },
     unit = {
@@ -833,8 +845,7 @@ data:extend({
       time = 6
     },
     prerequisites = {"nullius-mechanical-engineering-1"},
-    ignore_tech_cost_multiplier = true,
-    upgrade = true
+    ignore_tech_cost_multiplier = true
   },
 
   {
@@ -1216,8 +1227,7 @@ data:extend({
       time = 8
     },
     prerequisites = {"nullius-steelworking"},
-    ignore_tech_cost_multiplier = true,
-    upgrade = true
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -1574,6 +1584,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-large-chest-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-cargo-pod-1"
       }
     },
     unit = {
@@ -2074,7 +2088,6 @@ data:extend({
       time = 10
     },
     prerequisites = {"nullius-electrical-engineering"},
-    upgrade = true,
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2320,6 +2333,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-self-repair-pack"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fabrication-tool-2"
       }
     },
     unit = {
@@ -2330,7 +2347,7 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-actuation-2", "nullius-toolmaking-3"},
+    prerequisites = {"nullius-actuation-2", "nullius-toolmaking-3", "nullius-electromagnetism-2"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -3461,6 +3478,10 @@ data:extend({
         recipe = "nullius-levitation-field-1"
       },
       {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-generator"
+      },
+      {
         type = "character-health-bonus",
         modifier = 50
       }
@@ -3797,6 +3818,10 @@ data:extend({
       {
         type = "character-crafting-speed",
         modifier = 0.5
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-multi-tool-1"
       }
     },
     unit = {
@@ -3807,8 +3832,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-cybernetics-2"},
-    upgrade = true
+    prerequisites = {"nullius-cybernetics-2"}
   },
   {
     type = "technology",
@@ -3925,15 +3949,15 @@ data:extend({
     effects = {
       {
         type = "character-reach-distance",
-        modifier = 4
+        modifier = 2
       },
       {
         type = "character-build-distance",
-        modifier = 4
+        modifier = 2
       },
       {
         type = "character-item-drop-distance",
-        modifier = 2
+        modifier = 1
       },
       {
         type = "character-resource-reach-distance",
@@ -3941,11 +3965,15 @@ data:extend({
       },
       {
         type = "character-loot-pickup-distance",
-        modifier = 1
+        modifier = 0.5
       },
       {
         type = "character-item-pickup-distance",
         modifier = 0.5
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-telekinesis-field-1"
       }
     },
     unit = {
@@ -4502,6 +4530,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-ceramics",
+    localised_name = {"", {"technology-name.nullius-ceramics"}, " ", 1},
     order = "nullius-ef",
     icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
     icon_size = 64,
@@ -4514,10 +4543,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-refractory-brick-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-bearing"
       },
       {
         type = "unlock-recipe",
@@ -4904,6 +4929,10 @@ data:extend({
       {
         type = "character-inventory-slots-bonus",
         modifier = 10
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-cargo-pod-2"
       }
     },
     unit = {
@@ -5756,7 +5785,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-composites-1"},
+    prerequisites = {"nullius-composites-1"}
   },
   {
     type = "technology",
@@ -6097,6 +6126,22 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-box-fabrication-tool-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-fabrication-tool-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-fabrication-tool-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-fabrication-tool-2"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-box-transformer"
       },
       {
@@ -6177,10 +6222,10 @@ data:extend({
       ingredients = {
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
-      ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-logistic-robot-2", "nullius-packaging-3"}
+    prerequisites = {"nullius-checkpoint-logistic-robot-2",
+	    "nullius-packaging-3", "nullius-ceramics-2"}
   },
   {
     type = "technology",
@@ -6320,6 +6365,33 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-toolmaking-5", "nullius-explosives-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-ceramics-2",
+    order = "nullius-ej",
+    icon = ICONPATH .. "bearing.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-bearing"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-crucible-2"
+      }
+    },
+    unit = {
+      count = 400,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-composites-1",
+	    "nullius-toolmaking-5", "nullius-packaging-2"}
   },
 
   {
@@ -7003,6 +7075,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-large-chest-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-trash-compactor"
       }
     },
     unit = {
@@ -8236,6 +8312,14 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-fabrication-tool-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-fabrication-tool-2"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-boxed-belt-1"
       },
       {
@@ -9043,6 +9127,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-quadrupedal-adaptation-1"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-night-vision-2"
       },
       {
@@ -9678,6 +9766,14 @@ data:extend({
       {
         type = "character-resource-reach-distance",
         modifier = 1
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fabrication-tool-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-mining-tool-2"
       }
     },
     unit = {
@@ -11125,6 +11221,10 @@ data:extend({
       {
         type = "character-inventory-slots-bonus",
         modifier = 10
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-small-cargo-pod-2"
       }
     },
     unit = {
@@ -11136,7 +11236,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-titanium-production-3", "nullius-inserter-capacity-4"}
+    prerequisites = {"nullius-distribution-4"}
   },
 
   {
@@ -11217,7 +11317,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-personal-storage-2", "nullius-robot-battery-1"},
+    prerequisites = {"nullius-titanium-production-3", "nullius-inserter-capacity-4", "nullius-robot-battery-1"},
     upgrade = true
   },
   {
@@ -11282,7 +11382,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-electronics-3", "nullius-personal-storage-2"}
+    prerequisites = {"nullius-electronics-3", "nullius-robot-cargo-2"}
   },
 
   {
@@ -11601,6 +11701,10 @@ data:extend({
       {
         type = "character-crafting-speed",
         modifier = 1
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-multi-tool-2"
       }
     },
     unit = {
@@ -11680,7 +11784,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-robotics-3"}
+    prerequisites = {"nullius-robotics-3", "nullius-personal-storage-2"}
   },
   {
     type = "technology",
@@ -11744,7 +11848,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-braking-7"}
+    prerequisites = {"nullius-braking-7", "nullius-personal-storage-2"}
   },
 
   {
@@ -11963,6 +12067,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-truck-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-reactor"
       }
     },
     unit = {
@@ -12065,27 +12173,31 @@ data:extend({
     effects = {
       {
         type = "character-reach-distance",
-        modifier = 6
-      },
-      {
-        type = "character-build-distance",
-        modifier = 6
-      },
-      {
-        type = "character-item-drop-distance",
-        modifier = 3
-      },
-      {
-        type = "character-resource-reach-distance",
         modifier = 2
       },
       {
-        type = "character-loot-pickup-distance",
+        type = "character-build-distance",
+        modifier = 2
+      },
+      {
+        type = "character-item-drop-distance",
         modifier = 1
+      },
+      {
+        type = "character-resource-reach-distance",
+        modifier = 1
+      },
+      {
+        type = "character-loot-pickup-distance",
+        modifier = 0.5
       },
       {
         type = "character-item-pickup-distance",
         modifier = 0.5
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-telekinesis-field-2"
       }
     },
     unit = {
@@ -12118,7 +12230,15 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-quadrupedal-adaptation-2"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-night-vision-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-stabilizer-1"
       },
       {
         type = "character-health-bonus",
@@ -13370,6 +13490,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-magazine-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-armor-plate"
       }
     },
     unit = {
@@ -14100,6 +14224,18 @@ data:extend({
         recipe = "nullius-leg-augmentation-3"
       },
       {
+        type = "unlock-recipe",
+        recipe = "nullius-quadrupedal-adaptation-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-multi-tool-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-telekinesis-field-3"
+      },
+      {
         type = "character-health-bonus",
         modifier = 150
       }
@@ -14114,7 +14250,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-construction-robot-4", "nullius-logistic-robot-4"}
+    prerequisites = {"nullius-zoology-3", "nullius-personal-storage-3"}
   },
   {
     type = "technology",
@@ -14127,6 +14263,10 @@ data:extend({
       {
         type = "character-inventory-slots-bonus",
         modifier = 10
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-cargo-pod-3"
       }
     },
     unit = {
@@ -14218,7 +14358,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-cybernetics-6", "nullius-zoology-3"}
+    prerequisites = {"nullius-cybernetics-6", "nullius-wildlife-management-2"}
   },
   {
     type = "technology",
@@ -14465,6 +14605,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-quadrupedal-adaptation-4"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-boxed-charger-4"
       },
       {
@@ -14477,7 +14621,7 @@ data:extend({
       }
     },
     unit = {
-      count = 150000,
+      count = 300000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 2},
@@ -14486,7 +14630,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-android-2", "nullius-personal-storage-3"}
+    prerequisites = {"nullius-checkpoint-probe"}
   },
 
   {
@@ -14514,7 +14658,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-miniaturization-3", "nullius-asteroid-mining-3"}
+    prerequisites = {"nullius-asteroid-mining-3", "nullius-checkpoint-solar-panel"}
   },
   {
     type = "technology",
@@ -14554,7 +14698,7 @@ data:extend({
       }
     },
     unit = {
-      count = 1000000,
+      count = 750000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2},
@@ -14563,7 +14707,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-probe", "nullius-miniaturization-3"}
+    prerequisites = {"nullius-miniaturization-3"}
   },
   {
     type = "technology",
@@ -14588,7 +14732,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-battery-storage-5", "nullius-checkpoint-solar-panel"}
+    prerequisites = {"nullius-battery-storage-5", "nullius-miniaturization-3"}
   },
   {
     type = "technology",
@@ -14601,6 +14745,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-chassis-6"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-stabilizer-2"
       }
     },
     unit = {

@@ -345,6 +345,24 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "cargo-pod",
+    group = "equipment",
+    order = "eg"
+  },
+  {
+    type = "item-subgroup",
+    name = "leg-augmentation",
+    group = "equipment",
+    order = "eh"
+  },  
+  {
+    type = "item-subgroup",
+    name = "tool-upgrades",
+    group = "equipment",
+    order = "ei"
+  },
+  {
+    type = "item-subgroup",
     name = "demolitions",
     group = "equipment",
     order = "fb"
@@ -1685,6 +1703,10 @@ data:extend({
   {
     type = "equipment-category",
     name = "cybernetic"
+  },
+  {
+    type = "equipment-category",
+    name = "android"
   },
 
   {

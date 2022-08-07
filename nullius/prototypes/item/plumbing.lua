@@ -4933,6 +4933,29 @@ data:extend({
     ingredients = {
       {"nullius-chemical-plant-2", 1},
       {"nullius-surge-electrolyzer-2", 1},
+	  {"nullius-telekinesis-field-1", 1},
+      {"nullius-foundry-2", 1},
+      {"nullius-flotation-cell-2", 1},
+      {"nullius-air-filter-2", 1}
+    },
+    result = "nullius-nanofabricator-1",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-nanofabricator-1",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "huge-crafting",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-chemical-plant-2", 1},
+      {"nullius-surge-electrolyzer-2", 1},
       {"nullius-foundry-2", 1},
       {"nullius-flotation-cell-2", 1},
       {"nullius-air-filter-2", 1}
@@ -4947,6 +4970,30 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    category = "huge-crafting",
+    energy_required = 90,
+    ingredients = {
+      {"nullius-nanofabricator-1", 1},
+      {"nullius-mirror-chemical-plant-3", 1},
+      {"nullius-priority-electrolyzer-3", 1},
+      {"nullius-large-furnace-2", 1},
+      {"nullius-large-assembler-2", 1},
+	  {"nullius-fabrication-tool-3", 1},
+      {"nullius-large-dispatch-chest-2", 2}
+    },
+    result = "nullius-nanofabricator-2",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-nanofabricator-2",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "huge-crafting",
     energy_required = 90,
     ingredients = {

@@ -915,6 +915,10 @@ function grass_level(tilename)
 end
 
 function grass_area(surface, center)
+  local fillsurface = landfill_surface(surface)
+  fillsurface.request_to_generate_chunks(center, 4)
+  fillsurface.force_generate_chunk_requests()
+
   local water_count = {}
   for i = 1, 4 do
     local p = corner_offset(center, 96, i)
@@ -952,6 +956,15 @@ function grass_area(surface, center)
 
   local cx = center.x
   local cy = center.y
+  local a128 = area_bound(center, 128)
+  local fill_tiles = fillsurface.find_tiles_filtered{area=a128}
+  for _, t in pairs(fill_tiles) do
+	local lvl = grass_level(t.name)
+    local rx = t.position.x - cx
+	local ry = t.position.y - cy
+	subtract_grid_obstacle(grid, ((-3 * lvl) / 64), rx, ry)	
+  end
+
   local vicinity = area_bound(center, 104)
   local rocks = surface.find_entities_filtered{
       area=vicinity, type={"simple-entity", "resource", "cliff", "turret"}}
@@ -993,7 +1006,7 @@ function grass_area(surface, center)
 
   local grass_matrix = init_grass_matrix()
   local land_tiles = surface.find_tiles_filtered{
-      area=area_bound(center, 128), collision_mask="ground-tile"}
+      area=a128, collision_mask="ground-tile"}
   local candidates = { }
   local candtiles = { }
   local candnum = 0
@@ -1042,7 +1055,7 @@ function grass_area(surface, center)
         local my = math.floor(ty % 8) + 1
         local gx = math.floor(tx / 8) + 16
         local gy = math.floor(ty / 8) + 16
-        local score = ((oldlvl - math.random()) * 5)
+        local score = ((oldlvl - math.random()) * 3)
         for ix = 1, 5 do
           for iy = 1, 5 do
             score = score + (grid[gx + ix][gy + iy] *

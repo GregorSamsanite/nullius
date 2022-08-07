@@ -1,4 +1,56 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 06.08.2022
+  Features:
+    - 26 new personal equipment items!
+  Balancing:
+    - Add more slots to all android chassis equipment grids.
+    - Increase baseline reach, but reduce passive tech bonuses to it.
+    - Reduce cost of processor 1 and 2, and lithium chloride.
+    - Increase output of electrical prototype 2.
+    - Marginally reduce oxygen mission requirement.
+    - Solar panel 4 generation reduced by 20%.
+    - 10 exposives in starting equipment.
+    - 1 extra starting battery.
+    - Adjust research cost of a couple of post victory techs.
+    - Increase effect of self-repair pack.
+  Bugfixes:
+    - Fix a bug with upgrading blueprints for stirling engines.
+    - Fix a crash when a mecha blows itself up with a drone.
+  Changes:
+    - Compatible changed recipes (may use old recipe if already automated):
+      Small miner 1, Logistic bot 1 - 4, Construction bot 1 - 4, Repair pack,
+      Small assembler 1 & 2, Levitation field 2, Large Beacon 2, Locomotive 2, 
+      Nanofabricator 1 & 2, Chassis 5, Crusher 3, Demolition/Excavation drone.
+    - Changed niche recipes, not backward compatible:
+      Chassis 4, Shield, Truck 2, Mecha 1 & 2, and Self-repair pack
+    - Minor modifications to several tech prerequisites.
+  Translation:
+    - Ukrainian language localization added by bootseller!
+  Graphics:
+    - New icon for transformer intermediate.
+    - Fix icon for bacteria voiding recipe.
+  Modding:
+    - Companion Drones mod starts with basic equipment.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.19
+Date: 18.07.2022
+  Features:
+    - Add a new tier of ceramics with a new crucible recipe.
+  Bugfixes:
+    - Prevent excavation or demolition drone from destroying other drones.
+  Changes:
+    - Make grass seeding sensitive to original terrain type.
+    - Stirling engines with low heat come to a full stop sooner.
+  Balancing:
+    - Reduce grass goal slightly and make it a higher proportion of oxygen.
+  Info:
+    - Elaborate on description of steam and compressed nitrogen checkpoints.
+  Modding:
+    - Force Bulk Rail Loader to "any", since it doesn't recognize Nullius ore.
+    - Disallow Extended Descriptions, since it overrides vital information.
+    - Migrate potentially disabled Factorissimo heat connection tech.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.18
 Date: 15.07.2022
   Features:
@@ -62,7 +114,7 @@ Date: 02.07.2022
   Balancing:
     - Make basic fusion cells more powerful and tritium cheaper.
     - Make mechanical prototype 2 recipe significantly cheaper.
-    - Grass goal increased and is a higher proportion of oxygen production.
+    - Grass goal increased.
     - Make motor 3 a bit cheaper.
     - Make solar train slightly faster.
     - Make enriched uranium a little cheaper.

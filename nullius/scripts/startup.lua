@@ -34,7 +34,7 @@ function broken_finished(name)
   end
 end
 
-local function broken_crafted(name)
+function broken_crafted(name)
   if (global.nullius_broken_status == nil) then
     return
   end
@@ -93,6 +93,7 @@ script.on_event(defines.events.on_player_joined_game,
     local player = game.players[event.player_index]
     init_tech(player.force)
     update_mission_player(player)
+	rematerialize_body(event)
   end
 )
 
@@ -137,6 +138,7 @@ script.on_configuration_changed(
     reset_config()
     init_techs()
     update_mission_global()
+	update_all_upgrades()
   end
 )
 
@@ -158,10 +160,13 @@ local function equip_armor(player)
     end
 
     if ((body ~= nil) and (body.grid ~= nil)) then
-      body.grid.put({name="nullius-hangar-1"})
-      body.grid.put({name="nullius-charger-1"})
       body.grid.put({name="nullius-solar-panel-1"})
-      body.grid.put({name="nullius-battery-1"})
+	  if (not script.active_mods["Companion_Drones"]) then
+        body.grid.put({name="nullius-hangar-1"})
+        body.grid.put({name="nullius-charger-1"})
+		body.grid.put({name="nullius-battery-1", position={0,5}})
+	    body.grid.put({name="nullius-battery-1", position={1,5}})
+	  end
       body.grid.put({name="nullius-battery-1"})
       body.grid.put({name="nullius-battery-1"})
       for _,eq in pairs(body.grid.equipment) do
@@ -178,8 +183,8 @@ script.on_event(defines.events.on_player_created,
     local player = game.players[event.player_index]
     player.remove_item{name = "burner-ore-crusher", count = 1}
 
+	equip_armor(player)
     if (not script.active_mods["Companion_Drones"]) then
-	  equip_armor(player)
       player.insert({name="nullius-construction-bot-1", count=6})
 	end
     player.insert({name="nullius-solar-panel-1", count=10})
@@ -205,6 +210,7 @@ script.on_event(defines.events.on_player_created,
       game.show_message_dialog{text = {"nullius-intro"}}
     end
     update_mission_player(player)
+	update_player_upgrades(player)
   end
 )
 
@@ -219,14 +225,5 @@ script.on_event(defines.events.on_research_finished,
       end
     end
 	update_checkpoint_list(techname)
-  end
-)
-
-script.on_event(defines.events.on_player_crafted_item,
-  function(event)
-    if ((global.nullius_broken_status ~= nil) and
-      (string.sub(event.recipe.name, 1, 15) == "nullius-broken-")) then
-    broken_crafted(event.recipe.name)
-  end
   end
 )

@@ -347,7 +347,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-energy-storage"}}},
     localised_description = {"",
-	    {"technology-description.nullius-consume", {"technology-description.nullius-fluid",
+	    {"technology-description.nullius-generate", {"technology-description.nullius-fluid",
 		    1000, "nullius-steam", {"fluid-name.nullius-steam"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
 		    1, "nullius-surge-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
@@ -910,7 +910,7 @@ data:extend({
     name = "nullius-checkpoint-compressed-nitrogen",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"technology-name.nullius-energy-storage"}}},
-    localised_description = {"technology-description.nullius-consume",
+    localised_description = {"technology-description.nullius-generate",
 	    {"technology-description.nullius-fluid", 1000, "nullius-compressed-nitrogen", {"fluid-name.nullius-compressed-nitrogen"}}},
     order = "nullius-yd",
     icons = {
@@ -1606,10 +1606,12 @@ data:extend({
   {
     type = "technology",
     name = "nullius-checkpoint-large-tank",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
-	    {"entity-name.nullius-large-tank-2"}}},
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"technology-name.nullius-demonstration",
+	        {"entity-name.nullius-large-tank-2"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 4, "nullius-large-tank-2", {"entity-name.nullius-large-tank-2"}}},
+	    {"technology-description.nullius-item", 4, "nullius-large-tank-2",
+		    {"entity-name.nullius-large-tank-2"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1625,10 +1627,11 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1},
+	      {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-plumbing-5"},
+    prerequisites = {"nullius-plumbing-5", "nullius-ceramics-2"},
     ignore_tech_cost_multiplier = true
   },
   {

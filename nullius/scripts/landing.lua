@@ -142,9 +142,9 @@ function landing_site(surface, loc)
       if count > 20 then
         part_position = surface.find_non_colliding_position(part.name,
         part_position, (((count - 20) * 5) + 25), 4)
-    if (part_position ~= nil) then
+        if (part_position ~= nil) then
           break
-    end
+        end
       end
     end
 
@@ -157,6 +157,7 @@ function landing_site(surface, loc)
     if (part.pod == 1) then
       part_entity.insert({name="wooden-chest", count=2})
       part_entity.insert({name="inserter", count=30})
+	  part_entity.insert({name="cliff-explosives", count=10})
     else
       part_entity.insert({name="nullius-small-storage-chest-1", count=1})
       part_entity.insert({name="transport-belt", count=300})

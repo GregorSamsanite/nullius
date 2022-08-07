@@ -661,7 +661,7 @@ data:extend({
       }
     },
     unit = {
-      count = 250000,
+      count = 200000,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},

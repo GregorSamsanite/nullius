@@ -1,0 +1,35 @@
+{
+  "recipe":
+  [
+    ["nullius-small-assembler-1", "nullius-legacy-small-assembler-1"],
+	["nullius-small-assembler-2", "nullius-legacy-small-assembler-2"],
+	["nullius-small-miner-1", "nullius-legacy-small-miner-1"],
+	["nullius-crusher-3", "nullius-legacy-crusher-3"],
+	["nullius-large-beacon-2", "nullius-legacy-large-beacon-2"],
+	["nullius-demolition-drone", "nullius-legacy-demolition-drone"],
+	["nullius-excavation-drone", "nullius-legacy-excavation-drone"],
+	["nullius-chassis-5", "nullius-legacy-chassis-5"],
+	["nullius-repair-pack", "nullius-legacy-repair-pack"],
+	["nullius-boxed-repair-pack", "nullius-legacy-boxed-repair-pack"],
+	["nullius-levitation-field-2", "nullius-legacy-levitation-field-2"],
+	["nullius-locomotive-2", "nullius-legacy-locomotive-2"],
+	["nullius-nanofabricator-1", "nullius-legacy-nanofabricator-1"],
+	["nullius-nanofabricator-2", "nullius-legacy-nanofabricator-2"],
+	["nullius-construction-bot-1", "nullius-legacy-construction-bot-1"],
+	["nullius-boxed-construction-bot-1", "nullius-legacy-boxed-construction-bot-1"],
+	["nullius-construction-bot-2", "nullius-legacy-construction-bot-2"],
+	["nullius-boxed-construction-bot-2", "nullius-legacy-boxed-construction-bot-2"],
+	["nullius-construction-bot-3", "nullius-legacy-construction-bot-3"],
+	["nullius-boxed-construction-bot-3", "nullius-legacy-boxed-construction-bot-3"],
+	["nullius-construction-bot-4", "nullius-legacy-construction-bot-4"],
+	["nullius-boxed-construction-bot-4", "nullius-legacy-boxed-construction-bot-4"],
+	["nullius-logistic-bot-1", "nullius-legacy-logistic-bot-1"],
+	["nullius-boxed-logistic-bot-1", "nullius-legacy-boxed-logistic-bot-1"],
+	["nullius-logistic-bot-2", "nullius-legacy-logistic-bot-2"],
+	["nullius-boxed-logistic-bot-2", "nullius-legacy-boxed-logistic-bot-2"],
+	["nullius-logistic-bot-3", "nullius-legacy-logistic-bot-3"],
+	["nullius-boxed-logistic-bot-3", "nullius-legacy-boxed-logistic-bot-3"],
+	["nullius-logistic-bot-4", "nullius-legacy-logistic-bot-4"],
+	["nullius-boxed-logistic-bot-4", "nullius-legacy-boxed-logistic-bot-4"]
+  ]
+}

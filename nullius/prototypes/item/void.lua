@@ -210,8 +210,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-bacteria",
-    icon = data.raw.fluid["nullius-bacteria"].icon,
-    icon_size = data.raw.fluid["nullius-bacteria"].icon_size,
+    icons = data.raw.fluid["nullius-bacteria"].icons,
     crafting_machine_tint = { primary = data.raw.fluid["nullius-bacteria"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
