@@ -4586,8 +4586,8 @@ data:extend({
       icon = ENTICONPATH .. "exchanger1.png",
       icon_size = 64
     }},
-    subgroup = "geothermal",
-    order = "nullius-dbb",
+    subgroup = "heat-exchange",
+    order = "nullius-bbb",
     place_result = "nullius-heat-exchanger-1",
     stack_size = 50
   },
@@ -4604,8 +4604,8 @@ data:extend({
         icon_size = 64
       }
     },
-    subgroup = "geothermal",
-    order = "nullius-dbc",
+    subgroup = "heat-exchange",
+    order = "nullius-bbc",
     place_result = "nullius-mirror-heat-exchanger-1",
     stack_size = 50
   },
@@ -4658,8 +4658,7 @@ data:extend({
     allow_as_intermediate = false,
     always_show_products = true,
     category = "medium-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-fb",
+    order = "nullius-cb",
     energy_required = 0.5,
     ingredients = {
       {"nullius-mirror-heat-exchanger-1", 1},
@@ -4674,8 +4673,8 @@ data:extend({
       icon = ENTICONPATH .. "exchanger2.png",
       icon_size = 64
     }},
-    subgroup = "geothermal",
-    order = "nullius-dcb",
+    subgroup = "heat-exchange",
+    order = "nullius-bcb",
     place_result = "nullius-heat-exchanger-2",
     stack_size = 50
   },
@@ -4692,8 +4691,8 @@ data:extend({
         icon_size = 64
       }
     },
-    subgroup = "geothermal",
-    order = "nullius-dcc",
+    subgroup = "heat-exchange",
+    order = "nullius-bcc",
     place_result = "nullius-mirror-heat-exchanger-2",
     stack_size = 50
   },
@@ -4747,14 +4746,102 @@ data:extend({
     allow_as_intermediate = false,
     always_show_products = true,
     category = "medium-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-fc",
+    order = "nullius-cc",
     energy_required = 0.5,
     ingredients = {
       {"nullius-mirror-heat-exchanger-2", 1},
       {"nullius-pipe-3", 1}
     },
     result = "nullius-heat-exchanger-2"
+  },
+
+  {
+    type = "item",
+    name = "nullius-heat-exchanger-3",
+    icons = {{
+      icon = ENTICONPATH .. "exchanger3.png",
+      icon_size = 64
+    }},
+    subgroup = "heat-exchange",
+    order = "nullius-bdb",
+    place_result = "nullius-heat-exchanger-3",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-mirror-heat-exchanger-3",
+    icons = {
+      {
+        icon = ENTICONPATH .. "exchanger3.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
+    subgroup = "heat-exchange",
+    order = "nullius-bdc",
+    place_result = "nullius-mirror-heat-exchanger-3",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-heat-exchanger-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 50,
+    ingredients = {
+      {"nullius-heat-exchanger-2", 2},
+      {"nullius-thermal-tank-3", 1},
+      {"nullius-filter-2", 1}
+    },
+    result = "nullius-heat-exchanger-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-mirror-heat-exchanger-3",
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+    category = "medium-crafting",
+    energy_required = 1,
+    ingredients = {
+      {"nullius-heat-exchanger-3", 1},
+      {"nullius-pipe-4", 2}
+    },
+    result = "nullius-mirror-heat-exchanger-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-unmirror-heat-exchanger-3",
+    localised_name = {"recipe-name.nullius-unmirrored",
+        {"", {"entity-name.heat-exchanger"}, " ", 3}},
+    icons = {
+      {
+        icon = ENTICONPATH .. "exchanger3.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "flip2.png",
+        icon_size = 64
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    always_show_products = true,
+    category = "medium-crafting",
+    order = "nullius-cd",
+    energy_required = 0.5,
+    ingredients = {
+      {"nullius-mirror-heat-exchanger-3", 1},
+      {"nullius-pipe-4", 1}
+    },
+    result = "nullius-heat-exchanger-3"
   },
 
   {

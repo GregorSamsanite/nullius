@@ -684,7 +684,7 @@ data:extend({
       {"nullius-robot-frame-1", 1},
       {"nullius-haste-module-1", 1},
       {"nullius-combustion-chamber-1", 1},
-      {"nullius-turbine-1", 2},
+      {"nullius-standard-turbine-1", 2},
       {"nullius-aluminum-plate", 6}
     },
     result = "jetpack-1"
@@ -701,7 +701,7 @@ data:extend({
       {"nullius-robot-frame-2", 1},
       {"nullius-haste-module-2", 1},
       {"nullius-combustion-chamber-2", 2},
-      {"nullius-turbine-2", 2},
+      {"nullius-standard-turbine-2", 2},
       {"nullius-ceramic-powder", 8}
     },
     result = "jetpack-2"
@@ -1684,7 +1684,7 @@ data:extend({
     category = "large-crafting",
     energy_required = 25,
     ingredients = {
-      {"railway-motor-car-equipment", 1},
+      {"railway-motor-car-base", 1},
       {"nullius-solar-locomotive", 1},
       {"nullius-small-assembler-3", 1}
     },

@@ -1898,7 +1898,6 @@ data:extend({
     name = "nullius-chirality-1",
     order = "nullius-cm",
     icon_size = 254,
-    icon_mipmaps = 4,
     icon = TECHPATH .. "chiral.png",
     effects = {
       {
@@ -3862,7 +3861,6 @@ data:extend({
     name = "nullius-chirality-2",
     order = "nullius-dl",
     icon_size = 254,
-    icon_mipmaps = 4,
     icon = TECHPATH .. "chiral.png",
     effects = {
       {
@@ -4684,7 +4682,6 @@ data:extend({
     name = "nullius-chirality-3",
     order = "nullius-ef",
     icon_size = 254,
-    icon_mipmaps = 4,
     icon = TECHPATH .. "chiral.png",
     effects = {
       {
@@ -11559,6 +11556,74 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-boiling-3",
+    order = "nullius-fp",
+	icon_size = 64,
+    icon_mipmaps = 4,
+    icon = ENTICONPATH .. "exchanger3.png",
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-heat-exchanger-3"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-mirror-heat-exchanger-3"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-unmirror-heat-exchanger-3"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-water"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-saline"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-brine"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-seawater"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-freshwater"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-boiling-wastewater"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-steam"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "fill-nullius-pressure-steam-barrel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "empty-nullius-pressure-steam-barrel"
+      }
+    },
+    unit = {
+      count = 3000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 50
+    },
+    prerequisites = {"nullius-nuclear-power-1", "nullius-solar-thermal-power-3"}
+  },
+  {
+    type = "technology",
     name = "nullius-braking-7",
     order = "nullius-fp",
     icon = "__base__/graphics/technology/braking-force.png",
@@ -11985,7 +12050,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-logistic-robot-3", "nullius-braking-7"}
+    prerequisites = {"nullius-logistic-robot-3", "nullius-braking-7", "nullius-boiling-3"}
   },
   {
     type = "technology",
@@ -12013,7 +12078,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-logistic-robot-3", "nullius-solar-thermal-power-3", "nullius-toolmaking-8"}
+    prerequisites = {"nullius-logistic-robot-3", "nullius-toolmaking-8"}
   },
 
   {
@@ -12082,7 +12147,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-freight-transportation-3", "nullius-nuclear-power-1"}
+    prerequisites = {"nullius-freight-transportation-3", "nullius-toolmaking-8"}
   },
   {
     type = "technology",

@@ -2016,7 +2016,7 @@ data:extend({
       {"nullius-flotation-cell-3", 1},
       {"nullius-air-filter-3", 1},
       {"nullius-hydro-plant-3", 1},
-      {"nullius-box-insulation-4", 10}
+      {"nullius-box-insulation", 10}
     },
     result = "nullius-biology-lab"
   },

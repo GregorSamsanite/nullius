@@ -21,6 +21,14 @@ local function legacy_recipe(force, techname, recipename)
   global.nullius_legacy[force.index]["nullius-legacy-"..recipename] = techname
 end
 
+local function legacy_recipe_all(techname, recipename)
+  for _, force in pairs(game.forces) do
+    if (force.research_enabled) then
+	  legacy_recipe(force, techname, recipename)
+	end
+  end
+end
+
 
 local function added_techs(techlist)
   for _, force in pairs(game.forces) do
@@ -58,6 +66,9 @@ function migrate_version(event)
   local sub3 = tonumber(string.sub(previous, (dot2 + 1)))
   if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
   local version = (((sub1 * 100) + sub2) * 100) + sub3
+
+  if (version >= 10501) then return end
+  legacy_recipe_all("nullius-personal-transportation-1", "car-1")
 
   if (version >= 10500) then return end
   for _, force in pairs(game.forces) do

@@ -3001,6 +3001,24 @@ data:extend({
       {type="item", name="nullius-locomotive-1", amount=1},
       {type="item", name="small-lamp", amount=2},
       {type="item", name="nullius-rubber", amount=4},
+      {type="item", name="nullius-steel-rod", amount=4},
+      {type="fluid", name="nullius-air", amount=20, fluidbox_index=1}
+    },
+    result = "nullius-car-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-car-1",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "large-fluid-assembly",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-locomotive-1", amount=1},
+      {type="item", name="small-lamp", amount=2},
+      {type="item", name="nullius-rubber", amount=4},
       {type="item", name="nullius-iron-wire", amount=4},
       {type="fluid", name="nullius-air", amount=15, fluidbox_index=1}
     },
@@ -3733,8 +3751,8 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-transformer", amount=2},
-      {type="item", name="nullius-levitation-field-1", amount=3},
+      {type="item", name="nullius-transformer", amount=1},
+      {type="item", name="nullius-levitation-field-1", amount=2},
       {type="item", name="nullius-speed-module-1", amount=1}
     },
     result = "nullius-telekinesis-field-1"

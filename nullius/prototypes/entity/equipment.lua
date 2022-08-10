@@ -1684,7 +1684,7 @@ data:extend({
     name = "nullius-upgrade-fabrication-tool-1",
     take_result = "nullius-fabrication-tool-1",
     localised_description =
-	    {"equipment-description.nullius-bonus-craft", 25, 15},
+	    {"equipment-description.nullius-bonus-craft", 25, 12},
     order = "lbb",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-1.png",
@@ -1711,7 +1711,7 @@ data:extend({
     name = "nullius-upgrade-fabrication-tool-2",
     take_result = "nullius-fabrication-tool-2",
     localised_description =
-	    {"equipment-description.nullius-bonus-craft", 40, 20},
+	    {"equipment-description.nullius-bonus-craft", 40, 16},
     order = "lbc",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-2.png",
@@ -1738,7 +1738,7 @@ data:extend({
     name = "nullius-upgrade-fabrication-tool-3",
     take_result = "nullius-fabrication-tool-3",
     localised_description =
-	    {"equipment-description.nullius-bonus-craft", 120, 50},
+	    {"equipment-description.nullius-bonus-craft", 120, 40},
     order = "lbd",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-3.png",
@@ -1825,7 +1825,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-1",
     take_result = "nullius-multi-tool-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-craft", 50, 30}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 50, 25}, "\n",
 	    {"equipment-description.nullius-bonus-mining", 50}, "\n",
 	    {"equipment-description.nullius-energy",
 		    {"entity-description.nullius-kilowatt", 5}}},
@@ -1856,7 +1856,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-2",
     take_result = "nullius-multi-tool-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-craft", 70, 40}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 70, 30}, "\n",
 	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
 	    {"equipment-description.nullius-energy",
 		    {"entity-description.nullius-kilowatt", 10}}},
@@ -1887,7 +1887,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-3",
     take_result = "nullius-multi-tool-3",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-craft", 80, 40}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 80, 30}, "\n",
 	    {"equipment-description.nullius-bonus-mining", 125}, "\n",
 	    {"equipment-description.nullius-bonus-reach", 2}, "\n",
 	    {"equipment-description.nullius-energy",
@@ -1952,7 +1952,7 @@ data:extend({
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-reach", 12}, "\n",
 	    {"equipment-description.nullius-bonus-mining", 50}, "\n",
-	    {"equipment-description.nullius-bonus-craft", 20, 15}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 20, 12}, "\n",
 	    {"equipment-description.nullius-energy",
 		    {"entity-description.nullius-kilowatt", 25}}},
     order = "mc",
@@ -1984,7 +1984,7 @@ data:extend({
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-reach", 16}, "\n",
 	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
-	    {"equipment-description.nullius-bonus-craft", 40, 25}, "\n",
+	    {"equipment-description.nullius-bonus-craft", 40, 20}, "\n",
 	    {"equipment-description.nullius-energy",
 		    {"entity-description.nullius-kilowatt", 30}}},
     order = "md",

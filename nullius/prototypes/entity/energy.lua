@@ -4423,7 +4423,7 @@ data:extend({
         production_type = "input"
       },
       {
-        base_area = 10,
+        base_area = 8,
         height = 2,
         base_level = 4,
         pipe_covers = pipecoverspictures(),
@@ -4431,7 +4431,7 @@ data:extend({
         production_type = "output"
       },
       {
-        base_area = 10,
+        base_area = 8,
         height = 2,
         base_level = 4,
         pipe_covers = pipecoverspictures(),
@@ -4442,7 +4442,7 @@ data:extend({
     energy_source = {
       type = "heat",
       max_temperature = 250,
-      specific_heat = "800kW",
+      specific_heat = "800kJ",
       max_transfer = "6MW",
       min_working_temperature = 165,
       connections = {{
@@ -4479,23 +4479,64 @@ ex2.minable = {mining_time = 0.2, result = "nullius-heat-exchanger-2"}
 ex2.crafting_speed = 5
 ex2.max_health = 300
 ex2.energy_source.max_temperature = 400
-ex2.energy_source.specific_heat = "5MW"
+ex2.energy_source.specific_heat = "5MJ"
 ex2.energy_source.max_transfer = "40MW"
 ex2.energy_usage = "8.5MW"
 ex2.animation.north.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-N.png"
 ex2.animation.east.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-E.png"
 ex2.animation.south.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-S.png"
 ex2.animation.west.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger-W.png"
+ex2.fluid_boxes[1].base_area = 8
+ex2.fluid_boxes[1].height = 3
+ex2.fluid_boxes[1].base_level = -3
+ex2.fluid_boxes[2].base_area = 15
+ex2.fluid_boxes[2].height = 3
+ex2.fluid_boxes[3].base_area = 15
+ex2.fluid_boxes[3].height = 3
 local ex2m = util.table.deepcopy(ex2)
 ex2m.name = "nullius-mirror-heat-exchanger-2"
 ex2m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 2}}
 ex2m.icons = data.raw.item["nullius-mirror-heat-exchanger-2"].icons
 ex2m.minable = {mining_time = 0.2, result = "nullius-mirror-heat-exchanger-2"}
-ex2m.fluid_boxes = ex1m.fluid_boxes
+ex2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
+ex2m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
+
+local ex3 = util.table.deepcopy(ex1)
+ex3.name = "nullius-heat-exchanger-3"
+ex3.localised_name = {"", {"entity-name.heat-exchanger"}, " ", 3}
+ex3.icons = data.raw.item["nullius-heat-exchanger-3"].icons
+ex3.minable = {mining_time = 0.3, result = "nullius-heat-exchanger-3"}
+ex3.crafting_speed = 12
+ex3.max_health = 500
+ex3.crafting_categories = { "boiling", "pressure-boiling" }
+ex3.energy_source.max_temperature = 1500
+ex3.energy_source.min_working_temperature = 500
+ex3.energy_source.specific_heat = "20MJ"
+ex3.energy_source.max_transfer = "150MW"
+ex3.energy_usage = "20MW"
+ex3.animation.north.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-N.png"
+ex3.animation.east.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-E.png"
+ex3.animation.south.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-S.png"
+ex3.animation.west.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-W.png"
+ex2.fluid_boxes[1].base_area = 10
+ex2.fluid_boxes[1].height = 4
+ex2.fluid_boxes[1].base_level = -4
+ex2.fluid_boxes[2].base_area = 20
+ex2.fluid_boxes[2].height = 5
+ex2.fluid_boxes[3].base_area = 20
+ex2.fluid_boxes[3].height = 5
+local ex3m = util.table.deepcopy(ex3)
+ex3m.name = "nullius-mirror-heat-exchanger-3"
+ex3m.localised_name = {"entity-name.nullius-mirrored",
+    {"", {"entity-name.heat-exchanger"}, " ", 3}}
+ex3m.icons = data.raw.item["nullius-mirror-heat-exchanger-3"].icons
+ex3m.minable = {mining_time = 0.3, result = "nullius-mirror-heat-exchanger-3"}
+ex3m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
+ex3m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 ex1.next_upgrade = "nullius-heat-exchanger-2"
 ex1m.next_upgrade = "nullius-mirror-heat-exchanger-2"
-data:extend({ ex1m, ex2, ex2m })
+data:extend({ ex1m, ex2, ex2m, ex3, ex3m })
 
 
 boil.name = "nullius-boiler"

@@ -112,6 +112,10 @@ data:extend({
     type = "recipe-category",
     name = "boiling"
   },
+  {
+    type = "recipe-category",
+    name = "pressure-boiling"
+  },
 
   {
     type = "recipe-category",
@@ -192,15 +196,21 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "geothermal",
+    name = "heat-exchange",
     group = "production",
     order = "cc"
   },
   {
     type = "item-subgroup",
-    name = "nuclear",
+    name = "geothermal",
     group = "production",
     order = "cd"
+  },
+  {
+    type = "item-subgroup",
+    name = "nuclear",
+    group = "production",
+    order = "ce"
   },
   {
     type = "item-subgroup",
@@ -875,8 +885,14 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    order = "p",
+    order = "pb",
     name = "boiling",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "pc",
+    name = "pressure-boiling",
     group = "fluids",
   },
   {

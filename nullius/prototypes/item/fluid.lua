@@ -55,12 +55,27 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
-    order = "nullius-c",
+    order = "nullius-cb",
     base_color = {r=0.5, g=0.5, b=0.5},
-    flow_color = {r=0.9, g=0.9, b=1.0},
+    flow_color = {r=0.6, g=0.6, b=0.6},
     heat_capacity = "0.05KJ",
     default_temperature = 165,
     max_temperature = 200,
+    gas_temperature = 100
+  },
+  {
+    type = "fluid",
+    name = "nullius-pressure-steam",
+    fuel_value = "20KJ",
+    icon = FLUIDPATH .. "steam2.png",
+    icon_size = 64,
+    subgroup = "nullius-water-treatment",
+    order = "nullius-cc",
+    base_color = {r=0.7, g=0.7, b=0.7},
+    flow_color = {r=0.8, g=0.8, b=0.8},
+    heat_capacity = "0.1KJ",
+    default_temperature = 500,
+    max_temperature = 600,
     gas_temperature = 100
   },
   {
@@ -3395,6 +3410,38 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-pressure-boiling-water",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-water"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = FLUIDPATH .. "purewater.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-b",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-water", amount=30}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=81, fluidbox_index=1}
+    },
+    main_product = "nullius-pressure-steam"
+  },
+  {
+    type = "recipe",
     name = "nullius-boiling-saline",
     localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-saline"}},
     show_amount_in_title = false,
@@ -3428,6 +3475,39 @@ data:extend({
       {type="fluid", name="nullius-brine", amount=15}
     },
     main_product = "nullius-steam"
+  },
+  {
+    type = "recipe",
+    name = "nullius-pressure-boiling-saline",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-saline"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-c",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-saline", amount=31}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=79},
+      {type="fluid", name="nullius-brine", amount=7}
+    },
+    main_product = "nullius-pressure-steam"
   },
   {
     type = "recipe",
@@ -3467,6 +3547,39 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-pressure-boiling-brine",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-brine"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = FLUIDPATH .. "brine.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-d",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-brine", amount=36}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=72, fluidbox_index=1},
+      {type="item", name="nullius-salt", amount=3}
+    },
+    main_product = "nullius-pressure-steam"
+  },
+  {
+    type = "recipe",
     name = "nullius-boiling-seawater",
     localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-seawater"}},
     show_amount_in_title = false,
@@ -3503,6 +3616,39 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-pressure-boiling-seawater",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-seawater"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = FLUIDPATH .. "seawater.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-e",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-seawater", amount=35}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=76},
+      {type="fluid", name="nullius-wastewater", amount=10}
+    },
+    main_product = "nullius-pressure-steam"
+  },
+  {
+    type = "recipe",
     name = "nullius-boiling-freshwater",
     localised_name = {"recipe-name.nullius-boiling", {"fluid-name.nullius-freshwater"}},
     show_amount_in_title = false,
@@ -3536,6 +3682,39 @@ data:extend({
       {type="fluid", name="nullius-wastewater", amount=8}
     },
     main_product = "nullius-steam"
+  },
+  {
+    type = "recipe",
+    name = "nullius-pressure-boiling-freshwater",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-freshwater"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = FLUIDPATH .. "freshwater.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-f",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-freshwater", amount=32}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=80},
+      {type="fluid", name="nullius-wastewater", amount=4}
+    },
+    main_product = "nullius-pressure-steam"
   },
   {
     type = "recipe",
@@ -3576,6 +3755,39 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-pressure-boiling-wastewater",
+    localised_name = {"recipe-name.nullius-pressure-boiling", {"fluid-name.nullius-wastewater"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.36
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "pressure-boiling",
+    subgroup = "pressure-boiling",
+    order = "nullius-g",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-wastewater", amount=36}
+    },
+    results = {
+      {type="fluid", name="nullius-pressure-steam", amount=72},
+      {type="fluid", name="nullius-sludge", amount=6}
+    },
+    main_product = "nullius-pressure-steam"
+  },
+  {
+    type = "recipe",
     name = "nullius-condensation",
     localised_name = {"recipe-name.nullius-condensation"},
     show_amount_in_title = false,
@@ -3607,6 +3819,40 @@ data:extend({
       {type="fluid", name="nullius-water", amount=250}
     },
     main_product = "nullius-water"
+  },
+  {
+    type = "recipe",
+    name = "nullius-decompress-steam",
+    localised_name = {"recipe-name.nullius-decompress-steam"},
+    icons = {
+      {
+        icon = FLUIDPATH .. "steam2.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelsrefining__/graphics/icons/barreling-pump.png",
+        icon_size = 32,
+		scale = 0.5,
+		shift = {-8, -8}
+      }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	hide_from_stats = true,
+    category = "decompression",
+    subgroup = "pressure-boiling",
+    order = "nullius-h",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-pressure-steam", amount=400}
+    },
+    results = {
+      {type="fluid", name="nullius-steam", amount=1250}
+    },
+    main_product = "nullius-steam"
   },
 
   {

@@ -8,14 +8,14 @@ local UPG_SPEED = 7
 local UPG_COST = 8
 
 local upgrade_data = {
-  ["fabrication-tool-1"] = {{UPG_CRAFT, 0.25}, {UPG_COST, 15}},
-  ["fabrication-tool-2"] = {{UPG_CRAFT, 0.4}, {UPG_COST, 20}},
-  ["fabrication-tool-3"] = {{UPG_CRAFT, 1.2}, {UPG_COST, 50}},
+  ["fabrication-tool-1"] = {{UPG_CRAFT, 0.25}, {UPG_COST, 12}},
+  ["fabrication-tool-2"] = {{UPG_CRAFT, 0.4}, {UPG_COST, 16}},
+  ["fabrication-tool-3"] = {{UPG_CRAFT, 1.2}, {UPG_COST, 40}},
   ["mining-tool-1"] = {{UPG_MINER, 0.6}},
   ["mining-tool-2"] = {{UPG_MINER, 1}},
-  ["multi-tool-1"] = {{UPG_CRAFT, 0.5}, {UPG_COST, 30}, {UPG_MINER, 0.5}},
-  ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 40}, {UPG_MINER, 1}},
-  ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 40},
+  ["multi-tool-1"] = {{UPG_CRAFT, 0.5}, {UPG_COST, 25}, {UPG_MINER, 0.5}},
+  ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 30}, {UPG_MINER, 1}},
+  ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 30},
       {UPG_MINER, 1.25}, {UPG_REACH, 1}},
   ["small-cargo-pod-1"] = {{UPG_CARGO, 1}, {UPG_SPEED, -0.006}},
   ["small-cargo-pod-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, -0.008}},
@@ -26,9 +26,9 @@ local upgrade_data = {
   ["armor-plate"] = {{UPG_ARMOR, 100}, {UPG_SPEED, -0.01}},
   ["telekinesis-field-1"] = {{UPG_REACH, 4}},
   ["telekinesis-field-2"] = {{UPG_REACH, 6},
-      {UPG_CRAFT, 0.2}, {UPG_COST, 15}, {UPG_MINER, 0.5}},
+      {UPG_CRAFT, 0.2}, {UPG_COST, 12}, {UPG_MINER, 0.5}},
   ["telekinesis-field-3"] = {{UPG_REACH, 8},
-      {UPG_CRAFT, 0.4}, {UPG_COST, 25}, {UPG_MINER, 1}},
+      {UPG_CRAFT, 0.4}, {UPG_COST, 20}, {UPG_MINER, 1}},
   ["quadrupedal-adaptation-1"] = {{UPG_CARGO, 3},
       {UPG_CRAFT, -0.25}, {UPG_REACH, -1}},
   ["quadrupedal-adaptation-2"] = {{UPG_CARGO, 5},
@@ -94,8 +94,8 @@ function update_player_upgrades(player)
     powered = (production / drain)
   end
 
-  player.character_crafting_speed_modifier =
-      scale_multiple(bonuses[UPG_CRAFT], 1)
+  local craftmod = scale_multiple(bonuses[UPG_CRAFT], 1)
+  player.character_crafting_speed_modifier = craftmod
   player.character_mining_speed_modifier =
       scale_multiple(bonuses[UPG_MINER], powered)
   player.character_inventory_slots_bonus = bonuses[UPG_CARGO]
@@ -130,8 +130,12 @@ function update_player_upgrades(player)
 	if (global.nullius_crafting_equipment[unit] ~= nil) then
 	  curr = global.nullius_crafting_equipment[unit].current
 	end
+	local totalcost = (bonuses[UPG_COST] * 1000)
+	if (craftmod > 1.5) then
+	  totalcost = (totalcost / math.sqrt(craftmod - 0.5))
+	end
 	global.nullius_crafting_equipment[unit] = {
-	  cost = (bonuses[UPG_COST] * 1000), lst = costlist, current = curr,
+	  cost = totalcost, lst = costlist, current = curr,
 	  mod = player.character_crafting_speed_modifier
 	}
   elseif (global.nullius_crafting_equipment ~= nil) then

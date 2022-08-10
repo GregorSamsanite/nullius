@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.1
+Date: 10.08.2022
+  Features:
+    - Heat exchanger 3, tuned for Nuclear power, with high pressure steam.
+  Balancing:
+    - Reduce cost of telekinesis field 1.
+    - Reduce energy cost of crafting bonus equipment.
+  Changes:
+    - Backward compatible change to car 1 recipe.
+    - Add an ingredient to biology lab recipe.
+  Modding:
+    - Fix missing ingredient in jetpack 1 and 2 recipes.
+    - Fix missing ingredient in railway motor car 2 recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.0
 Date: 06.08.2022
   Features:
@@ -23,7 +37,7 @@ Date: 06.08.2022
       Small assembler 1 & 2, Levitation field 2, Large Beacon 2, Locomotive 2, 
       Nanofabricator 1 & 2, Chassis 5, Crusher 3, Demolition/Excavation drone.
     - Changed niche recipes, not backward compatible:
-      Chassis 4, Shield, Truck 2, Mecha 1 & 2, and Self-repair pack
+      Chassis 4, Shield, Truck 2, Mecha 1 & 2, and Self-repair pack.
     - Minor modifications to several tech prerequisites.
   Translation:
     - Ukrainian language localization added by bootseller!
