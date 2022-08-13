@@ -3431,12 +3431,12 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-b",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-water", amount=30}
+      {type="fluid", name="nullius-water", amount=90}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=81, fluidbox_index=1}
+      {type="fluid", name="nullius-pressure-steam", amount=245, fluidbox_index=1}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3499,13 +3499,13 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-c",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-saline", amount=31}
+      {type="fluid", name="nullius-saline", amount=100}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=79},
-      {type="fluid", name="nullius-brine", amount=7}
+      {type="fluid", name="nullius-pressure-steam", amount=240},
+      {type="fluid", name="nullius-brine", amount=20}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3568,13 +3568,13 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-d",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-brine", amount=36}
+      {type="fluid", name="nullius-brine", amount=110}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=72, fluidbox_index=1},
-      {type="item", name="nullius-salt", amount=3}
+      {type="fluid", name="nullius-pressure-steam", amount=225, fluidbox_index=1},
+      {type="item", name="nullius-salt", amount=10}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3637,13 +3637,13 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-e",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-seawater", amount=35}
+      {type="fluid", name="nullius-seawater", amount=110}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=76},
-      {type="fluid", name="nullius-wastewater", amount=10}
+      {type="fluid", name="nullius-pressure-steam", amount=230},
+      {type="fluid", name="nullius-wastewater", amount=25}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3706,13 +3706,13 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-f",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-freshwater", amount=32}
+      {type="fluid", name="nullius-freshwater", amount=95}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=80},
-      {type="fluid", name="nullius-wastewater", amount=4}
+      {type="fluid", name="nullius-pressure-steam", amount=242},
+      {type="fluid", name="nullius-wastewater", amount=10}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3776,13 +3776,13 @@ data:extend({
     category = "pressure-boiling",
     subgroup = "pressure-boiling",
     order = "nullius-g",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-wastewater", amount=36}
+      {type="fluid", name="nullius-wastewater", amount=105}
     },
     results = {
-      {type="fluid", name="nullius-pressure-steam", amount=72},
-      {type="fluid", name="nullius-sludge", amount=6}
+      {type="fluid", name="nullius-pressure-steam", amount=230},
+      {type="fluid", name="nullius-sludge", amount=15}
     },
     main_product = "nullius-pressure-steam"
   },
@@ -3845,12 +3845,12 @@ data:extend({
     category = "decompression",
     subgroup = "pressure-boiling",
     order = "nullius-h",
-    energy_required = 1,
+    energy_required = 0.5,
     ingredients = {
-      {type="fluid", name="nullius-pressure-steam", amount=400}
+      {type="fluid", name="nullius-pressure-steam", amount=200}
     },
     results = {
-      {type="fluid", name="nullius-steam", amount=1250}
+      {type="fluid", name="nullius-steam", amount=625}
     },
     main_product = "nullius-steam"
   },

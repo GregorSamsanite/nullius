@@ -1,0 +1,17 @@
+{
+  "item":
+  [
+    ["nullius-portable-generator", "nullius-portable-generator-2"]
+  ],
+  "equipment":
+  [
+    ["nullius-portable-generator", "nullius-portable-generator-2"]
+  ],
+  "recipe":
+  [
+    ["nullius-locomotive-1", "nullius-legacy-locomotive-1"],
+	["nullius-barrel-pump-2", "nullius-legacy-barrel-pump-2"],
+	["nullius-leg-augmentation-1", "nullius-legacy-leg-augmentation-1"],
+    ["nullius-portable-generator", "nullius-portable-generator-2"]
+  ]
+}

@@ -67,6 +67,11 @@ function migrate_version(event)
   if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
   local version = (((sub1 * 100) + sub2) * 100) + sub3
 
+  if (version >= 10502) then return end
+  legacy_recipe_all("nullius-freight-transportation-1", "locomotive-1")
+  legacy_recipe_all("nullius-barreling-4", "barrel-pump-2")
+  legacy_recipe_all("nullius-cybernetics-4", "leg-augmentation-1")
+
   if (version >= 10501) then return end
   legacy_recipe_all("nullius-personal-transportation-1", "car-1")
 

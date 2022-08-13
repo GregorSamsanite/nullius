@@ -210,6 +210,34 @@ data.raw.technology["factory-architecture-t3"].localised_name = {"", {"technolog
 end
 
 
+if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
+data.raw.technology["long-inserters-1"].order = "nullius-ce"
+data.raw.technology["long-inserters-1"].prerequisites = {"nullius-automation"}
+data.raw.technology["long-inserters-1"].unit = { count = 15,
+  ingredients = {{"nullius-mechanical-pack", 1}},
+  time = 8
+}
+table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"long-inserters-2")
+
+data.raw.technology["long-inserters-2"].order = "nullius-dd"
+data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
+data.raw.technology["long-inserters-2"].unit = { count = 80,
+  ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
+  time = 20
+}
+else
+data.raw.technology["long-inserters-1"].order = "nullius-dd"
+data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
+data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
+data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication"}
+data.raw.technology["long-inserters-1"].unit = { count = 30,
+  ingredients = {{"nullius-mechanical-pack", 1}},
+  time = 6
+}
+end
+data.raw.technology["long-inserters-1"].ignore_tech_cost_multiplier = true
+
+
 if mods["miniloader"] then
 if settings.startup["miniloader-enable-chute"].value then
   table.insert(data.raw["technology"]["nullius-logistics-1"].effects,
@@ -292,38 +320,15 @@ if (settings.startup["miniloader-enable-filter"].value and
 end
 
 table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-miniloader-1")
+if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
+table.insert(data.raw.technology["long-inserters-2"].prerequisites,"nullius-miniloader-2")
+else
 table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"nullius-miniloader-2")
+end
 table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-miniloader-3")
 table.insert(data.raw.technology["nullius-inserter-capacity-5"].prerequisites,"nullius-miniloader-4")
 end
 
-
-if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
-data.raw.technology["long-inserters-1"].order = "nullius-ce"
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-automation"}
-data.raw.technology["long-inserters-1"].unit = { count = 15,
-  ingredients = {{"nullius-mechanical-pack", 1}},
-  time = 8
-}
-table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"long-inserters-2")
-
-data.raw.technology["long-inserters-2"].order = "nullius-dd"
-data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["long-inserters-2"].unit = { count = 80,
-  ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
-  time = 20
-}
-else
-data.raw.technology["long-inserters-1"].order = "nullius-dd"
-data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication"}
-data.raw.technology["long-inserters-1"].unit = { count = 30,
-  ingredients = {{"nullius-mechanical-pack", 1}},
-  time = 6
-}
-end
-data.raw.technology["long-inserters-1"].ignore_tech_cost_multiplier = true
 
 if mods["bobinserters"] then
 if (settings.startup["bobmods-inserters-long2"].value == true) then

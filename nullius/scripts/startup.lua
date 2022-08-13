@@ -160,15 +160,21 @@ local function equip_armor(player)
     end
 
     if ((body ~= nil) and (body.grid ~= nil)) then
-      body.grid.put({name="nullius-solar-panel-1"})
-	  if (not script.active_mods["Companion_Drones"]) then
+	  if (script.active_mods["Companion_Drones"]) then
+	    body.grid.put({name="nullius-solar-panel-1"})
+	    body.grid.put({name="nullius-battery-1"})
+	    body.grid.put({name="nullius-battery-1"})
+		body.grid.put({name="nullius-battery-1"})
+	  else
+	    body.grid.put({name="nullius-charger-1"})
         body.grid.put({name="nullius-hangar-1"})
-        body.grid.put({name="nullius-charger-1"})
-		body.grid.put({name="nullius-battery-1", position={0,5}})
-	    body.grid.put({name="nullius-battery-1", position={1,5}})
+        body.grid.put({name="nullius-solar-panel-1"})
+		body.grid.put({name="nullius-battery-1", position={2,4}})
+	    body.grid.put({name="nullius-battery-1", position={3,4}})
+		body.grid.put({name="nullius-solar-panel-1"})
+		body.grid.put({name="nullius-battery-1"})
+		body.grid.put({name="nullius-battery-1"})
 	  end
-      body.grid.put({name="nullius-battery-1"})
-      body.grid.put({name="nullius-battery-1"})
       for _,eq in pairs(body.grid.equipment) do
 		if (eq.max_energy > eq.energy) then
 		  eq.energy = eq.max_energy

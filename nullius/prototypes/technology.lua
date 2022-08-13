@@ -1776,6 +1776,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-insulated-wire-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-generator-1"
       }
     },
     unit = {
@@ -1783,7 +1787,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-checkpoint-rubber"},
+    prerequisites = {"nullius-aluminum-working", "nullius-cybernetics-1", "nullius-checkpoint-rubber"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1825,7 +1829,7 @@ data:extend({
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-barreling-1"},
+    prerequisites = {"nullius-insulation-1", "nullius-barreling-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1851,7 +1855,7 @@ data:extend({
       time = 5
     },
     prerequisites = {"nullius-checkpoint-polycrystalline-silicon", "nullius-checkpoint-aluminum-ingot",
-	    "nullius-cybernetics-1", "nullius-insulation-1"},
+	    "nullius-insulation-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2215,14 +2219,15 @@ data:extend({
       }
     },
     unit = {
-      count = 35,
+      count = 30,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 15
     },
-    prerequisites = {"nullius-electromagnetism-2", "nullius-checkpoint-plumbing"}
+    prerequisites = {"nullius-electromagnetism-2", "nullius-checkpoint-plumbing"},
+    ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
@@ -2336,17 +2341,21 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-fabrication-tool-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-refueler"
       }
     },
     unit = {
-      count = 30,
+      count = 25,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
       },
       time = 15
     },
-    prerequisites = {"nullius-actuation-2", "nullius-toolmaking-3", "nullius-electromagnetism-2"},
+    prerequisites = {"nullius-actuation-2", "nullius-toolmaking-3", "nullius-pumping-2"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -3025,6 +3034,10 @@ data:extend({
       {
         type = "character-running-speed",
         modifier = 0.1
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-jump-boots"
       }
     },
     unit = {
@@ -3475,10 +3488,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-levitation-field-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-portable-generator"
       },
       {
         type = "character-health-bonus",
@@ -5250,6 +5259,18 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-chassis-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-generator-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-generator-backup"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-generator-reprioritization"
       },
       {
         type = "character-health-bonus",

@@ -4,63 +4,6 @@ local EQUIPPATH = "__nullius__/graphics/equipment/"
 
 data:extend({
   {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-1",
-    width = 4,
-    height = 6,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-2",
-    width = 6,
-    height = 7,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-3",
-    width = 7,
-    height = 10,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-4",
-    width = 9,
-    height = 12,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-5",
-    width = 10,
-    height = 14,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-armor-grid-6",
-    width = 10,
-    height = 18,
-    equipment_categories = {"cybernetic", "android"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-mecha-grid-1",
-    width = 10,
-    height = 10,
-    equipment_categories = {"cybernetic"}
-  },
-  {
-    type = "equipment-grid",
-    name = "nullius-mecha-grid-2",
-    width = 10,
-    height = 15,
-    equipment_categories = {"cybernetic"}
-  },
-
-  {
     type = "armor",
     name = "nullius-chassis-1",
     icon = "__base__/graphics/icons/light-armor.png",
@@ -1677,15 +1620,35 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-1",
     subgroup = "leg-augmentation",
-    order = "nullius-bb",
+    order = "nullius-cb",
     stack_size = 5
   },
   {
     type = "recipe",
     name = "nullius-leg-augmentation-1",
     enabled = false,
+	always_show_made_in = true,
     category = "medium-crafting",
-    always_show_made_in = true,
+    energy_required = 15,
+    ingredients = {
+      {"stack-inserter", 2},
+      {"nullius-sensor-2", 1},
+      {"nullius-motor-2", 3},
+      {"nullius-titanium-rod", 5},
+      {"nullius-jump-boots", 1},
+      {"nullius-battery-1", 2}
+    },
+    result = "nullius-leg-augmentation-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-leg-augmentation-1",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "medium-crafting",
     energy_required = 15,
     ingredients = {
       {"stack-inserter", 4},
@@ -1712,7 +1675,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-2",
     subgroup = "leg-augmentation",
-    order = "nullius-bc",
+    order = "nullius-cc",
     stack_size = 5
   },
   {
@@ -1747,7 +1710,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-3",
     subgroup = "leg-augmentation",
-    order = "nullius-bd",
+    order = "nullius-cd",
     stack_size = 5
   },
   {
@@ -1781,7 +1744,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-leg-augmentation-4",
     subgroup = "leg-augmentation",
-    order = "nullius-be",
+    order = "nullius-ce",
     stack_size = 5
   },
   {
@@ -1816,7 +1779,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-1",
     subgroup = "leg-augmentation",
-    order = "nullius-cb",
+    order = "nullius-db",
     stack_size = 5
   },
   {
@@ -1834,7 +1797,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-2",
     subgroup = "leg-augmentation",
-    order = "nullius-cc",
+    order = "nullius-dc",
     stack_size = 5
   },
   {
@@ -1851,7 +1814,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-3",
     subgroup = "leg-augmentation",
-    order = "nullius-cd",
+    order = "nullius-dd",
     stack_size = 5
   },
   {
@@ -1868,7 +1831,7 @@ data:extend({
     }},
     placed_as_equipment_result = "nullius-upgrade-quadrupedal-adaptation-4",
     subgroup = "leg-augmentation",
-    order = "nullius-ce",
+    order = "nullius-de",
     stack_size = 5
   },
   {
@@ -1926,6 +1889,39 @@ data:extend({
       {"nullius-sensor-2", 2}
     },
     result = "nullius-quadrupedal-adaptation-4"
+  },
+
+  {
+    type = "item",
+    name = "nullius-jump-boots",
+    localised_description = {"equipment-description.nullius-buffer", {"",
+	    {"equipment-description.nullius-jump-boots"}, "\n",
+		{"equipment-description.nullius-penalty-cargo", 2}},
+		{"entity-description.nullius-megajoule", 1}},
+    icons = {{
+      icon = ICONPATH.."equipment/boot.png",
+      icon_size = 128
+    }},
+    placed_as_equipment_result = "nullius-upgrade-jump-boots",
+    subgroup = "leg-augmentation",
+    order = "nullius-b",
+    stack_size = 10
+  },
+  {
+    type = "recipe",
+    name = "nullius-jump-boots",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 10,
+    ingredients = {
+      {"turbo-inserter", 2},
+	  {"nullius-steel-gear", 3},
+	  {"nullius-aluminum-plate", 2},
+	  {"red-wire", 2},
+	  {"nullius-capacitor", 1}
+    },
+    result = "nullius-jump-boots"
   },
 
   {
@@ -2016,8 +2012,27 @@ data:extend({
     type = "recipe",
     name = "nullius-locomotive-1",
     enabled = false,
+	always_show_made_in = true,
     category = "large-crafting",
-    always_show_made_in = true,
+    energy_required = 10,
+    ingredients = {
+      {"nullius-cargo-wagon-1", 1},
+      {"nullius-portable-generator-1", 1},
+      {"nullius-motor-1", 4},
+      {"nullius-steel-gear", 10},
+      {"nullius-glass", 3}
+    },
+    result = "nullius-locomotive-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-locomotive-1",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "large-crafting",
     energy_required = 10,
     ingredients = {
       {"nullius-cargo-wagon-1", 1},
@@ -2033,13 +2048,14 @@ data:extend({
     type = "recipe",
     name = "nullius-locomotive-2",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-crafting",
-    always_show_made_in = true,
     energy_required = 20,
     ingredients = {
       {"nullius-locomotive-1", 1},
       {"nullius-cargo-wagon-2", 1},
-      {"nullius-portable-generator", 1},
+	  {"nullius-refueler", 1},
+      {"nullius-portable-generator-2", 1},
       {"nullius-motor-2", 4},
       {"nullius-sensor-1", 1}
     },
@@ -2049,11 +2065,11 @@ data:extend({
     type = "recipe",
     name = "nullius-legacy-locomotive-2",
     enabled = false,
+	always_show_made_in = true,
 	hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "huge-crafting",
-    always_show_made_in = true,
     energy_required = 20,
     ingredients = {
       {"nullius-locomotive-1", 1},
@@ -3796,7 +3812,7 @@ data:extend({
       icon_size = 64
 	}},
 	placed_as_equipment_result = "nullius-upgrade-stabilizer-1",
-    subgroup = "leg-augmentation",
+	subgroup = "cargo-pod",
     order = "nullius-eb",
     stack_size = 50
   },
@@ -3808,7 +3824,7 @@ data:extend({
       icon_size = 64
 	}},
 	placed_as_equipment_result = "nullius-upgrade-stabilizer-2",
-    subgroup = "leg-augmentation",
+    subgroup = "cargo-pod",
     order = "nullius-ec",
     stack_size = 50
   },
@@ -3846,15 +3862,71 @@ data:extend({
 
   {
     type = "item",
-    name = "nullius-portable-generator",
+    name = "nullius-refueler",
+    localised_description = {"equipment-description.nullius-refueler"},
+	icons = {{
+      icon = EQUIPPATH .. "refueler.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-refueler",
+    subgroup = "solar",
+    order = "nullius-e",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-refueler",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="turbo-filter-inserter", amount=1},
+	  {type="item", name="nullius-pump-2", amount=1},
+	  {type="item", name="nullius-rubber", amount=3}
+    },
+    result = "nullius-refueler"
+  },
+
+  {
+    type = "item",
+    name = "nullius-portable-generator-1",
+	localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 1},
     localised_description = {"equipment-description.nullius-portable-generator"},
 	icons = {{
-      icon = ICONPATH.."equipment/generator.png",
+      icon = ICONPATH.."equipment/generator-1.png",
       icon_size = 64
 	}},
-	placed_as_equipment_result = "nullius-portable-generator",
+	placed_as_equipment_result = "nullius-portable-generator-1",
     subgroup = "solar",
-    order = "nullius-db",
+    order = "nullius-dbb",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-portable-generator-2",
+	localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 2},
+    localised_description = {"equipment-description.nullius-portable-generator"},
+	icons = {{
+      icon = ICONPATH.."equipment/generator-2.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-portable-generator-2",
+    subgroup = "solar",
+    order = "nullius-dbc",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-portable-generator-backup",
+    localised_description = {"equipment-description.nullius-portable-generator-backup"},
+	icons = {{
+      icon = ICONPATH.."equipment/generator-backup.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-portable-generator-backup",
+    subgroup = "solar",
+    order = "nullius-dbd",
     stack_size = 20
   },
   {
@@ -3869,10 +3941,28 @@ data:extend({
     subgroup = "solar",
     order = "nullius-dc",
     stack_size = 20
+  }
+})
+
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-portable-generator-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-combustion-chamber-1", amount=1},
+	  {type="item", name="nullius-standard-turbine-1", amount=1},
+	  {type="item", name="nullius-small-cargo-pod-1", amount=1},
+	  {type="item", name="copper-cable", amount=4}
+    },
+    result = "nullius-portable-generator-1"
   },
   {
     type = "recipe",
-    name = "nullius-portable-generator",
+    name = "nullius-portable-generator-2",
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
@@ -3881,9 +3971,53 @@ data:extend({
       {type="item", name="nullius-combustion-chamber-2", amount=1},
 	  {type="item", name="nullius-standard-turbine-2", amount=1},
 	  {type="item", name="nullius-large-cargo-pod-1", amount=1},
-	  {type="item", name="copper-cable", amount=6}
+	  {type="item", name="nullius-portable-generator-1", amount=1}
     },
-    result = "nullius-portable-generator"
+    result = "nullius-portable-generator-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-portable-generator-backup",
+    enabled = false,
+    always_show_made_in = true,
+	no_productivity = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="nullius-portable-generator-2", amount=1},
+	  {type="item", name="power-switch", amount=1}
+    },
+    result = "nullius-portable-generator-backup"
+  },
+  {
+    type = "recipe",
+    name = "nullius-portable-generator-reprioritization",
+    localised_name = {"recipe-name.nullius-reprioritization",
+	    {"equipment-name.nullius-portable-generator-backup"}},
+    icons = {
+      data.raw.item["nullius-portable-generator-backup"].icons[1],
+      {
+        icon = ICONPATH .. "up.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {8, -6}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    always_show_products = true,
+    category = "medium-crafting",
+	subgroup = "solar",
+    order = "nullius-dbdc",
+    energy_required = 1,
+    ingredients = {
+      {"nullius-portable-generator-backup", 1},
+      {"copper-cable", 1}
+    },
+    result = "nullius-portable-generator-2"
   },
   {
     type = "recipe",
@@ -3893,7 +4027,7 @@ data:extend({
     category = "large-crafting",
     energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-portable-generator", amount=1},
+      {type="item", name="nullius-portable-generator-2", amount=1},
 	  {type="item", name="nullius-reactor", amount=1},
 	  {type="item", name="nullius-stirling-engine-3", amount=1}
     },

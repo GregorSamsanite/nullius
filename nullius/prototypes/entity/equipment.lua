@@ -4,6 +4,63 @@ local EQUIPPATH = "__nullius__/graphics/equipment/"
 
 data:extend({
   {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-1",
+    width = 5,
+    height = 6,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-2",
+    width = 6,
+    height = 8,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-3",
+    width = 8,
+    height = 10,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-4",
+    width = 9,
+    height = 12,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-5",
+    width = 10,
+    height = 14,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-armor-grid-6",
+    width = 10,
+    height = 18,
+    equipment_categories = {"cybernetic", "android"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-mecha-grid-1",
+    width = 10,
+    height = 10,
+    equipment_categories = {"cybernetic"}
+  },
+  {
+    type = "equipment-grid",
+    name = "nullius-mecha-grid-2",
+    width = 10,
+    height = 15,
+    equipment_categories = {"cybernetic"}
+  },
+
+  {
     type = "battery-equipment",
     name = "nullius-capacitor",
     take_result = "nullius-capacitor",
@@ -1028,6 +1085,34 @@ data:extend({
 
   {
     type = "movement-bonus-equipment",
+    name = "nullius-upgrade-jump-boots",
+    localised_description = data.raw.item["nullius-jump-boots"].localised_description,
+    take_result = "nullius-jump-boots",
+    order = "daj",
+    sprite = {
+      filename = EQUIPPATH.."boot.png",
+      width = 256,
+      height = 384,
+      priority = "medium",
+      scale = 0.5
+    },
+    shape = {
+      width = 2,
+      height = 3,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "1MJ",
+      input_flow_limit = "75kW",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "45kW",
+    movement_bonus = 0.1,
+    categories = {"android"}
+  },
+  {
+    type = "movement-bonus-equipment",
     name = "nullius-leg-augmentation-1",
     localised_description = data.raw.item["nullius-leg-augmentation-1"].localised_description,
     order = "dbb",
@@ -1051,7 +1136,7 @@ data:extend({
       usage_priority = "secondary-input"
     },
     energy_consumption = "150kW",
-    movement_bonus = 0.25,
+    movement_bonus = 0.3,
     categories = {"cybernetic"}
   },
   {
@@ -1078,7 +1163,7 @@ data:extend({
       input_flow_limit = "500kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "300kW",
+    energy_consumption = "250kW",
     movement_bonus = 0.4,
     categories = {"cybernetic"}
   },
@@ -1105,7 +1190,7 @@ data:extend({
       input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "500kW",
+    energy_consumption = "400kW",
     movement_bonus = 0.5,
     categories = {"cybernetic"}
   },
@@ -1163,7 +1248,7 @@ data:extend({
       usage_priority = "secondary-input"
     },
     energy_consumption = "275kW",
-    movement_bonus = 0.4,
+    movement_bonus = 0.45,
     categories = {"android"}
   },
   {
@@ -1191,7 +1276,7 @@ data:extend({
       input_flow_limit = "750kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "500kW",
+    energy_consumption = "450kW",
     movement_bonus = 0.6,
     categories = {"android"}
   },
@@ -1219,7 +1304,7 @@ data:extend({
       input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "800kW",
+    energy_consumption = "700kW",
     movement_bonus = 0.75,
     categories = {"android"}
   },
@@ -1649,7 +1734,7 @@ data:extend({
     categories = {"android"}
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-trash-compactor",
     take_result = "nullius-trash-compactor",
     localised_description = {"",
@@ -1676,11 +1761,22 @@ data:extend({
 	  drain = "5kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "5kJ"
+      }
+    }
   },
 
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-1",
     take_result = "nullius-fabrication-tool-1",
     localised_description =
@@ -1704,10 +1800,21 @@ data:extend({
       input_flow_limit = "600kW",
       usage_priority = "secondary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "12kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-2",
     take_result = "nullius-fabrication-tool-2",
     localised_description =
@@ -1731,10 +1838,21 @@ data:extend({
       input_flow_limit = "2MW",
       usage_priority = "secondary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "16kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-3",
     take_result = "nullius-fabrication-tool-3",
     localised_description =
@@ -1758,10 +1876,21 @@ data:extend({
       input_flow_limit = "12MW",
       usage_priority = "secondary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "40kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-mining-tool-1",
     take_result = "nullius-mining-tool-1",
     localised_description = {"",
@@ -1788,10 +1917,21 @@ data:extend({
 	  drain = "4kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "4kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-mining-tool-2",
     take_result = "nullius-mining-tool-2",
     localised_description = {"",
@@ -1818,10 +1958,21 @@ data:extend({
 	  drain = "6kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "6kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-1",
     take_result = "nullius-multi-tool-1",
     localised_description = {"",
@@ -1849,10 +2000,21 @@ data:extend({
 	  drain = "5kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "25kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-2",
     take_result = "nullius-multi-tool-2",
     localised_description = {"",
@@ -1880,10 +2042,21 @@ data:extend({
 	  drain = "10kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "30kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-3",
     take_result = "nullius-multi-tool-3",
     localised_description = {"",
@@ -1912,11 +2085,22 @@ data:extend({
 	  drain = "15kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 2,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "30kJ"
+      }
+    }
   },
 
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-1",
     take_result = "nullius-telekinesis-field-1",
     localised_description = {"",
@@ -1943,10 +2127,21 @@ data:extend({
 	  drain = "15kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 8,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "15kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-2",
     take_result = "nullius-telekinesis-field-2",
     localised_description = {"",
@@ -1975,10 +2170,21 @@ data:extend({
 	  drain = "25kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 12,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "25kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-3",
     take_result = "nullius-telekinesis-field-3",
     localised_description = {"",
@@ -2007,10 +2213,21 @@ data:extend({
 	  drain = "30kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 16,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "30kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-stabilizer-1",
     take_result = "nullius-stabilizer-1",
     localised_description = {"",
@@ -2038,10 +2255,21 @@ data:extend({
 	  drain = "30kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "30kJ"
+      }
+    }
   },
   {
-    type = "battery-equipment",
+    type = "active-defense-equipment",
     name = "nullius-upgrade-stabilizer-2",
     take_result = "nullius-stabilizer-2",
     localised_description = {"",
@@ -2069,14 +2297,93 @@ data:extend({
 	  drain = "40kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"}
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "40kJ"
+      }
+    }
+  },
+  {
+    type = "active-defense-equipment",
+    name = "nullius-refueler",
+    order = "or",
+    sprite = {
+      filename = EQUIPPATH.."refueler.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "10kJ",
+      input_flow_limit = "2kW",
+	  drain = "1kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "1kJ"
+      }
+    }
   },
   {
     type = "generator-equipment",
-    name = "nullius-portable-generator",
-    order = "ob",
+    name = "nullius-portable-generator-1",
+    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 1},
+    localised_description = {"equipment-description.nullius-portable-generator"},
+    order = "obb",
     sprite = {
-      filename = EQUIPPATH.."generator.png",
+      filename = EQUIPPATH.."generator-1.png",
+      width = 128,
+      height = 128,
+      priority = "medium"
+    },
+    shape = {
+      width = 2,
+      height = 2,
+      type = "full"
+    },
+	power = "400kW",
+    energy_source = {
+      type = "burner",
+      usage_priority = "secondary-output"
+    },
+    burner = {
+      fuel_category = "vehicle",
+      effectivity = 1,
+      fuel_inventory_size = 2,
+      burnt_inventory_size = 2
+    },
+    categories = {"cybernetic"}
+  },
+  {
+    type = "generator-equipment",
+    name = "nullius-portable-generator-2",
+    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 2},
+    localised_description = {"equipment-description.nullius-portable-generator"},
+    order = "obc",
+    sprite = {
+      filename = EQUIPPATH.."generator-2.png",
       width = 256,
       height = 256,
       priority = "medium",
@@ -2098,7 +2405,36 @@ data:extend({
       fuel_inventory_size = 5,
       burnt_inventory_size = 5
     },
-    categories = {"android"}
+    categories = {"cybernetic"}
+  },
+  {
+    type = "generator-equipment",
+    name = "nullius-portable-generator-backup",
+    order = "obd",
+    sprite = {
+      filename = EQUIPPATH.."generator-backup.png",
+      width = 256,
+      height = 256,
+      priority = "medium",
+	  scale = 0.75
+    },
+    shape = {
+      width = 3,
+      height = 3,
+      type = "full"
+    },
+	power = "1.5MW",
+    energy_source = {
+      type = "burner",
+      usage_priority = "tertiary"
+    },
+    burner = {
+      fuel_category = "vehicle",
+      effectivity = 1,
+      fuel_inventory_size = 5,
+      burnt_inventory_size = 5
+    },
+    categories = {"cybernetic"}
   },
   {
     type = "generator-equipment",
@@ -2126,6 +2462,6 @@ data:extend({
       fuel_inventory_size = 3,
       burnt_inventory_size = 3
     },
-    categories = {"android"}
+    categories = {"cybernetic"}
   }
 })

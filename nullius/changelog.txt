@@ -1,4 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.2
+Date: 13.08.2022
+  Features:
+    - Equipment to automatically refill portable generators and reactors.
+    - Split portable generator into 2 tiers, and add a backup generator.
+    - Lower tech speed boost equipment option.
+  Balancing:
+    - Increase size of equipment grid for chassis 1 through 3.
+    - Higher base inventory size.
+    - Start with 1 additional solar panel in equipment grid.
+    - Faster leg augmentation/quadrupedal adaptation 1.
+    - Lower energy use by leg augmentation/quadrupedal adapation 2 and 3.
+    - Re-scale and slightly improve high-pressure steam recipes.
+    - Reduce stirling engine 3 efficiency to 95%.
+  Changes:
+    - Backward compatible recipe changes:
+      Locomotive 1, Barrel pump 2, Leg Augmentation 1.
+    - Other changed recipes:  Portable generator, Locomotive 2.
+    - Represent bonus equipment with "defense" prototype instead of "battery".
+    - Allow generators/reactors in mechas.
+    - Minor changes to early game tech prerequisites.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.1
 Date: 10.08.2022
   Features:

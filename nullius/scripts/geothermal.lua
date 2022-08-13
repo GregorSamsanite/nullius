@@ -80,7 +80,7 @@ function update_geothermal()
   end
   for i,e in pairs(bucket[3]) do
     if (e.electric.valid) then
-      update_engine(e, 80, 800000, 133333.33, 0.8)
+      update_engine(e, 80, 760000, 133333.33, 0.8)
     else
       destroy_stirling_engine(e)
       bucket[3][i] = nil

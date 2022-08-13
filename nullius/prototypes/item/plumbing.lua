@@ -4950,8 +4950,27 @@ data:extend({
     type = "recipe",
     name = "nullius-barrel-pump-2",
     enabled = false,
+	always_show_made_in = true,
     category = "medium-crafting",
-    always_show_made_in = true,
+    energy_required = 12,
+    ingredients = {
+      {"nullius-barrel-pump-1", 1},
+      {"nullius-small-pump-2", 2},
+      {"nullius-small-tank-2", 1},
+      {"nullius-sensor-1", 1},
+	  {"nullius-refueler", 1}
+    },
+    result = "nullius-barrel-pump-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-barrel-pump-2",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "medium-crafting",
     energy_required = 12,
     ingredients = {
       {"nullius-barrel-pump-1", 2},

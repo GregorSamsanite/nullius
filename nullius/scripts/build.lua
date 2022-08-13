@@ -82,8 +82,18 @@ function update_tick()
   update_wind()
   update_geothermal()
   update_solar()
-  update_checkpoints()
-  update_oxygen()
+
+  local tickmod1 = (game.tick % 13)
+  if (tickmod1 == 5) then
+    update_checkpoints()
+  elseif (tickmod1 == 11) then
+    local tickmod2 = (game.tick % 15)
+    if (tickmod2 == 2) then
+      update_oxygen()
+    elseif (tickmod2 == 9) then
+      update_generators()
+	end
+  end
 end
 
 script.on_event(defines.events.on_tick, update_tick)

@@ -154,7 +154,6 @@ local oxygen_equivalent = {
 function update_oxygen()
   if (global.nullius_mission_status == nil) then return end
   if (global.nullius_mission_complete) then return end
-  if ((game.tick % 193) ~= 71) then return end
   local prev_status = global.nullius_mission_status[2]
   if (prev_status >= 100) then return end
 

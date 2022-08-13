@@ -362,12 +362,10 @@ local function update_checkpoint_force(force, tick)
 end
 
 function update_checkpoints()
-  if ((game.tick % 13) == 5) then
-    local tick = math.floor(game.tick / 13)
-    for _, force in pairs(game.forces) do
-	  if (force.research_enabled) then
-	    update_checkpoint_force(force, tick)
-	  end
+  local tick = math.floor(game.tick / 13)
+  for _, force in pairs(game.forces) do
+	if (force.research_enabled) then
+	  update_checkpoint_force(force, tick)
 	end
   end
 end
