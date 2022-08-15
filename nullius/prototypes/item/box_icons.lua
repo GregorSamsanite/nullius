@@ -100,6 +100,9 @@ for _,recipe in pairs(data.raw.recipe) do
     if (icons ~= nil) then
       data.raw.item["nullius-box-"..suffix].icons = icons.boxed
       recipe.icons = icons.unboxed
+	  if (data.raw["virtual-signal"][recipe.name] ~= nil) then
+	    data.raw["virtual-signal"][recipe.name].icons = recipe.icons
+	  end
     end
   elseif ((string.sub(recipe.name, 1, 14) == "nullius-boxed-") and
       (recipe.result ~= nil) and
@@ -107,6 +110,9 @@ for _,recipe in pairs(data.raw.recipe) do
     local icons = boxed_icons(recipe.result)
     if (icons ~= nil) then
       recipe.icons = icons.boxed
+	  if (data.raw["virtual-signal"][recipe.name] ~= nil) then
+	    data.raw["virtual-signal"][recipe.name].icons = recipe.icons
+	  end
     end
   end
 end

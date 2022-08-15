@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.3
+Date: 14.08.2022
+  Changes:
+    - Make bot placed landfill behave more like hand placed landfill.
+  Bugfixes:
+    - Fix new generator 1 recipe to use the correct turbine type.
+    - Fix an incompatibility with disabling Angel's hr setting.
+  Modding:
+    - Add Nullius bulk items to Bulk Rail Loader, and don't force "any" option.
+    - Fix icons for boxing/unboxing Crafting Combinator recipe signals.
+  Optimization:
+    - Make planting new grass a bit less disruptive to UPS.
+  Balancing:
+    - Slightly reduce speed of helium compression.
+  Graphics:
+    - Animated small pump graphic.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.2
 Date: 13.08.2022
   Features:
@@ -12,7 +29,7 @@ Date: 13.08.2022
     - Faster leg augmentation/quadrupedal adaptation 1.
     - Lower energy use by leg augmentation/quadrupedal adapation 2 and 3.
     - Re-scale and slightly improve high-pressure steam recipes.
-    - Reduce stirling engine 3 efficiency to 95%.
+    - Reduce stirling engine 3 efficiency by 5%.
   Changes:
     - Backward compatible recipe changes:
       Locomotive 1, Barrel pump 2, Leg Augmentation 1.

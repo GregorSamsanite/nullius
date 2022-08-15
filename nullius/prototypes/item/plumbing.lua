@@ -652,9 +652,9 @@ data:extend({
     type = "item",
     name = "nullius-small-pump-1",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/valve-underflow.png",
-      icon_size = 32,
-      tint = {0.75, 0.75, 0.75}
+      icon = "__angelsrefining__/graphics/icons/water-pump.png",
+      icon_size = 48,
+      tint = {0.95, 0.8, 0.7}
     }},
     subgroup = "pumping",
     order = "nullius-cb",
@@ -665,8 +665,9 @@ data:extend({
     type = "item",
     name = "nullius-small-pump-2",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/valve-underflow.png",
-      icon_size = 32
+      icon = "__angelsrefining__/graphics/icons/water-pump.png",
+      icon_size = 48,
+      tint = {0.85, 0.95, 1}
     }},
     subgroup = "pumping",
     order = "nullius-cc",

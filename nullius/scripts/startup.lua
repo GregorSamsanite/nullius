@@ -129,6 +129,7 @@ script.on_init(
       remote.call("freeplay", "set_chart_distance", 250)
     end
     update_mission_global()
+	update_railloader_bulk()
   end
 )
 

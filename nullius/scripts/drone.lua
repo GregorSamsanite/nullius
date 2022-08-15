@@ -354,12 +354,25 @@ function horticulture_effect(event)
   local surface = game.surfaces[event.surface_index]
   local center = area_center(event)
   surface.request_to_generate_chunks(center, 5)
-  surface.force_generate_chunk_requests()
   scout_effect(event, 4)
-  local score = grass_area(surface, center)
-  if ((event.source_entity ~= nil) and event.source_entity.valid) then
-    bump_mission_goal(4, score, event.source_entity.force)
+
+  if (global.nullius_grass_queue == nil) then
+    global.nullius_grass_queue = { }
+	global.nullius_grass_head = 1
+	global.nullius_grass_tail = 0
+	global.nullius_grass_timer = 0
   end
+  global.nullius_grass_tail = global.nullius_grass_tail + 1
+  local fillsurface = landfill_surface(surface)
+  fillsurface.request_to_generate_chunks(center, 4)
+  local force = nil
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
+    force = event.source_entity.force
+  end
+  global.nullius_grass_queue[global.nullius_grass_tail] = {
+    surface = surface, center = center, fillsurface = fillsurface,
+	force = force
+  }
 end
 
 function arboriculture_effect(event)

@@ -3954,7 +3954,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-combustion-chamber-1", amount=1},
-	  {type="item", name="nullius-standard-turbine-1", amount=1},
+	  {type="item", name="nullius-backup-turbine-1", amount=1},
 	  {type="item", name="nullius-small-cargo-pod-1", amount=1},
 	  {type="item", name="copper-cable", amount=4}
     },

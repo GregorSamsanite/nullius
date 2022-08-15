@@ -57,11 +57,67 @@ local coasts = {
   ["nullius-land-fill-iron"] = "mineral-brown-sand-2",
   ["nullius-land-fill-limestone"] = "mineral-white-sand-3"
 }
+
 local coast_to_fill = {
   ["landfill"] = "landfill",
   ["mineral-beige-sand-1"] = "nullius-land-fill-sand",
   ["mineral-tan-dirt-6"] = "nullius-land-fill-bauxite",
   ["mineral-brown-sand-2"] = "nullius-land-fill-iron",
+  ["mineral-white-sand-3"] = "nullius-land-fill-limestone"
+}
+
+local terrain_to_fill = {
+  ["landfill"] = "landfill",
+  ["mineral-grey-dirt-1"] = "landfill",
+  ["mineral-grey-dirt-2"] = "landfill",
+  ["mineral-grey-dirt-3"] = "landfill",
+  ["mineral-grey-dirt-4"] = "landfill",
+  ["mineral-grey-dirt-5"] = "landfill",
+  ["mineral-grey-dirt-6"] = "landfill",
+  ["mineral-grey-sand-1"] = "landfill",
+  ["mineral-grey-sand-2"] = "landfill",
+  ["mineral-grey-sand-3"] = "landfill",
+
+  ["nullius-land-fill-sand"] = "nullius-land-fill-sand",
+  ["mineral-cream-sand-1"] = "nullius-land-fill-sand",
+  ["mineral-cream-sand-2"] = "nullius-land-fill-sand",
+  ["mineral-cream-sand-3"] = "nullius-land-fill-sand",
+  ["mineral-cream-dirt-1"] = "nullius-land-fill-sand",
+  ["mineral-cream-dirt-2"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-1"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-2"] = "nullius-land-fill-sand",
+  ["mineral-tan-sand-3"] = "nullius-land-fill-sand",
+  ["mineral-beige-sand-1"] = "nullius-land-fill-sand",
+
+  ["nullius-land-fill-bauxite"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-1"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-2"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-3"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-4"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-5"] = "nullius-land-fill-bauxite",
+  ["mineral-brown-dirt-6"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-2"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-3"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-4"] = "nullius-land-fill-bauxite",
+  ["mineral-tan-dirt-6"] = "nullius-land-fill-bauxite",
+
+  ["nullius-land-fill-iron"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-1"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-2"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-3"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-4"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-5"] = "nullius-land-fill-iron",
+  ["mineral-red-dirt-6"] = "nullius-land-fill-iron",
+  ["mineral-red-sand-2"] = "nullius-land-fill-iron",
+  ["mineral-brown-sand-2"] = "nullius-land-fill-iron",
+
+  ["nullius-land-fill-limestone"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-1"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-2"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-3"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-4"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-5"] = "nullius-land-fill-limestone",
+  ["mineral-beige-dirt-6"] = "nullius-land-fill-limestone",
   ["mineral-white-sand-3"] = "nullius-land-fill-limestone"
 }
 
@@ -205,10 +261,6 @@ local function census_to_matrix(census)
 end
 
 function landfill_area(surface, center, tilename)
-  local fillsurface = landfill_surface(surface)
-  fillsurface.request_to_generate_chunks(center, 3)
-  fillsurface.force_generate_chunk_requests()
-
   local a = area_bound(center, 96)
   local oldtiles = surface.find_tiles_filtered{area=a}
   local goaltiles = fillsurface.find_tiles_filtered{area=a}
@@ -420,7 +472,8 @@ end
 
 
 function built_tiles(event, entity)
-  local tilename = event.tile.name
+  local tilename = terrain_to_fill[event.tile.name]
+  if (tilename == nil) then return end
   local coastname = coasts[tilename]
   if (coastname == nil) then return end
 
@@ -914,11 +967,7 @@ function grass_level(tilename)
   return ret
 end
 
-function grass_area(surface, center)
-  local fillsurface = landfill_surface(surface)
-  fillsurface.request_to_generate_chunks(center, 4)
-  fillsurface.force_generate_chunk_requests()
-
+function grass_area(surface, center, fillsurface)
   local water_count = {}
   for i = 1, 4 do
     local p = corner_offset(center, 96, i)
@@ -1121,4 +1170,43 @@ function grass_area(surface, center)
 
   surface.set_tiles(newtiles)
   return ret
+end
+
+
+function update_grass()
+  if (global.nullius_grass_queue == nil) then return end
+  local q = global.nullius_grass_queue[global.nullius_grass_head]
+  local qx = q.center.x / 32
+  local qy = q.center.y / 32
+  local fs = q.fillsurface
+  local qs = q.surface
+
+  for i=-4,3 do
+    for j=-4,3 do
+	  local chunkbound = {x=(qx+i), y=(qy+j)}
+	  if (not (fs.is_chunk_generated(chunkbound) and
+          qs.is_chunk_generated(chunkbound))) then
+	    if (global.nullius_grass_timer < 50) then
+		  global.nullius_grass_timer = global.nullius_grass_timer + 1
+		else
+		  global.nullius_grass_timer = 0
+		  fs.force_generate_chunk_requests()
+		end
+		return
+	  end
+	end
+  end
+
+  local score = grass_area(qs, q.center, fs)
+  if (q.force ~= nil) then
+    bump_mission_goal(4, score, q.force)
+	q.force.chart(qs, area_bound(q.center, 144))
+  end
+
+  global.nullius_grass_queue[global.nullius_grass_head] = nil
+  global.nullius_grass_head = global.nullius_grass_head + 1
+  global.nullius_grass_timer = 0
+  if (global.nullius_grass_head > global.nullius_grass_tail) then
+    global.nullius_grass_queue = nil
+  end
 end

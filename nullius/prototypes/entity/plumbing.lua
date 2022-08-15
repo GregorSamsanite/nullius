@@ -2790,61 +2790,69 @@ data:extend({
 		layers = {
 		  {
             filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
-            frames = 1,
+            repeat_count = 16,
             width = 128,
             height = 64,
 		    scale = 0.5,
+			animation_speed = 0.5,
 			shift = {0, -0.5}
 		  },
 		  {
-            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            filename = "__angelsrefining__/graphics/entity/water-pump/pump-north.png",
             priority = "extra-high",
-            frames = 1,
+            frame_count = 16,
+			line_length = 4,
             width = 64,
             height = 64,
-            tint = {0.7, 0.7, 0.7}
+			animation_speed = 0.5,
+            tint = {0.95, 0.8, 0.7},
+            shift = {0, -0.05}
 		  }
 		}
       },
       east = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+        filename = "__angelsrefining__/graphics/entity/water-pump/pump-east.png",
         priority = "extra-high",
-        frames = 1,
-        x = 64,
+		frame_count = 16,
+		line_length = 4,
         width = 64,
         height = 64,
-        tint = {0.7, 0.7, 0.7}
+		animation_speed = 0.5,
+        tint = {0.95, 0.8, 0.7}
       },
       south = {
 		layers = {
 		  {
             filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
-            frames = 1,
+            repeat_count = 16,
             width = 128,
             height = 64,
 		    scale = 0.5,
+			animation_speed = 0.5,
 			shift = {0, -0.5}
 		  },
 		  {
-            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            filename = "__angelsrefining__/graphics/entity/water-pump/pump-south.png",
             priority = "extra-high",
-            frames = 1,
-			x = 128,
+			frame_count = 16,
+			line_length = 4,
             width = 64,
             height = 64,
-            tint = {0.7, 0.7, 0.7},
+			animation_speed = 0.5,
+            tint = {0.95, 0.8, 0.7},
             shift = {0, -0.05}
 		  }
 		}
       },
       west = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+        filename = "__angelsrefining__/graphics/entity/water-pump/pump-west.png",
         priority = "extra-high",
-        frames = 1,
-        x = 192,
+		frame_count = 16,
+		line_length = 4,
         width = 64,
         height = 64,
-        tint = {0.7, 0.7, 0.7}
+		animation_speed = 0.5,
+        tint = {0.95, 0.8, 0.7}
       }
     }
   },
@@ -2894,57 +2902,69 @@ data:extend({
 		layers = {
 		  {
             filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
-            frames = 1,
+            repeat_count = 16,
             width = 128,
             height = 64,
 		    scale = 0.5,
+			animation_speed = 0.667,
 			shift = {0, -0.5}
 		  },
 		  {
-            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            filename = "__angelsrefining__/graphics/entity/water-pump/pump-north.png",
             priority = "extra-high",
-            frames = 1,
+            frame_count = 16,
+			line_length = 4,
             width = 64,
-            height = 64
+            height = 64,
+			animation_speed = 0.667,
+            tint = {0.85, 0.95, 1},
+            shift = {0, -0.05}
 		  }
 		}
       },
       east = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+        filename = "__angelsrefining__/graphics/entity/water-pump/pump-east.png",
         priority = "extra-high",
-        frames = 1,
-        x = 64,
+		frame_count = 16,
+		line_length = 4,
         width = 64,
-        height = 64
+        height = 64,
+		animation_speed = 0.667,
+        tint = {0.85, 0.95, 1}
       },
       south = {
 		layers = {
 		  {
             filename = "__boblogistics__/graphics/entity/pipe/steel/hr-pipe-straight-vertical.png",
-            frames = 1,
+            repeat_count = 16,
             width = 128,
             height = 64,
 		    scale = 0.5,
+			animation_speed = 0.667,
 			shift = {0, -0.5}
 		  },
 		  {
-            filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+            filename = "__angelsrefining__/graphics/entity/water-pump/pump-south.png",
             priority = "extra-high",
-            frames = 1,
-			x = 128,
+			frame_count = 16,
+			line_length = 4,
             width = 64,
             height = 64,
+			animation_speed = 0.667,
+            tint = {0.85, 0.95, 1},
             shift = {0, -0.05}
 		  }
 		}
       },
       west = {
-        filename = "__angelspetrochem__/graphics/entity/valve/valve-underflow.png",
+        filename = "__angelsrefining__/graphics/entity/water-pump/pump-west.png",
         priority = "extra-high",
-        frames = 1,
-        x = 192,
+		frame_count = 16,
+		line_length = 4,
         width = 64,
-        height = 64
+        height = 64,
+		animation_speed = 0.667,
+        tint = {0.85, 0.95, 1}
       }
     }
   },

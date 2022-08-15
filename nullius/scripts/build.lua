@@ -86,6 +86,8 @@ function update_tick()
   local tickmod1 = (game.tick % 13)
   if (tickmod1 == 5) then
     update_checkpoints()
+  elseif (tickmod1 == 8) then
+    update_grass()
   elseif (tickmod1 == 11) then
     local tickmod2 = (game.tick % 15)
     if (tickmod2 == 2) then

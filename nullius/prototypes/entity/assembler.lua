@@ -872,4 +872,6 @@ data:extend({
 })
 
 data.raw["furnace"]["nullius-boxer"].animation.layers[1].tint = {0.88, 0.92, 1}
-data.raw["furnace"]["nullius-boxer"].animation.layers[1].hr_version.tint = {0.88, 0.92, 1}
+if (data.raw["furnace"]["nullius-boxer"].animation.layers[1].hr_version ~= nil) then
+  data.raw["furnace"]["nullius-boxer"].animation.layers[1].hr_version.tint = {0.88, 0.92, 1}
+end

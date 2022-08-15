@@ -51,21 +51,111 @@ local function added_techs(techlist)
 end
 
 
+local function parse_version(version)
+  if (version == nil) then return nil end
+  local dot1 = string.find(version, "%.")
+  if (dot1 == nil) then return nil end
+  local dot2 = string.find(version, "%.", (dot1 + 1))
+  if (dot2 == nil) then return nil end
+  local sub1 = tonumber(string.sub(version, 1, (dot1 - 1)))
+  local sub2 = tonumber(string.sub(version, (dot1 + 1), (dot2 - 1)))
+  local sub3 = tonumber(string.sub(version, (dot2 + 1)))
+  if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return nil end
+  return ((((sub1 * 100) + sub2) * 100) + sub3)
+end
+
+
+function update_railloader_bulk()
+  local version = parse_version(script.active_mods["railloader"])
+  if ((version == nil) or (version < 10106)) then return end
+  if (remote.interfaces["railloader"] == nil) then return end
+  remote.call("railloader", "add_bulk_item", "nullius-iron-oxide")
+  remote.call("railloader", "add_bulk_item", "nullius-cellulose")
+  remote.call("railloader", "add_bulk_item", "nullius-sand")
+  remote.call("railloader", "add_bulk_item", "nullius-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-lime")
+  remote.call("railloader", "add_bulk_item", "nullius-gypsum")
+  remote.call("railloader", "add_bulk_item", "nullius-silica")
+  remote.call("railloader", "add_bulk_item", "nullius-gravel")
+  remote.call("railloader", "add_bulk_item", "nullius-alumina")
+  remote.call("railloader", "add_bulk_item", "nullius-sodium-hydroxide")
+  remote.call("railloader", "add_bulk_item", "nullius-calcium-chloride")
+  remote.call("railloader", "add_bulk_item", "nullius-sodium-sulfate")
+  remote.call("railloader", "add_bulk_item", "nullius-lithium-chloride")
+  remote.call("railloader", "add_bulk_item", "nullius-salt")
+  remote.call("railloader", "add_bulk_item", "nullius-crushed-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-crushed-iron-ore")
+  remote.call("railloader", "add_bulk_item", "nullius-crushed-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-mineral-dust")
+  remote.call("railloader", "add_bulk_item", "nullius-sandstone")
+  remote.call("railloader", "add_bulk_item", "nullius-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-rutile")
+  remote.call("railloader", "add_bulk_item", "nullius-aluminum-hydroxide")
+  remote.call("railloader", "add_bulk_item", "nullius-aluminum-carbide")
+  remote.call("railloader", "add_bulk_item", "nullius-graphite")
+  remote.call("railloader", "add_bulk_item", "nullius-plastic")
+  remote.call("railloader", "add_bulk_item", "nullius-rubber")
+  remote.call("railloader", "add_bulk_item", "nullius-fertilizer")
+  remote.call("railloader", "add_bulk_item", "nullius-land-fill-gravel")
+  remote.call("railloader", "add_bulk_item", "nullius-land-fill-sand")
+  remote.call("railloader", "add_bulk_item", "nullius-land-fill-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-land-fill-iron")
+  remote.call("railloader", "add_bulk_item", "nullius-land-fill-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-acid-boric")
+  remote.call("railloader", "add_bulk_item", "nullius-box-iron-oxide")
+  remote.call("railloader", "add_bulk_item", "nullius-box-cellulose")
+  remote.call("railloader", "add_bulk_item", "nullius-box-sand")
+  remote.call("railloader", "add_bulk_item", "nullius-box-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-box-lime")
+  remote.call("railloader", "add_bulk_item", "nullius-box-gypsum")
+  remote.call("railloader", "add_bulk_item", "nullius-box-silica")
+  remote.call("railloader", "add_bulk_item", "nullius-box-gravel")
+  remote.call("railloader", "add_bulk_item", "nullius-box-alumina")
+  remote.call("railloader", "add_bulk_item", "nullius-box-sodium-hydroxide")
+  remote.call("railloader", "add_bulk_item", "nullius-box-calcium-chloride")
+  remote.call("railloader", "add_bulk_item", "nullius-box-sodium-sulfate")
+  remote.call("railloader", "add_bulk_item", "nullius-box-lithium-chloride")
+  remote.call("railloader", "add_bulk_item", "nullius-box-salt")
+  remote.call("railloader", "add_bulk_item", "nullius-box-crushed-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-box-crushed-iron-ore")
+  remote.call("railloader", "add_bulk_item", "nullius-box-crushed-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-box-mineral-dust")
+  remote.call("railloader", "add_bulk_item", "nullius-box-sandstone")
+  remote.call("railloader", "add_bulk_item", "nullius-box-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-box-rutile")
+  remote.call("railloader", "add_bulk_item", "nullius-box-aluminum-hydroxide")
+  remote.call("railloader", "add_bulk_item", "nullius-box-aluminum-carbide")
+  remote.call("railloader", "add_bulk_item", "nullius-box-graphite")
+  remote.call("railloader", "add_bulk_item", "nullius-box-plastic")
+  remote.call("railloader", "add_bulk_item", "nullius-box-rubber")
+  remote.call("railloader", "add_bulk_item", "nullius-box-fertilizer")
+  remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-gravel")
+  remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-sand")
+  remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-bauxite")
+  remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-iron")
+  remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-limestone")
+  remote.call("railloader", "add_bulk_item", "nullius-box-acid-boric")  
+  remote.call("railloader", "add_bulk_item", "nullius-box-iron-ore")
+  remote.call("railloader", "add_bulk_item", "nullius-box-copper-ore")
+end
+
+
 function migrate_version(event)
+  local railloader = event.mod_changes["railloader"]
+  if ((railloader ~= nil) and (railloader.new_version ~= nil)) then
+    local old_loader = parse_version(railloader.old_version)
+	if ((old_loader == nil) or (old_loader < 10106)) then
+	  update_railloader_bulk()
+	end
+  end
+
   local version_info = event.mod_changes["nullius"]
   if (version_info == nil) then return end
-  local previous = version_info.old_version
-  if (previous == nil) then return end
+  local version = parse_version(version_info.old_version)
+  if (version == nil) then return end
 
-  local dot1 = string.find(previous, "%.")
-  if (dot1 == nil) then return end
-  local dot2 = string.find(previous, "%.", (dot1 + 1))
-  if (dot2 == nil) then return end
-  local sub1 = tonumber(string.sub(previous, 1, (dot1 - 1)))
-  local sub2 = tonumber(string.sub(previous, (dot1 + 1), (dot2 - 1)))
-  local sub3 = tonumber(string.sub(previous, (dot2 + 1)))
-  if ((sub1 == nil) or (sub2 == nil) or (sub3 == nil)) then return end
-  local version = (((sub1 * 100) + sub2) * 100) + sub3
+  if (version >= 10503) then return end
+  update_railloader_bulk()
 
   if (version >= 10502) then return end
   legacy_recipe_all("nullius-freight-transportation-1", "locomotive-1")

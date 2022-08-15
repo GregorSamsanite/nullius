@@ -5049,10 +5049,10 @@ data:extend({
     category = "compression",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-helium", amount=80}
+      {type="fluid", name="nullius-helium", amount=75}
     },
     results = {
-      {type="fluid", name="nullius-compressed-helium", amount=32}
+      {type="fluid", name="nullius-compressed-helium", amount=30}
     },
     main_product = "nullius-compressed-helium"
   },
