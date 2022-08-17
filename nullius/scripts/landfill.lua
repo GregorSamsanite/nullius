@@ -1175,6 +1175,7 @@ end
 
 function update_grass()
   if (global.nullius_grass_queue == nil) then return end
+  if ((game.tick % 3) ~= 1) then return end
   local q = global.nullius_grass_queue[global.nullius_grass_head]
   local qx = q.center.x / 32
   local qy = q.center.y / 32
@@ -1186,7 +1187,7 @@ function update_grass()
 	  local chunkbound = {x=(qx+i), y=(qy+j)}
 	  if (not (fs.is_chunk_generated(chunkbound) and
           qs.is_chunk_generated(chunkbound))) then
-	    if (global.nullius_grass_timer < 50) then
+	    if (global.nullius_grass_timer < 20) then
 		  global.nullius_grass_timer = global.nullius_grass_timer + 1
 		else
 		  global.nullius_grass_timer = 0
@@ -1197,10 +1198,12 @@ function update_grass()
 	end
   end
 
+  if (q.force ~= nil) then
+	q.force.chart(qs, area_bound(q.center, 144))
+  end
   local score = grass_area(qs, q.center, fs)
   if (q.force ~= nil) then
     bump_mission_goal(4, score, q.force)
-	q.force.chart(qs, area_bound(q.center, 144))
   end
 
   global.nullius_grass_queue[global.nullius_grass_head] = nil

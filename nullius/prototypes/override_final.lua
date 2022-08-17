@@ -243,7 +243,7 @@ data.raw["logistic-container"]["logistic-chest-passive-provider"].inventory_size
 data.raw["logistic-container"]["logistic-chest-requester"].icons =
     data.raw.item["logistic-chest-requester"].icons
 data.raw["logistic-container"]["logistic-chest-requester"].inventory_size = 30
-data.raw["logistic-container"]["logistic-chest-requester"].max_logistic_slots = 8
+data.raw["logistic-container"]["logistic-chest-requester"].max_logistic_slots = 10
 data.raw["logistic-container"]["logistic-chest-buffer"].icons =
     data.raw.item["logistic-chest-buffer"].icons
 data.raw["logistic-container"]["logistic-chest-buffer"].inventory_size = 30
@@ -314,6 +314,7 @@ for _,fluid in pairs(data.raw.fluid) do
     data.raw.recipe[fill_name].enabled = true
     data.raw.recipe[fill_name].category = "nullius-barrel"
     data.raw.recipe[fill_name].energy_required = 0.25
+	data.raw.recipe[fill_name].requester_paste_multiplier = 5
     data.raw.recipe[empty_name].subgroup = "empty-" .. subgroup
     data.raw.recipe[empty_name].order = fluid.order
     data.raw.recipe[empty_name].hide_from_player_crafting = true
@@ -321,6 +322,7 @@ for _,fluid in pairs(data.raw.fluid) do
     data.raw.recipe[empty_name].enabled = true
     data.raw.recipe[empty_name].category = "nullius-unbarrel"
     data.raw.recipe[empty_name].energy_required = 0.25
+	data.raw.recipe[empty_name].requester_paste_multiplier = 5
 
     if (fluid.fuel_value ~= nil) then
       data.raw.recipe[fill_name].enabled = false

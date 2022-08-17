@@ -740,7 +740,7 @@ data.raw.item["logistic-chest-requester"].localised_name =
     {"entity-name.nullius-small-demand-chest-2"}
 data.raw.item["logistic-chest-requester"].localised_description =
     {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-demand-chest"}, 8}
+	    {"entity-description.nullius-demand-chest"}, 10}
 data.raw["logistic-container"]["logistic-chest-requester"].localised_name =
     {"entity-name.nullius-small-demand-chest-2"}
 data.raw["logistic-container"]["logistic-chest-requester"].localised_description =

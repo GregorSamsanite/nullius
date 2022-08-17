@@ -2805,7 +2805,7 @@ data:extend({
             width = 64,
             height = 64,
 			animation_speed = 0.5,
-            tint = {0.95, 0.8, 0.7},
+            tint = {0.75, 0.85, 0.95},
             shift = {0, -0.05}
 		  }
 		}
@@ -2818,7 +2818,7 @@ data:extend({
         width = 64,
         height = 64,
 		animation_speed = 0.5,
-        tint = {0.95, 0.8, 0.7}
+        tint = {0.75, 0.85, 0.95}
       },
       south = {
 		layers = {
@@ -2839,7 +2839,7 @@ data:extend({
             width = 64,
             height = 64,
 			animation_speed = 0.5,
-            tint = {0.95, 0.8, 0.7},
+            tint = {0.75, 0.85, 0.95},
             shift = {0, -0.05}
 		  }
 		}
@@ -2852,7 +2852,7 @@ data:extend({
         width = 64,
         height = 64,
 		animation_speed = 0.5,
-        tint = {0.95, 0.8, 0.7}
+        tint = {0.75, 0.85, 0.95}
       }
     }
   },
@@ -2917,7 +2917,7 @@ data:extend({
             width = 64,
             height = 64,
 			animation_speed = 0.667,
-            tint = {0.85, 0.95, 1},
+            tint = {1, 1, 0.85},
             shift = {0, -0.05}
 		  }
 		}
@@ -2930,7 +2930,7 @@ data:extend({
         width = 64,
         height = 64,
 		animation_speed = 0.667,
-        tint = {0.85, 0.95, 1}
+        tint = {1, 1, 0.85}
       },
       south = {
 		layers = {
@@ -2951,7 +2951,7 @@ data:extend({
             width = 64,
             height = 64,
 			animation_speed = 0.667,
-            tint = {0.85, 0.95, 1},
+            tint = {1, 1, 0.85},
             shift = {0, -0.05}
 		  }
 		}
@@ -2964,7 +2964,7 @@ data:extend({
         width = 64,
         height = 64,
 		animation_speed = 0.667,
-        tint = {0.85, 0.95, 1}
+        tint = {1, 1, 0.85}
       }
     }
   },

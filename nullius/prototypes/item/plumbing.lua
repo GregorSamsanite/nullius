@@ -654,7 +654,7 @@ data:extend({
     icons = {{
       icon = "__angelsrefining__/graphics/icons/water-pump.png",
       icon_size = 48,
-      tint = {0.95, 0.8, 0.7}
+      tint = {0.75, 0.85, 0.95}
     }},
     subgroup = "pumping",
     order = "nullius-cb",
@@ -667,7 +667,7 @@ data:extend({
     icons = {{
       icon = "__angelsrefining__/graphics/icons/water-pump.png",
       icon_size = 48,
-      tint = {0.85, 0.95, 1}
+      tint = {1, 1, 0.85}
     }},
     subgroup = "pumping",
     order = "nullius-cc",
@@ -745,10 +745,6 @@ data:extend({
     type = "item",
     name = "nullius-chimney-1",
     icons = {
-      {
-        icon = ICONPATH .. "blank.png",
-        icon_size = 64
-      },
       {
         icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
         icon_size = 64,
@@ -1014,11 +1010,6 @@ data:extend({
     name = "nullius-outfall-1",
     icons = {
       {
-        icon = ICONPATH .. "blank.png",
-        icon_size = 32,
-        scale = 1
-      },
-      {
         icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
         icon_size = 32,
         scale = 0.8
@@ -1139,10 +1130,6 @@ data:extend({
     name = "nullius-air-filter-1",
     icons = {
       {
-        icon = ICONPATH .. "blank.png",
-        icon_size = 32
-      },
-      {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
         icon_size = 32,
         scale = 0.6
@@ -1157,10 +1144,6 @@ data:extend({
     type = "item",
     name = "nullius-air-filter-2",
     icons = {
-      {
-        icon = ICONPATH .. "blank.png",
-        icon_size = 32
-      },
       {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
         icon_size = 32,

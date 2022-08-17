@@ -144,7 +144,8 @@ function terraforming_effect(event, tile, terraform_mult)
   end
 end
 
-function paving_effect(event, tile)
+
+function paving_effect(event, tile, dirt)
   local surface = game.surfaces[event.surface_index]
   local center = area_center(event)
   surface.request_to_generate_chunks(center, 3)
@@ -157,24 +158,31 @@ function paving_effect(event, tile)
   local tiles = surface.find_tiles_filtered{area=area_bound(center, 67)}
   local newind = 0
   local newtiles = { }
+  local newind2 = 0
+  local newtiles2 = { }
 
   for _,t in pairs(tiles) do
     local newname = nil
+	local oname = t.name
 	local dx = math.abs(t.position.x - cx)
 	local dy = math.abs(t.position.y - cy)
 	local dist = math.max(dx, dy)
 
 	if (dist < 64) then
-	  newname = tile
+	  if (oname:find("water")) then
+	    newname = dirt
+	    newind2 = newind2 + 1
+        newtiles2[newind2] = {name = tile, position = t.position}
+	  else
+	    newname = tile
+	  end
 	elseif (dist < 65) then
-	  local oname = t.name
 	  if ((oname == "water") or (oname == "deepwater")) then
 	    newname = "water-shallow"
 	  elseif ((oname == "water-green") or (oname == "deepwater-green")) then
 		newname = "water-mud"
 	  end
 	elseif (dist < 66) then
-	  local oname = t.name
 	  if (oname == "deepwater") then
 	    newname = "water"
 	  elseif (oname == "deepwater-green") then
@@ -189,6 +197,9 @@ function paving_effect(event, tile)
   end
 
   surface.set_tiles(newtiles, true, "abort_on_collision")
+  if (newind2 > 0) then
+    surface.set_tiles(newtiles2, true, "abort_on_collision")
+  end
 end
 
 
@@ -353,8 +364,7 @@ end
 function horticulture_effect(event)
   local surface = game.surfaces[event.surface_index]
   local center = area_center(event)
-  surface.request_to_generate_chunks(center, 5)
-  scout_effect(event, 4)
+  surface.request_to_generate_chunks(center, 6)
 
   if (global.nullius_grass_queue == nil) then
     global.nullius_grass_queue = { }
@@ -859,25 +869,25 @@ function trigger_effect(event)
       end
   elseif (string.find(event.effect_id, "paving%-drone%-effect%-", 9) == 9) then
     if (event.effect_id == "nullius-paving-drone-effect-grey") then
-        paving_effect(event, "refined-concrete")
+        paving_effect(event, "refined-concrete", "landfill")
     elseif (event.effect_id == "nullius-paving-drone-effect-hazard") then
-        paving_effect(event, "refined-hazard-concrete-left")
+        paving_effect(event, "refined-hazard-concrete-left", "mineral-beige-sand-1")
     elseif (event.effect_id == "nullius-paving-drone-effect-red") then
-        paving_effect(event, "red-refined-concrete")
+        paving_effect(event, "red-refined-concrete", "mineral-brown-sand-2")
     elseif (event.effect_id == "nullius-paving-drone-effect-blue") then
-        paving_effect(event, "blue-refined-concrete")
+        paving_effect(event, "blue-refined-concrete", "mineral-white-sand-3")
     elseif (event.effect_id == "nullius-paving-drone-effect-yellow") then
-        paving_effect(event, "yellow-refined-concrete")
+        paving_effect(event, "yellow-refined-concrete", "mineral-beige-sand-1")
     elseif (event.effect_id == "nullius-paving-drone-effect-green") then
-        paving_effect(event, "green-refined-concrete")
+        paving_effect(event, "green-refined-concrete", "mineral-white-sand-3")
     elseif (event.effect_id == "nullius-paving-drone-effect-purple") then
-        paving_effect(event, "purple-refined-concrete")
+        paving_effect(event, "purple-refined-concrete", "mineral-brown-sand-2")
     elseif (event.effect_id == "nullius-paving-drone-effect-white") then
-        paving_effect(event, "nullius-white-concrete")
+        paving_effect(event, "nullius-white-concrete", "mineral-white-sand-3")
     elseif (event.effect_id == "nullius-paving-drone-effect-brown") then
-        paving_effect(event, "brown-refined-concrete")
+        paving_effect(event, "brown-refined-concrete", "mineral-tan-dirt-6")
     elseif (event.effect_id == "nullius-paving-drone-effect-black") then
-        paving_effect(event, "black-refined-concrete")
+        paving_effect(event, "black-refined-concrete", "landfill")
     end
   elseif (string.find(event.effect_id, "guide%-drone%-effect%-", 9) == 9) then
     if (event.effect_id == "nullius-guide-drone-effect-iron-1") then

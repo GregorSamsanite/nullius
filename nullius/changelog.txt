@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.4
+Date: 16.08.2022
+  Features:
+    - Extermination tech increases gun damage.
+  Bugfixes:
+    - Put land under paving drone pavement over water.
+  Balancing:
+    - Increase number of request slots in demand chests.
+    - Reduce brine output of hydrogen chloride neutralization.
+  Changes:
+    - Reduce default request amount for boxing and barreling.
+  Optimization:
+    - Another tweak to grass seeding performance.
+  Graphics:
+    - Change icon background for outfall 1, chimney 1, and air filter 1 & 2.
+    - Change small pump color.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.3
 Date: 14.08.2022
   Changes:

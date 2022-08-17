@@ -641,6 +641,16 @@ data:extend({
         type = "ammo-damage",
         ammo_category = "laser",
         modifier = 0.5
+      },
+      {
+        type = "gun-speed",
+        ammo_category = "bullet",
+        modifier = 0.1
+      },
+      {
+        type = "ammo-damage",
+        ammo_category = "bullet",
+        modifier = 0.25
       }
     },
     unit = {

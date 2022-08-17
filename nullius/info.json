@@ -1,13 +1,13 @@
 {
   "name": "nullius",
-  "version": "1.5.3",
+  "version": "1.5.5",
   "factorio_version": "1.1",
   "title": "Nullius",
   "author": "Anachrony",
   "description": "In this Factorio prequel, you're an android terraforming planets and seeding them with life. Replaces all recipes and technology. No life means no coal, oil, wood, biters, or free oxygen, requiring varied renewable energy sources. For reliability, you'll focus on abundant elements from the air, sea, or common minerals such as iron ore, bauxite, sandstone, and limestone. Advanced technology enables asteroid mining of rarer elements.",
   "homepage": "https://discord.gg/tZY2Rkte8Y",
   "dependencies": [
-    "base >= 1.1.39",
+    "base >= 1.1.43",
     "(?) Transport_Drones >= 1.0.6",
     "alien-biomes >= 0.6.5",
     "angelssmelting >= 0.6.18",

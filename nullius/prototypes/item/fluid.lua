@@ -1431,11 +1431,11 @@ data:extend({
     energy_required = 1,
     no_productivity = true,
     ingredients = {
-      {type="fluid", name="nullius-hydrogen-chloride", amount=28},
-      {type="fluid", name="nullius-caustic-solution", amount=32}
+      {type="fluid", name="nullius-hydrogen-chloride", amount=56},
+      {type="fluid", name="nullius-caustic-solution", amount=64}
     },
     results = {
-      {type="fluid", name="nullius-brine", amount=20}
+      {type="fluid", name="nullius-brine", amount=25}
     },
     main_product = "nullius-brine"
   },
