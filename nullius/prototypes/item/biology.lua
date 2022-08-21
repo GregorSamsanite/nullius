@@ -926,7 +926,7 @@ data:extend({
     results = {
       {type="item", name="nullius-algae", amount=2},
       {type="fluid", name="nullius-wastewater", amount=80},
-      {type="fluid", name="nullius-oxygen", amount=120}
+      {type="fluid", name="nullius-oxygen", amount=150}
     },
     main_product = "nullius-algae"
   },
@@ -948,7 +948,7 @@ data:extend({
     results = {
       {type="item", name="nullius-algae", amount=8},
       {type="fluid", name="nullius-wastewater", amount=300},
-      {type="fluid", name="nullius-oxygen", amount=500}
+      {type="fluid", name="nullius-oxygen", amount=600}
     },
     main_product = "nullius-algae"
   },
@@ -1186,7 +1186,7 @@ data:extend({
     results = {
       {type="item", name="nullius-grass", amount=2},
       {type="fluid", name="nullius-sludge", amount=10},
-      {type="fluid", name="nullius-oxygen", amount=150}
+      {type="fluid", name="nullius-oxygen", amount=200}
     },
     main_product = "nullius-grass"
   },
@@ -1209,7 +1209,7 @@ data:extend({
     results = {
       {type="item", name="nullius-grass", amount=8},
       {type="fluid", name="nullius-sludge", amount=40},
-      {type="fluid", name="nullius-oxygen", amount=600}
+      {type="fluid", name="nullius-oxygen", amount=800}
     },
     main_product = "nullius-grass"
   },
@@ -1363,11 +1363,11 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-cellulose", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=60}
+      {type="fluid", name="nullius-oxygen", amount=40}
     },
     results = {
       {type="item", name="nullius-graphite", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=100}
+      {type="fluid", name="nullius-carbon-dioxide", amount=70}
     }
   },
   {
@@ -1397,11 +1397,11 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-cellulose", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=300}
+      {type="fluid", name="nullius-oxygen", amount=200}
     },
     results = {
       {type="item", name="nullius-box-graphite", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=500}
+      {type="fluid", name="nullius-carbon-dioxide", amount=350}
     }
   },
   {
@@ -1498,12 +1498,12 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-wood", amount=3},
       {type="fluid", name="nullius-water", amount=100},
-      {type="fluid", name="nullius-oxygen", amount=200}
+      {type="fluid", name="nullius-oxygen", amount=60}
     },
     results = {
       {type="item", name="nullius-graphite", amount=1},
       {type="fluid", name="nullius-steam", amount=700},
-      {type="fluid", name="nullius-carbon-dioxide", amount=100}
+      {type="fluid", name="nullius-carbon-dioxide", amount=50}
     },
     main_product = "nullius-steam"
   },
@@ -1539,12 +1539,12 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-wood", amount=3},
       {type="fluid", name="nullius-water", amount=500},
-      {type="fluid", name="nullius-oxygen", amount=1000}
+      {type="fluid", name="nullius-oxygen", amount=300}
     },
     results = {
       {type="item", name="nullius-box-graphite", amount=1},
       {type="fluid", name="nullius-steam", amount=3500},
-      {type="fluid", name="nullius-carbon-dioxide", amount=500}
+      {type="fluid", name="nullius-carbon-dioxide", amount=250}
     },
     main_product = "nullius-steam"
   },
@@ -2003,7 +2003,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=150},
-      {type="fluid", name="nullius-air", amount=1000},
+      {type="fluid", name="nullius-air", amount=1600},
       {type="item", name="nullius-land-fill-sand", amount=1},
       {type="item", name="nullius-fertilizer", amount=1},
       {type="item", name="nullius-tree-progenitor", amount=1}
@@ -2011,7 +2011,7 @@ data:extend({
     results = {
       {type="item", name="nullius-tree", amount=1},
       {type="fluid", name="nullius-sludge", amount=25},
-      {type="fluid", name="nullius-oxygen", amount=250}
+      {type="fluid", name="nullius-oxygen", amount=400}
     },
     main_product = "nullius-tree"
   },
@@ -2026,7 +2026,7 @@ data:extend({
     energy_required = 50,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=600},
-      {type="fluid", name="nullius-air", amount=5000},
+      {type="fluid", name="nullius-air", amount=7500},
       {type="item", name="nullius-land-fill-sand", amount=4},
       {type="item", name="nullius-fertilizer", amount=5},
       {type="item", name="nullius-worm", amount=2},
@@ -2035,7 +2035,7 @@ data:extend({
     results = {
       {type="item", name="nullius-tree", amount=5},
       {type="fluid", name="nullius-sludge", amount=100},
-      {type="fluid", name="nullius-oxygen", amount=1200}
+      {type="fluid", name="nullius-oxygen", amount=2000}
     },
     main_product = "nullius-tree"
   },

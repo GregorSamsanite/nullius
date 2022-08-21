@@ -4009,6 +4009,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     always_show_products = true,
+	requester_paste_multiplier = 5,
     category = "medium-crafting",
 	subgroup = "solar",
     order = "nullius-dbdc",

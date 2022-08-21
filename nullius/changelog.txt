@@ -1,4 +1,40 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.7
+Date: 21.08.2022
+  Features:
+    - Add boxed version of iron to gravel recipe.
+  Balancing:
+    - Increase oxygen output of tree/grass/algae recipes.
+    - Decrease oxygen requirement of wood/cellulose burning recipes.
+    - Move some initial power poles from crash site to player inventory.
+    - Increase energy consumption of tier 3 miners and assemblers.
+    - Increase battery buffer of relay buildings.
+  Info:
+    - Display battery size for logistic/construction bots.
+    - Display battery size for placed hangar/relay/charger buildings.
+  Modding:
+    - Prepare for upcoming version of GCKI with no car key item.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.6
+Date: 19.08.2022
+  Changes:
+    - Move cargo pod 3 to an earlier tech.
+    - Allow mirror/reprioritization recipes in medium assemblers.
+  Balancing:
+    - Increase output of physics recipe.
+    - Minor adjustment to steel cable recipe ratios.
+    - Increase drain of idle large and medium assemblers.
+  Graphics:
+    - Fix orientation of connections shown when placing thermal tanks.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.5
+Date: 17.08.2022
+  Bugfixes:
+    - Fix a recently introduced crash with terraforming drones.
+  Changes:
+    - Reduce default request amount of mirroring and prioritization recipes.
+    - Scale up batch size of implicit air and freshwater recipes.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.4
 Date: 16.08.2022
   Features:

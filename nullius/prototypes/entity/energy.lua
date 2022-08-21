@@ -3208,8 +3208,8 @@ data:extend({
       height = 2,
       base_area = 5,
       pipe_connections = {
-        { position = {2, 0} },
-        { position = {-2, 0} }
+        { position = {0, 2} },
+        { position = {0, -2} }
       }
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
@@ -3319,8 +3319,8 @@ data:extend({
       height = 2,
       base_area = 20,
       pipe_connections = {
-        { position = {2, 0} },
-        { position = {-2, 0} }
+        { position = {0, 2} },
+        { position = {0, -2} }
       }
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
@@ -3350,8 +3350,8 @@ data:extend({
       height = 2,
       base_area = 150,
       pipe_connections = {
-        { position = {2, 0} },
-        { position = {-2, 0} }
+        { position = {0, 2} },
+        { position = {0, -2} }
       }
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},

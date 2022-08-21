@@ -524,7 +524,7 @@ data:extend({
     minable = {
       mining_time = 1,
       results = {
-        {type="item", name="small-electric-pole", amount=40},
+        {type="item", name="small-electric-pole", amount=30},
         {type="item", name="big-electric-pole", amount=8},
         {type="item", name="nullius-broken-pylon", amount=24},
         {type="item", name="nullius-grid-battery-1", amount=5},

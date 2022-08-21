@@ -905,7 +905,7 @@ data:extend({
       emissions_per_minute = 12,
       usage_priority = "secondary-input"
     },
-    energy_usage = "360kW",
+    energy_usage = "400kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "small-miner",
     base_productivity = 0.05,
@@ -1687,7 +1687,7 @@ data:extend({
       emissions_per_minute = 20,
       usage_priority = "secondary-input"
     },
-    energy_usage = "600kW",
+    energy_usage = "750kW",
     module_specification = { module_slots = 2 },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
     base_productivity = 0.05,
@@ -2372,7 +2372,7 @@ data:extend({
       emissions_per_minute = 30,
       usage_priority = "secondary-input"
     },
-    energy_usage = "900kW",
+    energy_usage = "1.2MW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "large-miner",
     base_productivity = 0.05,

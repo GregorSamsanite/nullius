@@ -588,7 +588,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-personal-storage-3"},
+    prerequisites = {"nullius-personal-storage-4"},
     max_level = "infinite",
     upgrade = true
   },
@@ -726,7 +726,7 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-personal-storage-4",
+    name = "nullius-personal-storage-5",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/toolbelt.png",
     icon_size = 256,
@@ -738,7 +738,7 @@ data:extend({
       }
     },
     unit = {
-      count_formula = "100000*(10^(L-4))",
+      count_formula = "100000*(10^(L-5))",
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
@@ -747,7 +747,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-personal-storage-3", "nullius-biochemistry-5"},
+    prerequisites = {"nullius-personal-storage-4", "nullius-biochemistry-5"},
     max_level = "infinite",
     upgrade = true
   },

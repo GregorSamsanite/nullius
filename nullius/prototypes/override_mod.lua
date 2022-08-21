@@ -1435,7 +1435,22 @@ if mods["stack-combinator"] then
 end
 
 
-if mods["GCKI"] then
+if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-car-key",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 3,
+      ingredients = {
+        {"programmable-speaker", 1},
+        {"arithmetic-combinator", 1}
+      },
+      result = "car-key"
+    }
+  })
   data.raw.item["car-key"].subgroup = "vehicle"
   data.raw.item["car-key"].order = "nullius-g"
   table.insert(data.raw["technology"]["nullius-broadcasting-1"].effects,

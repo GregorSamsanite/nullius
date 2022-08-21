@@ -9187,6 +9187,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-boxed-limestone-disposal"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-iron-disposal"
+      },
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-pressure-filter-1"
@@ -13313,6 +13317,29 @@ data:extend({
     },
     prerequisites = {"nullius-checkpoint-copper-ingot", "nullius-toolmaking-9"}
   },
+  {
+    type = "technology",
+    name = "nullius-personal-storage-3",
+    order = "nullius-gi",
+	icon = "__nullius__/graphics/equipment/large-pod-3.png",
+    icon_size = 256,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-large-cargo-pod-3"
+      }
+    },
+    unit = {
+      count = 10000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-toolmaking-9", "nullius-robot-speed-5"}
+  },
 
   {
     type = "technology",
@@ -13657,7 +13684,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-robotics-4", "nullius-optimization-6"}
+    prerequisites = {"nullius-robotics-4", "nullius-optimization-6", "nullius-personal-storage-3"}
   },
   {
     type = "technology",
@@ -13959,7 +13986,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-biochemistry-3"}
+    prerequisites = {"nullius-biochemistry-3", "nullius-personal-storage-3"}
   },
   {
     type = "technology",
@@ -14336,11 +14363,11 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-zoology-3", "nullius-personal-storage-3"}
+    prerequisites = {"nullius-zoology-3", "nullius-personal-storage-4"}
   },
   {
     type = "technology",
-    name = "nullius-personal-storage-3",
+    name = "nullius-personal-storage-4",
     order = "nullius-gi",
     icon = "__base__/graphics/technology/toolbelt.png",
     icon_size = 256,
@@ -14349,10 +14376,6 @@ data:extend({
       {
         type = "character-inventory-slots-bonus",
         modifier = 10
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-large-cargo-pod-3"
       }
     },
     unit = {

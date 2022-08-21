@@ -528,7 +528,7 @@ data:extend({
       {"nullius-box-missile-1", 3}
     },
     result = "nullius-box-physics-pack",
-    result_count = 10
+    result_count = 12
   },
 
   {
@@ -1154,14 +1154,15 @@ data:extend({
     type = "recipe",
     name = "nullius-iron-disposal",
     localised_name = {"recipe-name.nullius-iron-disposal"},
-    icon_size = 32,
     icons = {
       {
         icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+		icon_size = 32,
         tint = {r=0.95, g=0.85, b=0.75}
       },
       {
         icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+		icon_size = 32,
         scale = 0.5,
         shift = {10, -9}
       }
@@ -1176,6 +1177,40 @@ data:extend({
     energy_required = 2,
     ingredients = {{"nullius-crushed-iron-ore", 4}},
     result = "nullius-gravel",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-iron-disposal",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-iron-disposal"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+		icon_size = 32,
+		scale = 0.9,
+        tint = {r=0.95, g=0.85, b=0.75}
+      },
+      {
+        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+		icon_size = 32,
+        scale = 0.45,
+        shift = {9, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+	no_productivity = true,
+    category = "ore-crushing",
+	subgroup = "boxed-iron",
+    order = "nullius-n",
+    energy_required = 10,
+    ingredients = {{"nullius-box-crushed-iron-ore", 4}},
+    result = "nullius-box-gravel",
     result_count = 3
   },
   {
@@ -3888,12 +3923,13 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
-      {type="item", name="nullius-steel-wire", amount=4},
-      {type="fluid", name="nullius-lubricant", amount=1, fluidbox_index=1}
+      {type="item", name="nullius-steel-wire", amount=7},
+      {type="fluid", name="nullius-lubricant", amount=2, fluidbox_index=1}
     },
-    result = "nullius-steel-cable"
+    result = "nullius-steel-cable",
+    result_count = 2
   },
   {
     type = "recipe",
@@ -3903,12 +3939,13 @@ data:extend({
     always_show_products = true,
     category = "huge-fluid-assembly",
     subgroup = "boxed-steel",
-    energy_required = 5,
+    energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-box-steel-wire", amount=4},
-      {type="fluid", name="nullius-lubricant", amount=5, fluidbox_index=1}
+      {type="item", name="nullius-box-steel-wire", amount=7},
+      {type="fluid", name="nullius-lubricant", amount=10, fluidbox_index=1}
     },
-    result = "nullius-box-steel-cable"
+    result = "nullius-box-steel-cable",
+    result_count = 2
   },
   {
     type = "recipe",

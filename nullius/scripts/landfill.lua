@@ -261,6 +261,10 @@ local function census_to_matrix(census)
 end
 
 function landfill_area(surface, center, tilename)
+  local fillsurface = landfill_surface(surface)
+  fillsurface.request_to_generate_chunks(center, 3)
+  fillsurface.force_generate_chunk_requests()
+
   local a = area_bound(center, 96)
   local oldtiles = surface.find_tiles_filtered{area=a}
   local goaltiles = fillsurface.find_tiles_filtered{area=a}

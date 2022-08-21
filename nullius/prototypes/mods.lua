@@ -1745,25 +1745,6 @@ if mods["crafting_combinator"] then
 end
 
 
-if mods["GCKI"] then
-  data:extend({
-    {
-      type = "recipe",
-      name = "nullius-car-key",
-      enabled = false,
-      always_show_made_in = true,
-      category = "small-crafting",
-      energy_required = 3,
-      ingredients = {
-        {"programmable-speaker", 1},
-        {"arithmetic-combinator", 1}
-      },
-      result = "car-key"
-    }
-  })
-end
-
-
 if mods["holographic_signs"] then
 data:extend({
   {

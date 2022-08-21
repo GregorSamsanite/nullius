@@ -1811,10 +1811,10 @@ data:extend({
     category = "air-filtration",
     subgroup = "air-filtration",
     order = "nullius-bb",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {},
     results = {
-      {type="fluid", name="nullius-air", amount=50},
+      {type="fluid", name="nullius-air", amount=150},
     },
     main_product = "nullius-air"
   },
@@ -1825,10 +1825,10 @@ data:extend({
     hide_from_player_crafting = true,
     category = "water-pumping",
     subgroup = "nullius-water-treatment",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {},
     results = {
-      {type="fluid", name="nullius-freshwater", amount=125},
+      {type="fluid", name="nullius-freshwater", amount=250},
     },
     main_product = "nullius-freshwater"
   },

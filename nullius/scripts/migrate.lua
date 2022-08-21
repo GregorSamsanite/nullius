@@ -154,6 +154,9 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10506) then return end
+  added_techs({"nullius-personal-storage-3"})
+
   if (version >= 10503) then return end
   update_railloader_bulk()
 
