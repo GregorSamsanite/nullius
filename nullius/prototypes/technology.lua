@@ -1160,10 +1160,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-battery-recharging-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-electrolyzer-reprioritization-1"
       }
     },
     unit = {
@@ -1847,6 +1843,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-capacitor"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-electrolyzer-reprioritization-1"
       }
     },
     unit = {
@@ -8629,7 +8629,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-mass-production-4", "nullius-pressure-containment"}
+    prerequisites = {"nullius-mass-production-4", "nullius-geothermal-power-2"}
   },
 
   {
@@ -8951,7 +8951,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-checkpoint-stirling-engine", "nullius-checkpoint-large-beacon"}
+    prerequisites = {"nullius-high-pressure-chemistry", "nullius-checkpoint-large-beacon"}
   },
   {
     type = "technology",

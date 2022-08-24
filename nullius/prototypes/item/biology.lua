@@ -787,7 +787,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-nucleotides"].flow_color },
     energy_required = 4,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=15},
+      {type="fluid", name="nullius-nucleotides", amount=12},
       {type="fluid", name="nullius-bacteria", amount=2}
     },
     results = {
@@ -998,17 +998,17 @@ data:extend({
     category = "ore-flotation",
     subgroup = "biology-algae",
     order = "nullius-f",
-    energy_required = 15,
+    energy_required = 45,
     ingredients = {
-      {type="item", name="nullius-algae-spore", amount=3},
+      {type="item", name="nullius-algae-spore", amount=4},
       {type="item", name="nullius-mineral-dust", amount=30},
       {type="fluid", name="nullius-wastewater", amount=800},
-      {type="fluid", name="nullius-bacteria", amount=2}
+      {type="fluid", name="nullius-bacteria", amount=5}
     },
     results = {
-      {type="item", name="nullius-cellulose", amount=10},
-      {type="fluid", name="nullius-oil", amount=120},
-      {type="fluid", name="nullius-methane", amount=180}
+      {type="item", name="nullius-cellulose", amount=5},
+      {type="fluid", name="nullius-oil", amount=100},
+      {type="fluid", name="nullius-methane", amount=140}
     },
     main_product = "nullius-oil"
   },
@@ -1043,17 +1043,17 @@ data:extend({
     category = "ore-flotation",
     subgroup = "boxed-biology",
     order = "nullius-fd",
-    energy_required = 15,
+    energy_required = 45,
     ingredients = {
-      {type="item", name="nullius-algae-spore", amount=3},
+      {type="item", name="nullius-algae-spore", amount=4},
       {type="item", name="nullius-box-mineral-dust", amount=6},
       {type="fluid", name="nullius-wastewater", amount=800},
-      {type="fluid", name="nullius-bacteria", amount=2}
+      {type="fluid", name="nullius-bacteria", amount=5}
     },
     results = {
-      {type="item", name="nullius-box-cellulose", amount=2},
-      {type="fluid", name="nullius-oil", amount=120},
-      {type="fluid", name="nullius-methane", amount=180}
+      {type="item", name="nullius-box-cellulose", amount=1},
+      {type="fluid", name="nullius-oil", amount=100},
+      {type="fluid", name="nullius-methane", amount=140}
     },
     main_product = "nullius-oil"
   },
@@ -1639,9 +1639,9 @@ data:extend({
     energy_required = 240,
     ingredients = {
       {type="item", name="nullius-worm-genome", amount=1},
-      {type="fluid", name="nullius-protocell", amount=12},
-      {type="fluid", name="nullius-amino-acids", amount=10},
-      {type="fluid", name="nullius-oil", amount=6},
+      {type="fluid", name="nullius-protocell", amount=15},
+      {type="fluid", name="nullius-amino-acids", amount=20},
+      {type="fluid", name="nullius-oil", amount=10},
       {type="item", name="nullius-sugar", amount=8}
     },
     results = {
@@ -1733,15 +1733,15 @@ data:extend({
     subgroup = "biology-worm",
     order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-amino-acids"].flow_color },
-    energy_required = 8,
+    energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-worm", amount=2},
-      {type="fluid", name="nullius-saline", amount=60}
+      {type="item", name="nullius-worm", amount=1},
+      {type="fluid", name="nullius-saline", amount=40}
     },
     results = {
-      {type="fluid", name="nullius-amino-acids", amount=45},
-      {type="fluid", name="nullius-ammonia", amount=20},
-      {type="fluid", name="nullius-wastewater", amount=50},
+      {type="fluid", name="nullius-amino-acids", amount=30},
+      {type="fluid", name="nullius-ammonia", amount=12},
+      {type="fluid", name="nullius-wastewater", amount=25},
       {type="item", name="nullius-rutile", amount=1}
     },
     main_product = "nullius-amino-acids"
@@ -1811,15 +1811,15 @@ data:extend({
     subgroup = "biology-worm",
     order = "nullius-gb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-amino-acids"].flow_color },
-    energy_required = 8,
+    energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-worm-egg", amount=5},
-      {type="fluid", name="nullius-saline", amount=10}
+      {type="item", name="nullius-worm-egg", amount=2},
+      {type="fluid", name="nullius-saline", amount=5}
     },
     results = {
-      {type="fluid", name="nullius-amino-acids", amount=6},
-      {type="fluid", name="nullius-nucleotides", amount=2},
-      {type="fluid", name="nullius-wastewater", amount=10}
+      {type="fluid", name="nullius-amino-acids", amount=3},
+      {type="fluid", name="nullius-nucleotides", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=5}
     },
     main_product = "nullius-amino-acids"
   },
@@ -2365,8 +2365,8 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-fish-genome", amount=1},
       {type="fluid", name="nullius-protocell", amount=18},
-      {type="fluid", name="nullius-amino-acids", amount=12},
-      {type="fluid", name="nullius-oil", amount=15},
+      {type="fluid", name="nullius-amino-acids", amount=25},
+      {type="fluid", name="nullius-oil", amount=50},
       {type="item", name="nullius-calcium", amount=2},
       {type="item", name="nullius-sugar", amount=10}
     },
@@ -2459,15 +2459,15 @@ data:extend({
     subgroup = "biology-fish",
     order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-oil"].flow_color },
-    energy_required = 10,
+    energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-fish", amount=2},
-      {type="fluid", name="nullius-saline", amount=80}
+      {type="item", name="nullius-fish", amount=1},
+      {type="fluid", name="nullius-saline", amount=40}
     },
     results = {
-      {type="fluid", name="nullius-oil", amount=80},
-      {type="fluid", name="nullius-amino-acids", amount=30},
-      {type="fluid", name="nullius-wastewater", amount=50},
+      {type="fluid", name="nullius-oil", amount=50},
+      {type="fluid", name="nullius-amino-acids", amount=15},
+      {type="fluid", name="nullius-wastewater", amount=25},
       {type="item", name="nullius-lithium-chloride", amount=1}
     },
     main_product = "nullius-oil"
@@ -2538,7 +2538,7 @@ data:extend({
     crafting_machine_tint = { primary = data.raw.fluid["nullius-oil"].flow_color },
     energy_required = 10,
     ingredients = {
-      {type="item", name="nullius-fish-egg", amount=5},
+      {type="item", name="nullius-fish-egg", amount=4},
       {type="fluid", name="nullius-saline", amount=15}
     },
     results = {
@@ -2720,8 +2720,8 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-arthropod-genome", amount=1},
       {type="fluid", name="nullius-protocell", amount=25},
-      {type="fluid", name="nullius-amino-acids", amount=20},
-      {type="fluid", name="nullius-oil", amount=16},
+      {type="fluid", name="nullius-amino-acids", amount=30},
+      {type="fluid", name="nullius-oil", amount=25},
       {type="item", name="nullius-plastic", amount=3},
       {type="item", name="nullius-graphene", amount=1},
       {type="item", name="nullius-sugar", amount=8},

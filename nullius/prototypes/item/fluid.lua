@@ -1518,11 +1518,11 @@ data:extend({
     always_show_products = true,
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-hydrogen", amount=6},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=5},
       {type="fluid", name="nullius-compressed-nitrogen", amount=2}
     },
     results = {
-      {type="fluid", name="nullius-ammonia", amount=15}
+      {type="fluid", name="nullius-ammonia", amount=10}
     },
     main_product = "nullius-ammonia"
   },

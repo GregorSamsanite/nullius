@@ -1802,7 +1802,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-geothermal-power-2", "nullius-high-pressure-chemistry"},
+    prerequisites = {"nullius-geothermal-power-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1859,7 +1859,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-packaging-6"},
+    prerequisites = {"nullius-packaging-6", "nullius-checkpoint-stirling-engine"},
     ignore_tech_cost_multiplier = true
   },
   {

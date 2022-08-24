@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.8
+Date: 23.08.2022
+  Balancing:
+    - Reduce speed penalty for cargo pod equipment.
+    - Increase cost of ammonia.
+    - Increase output of worm, worm egg, fish, and fish egg harvest.
+    - Increase amino acid and oil costs of animal progenitors.
+    - Reduce speed and output of biomass recipe.
+  Changes:
+    - Adjust tech prerequisites around stirling engine 2 checkpoint.
+    - Move surge electrolyzer 1 reprioritization to a later tech.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.7
 Date: 21.08.2022
   Features:

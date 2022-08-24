@@ -1609,7 +1609,7 @@ data:extend({
     take_result = "nullius-small-cargo-pod-1",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-cargo", 1}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 0.6}},
+	    {"equipment-description.nullius-penalty-speed", 0.3}},
     order = "jbb",
     sprite = {
       filename = EQUIPPATH.."small-pod-1.png",
@@ -1635,7 +1635,7 @@ data:extend({
     take_result = "nullius-small-cargo-pod-2",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 0.8}},
+	    {"equipment-description.nullius-penalty-speed", 0.4}},
     order = "jbc",
     sprite = {
       filename = EQUIPPATH.."small-pod-2.png",
@@ -1661,7 +1661,7 @@ data:extend({
     take_result = "nullius-large-cargo-pod-1",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-cargo", 5}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 3}},
+	    {"equipment-description.nullius-penalty-speed", 1.5}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-1.png",
@@ -1687,7 +1687,7 @@ data:extend({
     take_result = "nullius-large-cargo-pod-2",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-cargo", 8}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 4}},
+	    {"equipment-description.nullius-penalty-speed", 2}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-2.png",
@@ -1713,7 +1713,7 @@ data:extend({
     take_result = "nullius-large-cargo-pod-3",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-cargo", 10}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 4}},
+	    {"equipment-description.nullius-penalty-speed", 2}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-3.png",
