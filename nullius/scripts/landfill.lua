@@ -967,6 +967,12 @@ function grass_level(tilename)
 	ret = 2
   elseif (prefix == "dry-di") then
 	ret = 3
+  elseif (prefix == "nuclea") then
+	ret = 1
+  elseif (prefix == "nulliu") then
+    if (string.sub(tilename, 8, 18) == "-land-fill-") then
+	  ret = 2
+	end
   end
   return ret
 end

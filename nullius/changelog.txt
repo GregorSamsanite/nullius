@@ -1,4 +1,37 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.12
+Date: 30.08.2022
+  Balancing:
+    - Reduce energy consumption of large beacons.
+  Changes:
+    - Allow barrelling of compressed residual/trace gas.
+    - Let grass grow over nuclear scars, though not all that well.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.11
+Date: 27.08.2022
+  Features:
+    - Add chlorine sink solid waste recipes.
+  Bugfixes:
+    - Show crafted in building for thermal tank 2 and 3 recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.10
+Date: 26.08.2022
+  Features:
+    - Emptying recipes for fuel canisters.
+  Bugfixes:
+    - Fix a mistake in overall mission progress with goals over 100%.
+  Changes:
+    - Only show excess plant percentages if oxygen is over certain percentage.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.9
+Date: 24.08.2022
+  Bugfixes:
+    - Allow grass to be planted on old style landfill.
+  Info:
+    - Show plant mission progress beyond 100% if oxygen is under 100%.
+    - Show oxygen vented in mission status.
+    - Include information in gas tooltip about oxygen reduction.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.8
 Date: 23.08.2022
   Balancing:

@@ -653,7 +653,7 @@ data:extend({
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
-    energy_usage = "1MW",
+    energy_usage = "750kW",
     distribution_effectivity = 1,
     module_specification = {
       module_slots = 1,
@@ -821,7 +821,7 @@ data:extend({
     vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
-    energy_usage = "2.5MW",
+    energy_usage = "2MW",
     distribution_effectivity = 1,
     module_specification = {
       module_slots = 2,

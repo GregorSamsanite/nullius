@@ -4448,6 +4448,7 @@ data:extend({
     type = "recipe",
     name = "nullius-thermal-tank-2",
     enabled = false,
+	always_show_made_in = true,
     category = "large-crafting",
     energy_required = 10,
     ingredients = {
@@ -4464,6 +4465,7 @@ data:extend({
     type = "recipe",
     name = "nullius-thermal-tank-3",
     enabled = false,
+	always_show_made_in = true,
     category = "large-crafting",
     energy_required = 25,
     ingredients = {

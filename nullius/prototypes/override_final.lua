@@ -340,6 +340,15 @@ for _,fluid in pairs(data.raw.fluid) do
   end
 end
 
+data.raw.recipe["fill-nullius-compressed-residual-gas-barrel"].subgroup =
+    "fill-air-filtration"
+data.raw.recipe["empty-nullius-compressed-residual-gas-barrel"].subgroup =
+    "empty-air-filtration"
+data.raw.recipe["fill-nullius-compressed-trace-gas-barrel"].subgroup =
+    "fill-air-filtration"
+data.raw.recipe["empty-nullius-compressed-trace-gas-barrel"].subgroup =
+    "empty-air-filtration"
+
 
 -- Mods might overwrite character crafting categories, making everything un-hand-craftable in
 -- Nullius.  At this stage, set them again, but this time, insert missing categories rather than -- overwriting the list, to give other mods opportunity to insert their own categories.

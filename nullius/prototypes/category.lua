@@ -562,6 +562,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "gc",
+    name = "canister-emptying",
+    group = "intermediate-products",
+  },
+  {
+    type = "item-subgroup",
     name = "mechanical-intermediate",
     group = "intermediate-products",
     order = "h"

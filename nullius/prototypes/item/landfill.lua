@@ -649,6 +649,46 @@ data:extend({
     result = "nullius-box-land-fill-gravel",
     result_count = 12
   },
+  {
+    type = "recipe",
+    name = "nullius-chlorine-sink",
+    localised_name = {"recipe-name.nullius-chlorine-sink"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-tan.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/chlorine.png",
+        icon_size = 72,
+        scale = 0.2,
+        shift = {-9, -10}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "bulk-smelting",
+    subgroup = "boxed-terrain",
+    order = "nullius-s",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-limestone", amount=4},
+	  {type="item", name="nullius-box-land-fill-iron", amount=3},
+      {type="item", name="nullius-box-plastic", amount=1},
+      {type="fluid", name="nullius-chlorine", amount=2500}
+    },
+    result = "nullius-box-land-fill-sand",
+    result_count = 10
+  },
 
   {
     type = "recipe",
@@ -718,6 +758,44 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-terraforming-drone-brown", amount=5},
       {type="item", name="nullius-box-land-fill-bauxite", amount=2500},
+	  {type="item", name="nullius-box-rocket-fuel", amount=4}
+    },
+    results = {
+      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-construction-bot-3", amount=8}
+    },
+    main_product = "nullius-excavation-drone"
+  },
+  {
+    type = "recipe",
+    name = "nullius-dumping-sand",
+    localised_name = {"recipe-name.nullius-dumping-sand"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "terraforming-tan.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    no_productivity = true,
+    category = "ore-crushing",
+    subgroup = "boxed-terrain",
+    order = "nullius-kd",
+    energy_required = 720,
+    ingredients = {
+      {type="item", name="nullius-terraforming-drone-tan", amount=5},
+      {type="item", name="nullius-box-land-fill-sand", amount=2500},
 	  {type="item", name="nullius-box-rocket-fuel", amount=4}
     },
     results = {

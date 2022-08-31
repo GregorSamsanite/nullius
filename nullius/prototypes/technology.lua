@@ -2020,6 +2020,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-methane-combustion-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-hydrogen-canister-flushing"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-methanol-canister-flushing"
       }
     },
     unit = {
@@ -9043,6 +9051,14 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "fill-nullius-compressed-residual-gas-barrel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "empty-nullius-compressed-residual-gas-barrel"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "fill-nullius-compressed-argon-barrel"
       },
       {
@@ -10703,6 +10719,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "empty-nullius-compressed-helium-barrel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "fill-nullius-compressed-trace-gas-barrel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "empty-nullius-compressed-trace-gas-barrel"
       }
     },
     unit = {
@@ -12581,11 +12605,19 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-chlorine-sink"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-dumping-rock"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-dumping-dirt"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-dumping-sand"
       }
     },
     unit = {
@@ -14172,6 +14204,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-biodiesel-canister"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-biodiesel-canister-flushing"
       },
       {
         type = "unlock-recipe",
