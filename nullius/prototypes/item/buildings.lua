@@ -2570,7 +2570,7 @@ data:extend({
     enabled = false,
     category = "tiny-crafting",
     always_show_made_in = true,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {"decider-combinator", 1},
       {"constant-combinator", 1},
@@ -2585,7 +2585,7 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-circuit",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
       {"nullius-box-memory-circuit", 1},

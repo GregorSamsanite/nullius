@@ -171,13 +171,12 @@ local oxygen_equivalent = {
   ["nullius-hydrogen"] = -0.5,
   ["nullius-compressed-hydrogen"] = -2,
   ["nullius-deuterium"] = -0.5,
-  ["nullius-tritium"] = -0.5,
-  ["nullius-methane"] = -1,
-  ["nullius-compressed-methane"] = -4,
-  ["nullius-ammonia"] = -0.8,
+  ["nullius-methane"] = -2,
+  ["nullius-compressed-methane"] = -8,
+  ["nullius-ammonia"] = -1,
   ["nullius-volcanic-gas"] = -0.2,
-  ["nullius-carbon-monoxide"] = -0.3,
-  ["nullius-compressed-carbon-monoxide"] = -1.2
+  ["nullius-carbon-monoxide"] = -0.5,
+  ["nullius-compressed-carbon-monoxide"] = -2
 }
 
 function update_oxygen()

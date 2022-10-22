@@ -470,7 +470,7 @@ function landfill_area(surface, center, tilename)
 	end
   end
 
-  surface.set_tiles(newtiles)
+  surface.set_tiles(newtiles, true, "abort_on_collision")
   return score  
 end
 

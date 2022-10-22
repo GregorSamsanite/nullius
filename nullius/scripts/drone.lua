@@ -93,7 +93,7 @@ function safe_demolition(event, size)
   entities = s.find_entities(area_bound(center, (size + 3)))
   for _, e in pairs(entities) do
     if (e.valid and ((e.type == "item-entity") or (e.type == "optimized-decorative") or
-          (e.type == "cliff") or (e.type == "rail-remnants") or
+          (e.type == "cliff") or (e.type == "rail-remnants") or (e.type == "fish") or
       ((e.type == "corpse") and (e.name ~= "transport-caution-corpse") and
                  (e.name ~= "invisible-transport-caution-corpse")))) then
       e.destroy({do_cliff_correction = true})
@@ -638,9 +638,9 @@ function husbandry_effect(event)
   local far = area_bound(c, 160)
   local mid = area_bound(c, 56)
   local fish_count = s.count_entities_filtered{area=far,
-      position=c, radius=160, limit=30, type="fish"} +
+      position=c, radius=256, limit=30, type="fish"} +
 	  (2 * s.count_entities_filtered{area=mid,
-          position=c, radius=56, limit=10, type="fish"})
+          position=c, radius=80, limit=10, type="fish"})
   local tree_count = s.count_entities_filtered{area=far,
 	  position=c, radius=160, limit=120, type="tree"} +
 	  (2 * s.count_entities_filtered{area=mid,
@@ -650,10 +650,10 @@ function husbandry_effect(event)
 	  (2 * s.count_entities_filtered{area=mid,
 	      position=c, radius=56, limit=10, type="unit-spawner"})
   local fumarole_count = s.count_entities_filtered{area=far,
-	  position=c, radius=160, limit=10, name="nullius-fumarole"} +
-	  (2 * s.count_entities_filtered{area=mid,
-	      position=c, radius=56, limit=4, name="nullius-fumarole"})
-  local penalty = 4 * (5 + fumarole_count) * (3 + nest_count)
+	  position=c, radius=192, limit=12, name="nullius-fumarole"} +
+	  (3 * s.count_entities_filtered{area=mid,
+	      position=c, radius=64, limit=4, name="nullius-fumarole"})
+  local penalty = 2.5 * (8 + fumarole_count) * (3 + nest_count)
   local bonus = (math.sqrt(fish_count * tree_count) *
 	  (global.nullius_mission_status[2] - 55) / 30)
   local odds = math.sqrt(math.max(0, ((bonus / penalty) - 0.1))) - 0.2

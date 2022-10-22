@@ -2161,6 +2161,26 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
+    energy_required = 6,
+    ingredients = {
+      {type="item", name="iron-chest", amount=3},
+      {type="item", name="nullius-steel-beam", amount=4},
+      {type="item", name="nullius-steel-plate", amount=5},
+      {type="item", name="nullius-steel-rod", amount=3},
+      {type="item", name="nullius-graphite", amount=2},
+      {type="fluid", name="nullius-lubricant", amount=10, fluidbox_index=1}
+    },
+    result = "nullius-cargo-wagon-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-cargo-wagon-1",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "large-crafting",
     energy_required = 5,
     ingredients = {
       {"iron-chest", 3},
@@ -2177,14 +2197,14 @@ data:extend({
     enabled = false,
     category = "large-fluid-assembly",
     always_show_made_in = true,
-    energy_required = 12,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-cargo-wagon-1", amount=1},
       {type="item", name="nullius-large-chest-1", amount=3},
       {type="item", name="nullius-steel-cable", amount=2},
       {type="item", name="nullius-bearing", amount=8},
       {type="item", name="nullius-sensor-1", amount=1},
-      {type="fluid", name="nullius-lubricant", amount=20, fluidbox_index=1}
+      {type="fluid", name="nullius-lubricant", amount=50, fluidbox_index=1}
     },
     result = "nullius-cargo-wagon-2"
   },
@@ -2194,7 +2214,7 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-cargo-wagon-2", amount=2},
       {type="item", name="nullius-large-storage-chest-2", amount=2},

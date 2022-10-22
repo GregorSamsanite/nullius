@@ -1,4 +1,59 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.14
+Date: 22.10.2022
+  Features:
+    - 10 new android coprocessor personal equipment items.
+    - Algae spore disposal recipe.
+  Bugfixes:
+    - Recognize blueprinted suppressed beacons as satisfying checkpoint.
+    - Fix a crafting equipment crash with blueprint sandbox craft to cursor.
+    - Fix a bug in calculation of large equipment penalties.
+  Balancing:
+    - Increase the crafting time of many mid to lower volume intermediates.
+    - Reduce passive hand crafting/mining speed bonuses from tech.
+    - Backward compatible changes to android 1 + 2 and rail signal recipes.
+    - Improve speed of carbon dioxide electrolysis recipe.
+    - Increase deconstruction time of buildings.
+    - Reduce hydrogen output of carbon monoxide to carbon dioxide recipe.
+    - Increase oxygen reduction of methane, ammonia, and carbon monoxide.
+  Changes:
+    - Terraforming drones don't destroy outfalls.
+    - Paving drones kill fish.
+  Info:
+    - Show internal battery for fabrication tool and stabilizer descriptions.
+  Modding:
+    - Tweak costs of some advanced underground pipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.13
+Date: 01.10.2022
+  Features:
+    - New recipes for oxygenated air separation after completing oxygen goal.
+  Balancing:
+    - Reduce fuel slots in locomotive 1 to 1 stack.
+    - Improve ratios of iron thermite, iron ingot 3, and iron oxide recipes.
+    - Add a new, slightly earlier level of mass production tech.
+    - Increase cost of cargo wagon 2.
+    - Arthropod drones can be placed a greater distance away from fish.
+    - Fumaroles affect arthropods from further away, but have smaller penalty.
+  Changes:
+    - Backward compatible change to cargo wagon 1 recipe.
+    - Require placing locomotive for freight logistics checkpoint.
+    - Don't allow voiding of tritium.
+    - Mark Angel's Bioprocessing as an explicit incompatibility.
+  Graphics:
+    - Increase contrast of small cargo pod graphics.
+  Modding:
+    - Add support for new Renai's Transportation ziplining features.
+    - Fix a conflict with reskins mods enabled but some mod settings disabled.
+    - Disable miniloader snapping, as it interacts poorly with wind turbines.
+  Info:
+    - Clarify description of refueler equipment.
+    - Change name of fuel consumption checkpoint.
+    - Add missing description for haste module 4.
+    - Adjust description of silica processing techs.
+  Sounds:
+    - Make electrolyzers quieter.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.12
 Date: 30.08.2022
   Balancing:

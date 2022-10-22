@@ -2,10 +2,29 @@ local UPG_CRAFT = 1
 local UPG_MINER = 2
 local UPG_REACH = 3
 local UPG_CARGO = 4
-local UPG_TRASH = 5
-local UPG_ARMOR = 6
-local UPG_SPEED = 7
-local UPG_COST = 8
+local UPG_CARGO_POD = 5
+local UPG_CARGO_MULT = 6
+local UPG_TRASH = 7
+local UPG_ARMOR = 8
+local UPG_SPEED = 9
+local UPG_COST = 10
+local UPG_CO_SPEED_1 = 11
+local UPG_CO_SPEED_2 = 12
+local UPG_CO_SPEED_3 = 13
+local UPG_CO_EFFICIENCY_1 = 14
+local UPG_CO_EFFICIENCY_2 = 15
+local UPG_CO_EFFICIENCY_3 = 16
+local UPG_CO_PRODUCTIVITY_1 = 17
+local UPG_CO_PRODUCTIVITY_2 = 18
+local UPG_CO_PRODUCTIVITY_3 = 19
+local UPG_CO_QUANTUM = 20
+local UPG_CO_TIER_1 = 21
+local UPG_CO_TIER_2 = 22
+local UPG_CO_TIER_3 = 23
+local UPG_CRAFT_MULT = 24
+local UPG_COST_MULT = 25
+local UPG_CRAFT_PROD = 26
+
 
 local upgrade_data = {
   ["fabrication-tool-1"] = {{UPG_CRAFT, 0.25}, {UPG_COST, 12}},
@@ -17,11 +36,11 @@ local upgrade_data = {
   ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 30}, {UPG_MINER, 1}},
   ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 30},
       {UPG_MINER, 1.25}, {UPG_REACH, 1}},
-  ["small-cargo-pod-1"] = {{UPG_CARGO, 1}, {UPG_SPEED, -0.003}},
-  ["small-cargo-pod-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, -0.004}},
-  ["large-cargo-pod-1"] = {{UPG_CARGO, 5}, {UPG_SPEED, -0.015}},
-  ["large-cargo-pod-2"] = {{UPG_CARGO, 8}, {UPG_SPEED, -0.02}},
-  ["large-cargo-pod-3"] = {{UPG_CARGO, 10}, {UPG_SPEED, -0.02}},
+  ["small-cargo-pod-1"] = {{UPG_CARGO_POD, 1}, {UPG_SPEED, -0.003}},
+  ["small-cargo-pod-2"] = {{UPG_CARGO_POD, 2}, {UPG_SPEED, -0.004}},
+  ["large-cargo-pod-1"] = {{UPG_CARGO_POD, 5}, {UPG_SPEED, -0.015}},
+  ["large-cargo-pod-2"] = {{UPG_CARGO_POD, 8}, {UPG_SPEED, -0.02}},
+  ["large-cargo-pod-3"] = {{UPG_CARGO_POD, 10}, {UPG_SPEED, -0.02}},
   ["trash-compactor"] = {{UPG_TRASH, 10}},
   ["armor-plate"] = {{UPG_ARMOR, 100}, {UPG_SPEED, -0.01}},
   ["telekinesis-field-1"] = {{UPG_REACH, 4}},
@@ -39,22 +58,74 @@ local upgrade_data = {
   ["quadrupedal-adaptation-4"] = {{UPG_CARGO, 6},
       {UPG_CRAFT, -0.3}, {UPG_REACH, -1}},
   ["stabilizer-1"] = {{UPG_CARGO, 1}, {UPG_SPEED, 0.07}},
-  ["stabilizer-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, 0.1}}
+  ["stabilizer-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, 0.1}},
+  ["coprocessor-quantum"] = {{UPG_CO_QUANTUM, 1}},
+  ["coprocessor-speed-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_SPEED_1, 1}, {UPG_SPEED, 0.05},
+      {UPG_CRAFT_MULT, 0.15}, {UPG_COST_MULT, 0.1}, {UPG_COST, 5}},
+  ["coprocessor-speed-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_SPEED_2, 1}, {UPG_SPEED, 0.08},
+      {UPG_CRAFT_MULT, 0.25}, {UPG_COST_MULT, 0.15}, {UPG_COST, 10}},
+  ["coprocessor-speed-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_SPEED_3, 1}, {UPG_SPEED, 0.12},
+      {UPG_CRAFT_MULT, 0.4}, {UPG_COST_MULT, 0.25}, {UPG_COST, 20}},
+  ["coprocessor-efficiency-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_EFFICIENCY_1, 1}, {UPG_COST_MULT, -0.15}},
+  ["coprocessor-efficiency-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_EFFICIENCY_2, 1}, {UPG_COST_MULT, -0.25}},
+  ["coprocessor-efficiency-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_EFFICIENCY_3, 1}, {UPG_COST_MULT, -0.4}},
+  ["coprocessor-productivity-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_PRODUCTIVITY_1, 1}, {UPG_COST, 25},
+      {UPG_CARGO_MULT, 0.1}, {UPG_CRAFT_PROD, 0.05}, {UPG_CRAFT_MULT, -0.1}},
+  ["coprocessor-productivity-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_PRODUCTIVITY_2, 1}, {UPG_COST, 30},
+      {UPG_CARGO_MULT, 0.15}, {UPG_CRAFT_PROD, 0.07}, {UPG_CRAFT_MULT, -0.15}},
+  ["coprocessor-productivity-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_PRODUCTIVITY_3, 1}, {UPG_COST, 40},
+      {UPG_CARGO_MULT, 0.25}, {UPG_CRAFT_PROD, 0.09}, {UPG_CRAFT_MULT, -0.15}}
 }
 
+
+local function check_coprocessor_tier(bonuses, armorinv, tier, limit)
+  local ind1 = (UPG_CO_TIER_1 + (tier - 1))
+  local total = bonuses[ind1]
+  if (total < 2) then return false end
+  local ind2 = UPG_CO_SPEED_1 + (tier - 1)
+  if ((total <= limit) and (bonuses[ind2] < 2) and
+      (bonuses[ind2 + 3] < 2) and (bonuses[ind2 + 6] < 2)) then
+    return false
+  end
+
+  for i = 1, #armorinv do
+	local armor = armorinv[i]
+	if (armor.valid_for_read and (armor.grid ~= nil)) then
+	  local grid = armor.grid
+	  for _,equip in pairs(grid.equipment) do
+	    local name = equip.name
+	    if (string.sub(name, 1, 16) == "nullius-upgrade-") then
+		  local suffix = string.sub(name, 17, -1)
+		  local upgrade = upgrade_data[suffix]
+		  if ((upgrade ~= nil) and (upgrade[1] ~= nil) and
+		      (upgrade[1][1] == ind1)) then
+		    global.nullius_in_update_equipment = true
+			local pos = equip.position
+			local newname = "nullius-deactivated-" .. suffix
+			grid.take{equipment=equip, position=pos}
+			grid.put{name=newname, position=pos}
+			global.nullius_in_update_equipment = false
+		  end
+		end
+	  end
+	end
+  end
+end
 
 local function scale_multiple(mult, powered)
   if (mult > 0) then
     mult = (mult * powered)
-  elseif (mult < -0.4) then
-    mult = (-1 - (0.16 / mult))
+  elseif (mult < -0.6) then
+    mult = (-1 - (0.24 / mult))
   end
   return mult
 end
 
 function update_player_upgrades(player)
   if (player.character == nil) then return end
-  local bonuses = { 0, 0, 0, 0, 0, 0, 0, 0 }
+  if (global.nullius_in_update_equipment) then return end
+
+  local bonuses = { 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0 }
   local drain = 0
   local production = 0
   local costnum = 0
@@ -106,6 +177,14 @@ function update_player_upgrades(player)
 		end
 	  end
 	end
+
+    local quantum = (((bonuses[UPG_CO_QUANTUM] > 0) and 2) or 1)
+    if (check_coprocessor_tier(bonuses, armorinv, 1, 2) or
+        check_coprocessor_tier(bonuses, armorinv, 2, quantum) or
+	    check_coprocessor_tier(bonuses, armorinv, 3, quantum)) then
+	  update_player_upgrades(player)
+	  return
+    end
   end
 
   local powered = 1
@@ -114,12 +193,15 @@ function update_player_upgrades(player)
     powered = (production / drain)
   end
 
-  local craftmod = scale_multiple(bonuses[UPG_CRAFT], 1)
+  local craftmod = (((1 + scale_multiple(bonuses[UPG_CRAFT], 1)) *
+      (1 + scale_multiple(bonuses[UPG_CRAFT_MULT], 1))) - 1)
   player.character_crafting_speed_modifier = craftmod
   player.character_mining_speed_modifier =
       scale_multiple(bonuses[UPG_MINER], powered)
   player.character_inventory_slots_bonus =
-      math.max(0, (10 + bonuses[UPG_CARGO]))
+      math.max(0, (10 + bonuses[UPG_CARGO] +
+	      ((1 + scale_multiple(bonuses[UPG_CARGO_MULT], 1)) *
+		      bonuses[UPG_CARGO_POD])))
   player.character_trash_slot_count_bonus =
       math.floor((bonuses[UPG_TRASH] * powered) + 0.5)
   player.character_health_bonus = bonuses[UPG_ARMOR]
@@ -151,13 +233,16 @@ function update_player_upgrades(player)
 	if (global.nullius_crafting_equipment[unit] ~= nil) then
 	  curr = global.nullius_crafting_equipment[unit].current
 	end
-	local totalcost = (bonuses[UPG_COST] * 1000)
-	if (craftmod > 1.5) then
-	  totalcost = (totalcost / math.sqrt(craftmod - 0.5))
+	local totalcost = (bonuses[UPG_COST] * 1000 *
+	    (1 + scale_multiple(bonuses[UPG_COST_MULT], 1)))
+	if (craftmod > 2) then
+	  totalcost = (totalcost / math.sqrt(craftmod - 1))
 	end
+	local prodbonus = bonuses[UPG_CRAFT_PROD]
+	if (prodbonus <= 0) then prodbonus = nil end
 	global.nullius_crafting_equipment[unit] = {
 	  cost = totalcost, lst = costlist, current = curr,
-	  mod = player.character_crafting_speed_modifier
+	  mod = craftmod, prod = prodbonus
 	}
   elseif (global.nullius_crafting_equipment ~= nil) then
     global.nullius_crafting_equipment[unit] = nil
@@ -193,17 +278,20 @@ script.on_event(defines.events.on_player_armor_inventory_changed, armor_changed)
 
 
 function equipment_installed(event)
+  if (global.nullius_in_update_equipment) then return end
   local grid = event.grid
   local eq = event.equipment
   if ((eq == nil) or (grid == nil)) then return end
   if (string.sub(eq.name, 1, 8) ~= "nullius-") then return end
 
   if (string.sub(eq.name, 9, 24) == "charged-battery-") then
+    global.nullius_in_update_equipment = true
     local pos = eq.position
 	local newname = "nullius-battery-" .. string.sub(eq.name, 25, -1)
 	grid.take{equipment=eq, position=pos}
 	local eq2 = grid.put{name=newname, position=pos}
 	eq2.energy = eq2.max_energy
+	global.nullius_in_update_equipment = false
   end
 end
 
@@ -319,15 +407,42 @@ script.on_event(defines.events.on_player_crafted_item,
 
 	if (global.nullius_crafting_equipment == nil) then return end
     local recipe = event.recipe
-    if (event.item_stack.name ~= recipe.products[1].name) then return end
+	if (not event.item_stack.valid_for_read) then return end
     local player = game.players[event.player_index]
 	if (player == nil) then return end
 	local character = player.character
 	if (character == nil) then return end
 	local equipment = global.nullius_crafting_equipment[character.unit_number]
 	if (equipment == nil) then return end
+    if (recipe.products[1] == nil) then return end
+    local itemname = event.item_stack.name
 
-	if (player.crafting_queue_size < 1) then return end
+	if (equipment.prod ~= nil) then
+      local product = nil
+	  for _,p in pairs(recipe.products) do
+	    if (p.name == itemname) then
+		  product = p
+		  break
+		end
+	  end
+	  if (product ~= nil) then
+	    local odds = 0
+		if (product.amount ~= nil) then
+		  odds = (equipment.prod * product.amount)
+		elseif ((product.amount_min ~= nil) and (product.amount_max ~= nil)) then
+		  odds = ((equipment.prod * (product.amount_min + product.amount_max)) / 2)
+		end
+		if (product.probability ~= nil) then odds = (odds * product.probability) end
+	    local num = math.floor(odds)
+	    if ((odds - num) > math.random()) then num = num + 1 end
+	    if (num >= 1) then
+	      player.insert({name=event.item_stack.name, count=num})
+	    end
+	  end
+	end
+
+    if (player.crafting_queue_size < 1) then return end
+    if (itemname ~= recipe.products[1].name) then return end
 	if (player.crafting_queue[1].count <= 1) then
       if (player.crafting_queue_size < 2) then
 	    recipe = nil

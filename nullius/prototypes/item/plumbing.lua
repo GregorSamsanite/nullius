@@ -103,7 +103,7 @@ data:extend({
     order = "nullius-bc",
     allow_decomposition = false,
     allow_as_intermediate = false,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {"nullius-iron-rod", 1}
     },
@@ -142,7 +142,7 @@ data:extend({
     order = "nullius-bc",
     allow_decomposition = false,
     allow_as_intermediate = false,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-iron-rod", 1}
     },
@@ -158,7 +158,7 @@ data:extend({
     show_amount_in_title = false,
     category = "small-crafting",
     subgroup = "pipes",
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"pipe", 5},
       {"nullius-sand", 2}
@@ -175,7 +175,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     subgroup = "boxed-pipe",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-pipe-1", 5},
       {"nullius-box-sand", 2}
@@ -209,7 +209,7 @@ data:extend({
     subgroup = "pipes",
     order = "nullius-bb",
     allow_decomposition = false,
-    energy_required = 6,
+    energy_required = 9,
     ingredients = {
       {"stone-brick", 8}
     },
@@ -229,7 +229,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-pipe",
     allow_decomposition = false,
-    energy_required = 30,
+    energy_required = 45,
     ingredients = {
       {"nullius-box-stone-brick", 4}
     },
@@ -266,7 +266,7 @@ data:extend({
     order = "nullius-dc",
     allow_decomposition = false,
     allow_as_intermediate = false,
-    energy_required = 4,
+    energy_required = 8,
     ingredients = {
       {"nullius-steel-rod", 2}
     },
@@ -304,7 +304,7 @@ data:extend({
     order = "nullius-dc",
     allow_decomposition = false,
     allow_as_intermediate = false,
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-steel-rod", 2}
     },
@@ -320,7 +320,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     subgroup = "pipes",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-pipe-2", 10},
       {"nullius-gravel", 3}
@@ -337,7 +337,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     subgroup = "boxed-pipe",
-    energy_required = 25,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-pipe-2", 10},
       {"nullius-box-gravel", 3}
@@ -370,7 +370,7 @@ data:extend({
     subgroup = "pipes",
     order = "nullius-db",
     allow_decomposition = false,
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {"nullius-plastic", 1}
     },
@@ -386,7 +386,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-pipe",
     allow_decomposition = false,
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"nullius-box-plastic", 1}
     },
@@ -401,7 +401,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-fluid-assembly",
-    energy_required = 2,
+    energy_required = 4,
     ingredients = {
       {type="item", name="nullius-fiberglass", amount=1},
       {type="fluid", name="nullius-epoxy", amount=1, fluidbox_index=1}
@@ -417,7 +417,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-pipe",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-fiberglass", amount=1},
       {type="fluid", name="nullius-epoxy", amount=5, fluidbox_index=1}
@@ -433,7 +433,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     subgroup = "pipes",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {"nullius-pipe-3", 15},
       {"concrete", 4}
@@ -450,7 +450,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     subgroup = "boxed-pipe",
-    energy_required = 50,
+    energy_required = 100,
     ingredients = {
       {"nullius-box-pipe-3", 15},
       {"nullius-box-concrete", 2}
@@ -467,7 +467,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "tiny-assembly",
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {type="item", name="pipe", amount=1},
       {type="item", name="nullius-pipe-2", amount=2},
@@ -488,7 +488,7 @@ data:extend({
     always_show_products = true,
     category = "medium-only-assembly",
     subgroup = "boxed-pipe",
-    energy_required = 75,
+    energy_required = 125,
     ingredients = {
       {type="item", name="nullius-box-pipe-1", amount=1},
       {type="item", name="nullius-box-pipe-2", amount=2},
@@ -508,7 +508,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-pipe-4", 20},
       {"refined-concrete", 6}
@@ -525,7 +525,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 100,
+    energy_required = 150,
     ingredients = {
       {"nullius-box-pipe-4", 20},
       {"nullius-box-reinforced-concrete", 3}

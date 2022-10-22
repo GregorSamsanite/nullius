@@ -873,8 +873,26 @@ data:extend({
     type = "recipe",
     name = "nullius-rail-signal",
     enabled = false,
+	always_show_made_in = true,
     category = "small-crafting",
-    always_show_made_in = true,
+    energy_required = 3,
+    ingredients = {
+      {"decider-combinator", 1},
+      {"small-lamp", 3},
+      {"nullius-sensor-1", 1},
+      {"power-switch", 1}
+    },
+    result = "rail-signal"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-rail-signal",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "small-crafting",
     energy_required = 3,
     ingredients = {
       {"decider-combinator", 1},
@@ -887,9 +905,28 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-rail-signal",
     enabled = false,
+	always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-rail",
-    always_show_made_in = true,
+    energy_required = 15,
+    ingredients = {
+      {"nullius-box-logic-circuit", 1},
+      {"nullius-box-lamp-1", 3},
+      {"nullius-box-sensor-1", 1},
+      {"nullius-box-power-switch", 1}
+    },
+    result = "nullius-box-rail-signal"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-rail-signal",
+    enabled = false,
+	always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "large-assembly",
+    subgroup = "boxed-rail",
     energy_required = 15,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
@@ -932,7 +969,7 @@ data:extend({
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {"copper-cable", 2},
       {"nullius-steel-sheet", 1},
@@ -948,7 +985,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-circuit",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-insulated-wire", 2},
       {"nullius-box-steel-sheet", 1},
@@ -965,7 +1002,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"copper-cable", 5},
       {"decider-combinator", 1}
@@ -982,7 +1019,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 25,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-insulated-wire", 5},
       {"nullius-box-logic-circuit", 1}
@@ -998,7 +1035,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {"red-wire", 5}
     },
@@ -1014,7 +1051,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-box-red-wire", 5}
     },
@@ -1100,7 +1137,7 @@ data:extend({
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {type="item", name="nullius-small-tank-1", amount=1},
       {type="item", name="nullius-one-way-valve", amount=5}
@@ -1118,7 +1155,7 @@ data:extend({
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 15,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-small-tank-1", amount=1},
       {type="item", name="nullius-box-one-way-valve", amount=5}

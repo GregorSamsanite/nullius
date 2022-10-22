@@ -123,7 +123,7 @@ data:extend({
     icons = data.raw.item["nullius-hydro-plant-2"].icons,
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-hydro-plant-2"},
+    minable = {mining_time = 1.5, result = "nullius-hydro-plant-2"},
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -194,7 +194,7 @@ data:extend({
     icons = data.raw.item["nullius-hydro-plant-3"].icons,
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-hydro-plant-3"},
+    minable = {mining_time = 2, result = "nullius-hydro-plant-3"},
     max_health = 500,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -273,7 +273,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-hydro-plant-2"].icons,
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-hydro-plant-2"},
+    minable = {mining_time = 1.5, result = "nullius-mirror-hydro-plant-2"},
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -340,7 +340,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-hydro-plant-3"].icons,
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-hydro-plant-3"},
+    minable = {mining_time = 2, result = "nullius-mirror-hydro-plant-3"},
     max_health = 500,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -410,7 +410,7 @@ data:extend({
     icons = data.raw.item["nullius-distillery-1"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-distillery-1"},
+    minable = {mining_time = 1.2, result = "nullius-distillery-1"},
     max_health = 350,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -509,7 +509,7 @@ data:extend({
     icons = data.raw.item["nullius-distillery-2"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-distillery-2"},
+    minable = {mining_time = 1.8, result = "nullius-distillery-2"},
     max_health = 500,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -621,7 +621,7 @@ data:extend({
     icons = data.raw.item["nullius-distillery-3"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-distillery-3"},
+    minable = {mining_time = 2.4, result = "nullius-distillery-3"},
     max_health = 600,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -700,7 +700,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-distillery-2"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-mirror-distillery-2"},
+    minable = {mining_time = 1.8, result = "nullius-mirror-distillery-2"},
     max_health = 500,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -767,7 +767,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-distillery-3"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.5, result = "nullius-mirror-distillery-3"},
+    minable = {mining_time = 2.4, result = "nullius-mirror-distillery-3"},
     max_health = 600,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -914,7 +914,10 @@ data:extend({
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = {
+      sound = {filename = "__angelspetrochem__/sound/electrolyser.ogg"},
+      idle_sound = {filename = "__base__/sound/idle1.ogg", volume = 0.6}
+    },
     fluid_boxes = {
       {
         production_type = "input",
@@ -1023,7 +1026,7 @@ data:extend({
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
   },
 
   {
@@ -1032,7 +1035,7 @@ data:extend({
     icons = data.raw.item["nullius-surge-electrolyzer-2"].icons,
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-surge-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-surge-electrolyzer-3",
     max_health = 400,
@@ -1102,7 +1105,7 @@ data:extend({
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1150,7 +1153,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-electrolyzer-2"].icons,
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-priority-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-priority-electrolyzer-3",
     max_health = 400,
@@ -1216,7 +1219,7 @@ data:extend({
       }
     },
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
   },
 
   {
@@ -1225,7 +1228,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-surge-electrolyzer-2"].icons,
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-surge-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-mirror-surge-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-mirror-surge-electrolyzer-3",
     max_health = 400,
@@ -1240,7 +1243,7 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].resistances,
     animation = data.raw["assembling-machine"]["nullius-surge-electrolyzer-2"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1288,7 +1291,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-priority-electrolyzer-2"].icons,
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-priority-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-mirror-priority-electrolyzer-2"},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-mirror-priority-electrolyzer-3",
     max_health = 400,
@@ -1303,7 +1306,7 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].resistances,
     animation = data.raw["assembling-machine"]["nullius-priority-electrolyzer-2"].animation,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-2"].fluid_boxes
   },
 
@@ -1314,7 +1317,7 @@ data:extend({
     icon_size = 32,
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-surge-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1379,7 +1382,7 @@ data:extend({
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1428,7 +1431,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-surge-electrolyzer-3"].icons,
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-surge-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-mirror-surge-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1442,7 +1445,7 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].resistances,
     animation = data.raw["assembling-machine"]["nullius-surge-electrolyzer-3"].animation,
     vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1491,7 +1494,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-electrolyzer-3"].icons,
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-priority-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1552,7 +1555,7 @@ data:extend({
       }
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
   }
 })
 
@@ -1563,7 +1566,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-priority-electrolyzer-3"].icons,
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-mirror-priority-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-mirror-priority-electrolyzer-3"},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1578,7 +1581,7 @@ data:extend({
     fluid_boxes = data.raw["assembling-machine"]["nullius-mirror-surge-electrolyzer-3"].fluid_boxes,
     animation = data.raw["assembling-machine"]["nullius-priority-electrolyzer-3"].animation,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["angels-electrolyser"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
   },
 
   {
@@ -1587,7 +1590,7 @@ data:extend({
     icons = data.raw.item["nullius-chemical-plant-1"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 0.5, result = "nullius-chemical-plant-1"},
+    minable = { mining_time = 1.2, result = "nullius-chemical-plant-1"},
     max_health = 300,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",
@@ -1920,7 +1923,7 @@ data:extend({
     icons = data.raw.item["nullius-chemical-plant-2"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 0.5, result = "nullius-chemical-plant-2"},
+    minable = { mining_time = 1.6, result = "nullius-chemical-plant-2"},
     max_health = 400,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",
@@ -2039,7 +2042,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-chemical-plant-2"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 0.5, result = "nullius-mirror-chemical-plant-2"},
+    minable = { mining_time = 1.6, result = "nullius-mirror-chemical-plant-2"},
     max_health = 400,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",
@@ -2110,7 +2113,7 @@ data:extend({
     icons = data.raw.item["nullius-chemical-plant-3"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 0.5, result = "nullius-chemical-plant-3"},
+    minable = { mining_time = 2, result = "nullius-chemical-plant-3"},
     max_health = 500,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",
@@ -2186,7 +2189,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-chemical-plant-3"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 0.5, result = "nullius-mirror-chemical-plant-3"},
+    minable = { mining_time = 2, result = "nullius-mirror-chemical-plant-3"},
     max_health = 500,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",

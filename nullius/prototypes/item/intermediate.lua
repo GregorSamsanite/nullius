@@ -785,11 +785,11 @@ data:extend({
     energy_required = 4,
     ingredients = {
       {type="item", name="nullius-crushed-iron-ore", amount=6},
-      {type="fluid", name="nullius-caustic-solution", amount=40, fluidbox_index=1}
+      {type="fluid", name="nullius-caustic-solution", amount=30, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-iron-oxide", amount=5},
-      {type="fluid", name="nullius-sludge", amount=20, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=15, fluidbox_index=1}
     },
     main_product = "nullius-iron-oxide"
   },
@@ -803,11 +803,11 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-crushed-iron-ore", amount=6},
-      {type="fluid", name="nullius-caustic-solution", amount=200, fluidbox_index=1}
+      {type="fluid", name="nullius-caustic-solution", amount=150, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-box-iron-oxide", amount=5},
-      {type="fluid", name="nullius-sludge", amount=100, fluidbox_index=1}
+      {type="fluid", name="nullius-sludge", amount=75, fluidbox_index=1}
     },
     main_product = "nullius-box-iron-oxide"
   },
@@ -1457,13 +1457,13 @@ data:extend({
     ingredients = {
       {"nullius-iron-oxide", 8},
       {"nullius-crushed-limestone", 2},
-      {"nullius-graphite", 2}
+      {"nullius-graphite", 1}
     },
     results = {
       {type="item", name="nullius-iron-ingot", amount=10},
       {type="item", name="nullius-gravel", amount=2},
       {type="item", name="nullius-lime", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=50}
+      {type="fluid", name="nullius-carbon-dioxide", amount=30}
     },
     main_product = "nullius-iron-ingot"
   },
@@ -1478,13 +1478,13 @@ data:extend({
     ingredients = {
       {"nullius-box-iron-oxide", 8},
       {"nullius-box-crushed-limestone", 2},
-      {"nullius-box-graphite", 2}
+      {"nullius-box-graphite", 1}
     },
     results = {
       {type="item", name="nullius-box-iron-ingot", amount=10},
       {type="item", name="nullius-box-gravel", amount=2},
       {type="item", name="nullius-box-lime", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=250}
+      {type="fluid", name="nullius-carbon-dioxide", amount=150}
     },
     main_product = "nullius-box-iron-ingot"
   },
@@ -1510,16 +1510,16 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     order = "nullius-ee",
-    energy_required = 5,
+    energy_required = 6,
     ingredients = {
-      {"nullius-iron-oxide", 13},
+      {"nullius-iron-oxide", 17},
       {"nullius-aluminum-ingot", 12},
       {"nullius-graphite", 1}
     },
     results = {
-      {type="item", name="nullius-iron-ingot", amount=16},
+      {type="item", name="nullius-iron-ingot", amount=21},
       {type="item", name="nullius-alumina", amount=6},
-      {type="item", name="nullius-mineral-dust", amount=1}
+      {type="item", name="nullius-mineral-dust", amount=2}
     },
     main_product = "nullius-iron-ingot"
   },
@@ -2404,7 +2404,7 @@ data:extend({
     name = "nullius-calcium",
     enabled = false,
     category = "nullius-electrolysis",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-calcium-chloride", amount=4}
     },
@@ -2420,7 +2420,7 @@ data:extend({
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "boxed-calcium",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-calcium-chloride", amount=4}
     },
@@ -2618,7 +2618,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     order = "nullius-bb",
-    energy_required = 16,
+    energy_required = 30,
     ingredients = {{"nullius-silica", 3}},
     result = "nullius-glass"
   },
@@ -2644,7 +2644,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     order = "nullius-bc",
-    energy_required = 24,
+    energy_required = 36,
     ingredients = {
       {"nullius-silica", 9},
       {"nullius-soda-ash", 2},
@@ -2678,7 +2678,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     order = "nullius-bd",
-    energy_required = 30,
+    energy_required = 45,
     ingredients = {
       {"nullius-silica", 12},
       {"nullius-alumina", 3},
@@ -2700,7 +2700,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     subgroup = "boxed-glass",
-    energy_required = 150,
+    energy_required = 225,
     ingredients = {
       {"nullius-box-silica", 12},
       {"nullius-box-alumina", 3},
@@ -2734,7 +2734,7 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "dry-smelting",
-    energy_required = 40,
+    energy_required = 50,
     ingredients = {
       {"nullius-silica", 5},
       {"nullius-alumina", 3},
@@ -2752,7 +2752,7 @@ data:extend({
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-glass",
-    energy_required = 40,
+    energy_required = 250,
     ingredients = {
       {"nullius-box-silica", 5},
       {"nullius-box-alumina", 3},
@@ -2780,7 +2780,7 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "machine-casting",
-    energy_required = 15,
+    energy_required = 18,
     ingredients = {
       {type="item", name="nullius-hard-glass", amount=2},
       {type="fluid", name="nullius-water", amount=20}
@@ -2799,7 +2799,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     subgroup = "boxed-glass",
-    energy_required = 75,
+    energy_required = 90,
     ingredients = {
       {type="item", name="nullius-box-hard-glass", amount=2},
       {type="fluid", name="nullius-water", amount=100}
@@ -3892,7 +3892,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {type="item", name="nullius-steel-rod", amount=2},
       {type="fluid", name="nullius-lubricant", amount=1}
@@ -3908,7 +3908,7 @@ data:extend({
     always_show_products = true,
     category = "machine-casting",
     subgroup = "boxed-steel",
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-steel-rod", amount=2},
       {type="fluid", name="nullius-lubricant", amount=5}
@@ -3923,7 +3923,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 3,
+    energy_required = 5,
     ingredients = {
       {type="item", name="nullius-steel-wire", amount=7},
       {type="fluid", name="nullius-lubricant", amount=2, fluidbox_index=1}
@@ -3939,7 +3939,7 @@ data:extend({
     always_show_products = true,
     category = "huge-fluid-assembly",
     subgroup = "boxed-steel",
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-steel-wire", amount=7},
       {type="fluid", name="nullius-lubricant", amount=10, fluidbox_index=1}
@@ -3956,7 +3956,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {"nullius-aluminum-wire", 3},
       {"nullius-rubber", 2}
@@ -3974,7 +3974,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-aluminum-wire", 3},
       {"nullius-box-rubber", 2}
@@ -3991,7 +3991,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-crafting",
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {"nullius-copper-wire", 1},
       {"nullius-rubber", 2}
@@ -4009,7 +4009,7 @@ data:extend({
     always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-electrical",
-    energy_required = 15,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-copper-wire", 1},
       {"nullius-box-rubber", 2}
@@ -4036,7 +4036,7 @@ data:extend({
     name = "nullius-optical-cable",
     enabled = false,
     category = "small-fluid-assembly",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
       {type="item", name="red-wire", amount=2},
       {type="item", name="nullius-glass-fiber", amount=1},
@@ -4052,7 +4052,7 @@ data:extend({
     enabled = false,
     category = "medium-only-assembly",
     subgroup = "boxed-electrical",
-    energy_required = 5,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-red-wire", amount=2},
       {type="item", name="nullius-box-glass-fiber", amount=1},
@@ -4289,7 +4289,7 @@ data:extend({
     always_show_products = true,
     order = "nullius-fb",
     category = "machine-casting",
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {"nullius-silica", 15}
     },
@@ -4318,7 +4318,7 @@ data:extend({
     always_show_products = true,
     order = "nullius-fc",
     category = "machine-casting",
-    energy_required = 60,
+    energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-alumina", amount=3},
       {type="item", name="nullius-box-ceramic-powder", amount=1},
@@ -4990,7 +4990,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "nanotechnology",
-    energy_required = 16,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-polycrystalline-silicon", amount=5},
       {type="fluid", name="nullius-argon", amount=10, fluidbox_index=1}
@@ -5006,7 +5006,7 @@ data:extend({
     always_show_products = true,
     category = "nanotechnology",
     subgroup = "boxed-silicon",
-    energy_required = 80,
+    energy_required = 100,
     ingredients = {
       {type="item", name="nullius-box-polycrystalline-silicon", amount=5},
       {type="fluid", name="nullius-argon", amount=50, fluidbox_index=1}
@@ -5032,7 +5032,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 5,
+    energy_required = 7,
     ingredients = {
       {type="item", name="empty-barrel", amount=1},
       {type="item", name="nullius-aluminum-sheet", amount=2},
@@ -5050,7 +5050,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 25,
+    energy_required = 35,
     ingredients = {
       {type="item", name="nullius-box-barrel", amount=1},
       {type="item", name="nullius-box-aluminum-sheet", amount=2},
@@ -5083,7 +5083,7 @@ data:extend({
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {type="item", name="nullius-plastic", amount=2},
       {type="item", name="nullius-graphite", amount=2},
@@ -5105,7 +5105,7 @@ data:extend({
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-plastic", amount=2},
       {type="item", name="nullius-box-graphite", amount=2},
@@ -5140,7 +5140,7 @@ data:extend({
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 3,
+    energy_required = 5,
     ingredients = {
       {type="item", name="nullius-plastic", amount=4},
       {type="item", name="nullius-graphite", amount=3},
@@ -5182,7 +5182,7 @@ data:extend({
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-plastic", amount=4},
       {type="item", name="nullius-box-graphite", amount=3},
@@ -5212,7 +5212,7 @@ data:extend({
     always_show_products = true,
     always_show_made_in = true,
     category = "tiny-crafting",
-    energy_required = 6,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-filter-1", amount=2},
       {type="item", name="nullius-titanium-sheet", amount=1},
@@ -5232,7 +5232,7 @@ data:extend({
     category = "medium-only-assembly",
     subgroup = "boxed-mechanical",
     order = "nullius-bd",
-    energy_required = 30,
+    energy_required = 50,
     ingredients = {
       {type="item", name="nullius-box-filter-1", amount=2},
       {type="item", name="nullius-box-titanium-sheet", amount=1},
@@ -5269,7 +5269,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "dry-smelting",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-lime", amount=12},
       {type="item", name="nullius-silica", amount=4},
@@ -5299,7 +5299,7 @@ data:extend({
     always_show_products = true,
     category = "dry-smelting",
     order = "nullius-cc",
-    energy_required = 20,
+    energy_required = 35,
     ingredients = {
       {type="item", name="nullius-lime", amount=16},
       {type="item", name="nullius-aluminum-hydroxide", amount=6},
@@ -5319,7 +5319,7 @@ data:extend({
     always_show_products = true,
     category = "bulk-smelting",
     subgroup = "boxed-glass",
-    energy_required = 20,
+    energy_required = 35,
     ingredients = {
       {type="item", name="nullius-box-lime", amount=16},
       {type="item", name="nullius-box-aluminum-hydroxide", amount=6},
@@ -5339,7 +5339,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {type="item", name="nullius-cement", amount=1},
       {type="item", name="nullius-lime", amount=1},
@@ -5370,7 +5370,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "boxed-calcium",
     order = "nullius-x",
-    energy_required = 8,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=1},
       {type="item", name="nullius-box-lime", amount=1},
@@ -5390,7 +5390,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {type="item", name="nullius-cement", amount=1},
       {type="item", name="nullius-sand", amount=2},
@@ -5422,7 +5422,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    energy_required = 16,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-cement", amount=3},
       {type="item", name="nullius-sand", amount=7},
@@ -5442,7 +5442,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "boxed-terrain",
     order = "nullius-d",
-    energy_required = 80,
+    energy_required = 100,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=3},
       {type="item", name="nullius-box-sand", amount=7},
@@ -5461,7 +5461,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    energy_required = 18,
+    energy_required = 24,
     ingredients = {
       {type="item", name="nullius-cement", amount=3},
       {type="item", name="nullius-sand", amount=4},
@@ -5483,7 +5483,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "boxed-terrain",
     order = "nullius-e",
-    energy_required = 90,
+    energy_required = 120,
     ingredients = {
       {type="item", name="nullius-box-cement", amount=3},
       {type="item", name="nullius-box-sand", amount=4},
@@ -5522,7 +5522,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-    energy_required = 30,
+    energy_required = 60,
     ingredients = {
       {type="item", name="refined-concrete", amount=60},
       {type="item", name="nullius-iron-oxide", amount=2},
@@ -5541,7 +5541,7 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
     subgroup = "boxed-concrete",
-    energy_required = 150,
+    energy_required = 300,
     ingredients = {
       {type="item", name="nullius-box-reinforced-concrete", amount=30},
       {type="item", name="nullius-box-iron-oxide", amount=2},
@@ -5577,7 +5577,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-    energy_required = 40,
+    energy_required = 80,
     ingredients = {
       {type="item", name="refined-concrete", amount=60},
       {type="item", name="nullius-sodium-sulfate", amount=1},
@@ -5599,7 +5599,7 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
     subgroup = "boxed-concrete",
-    energy_required = 200,
+    energy_required = 400,
     ingredients = {
       {type="item", name="nullius-box-reinforced-concrete", amount=30},
       {type="item", name="nullius-box-sodium-sulfate", amount=1},
@@ -5638,7 +5638,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-    energy_required = 36,
+    energy_required = 72,
     ingredients = {
       {type="item", name="refined-concrete", amount=60},
       {type="item", name="nullius-iron-wire", amount=1},
@@ -5658,7 +5658,7 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
     subgroup = "boxed-concrete",
-    energy_required = 180,
+    energy_required = 360,
     ingredients = {
       {type="item", name="nullius-box-reinforced-concrete", amount=30},
       {type="item", name="nullius-box-iron-wire", amount=1},
@@ -5696,7 +5696,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-yellow-concrete", amount=15},
       {type="item", name="nullius-blue-concrete", amount=15}
@@ -5714,7 +5714,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-concrete",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-yellow-concrete", amount=3},
       {type="item", name="nullius-box-blue-concrete", amount=3}
@@ -5749,7 +5749,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-red-concrete", amount=15},
       {type="item", name="nullius-blue-concrete", amount=15}
@@ -5767,7 +5767,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-concrete",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-red-concrete", amount=3},
       {type="item", name="nullius-box-blue-concrete", amount=3}
@@ -5802,7 +5802,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-yellow-concrete", amount=15},
       {type="item", name="nullius-red-concrete", amount=15}
@@ -5820,7 +5820,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-concrete",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-yellow-concrete", amount=3},
       {type="item", name="nullius-box-red-concrete", amount=3}
@@ -5855,7 +5855,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-crafting",
-    energy_required = 4,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-red-concrete", amount=20},
       {type="item", name="nullius-blue-concrete", amount=20},
@@ -5875,7 +5875,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-concrete",
-    energy_required = 20,
+    energy_required = 125,
     ingredients = {
       {type="item", name="nullius-box-red-concrete", amount=10},
       {type="item", name="nullius-box-blue-concrete", amount=10},
@@ -5910,7 +5910,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-    energy_required = 30,
+    energy_required = 72,
     ingredients = {
       {type="item", name="refined-concrete", amount=60},
       {type="item", name="nullius-rutile", amount=1},
@@ -5930,7 +5930,7 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
     subgroup = "boxed-concrete",
-    energy_required = 150,
+    energy_required = 360,
     ingredients = {
       {type="item", name="nullius-box-reinforced-concrete", amount=30},
       {type="item", name="nullius-box-rutile", amount=1},
@@ -5968,7 +5968,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-yellow-concrete", amount=15},
       {type="item", name="nullius-red-concrete", amount=10},
@@ -5987,7 +5987,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-concrete",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-yellow-concrete", amount=3},
       {type="item", name="nullius-box-red-concrete", amount=2},
@@ -6006,7 +6006,7 @@ data:extend({
     no_productivity = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 6,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-yellow-concrete", amount=24},
       {type="item", name="nullius-black-concrete", amount=16}
@@ -6024,7 +6024,7 @@ data:extend({
     no_productivity = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 30,
+    energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-yellow-concrete", amount=12},
       {type="item", name="nullius-box-black-concrete", amount=8}
@@ -6051,7 +6051,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 3,
+    energy_required = 5,
     ingredients = {
       {"arithmetic-combinator", 1},
       {"nullius-glass", 1},
@@ -6073,7 +6073,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {"nullius-box-arithmetic-circuit", 1},
       {"nullius-box-glass", 1},
@@ -6102,7 +6102,7 @@ data:extend({
     enabled = false,
     category = "nanotechnology",
     always_show_made_in = true,
-    energy_required = 3,
+    energy_required = 6,
     ingredients = {
       {type="item", name="nullius-sensor-1", amount=1},
       {type="item", name="nullius-processor-1", amount=1},
@@ -6126,7 +6126,7 @@ data:extend({
     subgroup = "boxed-mechanical",
     order = "nullius-gc",
     always_show_made_in = true,
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-sensor-1", amount=1},
       {type="item", name="nullius-box-processor-1", amount=1},
@@ -6159,7 +6159,7 @@ data:extend({
     enabled = false,
     category = "wet-smelting",
     always_show_made_in = true,
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-silicon-ingot", amount=15},
       {type="item", name="nullius-graphite", amount=12},
@@ -6179,7 +6179,7 @@ data:extend({
     category = "bulk-smelting",
     subgroup = "boxed-glass",
     always_show_made_in = true,
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-box-silicon-ingot", amount=15},
       {type="item", name="nullius-box-graphite", amount=12},
@@ -6208,7 +6208,7 @@ data:extend({
     enabled = false,
     category = "machine-casting",
     always_show_made_in = true,
-    energy_required = 2,
+    energy_required = 4,
     ingredients = {
       {type="item", name="nullius-ceramic-powder", amount=1},
       {type="fluid", name="nullius-lubricant", amount=1}
@@ -6222,7 +6222,7 @@ data:extend({
     category = "machine-casting",
     subgroup = "boxed-mechanical",
     always_show_made_in = true,
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-ceramic-powder", amount=1},
       {type="fluid", name="nullius-lubricant", amount=5}
@@ -6250,7 +6250,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {type="fluid", name="nullius-acrylonitrile", amount=4},
       {type="fluid", name="nullius-water", amount=3}
@@ -6267,7 +6267,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {type="fluid", name="nullius-acrylonitrile", amount=20},
       {type="fluid", name="nullius-water", amount=15}
@@ -6292,7 +6292,7 @@ data:extend({
     enabled = false,
     category = "wet-smelting",
     always_show_made_in = true,
-    energy_required = 8,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-acrylic-fiber", amount=3},
       {type="fluid", name="nullius-argon", amount=1}
@@ -6311,7 +6311,7 @@ data:extend({
     subgroup = "boxed-organic-2",
     order = "nullius-g",
     always_show_made_in = true,
-    energy_required = 8,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-acrylic-fiber", amount=3},
       {type="fluid", name="nullius-argon", amount=5}
@@ -6413,7 +6413,7 @@ data:extend({
     always_show_products = true,
     category = "medium-assembly",
     order = "nullius-db",
-    energy_required = 15,
+    energy_required = 35,
     ingredients = {
       {type="item", name="nullius-acrylic-fiber", amount=10},
       {type="item", name="nullius-sodium-sulfate", amount=1}
@@ -6432,7 +6432,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-organic-2",
     order = "nullius-hb",
-    energy_required = 75,
+    energy_required = 175,
     ingredients = {
       {type="item", name="nullius-box-acrylic-fiber", amount=10},
       {type="item", name="nullius-box-sodium-sulfate", amount=1}
@@ -6463,7 +6463,7 @@ data:extend({
     always_show_products = true,
     category = "medium-assembly",
     order = "nullius-dc",
-    energy_required = 12,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-acrylic-fiber", amount=8},
       {type="item", name="nullius-cellulose", amount=6},
@@ -6501,7 +6501,7 @@ data:extend({
     category = "large-assembly",
     subgroup = "boxed-organic-2",
     order = "nullius-hc",
-    energy_required = 60,
+    energy_required = 125,
     ingredients = {
       {type="item", name="nullius-box-acrylic-fiber", amount=8},
       {type="item", name="nullius-box-cellulose", amount=6},
@@ -7134,7 +7134,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 8,
+    energy_required = 12,
     ingredients = {
       {type="item", name="nullius-glass-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=15, fluidbox_index=1}
@@ -7150,7 +7150,7 @@ data:extend({
     always_show_products = true,
     category = "huge-fluid-assembly",
     subgroup = "boxed-glass",
-    energy_required = 40,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-box-glass-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=75, fluidbox_index=1}
@@ -7178,7 +7178,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {type="item", name="nullius-carbon-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=8}
@@ -7194,7 +7194,7 @@ data:extend({
     category = "machine-casting",
     subgroup = "boxed-organic-2",
     order = "nullius-i",
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-box-carbon-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=40}
@@ -7272,7 +7272,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "medium-assembly",
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {"nullius-gypsum", 3},
       {"nullius-glass-fiber", 2},
@@ -7290,7 +7290,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-glass",
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {"nullius-box-gypsum", 3},
       {"nullius-box-glass-fiber", 2},
@@ -7454,7 +7454,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {type="item", name="nullius-iron-plate", amount=2},
       {type="item", name="nullius-heat-pipe-1", amount=1},
@@ -7470,7 +7470,7 @@ data:extend({
     always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-electrical",
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-iron-plate", amount=2},
       {type="item", name="nullius-box-heat-pipe-1", amount=1},

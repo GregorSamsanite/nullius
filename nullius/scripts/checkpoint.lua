@@ -1,6 +1,7 @@
 local CHK_ITEM = 1
 local CHK_FLUID = 2
 local CHK_BUILD = 3
+local CHK_SPECIAL = 4
 
 local STT_PRODUCE = 1
 local STT_CONSUME = 2
@@ -47,7 +48,8 @@ local checkpoint_data = {
   ["volcanic-gas"] = {{ CHK_FLUID, STT_PRODUCE, 5000, {{"nullius-volcanic-gas"}} }},
   ["lab"] = {{ CHK_BUILD, STT_NET, 3, {{"nullius-lab-1"}} }},
   ["sensor"] = {{ CHK_ITEM, STT_CONSUME, 100, {{"nullius-sensor-1"}} }},
-  ["freight-logistics"] = {{ CHK_BUILD, STT_NET, 2, {{"train-stop"}} },
+  ["freight-logistics"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-locomotive-1"}} },
+			{ CHK_BUILD, STT_NET, 2, {{"train-stop"}} },
 			{ CHK_BUILD, STT_NET, 150, {{"straight-rail"},{"curved-rail",4}} }},
   ["limestone"] = {{ CHK_ITEM, STT_PRODUCE, 500, {{"nullius-limestone"}} }},
   ["optimization"] = {{ CHK_ITEM, STT_PRODUCE, 5, {{"nullius-haste-module-1"}} },
@@ -92,7 +94,8 @@ local checkpoint_data = {
   ["truck"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-truck-1"}} }},
   ["stirling-engine"] = {{ CHK_BUILD, STT_NET, 20, {{"nullius-stirling-engine-2"}} }},
   ["large-beacon"] = {{ CHK_BUILD, STT_NET, 8, {{"nullius-large-beacon-1"}} },
-			{ CHK_BUILD, STT_NET, 12, {{"nullius-beacon-2"}} }},
+			{ CHK_BUILD, STT_NET, 12, {{"nullius-beacon-2"},{"nullius-beacon-2-1"},
+			    {"nullius-beacon-2-2"},{"nullius-beacon-2-3"},{"nullius-beacon-2-4"}} }},
   ["large-furnace"] = {{ CHK_ITEM, STT_PRODUCE, 10, {{"nullius-box-iron-ingot"}} }},
   ["benzene"] = {{ CHK_FLUID, STT_CONSUME, 20000, {{"nullius-benzene"}} }},
 
@@ -139,7 +142,8 @@ local checkpoint_data = {
   ["probe"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-probe"}} }},
   ["solar-panel"] = {{ CHK_BUILD, STT_NET, 1000, {{"nullius-solar-panel-3"}} }},
   ["grid-battery"] = {{ CHK_BUILD, STT_NET, 500, {{"nullius-grid-battery-3"}} }},
-  ["cybernetics-2"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-6"}} }}
+  ["cybernetics-2"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-6"}} }},
+  ["oxygen"] = {{ CHK_SPECIAL, STT_NET, 1, {} }}
 }
 
 
@@ -252,7 +256,16 @@ local function test_checkpoint_req(force, req)
   elseif (ctyp == CHK_FLUID) then
     stats = force.fluid_production_statistics
   elseif (ctyp == CHK_BUILD) then
-    stats = force.entity_build_count_statistics 
+    stats = force.entity_build_count_statistics
+  elseif (ctyp == CHK_SPECIAL) then
+    if (goal == 1) then
+	  if (global.nullius_mission_status == nil) then return 0 end
+      if (global.nullius_mission_complete) then return 1 end
+	  return math.min(1, math.max(0,
+	      (global.nullius_mission_status[2] / 100)))
+    else
+      return 0
+    end	
   else
     return 0
   end

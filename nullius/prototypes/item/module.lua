@@ -1,5 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local EQUIPPATH = "__nullius__/graphics/equipment/"
 
 data:extend({
   {
@@ -886,5 +887,266 @@ data:extend({
       {type="item", name="nullius-box-electrical-pack", amount=3}
     },
     result = "nullius-box-yield-module-4"
+  },
+
+  {
+    type = "item",
+    name = "nullius-coprocessor-speed-1",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/speed1.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-1",
+    subgroup = "coprocessors",
+    order = "nullius-bb",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-speed-2",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/speed2.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-2",
+    subgroup = "coprocessors",
+    order = "nullius-bc",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-speed-3",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/speed3.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-3",
+    subgroup = "coprocessors",
+    order = "nullius-bd",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-efficiency-1",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/efficiency1.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-1",
+    subgroup = "coprocessors",
+    order = "nullius-cb",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-efficiency-2",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/efficiency2.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-2",
+    subgroup = "coprocessors",
+    order = "nullius-cc",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-efficiency-3",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/efficiency3.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-3",
+    subgroup = "coprocessors",
+    order = "nullius-cd",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-productivity-1",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/productivity1.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-1",
+    subgroup = "coprocessors",
+    order = "nullius-db",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-productivity-2",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/productivity2.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-2",
+    subgroup = "coprocessors",
+    order = "nullius-dc",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-productivity-3",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/productivity3.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-3",
+    subgroup = "coprocessors",
+    order = "nullius-dd",
+    stack_size = 10
+  },
+  {
+    type = "item",
+    name = "nullius-coprocessor-quantum",
+	icons = {{
+	  icon = EQUIPPATH.."coprocessor/quantum.png",
+      icon_size = 64
+	}},
+	placed_as_equipment_result = "nullius-upgrade-coprocessor-quantum",
+    subgroup = "coprocessors",
+    order = "nullius-e",
+    stack_size = 10
+  },
+
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-speed-1",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-speed-module-1", amount=2},
+      {type="item", name="nullius-capacitor", amount=1},
+	  {type="item", name="nullius-aluminum-sheet", amount=1}
+    },
+    result = "nullius-coprocessor-speed-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-efficiency-1",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-efficiency-module-1", amount=2},
+      {type="item", name="nullius-capacitor", amount=2},
+	  {type="item", name="nullius-aluminum-sheet", amount=1}
+    },
+    result = "nullius-coprocessor-efficiency-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-productivity-1",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 12,
+    ingredients = {
+      {type="item", name="nullius-yield-module-1", amount=2},
+      {type="item", name="nullius-capacitor", amount=1},
+	  {type="item", name="nullius-aluminum-sheet", amount=2}
+    },
+    result = "nullius-coprocessor-productivity-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-speed-2",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-speed-module-2", amount=2},
+	  {type="item", name="nullius-coprocessor-speed-1", amount=1},
+      {type="item", name="nullius-insulation", amount=1},
+	  {type="item", name="nullius-titanium-sheet", amount=1}
+    },
+    result = "nullius-coprocessor-speed-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-efficiency-2",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-efficiency-module-2", amount=2},
+	  {type="item", name="nullius-coprocessor-efficiency-1", amount=1},
+      {type="item", name="nullius-insulation", amount=2},
+	  {type="item", name="nullius-titanium-sheet", amount=1}
+    },
+    result = "nullius-coprocessor-efficiency-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-productivity-2",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 18,
+    ingredients = {
+      {type="item", name="nullius-productivity-module-1", amount=2},
+	  {type="item", name="nullius-coprocessor-productivity-1", amount=1},
+      {type="item", name="nullius-insulation", amount=1},
+	  {type="item", name="nullius-titanium-sheet", amount=2}
+    },
+    result = "nullius-coprocessor-productivity-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-speed-3",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-speed-module-3", amount=2},
+	  {type="item", name="nullius-coprocessor-speed-2", amount=1},
+      {type="item", name="nullius-battery-2", amount=1},
+	  {type="item", name="nullius-small-cargo-pod-2", amount=1}
+    },
+    result = "nullius-coprocessor-speed-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-efficiency-3",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-efficiency-module-3", amount=2},
+	  {type="item", name="nullius-coprocessor-efficiency-2", amount=1},
+      {type="item", name="nullius-battery-2", amount=2},
+	  {type="item", name="nullius-small-cargo-pod-2", amount=1}
+    },
+    result = "nullius-coprocessor-efficiency-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-productivity-3",
+    enabled = false,
+    category = "tiny-assembly",
+    energy_required = 25,
+    ingredients = {
+      {type="item", name="nullius-productivity-module-2", amount=2},
+	  {type="item", name="nullius-coprocessor-productivity-2", amount=1},
+      {type="item", name="nullius-battery-2", amount=1},
+	  {type="item", name="nullius-small-cargo-pod-2", amount=2}
+    },
+    result = "nullius-coprocessor-productivity-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-coprocessor-quantum",
+    enabled = false,
+    category = "nanotechnology",
+    energy_required = 60,
+    ingredients = {
+      {type="item", name="nullius-yield-module-4", amount=1},
+	  {type="item", name="nullius-coprocessor-speed-3", amount=1},
+	  {type="item", name="nullius-coprocessor-efficiency-3", amount=1},
+	  {type="item", name="nullius-coprocessor-productivity-3", amount=1},
+      {type="item", name="nullius-beacon-3", amount=1},
+      {type="item", name="nullius-antimatter-trap", amount=1}
+    },
+    result = "nullius-coprocessor-quantum"
   }
 })

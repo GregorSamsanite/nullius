@@ -1,0 +1,16 @@
+{
+  "recipe":
+  [
+	["nullius-cargo-wagon-1", "nullius-legacy-cargo-wagon-1"]
+  ],
+  "technology":
+  [
+    ["nullius-ziplining", "nullius-ziplining-1"],
+    ["nullius-mass-production-6", "nullius-mass-production-7"],
+	["nullius-mass-production-5", "nullius-mass-production-6"],
+	["nullius-mass-production-4", "nullius-mass-production-5"],
+	["nullius-mass-production-3", "nullius-mass-production-4"],
+	["nullius-mass-production-2", "nullius-mass-production-3"],
+	["nullius-mass-production-1", "nullius-mass-production-2"]
+  ]
+}

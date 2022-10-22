@@ -632,7 +632,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-mass-production-1"},
+    prerequisites = {"nullius-mass-production-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -673,7 +673,7 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-freight-transportation",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
-	    {"technology-name.nullius-freight-transportation"}}},
+	    {"technology-name.nullius-fueling"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
 		    3, "nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
@@ -821,6 +821,8 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-freight-logistics"}}},
     localised_description = {"",
+	    {"technology-description.nullius-build", {"technology-description.nullius-item",
+		    1, "nullius-locomotive-1", {"entity-name.nullius-locomotive-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
 		    2, "train-stop", {"entity-name.train-stop"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
@@ -2886,6 +2888,34 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-carbon-sequestration-3"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-oxygen",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"objective-name.nullius-atmospheric-modification"}},
+    localised_description = {"objective-description.nullius-atmospheric-modification"},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
+        icon_size = 72
+      },
+      {
+        icon = ICONPATH .. "checkpoint.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 1.125,
+		tint = {0.6, 0.6, 0.6, 0.6}
+      }
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-botany-2"},
     ignore_tech_cost_multiplier = true
   }
 })

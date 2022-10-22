@@ -5,6 +5,7 @@ local ENTITYPATH = "__nullius__/graphics/entity/"
 if mods["LogisticTrainNetwork"] then
 data.raw["train-stop"]["logistic-train-stop"].subgroup = "railway"
 data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ecb"
+data.raw["train-stop"]["logistic-train-stop"].minable.mining_time = 1.5
 data.raw.item["logistic-train-stop"].subgroup = "railway"
 data.raw.item["logistic-train-stop"].order = "nullius-ecb"
 table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-logistic-train-network")
@@ -15,6 +16,7 @@ end
 if mods["LTN_Combinator_Modernized"] then
 data.raw["constant-combinator"]["ltn-combinator"].subgroup = "railway"
 data.raw["constant-combinator"]["ltn-combinator"].order = "nullius-ecc"
+data.raw["constant-combinator"]["ltn-combinator"].minable.mining_time = 1
 data.raw.item["ltn-combinator"].subgroup = "railway"
 data.raw.item["ltn-combinator"].order = "nullius-ecc"
 end
@@ -51,7 +53,7 @@ table.insert(data.raw.technology["nullius-construction-robot-2"].prerequisites,"
 
 data.raw.technology["factory-architecture-t3"].order = "nullius-e"
 data.raw.technology["factory-architecture-t3"].prerequisites = {
-    "nullius-packaging-6", "nullius-mass-production-5"}
+    "nullius-packaging-6", "nullius-mass-production-6"}
 data.raw.technology["factory-architecture-t3"].effects =
     {{type = "unlock-recipe", recipe = "nullius-factory-3"}}
 data.raw.technology["factory-architecture-t3"].unit = {
@@ -203,6 +205,11 @@ data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.north].fluid_b
 data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.east].fluid_box.height = 2
 data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.west].fluid_box.height = 2
 
+data.raw["electric-pole"]["factory-circuit-connector"].minable.mining_time = 0.8
+data.raw["storage-tank"]["factory-1"].minable.mining_time = 4
+data.raw["storage-tank"]["factory-2"].minable.mining_time = 6
+data.raw["storage-tank"]["factory-3"].minable.mining_time = 8
+
 data.raw.technology["factory-architecture-t1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 1}
 data.raw.technology["factory-architecture-t2"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 2}
 data.raw.technology["nullius-architecture-1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 3}
@@ -229,7 +236,7 @@ else
 data.raw.technology["long-inserters-1"].order = "nullius-dd"
 data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication"}
+data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication", "nullius-mass-production-1"}
 data.raw.technology["long-inserters-1"].unit = { count = 30,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 6
@@ -252,12 +259,14 @@ data.raw.item["miniloader"].subgroup = "miniloader"
 data.raw.item["miniloader"].order = "nullius-cb"
 data.raw["loader-1x1"]["miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
 data.raw["inserter"]["miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 1}
+data.raw["inserter"]["miniloader-inserter"].minable.mining_time = 0.4
 
 data.raw.item["fast-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
 data.raw.item["fast-miniloader"].subgroup = "miniloader"
 data.raw.item["fast-miniloader"].order = "nullius-db"
 data.raw["loader-1x1"]["fast-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
 data.raw["inserter"]["fast-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 2}
+data.raw["inserter"]["fast-miniloader-inserter"].minable.mining_time = 0.6
 
 data.raw.item["express-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
 data.raw.item["express-miniloader"].subgroup = "miniloader"
@@ -265,6 +274,7 @@ data.raw.item["express-miniloader"].order = "nullius-eb"
 data.raw["loader-1x1"]["express-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
 data.raw["inserter"]["express-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 3}
 data.raw["inserter"]["express-miniloader-inserter"].next_upgrade = "ultimate-miniloader-inserter"
+data.raw["inserter"]["express-miniloader-inserter"].minable.mining_time = 0.8
 
 data.raw.item["ultimate-miniloader"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
 data.raw.item["ultimate-miniloader"].subgroup = "miniloader"
@@ -272,6 +282,7 @@ data.raw.item["ultimate-miniloader"].order = "nullius-fb"
 data.raw["loader-1x1"]["ultimate-miniloader-loader"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
 data.raw["inserter"]["ultimate-miniloader-inserter"].localised_name = {"", {"entity-name.miniloader"}, " ", 4}
 data.raw["inserter"]["ultimate-miniloader-inserter"].next_upgrade = nil
+data.raw["inserter"]["ultimate-miniloader-inserter"].minable.mining_time = 1
 end
 
 if settings.startup["miniloader-enable-filter"].value then
@@ -282,6 +293,7 @@ data.raw["loader-1x1"]["fast-filter-miniloader-loader"].localised_name =
     {"", {"entity-name.filter-miniloader"}, " ", 2}
 data.raw["inserter"]["fast-filter-miniloader-inserter"].localised_name =
     {"", {"entity-name.filter-miniloader"}, " ", 2}
+data.raw["inserter"]["fast-filter-miniloader-inserter"].minable.mining_time = 0.6
 
 data.raw.item["express-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 3}
 data.raw.item["express-filter-miniloader"].subgroup = "miniloader"
@@ -291,6 +303,7 @@ data.raw["loader-1x1"]["express-filter-miniloader-loader"].localised_name =
 data.raw["inserter"]["express-filter-miniloader-inserter"].localised_name =
     {"", {"entity-name.filter-miniloader"}, " ", 3}
 data.raw["inserter"]["express-filter-miniloader-inserter"].next_upgrade = "ultimate-filter-miniloader-inserter"
+data.raw["inserter"]["express-filter-miniloader-inserter"].minable.mining_time = 0.8
 
 data.raw.item["ultimate-filter-miniloader"].localised_name = {"", {"entity-name.filter-miniloader"}, " ", 4}
 data.raw.item["ultimate-filter-miniloader"].subgroup = "miniloader"
@@ -300,6 +313,7 @@ data.raw["loader-1x1"]["ultimate-filter-miniloader-loader"].localised_name =
 data.raw["inserter"]["ultimate-filter-miniloader-inserter"].localised_name =
     {"", {"entity-name.filter-miniloader"}, " ", 4}
 data.raw["inserter"]["ultimate-filter-miniloader-inserter"].next_upgrade = nil
+data.raw["inserter"]["ultimate-filter-miniloader-inserter"].minable.mining_time = 1
 end
 
 if (settings.startup["miniloader-enable-standard"].value and
@@ -319,7 +333,8 @@ if (settings.startup["miniloader-enable-filter"].value and
   }
 end
 
-table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-miniloader-1")
+data.raw.technology["nullius-mass-production-1"].prerequisites = {
+    "nullius-miniloader-1", "nullius-checkpoint-mineral-dust"}
 if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
 table.insert(data.raw.technology["long-inserters-2"].prerequisites,"nullius-miniloader-2")
 else
@@ -442,9 +457,13 @@ data.raw["battery-equipment"]["jetpack-3"].localised_description =
 data.raw["battery-equipment"]["jetpack-4"].localised_description =
   {"equipment-description.nullius-jetpack-4"}
 data.raw.item["jetpack-1"].subgroup = "jetpack"
+data.raw.item["jetpack-1"].order = "nullius-bb"
 data.raw.item["jetpack-2"].subgroup = "jetpack"
+data.raw.item["jetpack-2"].order = "nullius-bc"
 data.raw.item["jetpack-3"].subgroup = "jetpack"
+data.raw.item["jetpack-3"].order = "nullius-bd"
 data.raw.item["jetpack-4"].subgroup = "jetpack"
+data.raw.item["jetpack-4"].order = "nullius-be"
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-2"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-3"].equipment_categories, "armor-jetpack")
 table.insert(data.raw["equipment-grid"]["nullius-armor-grid-4"].equipment_categories, "armor-jetpack")
@@ -829,6 +848,7 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
     local archetype = data.raw["pipe-to-ground"]["nullius-underground-pipe-"..lvl]
     junction.fluid_box.height = archetype.fluid_box.height
     junction.fluid_box.base_area = archetype.fluid_box.base_area
+	junction.minable.mining_time = (lvl * 0.5)
 
     for _,connection in pairs(junction.fluid_box.pipe_connections) do
       if ((connection.max_underground_distance ~= nil) and
@@ -862,6 +882,8 @@ for i=1,9 do
   relief.fluid_box.height = rheight
   relief.fluid_box.base_level = theight
   relief.fluid_box.base_area = 3 / rheight
+  topup.minable.mining_time = 0.8
+  relief.minable.mining_time = 0.8
 
   topup.pictures.picture.north.layers = {
     northpipe,
@@ -904,10 +926,23 @@ if mods["Warehousing"] then
   data.raw.item["warehouse-buffer"].order = "nullius-ec"
   data.raw.item["storehouse-active-provider"].order = "nullius-fb"
   data.raw.item["warehouse-active-provider"].order = "nullius-fc"
+
+  data.raw["container"]["storehouse-basic"].minable.mining_time = 1.6
+  data.raw["container"]["warehouse-basic"].minable.mining_time = 2.8
+  data.raw["logistic-container"]["storehouse-storage"].minable.mining_time = 2
+  data.raw["logistic-container"]["warehouse-storage"].minable.mining_time = 3.5
+  data.raw["logistic-container"]["storehouse-passive-provider"].minable.mining_time = 2
+  data.raw["logistic-container"]["warehouse-passive-provider"].minable.mining_time = 3.5
+  data.raw["logistic-container"]["storehouse-requester"].minable.mining_time = 2
+  data.raw["logistic-container"]["warehouse-requester"].minable.mining_time = 3.5
+  data.raw["logistic-container"]["storehouse-buffer"].minable.mining_time = 2
+  data.raw["logistic-container"]["warehouse-buffer"].minable.mining_time = 3.5
+  data.raw["logistic-container"]["storehouse-active-provider"].minable.mining_time = 2
+  data.raw["logistic-container"]["warehouse-active-provider"].minable.mining_time = 3.5
   
-  table.insert(data.raw.technology["nullius-mass-production-1"].prerequisites,"nullius-warehousing-1")
+  table.insert(data.raw.technology["nullius-mass-production-2"].prerequisites,"nullius-warehousing-1")
   table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,"nullius-warehousing-2")
-  table.insert(data.raw.technology["nullius-mass-production-5"].prerequisites,"nullius-warehousing-4")
+  table.insert(data.raw.technology["nullius-mass-production-6"].prerequisites,"nullius-warehousing-4")
 if mods["Factorissimo2"] or mods["factorissimo-2-notnotmelon"] then
   table.insert(data.raw.technology["factory-interior-upgrade-lights"].prerequisites,"nullius-warehousing-3")
 else
@@ -1353,7 +1388,7 @@ if mods["botReplacer"] then
 data.raw.item["logistic-chest-botUpgrader"].subgroup = "hangar-2"
 data.raw.item["logistic-chest-botUpgrader"].order = "nullius-r"
 data.raw.item["logistic-chest-botUpgrader"].stack_size = 10
-
+data.raw["logistic-container"]["logistic-chest-botUpgrader"].minable.mining_time = 1
 table.insert(data.raw["technology"]["nullius-logistic-robot-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-bot-upgrade-chest"})
 end
@@ -1364,6 +1399,7 @@ if mods["FuelTrainStop"] then
       {type = "unlock-recipe", recipe = "nullius-fuel-train-stop"})
   data.raw["item"]["fuel-train-stop"].order = "nullius-ebc"
   data.raw["item"]["fuel-train-stop"].subgroup = "railway"
+  data.raw["train-stop"]["fuel-train-stop"].minable.mining_time = 1.2
 end
 
 
@@ -1386,12 +1422,14 @@ if mods["railway-motor-car"] then
   data.raw["item"]["railway-motor-car-base"].localised_name =
       {"", {"equipment-name.railway-motor-car-base"}, " ", 1}
   data.raw["item"]["railway-motor-car-base"].subgroup = "jetpack"
+  data.raw["item"]["railway-motor-car-base"].order = "nullius-mb"
   data.raw["battery-equipment"]["railway-motor-car-base"].categories = {"cybernetic"}
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_name =
       {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
   data.raw["item"]["railway-motor-car-nuclear"].localised_name =
       {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
   data.raw["item"]["railway-motor-car-nuclear"].subgroup = "jetpack"
+  data.raw["item"]["railway-motor-car-nuclear"].order = "nullius-mc"
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_description =
       {"item-description.railway-motor-car-base"}
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].categories = {"cybernetic"}
@@ -1415,6 +1453,7 @@ end
 if mods["Inventory Sensor"] then
   data.raw.item["item-sensor"].subgroup = "circuit-network"
   data.raw.item["item-sensor"].order = "nullius-s"
+  data.raw["constant-combinator"]["item-sensor"].minable.mining_time = 0.8
   table.insert(data.raw["technology"]["nullius-sensors-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-item-sensor"})
 end
@@ -1423,6 +1462,8 @@ end
 if mods["crafting_combinator"] then
   data.raw.item["crafting_combinator:crafting-combinator"].order = "nullius-rb"
   data.raw.item["crafting_combinator:recipe-combinator"].order = "nullius-rc"
+  data.raw["constant-combinator"]["crafting_combinator:crafting-combinator"].minable.mining_time = 0.8
+  data.raw["arithmetic-combinator"]["crafting_combinator:recipe-combinator"].minable.mining_time = 0.8
   table.insert(data.raw["technology"]["nullius-computation"].effects,
     {type = "unlock-recipe", recipe = "nullius-crafting-combinator"})
   table.insert(data.raw["technology"]["nullius-computation"].effects,
@@ -1431,6 +1472,7 @@ end
 
 
 if mods["stack-combinator"] then
+  data.raw["arithmetic-combinator"]["stack-combinator"].minable.mining_time = 0.8
   table.insert(data.raw.technology["nullius-optimization-2"].prerequisites,"stack-combinator") 
 end
 
@@ -1461,6 +1503,7 @@ end
 if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
   data.raw.item["hs_holo_sign"].stack_size = 50
+  data.raw.container["hs_holo_sign"].minable.mining_time = 0.8
   table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-holographics")
 if mods["DisplayPlates"] then
   data.raw.item["hs_holo_sign"].subgroup = "display-plates"
@@ -1469,10 +1512,14 @@ end
 
 
 if mods["Shuttle_Train_Continued"] then
-  data.raw.item["shuttle-lite"].subgroup = "railway"
-  data.raw.item["shuttle-lite"].order = "nullius-s"
   table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
     {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
+if mods["railway-motor-car"] then
+  data.raw.item["shuttle-lite"].subgroup = "jetpack"
+else
+  data.raw.item["shuttle-lite"].subgroup = "railway"
+end
+  data.raw.item["shuttle-lite"].order = "nullius-s"
 end
 
 
@@ -1499,6 +1546,17 @@ if mods["FluidMustFlow"] then
   data.raw.item["duct-end-point-intake"].order = "nullius-j"
   data.raw.item["non-return-duct"].order = "nullius-k"
 
+  data.raw["storage-tank"]["duct-small"].minable.mining_time = 0.8
+  data.raw["storage-tank"]["duct"].minable.mining_time = 1.5
+  data.raw["storage-tank"]["duct-long"].minable.mining_time = 2.5
+  data.raw["storage-tank"]["duct-t-junction"].minable.mining_time = 2
+  data.raw["storage-tank"]["duct-curve"].minable.mining_time = 1.6
+  data.raw["storage-tank"]["duct-cross"].minable.mining_time = 2.5
+  data.raw["pipe-to-ground"]["duct-underground"].minable.mining_time = 2.5
+  data.raw["pump"]["non-return-duct"].minable.mining_time = 2
+  data.raw["pump"]["duct-end-point-intake"].minable.mining_time = 3
+  data.raw["pump"]["duct-end-point-outtake"].minable.mining_time = 3
+
   local duct_box = data.raw["pipe-to-ground"]["duct-underground"].fluid_box
   duct_box.pipe_connections[2].max_underground_distance = duct_box.pipe_connections[2].max_underground_distance - 2
   table.insert(data.raw.technology["nullius-barreling-3"].prerequisites,"nullius-ducts")
@@ -1511,6 +1569,8 @@ if mods["railloader"] then
   data.raw.item["railunloader"].subgroup = "miniloader"
   data.raw.item["railunloader"].order = "nullius-rc"
   table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-rail-loader")
+  data.raw.container["railloader-chest"].minable.mining_time = 2
+  data.raw.container["railunloader-chest"].minable.mining_time = 2
 end
 
 
@@ -1533,7 +1593,13 @@ if mods["RenaiTransportation"] then
   table.insert(data.raw.technology["nullius-locomotion-3"].prerequisites,
     "nullius-logistic-ballistics-8")
   table.insert(data.raw.technology["nullius-checkpoint-freight-logistics"].prerequisites,
-    "nullius-ziplining")
+    "nullius-ziplining-1")
+  data.raw.technology["nullius-robot-speed-2"].prerequisites =
+      {"nullius-mass-production-4", "nullius-ziplining-3"}
+  table.insert(data.raw.technology["nullius-robot-speed-3"].prerequisites,
+    "nullius-ziplining-4")
+  data.raw.technology["nullius-robot-speed-5"].prerequisites =
+      {"nullius-copper-production", "nullius-ziplining-5"}
 
   if mods["Transport_Drones"] then
     table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
@@ -1592,12 +1658,32 @@ if mods["RenaiTransportation"] then
   data.raw.item["RTImpactUnloaderItem"].order = "nullius-db"
   data.raw.item["RTImpactWagonItem"].subgroup = "nullius-renai-ramp"
   data.raw.item["RTImpactWagonItem"].order = "nullius-dc"
-  data.raw.gun["RTZiplineItem"].subgroup = "nullius-renai-ramp"
-  data.raw.gun["RTZiplineItem"].order = "nullius-eb"
-  data.raw.ammo["RTZiplineControlsItem"].subgroup = "nullius-renai-ramp"
-  data.raw.ammo["RTZiplineControlsItem"].order = "nullius-ec"
-  data.raw.ammo["RTZiplineCrankControlsItem"].subgroup = "nullius-renai-ramp"
-  data.raw.ammo["RTZiplineCrankControlsItem"].order = "nullius-ed"
+
+  data.raw.item["RTZiplineTerminalItem"].subgroup = "nullius-renai-zipline"
+  data.raw.item["RTZiplineTerminalItem"].order = "nullius-bb"
+  data.raw.gun["RTZiplineItem"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineItem"].order = "nullius-cb"
+  data.raw.gun["RTZiplineItem2"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineItem2"].order = "nullius-cc"
+  data.raw.gun["RTZiplineItem3"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineItem3"].order = "nullius-cd"
+  data.raw.gun["RTZiplineItem4"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineItem4"].order = "nullius-ce"
+  data.raw.gun["RTZiplineItem5"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineItem5"].order = "nullius-cf"
+  data.raw.ammo["RTZiplineControlsItem"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTZiplineControlsItem"].order = "nullius-db"
+  data.raw.ammo["RTZiplineCrankControlsItem"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTZiplineCrankControlsItem"].order = "nullius-dc"
+  data.raw.ammo["RTProgrammableZiplineControlsItem"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTProgrammableZiplineControlsItem"].order = "nullius-dd"
+
+  data.raw["electric-pole"]["RTZiplineTerminal"].minable.mining_time = 1
+  data.raw["simple-entity-with-owner"]["RTTrainRamp"].minable.mining_time = 0.8
+  data.raw["simple-entity-with-owner"]["RTMagnetTrainRamp"].minable.mining_time = 1.2
+  data.raw["simple-entity-with-owner"]["RTImpactUnloader"].minable.mining_time = 1
+  data.raw["simple-entity-with-owner"]["RTTrainBouncePlate"].minable.mining_time = 0.6
+  data.raw["constant-combinator"]["RTTrainDirectedBouncePlate"].minable.mining_time = 0.8
 
   data.raw["cargo-wagon"]["RTImpactWagon"].inventory_size = 50
   data.raw["cargo-wagon"]["RTImpactWagon"].max_health = 800
@@ -1606,6 +1692,7 @@ if mods["RenaiTransportation"] then
   data.raw["cargo-wagon"]["RTImpactWagon"].fast_replaceable_group = "cargo-wagon"
   data.raw["cargo-wagon"]["RTImpactWagon"].braking_force = 2.5
   data.raw["cargo-wagon"]["RTImpactWagon"].friction_force = 0.4
+  data.raw["cargo-wagon"]["RTImpactWagon"].minable.mining_time = 1.2
   data.raw["cargo-wagon"]["RTImpactWagon"].resistances = {
     { type = "impact", decrease = 80, percent = 90 },
     { type = "poison", decrease = 40, percent = 80 },

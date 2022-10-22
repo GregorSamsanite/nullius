@@ -1,0 +1,9 @@
+{
+  "recipe":
+  [
+	["nullius-android-1", "nullius-legacy-android-1"],
+	["nullius-android-2", "nullius-legacy-android-2"],
+	["nullius-rail-signal", "nullius-legacy-rail-signal"],
+	["nullius-boxed-rail-signal", "nullius-legacy-boxed-rail-signal"]
+  ]
+}

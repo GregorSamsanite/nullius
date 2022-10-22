@@ -37,11 +37,14 @@ data.raw.item["power-switch"].order = "nullius-h"
 data.raw["power-switch"]["power-switch"].localised_description = {"",
     {"entity-description.power-switch"}, {"entity-description.nullius-power-switch",
 	    {"item-name.nullius-insulated-wire"}, "copper-cable"}}
+data.raw["power-switch"]["power-switch"].minable.mining_time = 0.6
 
 data.raw["constant-combinator"]["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
+data.raw["constant-combinator"]["constant-combinator"].minable.mining_time = 1
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["constant-combinator"].order = "nullius-g"
 data.raw["arithmetic-combinator"]["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
+data.raw["arithmetic-combinator"]["arithmetic-combinator"].minable.mining_time = 1
 data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
 data.raw.item["arithmetic-combinator"].order = "nullius-f"
 data.raw["arithmetic-combinator"]["arithmetic-combinator"].energy_source = {
@@ -52,6 +55,7 @@ data.raw["arithmetic-combinator"]["arithmetic-combinator"].energy_source = {
 }
 data.raw["arithmetic-combinator"]["arithmetic-combinator"].active_energy_usage = "100W"
 data.raw["decider-combinator"]["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
+data.raw["decider-combinator"]["decider-combinator"].minable.mining_time = 1
 data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
 data.raw.item["decider-combinator"].order = "nullius-e"
 data.raw["decider-combinator"]["decider-combinator"].energy_source =
@@ -68,6 +72,7 @@ data.raw["programmable-speaker"]["programmable-speaker"].energy_source = {
   buffer_capacity = "100kW"
 }
 data.raw["programmable-speaker"]["programmable-speaker"].energy_usage_per_tick = "250W"
+data.raw["programmable-speaker"]["programmable-speaker"].minable.mining_time = 1
 
 data.raw["lamp"]["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
 data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
@@ -75,6 +80,7 @@ data.raw.item["small-lamp"].subgroup = "railway"
 data.raw.item["small-lamp"].order = "nullius-bb"
 data.raw.item["small-lamp"].place_result = "nullius-lamp-1"
 data.raw["lamp"]["small-lamp"].placeable_by = {item = "small-lamp", count = 1}
+data.raw["lamp"]["small-lamp"].minable.mining_time = 0.3
 data.raw.item["small-lamp"].icons =
   {{icon = ENTICONPATH .. "lamp1.png", icon_size = 64}}
 label_icon("small-lamp", 1, "yellow")
@@ -84,10 +90,12 @@ data.raw.item["stone-wall"].stack_size = 200
 data.raw.item["stone-wall"].subgroup = "concrete"
 data.raw.item["stone-wall"].order = "nullius-e"
 data.raw["wall"]["stone-wall"].localised_description = {"entity-description.nullius-wall"}
+data.raw["wall"]["stone-wall"].minable.mining_time = 0.6
 data.raw.item["gate"].stack_size = 100
 data.raw.item["gate"].subgroup = "concrete"
 data.raw.item["gate"].order = "nullius-f"
 data.raw["gate"]["gate"].localised_description = {"entity-description.nullius-gate"}
+data.raw["gate"]["gate"].minable.mining_time = 0.8
 
 data.raw.item["empty-barrel"].localised_description = {"item-description.nullius-barrel"}
 data.raw.item["empty-barrel"].subgroup = "canisters"
@@ -246,43 +254,52 @@ data.raw.item["transport-belt"].subgroup = "belt"
 data.raw.item["transport-belt"].order = "nullius-bb"
 data.raw.item["transport-belt"].stack_size = 200
 data.raw["transport-belt"]["transport-belt"].localised_name = {"entity-name.nullius-belt-1"}
+data.raw["transport-belt"]["transport-belt"].minable.mining_time = 0.1
 data.raw.item["underground-belt"].subgroup = "belt"
 data.raw.item["underground-belt"].order = "nullius-cb"
 data.raw.item["underground-belt"].stack_size = 100
 data.raw["underground-belt"]["underground-belt"].localised_name = {"entity-name.nullius-underground-belt-1"}
 data.raw["underground-belt"]["underground-belt"].max_distance = 7
+data.raw["underground-belt"]["underground-belt"].minable.mining_time = 0.4
 data.raw.item["splitter"].subgroup = "splitter"
 data.raw.item["splitter"].order = "nullius-db"
 data.raw["splitter"]["splitter"].localised_name = {"entity-name.nullius-splitter-1"}
+data.raw["splitter"]["splitter"].minable.mining_time = 0.6
 
 data.raw.item["fast-transport-belt"].subgroup = "belt"
 data.raw.item["fast-transport-belt"].order = "nullius-bc"
 data.raw.item["fast-transport-belt"].stack_size = 200
 data.raw["transport-belt"]["fast-transport-belt"].localised_name = {"entity-name.nullius-belt-2"}
+data.raw["transport-belt"]["fast-transport-belt"].minable.mining_time = 0.2
 data.raw.item["fast-underground-belt"].subgroup = "belt"
 data.raw.item["fast-underground-belt"].order = "nullius-cc"
 data.raw.item["fast-underground-belt"].stack_size = 100
 data.raw["underground-belt"]["fast-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-2"}
 data.raw["underground-belt"]["fast-underground-belt"].max_distance = 11
+data.raw["underground-belt"]["fast-underground-belt"].minable.mining_time = 0.6
 data.raw.item["fast-splitter"].subgroup = "splitter"
 data.raw.item["fast-splitter"].order = "nullius-dc"
 data.raw["splitter"]["fast-splitter"].localised_name = {"entity-name.nullius-splitter-2"}
+data.raw["splitter"]["fast-splitter"].minable.mining_time = 0.9
 
 data.raw.item["express-transport-belt"].subgroup = "belt"
 data.raw.item["express-transport-belt"].order = "nullius-bd"
 data.raw.item["express-transport-belt"].stack_size = 200
 data.raw["transport-belt"]["express-transport-belt"].localised_name = {"entity-name.nullius-belt-3"}
 data.raw["transport-belt"]["express-transport-belt"].next_upgrade = "ultimate-transport-belt"
+data.raw["transport-belt"]["express-transport-belt"].minable.mining_time = 0.3
 data.raw.item["express-underground-belt"].subgroup = "belt"
 data.raw.item["express-underground-belt"].order = "nullius-cd"
 data.raw.item["express-underground-belt"].stack_size = 100
 data.raw["underground-belt"]["express-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-3"}
 data.raw["underground-belt"]["express-underground-belt"].max_distance = 15
 data.raw["underground-belt"]["express-underground-belt"].next_upgrade = "ultimate-underground-belt"
+data.raw["underground-belt"]["express-underground-belt"].minable.mining_time = 0.8
 data.raw.item["express-splitter"].subgroup = "splitter"
 data.raw.item["express-splitter"].order = "nullius-dd"
 data.raw["splitter"]["express-splitter"].localised_name = {"entity-name.nullius-splitter-3"}
 data.raw["splitter"]["express-splitter"].next_upgrade = "ultimate-splitter"
+data.raw["splitter"]["express-splitter"].minable.mining_time = 1.2
 
 data.raw.item["ultimate-transport-belt"].subgroup = "belt"
 data.raw.item["ultimate-transport-belt"].order = "nullius-be"
@@ -295,6 +312,7 @@ data.raw["transport-belt"]["ultimate-transport-belt"].next_upgrade = nil
 data.raw["transport-belt"]["ultimate-transport-belt"].icon = ENTICONPATH .. "belt4.png"
 data.raw["transport-belt"]["ultimate-transport-belt"].icon_size = 64
 data.raw["transport-belt"]["ultimate-transport-belt"].icon_mipmaps = 4
+data.raw["transport-belt"]["ultimate-transport-belt"].minable.mining_time = 0.4
 data.raw.item["ultimate-underground-belt"].subgroup = "belt"
 data.raw.item["ultimate-underground-belt"].order = "nullius-ce"
 data.raw.item["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
@@ -307,6 +325,7 @@ data.raw["underground-belt"]["ultimate-underground-belt"].next_upgrade = nil
 data.raw["underground-belt"]["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
 data.raw["underground-belt"]["ultimate-underground-belt"].icon_size = 64
 data.raw["underground-belt"]["ultimate-underground-belt"].icon_mipmaps = 4
+data.raw["underground-belt"]["ultimate-underground-belt"].minable.mining_time = 1
 data.raw.item["ultimate-splitter"].subgroup = "splitter"
 data.raw.item["ultimate-splitter"].order = "nullius-de"
 data.raw.item["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
@@ -317,6 +336,7 @@ data.raw["splitter"]["ultimate-splitter"].next_upgrade = nil
 data.raw["splitter"]["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
 data.raw["splitter"]["ultimate-splitter"].icon_size = 64
 data.raw["splitter"]["ultimate-splitter"].icon_mipmaps = 4
+data.raw["splitter"]["ultimate-splitter"].minable.mining_time = 1.5
 
 data.raw.item["inserter"].subgroup = "inserter"
 data.raw.item["inserter"].order = "nullius-b"
@@ -329,6 +349,7 @@ data.raw["inserter"]["inserter"].extension_speed = 0.04
 data.raw["inserter"]["inserter"].energy_per_rotation = "12.5KJ"
 data.raw["inserter"]["inserter"].energy_per_movement = "1.875KJ"
 data.raw["inserter"]["inserter"].energy_source.drain = "1kW"
+data.raw["inserter"]["inserter"].minable.mining_time = 0.4
 data.raw["inserter"]["inserter"].next_upgrade = "turbo-inserter"
 data.raw["inserter"]["inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -345,6 +366,7 @@ data.raw["inserter"]["turbo-inserter"].extension_speed = 0.08
 data.raw["inserter"]["turbo-inserter"].energy_per_rotation = "10.25KJ"
 data.raw["inserter"]["turbo-inserter"].energy_per_movement = "1.5625KJ"
 data.raw["inserter"]["turbo-inserter"].energy_source.drain = "2kW"
+data.raw["inserter"]["turbo-inserter"].minable.mining_time = 0.6
 data.raw["inserter"]["turbo-inserter"].next_upgrade = "stack-inserter"
 data.raw["inserter"]["turbo-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -361,6 +383,7 @@ data.raw["inserter"]["turbo-filter-inserter"].extension_speed = 0.08
 data.raw["inserter"]["turbo-filter-inserter"].energy_per_rotation = "10.25KJ"
 data.raw["inserter"]["turbo-filter-inserter"].energy_per_movement = "1.5625KJ"
 data.raw["inserter"]["turbo-filter-inserter"].energy_source.drain = "2kW"
+data.raw["inserter"]["turbo-filter-inserter"].minable.mining_time = 0.6
 data.raw["inserter"]["turbo-filter-inserter"].next_upgrade = "stack-filter-inserter"
 data.raw["inserter"]["turbo-filter-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -377,6 +400,7 @@ data.raw["inserter"]["stack-inserter"].extension_speed = 0.08
 data.raw["inserter"]["stack-inserter"].energy_per_rotation = "20.5KJ"
 data.raw["inserter"]["stack-inserter"].energy_per_movement = "3.125KJ"
 data.raw["inserter"]["stack-inserter"].energy_source.drain = "4kW"
+data.raw["inserter"]["stack-inserter"].minable.mining_time = 0.8
 data.raw["inserter"]["stack-inserter"].next_upgrade = "express-stack-inserter"
 data.raw["inserter"]["stack-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -394,6 +418,7 @@ data.raw["inserter"]["stack-filter-inserter"].extension_speed = 0.08
 data.raw["inserter"]["stack-filter-inserter"].energy_per_rotation = "20.5KJ"
 data.raw["inserter"]["stack-filter-inserter"].energy_per_movement = "3.125KJ"
 data.raw["inserter"]["stack-filter-inserter"].energy_source.drain = "4kW"
+data.raw["inserter"]["stack-filter-inserter"].minable.mining_time = 0.8
 data.raw["inserter"]["stack-filter-inserter"].next_upgrade = "express-stack-filter-inserter"
 data.raw["inserter"]["stack-filter-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -410,6 +435,7 @@ data.raw["inserter"]["express-stack-inserter"].extension_speed = 0.16
 data.raw["inserter"]["express-stack-inserter"].energy_per_rotation = "21KJ"
 data.raw["inserter"]["express-stack-inserter"].energy_per_movement = "3.125KJ"
 data.raw["inserter"]["express-stack-inserter"].energy_source.drain = "6kW"
+data.raw["inserter"]["express-stack-inserter"].minable.mining_time = 1
 data.raw["inserter"]["express-stack-inserter"].next_upgrade = nil
 data.raw["inserter"]["express-stack-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -426,6 +452,7 @@ data.raw["inserter"]["express-stack-filter-inserter"].extension_speed = 0.16
 data.raw["inserter"]["express-stack-filter-inserter"].energy_per_rotation = "21KJ"
 data.raw["inserter"]["express-stack-filter-inserter"].energy_per_movement = "3.125KJ"
 data.raw["inserter"]["express-stack-filter-inserter"].energy_source.drain = "6kW"
+data.raw["inserter"]["express-stack-filter-inserter"].minable.mining_time = 1
 data.raw["inserter"]["express-stack-filter-inserter"].next_upgrade = nil
 data.raw["inserter"]["express-stack-filter-inserter"].resistances = {
   { type = "impact", decrease = 100, percent = 90 }
@@ -435,17 +462,21 @@ data.raw["rail-planner"]["rail"].subgroup = "railway"
 data.raw["rail-planner"]["rail"].order = "nullius-d"
 data.raw["train-stop"]["train-stop"].subgroup = "railway"
 data.raw["train-stop"]["train-stop"].order = "nullius-eb"
+data.raw["train-stop"]["train-stop"].minable.mining_time = 1.2
 data.raw.item["train-stop"].subgroup = "railway"
 data.raw.item["train-stop"].order = "nullius-eb"
 data.raw["rail-signal"]["rail-signal"].subgroup = "railway"
 data.raw["rail-signal"]["rail-signal"].order = "nullius-f"
+data.raw["rail-signal"]["rail-signal"].minable.mining_time = 0.8
 data.raw.item["rail-signal"].subgroup = "railway"
 data.raw.item["rail-signal"].order = "nullius-f"
 data.raw["rail-chain-signal"]["rail-chain-signal"].subgroup = "railway"
 data.raw["rail-chain-signal"]["rail-chain-signal"].order = "nullius-g"
+data.raw["rail-chain-signal"]["rail-chain-signal"].minable.mining_time = 0.8
 data.raw.item["rail-chain-signal"].subgroup = "railway"
 data.raw.item["rail-chain-signal"].order = "nullius-g"
-
+data.raw["straight-rail"]["straight-rail"].minable.mining_time = 0.5
+data.raw["curved-rail"]["curved-rail"].minable.mining_time = 0.6
 
 data.raw.item["storage-tank"].subgroup = "tanks"
 data.raw.item["storage-tank"].order = "nullius-bcb"
@@ -454,6 +485,7 @@ data.raw["storage-tank"]["storage-tank"].localised_description = {"entity-descri
 data.raw["storage-tank"]["storage-tank"].max_health = 400
 data.raw["storage-tank"]["storage-tank"].next_upgrade = "nullius-medium-tank-2"
 data.raw["storage-tank"]["storage-tank"].fast_replaceable_group = "medium-tank"
+data.raw["storage-tank"]["storage-tank"].minable.mining_time = 0.8
 data.raw["storage-tank"]["storage-tank"].resistances = {
   { type = "impact", decrease = 100, percent = 90 },
   { type = "fire", percent = 75 }
@@ -465,6 +497,7 @@ data.raw["radar"]["radar"].localised_name = {"entity-name.nullius-sensor-node-1"
 data.raw["radar"]["radar"].localised_description = {"entity-description.nullius-sensor-node-1"}
 data.raw["radar"]["radar"].max_health = 200
 data.raw["radar"]["radar"].resistances = {{ type = "impact", decrease = 50, percent = 80 }}
+data.raw["radar"]["radar"].minable.mining_time = 0.6
 
 
 data.raw["repair-tool"]["repair-pack"].icon = "__base__/graphics/icons/repair-pack.png"
@@ -627,6 +660,7 @@ data.raw["electric-pole"]["big-electric-pole"].pictures.layers = {
 }
 data.raw["electric-pole"]["big-electric-pole"].resistances =
     {{ type = "impact", decrease = 100, percent = 90 }}
+data.raw["electric-pole"]["big-electric-pole"].minable.mining_time = 1.2
 
 data.raw["electric-pole"]["small-electric-pole"].pictures.layers = {
   {
@@ -642,6 +676,7 @@ data.raw["electric-pole"]["small-electric-pole"].pictures.layers = {
 }
 data.raw["electric-pole"]["small-electric-pole"].resistances =
     {{ type = "impact", decrease = 50, percent = 80 }}
+data.raw["electric-pole"]["small-electric-pole"].minable.mining_time = 0.6
 	
 data.raw["electric-pole"]["medium-electric-pole"].pictures.layers = {
   {
@@ -657,6 +692,7 @@ data.raw["electric-pole"]["medium-electric-pole"].pictures.layers = {
 }
 data.raw["electric-pole"]["medium-electric-pole"].resistances =
     {{ type = "impact", decrease = 50, percent = 90 }}
+data.raw["electric-pole"]["medium-electric-pole"].minable.mining_time = 0.9
 data.raw["electric-pole"]["medium-electric-pole"].corpse =
     data.raw["electric-pole"]["small-electric-pole"].corpse
 data.raw["electric-pole"]["medium-electric-pole"].dying_explosion =
@@ -684,6 +720,7 @@ data.raw["electric-pole"]["substation"].pictures.layers = {
 }
 data.raw["electric-pole"]["substation"].resistances =
     {{ type = "impact", decrease = 100, percent = 90 }}
+data.raw["electric-pole"]["substation"].minable.mining_time = 1.6
 
 
 data.raw.item["wooden-chest"].localised_name =
@@ -695,6 +732,7 @@ data.raw["container"]["wooden-chest"].resistances = {
     { type = "impact", decrease = 100, percent = 90 },
     { type = "fire", percent = 75 }
 }
+data.raw["container"]["wooden-chest"].minable.mining_time = 0.4
 
 data.raw.item["iron-chest"].localised_name =
     {"entity-name.nullius-small-chest-2"}
@@ -703,6 +741,7 @@ data.raw["container"]["iron-chest"].localised_name =
 data.raw["container"]["iron-chest"].max_health = 350
 data.raw["container"]["iron-chest"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["container"]["iron-chest"].minable.mining_time = 0.6
 
 data.raw.item["steel-chest"].localised_name =
     {"entity-name.nullius-small-chest-3"}
@@ -711,6 +750,7 @@ data.raw["container"]["steel-chest"].localised_name =
 data.raw["container"]["steel-chest"].max_health = 500
 data.raw["container"]["steel-chest"].resistances =
     data.raw["container"]["iron-chest"].resistances
+data.raw["container"]["steel-chest"].minable.mining_time = 0.8
 
 data.raw.item["logistic-chest-storage"].localised_name =
     {"entity-name.nullius-small-storage-chest-2"}
@@ -723,6 +763,7 @@ data.raw["logistic-container"]["logistic-chest-storage"].localised_description =
 data.raw["logistic-container"]["logistic-chest-storage"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-storage"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["logistic-container"]["logistic-chest-storage"].minable.mining_time = 1
 
 data.raw.item["logistic-chest-passive-provider"].localised_name =
     {"entity-name.nullius-small-supply-chest-2"}
@@ -735,6 +776,7 @@ data.raw["logistic-container"]["logistic-chest-passive-provider"].localised_desc
 data.raw["logistic-container"]["logistic-chest-passive-provider"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-passive-provider"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["logistic-container"]["logistic-chest-passive-provider"].minable.mining_time = 1
 
 data.raw.item["logistic-chest-requester"].localised_name =
     {"entity-name.nullius-small-demand-chest-2"}
@@ -748,6 +790,7 @@ data.raw["logistic-container"]["logistic-chest-requester"].localised_description
 data.raw["logistic-container"]["logistic-chest-requester"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-requester"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["logistic-container"]["logistic-chest-requester"].minable.mining_time = 1
 
 data.raw.item["logistic-chest-buffer"].localised_name =
     {"entity-name.nullius-small-buffer-chest-2"}
@@ -761,6 +804,7 @@ data.raw["logistic-container"]["logistic-chest-buffer"].localised_description =
 data.raw["logistic-container"]["logistic-chest-buffer"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-buffer"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["logistic-container"]["logistic-chest-buffer"].minable.mining_time = 1
 
 data.raw.item["logistic-chest-active-provider"].localised_name =
     {"entity-name.nullius-small-dispatch-chest-2"}
@@ -773,12 +817,14 @@ data.raw["logistic-container"]["logistic-chest-active-provider"].localised_descr
 data.raw["logistic-container"]["logistic-chest-active-provider"].max_health = 400
 data.raw["logistic-container"]["logistic-chest-active-provider"].resistances =
     data.raw["container"]["wooden-chest"].resistances
+data.raw["logistic-container"]["logistic-chest-active-provider"].minable.mining_time = 1
 
 
 data.raw.item["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
 data.raw.item["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
 data.raw["pipe"]["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
 data.raw["pipe"]["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
+data.raw["pipe"]["pipe"].minable.mining_time = 0.2
 data.raw.item["pipe-to-ground"].localised_name =
     {"entity-name.nullius-underground-pipe-1"}
 data.raw.item["pipe-to-ground"].localised_description =
@@ -796,13 +842,15 @@ data.raw["pipe-to-ground"]["pipe-to-ground"].resistances =
     data.raw["pipe"]["pipe"].resistances
 data.raw["pipe-to-ground"]["pipe-to-ground"].collision_box =
     data.raw["pipe-to-ground"]["nullius-underground-pipe-2"].collision_box
+data.raw["pipe-to-ground"]["pipe-to-ground"].minable.mining_time = 0.4
 data.raw.item["pipe"].subgroup = "pipes"
 data.raw.item["pipe"].order = "nullius-b"
 data.raw.item["pipe-to-ground"].subgroup = "pipes"
 data.raw.item["pipe-to-ground"].order = "nullius-c"
+if (data.raw.item["pipe"].icons ~= nil) then
 label_icon("pipe", 1, "grey")
 label_icon("pipe-to-ground", 1, "grey")
-
+end
 
 data.raw["pump"]["pump"].localised_name = {"entity-name.nullius-pump-3"}
 data.raw["pump"]["pump"].localised_description = {"entity-description.nullius-pump-3"}
@@ -813,6 +861,7 @@ data.raw.item["pump"].order = "nullius-bd"
 data.raw["pump"]["pump"].energy_source.drain = nil
 data.raw["pump"]["pump"].energy_usage = "30kW"
 data.raw["pump"]["pump"].max_health = 250
+data.raw["pump"]["pump"].minable.mining_time = 1
 data.raw["pump"]["pump"].resistances = {
   { type = "impact", decrease = 100, percent = 90 },
   { type = "fire", decrease = 20, percent = 50 }

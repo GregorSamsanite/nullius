@@ -316,3 +316,8 @@ if data.raw['double-setting']['fuel-consumption-per-meter'] then
    data.raw['double-setting']['fuel-consumption-per-meter'].default_value = 0.06
    data.raw['double-setting']['fuel-consumption-per-meter'].allowed_values = {0.06}
 end
+
+if data.raw['bool-setting']['miniloader-snapping'] then
+   data.raw['bool-setting']['miniloader-snapping'].hidden = true
+   data.raw['bool-setting']['miniloader-snapping'].forced_value = false
+end

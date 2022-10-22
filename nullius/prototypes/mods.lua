@@ -121,7 +121,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-sensor", "nullius-mass-production-2"}
+    prerequisites = {"nullius-checkpoint-sensor", "nullius-mass-production-3"}
   }
 })
 end
@@ -899,10 +899,10 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {"underground-L-t2-pipe", 1},
-      {"nullius-underground-pipe-3", 2}
+      {"nullius-underground-pipe-3", 3}
     },
     result = "underground-L-t3-pipe"
   },
@@ -912,10 +912,10 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {"underground-t-t2-pipe", 1},
-      {"nullius-underground-pipe-3", 3}
+      {"nullius-underground-pipe-3", 4}
     },
     result = "underground-t-t3-pipe"
   },
@@ -991,7 +991,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 6,
     ingredients = {
       {"underground-i-t3-pipe", 1},
       {"nullius-hard-glass", 1},
@@ -1005,7 +1005,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
       {"underground-L-t3-pipe", 1},
       {"nullius-hard-glass", 1},
@@ -1019,7 +1019,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {"underground-t-t3-pipe", 1},
       {"nullius-hard-glass", 1},
@@ -1033,7 +1033,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
-    energy_required = 3,
+    energy_required = 8,
     ingredients = {
       {"underground-L-pipe", 2},
       {"nullius-underground-pipe-4", 1}
@@ -1046,7 +1046,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 10,
+    energy_required = 12,
     ingredients = {
       {"nullius-small-pump-2", 3},
       {"underground-i-pipe", 2}
@@ -1104,7 +1104,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-mass-production-2"}
+    prerequisites = {"nullius-mass-production-3"}
   },
   {
     type = "technology",
@@ -1944,7 +1944,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-pressure-containment", "nullius-mass-production-3"}
+    prerequisites = {"nullius-pressure-containment", "nullius-mass-production-4"}
   }
 })
 
@@ -2138,6 +2138,12 @@ data:extend({
     name = "nullius-renai-ramp",
     group = "logistics",
     order = "grb"
+  },
+  {
+    type = "item-subgroup",
+    name = "nullius-renai-zipline",
+    group = "logistics",
+    order = "grc"
   },
   {
     type = "recipe",
@@ -2399,6 +2405,67 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-zipline-trolley-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"RTZiplineItem", 2},
+	  {"nullius-motor-2", 3},
+	  {"nullius-steel-cable", 10}
+    },
+    result = "RTZiplineItem2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-zipline-trolley-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 12,
+    ingredients = {
+      {"RTZiplineItem2", 1},
+	  {"nullius-locomotive-2", 1},
+	  {"nullius-textile", 8},
+	  {"nullius-speed-module-2", 1}
+    },
+    result = "RTZiplineItem3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-zipline-trolley-4",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 25,
+    ingredients = {
+      {"RTZiplineItem3", 1},
+	  {"nullius-motor-3", 4},
+	  {"nullius-carbon-composite", 12},
+	  {"nullius-bearing", 12},
+	  {"nullius-levitation-field-1", 2}
+    },
+    result = "RTZiplineItem4"
+  },
+  {
+    type = "recipe",
+    name = "nullius-zipline-trolley-5",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 50,
+    ingredients = {
+      {"RTZiplineItem4", 2},
+	  {"nullius-locomotive-3", 1},
+	  {"nullius-titanium-rod", 6},
+	  {"nullius-speed-module-3", 3},
+	  {"nullius-stabilizer-1", 2}
+    },
+    result = "RTZiplineItem5"
+  },
+  {
+    type = "recipe",
     name = "nullius-zipline-control",
     enabled = false,
     always_show_made_in = true,
@@ -2423,6 +2490,36 @@ data:extend({
 	  {"nullius-steel-gear", 2}
     },
     result = "RTZiplineCrankControlsItem"
+  },
+  {
+    type = "recipe",
+    name = "nullius-zipline-smart-control",
+    enabled = false,
+    always_show_made_in = true,
+    category = "tiny-crafting",
+    energy_required = 5,
+    ingredients = {
+      {"RTZiplineControlsItem", 1},
+	  {"nullius-speed-module-1", 1},
+	  {"programmable-speaker", 1},
+	  {"nullius-sensor-1", 1}
+    },
+    result = "RTProgrammableZiplineControlsItem"
+  },
+  {
+    type = "recipe",
+    name = "nullius-zipline-terminal",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 15,
+    ingredients = {
+      {"RTProgrammableZiplineControlsItem", 1},
+	  {"train-stop", 1},
+	  {"nullius-steel-cable", 12},
+	  {"big-electric-pole", 1}
+    },
+    result = "RTZiplineTerminalItem"
   },
   {
     type = "recipe",
@@ -2690,7 +2787,7 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-ziplining",
+    name = "nullius-ziplining-1",
     localised_description = {"technology-description.RTZiplineTech"},
     order = "nullius-dd",
 	icon = "__RenaiTransportation__/graphics/zipline/controls.png",
@@ -2722,6 +2819,111 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-ziplining-2",
+    localised_description = {"technology-description.RTZiplineTech"},
+    order = "nullius-dm",
+	icon = "__RenaiTransportation__/graphics/zipline/terminaltech.png",
+	icon_size = 128,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-trolley-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-terminal"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-smart-control"
+      }
+    },
+    unit = {
+      count = 300,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+  },
+  {
+    type = "technology",
+    name = "nullius-ziplining-3",
+    localised_description = {"technology-description.RTZiplineTech"},
+    order = "nullius-em",
+	icon = "__RenaiTransportation__/graphics/zipline/icon.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-trolley-3"
+      }
+    },
+    unit = {
+      count = 600,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		{"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-freight-transportation-2",
+	    "nullius-inserter-capacity-1", "nullius-optimization-4"}
+  },
+  {
+    type = "technology",
+    name = "nullius-ziplining-4",
+    localised_description = {"technology-description.RTZiplineTech"},
+    order = "nullius-fh",
+	icon = "__RenaiTransportation__/graphics/zipline/autocontrols.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-trolley-4"
+      }
+    },
+    unit = {
+      count = 1500,
+      ingredients = {
+        {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 1}
+      },
+      time = 45
+    },
+    prerequisites = {"nullius-mechanical-engineering-2", "nullius-locomotion-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-ziplining-5",
+    localised_description = {"technology-description.RTZiplineTech"},
+    order = "nullius-gd",
+	icon = "__RenaiTransportation__/graphics/zipline/controls.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-zipline-trolley-5"
+      }
+    },
+    unit = {
+      count = 5000,
+      ingredients = {
+        {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 1}, {"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-checkpoint-cybernetics"}
+  },
+
+  {
+    type = "technology",
     name = "nullius-freight-ballistics-1",
     order = "nullius-dm",
 	icon = "__RenaiTransportation__/graphics/tech/FlyingFreight.png",
@@ -2740,7 +2942,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-braking-1", "nullius-logistic-ballistics-6"}
+    prerequisites = {"nullius-braking-1", "nullius-ziplining-2"}
   },
   {
     type = "technology",

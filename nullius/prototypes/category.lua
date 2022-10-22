@@ -373,15 +373,21 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "demolitions",
+    name = "coprocessors",
     group = "equipment",
-    order = "fb"
+    order = "eo"
   },
   {
     type = "item-subgroup",
     name = "jetpack",
     group = "equipment",
-    order = "ej"
+    order = "et"
+  },
+  {
+    type = "item-subgroup",
+    name = "demolitions",
+    group = "equipment",
+    order = "fb"
   },
   {
     type = "item-subgroup",

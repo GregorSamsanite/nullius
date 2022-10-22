@@ -39,7 +39,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-solar-panel-1"},
     icons = data.raw.item["nullius-solar-panel-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-solar-panel-1"},
+    minable = {mining_time = 0.4, result = "nullius-solar-panel-1"},
     max_health = 300,
     corpse = "solar-panel-remnants",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
@@ -97,7 +97,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-solar-panel-2"},
     icons = data.raw.item["nullius-solar-panel-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-solar-panel-2"},
+    minable = {mining_time = 0.6, result = "nullius-solar-panel-2"},
     max_health = 350,
     corpse = "solar-panel-remnants",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
@@ -131,7 +131,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-solar-panel-3"},
     icons = data.raw.item["nullius-solar-panel-3"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-solar-panel-3"},
+    minable = {mining_time = 0.8, result = "nullius-solar-panel-3"},
     max_health = 400,
     corpse = "solar-panel-remnants",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
@@ -164,7 +164,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-solar-panel-4"},
     icons = data.raw.item["nullius-solar-panel-4"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-solar-panel-4"},
+    minable = {mining_time = 1, result = "nullius-solar-panel-4"},
     max_health = 500,
     corpse = "solar-panel-remnants",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
@@ -196,7 +196,7 @@ data:extend({
     name = "nullius-grid-battery-1",
     icons = data.raw.item["nullius-grid-battery-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-grid-battery-1"},
+    minable = {mining_time = 0.6, result = "nullius-grid-battery-1"},
     max_health = 200,
     corpse = "accumulator-remnants",
     fast_replaceable_group = "grid-battery",
@@ -262,7 +262,7 @@ data:extend({
     name = "nullius-grid-battery-2",
     icons = data.raw.item["nullius-grid-battery-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-grid-battery-2"},
+    minable = {mining_time = 0.9, result = "nullius-grid-battery-2"},
     max_health = 300,
     corpse = "accumulator-remnants",
     fast_replaceable_group = "grid-battery",
@@ -328,7 +328,7 @@ data:extend({
     name = "nullius-grid-battery-3",
     icons = data.raw.item["nullius-grid-battery-3"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-grid-battery-3"},
+    minable = {mining_time = 1.2, result = "nullius-grid-battery-3"},
     max_health = 400,
     corpse = "accumulator-remnants",
     fast_replaceable_group = "grid-battery",
@@ -394,7 +394,7 @@ data:extend({
     icons = data.raw.item["nullius-combustion-chamber-1"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-combustion-chamber-1"},
+    minable = {mining_time = 0.6, result = "nullius-combustion-chamber-1"},
     crafting_categories = { "combustion" },
     crafting_speed = 1,
     max_health = 200,
@@ -721,7 +721,7 @@ data:extend({
     icons = data.raw.item["nullius-combustion-chamber-2"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-combustion-chamber-2"},
+    minable = {mining_time = 0.9, result = "nullius-combustion-chamber-2"},
     crafting_categories = { "combustion" },
     crafting_speed = 2.5,
     base_productivity = 0.02,
@@ -945,7 +945,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-combustion-chamber-2"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-mirror-combustion-chamber-2"},
+    minable = {mining_time = 0.9, result = "nullius-mirror-combustion-chamber-2"},
     crafting_categories = { "combustion" },
     crafting_speed = 2.5,
     base_productivity = 0.02,
@@ -1005,7 +1005,7 @@ data:extend({
     icons = data.raw.item["nullius-combustion-chamber-3"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-combustion-chamber-3"},
+    minable = {mining_time = 1.2, result = "nullius-combustion-chamber-3"},
     crafting_categories = { "combustion" },
     crafting_speed = 6,
     base_productivity = 0.04,
@@ -1182,7 +1182,7 @@ data:extend({
     icons = data.raw.item["nullius-mirror-combustion-chamber-3"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-mirror-combustion-chamber-3"},
+    minable = {mining_time = 1.2, result = "nullius-mirror-combustion-chamber-3"},
     crafting_categories = { "combustion" },
     crafting_speed = 6,
     base_productivity = 0.04,
@@ -1207,7 +1207,7 @@ data:extend({
     icons = data.raw.item["nullius-backup-turbine-1"].icons,
     localised_description = {"entity-description.nullius-backup-turbine"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-backup-turbine-1"},
+    minable = {mining_time = 0.8, result = "nullius-backup-turbine-1"},
     max_health = 300,
     corpse = "steam-turbine-remnants",
     dying_explosion = "medium-explosion",
@@ -1331,7 +1331,7 @@ data:extend({
     icons = data.raw.item["nullius-backup-turbine-2"].icons,
     localised_description = {"entity-description.nullius-backup-turbine"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-backup-turbine-2"},
+    minable = {mining_time = 1.2, result = "nullius-backup-turbine-2"},
     max_health = 400,
     corpse = "steam-turbine-remnants",
     dying_explosion = "medium-explosion",
@@ -1376,7 +1376,7 @@ data:extend({
     icons = data.raw.item["nullius-backup-turbine-3"].icons,
     localised_description = {"entity-description.nullius-backup-turbine"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-backup-turbine-3"},
+    minable = {mining_time = 1.6, result = "nullius-backup-turbine-3"},
     max_health = 500,
     corpse = "steam-turbine-remnants",
     dying_explosion = "medium-explosion",
@@ -1446,7 +1446,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-turbine-1"].icons,
     localised_description = {"entity-description.nullius-priority-turbine"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-priority-turbine-1"},
+    minable = {mining_time = 1.2, result = "nullius-priority-turbine-1"},
     max_health = 400,
     corpse = "steam-turbine-remnants",
     dying_explosion = "medium-explosion",
@@ -1485,7 +1485,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-turbine-2"].icons,
     localised_description = {"entity-description.nullius-priority-turbine"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-priority-turbine-2"},
+    minable = {mining_time = 1.6, result = "nullius-priority-turbine-2"},
     max_health = 500,
     corpse = "steam-turbine-remnants",
     dying_explosion = "medium-explosion",
@@ -1576,7 +1576,7 @@ data:extend({
     icons = data.raw.item["nullius-surge-compressor-1"].icons,
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-compressor-1"},
+    minable = {mining_time = 0.8, result = "nullius-surge-compressor-1"},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-surge-compressor-2",
     max_health = 200,
@@ -1720,7 +1720,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-compressor-1"].icons,
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-compressor-1"},
+    minable = {mining_time = 0.8, result = "nullius-priority-compressor-1"},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-priority-compressor-2",
     max_health = 200,
@@ -1842,7 +1842,7 @@ data:extend({
     icons = data.raw.item["nullius-surge-compressor-2"].icons,
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-compressor-2"},
+    minable = {mining_time = 1.2, result = "nullius-surge-compressor-2"},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-surge-compressor-3",
     max_health = 250,
@@ -1985,7 +1985,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-compressor-2"].icons,
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-compressor-2"},
+    minable = {mining_time = 1.2, result = "nullius-priority-compressor-2"},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-priority-compressor-3",
     max_health = 250,
@@ -2073,7 +2073,7 @@ data:extend({
     icons = data.raw.item["nullius-surge-compressor-3"].icons,
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-compressor-3"},
+    minable = {mining_time = 1.6, result = "nullius-surge-compressor-3"},
     fast_replaceable_group = "compressor",
     max_health = 300,
     corpse = "big-remnants",
@@ -2211,7 +2211,7 @@ data:extend({
     icons = data.raw.item["nullius-priority-compressor-3"].icons,
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-compressor-3"},
+    minable = {mining_time = 1.6, result = "nullius-priority-compressor-3"},
     fast_replaceable_group = "compressor",
     max_health = 300,
     corpse = "big-remnants",
@@ -2314,7 +2314,7 @@ data:extend({
     name = "nullius-geothermal-build-1",
     icons = data.raw.item["nullius-geothermal-plant-1"].icons,
     flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-1" },
+    minable = { mining_time = 1.8, result = "nullius-geothermal-plant-1" },
     resource_categories = {"basic-fluid"},
     max_health = 500,
     corpse = "big-remnants",
@@ -2357,7 +2357,7 @@ data:extend({
     name = "nullius-geothermal-build-2",
     icons = data.raw.item["nullius-geothermal-plant-2"].icons,
     flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-2" },
+    minable = { mining_time = 2.4, result = "nullius-geothermal-plant-2" },
     resource_categories = {"basic-fluid"},
     max_health = 600,
     corpse = "big-remnants",
@@ -2400,7 +2400,7 @@ data:extend({
     name = "nullius-geothermal-build-3",
     icons = data.raw.item["nullius-geothermal-plant-3"].icons,
     flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-3" },
+    minable = { mining_time = 3, result = "nullius-geothermal-plant-3" },
     resource_categories = {"basic-fluid"},
     max_health = 750,
     corpse = "big-remnants",
@@ -2442,7 +2442,7 @@ data:extend({
     name = "nullius-geothermal-reactor-1",
     icons = data.raw.item["nullius-geothermal-plant-1"].icons,
     flags = {"placeable-neutral", "player-creation", "not-blueprintable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-1" },
+    minable = { mining_time = 1.8, result = "nullius-geothermal-plant-1" },
     placeable_by = {item = "nullius-geothermal-plant-1", count = 1},
     max_health = 500,
     corpse = "big-remnants",
@@ -2500,7 +2500,7 @@ data:extend({
     name = "nullius-geothermal-reactor-2",
     icons = data.raw.item["nullius-geothermal-plant-2"].icons,
     flags = {"placeable-neutral", "player-creation", "not-blueprintable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-2" },
+    minable = { mining_time = 2.4, result = "nullius-geothermal-plant-2" },
     placeable_by = {item = "nullius-geothermal-plant-2", count = 1},
     max_health = 600,
     corpse = "big-remnants",
@@ -2549,7 +2549,7 @@ data:extend({
     name = "nullius-geothermal-reactor-3",
     icons = data.raw.item["nullius-geothermal-plant-3"].icons,
     flags = {"placeable-neutral", "player-creation", "not-blueprintable"},
-    minable = { mining_time = 1, result = "nullius-geothermal-plant-3" },
+    minable = { mining_time = 3, result = "nullius-geothermal-plant-3" },
     placeable_by = {item = "nullius-geothermal-plant-3", count = 1},
     max_health = 750,
     corpse = "big-remnants",
@@ -2634,7 +2634,7 @@ data:extend({
     name = "nullius-heat-pipe-1",
     icons = data.raw.item["nullius-heat-pipe-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-heat-pipe-1"},
+    minable = {mining_time = 0.3, result = "nullius-heat-pipe-1"},
     max_health = 100,
     fast_replaceable_group = "heat-pipe",
     next_upgrade = "nullius-heat-pipe-2",
@@ -2711,7 +2711,7 @@ data:extend({
     name = "nullius-heat-pipe-2",
     icons = data.raw.item["nullius-heat-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-heat-pipe-2"},
+    minable = {mining_time = 0.5, result = "nullius-heat-pipe-2"},
     max_health = 150,
     fast_replaceable_group = "heat-pipe",
     next_upgrade = "nullius-heat-pipe-3",
@@ -2788,7 +2788,7 @@ data:extend({
     name = "nullius-heat-pipe-3",
     icons = data.raw.item["nullius-heat-pipe-3"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.1, result = "nullius-heat-pipe-3"},
+    minable = {mining_time = 0.7, result = "nullius-heat-pipe-3"},
     max_health = 200,
     fast_replaceable_group = "heat-pipe",
     corpse = "heat-pipe-remnants",
@@ -2949,7 +2949,7 @@ data:extend({
     localised_description = {"entity-description.nullius-thermal-tank-2"},
     icons = data.raw.item["nullius-thermal-tank-2"].icons,
     flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable"},
-    minable = { mining_time = 1, result = "nullius-thermal-tank-2" },
+    minable = { mining_time = 1.5, result = "nullius-thermal-tank-2" },
     placeable_by = {item = "nullius-thermal-tank-2", count = 1},
     subgroup = "heat-storage",
     order = "ucc",
@@ -3038,7 +3038,7 @@ data:extend({
     localised_description = {"entity-description.nullius-thermal-tank-3"},
     icons = data.raw.item["nullius-thermal-tank-3"].icons,
     flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable"},
-    minable = { mining_time = 1, result = "nullius-thermal-tank-3" },
+    minable = { mining_time = 2, result = "nullius-thermal-tank-3" },
     placeable_by = {item = "nullius-thermal-tank-3", count = 1},
     subgroup = "heat-storage",
     order = "ucd",
@@ -3363,7 +3363,7 @@ data:extend({
     name = "nullius-stirling-engine-1",
     icons = data.raw.item["nullius-stirling-engine-1"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-stirling-engine-1"},
+    minable = {mining_time = 1.2, result = "nullius-stirling-engine-1"},
     max_health = 400,
     fast_replaceable_group = "stirling-engine",
     next_upgrade = "nullius-stirling-engine-2",
@@ -3460,7 +3460,7 @@ data:extend({
     name = "nullius-stirling-engine-2",
     icons = data.raw.item["nullius-stirling-engine-2"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-stirling-engine-2"},
+    minable = {mining_time = 1.5, result = "nullius-stirling-engine-2"},
     max_health = 500,
     fast_replaceable_group = "stirling-engine",
     next_upgrade = "nullius-stirling-engine-3",
@@ -3557,7 +3557,7 @@ data:extend({
     name = "nullius-stirling-engine-3",
     icons = data.raw.item["nullius-stirling-engine-3"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.3, result = "nullius-stirling-engine-3"},
+    minable = {mining_time = 1.8, result = "nullius-stirling-engine-3"},
     max_health = 600,
     fast_replaceable_group = "stirling-engine",
     dying_explosion = "medium-explosion",
@@ -4116,7 +4116,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 2, result = "nullius-reactor"},
+    minable = {mining_time = 4, result = "nullius-reactor"},
     max_health = 500,
     corpse = "nuclear-reactor-remnants",
     dying_explosion = "nuclear-reactor-explosion",
@@ -4172,7 +4172,7 @@ data:extend({
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 1},
     icons = data.raw.item["nullius-solar-collector-1"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-solar-collector-1"},
+    minable = {mining_time = 1.2, result = "nullius-solar-collector-1"},
     fast_replaceable_group = "solar-collector",
     next_upgrade = "nullius-solar-collector-2",
     max_health = 250,
@@ -4250,7 +4250,7 @@ data:extend({
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 2},
     icons = data.raw.item["nullius-solar-collector-2"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-solar-collector-2"},
+    minable = {mining_time = 1.8, result = "nullius-solar-collector-2"},
     fast_replaceable_group = "solar-collector",
     next_upgrade = "nullius-solar-collector-3",
     max_health = 300,
@@ -4328,7 +4328,7 @@ data:extend({
     localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", 3},
     icons = data.raw.item["nullius-solar-collector-3"].icons,
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.2, result = "nullius-solar-collector-3"},
+    minable = {mining_time = 2.4, result = "nullius-solar-collector-3"},
     fast_replaceable_group = "solar-collector",
     max_health = 400,
     corpse = "solar-panel-remnants",
@@ -4404,7 +4404,7 @@ data:extend({
     localised_name = {"", {"entity-name.heat-exchanger"}, " ", 1},
     localised_description = {"entity-description.heat-exchanger"},
     icons = data.raw.item["nullius-heat-exchanger-1"].icons,
-    minable = {mining_time = 0.2, result = "nullius-heat-exchanger-1"},
+    minable = {mining_time = 0.6, result = "nullius-heat-exchanger-1"},
     flags = {"placeable-neutral", "player-creation"},
     crafting_categories = { "boiling" },
     crafting_speed = 1,
@@ -4470,12 +4470,12 @@ ex1m.localised_name = {"entity-name.nullius-mirrored",
 ex1m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex1m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 ex1m.icons = data.raw.item["nullius-mirror-heat-exchanger-1"].icons
-ex1m.minable = {mining_time = 0.2, result = "nullius-mirror-heat-exchanger-1"}
+ex1m.minable = {mining_time = 0.6, result = "nullius-mirror-heat-exchanger-1"}
 local ex2 = util.table.deepcopy(ex1)
 ex2.name = "nullius-heat-exchanger-2"
 ex2.localised_name = {"", {"entity-name.heat-exchanger"}, " ", 2}
 ex2.icons = data.raw.item["nullius-heat-exchanger-2"].icons
-ex2.minable = {mining_time = 0.2, result = "nullius-heat-exchanger-2"}
+ex2.minable = {mining_time = 0.8, result = "nullius-heat-exchanger-2"}
 ex2.crafting_speed = 5
 ex2.max_health = 300
 ex2.energy_source.max_temperature = 400
@@ -4498,7 +4498,7 @@ ex2m.name = "nullius-mirror-heat-exchanger-2"
 ex2m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 2}}
 ex2m.icons = data.raw.item["nullius-mirror-heat-exchanger-2"].icons
-ex2m.minable = {mining_time = 0.2, result = "nullius-mirror-heat-exchanger-2"}
+ex2m.minable = {mining_time = 0.8, result = "nullius-mirror-heat-exchanger-2"}
 ex2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex2m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 
@@ -4506,7 +4506,7 @@ local ex3 = util.table.deepcopy(ex1)
 ex3.name = "nullius-heat-exchanger-3"
 ex3.localised_name = {"", {"entity-name.heat-exchanger"}, " ", 3}
 ex3.icons = data.raw.item["nullius-heat-exchanger-3"].icons
-ex3.minable = {mining_time = 0.3, result = "nullius-heat-exchanger-3"}
+ex3.minable = {mining_time = 1, result = "nullius-heat-exchanger-3"}
 ex3.crafting_speed = 12
 ex3.max_health = 500
 ex3.crafting_categories = { "boiling", "pressure-boiling" }
@@ -4531,7 +4531,7 @@ ex3m.name = "nullius-mirror-heat-exchanger-3"
 ex3m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 3}}
 ex3m.icons = data.raw.item["nullius-mirror-heat-exchanger-3"].icons
-ex3m.minable = {mining_time = 0.3, result = "nullius-mirror-heat-exchanger-3"}
+ex3m.minable = {mining_time = 1, result = "nullius-mirror-heat-exchanger-3"}
 ex3m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex3m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 ex1.next_upgrade = "nullius-heat-exchanger-2"
@@ -4543,7 +4543,7 @@ boil.name = "nullius-boiler"
 boil.localised_name = {"entity-name.boiler"}
 boil.localised_description = {"entity-description.nullius-boiler"}
 boil.icons = data.raw.item["nullius-boiler"].icons
-boil.minable = {mining_time = 0.2, result = "nullius-boiler"}
+boil.minable = {mining_time = 1, result = "nullius-boiler"}
 boil.crafting_speed = 2
 boil.energy_source = {
   type = "electric",
@@ -4614,7 +4614,7 @@ boilm.localised_name = {"entity-name.nullius-mirrored", {"entity-name.boiler"}}
 boilm.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 boilm.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 boilm.icons = data.raw.item["nullius-mirror-boiler"].icons
-boilm.minable = {mining_time = 0.2, result = "nullius-mirror-boiler"}
+boilm.minable = {mining_time = 1, result = "nullius-mirror-boiler"}
 data:extend({ boil, boilm})
 
 

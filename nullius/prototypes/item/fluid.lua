@@ -309,7 +309,7 @@ data:extend({
       {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
       {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 30,
+	localised_description = {"fluid-description.nullius-oxygen-reduction", 50,
 	    {"fluid-description.nullius-carbon-monoxide"}},
     subgroup = "carbon",
     order = "nullius-c",
@@ -327,7 +327,7 @@ data:extend({
       {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
       {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 100,
+	localised_description = {"fluid-description.nullius-oxygen-reduction", 200,
 	    {"fluid-description.nullius-methane"}},
     subgroup = "carbon",
     order = "nullius-d",
@@ -665,8 +665,6 @@ data:extend({
     icons = angelsmods.functions.create_gas_fluid_icon(nil,
       {element_tint["heavy"], element_tint["heavy"], element_tint["heavy"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 50,
-	    {"fluid-description.nullius-tritium"}},
     subgroup = "inorganic-chemistry",
     order = "nullius-bd",
     base_color = {r = 1, g = 0.9, b = 0.7},
@@ -840,7 +838,7 @@ data:extend({
       {"__angelspetrochem__/graphics/icons/molecules/ammonia.png", 72 },
       {element_tint["nitrogen"], element_tint["hydrogen"], element_tint["hydrogen"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 80,
+	localised_description = {"fluid-description.nullius-oxygen-reduction", 100,
 	    {"fluid-description.nullius-ammonia"}},
     subgroup = "acid-chemistry",
     order = "nullius-j",
@@ -1013,7 +1011,7 @@ data:extend({
       {"__angelspetrochem__/graphics/icons/molecules/carbon-monoxide.png", 72 },
       {element_tint["carbon"], element_tint["carbon"], element_tint["oxygen"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 120,
+	localised_description = {"fluid-description.nullius-oxygen-reduction", 200,
 	    {"fluid-description.nullius-compressed-carbon-monoxide"}},
     subgroup = "compression",
     order = "nullius-k",
@@ -1031,7 +1029,7 @@ data:extend({
       {"__angelspetrochem__/graphics/icons/molecules/methane.png", 72 },
       {element_tint["carbon"], element_tint["hydrogen"], element_tint["hydrogen"]}
     ),
-	localised_description = {"fluid-description.nullius-oxygen-reduction", 400,
+	localised_description = {"fluid-description.nullius-oxygen-reduction", 800,
 	    {"fluid-description.nullius-compressed-methane"}},
     subgroup = "compression",
     order = "nullius-l",
@@ -1597,7 +1595,7 @@ data:extend({
       primary = data.raw.fluid["nullius-carbon-dioxide"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
     },
-    energy_required = 8,
+    energy_required = 15,
     ingredients = {
       {type="fluid", name="nullius-carbon-dioxide", amount=80},
       {type="fluid", name="nullius-brine", amount=30},
@@ -1630,7 +1628,7 @@ data:extend({
     order = "nullius-fc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
-    energy_required = 2,
+    energy_required = 5,
     ingredients = {
       {type="item", name="nullius-sodium-sulfate", amount=4},
       {type="item", name="nullius-graphite", amount=3},
@@ -1655,7 +1653,7 @@ data:extend({
     order = "nullius-f",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-sulfur-dioxide"].flow_color },
-    energy_required = 15,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-sodium-sulfate", amount=4},
       {type="item", name="nullius-box-graphite", amount=3},
@@ -1695,7 +1693,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
     },
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="fluid", name="nullius-acid-sulfuric", amount=15, fluidbox_index=1},
       {type="item", name="nullius-salt", amount=2}
@@ -1735,7 +1733,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
     },
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="fluid", name="nullius-acid-sulfuric", amount=75, fluidbox_index=1},
       {type="item", name="nullius-box-salt", amount=2}
@@ -1769,7 +1767,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-caustic-solution"].flow_color
     },
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="fluid", name="nullius-acid-sulfuric", amount=30, fluidbox_index=1},
       {type="item", name="nullius-sodium-hydroxide", amount=5}
@@ -1809,7 +1807,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-caustic-solution"].flow_color
     },
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="fluid", name="nullius-acid-sulfuric", amount=150, fluidbox_index=1},
       {type="item", name="nullius-box-sodium-hydroxide", amount=5}
@@ -2136,7 +2134,7 @@ data:extend({
     enabled = false,
     category = "distillation",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-brine"].flow_color },
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="fluid", name="nullius-brine", amount=40}
     },
@@ -2155,7 +2153,7 @@ data:extend({
     subgroup = "boxed-sodium",
     order = "nullius-bb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-brine"].flow_color },
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="fluid", name="nullius-brine", amount=200}
     },
@@ -2253,7 +2251,7 @@ data:extend({
     enabled = false,
     category = "nullius-electrolysis",
     order = "nullius-db",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-salt", amount=3}
     },
@@ -2288,7 +2286,7 @@ data:extend({
     category = "nullius-electrolysis",
     subgroup = "boxed-sodium",
     order = "nullius-db",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-salt", amount=3}
     },
@@ -2317,7 +2315,7 @@ data:extend({
     enabled = false,
     category = "nullius-electrolysis",
     order = "nullius-dc",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-sodium-hydroxide", amount=4}
     },
@@ -2353,7 +2351,7 @@ data:extend({
     category = "nullius-electrolysis",
     subgroup = "boxed-sodium",
     order = "nullius-dc",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-sodium-hydroxide", amount=4}
     },
@@ -2392,7 +2390,7 @@ data:extend({
     enabled = false,
     category = "nullius-water-treatment",
     crafting_machine_tint = { primary = {0.9, 0.75, 1} },
-    energy_required = 25,
+    energy_required = 32,
     ingredients = {
       {type="fluid", name="nullius-brine", amount=320}
     },
@@ -2412,7 +2410,7 @@ data:extend({
     subgroup = "boxed-sodium",
     order = "nullius-bc",
     crafting_machine_tint = { primary = {0.95, 0.8, 1} },
-    energy_required = 125,
+    energy_required = 160,
     ingredients = {
       {type="fluid", name="nullius-brine", amount=1600}
     },
@@ -2429,7 +2427,7 @@ data:extend({
     name = "nullius-lithium",
     enabled = false,
     category = "nullius-electrolysis",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-lithium-chloride", amount=2}
     },
@@ -2445,7 +2443,7 @@ data:extend({
     enabled = false,
     category = "nullius-electrolysis",
     subgroup = "boxed-sodium",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-lithium-chloride", amount=2}
     },
@@ -2532,14 +2530,68 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-oxygen-separation",
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["oxygen"], element_tint["carbon"], element_tint["residual"]},
+      nil
+    ),
+    enabled = false,
+    allow_decomposition = false,
+    category = "distillation",
+    subgroup = "air-filtration",
+    order = "nullius-cob",
+	crafting_machine_tint = { primary = data.raw.fluid["nullius-nitrogen"].flow_color },
+    energy_required = 4,
+    ingredients = {
+      {type="fluid", name="nullius-air", amount=400}
+    },
+    results = {
+      {type="fluid", name="nullius-oxygen", amount=100},
+      {type="fluid", name="nullius-residual-gas", amount=12},
+      {type="fluid", name="nullius-carbon-dioxide", amount=80}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-pressure-oxygen-separation",
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png", 72}},
+      {element_tint["oxygen"], element_tint["carbon"], element_tint["residual"]},
+      nil
+    ),
+    enabled = false,
+    allow_decomposition = false,
+    category = "distillation",
+    subgroup = "air-filtration",
+    order = "nullius-coc",
+	crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-nitrogen"].flow_color },
+    energy_required = 3,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-air", amount=180}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-oxygen", amount=50},
+      {type="fluid", name="nullius-compressed-residual-gas", amount=6},
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=40}
+    }
+  },
+  {
+    type = "recipe",
     name = "nullius-residual-gas",
     localised_name = {"fluid-name.nullius-residual-gas"},
+    icons = angelsmods.functions.create_liquid_recipe_icon(nil,
+      {element_tint["residual"], element_tint["air"], element_tint["residual"]},
+      nil
+    ),
     enabled = false,
 	allow_decomposition = false,
     allow_as_intermediate = false,
     category = "distillation",
     subgroup = "air-filtration",
-    order = "nullius-ce",
+    order = "nullius-cr",
     crafting_machine_tint = { primary = {r = 77, g = 160, b = 244} },
     energy_required = 1,
     ingredients = {
@@ -2835,7 +2887,7 @@ data:extend({
     },
     results = {
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=15},
-      {type="fluid", name="nullius-compressed-hydrogen", amount=15}
+      {type="fluid", name="nullius-compressed-hydrogen", amount=10}
     }
   },
   {
@@ -2983,11 +3035,11 @@ data:extend({
     order = "nullius-cc",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=40}
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=100}
     },
     results = {
-      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=40},
-      {type="fluid", name="nullius-compressed-oxygen", amount=20}
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=80},
+      {type="fluid", name="nullius-compressed-oxygen", amount=60}
     }
   },
 
@@ -5010,7 +5062,7 @@ data:extend({
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
     },
-    energy_required = 30,
+    energy_required = 40,
     ingredients = {
       {type="item", name="processed-fuel", amount=1},
       {type="fluid", name="nullius-ammonia", amount=240},
@@ -5040,7 +5092,7 @@ data:extend({
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
     },
-    energy_required = 150,
+    energy_required = 200,
     ingredients = {
       {type="item", name="nullius-box-methanol-canister", amount=1},
       {type="fluid", name="nullius-ammonia", amount=1200},
@@ -6102,7 +6154,7 @@ data:extend({
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
     },
-    energy_required = 3,
+    energy_required = 6,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=40},
       {type="fluid", name="nullius-oxygen", amount=120},
@@ -6140,7 +6192,7 @@ data:extend({
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
     },
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=24},
       {type="fluid", name="nullius-compressed-oxygen", amount=18},
@@ -6164,7 +6216,7 @@ data:extend({
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
     },
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=200},
       {type="fluid", name="nullius-oxygen", amount=600},
@@ -6208,7 +6260,7 @@ data:extend({
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
     },
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=120},
       {type="fluid", name="nullius-compressed-oxygen", amount=90},
@@ -6587,7 +6639,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 3,
+    energy_required = 8,
     ingredients = {
       {type="item", name="nullius-crushed-limestone", amount=2},
       {type="item", name="nullius-soda-ash", amount=3},
@@ -6611,7 +6663,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
     },
-    energy_required = 15,
+    energy_required = 40,
     ingredients = {
       {type="item", name="nullius-box-crushed-limestone", amount=2},
       {type="item", name="nullius-box-soda-ash", amount=3},

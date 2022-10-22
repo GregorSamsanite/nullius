@@ -851,7 +851,7 @@ data:extend({
       {
         icon = ICONPATH .. "algae.png",
         icon_size = 64,
-        scale = 0.4,
+        scale = 0.4
       }
     },
     subgroup = "biology-algae",
@@ -970,6 +970,47 @@ data:extend({
       {type="item", name="nullius-cellulose", amount=1}
     },
     main_product = "nullius-algae-spore"
+  },
+  {
+    type = "recipe",
+    name = "nullius-algae-spore-disposal",
+    localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-algae-spore"}},
+    icons = {
+      {
+        icon = FLUIDPATH .. "wastewater.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = ICONPATH .. "protocell.png",
+        icon_size = 64,
+        tint = {1, 1, 1, 0.8},
+        scale = 0.4,
+        shift = {-8, -4}
+      },
+      {
+        icon = ICONPATH .. "algae.png",
+        icon_size = 64,
+        scale = 0.32,
+        shift = {-8, -4}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "bio-harvesting",
+	subgroup = "biology-algae",
+    order = "nullius-ed",
+    energy_required = 1,
+    ingredients = {
+      {type="item", name="nullius-algae-spore", amount=4},
+	  {type="fluid", name="nullius-seawater", amount=12}
+    },
+    results = {
+      {type="fluid", name="nullius-wastewater", amount=18}
+    },
+    main_product = "nullius-wastewater"
   },
   {
     type = "recipe",

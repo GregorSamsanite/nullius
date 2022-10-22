@@ -71,7 +71,7 @@ for i=1,3 do
       name = "nullius-wind-build-"..i,
       icons = data.raw.item["nullius-wind-turbine-"..i].icons,
       flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
-      minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
+      minable = {mining_time = (i + 1), result = "nullius-wind-turbine-"..i},
       max_health = 800*scale,
       corpse = "medium-remnants",
       resistances = {
@@ -152,7 +152,7 @@ for i=1,3 do
       icon = ENTICONPATH .. "windturbine"..i..".png",
       icon_size = 64,
       flags = {"placeable-neutral","player-creation"},
-      minable = {mining_time = 0.5, result = "nullius-wind-turbine-"..i},
+      minable = {mining_time = (i + 1), result = "nullius-wind-turbine-"..i},
       placeable_by = {item = "nullius-wind-turbine-"..i, count = 1},
       max_health = 800*scale,
       corpse = "big-remnants",

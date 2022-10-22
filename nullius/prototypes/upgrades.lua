@@ -440,7 +440,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-miniaturization-2", "nullius-nitrogen-chemistry-3"},
+    prerequisites = {"nullius-parallel-computing-4"},
     max_level = "infinite",
     upgrade = true
   },
@@ -511,11 +511,11 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.5
+        modifier = 0.25
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.5
+        modifier = 0.25
       },
       {
         type = "character-health-bonus",

@@ -301,19 +301,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-void-tritium",
-    icons = data.raw.fluid["nullius-tritium"].icons,
-    crafting_machine_tint = { primary = data.raw.fluid["nullius-tritium"].flow_color },
-    category = "nullius-gas-void",
-    subgroup = "nullius-gas-void",
-    hide_from_player_crafting = true,
-	hide_from_stats = true,
-    energy_required = 1,
-    ingredients = {{type="fluid", name="nullius-tritium", amount=100}},
-    results = {{type="item", name="nullius-gas-void", amount=1, probability=0}}
-  },
-  {
-    type = "recipe",
     name = "nullius-void-compressed-hydrogen",
     icons = data.raw.fluid["nullius-compressed-hydrogen"].icons,
     crafting_machine_tint = { primary = data.raw.fluid["nullius-compressed-hydrogen"].flow_color },

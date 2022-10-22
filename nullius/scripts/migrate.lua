@@ -154,6 +154,19 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10514) then return end
+  legacy_recipe_all("nullius-artificial-intelligence-1", "android-1")
+  legacy_recipe_all("nullius-artificial-intelligence-2", "android-2")
+  legacy_recipe_all("nullius-traffic-control", "rail-signal")
+  legacy_recipe_all("nullius-mass-production-6", "boxed-rail-signal")
+  added_techs({"nullius-parallel-computing-1", "nullius-parallel-computing-2",
+    "nullius-parallel-computing-3","nullius-parallel-computing-4"})
+
+  if (version >= 10513) then return end
+  legacy_recipe_all("nullius-freight-transportation-1", "cargo-wagon-1")
+  added_techs({"nullius-mass-production-1", "nullius-ziplining-2",
+    "nullius-ziplining-3","nullius-ziplining-4","nullius-ziplining-5"})
+
   if (version >= 10506) then return end
   added_techs({"nullius-personal-storage-3"})
 
