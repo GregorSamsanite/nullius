@@ -875,7 +875,7 @@ data:extend({
     enabled = false,
 	always_show_made_in = true,
     category = "small-crafting",
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {"decider-combinator", 1},
       {"small-lamp", 3},
@@ -908,7 +908,7 @@ data:extend({
 	always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-rail",
-    energy_required = 15,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
       {"nullius-box-lamp-1", 3},

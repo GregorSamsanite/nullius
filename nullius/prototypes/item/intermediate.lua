@@ -2752,7 +2752,7 @@ data:extend({
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-glass",
-    energy_required = 250,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-silica", 5},
       {"nullius-box-alumina", 3},
@@ -4216,7 +4216,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "dry-smelting",
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
       {"nullius-silica", 3}
     },
