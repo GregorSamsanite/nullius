@@ -4540,7 +4540,7 @@ data:extend({ ex1m, ex2, ex2m, ex3, ex3m })
 
 
 boil.name = "nullius-boiler"
-boil.localised_name = {"entity-name.boiler"}
+boil.localised_name = {"", {"entity-name.boiler"}, " ", 1}
 boil.localised_description = {"entity-description.nullius-boiler"}
 boil.icons = data.raw.item["nullius-boiler"].icons
 boil.minable = {mining_time = 1, result = "nullius-boiler"}
@@ -4610,12 +4610,40 @@ boil.working_visualisations = data.raw["assembling-machine"]["nullius-combustion
 
 local boilm = util.table.deepcopy(boil)
 boilm.name = "nullius-mirror-boiler"
-boilm.localised_name = {"entity-name.nullius-mirrored", {"entity-name.boiler"}}
+boilm.localised_name = {"entity-name.nullius-mirrored", {"", {"entity-name.boiler"}, " ", 1}}
 boilm.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 boilm.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 boilm.icons = data.raw.item["nullius-mirror-boiler"].icons
 boilm.minable = {mining_time = 1, result = "nullius-mirror-boiler"}
-data:extend({ boil, boilm})
+
+local boil2 = util.table.deepcopy(boil)
+boil2.name = "nullius-boiler-2"
+boil2.localised_name = {"", {"entity-name.boiler"}, " ", 2}
+boil2.icons = data.raw.item["nullius-boiler-2"].icons
+boil2.minable = {mining_time = 1.5, result = "nullius-boiler-2"}
+boil2.max_health = 500
+boil2.crafting_categories = { "boiling", "pressure-boiling" }
+boil2.crafting_speed = 5
+boil2.energy_source = {
+  type = "electric",
+  usage_priority = "secondary-input",
+  emissions_per_minute = 3,
+  drain = "250kW"
+}
+boil2.energy_usage = "9.75MW"
+boil2.animation.north.layers[1].filename = ENTITYPATH .. "boiler/boiler2-north.png"
+boil2.animation.east.layers[1].filename = ENTITYPATH .. "boiler/boiler2-east.png"
+boil2.animation.south.layers[1].filename = ENTITYPATH .. "boiler/boiler2-south.png"
+boil2.animation.west.layers[1].filename = ENTITYPATH .. "boiler/boiler2-west.png"
+
+local boil2m = util.table.deepcopy(boil)
+boil2m.name = "nullius-mirror-boiler-2"
+boil2m.localised_name = {"entity-name.nullius-mirrored", {"", {"entity-name.boiler"}, " ", 2}}
+boil2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
+boil2m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
+boil2m.icons = data.raw.item["nullius-mirror-boiler-2"].icons
+boil2m.minable.result = "nullius-mirror-boiler-2"
+data:extend({ boil, boilm, boil2, boil2m})
 
 
 if mods["reskins-bobs"] then

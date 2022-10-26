@@ -111,10 +111,12 @@ data.raw.technology["factory-connection-type-circuit"].prerequisites = {
 if mods["factorissimo-2-notnotmelon"] then
 data.raw.technology["factory-connection-type-circuit"].effects =
     {{type = "unlock-recipe", recipe = "nullius-factory-circuit-connector"}}
+data.raw["electric-pole"]["factory-circuit-connector"].minable.mining_time = 0.8
 else
 data.raw.technology["factory-connection-type-circuit"].effects =
     {{type = "unlock-recipe", recipe = "nullius-factory-circuit-input"},
      {type = "unlock-recipe", recipe = "nullius-factory-circuit-output"}}
+data.raw["pump"]["factory-circuit-input"].minable.mining_time = 0.8
 end
 data.raw.technology["factory-connection-type-circuit"].unit = {
     count = 2*factory_mult, time = 30,
@@ -205,7 +207,6 @@ data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.north].fluid_b
 data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.east].fluid_box.height = 2
 data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.west].fluid_box.height = 2
 
-data.raw["electric-pole"]["factory-circuit-connector"].minable.mining_time = 0.8
 data.raw["storage-tank"]["factory-1"].minable.mining_time = 4
 data.raw["storage-tank"]["factory-2"].minable.mining_time = 6
 data.raw["storage-tank"]["factory-3"].minable.mining_time = 8
@@ -1756,4 +1757,9 @@ if (mods["Inventory Sensor"] and mods["crafting_combinator"] and
     mods["stack-combinator"] and
 	(mods["Factorissimo2"] or mods["factorissimo-2-notnotmelon"])) then
   data.raw.item["programmable-speaker"].subgroup = "factorissimo2"
+end
+
+
+if mods["SpidertronPatrols"] then
+table.insert(data.raw.technology["nullius-inserter-capacity-3"].prerequisites,"nullius-sp-spidertron-automation")
 end

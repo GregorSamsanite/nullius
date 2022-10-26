@@ -1,4 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.15
+Date: 25.10.2022
+  Features:
+    - New tier of boiler that makes high pressure steam.  Steam compression.
+    - Add recipe variants using high pressure steam, including desalination 3.
+    - Infinite movement speed research.
+  Balancing:
+    - Increase the effect of artificial intuition research.
+    - Reduce speed of desalination 2 by 20%.
+  Changes:
+    - Move high pressure steam barreling recipe to boiling 4 tech.
+    - Move subgroups of a few recipes in fluid tab to make room for new ones.
+  Graphics:
+    - Restore grass decoratives with newer horticulture drone implementation.
+  Modding:
+    - Hide incompatible mod setting for Filter Chests.
+    - Integrate mechaling research as a tech prereq.
+    - Fix an incompatibility with Factorissimo2 (not the fork version).
+  Info:
+    - Clarify description of mining tool bonus.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.14
 Date: 22.10.2022
   Features:

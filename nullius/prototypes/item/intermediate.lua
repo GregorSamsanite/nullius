@@ -2160,7 +2160,7 @@ data:extend({
     name = "nullius-calcium-chloride-1",
     localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", 1},
     category = "basic-chemistry",
-    subgroup = "inorganic-chemistry",
+    subgroup = "chlorine-chemistry",
     order = "nullius-fb",
     enabled = false,
     always_show_made_in = true,
@@ -2229,7 +2229,7 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "inorganic-chemistry",
+    subgroup = "chlorine-chemistry",
     order = "nullius-fc",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,

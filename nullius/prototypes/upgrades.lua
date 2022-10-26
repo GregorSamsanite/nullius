@@ -706,7 +706,7 @@ data:extend({
     effects = {
       {
         type = "laboratory-productivity",
-        modifier = 0.01
+        modifier = 0.02
       }
     },
     unit = {
@@ -790,5 +790,30 @@ data:extend({
     prerequisites = {"nullius-checkpoint-antimatter", "nullius-inserter-capacity-7"},
     max_level = "infinite",
     upgrade = true
+  },
+  {
+    type = "technology",
+    name = "nullius-locomotion-6",
+    order = "nullius-xc",
+    icon = "__base__/graphics/technology/exoskeleton-equipment.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "character-running-speed",
+        modifier = 0.05
+      }
+    },
+	unit = {
+      count_formula = "250*(2^(L-6))",
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+        {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
+        {"nullius-nematology-pack", 1}, {"nullius-ichthyology-pack", 1},
+        {"nullius-zoology-pack", 2}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-android-2"}
   }
 })

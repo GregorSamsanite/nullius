@@ -321,3 +321,8 @@ if data.raw['bool-setting']['miniloader-snapping'] then
    data.raw['bool-setting']['miniloader-snapping'].hidden = true
    data.raw['bool-setting']['miniloader-snapping'].forced_value = false
 end
+
+if data.raw['string-setting']['fc-chest-mode'] then
+   data.raw['string-setting']['fc-chest-mode'].hidden = true
+   data.raw['string-setting']['fc-chest-mode'].allowed_values = {"modify"}
+end

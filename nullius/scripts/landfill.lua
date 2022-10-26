@@ -1179,6 +1179,40 @@ function grass_area(surface, center, fillsurface)
   end
 
   surface.set_tiles(newtiles)
+  
+  local decor_count = math.floor(((newind + 10) / 100) * (1 + math.random()))
+  local decor_ind = 0
+  local decor_list = { }
+  for _ = 1, decor_count do
+    local t = newtiles[math.floor(1 + (math.random() * newind))]
+    local dname = nil
+    if (t.name == "grass-1") then
+      dname = "green-hairy-grass"
+    elseif (t.name == "grass-2") then
+      local n = math.random()
+      if (n > 0.4) then
+        dname = "green-hairy-grass"
+      else
+	    dname = "brown-hairy-grass"
+      end
+    elseif (t.name == "grass-3") then
+      local n = math.random()
+      if (n > 0.7) then
+        dname = "green-hairy-grass"
+      elseif (n > 0.2) then
+        dname = "brown-hairy-grass"
+      end
+    elseif ((t.name == "grass-4") and (math.random() < 0.5)) then
+      dname = "brown-hairy-grass"
+    end
+    if ((dname ~= nil) and (count_decoratives(surface,
+	    area_bound(t.position, 1.5), 2, nil) < 1)) then
+	  decor_ind = decor_ind + 1
+	  decor_list[decor_ind] = {name=dname, position=t.position, amount=1}
+    end
+  end
+
+  surface.create_decoratives{check_collision=true, decoratives=decor_list}
   return ret
 end
 

@@ -873,6 +873,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "hc",
+    name = "chlorine-chemistry",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
     order = "k",
     name = "compressed-air",
     group = "fluids",

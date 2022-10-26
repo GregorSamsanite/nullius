@@ -4884,7 +4884,7 @@ data:extend({
       icon_size = 64
     }},
     subgroup = "energy-storage",
-    order = "nullius-fb",
+    order = "nullius-fbb",
     place_result = "nullius-boiler",
     stack_size = 50
   },
@@ -4902,8 +4902,38 @@ data:extend({
       }
     },
     subgroup = "energy-storage",
-    order = "nullius-fc",
+    order = "nullius-fbc",
     place_result = "nullius-mirror-boiler",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-boiler-2",
+    icons = {{
+      icon = ENTICONPATH .. "boiler2.png",
+      icon_size = 64
+    }},
+    subgroup = "energy-storage",
+    order = "nullius-fcb",
+    place_result = "nullius-boiler-2",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-mirror-boiler-2",
+    icons = {
+      {
+        icon = ENTICONPATH .. "boiler2.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
+    subgroup = "energy-storage",
+    order = "nullius-fcc",
+    place_result = "nullius-mirror-boiler-2",
     stack_size = 50
   },
   {
@@ -4939,7 +4969,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-unmirror-boiler",
-    localised_name = {"recipe-name.nullius-unmirrored", {"entity-name.boiler"}},
+    localised_name = {"recipe-name.nullius-unmirrored",
+	    {"", {"entity-name.boiler"}, " ", 1}},
     icons = {
       {
         icon = ENTICONPATH .. "boiler-blue.png",
@@ -4966,6 +4997,67 @@ data:extend({
       {"nullius-pipe-2", 1}
     },
     result = "nullius-boiler"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boiler-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-heat-exchanger-3", 1},
+	  {"nullius-boiler", 1},
+      {"nullius-medium-furnace-3", 1}
+    },
+    result = "nullius-boiler-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-mirror-boiler-2",
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+	requester_paste_multiplier = 5,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-boiler-2", 1},
+      {"nullius-pipe-4", 2}
+    },
+    result = "nullius-mirror-boiler-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-unmirror-boiler-2",
+	localised_name = {"recipe-name.nullius-unmirrored",
+	    {"", {"entity-name.boiler"}, " ", 2}},
+    icons = {
+      {
+        icon = ENTICONPATH .. "boiler2.png",
+        icon_size = 64
+      },
+      {
+        icon = ICONPATH .. "flip2.png",
+        icon_size = 64
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    always_show_products = true,
+	requester_paste_multiplier = 2.5,
+    category = "medium-crafting",
+    subgroup = "unmirror-2",
+    order = "nullius-fe",
+    energy_required = 1,
+    ingredients = {
+      {"nullius-mirror-boiler-2", 1},
+      {"nullius-pipe-4", 1}
+    },
+    result = "nullius-boiler-2"
   },
 
   {

@@ -130,6 +130,7 @@ local checkpoint_data = {
   ["breeder-cell"] = {{ CHK_ITEM, STT_CONSUME, 25, {{"nullius-spent-breeder-cell"}} }},
   ["enriched-uranium"] = {{ CHK_ITEM, STT_PRODUCE, 250, {{"nullius-enriched-uranium"}} }},
   ["antimatter"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-antimatter"}} }},
+  ["pressure-steam"] = {{ CHK_FLUID, STT_CONSUME, 5000, {{"nullius-pressure-steam"}} }},
   ["copper-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 1000,
 			{{"nullius-copper-ingot"},{"nullius-box-copper-ingot",5}} }},
   ["processor-3"] = {{ CHK_ITEM, STT_CONSUME, 2000,

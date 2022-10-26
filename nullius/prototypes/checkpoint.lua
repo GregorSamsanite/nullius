@@ -2568,6 +2568,35 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-checkpoint-pressure-steam",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
+	    {"fluid-name.nullius-pressure-steam"}}},
+    localised_description = {"technology-description.nullius-consume",
+	    {"technology-description.nullius-fluid", 5000, "nullius-pressure-steam",
+		    {"fluid-name.nullius-pressure-steam"}}},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = BASEICON .. "steam-turbine.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+	    icon = ICONPATH .. "fluid/steam2.png",
+        icon_size = 64,
+		tint = {0.8, 0.8, 0.8, 0.8}
+      }
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-nuclear-power-2"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
     name = "nullius-checkpoint-copper-ingot",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-copper-ingot"}}},

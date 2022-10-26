@@ -8614,6 +8614,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-high-pressure-chemistry",
+	localised_name = {"", {"technology-name.nullius-high-pressure-chemistry"}, " ", 1},
     order = "nullius-eo",
     icons = angelsmods.functions.create_liquid_fluid_icon(nil,
       {element_tint["carbon"], element_tint["oxygen"], element_tint["oxygen"]}
@@ -11681,9 +11682,8 @@ data:extend({
     type = "technology",
     name = "nullius-boiling-3",
     order = "nullius-fp",
+	icon = ENTICONPATH .. "exchanger3.png",
 	icon_size = 64,
-    icon_mipmaps = 4,
-    icon = ENTICONPATH .. "exchanger3.png",
     effects = {
       {
         type = "unlock-recipe",
@@ -11724,14 +11724,6 @@ data:extend({
 	  {
         type = "unlock-recipe",
         recipe = "nullius-decompress-steam"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "fill-nullius-pressure-steam-barrel"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "empty-nullius-pressure-steam-barrel"
       }
     },
     unit = {
@@ -11874,6 +11866,37 @@ data:extend({
     prerequisites = {"nullius-distribution-5", "nullius-optimization-5"}
   },
 
+  {
+    type = "technology",
+    name = "nullius-high-pressure-chemistry-2",
+    order = "nullius-fq",
+    icon = ICONPATH .. "fluid/steam2.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-benzene-reforming"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-butadiene"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-desalination-3"
+      }
+    },
+    unit = {
+      count = 3000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 2}, {"nullius-physics-pack", 1}
+      },
+      time = 50
+    },
+    prerequisites = {"nullius-boiling-3"}
+  },
   {
     type = "technology",
     name = "nullius-toolmaking-8",
@@ -12238,7 +12261,8 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-freight-transportation-3", "nullius-demolitions-2"}
+    prerequisites = {"nullius-freight-transportation-3", "nullius-demolitions-2",
+		"nullius-high-pressure-chemistry-2"}
   },
   {
     type = "technology",
@@ -13194,6 +13218,50 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-boiling-4",
+    order = "nullius-gd",
+    icon = ENTICONPATH .. "boiler2.png",
+	icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boiler-2"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-mirror-boiler-2"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-unmirror-boiler-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "fill-nullius-pressure-steam-barrel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "empty-nullius-pressure-steam-barrel"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-pressure-steam"
+      }
+    },
+	unit = {
+      count = 5000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-checkpoint-pressure-steam"}
+  },
+  {
+    type = "technology",
     name = "nullius-uranium-processing",
     order = "nullius-gd",
     icon = "__base__/graphics/technology/kovarex-enrichment-process.png",
@@ -13411,7 +13479,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-uranium-processing", "nullius-checkpoint-breeder-cell"}
+    prerequisites = {"nullius-uranium-processing", "nullius-checkpoint-breeder-cell", "nullius-boiling-4"}
   },
   {
     type = "technology",
@@ -13549,7 +13617,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-biology-2"}
+    prerequisites = {"nullius-biology-2", "nullius-boiling-4"}
   },
   {
     type = "technology",
