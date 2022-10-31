@@ -1,4 +1,28 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.16
+Date: 30.10.2022
+  Features:
+    - Allow circuit network connections with relays.
+    - Shackle equipment to slow down android.
+  Balancing:
+    - Boost the effect of leg augmentation equipment.
+    - Increase effectiveness of dedicated mining/deconstruction equipment.
+    - Reduce energy per craft cost ratio of multi-tool.
+    - Front load passive mining speed bonus into earlier techs.
+    - Diminishing returns for pickup/loot radius with large reach bonuses.
+    - Increase nucleotide content of eggs.
+  Changes:
+    - Change to husbandry drone recipe.
+    - Terraforming and paving drones eliminate tile ghosts.
+    - Disable vanilla don't build entity achievements.
+  Graphics:
+    - Fix appearance of hangar 4 circuit connection.
+  Modding:
+    - Add Picker Dollies blacklists for special composite Nullius entities.
+    - Support Renai Transportation options to disable some components.
+  Info:
+    - Clarify description of passive mining tech bonus.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.15
 Date: 25.10.2022
   Features:

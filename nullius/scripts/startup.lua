@@ -130,6 +130,13 @@ script.on_init(
     end
     update_mission_global()
 	update_railloader_bulk()
+	on_load_mod_interface()
+  end
+)
+
+script.on_load(
+  function()
+	on_load_mod_interface()
   end
 )
 

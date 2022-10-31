@@ -101,8 +101,11 @@ data.raw["kill-achievement"]["pyromaniac"].hidden = true
 data.raw["kill-achievement"]["run-forrest-run"].hidden = true
 data.raw["combat-robot-count"]["minions"].hidden = true
 data.raw["dont-use-entity-in-energy-production-achievement"]["steam-all-the-way"].hidden = true
-data.raw["dont-build-entity-achievement"]["raining-bullets"].hidden = true
-data.raw["dont-build-entity-achievement"]["logistic-network-embargo"].hidden = true
 data.raw["finish-the-game-achievement"]["no-time-for-chitchat"].hidden = true
 data.raw["finish-the-game-achievement"]["there-is-no-spoon"].hidden = true
 data.raw["achievement"]["so-long-and-thanks-for-all-the-fish"].hidden = true
+data.raw["dont-build-entity-achievement"]["raining-bullets"].hidden = true
+data.raw["dont-build-entity-achievement"]["logistic-network-embargo"].hidden = true
+data.raw["dont-build-entity-achievement"]["raining-bullets"].dont_build = "nullius-small-demand-chest-1"
+data.raw["dont-build-entity-achievement"]["logistic-network-embargo"].dont_build = "nullius-mecha"
+

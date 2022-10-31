@@ -277,7 +277,8 @@ local function create_miner(mineral, suborder, group, landfill, iname, isize, it
   })
 end
 
-local function create_farmer(base, suborder, species, spore, spore_count, remote, modtype, iname, cost1, cost2, cost3)
+local function create_farmer(base, suborder, species, spore, spore_count,
+    remote, modtype, iname, cost1, cost2, cost3, cost4)
   local drone_icons = {
     {
       icon = "__base__/graphics/icons/defender.png",
@@ -317,7 +318,7 @@ local function create_farmer(base, suborder, species, spore, spore_count, remote
         {"nullius-construction-bot-3", 1},
         {"nullius-"..species.."-progenitor", 1},
         {"nullius-"..spore, spore_count},
-        cost1, cost2, cost3
+        cost1, cost2, cost3, cost4
       },
       result = "nullius-"..base.."-drone"
     },
@@ -387,7 +388,7 @@ create_farmer("aquaculture", "f", "fish", "fish-egg", 50, "entomology-remote",
     {"nullius-algae", 40}, {"nullius-worm", 20})
 create_farmer("husbandry", "g", "arthropod", "arthropod-egg", 30, "aquaculture-remote",
     "yield-module-4", "__base__/graphics/icons/small-biter.png",
-    {"nullius-box-wood", 12}, {"nullius-fish", 30})
+    {"nullius-box-wood", 15}, {"nullius-fish", 40}, {"nullius-arthropod", 5}, {"nullius-shackle", 6})
 
 data:extend({
   {

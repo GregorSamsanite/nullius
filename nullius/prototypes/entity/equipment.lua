@@ -1104,11 +1104,11 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "1MJ",
-      input_flow_limit = "75kW",
+      input_flow_limit = "80kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "45kW",
-    movement_bonus = 0.1,
+    energy_consumption = "55kW",
+    movement_bonus = 0.12,
     categories = {"android"}
   },
   {
@@ -1135,8 +1135,8 @@ data:extend({
       input_flow_limit = "250kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "150kW",
-    movement_bonus = 0.3,
+    energy_consumption = "160kW",
+    movement_bonus = 0.35,
     categories = {"cybernetic"}
   },
   {
@@ -1163,8 +1163,8 @@ data:extend({
       input_flow_limit = "500kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "250kW",
-    movement_bonus = 0.4,
+    energy_consumption = "300kW",
+    movement_bonus = 0.5,
     categories = {"cybernetic"}
   },
   {
@@ -1190,8 +1190,8 @@ data:extend({
       input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "400kW",
-    movement_bonus = 0.5,
+    energy_consumption = "500kW",
+    movement_bonus = 0.65,
     categories = {"cybernetic"}
   },
   {
@@ -1217,8 +1217,8 @@ data:extend({
       input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "350kW",
-    movement_bonus = 0.5,
+    energy_consumption = "400kW",
+    movement_bonus = 0.65,
     categories = {"cybernetic"}
   },
 
@@ -1244,11 +1244,11 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "8MJ",
-      input_flow_limit = "400kW",
+      input_flow_limit = "500kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "275kW",
-    movement_bonus = 0.45,
+    energy_consumption = "300kW",
+    movement_bonus = 0.5,
     categories = {"android"}
   },
   {
@@ -1273,11 +1273,11 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "20MJ",
-      input_flow_limit = "750kW",
+      input_flow_limit = "800kW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "450kW",
-    movement_bonus = 0.6,
+    energy_consumption = "550kW",
+    movement_bonus = 0.75,
     categories = {"android"}
   },
   {
@@ -1301,11 +1301,11 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "40MJ",
-      input_flow_limit = "1MW",
+      input_flow_limit = "1.5MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "700kW",
-    movement_bonus = 0.75,
+    energy_consumption = "900kW",
+    movement_bonus = 1,
     categories = {"android"}
   },
   {
@@ -1329,11 +1329,11 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "40MJ",
-      input_flow_limit = "1MW",
+      input_flow_limit = "1.2MW",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "600kW",
-    movement_bonus = 0.75,
+    energy_consumption = "750kW",
+    movement_bonus = 1,
     categories = {"android"}
   },
 
@@ -1897,9 +1897,9 @@ data:extend({
     name = "nullius-upgrade-mining-tool-1",
     take_result = "nullius-mining-tool-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-mining", 60}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 80}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 4}}},
+		    {"entity-description.nullius-kilowatt", 3}}},
     order = "lcb",
     sprite = {
       filename = EQUIPPATH.."mining-tool-1.png",
@@ -1917,7 +1917,7 @@ data:extend({
       type = "electric",
       buffer_capacity = "100kJ",
       input_flow_limit = "10kW",
-	  drain = "4kW",
+	  drain = "3kW",
       usage_priority = "primary-input"
     },
     categories = {"android"},
@@ -1938,9 +1938,9 @@ data:extend({
     name = "nullius-upgrade-mining-tool-2",
     take_result = "nullius-mining-tool-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-mining", 100}, "\n",
+	    {"equipment-description.nullius-bonus-mining", 150}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 6}}},
+		    {"entity-description.nullius-kilowatt", 5}}},
     order = "lcc",
     sprite = {
       filename = EQUIPPATH.."mining-tool-2.png",
@@ -1958,7 +1958,7 @@ data:extend({
       type = "electric",
       buffer_capacity = "250kJ",
       input_flow_limit = "30kW",
-	  drain = "6kW",
+	  drain = "5kW",
       usage_priority = "primary-input"
     },
     categories = {"android"},
@@ -1979,7 +1979,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-1",
     take_result = "nullius-multi-tool-1",
 	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 50, 25}, "\n",
+			{"equipment-description.nullius-bonus-craft", 50, 20}, "\n",
 			{"equipment-description.nullius-bonus-mining", 50}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 5}}},
@@ -2022,7 +2022,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-2",
     take_result = "nullius-multi-tool-2",
 	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 70, 30}, "\n",
+			{"equipment-description.nullius-bonus-craft", 70, 25}, "\n",
 			{"equipment-description.nullius-bonus-mining", 100}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 10}}},
@@ -2065,7 +2065,7 @@ data:extend({
     name = "nullius-upgrade-multi-tool-3",
     take_result = "nullius-multi-tool-3",
 	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 80, 30}, "\n",
+			{"equipment-description.nullius-bonus-craft", 80, 25}, "\n",
 			{"equipment-description.nullius-bonus-mining", 125}, "\n",
 			{"equipment-description.nullius-bonus-reach", 2}, "\n",
 			{"equipment-description.nullius-energy",
@@ -2320,6 +2320,30 @@ data:extend({
 		energy_consumption = "40kJ"
       }
     }
+  },
+  {
+    type = "battery-equipment",
+    name = "nullius-upgrade-shackle",
+    take_result = "nullius-shackle",
+    localised_description = {"equipment-description.nullius-penalty-speed", 25},
+    order = "ns",
+    sprite = {
+      filename = EQUIPPATH.."shackle.png",
+      width = 128,
+      height = 128,
+      priority = "medium",
+	  scale = 0.5
+    },
+    shape = {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    categories = {"android"}
   },
   {
     type = "active-defense-equipment",

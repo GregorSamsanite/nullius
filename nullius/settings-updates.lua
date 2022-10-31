@@ -326,3 +326,24 @@ if data.raw['string-setting']['fc-chest-mode'] then
    data.raw['string-setting']['fc-chest-mode'].hidden = true
    data.raw['string-setting']['fc-chest-mode'].allowed_values = {"modify"}
 end
+
+
+if data.raw['bool-setting']['RTModdedThrowers'] then
+   data.raw['bool-setting']['RTModdedThrowers'].hidden = true
+   data.raw['bool-setting']['RTModdedThrowers'].forced_value = true
+end
+
+if data.raw['bool-setting']['RTBounceSetting'] then
+   data.raw['bool-setting']['RTBounceSetting'].hidden = true
+   data.raw['bool-setting']['RTBounceSetting'].forced_value = true
+end
+
+if data.raw['bool-setting']['RTTrainBounceSetting'] then
+   data.raw['bool-setting']['RTTrainBounceSetting'].hidden = true
+   data.raw['bool-setting']['RTTrainBounceSetting'].forced_value = true
+end
+
+if data.raw['bool-setting']['RTImpactSetting'] then
+   data.raw['bool-setting']['RTImpactSetting'].hidden = true
+   data.raw['bool-setting']['RTImpactSetting'].forced_value = true
+end

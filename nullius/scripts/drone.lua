@@ -93,7 +93,8 @@ function safe_demolition(event, size)
   entities = s.find_entities(area_bound(center, (size + 3)))
   for _, e in pairs(entities) do
     if (e.valid and ((e.type == "item-entity") or (e.type == "optimized-decorative") or
-          (e.type == "cliff") or (e.type == "rail-remnants") or (e.type == "fish") or
+          (e.type == "cliff") or (e.type == "rail-remnants") or
+		  (e.type == "fish") or (e.type == "tile-ghost") or
       ((e.type == "corpse") and (e.name ~= "transport-caution-corpse") and
                  (e.name ~= "invisible-transport-caution-corpse")))) then
       e.destroy({do_cliff_correction = true})

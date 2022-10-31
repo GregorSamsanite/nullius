@@ -30,11 +30,11 @@ local upgrade_data = {
   ["fabrication-tool-1"] = {{UPG_CRAFT, 0.25}, {UPG_COST, 12}},
   ["fabrication-tool-2"] = {{UPG_CRAFT, 0.4}, {UPG_COST, 16}},
   ["fabrication-tool-3"] = {{UPG_CRAFT, 1.2}, {UPG_COST, 40}},
-  ["mining-tool-1"] = {{UPG_MINER, 0.6}},
-  ["mining-tool-2"] = {{UPG_MINER, 1}},
-  ["multi-tool-1"] = {{UPG_CRAFT, 0.5}, {UPG_COST, 25}, {UPG_MINER, 0.5}},
-  ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 30}, {UPG_MINER, 1}},
-  ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 30},
+  ["mining-tool-1"] = {{UPG_MINER, 0.8}},
+  ["mining-tool-2"] = {{UPG_MINER, 1.5}},
+  ["multi-tool-1"] = {{UPG_CRAFT, 0.5}, {UPG_COST, 20}, {UPG_MINER, 0.6}},
+  ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 25}, {UPG_MINER, 1}},
+  ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 25},
       {UPG_MINER, 1.25}, {UPG_REACH, 1}},
   ["small-cargo-pod-1"] = {{UPG_CARGO_POD, 1}, {UPG_SPEED, -0.003}},
   ["small-cargo-pod-2"] = {{UPG_CARGO_POD, 2}, {UPG_SPEED, -0.004}},
@@ -59,6 +59,7 @@ local upgrade_data = {
       {UPG_CRAFT, -0.3}, {UPG_REACH, -1}},
   ["stabilizer-1"] = {{UPG_CARGO, 1}, {UPG_SPEED, 0.07}},
   ["stabilizer-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, 0.1}},
+  ["shackle"] = {{UPG_SPEED, -0.25}},
   ["coprocessor-quantum"] = {{UPG_CO_QUANTUM, 1}},
   ["coprocessor-speed-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_SPEED_1, 1}, {UPG_SPEED, 0.05},
       {UPG_CRAFT_MULT, 0.15}, {UPG_COST_MULT, 0.1}, {UPG_COST, 5}},
@@ -215,14 +216,20 @@ function update_player_upgrades(player)
   else
     reach = reach + 2
   end
+
+  local loot = (reach * 0.5)
+  if (loot > 8) then
+    loot = (24 * loot) / (loot + 16)
+  end
+  local reach2 = math.max(0, math.floor((2 * reach) + 0.5))
   reach = math.max(0, math.floor(reach + 0.5))
 
-  player.character_reach_distance_bonus = (reach * 2)
-  player.character_build_distance_bonus = (reach * 2)
+  player.character_reach_distance_bonus = reach2
+  player.character_build_distance_bonus = reach2
   player.character_item_drop_distance_bonus = reach
-  player.character_resource_reach_distance_bonus = reach
-  player.character_loot_pickup_distance_bonus = math.floor((reach * 0.5) + 0.5)
-  player.character_item_pickup_distance_bonus = math.floor((reach * 0.125) + 0.5)
+  player.character_resource_reach_distance_bonus = reach  
+  player.character_loot_pickup_distance_bonus = math.floor(loot + 0.5)
+  player.character_item_pickup_distance_bonus = math.floor((loot * 0.25) + 0.5)
 
   local unit = player.character.unit_number
   if (costlist ~= nil) then

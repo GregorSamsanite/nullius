@@ -2120,6 +2120,7 @@ end
 
 
 if mods["RenaiTransportation"] then
+if settings.startup["RTThrowersSetting"].value then
 data:extend({
   {
     type = "item-subgroup",
@@ -2132,18 +2133,6 @@ data:extend({
     name = "nullius-renai-bounce",
     group = "logistics",
     order = "crc"
-  },
-  {
-    type = "item-subgroup",
-    name = "nullius-renai-ramp",
-    group = "logistics",
-    order = "grb"
-  },
-  {
-    type = "item-subgroup",
-    name = "nullius-renai-zipline",
-    group = "logistics",
-    order = "grc"
   },
   {
     type = "recipe",
@@ -2240,33 +2229,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-ejector-hatch",
-    enabled = false,
-    always_show_made_in = true,
-    category = "medium-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"HatchRTItem", 1},
-	  {"RTThrower-turbo-inserter-Item", 1},
-      {"fast-underground-belt", 1}
-    },
-    result = "RTThrower-EjectorHatchRTItem"
-  },
-  {
-    type = "recipe",
-    name = "nullius-player-thrower",
-    enabled = false,
-    always_show_made_in = true,
-    category = "medium-crafting",
-    energy_required = 2,
-    ingredients = {
-      {type="item", name="RTThrower-inserter-Item", amount=1},
-      {type="item", name="nullius-steel-plate", amount=2}
-    },
-    result = "PlayerLauncherItem"
-  },
-  {
-    type = "recipe",
     name = "nullius-open-chest",
     enabled = false,
     always_show_made_in = true,
@@ -2293,6 +2255,47 @@ data:extend({
       {"OpenContainerItem", 1}
     },
     result = "wooden-chest"
+  },
+  {
+    type = "recipe",
+    name = "nullius-hatch",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-underground-pipe-2", 1},
+	  {"nullius-priority-valve", 1},
+      {"nullius-steel-rod", 1}
+    },
+    result = "HatchRTItem"
+  },
+  {
+    type = "recipe",
+    name = "nullius-ejector-hatch",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"HatchRTItem", 1},
+	  {"RTThrower-turbo-inserter-Item", 1},
+      {"fast-underground-belt", 1}
+    },
+    result = "RTThrower-EjectorHatchRTItem"
+  },
+  {
+    type = "recipe",
+    name = "nullius-player-thrower",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="RTThrower-inserter-Item", amount=1},
+      {type="item", name="nullius-steel-plate", amount=2}
+    },
+    result = "PlayerLauncherItem"
   },
   {
     type = "recipe",
@@ -2348,47 +2351,17 @@ data:extend({
 	  {"nullius-sensor-1", 1}
     },
     result = "DirectorBouncePlateItem"
-  },
+  }
+})
+end
+
+if settings.startup["RTZiplineSetting"].value then
+data:extend({
   {
-    type = "recipe",
-    name = "nullius-train-bounce-plate",
-    enabled = false,
-    always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 5,
-    ingredients = {
-      {"BouncePlateItem", 6},
-      {"nullius-textile", 12},
-	  {"nullius-steel-beam", 4}
-    },
-    result = "RTTrainBouncePlateItem"
-  },
-  {
-    type = "recipe",
-    name = "nullius-train-directed-bounce-plate",
-    enabled = false,
-    always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"RTTrainBouncePlateItem", 1},
-      {"RTTrainRampItem", 1}
-    },
-    result = "RTTrainDirectedBouncePlateItem"
-  },  
-  {
-    type = "recipe",
-    name = "nullius-hatch",
-    enabled = false,
-    always_show_made_in = true,
-    category = "medium-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"nullius-underground-pipe-2", 1},
-	  {"nullius-priority-valve", 1},
-      {"nullius-steel-rod", 1}
-    },
-    result = "HatchRTItem"
+    type = "item-subgroup",
+    name = "nullius-renai-zipline",
+    group = "logistics",
+    order = "grc"
   },
   {
     type = "recipe",
@@ -2520,6 +2493,17 @@ data:extend({
 	  {"big-electric-pole", 1}
     },
     result = "RTZiplineTerminalItem"
+  }
+})
+end
+
+if settings.startup["RTTrainRampSetting"].value then
+data:extend({
+  {
+    type = "item-subgroup",
+    name = "nullius-renai-ramp",
+    group = "logistics",
+    order = "grb"
   },
   {
     type = "recipe",
@@ -2534,6 +2518,21 @@ data:extend({
 	  {"nullius-steel-beam", 4}
     },
     result = "RTTrainRampItem"
+  },
+  {
+    type = "recipe",
+    name = "nullius-magnetic-ramp",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 6,
+    ingredients = {
+      {"RTTrainRampItem", 1},
+	  {"nullius-grid-battery-1", 1},
+	  {"nullius-beacon-2", 1},
+	  {"nullius-levitation-field-1", 4}
+    },
+    result = "RTMagnetTrainRampItem"
   },
   {
     type = "recipe",
@@ -2564,23 +2563,48 @@ data:extend({
 	  {"nullius-steel-plate", 10}
     },
     result = "RTImpactWagonItem"
-  },
+  }
+})
+if settings.startup["RTThrowersSetting"].value then
+data:extend({
   {
     type = "recipe",
-    name = "nullius-magnetic-ramp",
+    name = "nullius-train-bounce-plate",
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 6,
+    energy_required = 5,
     ingredients = {
-      {"RTTrainRampItem", 1},
-	  {"nullius-grid-battery-1", 1},
-	  {"nullius-beacon-2", 1},
-	  {"nullius-levitation-field-1", 4}
+      {"BouncePlateItem", 6},
+      {"nullius-textile", 12},
+	  {"nullius-steel-beam", 4}
     },
-    result = "RTMagnetTrainRampItem"
+    result = "RTTrainBouncePlateItem"
   },
+  {
+    type = "recipe",
+    name = "nullius-train-directed-bounce-plate",
+    enabled = false,
+    always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 2,
+    ingredients = {
+      {"RTTrainBouncePlateItem", 1},
+      {"RTTrainRampItem", 1}
+    },
+    result = "RTTrainDirectedBouncePlateItem"
+  }
+})
+else
+data.raw.recipe["nullius-impact-unloader"].ingredients[4] =
+    {"nullius-rubber", 30}
+data.raw.recipe["nullius-impact-wagon"].ingredients[2] =
+    {"nullius-priority-valve", 8}
+end
+end
 
+if settings.startup["RTThrowersSetting"].value then
+data:extend({
   {
     type = "technology",
     name = "nullius-logistic-ballistics-1",
@@ -2755,7 +2779,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-freight-ballistics-2", "nullius-actuation-3"}
+    prerequisites = {"nullius-actuation-3"}
   },
   {
     type = "technology",
@@ -2782,9 +2806,19 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-freight-ballistics-4", "nullius-actuation-4"}
-  },
+    prerequisites = {"nullius-actuation-4"}
+  }
+})
+if settings.startup["RTTrainRampSetting"].value then
+  data.raw.technology["nullius-logistic-ballistics-7"].prerequisites =
+      {"nullius-freight-ballistics-2", "nullius-actuation-3"}
+  data.raw.technology["nullius-logistic-ballistics-8"].prerequisites =
+      {"nullius-freight-ballistics-4", "nullius-actuation-4"}
+end
+end
 
+if settings.startup["RTZiplineSetting"].value then
+data:extend({
   {
     type = "technology",
     name = "nullius-ziplining-1",
@@ -2846,7 +2880,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+    prerequisites = {"nullius-robot-speed-1"}
   },
   {
     type = "technology",
@@ -2920,9 +2954,16 @@ data:extend({
       time = 60
     },
     prerequisites = {"nullius-checkpoint-cybernetics"}
-  },
+  }
+})
+if settings.startup["RTThrowersSetting"].value then
+  data.raw.technology["nullius-ziplining-2"].prerequisites =
+      {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+end
+end
 
-  {
+if settings.startup["RTTrainRampSetting"].value then
+  local freight1 = {
     type = "technology",
     name = "nullius-freight-ballistics-1",
     order = "nullius-dm",
@@ -2942,9 +2983,9 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-braking-1", "nullius-ziplining-2"}
-  },
-  {
+    prerequisites = {"nullius-braking-1"}
+  }
+  local freight2 = {
     type = "technology",
     name = "nullius-freight-ballistics-2",
     order = "nullius-eh",
@@ -2970,8 +3011,8 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-organic-chemistry-5", "nullius-braking-2"}
-  },
-  {
+  }
+  local freight3 = {
     type = "technology",
     name = "nullius-freight-ballistics-3",
     order = "nullius-eq",
@@ -2997,8 +3038,8 @@ data:extend({
       time = 35
     },
     prerequisites = {"nullius-braking-5"}
-  },
-  {
+  }
+  local freight4 = {
     type = "technology",
     name = "nullius-freight-ballistics-4",
     order = "nullius-fc",
@@ -3021,7 +3062,18 @@ data:extend({
     },
     prerequisites = {"nullius-freight-ballistics-3", "nullius-physics"}
   }
-})
+if settings.startup["RTZiplineSetting"].value then
+  freight1.prerequisites = {"nullius-braking-1", "nullius-ziplining-2"}
+end
+if settings.startup["RTThrowersSetting"].value then
+  data:extend({ freight1, freight2, freight3, freight4 })
+else
+  freight3.name = "nullius-freight-ballistics-2"
+  freight4.name = "nullius-freight-ballistics-3"
+  freight4.prerequisites = {"nullius-freight-ballistics-2", "nullius-physics"}
+  data:extend({ freight1, freight3, freight4 })
+end
+end
 end
 
 

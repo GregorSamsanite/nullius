@@ -2102,7 +2102,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       },
       {
         type = "character-crafting-speed",
@@ -2467,7 +2467,7 @@ data:extend({
       },
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       }
     },
     unit = {
@@ -3877,7 +3877,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       },
       {
         type = "character-crafting-speed",
@@ -5871,7 +5871,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       },
       {
         type = "character-crafting-speed",
@@ -8452,7 +8452,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       },
       {
         type = "character-crafting-speed",
@@ -8482,6 +8482,10 @@ data:extend({
       {
         type = "character-running-speed",
         modifier = 0.1
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-shackle"
       }
     },
     unit = {
@@ -9870,7 +9874,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.15
       },
       {
         type = "character-crafting-speed",
@@ -11907,7 +11911,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.15
       },
       {
         type = "character-crafting-speed",
@@ -13087,7 +13091,7 @@ data:extend({
     effects = {
       {
         type = "character-mining-speed",
-        modifier = 0.25
+        modifier = 0.2
       },
       {
         type = "character-crafting-speed",

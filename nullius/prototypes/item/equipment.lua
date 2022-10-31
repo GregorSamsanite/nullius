@@ -3882,6 +3882,33 @@ data:extend({
 
   {
     type = "item",
+    name = "nullius-shackle",
+	icons = {{
+      icon = EQUIPPATH.."shackle.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-shackle",
+	subgroup = "leg-augmentation",
+    order = "nullius-f",
+    stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-shackle",
+    enabled = false,
+    always_show_made_in = true,
+    category = "hand-casting",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-iron-ingot", amount=8},
+	  {type="item", name="nullius-steel-rod", amount=3},
+	  {type="item", name="nullius-steel-plate", amount=1}
+    },
+    result = "nullius-shackle"
+  },
+
+  {
+    type = "item",
     name = "nullius-refueler",
     localised_description = {"equipment-description.nullius-refueler"},
 	icons = {{

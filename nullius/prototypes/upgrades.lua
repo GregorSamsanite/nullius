@@ -41,10 +41,16 @@ data:extend({
     name = "nullius-mining-productivity-3",
     order = "nullius-xb",
 	icons = data.raw.technology["mining-productivity-1"].icons,
-    effects = {{
+    effects = {
+	  {
+        type = "character-mining-speed",
+        modifier = 0.1
+      },
+	  {
         type = "mining-drill-productivity-bonus",
         modifier = 0.02
-    }},
+      }
+	},
     unit = {
       count = 15,
       ingredients = {{"nullius-geology-pack", 1}},
@@ -75,10 +81,16 @@ data:extend({
     name = "nullius-mining-productivity-5",
     order = "nullius-xb",
 	icons = data.raw.technology["mining-productivity-1"].icons,
-    effects = {{
+	effects = {
+	  {
+        type = "character-mining-speed",
+        modifier = 0.1
+      },
+	  {
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
-    }},
+      }
+	},
     unit = {
       count = 15,
       ingredients = {{"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1}},
@@ -129,10 +141,16 @@ data:extend({
     name = "nullius-mining-productivity-8",
     order = "nullius-xb",
 	icons = data.raw.technology["mining-productivity-1"].icons,
-    effects = {{
+	effects = {
+	  {
+        type = "character-mining-speed",
+        modifier = 0.1
+      },
+	  {
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
-    }},
+      }
+	},
     unit = {
       count = 40,
       ingredients = {
@@ -189,10 +207,16 @@ data:extend({
     name = "nullius-mining-productivity-11",
     order = "nullius-xb",
 	icons = data.raw.technology["mining-productivity-1"].icons,
-    effects = {{
+	effects = {
+	  {
+        type = "character-mining-speed",
+        modifier = 0.1
+      },
+	  {
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
-    }},
+      }
+	},
     unit = {
       count = 120,
       ingredients = {
@@ -250,10 +274,16 @@ data:extend({
     name = "nullius-mining-productivity-14",
     order = "nullius-xb",
 	icons = data.raw.technology["mining-productivity-1"].icons,
-    effects = {{
+	effects = {
+	  {
+        type = "character-mining-speed",
+        modifier = 0.1
+      },
+	  {
         type = "mining-drill-productivity-bonus",
         modifier = 0.01
-    }},
+      }
+	},
     unit = {
       count = 400,
       ingredients = {

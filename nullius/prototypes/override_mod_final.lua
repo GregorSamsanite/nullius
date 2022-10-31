@@ -30,7 +30,8 @@ if settings.startup["reskins-lib-icon-tier-labeling"].value == true then
   data.raw.item["express-stack-filter-inserter"].icons[7].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/4.png"
 
-  if mods["RenaiTransportation"] then
+  if (mods["RenaiTransportation"] and
+      settings.startup["RTThrowersSetting"].value) then
   data.raw.item["RTThrower-turbo-inserter-Item"].icons[4].icon =
       "__reskins-library__/graphics/icons/tiers/"..icon_style.."/2.png"
   data.raw.item["RTThrower-turbo-inserter-Item"].icons[5].icon =
@@ -134,7 +135,8 @@ if mods["Transport_Drones"] then
 end
 
 
-if mods["RenaiTransportation"] then
+if (mods["RenaiTransportation"] and
+    settings.startup["RTThrowersSetting"].value) then
   data.raw.recipe["nullius-thrower-2"].ingredients = {
     {"RTThrower-inserter-Item", 1},
     {"turbo-inserter", 1},

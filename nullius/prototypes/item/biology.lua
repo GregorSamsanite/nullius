@@ -1852,15 +1852,15 @@ data:extend({
     subgroup = "biology-worm",
     order = "nullius-gb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-amino-acids"].flow_color },
-    energy_required = 4,
+    energy_required = 3,
     ingredients = {
-      {type="item", name="nullius-worm-egg", amount=2},
-      {type="fluid", name="nullius-saline", amount=5}
+      {type="item", name="nullius-worm-egg", amount=1},
+      {type="fluid", name="nullius-saline", amount=4}
     },
     results = {
-      {type="fluid", name="nullius-amino-acids", amount=3},
+      {type="fluid", name="nullius-amino-acids", amount=2},
       {type="fluid", name="nullius-nucleotides", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=5}
+      {type="fluid", name="nullius-wastewater", amount=3}
     },
     main_product = "nullius-amino-acids"
   },
@@ -2577,15 +2577,15 @@ data:extend({
     subgroup = "biology-fish",
     order = "nullius-gb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-oil"].flow_color },
-    energy_required = 10,
+    energy_required = 8,
     ingredients = {
-      {type="item", name="nullius-fish-egg", amount=4},
-      {type="fluid", name="nullius-saline", amount=15}
+      {type="item", name="nullius-fish-egg", amount=2},
+      {type="fluid", name="nullius-saline", amount=10}
     },
     results = {
-      {type="fluid", name="nullius-oil", amount=10},
+      {type="fluid", name="nullius-oil", amount=5},
       {type="fluid", name="nullius-nucleotides", amount=3},
-      {type="fluid", name="nullius-wastewater", amount=10}
+      {type="fluid", name="nullius-wastewater", amount=5}
     },
     main_product = "nullius-oil"
   },
@@ -3039,16 +3039,16 @@ data:extend({
     subgroup = "biology-arthropod",
     order = "nullius-gb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-nucleotides"].flow_color },
-    energy_required = 5,
+    energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-arthropod-egg", amount=2},
-      {type="fluid", name="nullius-saline", amount=15}
+      {type="item", name="nullius-arthropod-egg", amount=1},
+      {type="fluid", name="nullius-saline", amount=10}
     },
     results = {
-      {type="item", name="nullius-plastic", amount=3},
-      {type="fluid", name="nullius-amino-acids", amount=12},
-      {type="fluid", name="nullius-nucleotides", amount=5},
-      {type="fluid", name="nullius-heavy-water", amount=2}
+      {type="item", name="nullius-plastic", amount=1},
+      {type="fluid", name="nullius-amino-acids", amount=6},
+      {type="fluid", name="nullius-nucleotides", amount=3},
+      {type="fluid", name="nullius-heavy-water", amount=1}
     },
     main_product = "nullius-nucleotides"
   },

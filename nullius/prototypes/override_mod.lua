@@ -1576,6 +1576,7 @@ end
 
 
 if mods["RenaiTransportation"] then
+if settings.startup["RTThrowersSetting"].value then
   data.raw.technology["RTFocusedFlinging"].localised_name =
     {"technology-name.nullius-precision-ballistics"}
   data.raw.technology["RTFocusedFlinging"].order = "nullius-cg"
@@ -1593,27 +1594,7 @@ if mods["RenaiTransportation"] then
     "nullius-logistic-ballistics-4")
   table.insert(data.raw.technology["nullius-locomotion-3"].prerequisites,
     "nullius-logistic-ballistics-8")
-  table.insert(data.raw.technology["nullius-checkpoint-freight-logistics"].prerequisites,
-    "nullius-ziplining-1")
-  data.raw.technology["nullius-robot-speed-2"].prerequisites =
-      {"nullius-mass-production-4", "nullius-ziplining-3"}
-  table.insert(data.raw.technology["nullius-robot-speed-3"].prerequisites,
-    "nullius-ziplining-4")
-  data.raw.technology["nullius-robot-speed-5"].prerequisites =
-      {"nullius-copper-production", "nullius-ziplining-5"}
 
-  if mods["Transport_Drones"] then
-    table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
-      "nullius-freight-ballistics-1")
-	data.raw.technology["nullius-freight-ballistics-1"].prerequisites =
-	  {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
-    table.insert(data.raw.technology["nullius-freight-ballistics-3"].prerequisites,
-	    "transport-drone-speed-2")
-  else
-    table.insert(data.raw.technology["nullius-freight-ballistics-2"].prerequisites,
-      "nullius-freight-ballistics-1")  
-  end
-  
   if (mods["bobinserters"] and
       (settings.startup["bobmods-inserters-more2"].value == true)) then
     table.insert(data.raw.technology["more-inserters-2"].prerequisites,
@@ -1644,21 +1625,17 @@ if mods["RenaiTransportation"] then
   data.raw.item["SignalBouncePlateItem"].order = "nullius-ed"
   data.raw.item["DirectorBouncePlateItem"].subgroup = "nullius-renai-bounce"
   data.raw.item["DirectorBouncePlateItem"].order = "nullius-ee"
+end
 
-  data.raw.item["RTTrainRampItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainRampItem"].order = "nullius-bb"
-  data.raw.item["RTMagnetTrainRampItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTMagnetTrainRampItem"].order = "nullius-bc"
-  data.raw.item["RTTrainBouncePlateItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainBouncePlateItem"].order = "nullius-cb"
-  data.raw.item["RTTrainBouncePlateItem"].stack_size = 20
-  data.raw.item["RTTrainDirectedBouncePlateItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainDirectedBouncePlateItem"].order = "nullius-cc"
-  data.raw.item["RTTrainDirectedBouncePlateItem"].stack_size = 20
-  data.raw.item["RTImpactUnloaderItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTImpactUnloaderItem"].order = "nullius-db"
-  data.raw.item["RTImpactWagonItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTImpactWagonItem"].order = "nullius-dc"
+if settings.startup["RTZiplineSetting"].value then
+  table.insert(data.raw.technology["nullius-checkpoint-freight-logistics"].prerequisites,
+    "nullius-ziplining-1")
+  data.raw.technology["nullius-robot-speed-2"].prerequisites =
+      {"nullius-mass-production-4", "nullius-ziplining-3"}
+  table.insert(data.raw.technology["nullius-robot-speed-3"].prerequisites,
+    "nullius-ziplining-4")
+  data.raw.technology["nullius-robot-speed-5"].prerequisites =
+      {"nullius-copper-production", "nullius-ziplining-5"}
 
   data.raw.item["RTZiplineTerminalItem"].subgroup = "nullius-renai-zipline"
   data.raw.item["RTZiplineTerminalItem"].order = "nullius-bb"
@@ -1678,13 +1655,44 @@ if mods["RenaiTransportation"] then
   data.raw.ammo["RTZiplineCrankControlsItem"].order = "nullius-dc"
   data.raw.ammo["RTProgrammableZiplineControlsItem"].subgroup = "nullius-renai-zipline"
   data.raw.ammo["RTProgrammableZiplineControlsItem"].order = "nullius-dd"
-
   data.raw["electric-pole"]["RTZiplineTerminal"].minable.mining_time = 1
+end
+
+if settings.startup["RTTrainRampSetting"].value then
+  if mods["Transport_Drones"] then
+    table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
+      "nullius-freight-ballistics-1")
+    if settings.startup["RTThrowersSetting"].value then
+	  data.raw.technology["nullius-freight-ballistics-1"].prerequisites =
+	    {"nullius-robot-speed-1", "nullius-logistic-ballistics-6"}
+      table.insert(data.raw.technology["nullius-freight-ballistics-3"].prerequisites,
+	    "transport-drone-speed-2")
+	else
+	  data.raw.technology["nullius-freight-ballistics-1"].prerequisites =
+	    {"nullius-robot-speed-1"}
+      table.insert(data.raw.technology["nullius-freight-ballistics-2"].prerequisites,
+	    "transport-drone-speed-2")
+	end
+    if settings.startup["RTZiplineSetting"].value then
+      table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
+        "nullius-ziplining-2")
+	end
+  elseif settings.startup["RTThrowersSetting"].value then
+    table.insert(data.raw.technology["nullius-freight-ballistics-2"].prerequisites,
+      "nullius-freight-ballistics-1")  
+  end
+
+  data.raw.item["RTTrainRampItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainRampItem"].order = "nullius-bb"
+  data.raw.item["RTMagnetTrainRampItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTMagnetTrainRampItem"].order = "nullius-bc"
+  data.raw.item["RTImpactUnloaderItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactUnloaderItem"].order = "nullius-db"
+  data.raw.item["RTImpactWagonItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactWagonItem"].order = "nullius-dc"
   data.raw["simple-entity-with-owner"]["RTTrainRamp"].minable.mining_time = 0.8
   data.raw["simple-entity-with-owner"]["RTMagnetTrainRamp"].minable.mining_time = 1.2
   data.raw["simple-entity-with-owner"]["RTImpactUnloader"].minable.mining_time = 1
-  data.raw["simple-entity-with-owner"]["RTTrainBouncePlate"].minable.mining_time = 0.6
-  data.raw["constant-combinator"]["RTTrainDirectedBouncePlate"].minable.mining_time = 0.8
 
   data.raw["cargo-wagon"]["RTImpactWagon"].inventory_size = 50
   data.raw["cargo-wagon"]["RTImpactWagon"].max_health = 800
@@ -1701,6 +1709,18 @@ if mods["RenaiTransportation"] then
     { type = "physical", decrease = 20, percent = 20 },
     { type = "explosion", decrease = 20, percent = 20 }
   }
+
+if settings.startup["RTThrowersSetting"].value then
+  data.raw.item["RTTrainBouncePlateItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainBouncePlateItem"].order = "nullius-cb"
+  data.raw.item["RTTrainBouncePlateItem"].stack_size = 20
+  data.raw.item["RTTrainDirectedBouncePlateItem"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainDirectedBouncePlateItem"].order = "nullius-cc"
+  data.raw.item["RTTrainDirectedBouncePlateItem"].stack_size = 20
+  data.raw["simple-entity-with-owner"]["RTTrainBouncePlate"].minable.mining_time = 0.6
+  data.raw["constant-combinator"]["RTTrainDirectedBouncePlate"].minable.mining_time = 0.8
+end
+end
 end
 
 
