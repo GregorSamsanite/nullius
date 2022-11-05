@@ -1783,3 +1783,12 @@ end
 if mods["SpidertronPatrols"] then
 table.insert(data.raw.technology["nullius-inserter-capacity-3"].prerequisites,"nullius-sp-spidertron-automation")
 end
+
+
+if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
+  table.insert(data.raw["technology"]["nullius-construction-robot-1"].effects,
+  {type = "unlock-recipe", recipe = "nullius-blueprint-deployer"})
+
+  table.insert(data.raw["technology"]["nullius-construction-robot-1"].effects,
+  {type = "unlock-recipe", recipe = "nullius-recursive-blueprints-scanner"})
+end
