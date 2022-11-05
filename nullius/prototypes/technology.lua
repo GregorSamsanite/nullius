@@ -11639,7 +11639,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-empiricism-5"}
+    prerequisites = {"nullius-empiricism-5", "nullius-battery-storage-4"}
   },
   {
     type = "technology",

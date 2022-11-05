@@ -741,7 +741,7 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "200kJ",
-      input_flow_limit = "30kW",
+      input_flow_limit = "40kW",
       usage_priority = "secondary-input",
       drain = "20kW"
     },
@@ -795,7 +795,7 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "400kJ",
-      input_flow_limit = "40kW",
+      input_flow_limit = "60kW",
       usage_priority = "secondary-input",
       drain = "30kW"
     },
@@ -849,7 +849,7 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "1MJ",
-      input_flow_limit = "60kW",
+      input_flow_limit = "100kW",
       usage_priority = "secondary-input",
       drain = "50kW"
     },
@@ -904,7 +904,7 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "2MJ",
-      input_flow_limit = "100kW",
+      input_flow_limit = "150kW",
       usage_priority = "secondary-input",
       drain = "75kW"
     },
@@ -1608,7 +1608,7 @@ data:extend({
     name = "nullius-upgrade-small-cargo-pod-1",
     take_result = "nullius-small-cargo-pod-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 1}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
 	    {"equipment-description.nullius-penalty-speed", 0.3}},
     order = "jbb",
     sprite = {
@@ -1634,7 +1634,7 @@ data:extend({
     name = "nullius-upgrade-small-cargo-pod-2",
     take_result = "nullius-small-cargo-pod-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 3}, "\n",
 	    {"equipment-description.nullius-penalty-speed", 0.4}},
     order = "jbc",
     sprite = {
@@ -1660,7 +1660,7 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-1",
     take_result = "nullius-large-cargo-pod-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 5}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 10}, "\n",
 	    {"equipment-description.nullius-penalty-speed", 1.5}},
     order = "jcb",
     sprite = {
@@ -1686,8 +1686,8 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-2",
     take_result = "nullius-large-cargo-pod-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 8}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 2}},
+	    {"equipment-description.nullius-bonus-cargo", 12}, "\n",
+	    {"equipment-description.nullius-penalty-speed", 1.6}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-2.png",
@@ -1712,7 +1712,7 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-3",
     take_result = "nullius-large-cargo-pod-3",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 10}, "\n",
+	    {"equipment-description.nullius-bonus-cargo", 15}, "\n",
 	    {"equipment-description.nullius-penalty-speed", 2}},
     order = "jcb",
     sprite = {
@@ -2241,7 +2241,7 @@ data:extend({
     take_result = "nullius-stabilizer-1",
 	localised_description = {"equipment-description.nullius-buffer", {"",
 			{"equipment-description.nullius-bonus-speed", 7}, "\n",
-			{"equipment-description.nullius-bonus-cargo", 1}, "\n",
+			{"equipment-description.nullius-bonus-cargo", 2}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 30}}},
 		{"entity-description.nullius-kilojoule", 700}},
@@ -2284,7 +2284,7 @@ data:extend({
     take_result = "nullius-stabilizer-2",
 	localised_description = {"equipment-description.nullius-buffer", {"",
 			{"equipment-description.nullius-bonus-speed", 10}, "\n",
-			{"equipment-description.nullius-bonus-cargo", 2}, "\n",
+			{"equipment-description.nullius-bonus-cargo", 3}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 40}}},
 		{"entity-description.nullius-megajoule", 1}},
@@ -2368,7 +2368,7 @@ data:extend({
 	  drain = "1kW",
       usage_priority = "primary-input"
     },
-    categories = {"android"},
+    categories = {"cybernetic"},
 	automatic = false,
     attack_parameters = {
       type = "projectile",

@@ -36,11 +36,11 @@ local upgrade_data = {
   ["multi-tool-2"] = {{UPG_CRAFT, 0.7}, {UPG_COST, 25}, {UPG_MINER, 1}},
   ["multi-tool-3"] = {{UPG_CRAFT, 0.8}, {UPG_COST, 25},
       {UPG_MINER, 1.25}, {UPG_REACH, 1}},
-  ["small-cargo-pod-1"] = {{UPG_CARGO_POD, 1}, {UPG_SPEED, -0.003}},
-  ["small-cargo-pod-2"] = {{UPG_CARGO_POD, 2}, {UPG_SPEED, -0.004}},
-  ["large-cargo-pod-1"] = {{UPG_CARGO_POD, 5}, {UPG_SPEED, -0.015}},
-  ["large-cargo-pod-2"] = {{UPG_CARGO_POD, 8}, {UPG_SPEED, -0.02}},
-  ["large-cargo-pod-3"] = {{UPG_CARGO_POD, 10}, {UPG_SPEED, -0.02}},
+  ["small-cargo-pod-1"] = {{UPG_CARGO_POD, 2}, {UPG_SPEED, -0.003}},
+  ["small-cargo-pod-2"] = {{UPG_CARGO_POD, 3}, {UPG_SPEED, -0.004}},
+  ["large-cargo-pod-1"] = {{UPG_CARGO_POD, 10}, {UPG_SPEED, -0.015}},
+  ["large-cargo-pod-2"] = {{UPG_CARGO_POD, 12}, {UPG_SPEED, -0.016}},
+  ["large-cargo-pod-3"] = {{UPG_CARGO_POD, 15}, {UPG_SPEED, -0.02}},
   ["trash-compactor"] = {{UPG_TRASH, 10}},
   ["armor-plate"] = {{UPG_ARMOR, 100}, {UPG_SPEED, -0.01}},
   ["telekinesis-field-1"] = {{UPG_REACH, 4}},
@@ -57,8 +57,8 @@ local upgrade_data = {
       {UPG_CRAFT, -0.4}, {UPG_REACH, -1}},
   ["quadrupedal-adaptation-4"] = {{UPG_CARGO, 6},
       {UPG_CRAFT, -0.3}, {UPG_REACH, -1}},
-  ["stabilizer-1"] = {{UPG_CARGO, 1}, {UPG_SPEED, 0.07}},
-  ["stabilizer-2"] = {{UPG_CARGO, 2}, {UPG_SPEED, 0.1}},
+  ["stabilizer-1"] = {{UPG_CARGO, 2}, {UPG_SPEED, 0.07}},
+  ["stabilizer-2"] = {{UPG_CARGO, 3}, {UPG_SPEED, 0.1}},
   ["shackle"] = {{UPG_SPEED, -0.25}},
   ["coprocessor-quantum"] = {{UPG_CO_QUANTUM, 1}},
   ["coprocessor-speed-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_SPEED_1, 1}, {UPG_SPEED, 0.05},
@@ -279,8 +279,24 @@ local function armor_changed(event)
   update_player_upgrades(player)
 end
 
-script.on_event(defines.events.on_player_placed_equipment, armor_changed)
-script.on_event(defines.events.on_player_removed_equipment, armor_changed)
+local function equipment_placed(event)
+  if ((event.equipment.name == "nullius-refueler") or
+      (event.equipment.type == "generator-equipment")) then
+    global.nullius_refueler_inserted_tick = event.tick
+  end
+  armor_changed(event)
+end
+
+local function equipment_removed(event)
+  if ((event.equipment == "nullius-refueler") or
+      (string.sub(event.equipment, 1, 17) == "nullius-portable-")) then
+    global.nullius_refueler_inserted_tick = event.tick
+  end
+  armor_changed(event)
+end
+
+script.on_event(defines.events.on_player_placed_equipment, equipment_placed)
+script.on_event(defines.events.on_player_removed_equipment, equipment_removed)
 script.on_event(defines.events.on_player_armor_inventory_changed, armor_changed)
 
 
@@ -443,7 +459,10 @@ script.on_event(defines.events.on_player_crafted_item,
 	    local num = math.floor(odds)
 	    if ((odds - num) > math.random()) then num = num + 1 end
 	    if (num >= 1) then
-	      player.insert({name=event.item_stack.name, count=num})
+		  local tab = global.nullius_productivity_recipes
+		  if ((tab ~= nil) and (tab[recipe.name] == true)) then
+	        player.insert({name=event.item_stack.name, count=num})
+		  end
 	    end
 	  end
 	end
@@ -466,26 +485,75 @@ script.on_event(defines.events.on_player_crafted_item,
 )
 
 
+function init_productivity_recipes()
+  local newprod = { }
+  local proto = game.item_prototypes["nullius-productivity-module-1"]
+  if ((proto ~= nil) and (proto.limitations ~= nil)) then
+    for _,name in pairs(proto.limitations) do
+	  newprod[name] = true
+	end
+  end
+  global.nullius_productivity_recipes = newprod
+end
+
+
 function update_generators()
   if (global.nullius_generator_equipment == nil) then return end
   for i,e in pairs(global.nullius_generator_equipment) do
     local c = e.character
-    if (c.valid and (c.player ~= nil)) then
-	  local p = c.player
+	if ((c == nil) and (e.mech ~= nil)) then
+	  c = e.mech.entity
+	end
+
+    if ((c ~= nil) and c.valid) then
 	  local invalid = false
 	  for _,g in pairs(e.lst) do
 	    if (g.valid and (g.burner ~= nil)) then
 	      local burninv = g.burner.inventory
 		  if ((burninv ~= nil) and burninv.valid) then
 		    local content = burninv.get_contents()
+			local lastfuel = nil
 			for fuelname,_ in pairs(content) do
+			  lastfuel = fuelname
 			  local fuelnum = burninv.get_insertable_count(fuelname)
 			  if (fuelnum > 0) then
-			    fuelnum = p.remove_item({name=fuelname, count=fuelnum})
+			    fuelnum = c.remove_item({name=fuelname, count=fuelnum})
 				if (fuelnum > 0) then
 				  local actual = burninv.insert({name=fuelname, count=fuelnum})
 				  if (actual < fuelnum) then
-					p.insert({name=fuelname, count=(fuelnum - actual)})
+					c.insert({name=fuelname, count=(fuelnum - actual)})
+				  end
+				end
+			  end
+			end
+
+            if (string.sub(g.name, 1, 17) == "nullius-portable-") then
+			  local midfix = string.sub(g.name, 18, 24)
+			  local isreactor = (midfix == "reactor")
+			  if (isreactor or (midfix == "generat")) then
+			    if (lastfuel ~= nil) then  
+				  if (isreactor) then
+				    e.last_reactor_fuel = lastfuel
+				  else
+				    e.last_generator_fuel = lastfuel
+				  end
+				else
+				  if (isreactor) then
+				    lastfuel = e.last_reactor_fuel
+				  else
+				    lastfuel = e.last_generator_fuel
+				  end
+				  if (lastfuel ~= nil) then
+					local fuelnum = burninv.get_insertable_count(lastfuel)
+					if (fuelnum > 0) then
+					  fuelnum = c.remove_item({name=lastfuel, count=fuelnum})
+					  if (fuelnum > 0) then
+					    local actual = burninv.insert({name=lastfuel, count=fuelnum})
+						if (actual < fuelnum) then
+						  c.insert({name=lastfuel, count=(fuelnum - actual)})
+					    end
+					  end
+					end				    
 				  end
 				end
 			  end
@@ -496,8 +564,8 @@ function update_generators()
 			    (not spentinv.is_empty())) then
 		      local spent = spentinv.get_contents()
 			  for itemname,itemcount in pairs(spent) do
-			    if (p.can_insert({name=itemname, count=itemcount})) then
-			      local diff = p.insert({name=itemname, count=itemcount})
+			    if (c.can_insert({name=itemname, count=itemcount})) then
+			      local diff = c.insert({name=itemname, count=itemcount})
 				  if (diff > 0) then
 				    spentinv.remove({name=itemname, count=diff})
 				  end
@@ -511,12 +579,121 @@ function update_generators()
 		  invalid = true
 		end
 	  end
+
 	  if (invalid) then
-	    update_player_upgrades(p)
+	    if ((e.character ~= nil) and (c.player ~= nil)) then
+	      update_player_upgrades(c.player)
+		elseif (e.mech ~= nil) then
+		  e.mech.tick = -1
+		end
 	    return
 	  end
 	else
       global.nullius_generator_equipment[i] = nil
 	end
+  end
+end
+
+
+function insert_mecha_list(e)
+  if (global.nullius_mecha_list == nil) then
+    global.nullius_mecha_list = { }
+  elseif (global.nullius_mecha_list[e.unit_number] ~= nil) then
+    return
+  end
+  local newlst = {
+    entity = e, tick = -1, unit = e.unit_number
+  }
+  if (global.nullius_mecha_head ~= nil) then
+    newlst.prev = global.nullius_mecha_head
+	newlst.next = newlst.prev.next
+	newlst.next.prev = newlst
+	newlst.prev.next = newlst
+  else
+    newlst.next = newlst
+	newlst.prev = newlst
+	global.nullius_mecha_head = newlst
+  end
+  global.nullius_mecha_list[newlst.unit] = newlst
+end
+
+function mecha_added(entity)
+  if ((entity.name == "nullius-mecha") or
+      (entity.name == "nullius-mecha-2")) then
+    entity.vehicle_automatic_targeting_parameters = {
+      auto_target_without_gunner = false, auto_target_with_gunner = false
+    }
+  end
+  insert_mecha_list(entity)
+end
+
+function find_all_mechas()
+  global.nullius_refueler_inserted_tick = 1
+  for _,surface in pairs(game.surfaces) do
+    local mechs = surface.find_entities_filtered{type="spider-vehicle"}
+	for _,mecha in pairs(mechs) do
+	  insert_mecha_list(mecha)
+	end
+  end
+end
+
+function check_mecha_equipment(node)
+  local generatornum = 0
+  local generators = nil
+  local refueler = false
+  local g = node.entity.grid
+  if ((g ~= nil) and g.valid) then
+    for _,equip in pairs(g.equipment) do
+	  if (equip.prototype.energy_production > 0) then
+		if (equip.burner ~= nil) then
+		  local burninv = equip.burner.inventory
+		  if ((burninv ~= nil) and burninv.valid) then
+		    generatornum = generatornum + 1
+			if (generators == nil) then generators = { } end
+			generators[generatornum] = equip
+		  end
+		end
+	  elseif (equip.name == "nullius-refueler") then
+		refueler = true
+	  end
+	end
+  end
+
+  if (refueler and (generators ~= nil)) then
+	local new_entry = { mech = node, lst = generators }
+    if (global.nullius_generator_equipment == nil) then
+	  global.nullius_generator_equipment = { }
+	else
+	  local old_entry = global.nullius_generator_equipment[node.unit]
+	  if (old_entry ~= nil) then
+	    new_entry.last_reactor_fuel = old_entry.last_reactor_fuel
+		new_entry.last_generator_fuel = old_entry.last_generator_fuel
+	  end
+	end
+	global.nullius_generator_equipment[node.unit] = new_entry
+  elseif (global.nullius_generator_equipment ~= nil) then
+    global.nullius_generator_equipment[node.unit] = nil
+  end
+end
+
+function update_mechas()
+  if (global.nullius_mecha_head == nil) then return end
+  local node = global.nullius_mecha_head.next
+  if (not node.entity.valid) then
+    global.nullius_mecha_list[newlst.unit] = nil
+    if (node == global.nullius_mecha_head) then
+	  global.nullius_mecha_list = nil
+	  global.nullius_mecha_head = nil
+	else
+	  node.next.prev = node.prev
+	  node.prev.next = node.next
+	end
+    return
+  end
+
+  global.nullius_mecha_head = node
+  if (node.tick <= global.nullius_refueler_inserted_tick) then
+    node.tick = game.tick
+	check_mecha_equipment(node)
   end
 end

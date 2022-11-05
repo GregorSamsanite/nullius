@@ -154,6 +154,9 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10517) then return end
+  find_all_mechas()
+
   if (version >= 10514) then return end
   legacy_recipe_all("nullius-artificial-intelligence-1", "android-1")
   legacy_recipe_all("nullius-artificial-intelligence-2", "android-2")

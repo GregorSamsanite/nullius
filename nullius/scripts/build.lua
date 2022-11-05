@@ -1,4 +1,9 @@
 function entity_added(entity)
+  if (entity.type == "spider-vehicle") then
+	mecha_added(entity)
+    return
+  end
+
   if (string.sub(entity.name, 1, 8) ~= "nullius-") then
     return
   end
@@ -22,12 +27,6 @@ function entity_added(entity)
     build_thermal_tank(entity, (string.byte(entity.name, 28) - 48))
   elseif (entity.type == "beacon") then
     build_beacon(entity)
-  elseif ((string.sub(entity.name, 9, 13) == "mecha") and
-      ((entity.name == "nullius-mecha") or
-	      (entity.name == "nullius-mecha-2"))) then
-    entity.vehicle_automatic_targeting_parameters = {
-    auto_target_without_gunner = false, auto_target_with_gunner = false
-  }
   end
 end
 
@@ -84,7 +83,9 @@ function update_tick()
   update_solar()
 
   local tickmod1 = (game.tick % 13)
-  if (tickmod1 == 5) then
+  if (tickmod1 == 2) then
+    update_mechas()
+  elseif (tickmod1 == 5) then
     update_checkpoints()
   elseif (tickmod1 == 8) then
     update_grass()

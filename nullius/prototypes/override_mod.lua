@@ -1787,8 +1787,11 @@ end
 
 if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
   table.insert(data.raw["technology"]["nullius-construction-robot-1"].effects,
-  {type = "unlock-recipe", recipe = "nullius-blueprint-deployer"})
-
-  table.insert(data.raw["technology"]["nullius-construction-robot-1"].effects,
-  {type = "unlock-recipe", recipe = "nullius-recursive-blueprints-scanner"})
+      {type = "unlock-recipe", recipe = "nullius-blueprint-deployer"})
+  table.insert(data.raw["technology"]["nullius-sensors-2"].effects,
+      {type = "unlock-recipe", recipe = "nullius-recursive-blueprints-scanner"})
+  data.raw.item["blueprint-deployer"].subgroup = "hangar-2"
+  data.raw.item["blueprint-deployer"].order = "nullius-t"
+  data.raw.item["recursive-blueprints-scanner"].subgroup = "miner"
+  data.raw.item["recursive-blueprints-scanner"].order = "nullius-s"
 end

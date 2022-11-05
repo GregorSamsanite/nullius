@@ -3266,13 +3266,12 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       name = "nullius-blueprint-deployer",
       enabled = false,
       always_show_made_in = true,
-      category = "medium-crafting",
-      energy_required = 10,
+      category = "small-crafting",
+      energy_required = 12,
       ingredients = {
-        {"iron-chest", 1},
-        {"programmable-speaker", 1},
-        {"decider-combinator", 2},
-        {"arithmetic-combinator", 2}
+        {"nullius-small-storage-chest-1", 1},
+        {"nullius-relay-1", 1},
+        {"decider-combinator", 6}
       },
       result = "blueprint-deployer"
     },
@@ -3281,14 +3280,11 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       name = "nullius-recursive-blueprints-scanner",
       enabled = false,
       always_show_made_in = true,
-      category = "medium-crafting",
-      energy_required = 15,
+      category = "large-crafting",
+      energy_required = 20,
       ingredients = {
-        {"iron-chest", 1},
-        {"programmable-speaker", 1},
-        {"decider-combinator", 2},
-        {"arithmetic-combinator", 2},
-        {"red-wire", 5}
+        {"radar", 1},
+        {"nullius-relay-1", 1}
       },
       result = "recursive-blueprints-scanner"
     }

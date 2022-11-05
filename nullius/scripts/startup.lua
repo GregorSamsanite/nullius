@@ -116,6 +116,7 @@ local function reset_config()
     remote.call("silo_script", "set_no_victory", true)
   end
   init_checkpoint_prereqs()
+  init_productivity_recipes()
 end
 
 script.on_init(

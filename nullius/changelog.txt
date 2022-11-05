@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.17
+Date: 05.11.2022
+  Features:
+    - Support refueler equipment for mechas.
+    - Refueler remembers last fuel used if it runs out of fuel.
+  Bugfixes:
+    - Don't apply productivity coprocessor bonus to non-productivity recipes.
+  Balancing:
+    - Increase the effect of cargo pods.
+  Changes:
+    - Set wind_speed variable of primary surface based on wind turbine speed.
+    - Adjust Optimization 5 prerequisite.
+  Modding:
+    - Add support for Recursive Blueprints.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.16
 Date: 30.10.2022
   Features:

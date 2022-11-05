@@ -64,6 +64,7 @@ function recalculate_wind()
   else
     global.nullius_wind_speed = discretize(factor * factor * 0.9)
   end
+  surface.wind_speed = (global.nullius_wind_speed / 20)
 
   for i=1,3 do
     global.nullius_current_power[i] = global.nullius_wind_speed * base_wind_power[i]
