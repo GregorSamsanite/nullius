@@ -3258,3 +3258,39 @@ data:extend({
   }
 })
 end
+
+if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-blueprint-deployer",
+      enabled = false,
+      always_show_made_in = true,
+      category = "medium-crafting",
+      energy_required = 10,
+      ingredients = {
+        {"iron-chest", 1},
+        {"programmable-speaker", 1},
+        {"decider-combinator", 2},
+        {"arithmetic-combinator", 2}
+      },
+      result = "blueprint-deployer"
+    },
+    {
+      type = "recipe",
+      name = "nullius-recursive-blueprints-scanner",
+      enabled = false,
+      always_show_made_in = true,
+      category = "medium-crafting",
+      energy_required = 15,
+      ingredients = {
+        {"iron-chest", 1},
+        {"programmable-speaker", 1},
+        {"decider-combinator", 2},
+        {"arithmetic-combinator", 2},
+        {"red-wire", 5}
+      },
+      result = "recursive-blueprints-scanner"
+    }
+  })
+  end
