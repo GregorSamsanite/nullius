@@ -3396,18 +3396,6 @@ data:extend({
     stack_size = 20
   },
   {
-    type = "item",
-    name = "nullius-trash-compactor",
-	icons = {{
-      icon = ICONPATH.."equipment/trash-compactor.png",
-      icon_size = 128
-	}},
-	placed_as_equipment_result = "nullius-upgrade-trash-compactor",
-    subgroup = "cargo-pod",
-    order = "nullius-d",
-    stack_size = 20
-  },
-  {
     type = "recipe",
     name = "nullius-small-cargo-pod-1",
     enabled = false,
@@ -3476,6 +3464,31 @@ data:extend({
     },
     result = "nullius-large-cargo-pod-3"
   },
+
+  {
+    type = "item",
+    name = "nullius-trash-compactor",
+	icons = {{
+      icon = ICONPATH.."equipment/trash-compactor-1.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-trash-compactor",
+    subgroup = "cargo-pod",
+    order = "nullius-db",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-trash-compactor-2",
+	icons = {{
+      icon = ICONPATH.."equipment/trash-compactor-2.png",
+      icon_size = 128
+	}},
+	placed_as_equipment_result = "nullius-upgrade-trash-compactor-2",
+    subgroup = "cargo-pod",
+    order = "nullius-dc",
+    stack_size = 20
+  },
   {
     type = "recipe",
     name = "nullius-trash-compactor",
@@ -3489,6 +3502,20 @@ data:extend({
       {type="item", name="nullius-battery-1", amount=1}
     },
     result = "nullius-trash-compactor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-trash-compactor-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "small-crafting",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-small-cargo-pod-2", amount=3},
+      {type="item", name="nullius-trash-compactor", amount=2},
+      {type="item", name="nullius-mining-tool-2", amount=1}
+    },
+    result = "nullius-trash-compactor-2"
   },
 
   {

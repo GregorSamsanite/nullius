@@ -1794,4 +1794,6 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
   data.raw.item["blueprint-deployer"].order = "nullius-t"
   data.raw.item["recursive-blueprints-scanner"].subgroup = "miner"
   data.raw.item["recursive-blueprints-scanner"].order = "nullius-s"
+  data.raw.item["construction-robot"].subgroup = "robot"
+  data.raw.item["construction-robot"].order = "nullius-r"
 end

@@ -1,4 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.19
+Date: 19.11.2022
+  Bugfixes:
+    - Fix a crash with invalid mechas.
+  Info:
+    - Add a description for high-pressure steam.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.18
+Date: 08.11.2022
+  Features:
+    - Add a second tier of trash compactor equipment.
+  Bugfixes:
+    - Fix a crash when placing a mecha the first time in a new save.
+  Balancing:
+    - Move trash compactor 1 to an earlier tech.
+  Changes:
+    - Change to asteroid miner 2 recipe.
+  Modding:
+    - Enable vanilla construction bot signal when using recursive blueprints.
+    - Change recursive blueprint resource scanner recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.17
 Date: 05.11.2022
   Features:

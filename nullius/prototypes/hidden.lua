@@ -214,6 +214,10 @@ remove_table(data.raw.item["iron-ore"].flags, "hidden")
 remove_table(data.raw.item["copper-ore"].flags, "hidden")
 remove_table(data.raw.item["uranium-ore"].flags, "hidden")
 
+if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
+remove_table(data.raw.item["construction-robot"].flags, "hidden")
+end
+
 data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters =
      data.raw["active-defense-equipment"]["discharge-defense-equipment"].attack_parameters
 

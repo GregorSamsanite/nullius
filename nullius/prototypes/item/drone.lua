@@ -729,7 +729,8 @@ data:extend({
       {"nullius-turret", 4},
       {"nullius-hangar-3", 1},
       {"nullius-sensor-node-3", 1},
-      {"nullius-box-construction-bot-4", 1}
+      {"nullius-box-construction-bot-4", 1},
+	  {"nullius-trash-compactor-2", 2}
     },
     result = "nullius-asteroid-miner-2"
   },

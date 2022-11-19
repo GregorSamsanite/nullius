@@ -1736,18 +1736,19 @@ data:extend({
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-trash-compactor",
+	localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", 1},
     take_result = "nullius-trash-compactor",
     localised_description = {"",
 	    {"equipment-description.nullius-bonus-trash", 10}, "\n",
 	    {"equipment-description.nullius-energy",
 		    {"entity-description.nullius-kilowatt", 5}}},
-    order = "jd",
+    order = "jdb",
     sprite = {
-      filename = EQUIPPATH.."trash-compactor.png",
+      filename = EQUIPPATH.."trash-compactor-1.png",
       width = 640,
       height = 220,
       priority = "medium",
-	  scale = 0.29
+	  scale = 0.28
     },
     shape = {
       width = 3,
@@ -1771,6 +1772,48 @@ data:extend({
         type = "projectile",
         category = "electric",
 		energy_consumption = "5kJ"
+      }
+    }
+  },
+  {
+    type = "active-defense-equipment",
+    name = "nullius-upgrade-trash-compactor-2",
+	localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", 2},
+    take_result = "nullius-trash-compactor-2",
+    localised_description = {"",
+	    {"equipment-description.nullius-bonus-trash", 20}, "\n",
+	    {"equipment-description.nullius-energy",
+		    {"entity-description.nullius-kilowatt", 12}}},
+    order = "jdc",
+    sprite = {
+      filename = EQUIPPATH.."trash-compactor-2.png",
+      width = 640,
+      height = 220,
+      priority = "medium",
+	  scale = 0.29
+    },
+    shape = {
+      width = 3,
+      height = 1,
+      type = "full"
+    },
+    energy_source = {
+      type = "electric",
+      buffer_capacity = "800kJ",
+      input_flow_limit = "80kW",
+	  drain = "12kW",
+      usage_priority = "primary-input"
+    },
+    categories = {"android"},
+	automatic = false,
+    attack_parameters = {
+      type = "projectile",
+      cooldown = 60,
+      range = 1,
+      ammo_type = {
+        type = "projectile",
+        category = "electric",
+		energy_consumption = "12kJ"
       }
     }
   },

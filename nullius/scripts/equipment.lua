@@ -42,6 +42,7 @@ local upgrade_data = {
   ["large-cargo-pod-2"] = {{UPG_CARGO_POD, 12}, {UPG_SPEED, -0.016}},
   ["large-cargo-pod-3"] = {{UPG_CARGO_POD, 15}, {UPG_SPEED, -0.02}},
   ["trash-compactor"] = {{UPG_TRASH, 10}},
+  ["trash-compactor-2"] = {{UPG_TRASH, 20}},
   ["armor-plate"] = {{UPG_ARMOR, 100}, {UPG_SPEED, -0.01}},
   ["telekinesis-field-1"] = {{UPG_REACH, 4}},
   ["telekinesis-field-2"] = {{UPG_REACH, 6},
@@ -678,9 +679,10 @@ end
 
 function update_mechas()
   if (global.nullius_mecha_head == nil) then return end
+  if (global.nullius_refueler_inserted_tick == nil) then return end
   local node = global.nullius_mecha_head.next
   if (not node.entity.valid) then
-    global.nullius_mecha_list[newlst.unit] = nil
+    global.nullius_mecha_list[node.unit] = nil
     if (node == global.nullius_mecha_head) then
 	  global.nullius_mecha_list = nil
 	  global.nullius_mecha_head = nil

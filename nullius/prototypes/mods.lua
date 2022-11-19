@@ -3284,7 +3284,8 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       energy_required = 20,
       ingredients = {
         {"radar", 1},
-        {"nullius-relay-1", 1}
+		{"nullius-small-miner-2", 1},
+        {"nullius-sensor-1", 4}
       },
       result = "recursive-blueprints-scanner"
     }

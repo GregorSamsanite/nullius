@@ -5329,6 +5329,10 @@ data:extend({
         recipe = "nullius-portable-generator-reprioritization"
       },
       {
+        type = "unlock-recipe",
+        recipe = "nullius-trash-compactor"
+      },
+      {
         type = "character-health-bonus",
         modifier = 50
       }
@@ -7149,10 +7153,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-large-chest-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-trash-compactor"
       }
     },
     unit = {
@@ -11350,6 +11350,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-small-cargo-pod-2"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-trash-compactor-2"
       }
     },
     unit = {
