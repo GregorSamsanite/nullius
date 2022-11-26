@@ -4455,7 +4455,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-nanotechnology-1", "nullius-pyrolysis", "nullius-checkpoint-argon"}
+    prerequisites = {"nullius-nanotechnology-1", "nullius-pyrolysis"}
   },
   {
     type = "technology",
@@ -4712,7 +4712,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-organic-chemistry-4", "nullius-checkpoint-argon"}
+    prerequisites = {"nullius-organic-chemistry-4", "nullius-sulfur-processing-2"}
   },
   {
     type = "technology",
@@ -4943,7 +4943,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-carbon-fiber", "nullius-iron-smelting-3"}
+    prerequisites = {"nullius-weaving-2", "nullius-iron-smelting-3"}
   },
   {
     type = "technology",
@@ -4978,7 +4978,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-chirality-3", "nullius-checkpoint-carbon-fiber"}
+    prerequisites = {"nullius-chirality-3", "nullius-illumination-2"}
   },
   {
     type = "technology",
@@ -5302,7 +5302,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-personal-storage-1", "nullius-titanium-production-2", "nullius-organic-chemistry-5"}
+    prerequisites = {"nullius-personal-storage-1", "nullius-titanium-production-2", "nullius-waste-reclamation"}
   },
   {
     type = "technology",
@@ -5401,7 +5401,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-organic-chemistry-5", "nullius-steelmaking-2"}
+    prerequisites = {"nullius-organic-chemistry-5", "nullius-steelmaking-2", "nullius-boiling-2"}
   },
   {
     type = "technology",
@@ -5425,7 +5425,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-organic-chemistry-5", "nullius-checkpoint-monocrystalline-silicon"}
+    prerequisites = {"nullius-organic-chemistry-5", "nullius-boiling-2"}
   },
 
   {
@@ -5778,7 +5778,7 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-checkpoint-battery", "nullius-braking-2",
-	    "nullius-checkpoint-fiberglass", "nullius-cybernetics-3"}
+	    "nullius-composites-1", "nullius-cybernetics-3"}
   },
   {
     type = "technology",
@@ -5802,8 +5802,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-monocrystalline-silicon", "nullius-organic-chemistry-5",
-	    "nullius-boiling-2", "nullius-illumination-2"}
+    prerequisites = {"nullius-organic-chemistry-5", "nullius-boiling-2", "nullius-battery-storage-2"}
   },
   {
     type = "technology",
@@ -5831,7 +5830,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-fiberglass", "nullius-solar-power-2"},
+    prerequisites = {"nullius-composites-1", "nullius-solar-power-2", "nullius-toolmaking-5"},
   },
   {
     type = "technology",
@@ -6375,7 +6374,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-concrete-2", "nullius-boiling-2", "nullius-checkpoint-fiberglass"}
+    prerequisites = {"nullius-concrete-2", "nullius-ceramics-2"}
   },
   {
     type = "technology",
@@ -6406,7 +6405,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-checkpoint-processor"}
+    prerequisites = {"nullius-checkpoint-monocrystalline-silicon"}
   },
   {
     type = "technology",
@@ -6896,7 +6895,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-checkpoint-processor", "nullius-checkpoint-substation"}
+    prerequisites = {"nullius-checkpoint-monocrystalline-silicon", "nullius-energy-distribution-4"}
   },
   {
     type = "technology",
@@ -7105,7 +7104,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-insulation-2", "nullius-construction-robot-2"}
+    prerequisites = {"nullius-insulation-2", "nullius-construction-robot-2", "nullius-energy-distribution-4"}
   },
   {
     type = "technology",
@@ -10927,6 +10926,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-extractor-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-volcanic-separation-3"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-volcanic-2"
       }
     },
     unit = {

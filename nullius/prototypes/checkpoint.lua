@@ -1146,35 +1146,6 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-checkpoint-argon",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
-	    {"fluid-name.nullius-argon"}}},
-    localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 1000, "nullius-argon", {"fluid-name.nullius-argon"}}},
-    order = "nullius-ye",
-    icons = {
-      {
-        icon = ICONPATH .. "fluid/atom.png",
-        icon_size = 64,
-        tint = {164, 140, 204}
-      },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
-    },
-    unit = {
-      count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
-      time = 1
-    },
-    prerequisites = {"nullius-nitrogen-chemistry-2"},
-    ignore_tech_cost_multiplier = true
-  },
-  {
-    type = "technology",
     name = "nullius-checkpoint-propene",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-propene"}}},
@@ -1281,7 +1252,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-glassmaking-2", "nullius-checkpoint-ceramic-powder"},
+    prerequisites = {"nullius-electronics-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1369,58 +1340,6 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-exploration-1"},
-    ignore_tech_cost_multiplier = true
-  },
-  {
-    type = "technology",
-    name = "nullius-checkpoint-carbon-fiber",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
-	    {"item-name.nullius-carbon-fiber"}}},
-    localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 50, "nullius-carbon-fiber", {"item-name.nullius-carbon-fiber"}}},
-    order = "nullius-ye",
-    icons = {
-	  data.raw.item["nullius-carbon-fiber"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 2,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
-    },
-    unit = {
-      count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
-      time = 1
-    },
-    prerequisites = {"nullius-weaving-2"},
-    ignore_tech_cost_multiplier = true
-  },
-  {
-    type = "technology",
-    name = "nullius-checkpoint-fiberglass",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
-	    {"item-name.nullius-fiberglass"}}},
-    localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 100, "nullius-fiberglass", {"item-name.nullius-fiberglass"}}},
-    order = "nullius-ye",
-    icons = {
-	  data.raw.item["nullius-fiberglass"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
-    },
-    unit = {
-      count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
-      time = 1
-    },
-    prerequisites = {"nullius-composites-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1578,35 +1497,6 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-checkpoint-processor",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
-	    {"item-name.nullius-processor-1"}}},
-    localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 100, "nullius-processor-1", {"item-name.nullius-processor-1"}}},
-    order = "nullius-ye",
-    icons = {
-	  {
-        icon = "__base__/graphics/icons/electronic-circuit.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
-    },
-    unit = {
-      count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
-      time = 1
-    },
-    prerequisites = {"nullius-electronics-2"},
-    ignore_tech_cost_multiplier = true
-  },
-  {
-    type = "technology",
     name = "nullius-checkpoint-large-tank",
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"technology-name.nullius-demonstration",
@@ -1633,7 +1523,7 @@ data:extend({
 	      {"nullius-requirement-build", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-plumbing-5", "nullius-ceramics-2"},
+    prerequisites = {"nullius-plumbing-5"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1748,7 +1638,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-broadcasting-2"},
+    prerequisites = {"nullius-broadcasting-2", "nullius-mass-production-4"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2898,7 +2788,7 @@ data:extend({
 		    2000000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
 			    {"fluid-name.nullius-carbon-dioxide"}}},"\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
-		    3000000000, "nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
+		    2000000000, "nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
     order = "nullius-yg",
     icons = {
       {

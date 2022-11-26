@@ -2784,12 +2784,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-volcanic",
-    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-volcanic-separation"}},
+	localised_name = {"", {"recipe-name.nullius-boxed",
+	    {"recipe-name.nullius-volcanic-separation"}}, " ", 1},
     enabled = false,
 	allow_decomposition = false,
     category = "distillation",
     subgroup = "boxed-fluid",
-    order = "nullius-b",
+    order = "nullius-bb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
     energy_required = 15,
     ingredients = {
@@ -2798,6 +2799,75 @@ data:extend({
     results = {
       {type="fluid", name="nullius-sulfur-dioxide", amount=80},
       {type="fluid", name="nullius-air", amount=120},
+      {type="fluid", name="nullius-carbon-monoxide", amount=160},
+      {type="item", name="nullius-box-acid-boric", amount=1}
+    },
+    main_product = "nullius-box-acid-boric"
+  },
+  {
+    type = "recipe",
+    name = "nullius-volcanic-separation-3",
+    localised_name = {"", {"recipe-name.nullius-volcanic-separation"}, " ", 3},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png", 72},
+		{FLUIDPATH .. "atom.png", 64, nil, nil, element_tint["helium"]}},
+      {element_tint["sulfur"], element_tint["helium"], element_tint["boron"]},
+      nil
+    ),
+    enabled = false,
+	allow_decomposition = false,
+    category = "distillation",
+    subgroup = "inorganic-chemistry",
+    order = "nullius-ed",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
+    energy_required = 5,
+    ingredients = {
+      {type="fluid", name="nullius-volcanic-gas", amount=80}
+    },
+    results = {
+      {type="fluid", name="nullius-sulfur-dioxide", amount=16},
+      {type="fluid", name="nullius-trace-gas", amount=5},
+      {type="fluid", name="nullius-carbon-monoxide", amount=32},
+      {type="item", name="nullius-acid-boric", amount=1}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-volcanic-2",
+    localised_name = {"", {"recipe-name.nullius-boxed",
+	    {"recipe-name.nullius-volcanic-separation"}}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "lye.png",
+        icon_size = 64,
+        tint = { 240, 172, 172 },
+		scale = 0.45
+      },
+	  {
+	    icon = FLUIDPATH .. "atom.png",
+		icon_size = 64,
+		scale = 0.2,
+		shift = {10, 10},
+	    tint = {164, 140, 204}
+      }
+    },
+    enabled = false,
+	allow_decomposition = false,
+    category = "distillation",
+    subgroup = "boxed-fluid",
+    order = "nullius-bc",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-volcanic-gas"].flow_color },
+    energy_required = 25,
+    ingredients = {
+      {type="fluid", name="nullius-volcanic-gas", amount=400}
+    },
+    results = {
+      {type="fluid", name="nullius-sulfur-dioxide", amount=80},
+      {type="fluid", name="nullius-trace-gas", amount=25},
       {type="fluid", name="nullius-carbon-monoxide", amount=160},
       {type="item", name="nullius-box-acid-boric", amount=1}
     },
@@ -5030,7 +5100,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
       {type="fluid", name="nullius-methanol", amount=140},
-      {type="fluid", name="nullius-compressed-oxygen", amount=375},
+      {type="fluid", name="nullius-compressed-oxygen", amount=475},
       {type="fluid", name="nullius-benzene", amount=10}
     },
     result = "nullius-box-methanol-canister"
@@ -6538,8 +6608,8 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "boxed-fluid",
-    order = "nullius-f",
+    subgroup = "boxed-organic-1",
+    order = "nullius-e",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ech"].flow_color,
       secondary = data.raw.fluid["nullius-solvent"].flow_color

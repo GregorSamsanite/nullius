@@ -146,13 +146,9 @@ function update_wind()
 end
 
 
-function create_collision_box(surface, position, force, dir, xoffs, yoffs)
-  local collision = surface.create_entity{name = "nullius-wind-collision-"..dir,
-    position = {x=(position.x+xoffs), y=(position.y+yoffs)},
-  force = force, create_build_effect_smoke = false}
-  collision.destructible = false
-  collision.minable = false
-  return collision
+function create_wind_collision(surface, pos, force, dir, xo, yo, xsz, ysz)
+  return (create_collision_box(surface, pos, force,
+	  "nullius-wind-collision-"..dir, xo, yo, xsz, ysz, "layer-43"))
 end
 
 function build_wind_turbine(entity, level)
@@ -169,10 +165,10 @@ function build_wind_turbine(entity, level)
   newentity.power_production = global.nullius_current_power[level]
   script.register_on_entity_destroyed(newentity)
 
-  local collision1 = create_collision_box(surface, position, force, "horizontal", 14.5, 17)
-  local collision2 = create_collision_box(surface, position, force, "vertical", 17, -14.5)
-  local collision3 = create_collision_box(surface, position, force, "horizontal", -14.5, -17)
-  local collision4 = create_collision_box(surface, position, force, "vertical", -17, 14.5)
+  local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5, 17, 16, 13.5)
+  local collision2 = create_wind_collision(surface, position, force, "vertical", 17, -14.5, 13.5, 16)
+  local collision3 = create_wind_collision(surface, position, force, "horizontal", -14.5, -17, 16, 13.5)
+  local collision4 = create_wind_collision(surface, position, force, "vertical", -17, 14.5, 13.5, 16)
 
   local ind = level + ((newentity.unit_number % 307) * 3)
   local bucket = global.nullius_turbine_buckets[ind]

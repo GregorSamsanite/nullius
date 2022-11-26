@@ -66,7 +66,6 @@ local checkpoint_data = {
   ["heat-pipe"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-heat-pipe-1"}} }},
   ["chemical-engineering"] = {{ CHK_BUILD, STT_NET, 10, {{"nullius-chemical-plant-2"}} }},
 
-  ["argon"] = {{ CHK_FLUID, STT_PRODUCE, 1000, {{"nullius-argon"}} }},
   ["propene"] = {{ CHK_FLUID, STT_CONSUME, 20000, {{"nullius-propene"}} }},
   ["titanium-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-titanium-ingot"}} }},
   ["soda-ash"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"nullius-soda-ash"}} }},
@@ -74,8 +73,6 @@ local checkpoint_data = {
   ["crushed-iron-ore"] = {{ CHK_ITEM, STT_CONSUME, 5000, {{"nullius-crushed-iron-ore"}} }},
   ["aluminum-carbide"] = {{ CHK_ITEM, STT_CONSUME, 5000, {{"nullius-aluminum-carbide"}} }},
   ["exploration"] = {{ CHK_ITEM, STT_CONSUME, 8, {{"nullius-scout-drone-1"}} }},
-  ["carbon-fiber"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-carbon-fiber"}} }},
-  ["fiberglass"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-fiberglass"}} }},
   ["battery"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-battery-1"}} }},
   ["ceramic-powder"] = {{ CHK_ITEM, STT_CONSUME, 100, {{"nullius-ceramic-powder"}} }},
   ["explosive"] = {{ CHK_ITEM, STT_CONSUME, 25, {{"cliff-explosives"}} }},
@@ -84,7 +81,6 @@ local checkpoint_data = {
 			{ CHK_BUILD, STT_NET, 4, {{"nullius-small-demand-chest-1"}} }},
   ["construction-robot"] = {{ CHK_ITEM, STT_PRODUCE, 25, {{"nullius-construction-bot-1"}} },
 			{ CHK_BUILD, STT_NET, 4, {{"nullius-relay-2"}} }},
-  ["processor"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-processor-1"}} }},
   ["large-tank"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-large-tank-2"}} }},
   ["substation"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-substation-2"}} }},
   ["logistics-2"] = {{ CHK_BUILD, STT_NET, 40, {{"stack-inserter"}} },
@@ -123,7 +119,7 @@ local checkpoint_data = {
 
   ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 2000000000,
 				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}} },
-			{ CHK_FLUID, STT_PRODUCE, 3000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
+			{ CHK_FLUID, STT_PRODUCE, 2000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},
   ["uranium-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-uranium-1"}} }},
   ["copper-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-copper-1"}} }},

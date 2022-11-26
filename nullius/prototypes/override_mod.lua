@@ -1725,7 +1725,7 @@ end
 
 
 if mods["safefill"] then
-table.insert(data.raw.technology["nullius-checkpoint-large-tank"].prerequisites,"nullius-irrigation")
+table.insert(data.raw.technology["nullius-plumbing-5"].prerequisites,"nullius-irrigation")
 data.raw["item-subgroup"]["safefill"].order = "lb"
 end
 

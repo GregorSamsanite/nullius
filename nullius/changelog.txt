@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.20
+Date: 25.11.2022
+  Features:
+    - New recipe, volcanic separation 3.
+  Balancing:
+    - Remove 4 early green science material checkpoints.
+    - Reduce carbon sequestration checkpoint oxygen requirement.
+  Bugfixes:
+    - Fix a mismatch in ratio of compressed oxygen in boxed methanol canister.
+    - When beacons are suppressed, retain scheduled upgrade status.
+    - Fix corner case of construction ghosts deleted by beacons/wind turbines.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.19
 Date: 19.11.2022
   Bugfixes:

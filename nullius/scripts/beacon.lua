@@ -29,21 +29,21 @@ function update_small_beacon(entity)
   if (lvl == count) then return end
 
   local modrequest = nil
-  local ghosts = entity.surface.find_entities_filtered{area=bound,
+  local proxies = entity.surface.find_entities_filtered{area=bound,
       type = "item-request-proxy"}
-  for _,ghost in pairs(ghosts) do
-	if (ghost.valid and (ghost.proxy_target == entity) and
-	     (ghost.item_requests ~= nil)) then
+  for _,proxy in pairs(proxies) do
+	if (proxy.valid and (proxy.proxy_target == entity) and
+	     (proxy.item_requests ~= nil)) then
 	  local found = false
 	  modrequest = { }
-	  for modind, modval in pairs(ghost.item_requests) do
+	  for modind, modval in pairs(proxy.item_requests) do
 	    modrequest[modind] = modval
 		found = true
 	  end
 	  if (not found) then
 	    modrequest = nil
 	  end
-	  ghost.destroy()
+	  proxy.destroy()
 	  break
 	end
   end
@@ -55,6 +55,11 @@ function update_small_beacon(entity)
   local was_deconstruct = entity.to_be_deconstructed()
   local oldforce = entity.force
 
+  local was_upgrade = nil
+  if (entity.to_be_upgraded() and (oldforce ~= nil)) then
+    was_upgrade = entity.get_upgrade_target()
+  end
+
   global.nullius_in_beacon_replace = true
   local newentity = entity.surface.create_entity{name = newname,
       force = oldforce, position = entity.position, spill = false,
@@ -64,6 +69,9 @@ function update_small_beacon(entity)
   if (newentity == nil) then return end
   if (was_deconstruct and (oldforce ~= nil)) then
     newentity.order_deconstruction(oldforce)
+  end
+  if (was_upgrade ~= nil) then
+    newentity.order_upgrade{force=oldforce, target=was_upgrade}
   end
 
   if (modrequest ~= nil) then
@@ -83,16 +91,70 @@ function update_small_beacons(pos, surface)
 end
 
 
-function create_interference(entity, dir, xoffs, yoffs)
-  local ret = entity.surface.create_entity{
-      name = "nullius-beacon-interference-"..dir,
-      position = {x=(entity.position.x+xoffs), y=(entity.position.y+yoffs)},
-      force = entity.force, create_build_effect_smoke = false}
-  ret.destructible = false
-  ret.minable = false
+function create_collision_box(surface, pos, force, box_name, 
+    xoffs, yoffs, xsz, ysz, layer)
+  local bx = (pos.x + xoffs)
+  local by = (pos.y + yoffs)
+  local dx = xsz + 0.9
+  local dy = ysz + 0.9
+  local bound = {{(bx - dx), (by - dy)}, {(bx + dx), (by + dy)}}
+  local ghosts = surface.find_entities_filtered{area = bound,
+      name = "entity-ghost"}
+  local ghost_info = { }
+
+  for _,ghost in pairs(ghosts) do
+    if (ghost.valid and
+	    (ghost.ghost_prototype.collision_mask[layer] == nil)) then
+	  local dir = nil
+	  if (ghost.supports_direction) then
+	    dir = ghost.direction
+	  end  
+	  ghost_info[ghost.unit_number] = {
+	    inner_name = ghost.ghost_name,
+		position = ghost.position,
+		duration = ghost.time_to_live,
+		requests = ghost.item_requests,
+		force = ghost.force,
+		direction = dir
+	  }
+	end
+  end
+
+  local collision = surface.create_entity{name = box_name, force = force,
+      position = {x = bx, y = by}, create_build_effect_smoke = false}
+  collision.destructible = false
+  collision.minable = false
+
+  local ghosts = surface.find_entities_filtered{area = bound,
+      name = "entity-ghost"}
+  for _,ghost in pairs(ghosts) do
+    if (ghost.valid) then
+	  ghost_info[ghost.unit_number] = nil
+	end
+  end
+  for _,ghost in pairs(ghost_info) do
+    local g = surface.create_entity{name = "entity-ghost",
+	    inner_name = ghost.inner_name, force = ghost.force, 
+	    position = ghost.position, direction = ghost.direction,
+		expires = (ghost.duration ~= nil)}
+	if (ghost.duration ~= nil) then
+	  g.time_to_live = ghost.duration
+	end
+	if (ghost.requests ~= nil) then
+	  g.item_requests = ghost.requests
+	end
+  end
+  return collision
+end
+
+function create_interference(entity, dir, xoffs, yoffs, xsz, ysz)
+  local ret = create_collision_box(entity.surface, entity.position,
+      entity.force, "nullius-beacon-interference-"..dir,
+	  xoffs, yoffs, xsz, ysz, "layer-42")
   global.nullius_interference_fields[ret.unit_number] = entity.unit_number
   return ret
 end
+
 
 function build_large_beacon(entity)
   if (global.nullius_beacons == nil) then
@@ -105,10 +167,10 @@ function build_large_beacon(entity)
 	surface = entity.surface,
 	interference = { }
   }
-  entry.interference[1] = create_interference(entity, "horizontal", 6, -8)
-  entry.interference[2] = create_interference(entity, "horizontal", -6, 8)
-  entry.interference[3] = create_interference(entity, "vertical", 8, 6)
-  entry.interference[4] = create_interference(entity, "vertical", -8, -6)
+  entry.interference[1] = create_interference(entity, "horizontal", 6, -8, 8, 6)
+  entry.interference[2] = create_interference(entity, "horizontal", -6, 8, 8, 6)
+  entry.interference[3] = create_interference(entity, "vertical", 8, 6, 6, 8)
+  entry.interference[4] = create_interference(entity, "vertical", -8, -6, 6, 8)
 
   global.nullius_beacons[entity.unit_number] = entry
   script.register_on_entity_destroyed(entity)
