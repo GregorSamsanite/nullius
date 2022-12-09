@@ -1515,7 +1515,7 @@ end
 if mods["Shuttle_Train_Continued"] then
   table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
     {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
-if mods["railway-motor-car"] then
+if (mods["railway-motor-car"] or mods["jetpack"]) then
   data.raw.item["shuttle-lite"].subgroup = "jetpack"
 else
   data.raw.item["shuttle-lite"].subgroup = "railway"

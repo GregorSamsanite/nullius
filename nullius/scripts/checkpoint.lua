@@ -117,7 +117,7 @@ local checkpoint_data = {
   ["mecha"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-mecha"}} }},
   ["excavation-drone"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-excavation-drone"}} }},
 
-  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 2000000000,
+  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 1500000000,
 				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}} },
 			{ CHK_FLUID, STT_PRODUCE, 2000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},

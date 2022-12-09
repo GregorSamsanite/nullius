@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.21
+Date: 08.12.2022
+  Balancing:
+    - Increase vehicle cargo capacity.
+    - Reduce carbon sequestration checkpoint carbon dioxide requirement.
+  Modding:
+    - Remove conflict with Extended Descriptions mod.
+    - Change item subgroup of rail shuttle in some mod combinations.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.20
 Date: 25.11.2022
   Features:

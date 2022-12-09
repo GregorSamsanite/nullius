@@ -2785,7 +2785,7 @@ data:extend({
 	    {"technology-name.nullius-carbon-sequestration"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-fluid-compressible",
-		    2000000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
+		    1500000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
 			    {"fluid-name.nullius-carbon-dioxide"}}},"\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
 		    2000000000, "nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},

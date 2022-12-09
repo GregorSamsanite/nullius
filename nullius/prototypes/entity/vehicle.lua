@@ -31,7 +31,7 @@ data:extend({
     braking_power = "80kW",
     friction = .0006,
     rotation_speed = 0.01,
-    inventory_size = 40,
+    inventory_size = 80,
     effectivity = 0.6,
     consumption = "15kW",
 
@@ -107,7 +107,7 @@ data:extend({
     braking_power = "200kW",
     friction = .0005,
     rotation_speed = 0.015,
-    inventory_size = 60,
+    inventory_size = 120,
     effectivity = 0.8,
     consumption = "50kW",
 
@@ -183,7 +183,7 @@ data:extend({
     braking_power = "1.5MW",
     friction = .0004,
     rotation_speed = 0.02,
-    inventory_size = 80,
+    inventory_size = 160,
     effectivity = 1,
     consumption = "200kW",
     energy_source = {type = "void"},
@@ -259,7 +259,7 @@ data:extend({
     friction = 0.002,
     terrain_friction_modifier = 0.4,
     rotation_speed = 0.0025,
-    inventory_size = 120,
+    inventory_size = 200,
     effectivity = 0.8,
     consumption = "500kW",
 
@@ -323,7 +323,7 @@ data:extend({
     friction = 0.0015,
     terrain_friction_modifier = 0.3,
     rotation_speed = 0.005,
-    inventory_size = 160,
+    inventory_size = 300,
     effectivity = 1,
     consumption = "1MW",
 
@@ -408,7 +408,7 @@ data:extend({
       "nullius-mecha-gun", "nullius-mecha-launcher",
       "nullius-mecha-drone-launcher-1", "nullius-mecha-drone-launcher-2"
     },
-    inventory_size = 120,
+    inventory_size = 150,
     trash_inventory_size = 20,
     equipment_grid = "nullius-mecha-grid-1",
     height = 1.5,
@@ -461,7 +461,7 @@ data:extend({
       "nullius-mecha-gun", "nullius-mecha-launcher",
       "nullius-mecha-drone-launcher-1", "nullius-mecha-drone-launcher-2"
     },
-    inventory_size = 150,
+    inventory_size = 250,
     trash_inventory_size = 30,
     equipment_grid = "nullius-mecha-grid-2",
     height = 1.5,
