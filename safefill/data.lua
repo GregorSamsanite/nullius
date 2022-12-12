@@ -464,3 +464,25 @@ elseif (settings.startup["safefill-cost"].value == "cheap") then
     }   
   end
 end
+
+
+if mods["space-exploration"] then
+  if (data.raw.item["safefill-shallow"] ~= nil) then
+    data.raw.item["safefill-shallow"].stack_size = 200
+  end
+  if (data.raw.item["safefill-medium"] ~= nil) then
+    data.raw.item["safefill-medium"].stack_size = 200
+  end
+  if (data.raw.item["safefill-deep"] ~= nil) then
+    data.raw.item["safefill-deep"].stack_size = 200
+  end
+  if (data.raw.item["safefill-mud"] ~= nil) then
+    data.raw.item["safefill-mud"].stack_size = 200
+  end
+  if (data.raw.item["safefill-green"] ~= nil) then
+    data.raw.item["safefill-green"].stack_size = 200
+  end
+  if (data.raw.item["safefill-deepgreen"] ~= nil) then
+    data.raw.item["safefill-deepgreen"].stack_size = 200
+  end
+end

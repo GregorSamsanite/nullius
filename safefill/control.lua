@@ -71,6 +71,43 @@ function robot_built_tile(event)
 end
 
 
+function script_built_tile(event)
+  local newtiles1 = { }
+  local new_count = 0
+  for _,t in pairs(event.tiles) do
+    if (string.sub(t.name, 1, 9) == "safefill-") then
+	  local tile = game.tile_prototypes[t.name]
+	  if ((tile ~= nil) and
+          (string.sub(tile.order, 1, 17) == "c[watersafefill]-")) then
+	    local tilename = string.sub(tile.order, 18)
+        if (game.tile_prototypes[tilename] ~= nil) then
+          new_count = new_count + 1
+		  newtiles1[new_count] = {name = tilename, position = t.position}
+	    end
+	  end
+	end
+  end
+
+  if (new_count < 1) then return end
+  local s = game.surfaces[event.surface_index]
+  s.set_tiles(newtiles1, true, "abort_on_collision")
+
+  newtiles2 = { }
+  local revert_count = 0
+  for _,t in pairs(newtiles1) do
+	local curt = s.get_tile(t.position)
+	if (curt.name ~= t.name) then
+	  revert_count = revert_count + 1
+      newtiles2[revert_count] = {name = "dirt-1", position = t.position}
+	end
+  end
+
+  if (revert_count > 0) then
+    s.set_tiles(newtiles2, true, false)
+  end
+end
+
+
 local fillname = {
   ["water-shallow"] = "safefill-shallow",
   ["water"] = "safefill-medium",
@@ -100,3 +137,4 @@ end
 script.on_event(defines.events.on_player_built_tile, player_built_tile)
 script.on_event(defines.events.on_robot_built_tile, robot_built_tile)
 script.on_event(defines.events.on_built_entity, entity_built)
+script.on_event(defines.events.script_raised_set_tiles, script_built_tile)

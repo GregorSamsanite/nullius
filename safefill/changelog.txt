@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 11.12.2022
+  Changes:
+    - Reduce stack size of waterfill for Space Exploration.
+  Bugfixes:
+    - Handle other mods (like Autobuild) reviving water ghosts with scripts.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.10
 Date: 18.04.2022
   Translation:
