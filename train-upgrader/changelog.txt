@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 13.12.2022
+  Bugfixes:
+    - Fix a problem with scheduling trains on SE space elevators.
+  Optimization:
+    - Reduce disruptions by unreachable upgrade stations.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 07.12.2022
+  Bugfixes:
+    - Preserve fluid contents of upgraded fluid wagons.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 04.12.2022
+  Features:
+    - Original release.

@@ -9,7 +9,7 @@ Date: 11.12.2022
 Version: 1.0.10
 Date: 18.04.2022
   Translation:
-    - Added polish translation.
+    - Added Polish translation.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 15.07.2021

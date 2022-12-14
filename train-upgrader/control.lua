@@ -1,0 +1,5 @@
+require("scripts.init")
+require("scripts.station")
+require("scripts.build")
+require("scripts.upgrade")
+require("scripts.tick")

@@ -1,0 +1,119 @@
+function special_stop(stop)
+  local conds = stop.wait_conditions
+  if (conds == nil) then return false end
+  local wc = conds[1]
+  if ((wc == nil) or (conds[2] ~= nil)) then return false end
+  if (wc.type ~= "time") then return false end
+  if (wc.compare_type ~= "and") then return false end
+  if (wc.ticks ~= 36007) then return false end
+  return true
+end
+
+function insert_train_schedule(train, station)
+  if ((not train.valid) or train.manual_mode) then return false end
+  local sched = train.schedule
+  if (sched == nil) then return false end
+  local stop_name = station.stop.backer_name
+  local hi = -1
+  for i,r in pairs(sched.records) do
+    if (i > hi) then hi = i end
+    if (special_stop(r)) then return false end
+  end
+
+  local ind = hi + 1
+  sched.records[ind] = { station = stop_name,
+      wait_conditions = {{type="time", compare_type="and", ticks=36007}} }
+  station.pending[train.id] = {
+    train = train,
+    tick = game.tick,
+	current = sched.current
+  }
+  train.schedule = sched
+  train.go_to_station(ind)
+  if (train.valid and (train.state == defines.train_state.no_path)) then
+    release_train_schedule(train, station)
+  end
+  return true
+end
+
+function release_train_schedule(train, station)
+  if ((train == nil) or (not train.valid)) then return end
+  local pending = station.pending[train.id]
+  station.pending[train.id] = nil
+  local sched = train.schedule
+  local name = station.stop.backer_name
+  local found = nil
+  local hi = -1
+  for i,r in pairs(sched.records) do
+    if (i > hi) then hi = i end
+    if ((r.station == name) and special_stop(r)) then
+	  if (found ~= nil) then return end
+	  found = i
+	end
+  end
+  if ((found ~= hi) or (hi < 2)) then return end
+
+  sched.records[hi] = nil
+  if (pending ~= nil) then
+    sched.current = pending.current
+  end
+  if (sched.current >= hi) then
+    sched.current = 1
+  end
+  train.schedule = sched
+  train.manual_mode = false
+end
+
+
+function init_station(entity, unit_list, supplier_list, receiver_list)
+  unit_list[entity.unit_number] = entity
+  local entry = { stop = entity, units = unit_list,
+      suppliers = supplier_list, receivers = receiver_list,
+	  train_count = 0, train_index = 0, last_refresh = 0,
+	  hold = false, pending = { } }
+  for u, _ in pairs(unit_list) do
+    global.unit_table[u] = entry
+  end 
+
+  if (global.station_head == nil) then
+    entry.next = entry
+	entry.prev = entry
+	global.station_head = entry
+  else
+    entry.prev = global.station_head
+	entry.next = entry.prev.next
+	entry.prev.next = entry
+	entry.next.prev = entry
+  end
+
+  local stops = entity.force.get_train_stops{name = entity.backer_name}
+  if (stops[2] ~= nil) then
+    entry.old_name = entity.backer_name
+	entity.backer_name = "Train_Updater_" .. entity.unit_number
+  end
+end
+
+function delete_station(station, no_rename)
+  if (station.next == station) then
+    global.station_head = nil
+  else
+    station.next.prev = station.prev
+	station.prev.next = station.next
+	if (global.station_head == station) then
+	  global.station_head = station.next
+	end
+  end
+  station.next = nil
+  station.prev = nil
+
+  for _, pend in pairs(station.pending) do
+    release_train_schedule(pend.train, station)
+  end
+  for unit, entity in pairs(station.units) do
+    global.unit_table[unit] = nil
+  end
+
+  if ((station.old_name ~= nil) and (not no_rename)) then
+    station.stop.backer_name = station.old_name
+  end
+end
