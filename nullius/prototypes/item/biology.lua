@@ -1245,7 +1245,7 @@ data:extend({
       {type="fluid", name="nullius-air", amount=2500},
       {type="item", name="nullius-land-fill-bauxite", amount=2},
       {type="item", name="nullius-fertilizer", amount=2},
-      {type="item", name="nullius-grass-seed", amount=18}
+      {type="item", name="nullius-grass-seed", amount=15}
     },
     results = {
       {type="item", name="nullius-grass", amount=8},
@@ -1328,7 +1328,7 @@ data:extend({
     order = "nullius-g",
     energy_required = 1,
     ingredients = {
-      {type="item", name="nullius-grass-seed", amount=5}
+      {type="item", name="nullius-grass-seed", amount=4}
     },
     results = {
       {type="item", name="nullius-cellulose", amount=3},
@@ -1373,7 +1373,7 @@ data:extend({
     order = "nullius-bc",
     energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-box-grass-seed", amount=5}
+      {type="item", name="nullius-box-grass-seed", amount=4}
     },
     results = {
       {type="item", name="nullius-box-cellulose", amount=3},
@@ -1403,12 +1403,12 @@ data:extend({
     order = "nullius-pb",
     energy_required = 1,
     ingredients = {
-      {type="item", name="nullius-cellulose", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=40}
+      {type="item", name="nullius-cellulose", amount=8},
+      {type="fluid", name="nullius-oxygen", amount=80}
     },
     results = {
-      {type="item", name="nullius-graphite", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=70}
+      {type="item", name="nullius-graphite", amount=2},
+      {type="fluid", name="nullius-carbon-dioxide", amount=140}
     }
   },
   {
@@ -1437,18 +1437,19 @@ data:extend({
     order = "nullius-bgb",
     energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-box-cellulose", amount=4},
-      {type="fluid", name="nullius-oxygen", amount=200}
+      {type="item", name="nullius-box-cellulose", amount=8},
+      {type="fluid", name="nullius-oxygen", amount=400}
     },
     results = {
-      {type="item", name="nullius-box-graphite", amount=1},
-      {type="fluid", name="nullius-carbon-dioxide", amount=350}
+      {type="item", name="nullius-box-graphite", amount=2},
+      {type="fluid", name="nullius-carbon-dioxide", amount=700}
     }
   },
   {
     type = "recipe",
     name = "nullius-cellulose-pyrolysis",
-    localised_name = {"recipe-name.nullius-pyrolysis", {"item-name.nullius-cellulose"}},
+    localised_name = {"", {"recipe-name.nullius-pyrolysis",
+	    {"item-name.nullius-cellulose"}}, " ", 1},
     icons = {
       {
         icon = "__base__/graphics/icons/coal-dark-background.png",
@@ -1466,7 +1467,7 @@ data:extend({
     category = "wet-smelting",
     subgroup = "biology-material",
     order = "nullius-pc",
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {type="item", name="nullius-cellulose", amount=3},
       {type="fluid", name="nullius-nitrogen", amount=25}
@@ -1479,8 +1480,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-cellulose-pyrolysis",
-    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pyrolysis",
-        {"item-name.nullius-cellulose"}}},
+    localised_name = {"recipe-name.nullius-boxed", {"", {"recipe-name.nullius-pyrolysis",
+        {"item-name.nullius-cellulose"}}, " ", 1}},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -1503,7 +1504,7 @@ data:extend({
     category = "bulk-smelting",
     subgroup = "boxed-organic-1",
     order = "nullius-bgc",
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
       {type="item", name="nullius-box-cellulose", amount=3},
       {type="fluid", name="nullius-nitrogen", amount=125}
@@ -1511,6 +1512,75 @@ data:extend({
     results = {
       {type="item", name="nullius-box-graphite", amount=2},
       {type="fluid", name="nullius-carbon-monoxide", amount=50}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-cellulose-pyrolysis-2",
+    localised_name = {"", {"recipe-name.nullius-pyrolysis",
+	    {"item-name.nullius-cellulose"}}, " ", 2},
+    icons = {
+	  {
+        icon = ICONPATH .. "carbon-fiber.png",
+        icon_size = 128
+      },
+      {
+        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon_size = 54,
+        scale = 0.37,
+        shift = {-7, -7}
+      }
+	},
+    enabled = false,
+    category = "wet-smelting",
+    subgroup = "biology-material",
+    order = "nullius-pd",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-cellulose", amount=4},
+      {type="fluid", name="nullius-argon", amount=3}
+    },
+    results = {
+	  {type="item", name="nullius-carbon-fiber", amount=1},
+      {type="item", name="nullius-graphite", amount=1},
+      {type="fluid", name="nullius-carbon-monoxide", amount=8}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-cellulose-pyrolysis-2",
+    localised_name = {"recipe-name.nullius-boxed", {"", {"recipe-name.nullius-pyrolysis",
+        {"item-name.nullius-cellulose"}}, " ", 2}},
+    icons = {
+      {
+        icon = ICONPATH .. "boxing.png",
+        icon_size = 64
+      },
+	  {
+	    icon = ICONPATH .. "carbon-fiber.png",
+        icon_size = 128,
+		scale = 0.225
+      },
+      {
+        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon_size = 54,
+        scale = 0.33,
+        shift = {-6, -6}
+      }
+	},
+    enabled = false,
+    category = "bulk-smelting",
+    subgroup = "boxed-organic-1",
+    order = "nullius-bgd",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="nullius-box-cellulose", amount=4},
+      {type="fluid", name="nullius-argon", amount=15}
+    },
+    results = {
+	  {type="item", name="nullius-box-carbon-fiber", amount=1},
+      {type="item", name="nullius-box-graphite", amount=1},
+      {type="fluid", name="nullius-carbon-monoxide", amount=40}
     }
   },
   {
@@ -3152,8 +3222,8 @@ data:extend({
     },
     enabled = false,
     category = "bulk-smelting",
-    subgroup = "boxed-organic-1",
-    order = "nullius-bh",
+	subgroup = "boxed-biology",
+    order = "nullius-md",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-box-plastic", amount=10},

@@ -13931,6 +13931,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-sugar"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-cellulose-pyrolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-cellulose-pyrolysis"
       }
     },
     unit = {
@@ -14224,6 +14232,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-textile-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-cellulose-pyrolysis-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-cellulose-pyrolysis-2"
       }
     },
     unit = {
@@ -14793,14 +14809,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-biomass-cultivation"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-cellulose-pyrolysis"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-boxed-cellulose-pyrolysis"
       },
       {
         type = "unlock-recipe",

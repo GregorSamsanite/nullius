@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.22
+Date: 21.12.2022
+  Features:
+    - New cellulose pyrolysis 2 recipe.
+  Balancing:
+    - Increase yield of grass seed milling.
+    - Increase speed difference between cellulose burning and pyrolysis.
+  Changes:
+    - Move cellulose pyrolysis 1 to an earlier biochemistry tech.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.21
 Date: 08.12.2022
   Balancing:
