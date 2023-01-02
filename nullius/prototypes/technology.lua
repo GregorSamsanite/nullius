@@ -14551,6 +14551,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-wood-paneling"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-wooden-wall"
       },
       {
@@ -14572,6 +14576,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-wooden-rail"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-wood-paneling"
       },
       {
         type = "unlock-recipe",

@@ -2139,6 +2139,7 @@ data:extend({
     name = "nullius-thrower-1",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 3,
     ingredients = {
@@ -2152,6 +2153,7 @@ data:extend({
     name = "nullius-thrower-2",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2166,6 +2168,7 @@ data:extend({
     name = "nullius-filter-thrower-2",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2180,6 +2183,7 @@ data:extend({
     name = "nullius-thrower-3",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2193,6 +2197,7 @@ data:extend({
     name = "nullius-filter-thrower-3",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2206,6 +2211,7 @@ data:extend({
     name = "nullius-thrower-4",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 3,
     ingredients = {
@@ -2219,6 +2225,7 @@ data:extend({
     name = "nullius-filter-thrower-4",
     enabled = false,
     always_show_made_in = true,
+	GCKI_ignore = true,
     category = "medium-crafting",
     energy_required = 3,
     ingredients = {

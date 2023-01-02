@@ -229,8 +229,10 @@ function update_player_upgrades(player)
   player.character_build_distance_bonus = reach2
   player.character_item_drop_distance_bonus = reach
   player.character_resource_reach_distance_bonus = reach  
-  player.character_loot_pickup_distance_bonus = math.floor(loot + 0.5)
-  player.character_item_pickup_distance_bonus = math.floor((loot * 0.25) + 0.5)
+  player.character_loot_pickup_distance_bonus =
+      math.max(0, math.floor(loot + 0.5))
+  player.character_item_pickup_distance_bonus =
+      math.max(0, math.floor((loot * 0.25) + 0.5))
 
   local unit = player.character.unit_number
   if (costlist ~= nil) then

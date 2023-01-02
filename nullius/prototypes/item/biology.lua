@@ -3489,7 +3489,7 @@ data:extend({
     allow_as_intermediate = false,
     category = "large-crafting",
     subgroup = "woodworking",
-    order = "nullius-e",
+    order = "nullius-ec",
     energy_required = 4,
     ingredients = {
       {type="item", name="refined-concrete", amount=4},
@@ -3535,7 +3535,7 @@ data:extend({
     always_show_products = true,
     category = "huge-assembly",
     subgroup = "boxed-wood",
-    order = "nullius-wd",
+    order = "nullius-wdc",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-reinforced-concrete", amount=2},
@@ -3551,6 +3551,63 @@ data:extend({
       {type="item", name="nullius-box-cellulose", amount=3}
     },
     main_product = "nullius-box-wall"
+  },
+  {
+    type = "recipe",
+    name = "nullius-wood-paneling",
+    localised_name = {"recipe-name.nullius-wood-paneling"},
+    icons = {
+      {
+        icon = "__nullius__/graphics/icons/wood-panel.png",
+        icon_size = 128
+      }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "medium-assembly",
+	subgroup = "woodworking",
+    order = "nullius-eb",
+    energy_required = 8,
+    ingredients = {
+      {"nullius-steel-wire", 1},
+	  {"nullius-gypsum", 2},
+      {"nullius-wood", 4},
+      {"nullius-textile", 1}
+    },
+    result = "nullius-insulation",
+    result_count = 4
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-wood-paneling",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-wood-paneling"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__nullius__/graphics/icons/wood-panel.png",
+        icon_size = 128,
+		scale = 0.225
+      }
+    },
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "huge-assembly",
+	subgroup = "boxed-wood",
+    order = "nullius-wdb",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-box-steel-wire", 1},
+	  {"nullius-box-gypsum", 2},
+      {"nullius-box-wood", 4},
+      {"nullius-box-textile", 1}
+    },
+    result = "nullius-box-insulation",
+    result_count = 4
   },
   {
     type = "recipe",

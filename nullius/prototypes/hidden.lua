@@ -232,14 +232,17 @@ for _, tech in pairs(data.raw.technology) do
 end
 
 for _, recipe in pairs(data.raw.recipe) do
-  if ((string.sub(recipe.name, 1, 8) ~= "nullius-") and
-      ((recipe.order == nil) or (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
-      (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
-      (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
-    recipe.enabled = false
-	recipe.allow_as_intermediate = false
-	recipe.allow_decomposition = false
-	if (recipe.order == nil) then recipe.order = "zzz-hidden" end
+  if (string.sub(recipe.name, 1, 8) ~= "nullius-") then
+    if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or
+        (string.sub(recipe.name, 1, 14) == "empty-nullius-")) then
+	  recipe.GCKI_ignore = true
+	elseif ((recipe.order == nil) or
+	    (string.sub(recipe.order, 1, 8) ~= "nullius-")) then
+      recipe.enabled = false
+	  recipe.allow_as_intermediate = false
+	  recipe.allow_decomposition = false
+	  if (recipe.order == nil) then recipe.order = "zzz-hidden" end
+	end
   end
 end
 

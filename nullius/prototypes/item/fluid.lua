@@ -3159,9 +3159,9 @@ data:extend({
       {type="fluid", name="nullius-hydrogen", amount=180}
     },
     results = {
-      {type="fluid", name="nullius-ethylene", amount=18},
+      {type="fluid", name="nullius-ethylene", amount=16},
       {type="fluid", name="nullius-propene", amount=12},
-      {type="fluid", name="nullius-benzene", amount=3}
+      {type="fluid", name="nullius-benzene", amount=4}
     },
     main_product = "nullius-benzene"
   },
@@ -3186,9 +3186,9 @@ data:extend({
       {type="fluid", name="nullius-compressed-hydrogen", amount=45}
     },
     results = {
-      {type="fluid", name="nullius-ethylene", amount=18},
+      {type="fluid", name="nullius-ethylene", amount=16},
       {type="fluid", name="nullius-propene", amount=12},
-      {type="fluid", name="nullius-benzene", amount=3}
+      {type="fluid", name="nullius-benzene", amount=4}
     }
   },
   {
@@ -3213,9 +3213,9 @@ data:extend({
       {type="fluid", name="nullius-compressed-hydrogen", amount=65}
     },
     results = {
-      {type="fluid", name="nullius-methane", amount=36},
-      {type="fluid", name="nullius-ethylene", amount=24},
-      {type="fluid", name="nullius-propene", amount=12}
+      {type="fluid", name="nullius-methane", amount=45},
+      {type="fluid", name="nullius-ethylene", amount=30},
+      {type="fluid", name="nullius-propene", amount=15}
     }
   },
 
@@ -6071,7 +6071,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-bpa", amount=1},
-      {type="fluid", name="nullius-butadiene", amount=6},
+      {type="fluid", name="nullius-butadiene", amount=5},
       {type="fluid", name="nullius-styrene", amount=4},
       {type="fluid", name="nullius-acrylonitrile", amount=3}
     },
@@ -6113,7 +6113,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {type="item", name="nullius-box-bpa", amount=1},
-      {type="fluid", name="nullius-butadiene", amount=30},
+      {type="fluid", name="nullius-butadiene", amount=25},
       {type="fluid", name="nullius-styrene", amount=20},
       {type="fluid", name="nullius-acrylonitrile", amount=15}
     },
@@ -6148,8 +6148,8 @@ data:extend({
     },
     energy_required = 50,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=265},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=30},
+      {type="fluid", name="nullius-ethylene", amount=270},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
       {type="item", name="nullius-silicon-ingot", amount=1},
       {type="item", name="nullius-aluminum-wire", amount=1}
     },
@@ -6194,8 +6194,8 @@ data:extend({
     },
     energy_required = 50,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=265},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=30},
+      {type="fluid", name="nullius-ethylene", amount=270},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
       {type="item", name="nullius-silicon-ingot", amount=1},
       {type="item", name="nullius-aluminum-wire", amount=1}
     },
@@ -6339,16 +6339,16 @@ data:extend({
       primary = data.raw.fluid["nullius-benzene"].flow_color,
       secondary = data.raw.fluid["nullius-propene"].flow_color
     },
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=40},
-      {type="fluid", name="nullius-oxygen", amount=120},
+      {type="fluid", name="nullius-oxygen", amount=80},
       {type="fluid", name="nullius-benzene", amount=10}
     },
     results = {
-      {type="item", name="nullius-bpa", amount=5},
+      {type="item", name="nullius-bpa", amount=6},
       {type="fluid", name="nullius-wastewater", amount=15},
-      {type="fluid", name="nullius-carbon-dioxide", amount=50}
+      {type="fluid", name="nullius-carbon-dioxide", amount=40}
     },
     main_product = "nullius-bpa"
   },
@@ -6379,14 +6379,14 @@ data:extend({
     },
     energy_required = 2,
     ingredients = {
-      {type="fluid", name="nullius-propene", amount=24},
-      {type="fluid", name="nullius-compressed-oxygen", amount=18},
-      {type="fluid", name="nullius-benzene", amount=6}
+      {type="fluid", name="nullius-propene", amount=20},
+      {type="fluid", name="nullius-compressed-oxygen", amount=15},
+      {type="fluid", name="nullius-benzene", amount=5}
     },
     results = {
       {type="item", name="nullius-bpa", amount=3},
-      {type="fluid", name="nullius-wastewater", amount=9},
-      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=8}
+      {type="fluid", name="nullius-wastewater", amount=8},
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=6}
     }
   },
   {
@@ -6404,13 +6404,13 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-propene", amount=200},
-      {type="fluid", name="nullius-oxygen", amount=600},
+      {type="fluid", name="nullius-oxygen", amount=400},
       {type="fluid", name="nullius-benzene", amount=50}
     },
     results = {
-      {type="item", name="nullius-box-bpa", amount=5},
+      {type="item", name="nullius-box-bpa", amount=6},
       {type="fluid", name="nullius-wastewater", amount=75},
-      {type="fluid", name="nullius-carbon-dioxide", amount=250}
+      {type="fluid", name="nullius-carbon-dioxide", amount=200}
     },
     main_product = "nullius-box-bpa"
   },
@@ -6447,14 +6447,14 @@ data:extend({
     },
     energy_required = 10,
     ingredients = {
-      {type="fluid", name="nullius-propene", amount=120},
-      {type="fluid", name="nullius-compressed-oxygen", amount=90},
-      {type="fluid", name="nullius-benzene", amount=30}
+      {type="fluid", name="nullius-propene", amount=100},
+      {type="fluid", name="nullius-compressed-oxygen", amount=75},
+      {type="fluid", name="nullius-benzene", amount=25}
     },
     results = {
       {type="item", name="nullius-box-bpa", amount=3},
-      {type="fluid", name="nullius-wastewater", amount=45},
-      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=40}
+      {type="fluid", name="nullius-wastewater", amount=40},
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=30}
     }
   },
 

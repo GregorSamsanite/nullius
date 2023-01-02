@@ -5,6 +5,7 @@ local BASEENTITY = "__base__/graphics/entity/"
 
 require("pipe_graphics")
 
+
 data:extend({
   {
     type = "offshore-pump",
@@ -923,7 +924,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 2,
         base_level = 1.5,
@@ -1006,7 +1006,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 2,
@@ -1056,7 +1055,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = 3,

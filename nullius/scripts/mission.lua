@@ -44,7 +44,21 @@ function update_mission_panel(player)
             global.nullius_mission_status[i], "%"}
 	  elseif ((i >= 3) and (i <= 5) and
 	      (oxygen < 100) and (oxygen >= (i * 10))) then
-		str = {"", "[color=0.3,1,0.4]", objective_locale(i), ": ",
+		local s = math.floor(global.nullius_mission_status[i] + 0.5)
+		local m = s - 100
+		if (i == 3) then
+		  m = (m / 100)
+		elseif (i == 5) then
+		  m = (m / 80)
+		else
+		  m = (m / 60)
+		end
+		
+		m = math.min(1, (0.3 + (m * 0.7)))
+		local a = math.max(0, ((m * (1 - m)) - 0.05))
+		local r = 0.96 - (0.7 * m) + a
+		local g = 0.96 - (0.7 * (1 - m)) + a
+		str = {"", "[color="..r..","..g..",0.4]", objective_locale(i), ": ",
 		    math.floor(global.nullius_mission_status[i] + 0.5), "%[/color]"}
       end
 
@@ -55,6 +69,7 @@ function update_mission_panel(player)
 		if ((i == 2) and (oxygen >= 20) and
 		    (global.nullius_vent_total ~= nil)) then
 		  local total = math.floor(global.nullius_vent_total / 1000)
+		  local m = total
 		  local suffix = "kilo"
 		  local scale = math.abs(total)
 		  if (scale >= 25000000) then
@@ -65,8 +80,15 @@ function update_mission_panel(player)
 			total = math.floor(total / 1000)
 		  end
 
+		  m = math.sqrt(math.max(0, (m - 400000)))
+		  m = math.max(0, math.min(1, ((m - 775) / 2324)))
+		  local a = math.max(0, ((m * (1 - m)) - 0.05))
+		  local r = 1 - (0.7 * m) + a
+		  local g = 1 - (0.7 * (1 - m)) + a
+
 	      gui.table.add({type = "label",
-		      name = "mission_vented", caption = {"", "[color=0.3,1,0.4]",
+		      name = "mission_vented", caption = {"",
+				  "[color="..r..","..g..",0.4]",
 			      {"objective-name.nullius-vented"}, ": ", total,
 				  {"objective-description.nullius-suffix-"..suffix},
 				  "[/color]"},
@@ -112,7 +134,7 @@ end
 function set_mission_goal(goal, amount, force)
   if (global.nullius_mission_complete) then return end
 
-  local mission_target = {10, 140, 1800, 16000000,
+  local mission_target = {10, 125, 1800, 12000000,
       32000, 750, 320, 60, 2500000, 20, 12}
   local count = global.nullius_mission_count
   local status = global.nullius_mission_status
@@ -218,7 +240,7 @@ function update_oxygen()
 
   local score = (current + vent_total)
   if ((prev_status + 0.001) < (math.floor(100 *
-      math.min(100, (score / 1.4))) / 100)) then
+      math.min(100, (score / 1.25))) / 100)) then
     set_mission_goal(2, score, vent_force)
   end
 end
@@ -247,7 +269,7 @@ function migrate_oxygen()
       (math.sqrt(global.nullius_oxygen_legacy) / 1800))
   global.nullius_mission_count[2] = math.min(score, 150)
   global.nullius_mission_status[2] = (math.floor(100 *
-      math.min(99, (score / 1.6))) / 100)
+      math.min(99, (score / 1.8))) / 100)
 end
 
 

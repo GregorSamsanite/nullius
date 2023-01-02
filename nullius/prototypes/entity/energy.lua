@@ -2822,8 +2822,8 @@ if mods["reskins-bobs"] then
 data.raw["heat-pipe"]["nullius-heat-pipe-1"].connection_sprites =
     data.raw["heat-pipe"]["heat-pipe"].connection_sprites
 data.raw["heat-pipe"]["nullius-heat-pipe-2"].connection_sprites =
-    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/heat-pipe-3/",
-      "heat-pipe-3", nil, {
+    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/gold-copper/",
+      "heat-pipe", nil, {
         single = { name = "straight-vertical-single", ommit_number = true },
         straight_vertical = { variations = 6 },
         straight_horizontal = { variations = 6 },
@@ -2836,8 +2836,8 @@ data.raw["heat-pipe"]["nullius-heat-pipe-2"].connection_sprites =
         cross = { name = "t" }
     })
 data.raw["heat-pipe"]["nullius-heat-pipe-3"].connection_sprites =
-    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/heat-pipe-2/",
-      "heat-pipe-2", nil, {
+    make_heat_pipe_pictures("__reskins-bobs__/graphics/entity/power/heat-pipe/silver-titanium/",
+      "heat-pipe", nil, {
         single = { name = "straight-vertical-single", ommit_number = true },
         straight_vertical = { variations = 6 },
         straight_horizontal = { variations = 6 },

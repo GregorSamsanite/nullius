@@ -2159,7 +2159,7 @@ data:extend({
     type = "recipe",
     name = "nullius-cargo-wagon-1",
     enabled = false,
-    category = "large-crafting",
+    category = "large-assembly",
     always_show_made_in = true,
     energy_required = 6,
     ingredients = {

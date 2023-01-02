@@ -1,4 +1,29 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.24
+Date: 01.01.2023
+  Features:
+    - New insulation recipe.
+  Balancing:
+    - Reduce oxygen and grass mission goal targets.
+    - Improve light Alkene Synthesis output.
+    - Increase regular Alkene Synthesis benzene output and reduce ethylene.
+    - Improve ratios of BPA recipe.
+    - Tweak PC/ABS and PEX plastic recipe ratios.
+  Bugfixes:
+    - Fix a conflict with recent Angel's mods updates.
+    - Fix a bug with reach with many quadrupedal adaptations.
+    - Workaround a conflict between GCKI and Renai recipes.
+  Info:
+    - Color code vented oxygen progress to indicate whether it's high or low.
+    - Display cargo wagon 1 recipe as non-hand craftable.
+  Modding:
+    - Duplicate final stage overrides earlier for third party compatibility.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.23
+Date: 26.12.2022
+  Bugfixes:
+    - Fix a conflict with latest Gizmos Car Keys and liquid barreling recipes.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.22
 Date: 21.12.2022
   Features:

@@ -4,6 +4,7 @@ require("prototypes.item.module_limitation")
 require("prototypes.rock")
 require("prototypes.override_mod")
 require("prototypes.hidden")
+require("prototypes.override_final")
 
 data.raw["map-settings"]["map-settings"].enemy_evolution.enabled = true
 data.raw["map-settings"]["map-settings"].enemy_evolution.time_factor = 0.0000002

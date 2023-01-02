@@ -1,6 +1,5 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
-
 local BASEENTITY = "__base__/graphics/entity/"
 
 
@@ -921,7 +920,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
@@ -929,21 +927,18 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1.5,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1.5,
         pipe_connections = {{ type="output", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_level = 1.5,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
@@ -1109,7 +1104,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1117,7 +1111,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1126,7 +1119,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1135,7 +1127,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1247,7 +1238,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -2,
@@ -1255,7 +1245,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1264,7 +1253,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1273,7 +1261,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 4,
         base_level = 2,
@@ -1386,7 +1373,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
@@ -1395,7 +1381,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
@@ -1404,7 +1389,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
@@ -1413,7 +1397,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
@@ -1449,7 +1432,6 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -3,
@@ -1458,7 +1440,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
@@ -1467,7 +1448,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,
@@ -1476,7 +1456,6 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture = electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 5,
         base_level = 3,

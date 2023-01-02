@@ -5291,15 +5291,15 @@ data:extend({
 
 if mods["reskins-bobs"] then
 data.raw.item["nullius-heat-pipe-1"].icons = {{
-  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-icon-base.png",
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-base-icon-base.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-heat-pipe-2"].icons = {{
-  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-3-icon-base.png",
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-gold-copper-icon-base.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw.item["nullius-heat-pipe-3"].icons = {{
-  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-2-icon-base.png",
+  icon = "__reskins-bobs__/graphics/icons/power/heat-pipe/heat-pipe-silver-titanium-icon-base.png",
   icon_size = 64, icon_mipmaps = 4
 }}
 
