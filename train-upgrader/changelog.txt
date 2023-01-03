@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 02.01.2023
+  Bugfixes:
+    - Remove residual fuel incompatible with new locomotive.
+    - Transfer fuel contents in equipment grid generators.
+  Changes:
+    - If new item already has pre-installed equipment grid, use that instead.
+    - Increase reciever chest inventory slots.
+    - Don't replace fuel type without at least half a stack of the new type.
+    - Preserve replaced fuel in receiver chests.
+    - Preserve excess inventory when downgrading cargo wagon capacity.
+    - Preserve old equipment in chest if it can't be installed.   
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 13.12.2022
   Bugfixes:

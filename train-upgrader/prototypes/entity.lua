@@ -30,6 +30,7 @@ local receiver = util.table.deepcopy(supplier)
 receiver.name = "tu-receiver"
 receiver.icons = data.raw.item["tu-receiver"].icons
 receiver.minable.result = "tu-receiver"
+receiver.inventory_size = 40
 receiver.picture.layers[1].filename =
     "__train-upgrader__/graphics/entity/receiver.png"
 

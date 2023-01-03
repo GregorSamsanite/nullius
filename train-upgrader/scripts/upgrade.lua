@@ -72,11 +72,17 @@ function upgradeable_carriage(car)
 end
 
 
+local function car_inv(car, typ)
+  local inv = car.get_inventory(typ)
+  if ((inv == nil) or (not inv.valid)) then return nil end
+  return inv
+end
+
 function record_inventory(car)
   local contents = nil
   for _, inv_type in pairs(carriage_inventories) do
-    local inv = car.get_inventory(inv_type)
-	if ((inv ~= nil) and inv.valid) then
+    local inv = car_inv(car, inv_type)
+	if (inv ~= nil) then
 	  local entry = { slots = #inv }
 	  if (inv.supports_bar()) then
 	    entry.bar = inv.get_bar()
@@ -103,7 +109,7 @@ function record_inventory(car)
   return contents
 end
 
-function restore_inventory(car, contents)
+function restore_inventory(car, contents, station)
   if (contents == nil) then return end
   for inv_type, entry in pairs(contents) do
     local inv = car.get_inventory(inv_type)
@@ -160,7 +166,20 @@ function restore_inventory(car, contents)
 	  end
 
 	  for itemname, amount in pairs(entry.contents) do
-	    inv.insert({name=itemname, count=amount})
+	    local inserted = inv.insert({name=itemname, count=amount})
+		local remaining = amount - inserted
+		if (remaining < 1) then remaining = nil end
+		entry.contents[itemname] = remaining
+	  end
+	end
+
+	for itemname, amount in pairs(entry.contents) do
+	  for _,s in pairs(station.receivers) do
+	    local receiver = s.get_inventory(defines.inventory.chest)
+	    if ((receiver ~= nil) and receiver.can_insert(itemname)) then
+		  amount = amount - receiver.insert({name=itemname, count=amount})
+		  if (amount < 1) then break end
+		end
 	  end
 	end
   end
@@ -174,22 +193,67 @@ function record_grid(grid)
   for _, eq in pairs(grid.equipment) do
     if (eq.valid) then
       num = num + 1
-	  contents[num] = { name = eq.name, position = eq.position }
+	  local entry = { name = eq.name,
+	      position = eq.position, proto = eq.prototype}
+	  if ((eq.burner ~= nil) and eq.burner.valid) then
+	    if ((eq.burner.inventory ~= nil) and eq.burner.inventory.valid) then
+	      entry.fuel = eq.burner.inventory.get_contents()
+		end
+		if ((eq.burner.burnt_result_inventory ~= nil) and
+		    eq.burner.burnt_result_inventory.valid) then
+		  entry.burnt = eq.burner.burnt_result_inventory.get_contents()
+		end
+	  end
+	  contents[num] = entry
 	end
   end
   return contents
 end
 
-function restore_grid(grid, contents)
-  if (contents == nil) then return end
-  if ((grid == nil) or (not grid.valid)) then return nil end
+function restore_grid(grid, contents, station, doit)
+  if (contents == nil) then return false end
+  if ((grid == nil) or (not grid.valid)) then return false end
+  local ret = false
   for _, eq in pairs(contents) do
-    grid.put{ name = eq.name, position = eq.position }
+    local neweq = nil
+	if (doit) then
+	  neweq = grid.put{ name = eq.name, position = eq.position }
+	end
+	if (neweq == nil) then
+	  if (eq.proto.take_result ~= nil) then
+	    local take_name = eq.proto.take_result.name
+	    for _,s in pairs(station.receivers) do
+	      local receiver = s.get_inventory(defines.inventory.chest)
+	      if ((receiver ~= nil) and receiver.can_insert(take_name) and
+		      (receiver.insert({name=take_name}) > 0)) then
+			break;
+		  end
+		end
+	  end
+	else
+	  ret = true
+	  if ((neweq.burner ~= nil) and neweq.burner.valid) then
+	    local burn = neweq.burner
+	    if ((eq.fuel ~= nil) and (burn.inventory ~= nil) and
+	        burn.inventory.valid) then
+	      for itemname, amount in pairs(eq.fuel) do
+	        burn.inventory.insert({name=itemname, count=amount})
+		  end
+	    end
+	    if ((eq.burnt ~= nil) and (burn.burnt_result_inventory ~= nil) and
+	        burn.burnt_result_inventory.valid) then
+		  for itemname, amount in pairs(eq.burnt) do
+	        burn.burnt_result_inventory.insert({name=itemname, count=amount})
+		  end
+	    end
+	  end
+	end
   end
+  return ret
 end
 
 
-function do_upgrade_one_carriage(train, station, car, proto)
+function do_upgrade_one_carriage(train, station, car, proto, item_grid)
   local front = car.get_connected_rolling_stock(defines.rail_direction.front)
   local back = car.get_connected_rolling_stock(defines.rail_direction.back)
   local pos = car.position
@@ -232,13 +296,18 @@ function do_upgrade_one_carriage(train, station, car, proto)
 	end
   end
 
-  restore_inventory(newcar, contents)
-  restore_grid(newcar.grid, grid)
+  restore_inventory(newcar, contents, station)
+  local transfer_grid = true
+  if ((item_grid ~= nil) and
+      restore_grid(newcar.grid, item_grid, station, true)) then
+	transfer_grid = false
+  end
+  restore_grid(newcar.grid, grid, station, transfer_grid)
 
-  if ((newcar.burner ~= nil) and newcar.burner.valid) then
-    if (burner_current ~= nil) then
-	  newcar.burner.currently_burning = burner_current
-	end
+  if ((newcar.burner ~= nil) and newcar.burner.valid and
+      (burner_current ~= nil) and (burner_current.fuel_category ~= nil) and
+	  (newcar.burner.fuel_categories[burner_current.fuel_category] == true)) then
+	newcar.burner.currently_burning = burner_current
 	if (burner_remaining ~= nil) then
 	  newcar.burner.remaining_burning_fuel = burner_remaining
 	end
@@ -262,6 +331,18 @@ end
 
 
 function replace_fuel(carriage, fuel_supply, station, doit)
+  local skip = true
+  for new_fuel, new_num in pairs(fuel_supply) do
+    local threshold = math.max(1, math.min(20,
+	    (game.item_prototypes[new_fuel].stack_size * 0.5)))
+	if (new_num < threshold) then
+	  fuel_supply[new_fuel] = nil
+	else
+	  skip = false
+	end
+  end
+  if (skip) then return false end
+
   local burner = carriage.burner
   local burn_inv = burner.inventory
   local result_inv = burner.burnt_result_inventory
@@ -400,14 +481,23 @@ function try_upgrade_one_carriage(carriage, train, station, doit)
   end
 
   if ((new_entity ~= nil) and (not same)) then
+    local item_grid = nil
+	if (doit) then
+	  local new_stack = new_inv.find_item_stack(new_item)
+	  if ((new_stack ~= nil) and (new_stack.grid ~= nil)) then
+	    item_grid = record_grid(new_stack.grid)
+	  end
+	end
+
     for _,s in pairs(station.receivers) do
 	  local receive_inv = s.get_inventory(defines.inventory.chest)
 	  if (receive_inv ~= nil) then
 		for _,item in pairs(carriage.prototype.items_to_place_this) do
 		  if (receive_inv.can_insert(item)) then
 			if (doit and (new_inv.remove({name=new_item}) > 0)) then
-			  do_upgrade_one_carriage(train, station, carriage, new_entity)
 			  receive_inv.insert(item)
+			  do_upgrade_one_carriage(train, station,
+				  carriage, new_entity, item_grid)
 			end
 			return true
 		  end
