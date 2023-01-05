@@ -4636,7 +4636,7 @@ boil2.animation.east.layers[1].filename = ENTITYPATH .. "boiler/boiler2-east.png
 boil2.animation.south.layers[1].filename = ENTITYPATH .. "boiler/boiler2-south.png"
 boil2.animation.west.layers[1].filename = ENTITYPATH .. "boiler/boiler2-west.png"
 
-local boil2m = util.table.deepcopy(boil)
+local boil2m = util.table.deepcopy(boil2)
 boil2m.name = "nullius-mirror-boiler-2"
 boil2m.localised_name = {"entity-name.nullius-mirrored", {"", {"entity-name.boiler"}, " ", 2}}
 boil2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}

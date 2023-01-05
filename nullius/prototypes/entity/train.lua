@@ -42,7 +42,7 @@ data:extend({
       fuel_category = "vehicle",
       effectivity = 0.9,
       fuel_inventory_size = 1,
-      burnt_inventory_size = 1,
+      burnt_inventory_size = 2,
       smoke = data.raw.locomotive["locomotive"].burner.smoke
     },
     front_light = data.raw.locomotive["locomotive"].front_light,

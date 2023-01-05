@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.25
+Date: 05.01.2023
+  Bugfixes:
+    - Fix mirrored version of electric boiler 2, which behaved like boiler 1.
+    - Fix small chest 1 and 2 entity graphics.
+  Changes:
+    - Add extra burn result slot in locomotive 1 to simplify switching fuel.
+  Graphics:
+    - Update belt 4 icon to match newer vanilla belt icons.
+  Info:
+    - Fix numbering in logistic checkpoint names.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.24
 Date: 01.01.2023
   Features:
