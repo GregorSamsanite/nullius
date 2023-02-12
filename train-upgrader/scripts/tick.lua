@@ -1,4 +1,7 @@
 function validate_station(station)
+  if (not station.stop.valid) then
+    destroy_station(station, nil)
+  end
   for u, e in pairs(station.units) do
     if (not e.valid) then
 	  destroy_station(station, u)
@@ -46,11 +49,12 @@ function summon_train(station)
   if (station.last_summon > 0) then
     local delay_table = { 360, 1200, 3600 }
     local delay = delay_table[station.pending_count]
+	station.hold = true
 	if (delay == nil) then return end
-	if (game.tick < (station.last_summon + delay)) then
-	  station.hold = true
-	  return
-	end
+	if (game.tick < (station.last_summon + delay)) then return end
+	local tsl = station.stop.trains_limit
+	if ((tsl ~= nil) and (station.pending_count >= tsl)) then return end
+	station.hold = false
   end
   insert_train_schedule(train, station)
 end

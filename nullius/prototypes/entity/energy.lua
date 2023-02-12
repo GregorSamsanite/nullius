@@ -337,10 +337,10 @@ data:extend({
     drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
     energy_source = {
       type = "electric",
-      buffer_capacity = "60MJ",
+      buffer_capacity = "75MJ",
       usage_priority = "tertiary",
-      input_flow_limit = "200kW",
-      output_flow_limit = "800kW"
+      input_flow_limit = "500kW",
+      output_flow_limit = "1MW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
     picture = accumulator_picture({ r=1, g=0.85, b=1, a=1 }),

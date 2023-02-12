@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 12.02.2023
+  Bugfixes:
+    - Upgrader temporary stop wasn't removed if another stop was added after.
+    - Respect train limits on upgrader station.
+    - Fix a crash if active upgrader stop settings are modified.
+  Changes:
+    - Allow upgrader chests within 2 tiles of train stop.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 02.01.2023
   Bugfixes:
@@ -10,7 +19,7 @@ Date: 02.01.2023
     - Don't replace fuel type without at least half a stack of the new type.
     - Preserve replaced fuel in receiver chests.
     - Preserve excess inventory when downgrading cargo wagon capacity.
-    - Preserve old equipment in chest if it can't be installed.   
+    - Preserve old equipment in chest if it can't be installed.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 13.12.2022

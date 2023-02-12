@@ -41,17 +41,25 @@ function release_train_schedule(train, station)
   local pending = station.pending[train.id]
   station.pending[train.id] = nil
   local sched = train.schedule
-  local name = station.stop.backer_name
+  local name = nil
+  if (station.stop.valid) then
+    name = station.stop.backer_name
+  end
   local found = nil
   local hi = -1
   for i,r in pairs(sched.records) do
     if (i > hi) then hi = i end
-    if ((r.station == name) and special_stop(r)) then
-	  if (found ~= nil) then return end
+    if (((r.station == name) or (name == nil)) and special_stop(r)) then
 	  found = i
 	end
   end
-  if ((found ~= hi) or (hi < 2)) then return end
+
+  if ((found == nil) or (hi < found)) then return end
+  if (found < hi) then
+    for i = found,(hi - 1) do 
+	  sched.records[i] = sched.records[i + 1]
+	end
+  end
 
   sched.records[hi] = nil
   if (pending ~= nil) then
@@ -113,7 +121,8 @@ function delete_station(station, no_rename)
     global.unit_table[unit] = nil
   end
 
-  if ((station.old_name ~= nil) and (not no_rename)) then
+  if ((station.old_name ~= nil) and (not no_rename) and
+      station.stop.valid) then
     station.stop.backer_name = station.old_name
   end
 end

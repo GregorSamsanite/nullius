@@ -1,5 +1,5 @@
 function scan_stop(ts)
-  local chests = ts.surface.find_entities_filtered{area = entity_box(ts, 1.9),
+  local chests = ts.surface.find_entities_filtered{area = entity_box(ts, 2.9),
       type = "container", name = {"tu-supplier", "tu-receiver"}}
   if ((chests == nil) or (chests[1] == nil)) then return end
 
@@ -54,7 +54,7 @@ function entity_added(entity)
   elseif (string.sub(entity.name, 1, 3) == "tu-") then
     script.register_on_entity_destroyed(entity)
     local stops = entity.surface.find_entities_filtered{type = "train-stop",
-	    area = entity_box(entity, 1.9)}
+	    area = entity_box(entity, 2.9)}
     if ((stops == nil) or (stops[2] ~= nil)) then return end
     local ts = stops[1]
     if ((ts == nil) or (not ts.valid)) then return end
