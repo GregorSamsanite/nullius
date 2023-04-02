@@ -1501,6 +1501,24 @@ if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
 end
 
 
+if mods["UPSFriendlyNixieTubeDisplay"] then
+  data.raw.item["SNTD-old-nixie-tube"].order = "nullius-sh"
+  data.raw.item["SNTD-nixie-tube"].order = "nullius-sh"
+  data.raw.item["SNTD-nixie-tube-small"].order = "nullius-sh"
+
+  data.raw.item["SNTD-old-nixie-tube"].stack_size = 50
+  data.raw.item["SNTD-nixie-tube"].stack_size = 50
+  data.raw.item["SNTD-nixie-tube-small"].stack_size = 50
+
+  table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-SNTD-nixie-tubes-reinforced")
+if mods["DisplayPlates"] then
+  data.raw.item["SNTD-old-nixie-tube"].subgroup = "display-plates"
+  data.raw.item["SNTD-nixie-tube-small"].subgroup = "display-plates"
+  data.raw.item["SNTD-nixie-tube"].subgroup = "display-plates"
+end
+
+end
+
 if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
   data.raw.item["hs_holo_sign"].stack_size = 50

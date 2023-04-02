@@ -1744,6 +1744,104 @@ if mods["crafting_combinator"] then
   })
 end
 
+if mods["UPSFriendlyNixieTubeDisplay"] then
+
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-SNTD-old-nixie-tube",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 3,
+      ingredients = {
+        {"constant-combinator", 2},
+        {"small-lamp", 3},
+        {"nullius-aluminum-wire", 3},
+        {"nullius-glass", 3}
+      },
+      result = "SNTD-old-nixie-tube"
+    },    
+    {
+      type = "recipe",
+      name = "nullius-SNTD-nixie-tube",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 5,
+      ingredients = {
+        {"SNTD-old-nixie-tube", 1},
+        {"nullius-steel-plate", 4},
+        {"nullius-glass", 1}
+      },
+      result = "SNTD-nixie-tube"
+    },
+    {
+      type = "recipe",
+      name = "nullius-SNTD-nixie-tube-small",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 3,
+      ingredients = {
+        {"SNTD-old-nixie-tube", 2},
+        {"nullius-steel-plate", 4},
+        {"nullius-glass", 2}
+      },
+      result = "SNTD-nixie-tube-small"
+    },
+    {
+      type = "technology",
+      name = "nullius-SNTD-nixie-tubes-basic",
+      icon = "__UPSFriendlyNixieTubeDisplay__/graphics/old-nixie-technology-icon.png",
+      icon_size = 32,
+      unit = {
+        count = 50,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+        },
+        time = 25
+      },
+      prerequisites = {"nullius-computation"},
+      order = "nullius-df",
+      effects = {
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-SNTD-old-nixie-tube"
+        }
+      }
+    },
+    {
+      type = "technology",
+      name = "nullius-SNTD-nixie-tubes-reinforced",
+      icon = "__UPSFriendlyNixieTubeDisplay__/graphics/nixie-technology-icon.png",
+      icon_size = 32,
+      unit = {
+        count = 55,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+        },
+        time = 25
+      },
+      prerequisites = {
+        "nullius-SNTD-nixie-tubes-basic"
+      },
+      order = "nullius-df",
+      effects = {
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-SNTD-nixie-tube"
+        },
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-SNTD-nixie-tube-small"
+        }
+      },
+    }
+})
+end
 
 if mods["holographic_signs"] then
 data:extend({
