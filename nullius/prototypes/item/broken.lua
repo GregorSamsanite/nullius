@@ -13,7 +13,6 @@ data:extend({
     name = "nullius-broken-air-filter",
     localised_name = {"item-name.nullius-broken", {"entity-name.nullius-air-filter-1"}},
     icons = {
-      data.raw.item["nullius-air-filter-1"].icons[1],
       {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
         icon_size = 32,

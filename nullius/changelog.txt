@@ -1,8 +1,31 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.5.26
-Date: 10.01.2023
+Version: 1.5.27
+Date: 23.06.2023
   Balancing:
+    - Increase stack size of some biology materials and boxed research packs.
+    - Increase requirements for several mid game consumption checkpoints.
+  Bugfixes:
+    - Make large beacons and wind turbines collide with rail signals or items.
+  Graphics:
+    - Fix scaling of smaller chimney, outfall, and air filter icons.
+    - Update icon size of jetpack technologies.
+  Modding:
+    - Add compatibility support for Cheese's Concentrated Solar mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.26
+Date: 11.06.2023
+  Balancing:
+    - Double stack size of research packs.
     - Improve grid battery 3.
+    - Adjust cost of dendrology research pack for less wood byproduct.
+  Bugfixes:
+    - Fix crash with Jetpack mod.
+    - Mismatch between boxed and unboxed medium tank 3 recipes.
+    - Don't hide midlevel toolmaking techs as "upgrade" levels.
+  Changes:
+    - Move eutectic salt boxing to same tech as base recipe.
+  Modding:
+    - Add compatibility support for UPS Friendly Nixie Tube Display mod.
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.25
 Date: 05.01.2023

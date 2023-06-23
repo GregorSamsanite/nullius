@@ -347,3 +347,14 @@ if data.raw['bool-setting']['RTImpactSetting'] then
    data.raw['bool-setting']['RTImpactSetting'].hidden = true
    data.raw['bool-setting']['RTImpactSetting'].forced_value = true
 end
+
+
+if data.raw['int-setting']['ch-solar-max-production-mw'] then
+   data.raw['int-setting']['ch-solar-max-production-mw'].hidden = true
+   data.raw['int-setting']['ch-solar-max-production-mw'].default_value = 100
+   data.raw['int-setting']['ch-solar-max-production-mw'].allowed_values = {100}
+end
+
+if data.raw['double-setting']['ch-k2-production-mult'] then
+   data.raw['double-setting']['ch-k2-production-mult'].hidden = true
+end

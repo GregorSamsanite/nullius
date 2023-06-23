@@ -23,7 +23,7 @@ data:extend({
     }},
     subgroup = "biology-material",
     order = "nullius-c",
-    stack_size = 100
+    stack_size = 200
   },
   {
     type = "item",
@@ -34,7 +34,7 @@ data:extend({
     }},
     subgroup = "biology-material",
     order = "nullius-d",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "recipe",
@@ -837,7 +837,7 @@ data:extend({
     }},
     subgroup = "biology-algae",
     order = "nullius-d",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "item",
@@ -856,7 +856,7 @@ data:extend({
     },
     subgroup = "biology-algae",
     order = "nullius-e",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "recipe",
@@ -1137,7 +1137,7 @@ data:extend({
     }},
     subgroup = "biology-grass",
     order = "nullius-d",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "item",
@@ -1156,7 +1156,7 @@ data:extend({
     },
     subgroup = "biology-grass",
     order = "nullius-e",
-    stack_size = 50
+    stack_size = 200
   },
   {
     type = "recipe",
@@ -2049,7 +2049,7 @@ data:extend({
     }},
     subgroup = "biology-tree",
     order = "nullius-f",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "recipe",
@@ -2447,7 +2447,7 @@ data:extend({
     },
     subgroup = "biology-fish",
     order = "nullius-e",
-    stack_size = 50
+    stack_size = 100
   },
   {
     type = "recipe",
@@ -3692,7 +3692,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3719,7 +3719,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3746,7 +3746,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3774,7 +3774,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3802,7 +3802,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3830,7 +3830,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3857,7 +3857,7 @@ data:extend({
       }
     },
     subgroup = "biology-research",
-    stack_size = 10,
+    stack_size = 20,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -3919,8 +3919,8 @@ data:extend({
     energy_required = 160,
     ingredients = {
       {type="item", name="nullius-tree-progenitor", amount=1},
-      {type="item", name="nullius-tree", amount=40},
-      {type="item", name="nullius-box-wood", amount=40}
+      {type="item", name="nullius-tree", amount=30},
+      {type="item", name="nullius-box-wood", amount=100}
     },
     result = "nullius-dendrology-pack"
   },

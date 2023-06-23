@@ -241,18 +241,22 @@ function change_character_entity(oldunit, newchar)
   local newunit = newchar.unit_number
   if ((oldunit == nil) or (newunit == oldunit)) then return end
 
-  if (global.nullius_android_tag ~= nil) then
+  if ((global.nullius_android_tag ~= nil) and
+      (global.nullius_tag_android ~= nil)) then
     local tag = global.nullius_android_tag[oldunit]
-    local name = global.nullius_android_name[oldunit]
-    if (tag ~= nil) then
+    if ((tag ~= nil) and (tag.tag_number ~= nil)) then
       global.nullius_android_tag[oldunit] = nil
       global.nullius_android_tag[newunit] = tag
       global.nullius_tag_android[tag.tag_number] = newchar
     end
-    if (name ~= nil) then
-      global.nullius_android_name[oldunit] = nil
-      global.nullius_android_name[newunit] = name
-    end
+
+    if (global.nullius_android_name ~= nil) then
+	  local name = global.nullius_android_name[oldunit]
+      if (name ~= nil) then
+        global.nullius_android_name[oldunit] = nil
+        global.nullius_android_name[newunit] = name
+      end
+	end
   end
 
   if (global.nullius_body_queue ~= nil) then

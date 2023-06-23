@@ -579,7 +579,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-jetpack-1"},
     order = "nullius-di",
     icon = "__jetpack__/graphics/technology/jetpack-1.png",
-    icon_size = 128,
+    icon_size = 256,
     effects = {
       {
         type = "unlock-recipe",
@@ -603,7 +603,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-jetpack-2"},
     order = "nullius-eo",
     icon = "__jetpack__/graphics/technology/jetpack-2.png",
-    icon_size = 128,
+    icon_size = 256,
     effects = {
       {
         type = "unlock-recipe",
@@ -628,7 +628,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-jetpack-3"},
     order = "nullius-ft",
     icon = "__jetpack__/graphics/technology/jetpack-3.png",
-    icon_size = 128,
+    icon_size = 256,
     effects = {
       {
         type = "unlock-recipe",
@@ -653,7 +653,7 @@ data:extend({
     localised_description = {"equipment-description.nullius-jetpack-4"},
     order = "nullius-di",
     icon = "__jetpack__/graphics/technology/jetpack-4.png",
-    icon_size = 128,
+    icon_size = 256,
     effects = {
       {
         type = "unlock-recipe",
@@ -1744,8 +1744,8 @@ if mods["crafting_combinator"] then
   })
 end
 
-if mods["UPSFriendlyNixieTubeDisplay"] then
 
+if mods["UPSFriendlyNixieTubeDisplay"] then
   data:extend({
     {
       type = "recipe",
@@ -1753,12 +1753,12 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       enabled = false,
       always_show_made_in = true,
       category = "small-crafting",
-      energy_required = 3,
+      energy_required = 4,
       ingredients = {
         {"constant-combinator", 2},
         {"small-lamp", 3},
         {"nullius-aluminum-wire", 3},
-        {"nullius-glass", 3}
+        {"nullius-glass", 4}
       },
       result = "SNTD-old-nixie-tube"
     },    
@@ -1767,12 +1767,11 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       name = "nullius-SNTD-nixie-tube",
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      category = "medium-crafting",
       energy_required = 5,
       ingredients = {
         {"SNTD-old-nixie-tube", 1},
-        {"nullius-steel-plate", 4},
-        {"nullius-glass", 1}
+        {"nullius-large-chest-1", 1}
       },
       result = "SNTD-nixie-tube"
     },
@@ -1784,9 +1783,9 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       category = "small-crafting",
       energy_required = 3,
       ingredients = {
-        {"SNTD-old-nixie-tube", 2},
-        {"nullius-steel-plate", 4},
-        {"nullius-glass", 2}
+        {"SNTD-old-nixie-tube", 1},
+		{"green-wire", 2},
+        {"iron-chest", 1}
       },
       result = "SNTD-nixie-tube-small"
     },
@@ -1818,10 +1817,10 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       icon = "__UPSFriendlyNixieTubeDisplay__/graphics/nixie-technology-icon.png",
       icon_size = 32,
       unit = {
-        count = 55,
+        count = 50,
         ingredients = {
-          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+          {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
         },
         time = 25
       },
@@ -1842,6 +1841,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
     }
 })
 end
+
 
 if mods["holographic_signs"] then
 data:extend({
@@ -3364,6 +3364,7 @@ data:extend({
 })
 end
 
+
 if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
   data:extend({
     {
@@ -3395,4 +3396,101 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       result = "recursive-blueprints-scanner"
     }
   })
-  end
+end
+
+
+if mods["ch-concentrated-solar"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-heliostat-mirror",
+      enabled = false,
+      always_show_made_in = true,
+      category = "hand-casting",
+      energy_required = 10,
+      ingredients = {
+	    {"nullius-aluminum-sheet", 8},
+        {"nullius-steel-rod", 6},
+	    {"nullius-hard-glass", 10},
+	    {"nullius-motor-2", 1},
+	    {"nullius-bearing", 1}
+      },
+      result = "chcs-heliostat-mirror"
+    },
+    {
+      type = "recipe",
+      name = "nullius-boxed-heliostat-mirror",
+      enabled = false,
+      always_show_made_in = true,
+      category = "machine-casting",
+	  subgroup = "boxed-heat-energy",
+      energy_required = 50,
+      ingredients = {
+	    {"nullius-box-aluminum-sheet", 8},
+        {"nullius-box-steel-rod", 6},
+	    {"nullius-box-hard-glass", 10},
+	    {"nullius-box-motor-2", 1},
+	    {"nullius-box-bearing", 1}
+      },
+      result = "nullius-box-heliostat-mirror"
+    },
+    {
+      type = "recipe",
+      name = "nullius-solar-tower",
+      enabled = false,
+      always_show_made_in = true,
+      category = "huge-crafting",
+      energy_required = 60,
+      ingredients = {
+	    {"nullius-thermal-tank-2", 3},
+        {"nullius-box-heat-pipe-2", 10},
+		{"nullius-box-steel-beam", 24},
+		{"nullius-box-reinforced-concrete", 8},
+		{"nullius-pump-2", 8},
+        {"nullius-large-beacon-1", 1}
+      },
+      result = "chcs-solar-power-tower",
+      requester_paste_multiplier = 2
+    },
+    {
+      type = "technology",
+      name = "nullius-concentrated-solar-energy",
+	  order = "nullius-eo",
+	  icons = {{
+        icon = "__ch-concentrated-solar__/graphics/technology/concentrated-solar-energy.png",
+		icon_size = 256,
+		icon_mipmaps = 4
+      }},
+	  localised_name = {"technology-name.chcs-concentrated-solar-energy"},
+      localised_description = {"technology-description.chcs-concentrated-solar-energy"},
+      effects = {
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-heliostat-mirror"
+        },
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-solar-tower"
+        },
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-box-heliostat-mirror"
+        },
+        {
+          type = "unlock-recipe",
+          recipe = "nullius-unbox-heliostat-mirror"
+        }
+      },
+      unit = {
+        count = 800,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		  {"nullius-chemical-pack", 1}
+        },
+        time = 35
+      },
+      prerequisites = {"nullius-solar-thermal-power-2", "nullius-checkpoint-large-beacon"}
+    }
+  })
+end

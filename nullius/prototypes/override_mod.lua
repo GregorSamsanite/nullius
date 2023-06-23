@@ -101,8 +101,14 @@ data.raw.technology["factory-connection-type-heat"].unit = {
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
         {"nullius-chemical-pack", 1}}
 }
+
+if mods["ch-concentrated-solar"] then
+table.insert(data.raw.technology["nullius-concentrated-solar-energy"].prerequisites,
+    "factory-connection-type-heat")
+else
 table.insert(data.raw.technology["nullius-geothermal-power-2"].prerequisites,
     "factory-connection-type-heat")
+end
 end
 
 data.raw.technology["factory-connection-type-circuit"].order = "nullius-e"
@@ -1516,8 +1522,8 @@ if mods["DisplayPlates"] then
   data.raw.item["SNTD-nixie-tube-small"].subgroup = "display-plates"
   data.raw.item["SNTD-nixie-tube"].subgroup = "display-plates"
 end
-
 end
+
 
 if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].order = "nullius-sh"
@@ -1799,7 +1805,8 @@ end
 
 
 if mods["SpidertronPatrols"] then
-table.insert(data.raw.technology["nullius-inserter-capacity-3"].prerequisites,"nullius-sp-spidertron-automation")
+  table.insert(data.raw.technology["nullius-inserter-capacity-3"].prerequisites,
+      "nullius-sp-spidertron-automation")
 end
 
 
@@ -1814,4 +1821,17 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
   data.raw.item["recursive-blueprints-scanner"].order = "nullius-s"
   data.raw.item["construction-robot"].subgroup = "robot"
   data.raw.item["construction-robot"].order = "nullius-r"
+end
+
+
+if mods["ch-concentrated-solar"] then
+  table.insert(data.raw.technology["nullius-geothermal-power-2"].prerequisites,
+      "nullius-concentrated-solar-energy")
+  table.insert(data.raw["technology"]["nullius-mass-production-7"].effects,
+      {type = "unlock-recipe", recipe = "nullius-boxed-heliostat-mirror"})
+  data.raw.item["chcs-heliostat-mirror"].subgroup = "geothermal"
+  data.raw.item["chcs-heliostat-mirror"].order = "nullius-hb"
+  data.raw.item["chcs-heliostat-mirror"].stack_size = 100
+  data.raw.item["chcs-solar-power-tower"].subgroup = "geothermal"
+  data.raw.item["chcs-solar-power-tower"].order = "nullius-hc"
 end

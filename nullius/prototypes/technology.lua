@@ -5894,8 +5894,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-cybernetics-3"},
-    upgrade = true
+    prerequisites = {"nullius-cybernetics-3"}
   },
 
   {
@@ -6128,14 +6127,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-antenna"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-box-eutectic-salt"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unbox-eutectic-salt"
       },
       {
         type = "unlock-recipe",
@@ -7641,6 +7632,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-thermal-tank-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-eutectic-salt"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-eutectic-salt"
       }
     },
     unit = {
@@ -8467,8 +8466,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-mass-production-5", "nullius-checkpoint-productivity-module"},
-    upgrade = true
+    prerequisites = {"nullius-mass-production-5", "nullius-checkpoint-productivity-module"}
   },
   {
     type = "technology",
@@ -9901,8 +9899,7 @@ data:extend({
       },
       time = 40
     },
-    prerequisites = {"nullius-actuation-4", "nullius-mining-3"},
-    upgrade = true
+    prerequisites = {"nullius-actuation-4", "nullius-mining-3"}
   },
 
   {
@@ -11941,8 +11938,7 @@ data:extend({
       },
       time = 50
     },
-    prerequisites = {"nullius-checkpoint-processor-2", "nullius-locomotion-4"},
-    upgrade = true
+    prerequisites = {"nullius-checkpoint-processor-2", "nullius-locomotion-4"}
   },
   {
     type = "technology",

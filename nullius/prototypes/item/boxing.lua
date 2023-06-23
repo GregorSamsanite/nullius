@@ -33,6 +33,8 @@ local function create_boxed_item(base_name, group, box_order,
   local box_stack = box_stack_size[stack_size]
   if (box_stack == nil) then
     box_stack = math.max(1, math.floor((2 * stack_size / ratio)))
+  elseif (item.subgroup == "research-pack") then
+    box_stack = box_stack * 2
   end
 
   local localname = {"item-name."..full_name}
@@ -283,8 +285,8 @@ create_boxed_item("transformer", "electrical", "c")
 create_boxed_item("power-switch", "circuit", "g", "power-switch")
 create_boxed_item("one-way-valve", "plumbing", "b")
 
-create_boxed_item("heat-pipe-1", "heat-energy", "cb")
-create_boxed_item("heat-pipe-2", "heat-energy", "cc")
+create_boxed_item("heat-pipe-1", "heat-energy", "db")
+create_boxed_item("heat-pipe-2", "heat-energy", "dc")
 create_boxed_item("white-concrete", "concrete", "b")
 create_boxed_item("red-concrete", "concrete", "c")
 create_boxed_item("blue-concrete", "concrete", "d")
@@ -396,7 +398,7 @@ create_boxed_item("power-pole-4", "power-pole", "ce")
 create_boxed_item("pylon-3", "power-pole", "dd")
 create_boxed_item("battery-2", "renewable", "ec")
 create_boxed_item("grid-battery-2", "renewable", "dc")
-create_boxed_item("heat-pipe-3", "heat-energy", "cd")
+create_boxed_item("heat-pipe-3", "heat-energy", "dd")
 create_boxed_item("processor-2", "electrical", "fc")
 create_boxed_item("processor-3", "electrical", "fd")
 create_boxed_item("haste-module-3", "module-1", "cd", nil, "module")
@@ -433,3 +435,7 @@ create_boxed_item("grass-seed", "biology", "f")
 create_boxed_item("solar-collector-1", "heat-energy", "bb")
 create_boxed_item("solar-collector-2", "heat-energy", "bc")
 create_boxed_item("solar-collector-3", "heat-energy", "bd")
+
+if mods["ch-concentrated-solar"] then
+create_boxed_item("heliostat-mirror", "heat-energy", "cb", "chcs-heliostat-mirror")
+end

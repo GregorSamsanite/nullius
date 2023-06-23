@@ -134,7 +134,7 @@ data:extend({
       }
     },
     subgroup = "research-pack",
-    stack_size = 100,
+    stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -232,7 +232,7 @@ data:extend({
       }
     },
     subgroup = "research-pack",
-    stack_size = 100,
+    stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -364,7 +364,7 @@ data:extend({
       }
     },
     subgroup = "research-pack",
-    stack_size = 100,
+    stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -501,7 +501,7 @@ data:extend({
     },
     subgroup = "research-pack",
     order = "nullius-g",
-    stack_size = 100,
+    stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
@@ -544,7 +544,7 @@ data:extend({
     },
     subgroup = "research-pack",
     order = "nullius-h",
-    stack_size = 100,
+    stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"

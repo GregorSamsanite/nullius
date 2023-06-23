@@ -236,8 +236,7 @@ data:extend({
   {
     type = "furnace",
     name = "nullius-outfall-1",
-    icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-outfall-1"].icons,
     collision_mask = {"object-layer", "ground-tile"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, result = "nullius-outfall-1"},
@@ -316,8 +315,7 @@ data:extend({
   {
     type = "furnace",
     name = "nullius-outfall-2",
-    icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
-    icon_size = 32,
+	icons = data.raw.item["nullius-outfall-2"].icons,
     collision_mask = {"object-layer", "ground-tile"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-outfall-2"},

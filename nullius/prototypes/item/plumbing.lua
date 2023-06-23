@@ -746,6 +746,10 @@ data:extend({
     name = "nullius-chimney-1",
     icons = {
       {
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64
+      },
+      {
         icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
         icon_size = 64,
 		icon_mipmaps = 4,
@@ -773,18 +777,6 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-chimney-1",
-    icons = {
-      {
-        icon = ICONPATH .. "shadow.png",
-        icon_size = 64
-      },
-      {
-        icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-        icon_size = 64,
-		icon_mipmaps = 4,
-        scale = 0.4
-      }
-    },
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
@@ -1010,6 +1002,11 @@ data:extend({
     name = "nullius-outfall-1",
     icons = {
       {
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
+      },
+      {
         icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
         icon_size = 32,
         scale = 0.8
@@ -1023,8 +1020,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-outfall-2",
-    icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
-    icon_size = 32,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
+      icon_size = 32
+	}},
     subgroup = "water-intake",
     order = "nullius-ec",
     place_result = "nullius-outfall-2",
@@ -1033,18 +1032,6 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-outfall-1",
-    icons = {
-      {
-        icon = ICONPATH .. "shadow.png",
-        icon_size = 64,
-        scale = 0.5
-      },
-      {
-        icon = "__angelsrefining__/graphics/icons/seafloor-pump-ico.png",
-        icon_size = 32,
-        scale = 0.8
-      }
-    },
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
@@ -1130,6 +1117,11 @@ data:extend({
     name = "nullius-air-filter-1",
     icons = {
       {
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
+      },
+      {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
         icon_size = 32,
         scale = 0.6
@@ -1144,6 +1136,11 @@ data:extend({
     type = "item",
     name = "nullius-air-filter-2",
     icons = {
+      {
+        icon = ICONPATH .. "shadow.png",
+        icon_size = 64,
+        scale = 0.5
+      },
       {
         icon = "__angelspetrochem__/graphics/icons/air-filter.png",
         icon_size = 32,
@@ -1170,18 +1167,6 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-air-filter-1",
-    icons = {
-      {
-        icon = ICONPATH .. "shadow.png",
-        icon_size = 64,
-        scale = 0.5
-      },
-      {
-        icon = "__angelspetrochem__/graphics/icons/air-filter.png",
-        icon_size = 32,
-        scale = 0.6
-      }
-    },
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
@@ -1196,18 +1181,6 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-air-filter-2",
-    icons = {
-      {
-        icon = ICONPATH .. "shadow.png",
-        icon_size = 64,
-        scale = 0.5
-      },
-      {
-        icon = "__angelspetrochem__/graphics/icons/air-filter.png",
-        icon_size = 32,
-        scale = 0.8
-      }
-    },
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -3511,7 +3484,7 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-medium-tank-2", amount=1},
-      {type="item", name="nullius-fiberglass", amount=4},
+      {type="item", name="nullius-fiberglass", amount=5},
       {type="item", name="nullius-pipe-3", amount=3},
       {type="fluid", name="nullius-epoxy", amount=2, fluidbox_index=1}
     },
@@ -3527,8 +3500,8 @@ data:extend({
     energy_required = 125,
     ingredients = {
       {type="item", name="nullius-box-medium-tank-2", amount=1},
-      {type="item", name="nullius-box-fiberglass", amount=8},
-      {type="item", name="nullius-box-pipe-3", amount=6},
+      {type="item", name="nullius-box-fiberglass", amount=5},
+      {type="item", name="nullius-box-pipe-3", amount=3},
       {type="fluid", name="nullius-epoxy", amount=10, fluidbox_index=1}
     },
     result = "nullius-box-medium-tank-3"

@@ -1150,7 +1150,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-propene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 20000, "nullius-propene", {"fluid-name.nullius-propene"}}},
+	    {"technology-description.nullius-fluid", 400000, "nullius-propene", {"fluid-name.nullius-propene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1261,7 +1261,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-crushed-iron-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 5000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
+	    {"technology-description.nullius-item", 50000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1289,7 +1289,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-aluminum-carbide"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 5000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
+	    {"technology-description.nullius-item", 50000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1760,7 +1760,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-benzene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 20000, "nullius-benzene", {"fluid-name.nullius-benzene"}}},
+	    {"technology-description.nullius-fluid", 800000, "nullius-benzene", {"fluid-name.nullius-benzene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1929,13 +1929,13 @@ data:extend({
 	    {"technology-name.nullius-mining"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    250000, "iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
+		    1200000, "iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    200000, "nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
+		    900000, "nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    150000, "nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
+		    600000, "nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    100000, "nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},			
+		    300000, "nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},			
     order = "nullius-yf",
     icons = {
 	  {
@@ -2551,7 +2551,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-wood"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", 200000, "nullius-wood",
+	    {"technology-description.nullius-item-boxable", 300000, "nullius-wood",
 		    "nullius-box-wood", {"item-name.nullius-wood"}}},
     order = "nullius-yg",
     icons = {
