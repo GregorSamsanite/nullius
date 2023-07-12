@@ -143,6 +143,10 @@ local checkpoint_data = {
   ["oxygen"] = {{ CHK_SPECIAL, STT_NET, 1, {} }}
 }
 
+if script.active_mods["lambent-nil"] then
+  checkpoint_data["chelating-agent"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"nullius-chelating-agent"}} }}
+end
+
 
 local broken_data = {
   ["air-filter"] = 3,

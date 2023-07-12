@@ -2838,3 +2838,38 @@ data:extend({
     ignore_tech_cost_multiplier = true
   }
 })
+
+if mods["lambent-nil"] then
+  data:extend({
+    {
+      type = "technology",
+      name = "nullius-checkpoint-chelating-agent",
+      localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
+	      {"item-name.nullius-chelating-agent"}}},
+      localised_description = {"technology-description.nullius-produce",
+	      {"technology-description.nullius-item", 1000, "nullius-chelating-agent", {"item-name.nullius-chelating-agent"}}},
+      order = "nullius-ye",
+      icons = {
+        {
+          icon = "__lambent-nil__/graphics/icons/chelating-agent.png",
+          icon_size = 64,
+          icon_mipmaps = 4
+        },
+        {
+          icon = ICONPATH .. "checkpoint.png",
+          icon_size = 64,
+          icon_mipmaps = 4,
+          scale = 1,
+          tint = {0.6, 0.6, 0.6, 0.6}
+        }
+      },
+      unit = {
+        count = 1,
+        ingredients = {{"nullius-checkpoint", 1}, {"nullius-climatology-pack", 1}},
+        time = 1
+      },
+      prerequisites = {"nullius-sodium-processing"},
+      ignore_tech_cost_multiplier = true
+    }
+  })
+end
