@@ -921,26 +921,33 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
+		base_area = 20,
+        base_level = -3,
+		height = 3,
         pipe_connections = {{ type="input", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1.5,
+		base_area = 15,
+        base_level = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1.5,
+        base_area = 15,
+        base_level = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1.5,
+        base_area = 15,
+        base_level = 2,
+        height = 2,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
       }
     },
@@ -1105,32 +1112,33 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -2,
+		base_area = 20,
+        base_level = -5,
+		height = 4,
         pipe_connections = {{ type="input", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
       }
     }
@@ -1239,32 +1247,33 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -2,
+        base_area = 20,
+        base_level = -5,
+		height = 4,
         pipe_connections = {{ type="input", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 4,
-        base_level = 2,
-        height = 1.5,
+        base_area = 15,
+        base_level = 3,
+        height = 3,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       }
     }
@@ -1374,33 +1383,33 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -3,
-        height = 2,
+        base_area = 20,
+        base_level = -8,
+        height = 6,
         pipe_connections = {{ type="input", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
       }
     }
@@ -1433,33 +1442,33 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -3,
-        height = 2,
+        base_area = 20,
+        base_level = -8,
+        height = 6,
         pipe_connections = {{ type="input", position = {1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {1.5, 2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {-1.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_area = 15,
+        base_level = 4,
+        height = 4,
         pipe_connections = {{ type="output", position = {-1.5, 2.5} }}
       }
     }

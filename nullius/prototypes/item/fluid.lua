@@ -2015,7 +2015,7 @@ data:extend({
     ),
     enabled = false,
     category = "nullius-electrolysis",
-    subgroup = "nullius-water-treatment",
+    subgroup = "nullius-electrolysis",
     order = "nullius-i",
     energy_required = 1,
     ingredients = {
@@ -2031,7 +2031,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-water-electrolysis",
-    icons = angelsmods.functions.create_liquid_recipe_icon(
+    icons = angelsmods.functions.create_gas_recipe_icon(
         {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
         {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
       {element_tint["water"], element_tint["oxygen"], element_tint["hydrogen"]},
@@ -2039,7 +2039,7 @@ data:extend({
     ),
     enabled = false,
     category = "nullius-electrolysis",
-    subgroup = "nullius-water-treatment",
+    subgroup = "nullius-electrolysis",
     order = "nullius-hb",
     energy_required = 1,
     ingredients = {
@@ -2061,8 +2061,8 @@ data:extend({
     ),
     enabled = false,
     category = "nullius-electrolysis",
-    subgroup = "nullius-water-treatment",
-    order = "nullius-hc",
+    subgroup = "nullius-electrolysis",
+    order = "nullius-hd",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-water", amount=40}
@@ -2070,6 +2070,76 @@ data:extend({
     results = {
       {type="fluid", name="nullius-compressed-hydrogen", amount=32, fluidbox_index=1},
       {type="fluid", name="nullius-compressed-oxygen", amount=16, fluidbox_index=3}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-steam-electrolysis",
+	localised_name = {"recipe-name.nullius-electrolysis", {"fluid-name.nullius-steam"}},
+    icons = angelsmods.functions.create_gas_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
+      {{ 56, 142, 147 }, element_tint["oxygen"], element_tint["hydrogen"]},
+      {{"__base__/graphics/icons/fluid/steam.png", 64}}
+    ),
+    enabled = false,
+    category = "nullius-electrolysis",
+    subgroup = "nullius-electrolysis",
+    order = "nullius-hc",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-steam", amount=2000}
+    },
+    results = {
+      {type="fluid", name="nullius-hydrogen", amount=800, fluidbox_index=1},
+      {type="fluid", name="nullius-oxygen", amount=400, fluidbox_index=3}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-pressure-steam-electrolysis",
+	localised_name = {"recipe-name.nullius-pressure",
+	    {"recipe-name.nullius-electrolysis", {"fluid-name.nullius-steam"}}},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
+      {element_tint["oxygen"], element_tint["hydrogen"], { 56, 142, 147 }},
+      {{"__base__/graphics/icons/fluid/steam.png", 64}}
+    ),
+    enabled = false,
+    category = "nullius-electrolysis",
+    subgroup = "nullius-electrolysis",
+    order = "nullius-he",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-steam", amount=1600}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-hydrogen", amount=160, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-oxygen", amount=80, fluidbox_index=3}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-high-pressure-steam-electrolysis",
+	localised_name = {"recipe-name.nullius-electrolysis", {"fluid-name.nullius-pressure-steam"}},
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+        {{"__angelspetrochem__/graphics/icons/molecules/oxygen.png", 72},
+        {"__angelspetrochem__/graphics/icons/molecules/hydrogen.png", 72}},
+      {element_tint["oxygen"], element_tint["hydrogen"], { 129, 202, 210 }},
+      {{FLUIDPATH .. "steam2.png", 64}}
+    ),
+    enabled = false,
+    category = "nullius-electrolysis",
+    subgroup = "nullius-electrolysis",
+    order = "nullius-hf",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-pressure-steam", amount=800}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-hydrogen", amount=250, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-oxygen", amount=125, fluidbox_index=3}
     }
   },
   {
@@ -2084,7 +2154,7 @@ data:extend({
     ),
     enabled = false,
     category = "nullius-electrolysis",
-    subgroup = "nullius-water-treatment",
+    subgroup = "nullius-electrolysis",
     order = "nullius-j",
     energy_required = 1,
     ingredients = {

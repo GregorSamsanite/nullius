@@ -297,27 +297,33 @@ data:extend({
     name = "nullius-filter-inserter-4",
     enabled = false,
     always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
     category = "small-crafting",
-    energy_required = 4,
+    energy_required = 8,
     ingredients = {
-      {"express-stack-inserter", 1},
+      {"express-stack-inserter", 2},
       {"nullius-sensor-2", 1}
     },
-    result = "express-stack-filter-inserter"
+    result = "express-stack-filter-inserter",
+    result_count = 2
   },
   {
     type = "recipe",
     name = "nullius-boxed-filter-inserter-4",
     enabled = false,
     always_show_made_in = true,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "large-assembly",
     subgroup = "boxed-inserter",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
-      {"nullius-box-inserter-4", 1},
+      {"nullius-box-inserter-4", 2},
       {"nullius-box-sensor-2", 1}
     },
-    result = "nullius-box-filter-inserter-4"
+    result = "nullius-box-filter-inserter-4",
+    result_count = 2
   },
 
   {
@@ -443,16 +449,16 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
-      {type="item", name="transport-belt", amount=6},
+      {type="item", name="transport-belt", amount=10},
       {type="item", name="nullius-motor-2", amount=1},
       {type="item", name="nullius-steel-gear", amount=2},
       {type="item", name="nullius-rubber", amount=4},
-      {type="fluid", name="nullius-lubricant", amount=10, fluidbox_index=1}
+      {type="fluid", name="nullius-lubricant", amount=12, fluidbox_index=1}
     },
     result = "fast-transport-belt",
-    result_count = 6
+    result_count = 8
   },
   {
     type = "recipe",
@@ -463,16 +469,16 @@ data:extend({
     always_show_products = true,
     category = "large-fluid-assembly",
     subgroup = "boxed-belt",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
-      {type="item", name="nullius-box-belt-1", amount=6},
+      {type="item", name="nullius-box-belt-1", amount=10},
       {type="item", name="nullius-box-motor-2", amount=1},
       {type="item", name="nullius-box-steel-gear", amount=2},
       {type="item", name="nullius-box-rubber", amount=4},
-      {type="fluid", name="nullius-lubricant", amount=50, fluidbox_index=1}
+      {type="fluid", name="nullius-lubricant", amount=60, fluidbox_index=1}
     },
     result = "nullius-box-belt-2",
-    result_count = 6
+    result_count = 8
   },
   {
     type = "recipe",
@@ -808,15 +814,15 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 4,
+    energy_required = 8,
     ingredients = {
       {"nullius-steel-beam", 2},
       {"nullius-plastic", 3},
       {"nullius-steel-rod", 1},
-      {"nullius-gravel", 3}
+      {"nullius-gravel", 5}
     },
     result = "rail",
-    result_count = 2
+    result_count = 3
   },
   {
     type = "recipe",
@@ -827,15 +833,15 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-steel-beam", 2},
       {"nullius-box-plastic", 3},
       {"nullius-box-steel-rod", 1},
-      {"nullius-box-gravel", 3}
+      {"nullius-box-gravel", 5}
     },
     result = "nullius-box-rail",
-    result_count = 2
+    result_count = 3
   },
 
   {

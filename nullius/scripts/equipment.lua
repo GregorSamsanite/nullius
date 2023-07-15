@@ -200,39 +200,43 @@ function update_player_upgrades(player)
   player.character_crafting_speed_modifier = craftmod
   player.character_mining_speed_modifier =
       scale_multiple(bonuses[UPG_MINER], powered)
-  player.character_inventory_slots_bonus =
-      math.max(0, (10 + bonuses[UPG_CARGO] +
-	      ((1 + scale_multiple(bonuses[UPG_CARGO_MULT], 1)) *
-		      bonuses[UPG_CARGO_POD])))
   player.character_trash_slot_count_bonus =
       math.floor((bonuses[UPG_TRASH] * powered) + 0.5)
   player.character_health_bonus = bonuses[UPG_ARMOR]
   player.character_running_speed_modifier =
       scale_multiple(bonuses[UPG_SPEED], powered)
 
-  local reach = bonuses[UPG_REACH]
-  if (reach > 0) then reach = (reach * powered) end
-  if (script.active_mods["far-reach"]) then
-    reach = (1.5 * reach) + 8
-  else
+  if (not (script.active_mods["InfiniteInventory"] or
+      script.active_mods["infinity-invo"] or
+	  script.active_mods["First_One_Is_Free"])) then
+    player.character_inventory_slots_bonus =
+        math.max(0, (10 + bonuses[UPG_CARGO] +
+	        ((1 + scale_multiple(bonuses[UPG_CARGO_MULT], 1)) *
+		        bonuses[UPG_CARGO_POD])))
+  end
+
+  if (not (script.active_mods["far-reach"] or
+      script.active_mods["long-reach-clone"] or
+	  script.active_mods["themightygugi_longreach"] or
+	  script.active_mods["factorio-reach"])) then
+    local reach = bonuses[UPG_REACH]
+    if (reach > 0) then reach = (reach * powered) end
     reach = reach + 2
-  end
 
-  local loot = (reach * 0.5)
-  if (loot > 8) then
-    loot = (24 * loot) / (loot + 16)
-  end
-  local reach2 = math.max(0, math.floor((2 * reach) + 0.5))
-  reach = math.max(0, math.floor(reach + 0.5))
+    local loot = (reach * 0.5)
+    if (loot > 8) then loot = (24 * loot) / (loot + 16) end
+    local reach2 = math.max(0, math.floor((2 * reach) + 0.5))
+    reach = math.max(0, math.floor(reach + 0.5))
 
-  player.character_reach_distance_bonus = reach2
-  player.character_build_distance_bonus = reach2
-  player.character_item_drop_distance_bonus = reach
-  player.character_resource_reach_distance_bonus = reach  
-  player.character_loot_pickup_distance_bonus =
-      math.max(0, math.floor(loot + 0.5))
-  player.character_item_pickup_distance_bonus =
-      math.max(0, math.floor((loot * 0.25) + 0.5))
+    player.character_reach_distance_bonus = reach2
+    player.character_build_distance_bonus = reach2
+    player.character_item_drop_distance_bonus = reach
+    player.character_resource_reach_distance_bonus = reach  
+    player.character_loot_pickup_distance_bonus =
+        math.max(0, math.floor(loot + 0.5))
+    player.character_item_pickup_distance_bonus =
+        math.max(0, math.floor((loot * 0.25) + 0.5))
+  end
 
   local unit = player.character.unit_number
   if (costlist ~= nil) then

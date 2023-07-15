@@ -269,3 +269,14 @@ if (mods["RenaiTransportation"] and
   data.raw.recipe["nullius-thrower-4"].result = "RTThrower-express-stack-inserter-Item"
   data.raw.recipe["nullius-filter-thrower-4"].result = "RTThrower-express-stack-filter-inserter-Item"
 end
+
+
+if (mods["cargo-ships"] and settings.startup["deep_oil"].value) then
+  data.raw.technology["deep_sea_oil_extraction"].unit = {
+    count = 200, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
+  }
+end

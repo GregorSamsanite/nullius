@@ -831,8 +831,14 @@ data:extend({
 
   {
     type = "item-subgroup",
-    order = "b",
+    order = "bb",
     name = "nullius-water-treatment",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "bc",
+    name = "nullius-electrolysis",
     group = "fluids",
   },
   {

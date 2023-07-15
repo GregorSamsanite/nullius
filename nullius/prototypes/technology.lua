@@ -2437,6 +2437,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-steam-electrolysis"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-electrolyzer-reprioritization-2"
       }
     },
@@ -8627,6 +8631,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-pressure-steam-electrolysis"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-pressure-air-separation"
       },
       {
@@ -11896,6 +11904,10 @@ data:extend({
 	  {
         type = "unlock-recipe",
         recipe = "nullius-desalination-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-high-pressure-steam-electrolysis"
       }
     },
     unit = {

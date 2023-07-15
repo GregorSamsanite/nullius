@@ -1,4 +1,4 @@
-require("prototypes.generation")
+require("prototypes.resource_override")
 require("prototypes.override")
 require("prototypes.item.module_limitation")
 require("prototypes.rock")

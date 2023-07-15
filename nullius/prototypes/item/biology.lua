@@ -3412,16 +3412,16 @@ data:extend({
     category = "large-crafting",
     subgroup = "woodworking",
     order = "nullius-d",
-    energy_required = 4,
+    energy_required = 6,
     ingredients = {
       {type="item", name="nullius-steel-beam", amount=2},
-      {type="item", name="nullius-wood", amount=3},
+      {type="item", name="nullius-wood", amount=4},
       {type="item", name="nullius-steel-rod", amount=1},
-      {type="item", name="nullius-gravel", amount=5},
-      {type="fluid", name="nullius-epoxy", amount=2}
+      {type="item", name="nullius-gravel", amount=6},
+      {type="fluid", name="nullius-epoxy", amount=1}
     },
     result = "rail",
-    result_count = 4
+    result_count = 5
   },
   {
     type = "recipe",
@@ -3453,16 +3453,16 @@ data:extend({
     category = "huge-assembly",
     subgroup = "boxed-wood",
     order = "nullius-wc",
-    energy_required = 20,
+    energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-steel-beam", amount=2},
-      {type="item", name="nullius-box-wood", amount=3},
+      {type="item", name="nullius-box-wood", amount=4},
       {type="item", name="nullius-box-steel-rod", amount=1},
-      {type="item", name="nullius-box-gravel", amount=5},
-      {type="fluid", name="nullius-epoxy", amount=10}
+      {type="item", name="nullius-box-gravel", amount=6},
+      {type="fluid", name="nullius-epoxy", amount=5}
     },
     result = "nullius-box-rail",
-    result_count = 4
+    result_count = 5
   },
   {
     type = "recipe",

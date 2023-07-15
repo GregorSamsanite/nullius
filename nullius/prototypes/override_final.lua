@@ -95,6 +95,10 @@ data.raw["electric-pole"]["big-electric-pole"].icons =
 data.raw["electric-pole"]["big-electric-pole"].maximum_wire_distance = 32.5
 data.raw["electric-pole"]["big-electric-pole"].fast_replaceable_group = "pylon"
 data.raw["electric-pole"]["big-electric-pole"].next_upgrade = "nullius-pylon-2"
+data.raw["electric-pole"]["big-electric-pole"].collision_mask =
+    data.raw["electric-pole"]["nullius-pylon-2"].collision_mask
+data.raw["electric-pole"]["big-electric-pole"].collision_box =
+    data.raw["electric-pole"]["nullius-pylon-2"].collision_box
 
 data.raw.item["small-electric-pole"].localised_name = {"entity-name.nullius-power-pole-1"}
 data.raw.item["small-electric-pole"].subgroup = "electric-pole"
@@ -250,6 +254,13 @@ data.raw["pump"]["pump"].fast_replaceable_group = "pump"
 data.raw["pump"]["pump"].next_upgrade = nil
 data.raw["pump"]["pump"].fluid_box.height = 10
 data.raw["pump"]["pump"].pumping_speed = 160
+data.raw.pump["nullius-pump-2"].collision_mask = data.raw.pump.pump.collision_mask
+data.raw.pump["nullius-pump-2"].collision_box = data.raw.pump.pump.collision_box
+data.raw.pump["nullius-pump-2"].selection_box = data.raw.pump.pump.selection_box
+data.raw.pump["nullius-pump-1"].collision_mask = data.raw.pump.pump.collision_mask
+data.raw.pump["nullius-pump-1"].collision_box = data.raw.pump.pump.collision_box
+data.raw.pump["nullius-pump-1"].selection_box = data.raw.pump.pump.selection_box
+
 if mods["reskins-library"] then
   data.raw.item["pump"].icons = {{
     icon = "__base__/graphics/icons/pump.png",

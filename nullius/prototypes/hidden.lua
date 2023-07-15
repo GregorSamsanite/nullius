@@ -120,7 +120,9 @@ for _, recipe in pairs(data.raw.recipe) do
   if ((string.sub(recipe.name, 1, 8) ~= "nullius-") and
       ((recipe.order == nil) or (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
       (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
-      (string.sub(recipe.name, 1, 14) ~= "empty-nullius-")) then
+      (string.sub(recipe.name, 1, 14) ~= "empty-nullius-") and
+	  (recipe.category ~= "ee-testing-tool") and
+	  (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
     recipe.hidden = true
     recipe.enabled = false
     if (recipe.normal ~= nil) then
@@ -236,8 +238,10 @@ for _, recipe in pairs(data.raw.recipe) do
     if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or
         (string.sub(recipe.name, 1, 14) == "empty-nullius-")) then
 	  recipe.GCKI_ignore = true
-	elseif ((recipe.order == nil) or
-	    (string.sub(recipe.order, 1, 8) ~= "nullius-")) then
+	elseif (((recipe.order == nil) or
+	    (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
+        (recipe.category ~= "ee-testing-tool") and
+	    (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
       recipe.enabled = false
 	  recipe.allow_as_intermediate = false
 	  recipe.allow_decomposition = false

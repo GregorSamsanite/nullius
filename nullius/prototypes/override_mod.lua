@@ -1466,7 +1466,7 @@ if mods["Inventory Sensor"] then
 end
 
 
-if mods["crafting_combinator"] then
+if (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) then
   data.raw.item["crafting_combinator:crafting-combinator"].order = "nullius-rb"
   data.raw.item["crafting_combinator:recipe-combinator"].order = "nullius-rc"
   data.raw["constant-combinator"]["crafting_combinator:crafting-combinator"].minable.mining_time = 0.8
@@ -1797,10 +1797,14 @@ data.raw["simple-entity-with-owner"]["copper-display"].localised_name =
 end
 
 
-if (mods["Inventory Sensor"] and mods["crafting_combinator"] and
-    mods["stack-combinator"] and
+if (mods["Inventory Sensor"] and mods["stack-combinator"] and
+    (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) and
 	(mods["Factorissimo2"] or mods["factorissimo-2-notnotmelon"])) then
   data.raw.item["programmable-speaker"].subgroup = "factorissimo2"
+  if mods["aai-signal-transmission"] then
+    data.raw.item["aai-signal-sender"].subgroup = "factorissimo2"
+    data.raw.item["aai-signal-receiver"].subgroup = "factorissimo2"
+  end
 end
 
 
@@ -1834,4 +1838,276 @@ if mods["ch-concentrated-solar"] then
   data.raw.item["chcs-heliostat-mirror"].stack_size = 100
   data.raw.item["chcs-solar-power-tower"].subgroup = "geothermal"
   data.raw.item["chcs-solar-power-tower"].order = "nullius-hc"
+end
+
+
+if mods["cargo-ships"] then
+  data.raw["mining-drill"]["oil_rig"].localised_name =
+      {"entity-name.nullius-offshore-extractor"}
+  data.raw["mining-drill"]["oil_rig"].localised_description =
+      {"entity-description.nullius-offshore-extractor"}
+  data.raw["generator"]["or_power"].localised_name =
+      {"entity-name.nullius-offshore-steam"}
+  data.raw["electric-energy-interface"]["or_power_electric"].localised_name =
+      {"entity-name.nullius-offshore-electric"}
+  data.raw["radar"]["or_radar"].localised_name =
+      {"entity-name.nullius-offshore-radar"}
+
+  data.raw["radar"]["or_radar"].max_distance_of_sector_revealed = 3
+  data.raw["radar"]["or_radar"].max_distance_of_nearby_sector_revealed = 2
+  data.raw["radar"]["or_radar"].energy_per_sector = "20MJ"
+  data.raw["radar"]["or_radar"].energy_per_nearby_scan = "50kJ"
+  data.raw["radar"]["or_radar"].energy_usage = "20kW"
+  data.raw["electric-pole"]["floating-electric-pole"].maximum_wire_distance = 32.5
+
+  data.raw["car"]["indep-boat"].burner.fuel_category = "vehicle"
+  data.raw["car"]["indep-boat"].burner.fuel_inventory_size = 1
+  data.raw["car"]["indep-boat"].burner.burnt_inventory_size = 1
+  data.raw["car"]["indep-boat"].burner.effectivity = 1.5
+  data.raw["locomotive"]["boat_engine"].burner.fuel_category = "vehicle"
+  data.raw["locomotive"]["boat_engine"].burner.fuel_inventory_size = 1
+  data.raw["locomotive"]["boat_engine"].burner.burnt_inventory_size = 1
+  data.raw["locomotive"]["boat_engine"].burner.effectivity = 1.5
+  data.raw["locomotive"]["cargo_ship_engine"].burner.fuel_category = "vehicle"
+  data.raw["locomotive"]["cargo_ship_engine"].burner.fuel_inventory_size = 3
+  data.raw["locomotive"]["cargo_ship_engine"].burner.burnt_inventory_size = 3
+  data.raw["locomotive"]["cargo_ship_engine"].burner.effectivity = 2
+
+
+  data.raw.technology["water_transport"].order = "nullius-cn"
+  data.raw.technology["water_transport"].prerequisites =
+      {"nullius-personal-transportation-1", "nullius-checkpoint-plumbing"}
+  data.raw.technology["water_transport"].unit = {
+    count = 25, time = 8,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+      {"nullius-mechanical-pack", 1}
+    }
+  }
+
+  data.raw.technology["cargo_ships"].order = "nullius-df"
+  data.raw.technology["cargo_ships"].prerequisites =
+      {"water_transport", "nullius-pumping-2", "nullius-freight-logistics"}
+  data.raw.technology["cargo_ships"].unit = {
+    count = 50, time = 20,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1}
+    }
+  }
+  data.raw.shortcut["give-waterway"].technology_to_unlock = "cargo_ships"
+
+  data.raw.technology["automated_water_transport"].order = "nullius-di"
+  data.raw.technology["automated_water_transport"].prerequisites =
+      {"cargo_ships", "nullius-concrete-1", "nullius-weaving-1"}
+  data.raw.technology["automated_water_transport"].unit = {
+    count = 100, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
+  }
+
+  data.raw.technology["tank_ship"].order = "nullius-dj"
+  data.raw.technology["tank_ship"].prerequisites =
+      {"automated_water_transport", "nullius-water-filtration-3"}
+  data.raw.technology["tank_ship"].unit = {
+    count = 120, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
+  }
+
+  data.raw.technology["water_transport_signals"].order = "nullius-dj"
+  data.raw.technology["water_transport_signals"].prerequisites =
+      {"automated_water_transport", "nullius-checkpoint-sensor"}
+  data.raw.technology["water_transport_signals"].unit = {
+    count = 80, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+    }
+  }
+
+  data.raw.technology["oversea-energy-distribution"].order = "nullius-dk"
+  data.raw.technology["oversea-energy-distribution"].prerequisites =
+      {"water_transport_signals", "tank_ship", "nullius-energy-distribution-3"}
+  data.raw.technology["oversea-energy-distribution"].unit = {
+    count = 150, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
+  }
+  data.raw.technology["nullius-robot-speed-1"].prerequisites[2] = "oversea-energy-distribution"
+
+  data.raw.technology["automated_bridges"].order = "nullius-dl"
+  data.raw.technology["automated_bridges"].prerequisites =
+      {"oversea-energy-distribution", "nullius-toolmaking-4"}
+  data.raw.technology["automated_bridges"].unit = {
+    count = 150, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1}
+    }
+  }
+  table.insert(data.raw.technology["nullius-braking-1"].prerequisites,"automated_bridges")
+
+
+  data.raw["item-subgroup"]["water_transport"].order = "gw"
+  data.raw["rail-planner"]["waterway"].order = "nullius-b"
+  data.raw["item-with-entity-data"]["boat_engine"].order = "nullius-l"
+  data.raw["item-with-entity-data"]["cargo_ship_engine"].order = "nullius-m"
+  data.raw["item-with-entity-data"]["indep-boat"].order = "nullius-i"
+
+  data.raw["item-with-entity-data"]["boat"].order = "nullius-h"
+  data.raw.recipe["boat"].order = "nullius-h"
+  data.raw.recipe["boat"].category = "large-crafting"
+  data.raw.recipe["boat"].always_show_made_in = true
+  data.raw.recipe["boat"].energy_required = 10
+  data.raw.recipe["boat"].ingredients = {
+    {type="item", name="nullius-seawater-intake-1", amount=3},
+    {type="item", name="nullius-portable-generator-1", amount=1},
+    {type="item", name="nullius-medium-tank-2", amount=2},
+	{type="item", name="nullius-rubber", amount=4},
+	{type="item", name="nullius-glass", amount=1}
+  }
+
+  data.raw["item-with-entity-data"]["cargo_ship"].order = "nullius-j"
+  data.raw.recipe["cargo_ship"].order = "nullius-j"
+  data.raw.recipe["cargo_ship"].category = "huge-crafting"
+  data.raw.recipe["cargo_ship"].always_show_made_in = true
+  data.raw.recipe["cargo_ship"].energy_required = 30
+  data.raw.recipe["cargo_ship"].ingredients = {
+    {type="item", name="boat", amount=4},
+    {type="item", name="nullius-steel-sheet", amount=30},
+	{type="item", name="nullius-steel-beam", amount=15},
+    {type="item", name="nullius-pump-2", amount=6}
+  }
+
+  data.raw["item-with-entity-data"]["oil_tanker"].order = "nullius-k"
+  data.raw.recipe["oil_tanker"].order = "nullius-k"
+  data.raw.recipe["oil_tanker"].category = "huge-crafting"
+  data.raw.recipe["oil_tanker"].always_show_made_in = true
+  data.raw.recipe["oil_tanker"].energy_required = 20
+  data.raw.recipe["oil_tanker"].ingredients = {
+    {type="item", name="cargo_ship", amount=1},
+    {type="item", name="nullius-seawater-intake-2", amount=3},
+    {type="item", name="nullius-medium-tank-2", amount=8}
+  }
+
+  data.raw.item["port"].order = "nullius-c"
+  data.raw.recipe["port"].order = "nullius-c"
+  data.raw.recipe["port"].category = "large-fluid-assembly"
+  data.raw.recipe["port"].always_show_made_in = true
+  data.raw.recipe["port"].energy_required = 15
+  data.raw.recipe["port"].ingredients = {
+    {type="item", name="train-stop", amount=2},
+    {type="item", name="nullius-small-tank-1", amount=1},
+    {type="item", name="nullius-steel-cable", amount=10},
+    {type="item", name="concrete", amount=8},
+	{type="fluid", name="nullius-nitrogen", amount=1000, fluidbox_index=1}
+  }
+
+  data.raw.item["buoy"].order = "nullius-d"
+  data.raw.recipe["buoy"].order = "nullius-d"
+  data.raw.recipe["buoy"].category = "small-fluid-assembly"
+  data.raw.recipe["buoy"].always_show_made_in = true
+  data.raw.recipe["buoy"].energy_required = 5
+  data.raw.recipe["buoy"].ingredients = {
+    {type="item", name="rail-signal", amount=1},
+    {type="item", name="empty-barrel", amount=2},
+    {type="item", name="nullius-steel-cable", amount=5},
+    {type="item", name="concrete", amount=5},
+	{type="fluid", name="nullius-nitrogen", amount=250, fluidbox_index=1}
+  }
+
+  data.raw.item["chain_buoy"].order = "nullius-e"
+  data.raw.recipe["chain_buoy"].order = "nullius-e"
+  data.raw.recipe["chain_buoy"].category = "small-crafting"
+  data.raw.recipe["chain_buoy"].always_show_made_in = true
+  data.raw.recipe["chain_buoy"].energy_required = 3
+  data.raw.recipe["chain_buoy"].ingredients = {
+    {type="item", name="buoy", amount=1},
+    {type="item", name="programmable-speaker", amount=1}
+  }
+
+  data.raw.item["floating-electric-pole"].subgroup = "water_transport"
+  data.raw.item["floating-electric-pole"].order = "nullius-f"
+  data.raw.recipe["floating-electric-pole"].order = "nullius-f"
+  data.raw.recipe["floating-electric-pole"].category = "large-crafting"
+  data.raw.recipe["floating-electric-pole"].always_show_made_in = true
+  data.raw.recipe["floating-electric-pole"].energy_required = 8
+  data.raw.recipe["floating-electric-pole"].ingredients = {
+    {type="item", name="buoy", amount=3},
+    {type="item", name="big-electric-pole", amount=2}
+  }
+
+  data.raw.item["bridge_base"].order = "nullius-g"
+  data.raw.recipe["bridge_base"].order = "nullius-g"
+  data.raw.recipe["bridge_base"].category = "small-crafting"
+  data.raw.recipe["bridge_base"].always_show_made_in = true
+  data.raw.recipe["bridge_base"].energy_required = 50
+  data.raw.recipe["bridge_base"].ingredients = {
+    {type="item", name="rail", amount=16},
+    {type="item", name="nullius-steel-beam", amount=40},
+	{type="item", name="concrete", amount=50},
+    {type="item", name="nullius-steel-cable", amount=12},
+	{type="item", name="nullius-motor-2", amount=6},
+	{type="item", name="chain_buoy", amount=4}
+  }
+
+
+  if settings.startup["deep_oil"].value then
+    data.raw.technology["deep_sea_oil_extraction"].order = "nullius-dk"
+    data.raw.technology["deep_sea_oil_extraction"].prerequisites =
+        {"oversea-energy-distribution", "nullius-plumbing-4"}
+    data.raw.technology["deep_sea_oil_extraction"].unit = {
+      count = 200, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      }
+    }
+    table.insert(data.raw.technology["nullius-sulfur-processing-2"].prerequisites,"deep_sea_oil_extraction")
+
+    data.raw.item["oil_rig"].subgroup = "water-intake"
+    data.raw.item["oil_rig"].order = "nullius-dr"
+	data.raw.recipe["oil_rig"].order = "nullius-dr"
+    data.raw.recipe["oil_rig"].category = "huge-crafting"
+    data.raw.recipe["oil_rig"].always_show_made_in = true
+    data.raw.recipe["oil_rig"].energy_required = 60
+    data.raw.recipe["oil_rig"].ingredients = {
+      {type="item", name="nullius-large-tank-1", amount=4},
+      {type="item", name="nullius-geothermal-plant-1", amount=1},
+      {type="item", name="nullius-stirling-engine-1", amount=2},
+	  {type="item", name="nullius-extractor-1", amount=2},
+	  {type="item", name="floating-electric-pole", amount=2},
+	  {type="item", name="port", amount=1}
+    }
+  end
+end
+
+
+if (mods["beautiful_bridge_railway"] or
+    mods["beautiful_bridge_railway_Cargoships"] or
+    mods["beautiful_straight_bridge_railway"]) then
+  if (not mods["Transport_Drones"]) then
+    data.raw.technology["nullius-braking-2"].prerequisites[2] = nil
+  end
+  table.insert(data.raw.technology["nullius-braking-2"].prerequisites,"nullius-rail-bridges")
+  table.insert(data.raw.technology["nullius-woodworking"].effects,
+      { type = "unlock-recipe", recipe = "nullius-rail-bridge-wood" })
+  data.raw["rail-planner"]["bbr-rail-iron"].order = "nullius-rbb"
+  data.raw["rail-planner"]["bbr-rail-brick"].order = "nullius-rbc"
+  data.raw["rail-planner"]["bbr-rail-wood"].order = "nullius-rbd"
+  data.raw["rail-planner"]["rail"].subgroup = data.raw["rail-planner"]["bbr-rail-iron"].subgroup
+  data.raw["rail-planner"]["rail"].order = "nullius-pb"
+  if mods["cargo-ships"] then
+    data.raw.item["bridge_base"].order = "nullius-t"
+	data.raw.item["bridge_base"].subgroup = data.raw["rail-planner"]["rail"].subgroup
+	data.raw.recipe["bridge_base"].order = "nullius-t"
+	data.raw.recipe["bridge_base"].subgroup = data.raw.item["bridge_base"].subgroup
+  end
 end

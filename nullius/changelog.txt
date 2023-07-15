@@ -1,4 +1,34 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.30
+Date: 14.07.2023
+  Features:
+    - New steam electrolysis recipes.
+  Changes:
+    - Increase fluid capacity/flow rate of electrolyzers.
+    - Refactor how ores are generated for mod compatibilty.
+  Modding:
+    - Add compatibility support for Crafting Ships mod.
+    - Add compatibility support for Beautiful Bridge Railway and its forks.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.29
+Date: 02.07.2023
+  Modding:
+    - Don't hide recipes for Editor Extension or Blueprint Sandbox tools.
+    - Disable Nullius cargo equipment when using First One's Free mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.28
+Date: 01.07.2023
+  Balancing:
+    - Make belt 2, filter inserter 4, and rail a bit cheaper.
+  Bugfixes:
+    - Fix crash if filthy cheaters use bio drones before unlocking objectives.
+  Modding:
+    - Add compatibility support for Crafting Combinator Xeraph's Fork.
+    - Disable Nullius reach equipment when using Far Reach or similar mods.
+    - Disable Nullius cargo equipment with InfiniteInventory or similar mods.
+    - Fix conflict with squeak through + cargo ships (latter is unsupported).
+    - Change subgroup of aai signal items if there are too many circuit items.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.27
 Date: 23.06.2023
   Balancing:

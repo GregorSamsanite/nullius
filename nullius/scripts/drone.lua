@@ -355,7 +355,8 @@ function algaculture_effect(event)
     end
   end
 
-  if ((event.source_entity ~= nil) and event.source_entity.valid) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid and
+      (global.nullius_mission_status ~= nil)) then
     local new_count = count_decoratives(s, nil, 10000, "nullius-algae")
     set_mission_goal(3, new_count, event.source_entity.force)
   end
@@ -477,6 +478,8 @@ end
 
 function entomology_effect(event)
   scout_effect(event, 3)
+  if (global.nullius_mission_status == nil) then return end
+
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local attempt_count = 8 + (math.random() * 9)
@@ -595,6 +598,8 @@ end
 
 function aquaculture_effect(event)
   scout_effect(event, 3)
+  if (global.nullius_mission_status == nil) then return end
+
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local a = area_bound(c, 128)
@@ -624,6 +629,7 @@ end
 
 function husbandry_effect(event)
   scout_effect(event, 4)
+  if (global.nullius_mission_status == nil) then return end
 
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
@@ -669,7 +675,7 @@ function husbandry_effect(event)
   end
 
   local nest = s.create_entity{name="biter-spawner", amount=1, position=c}
-  if ((nest == nil) or (global.nullius_mission_status == nil)) then return end
+  if (nest == nil) then return end
   local old_status = global.nullius_mission_status[8]
   if (old_status == nil) then old_status = 0 end
   if (old_status == 0) then

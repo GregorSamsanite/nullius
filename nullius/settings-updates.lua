@@ -358,3 +358,41 @@ end
 if data.raw['double-setting']['ch-k2-production-mult'] then
    data.raw['double-setting']['ch-k2-production-mult'].hidden = true
 end
+
+
+if data.raw['bool-setting']['deep_oil'] then
+   data.raw['bool-setting']['deep_oil'].localised_name =
+       {"mod-setting-name.nullius-hydrothermal"}
+end
+
+if data.raw['bool-setting']['no_oil_for_oil_rig'] then
+   data.raw['bool-setting']['no_oil_for_oil_rig'].localised_name =
+       {"mod-setting-name.nullius-infinite-fumaroles"}
+   data.raw['bool-setting']['no_oil_for_oil_rig'].localised_description =
+       {"mod-setting-description.nullius-infinite-fumaroles"}
+end
+
+if data.raw['string-setting']['oil_richness'] then
+   data.raw['string-setting']['oil_richness'].hidden = true
+   data.raw['string-setting']['oil_richness'].allowed_values = {"regular"}
+end
+
+if data.raw['int-setting']['oil_rig_capacity'] then
+   data.raw['int-setting']['oil_rig_capacity'].hidden = true
+   data.raw['int-setting']['oil_rig_capacity'].allowed_values = {100}
+end
+
+if data.raw['bool-setting']['no_oil_on_land'] then
+   data.raw['bool-setting']['no_oil_on_land'].hidden = true
+   data.raw['bool-setting']['no_oil_on_land'].forced_value = false
+end
+
+if data.raw['double-setting']['fuel_modifier'] then
+   data.raw['double-setting']['fuel_modifier'].hidden = true
+   data.raw['double-setting']['fuel_modifier'].allowed_values = {2}
+end
+
+if data.raw['int-setting']['tanker_capacity'] then
+   data.raw['int-setting']['tanker_capacity'].hidden = true
+   data.raw['int-setting']['tanker_capacity'].allowed_values = {250}
+end

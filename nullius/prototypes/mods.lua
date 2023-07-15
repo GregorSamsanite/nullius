@@ -298,7 +298,7 @@ data:extend({
     icons = data.raw.technology["fast-miniloader"].icons,
     effects = { },
     unit = {
-      count = 250,
+      count = 100,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1713,7 +1713,7 @@ data:extend({
 end
 
 
-if mods["crafting_combinator"] then
+if (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) then
   data:extend({
     {
       type = "recipe",
@@ -3491,6 +3491,84 @@ if mods["ch-concentrated-solar"] then
         time = 35
       },
       prerequisites = {"nullius-solar-thermal-power-2", "nullius-checkpoint-large-beacon"}
+    }
+  })
+end
+
+
+if (mods["beautiful_bridge_railway"] or
+    mods["beautiful_bridge_railway_Cargoships"] or
+    mods["beautiful_straight_bridge_railway"]) then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-rail-bridge-iron",
+      enabled = false,
+	  always_show_made_in = true,
+      category = "huge-crafting",
+      energy_required = 6,
+      ingredients = {
+        {"rail", 2},
+		{"nullius-steel-beam", 8},
+		{"concrete", 6},
+		{"nullius-land-fill-gravel", 1}
+      },
+      result = "bbr-rail-iron"
+    },
+    {
+      type = "recipe",
+      name = "nullius-rail-bridge-brick",
+      enabled = false,
+	  always_show_made_in = true,
+      category = "huge-crafting",
+      energy_required = 8,
+      ingredients = {
+        {"rail", 2},
+		{"nullius-refractory-brick", 4},
+		{"nullius-mortar", 1},
+		{"concrete", 1},
+		{"nullius-land-fill-gravel", 2}
+      },
+      result = "bbr-rail-brick"
+    },
+    {
+      type = "recipe",
+      name = "nullius-rail-bridge-wood",
+      enabled = false,
+	  always_show_made_in = true,
+      category = "huge-crafting",
+      energy_required = 5,
+      ingredients = {
+        {"rail", 2},
+		{"nullius-wood", 6},
+		{"nullius-steel-rod", 1},
+		{"concrete", 2},
+		{"nullius-land-fill-gravel", 1}
+      },
+      result = "bbr-rail-wood"
+    },
+    {
+      type = "technology",
+      name = "nullius-rail-bridges",
+      order = "nullius-eg",
+	  icons = {{
+        icon = "__base__/graphics/technology/automated-rail-transportation.png",
+        icon_size = 256,
+        icon_mipmaps = 4
+	  }},
+      effects = {
+	    { type = "unlock-recipe", recipe = "nullius-rail-bridge-iron" },
+        { type = "unlock-recipe", recipe = "nullius-rail-bridge-brick" }
+      },
+      unit = {
+        count = 250, time = 30,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 2}, {"nullius-electrical-pack", 1},
+          {"nullius-chemical-pack", 1}
+        }
+      },
+      prerequisites = {"nullius-braking-1", "nullius-steelmaking-2"}
     }
   })
 end
