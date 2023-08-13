@@ -684,7 +684,7 @@ data:extend({
       {"nullius-robot-frame-1", 1},
       {"nullius-haste-module-1", 1},
       {"nullius-combustion-chamber-1", 1},
-      {"nullius-standard-turbine-1", 2},
+      {"nullius-turbine-open-1", 2},
       {"nullius-aluminum-plate", 6}
     },
     result = "jetpack-1"
@@ -701,7 +701,7 @@ data:extend({
       {"nullius-robot-frame-2", 1},
       {"nullius-haste-module-2", 1},
       {"nullius-combustion-chamber-2", 2},
-      {"nullius-standard-turbine-2", 2},
+      {"nullius-turbine-open-2", 2},
       {"nullius-ceramic-powder", 8}
     },
     result = "jetpack-2"
@@ -718,7 +718,7 @@ data:extend({
       {"nullius-robot-frame-3", 1},
       {"nullius-haste-module-3", 2},
       {"nullius-combustion-chamber-3", 1},
-      {"nullius-priority-turbine-2", 2},
+      {"nullius-turbine-open-3", 2},
       {"nullius-titanium-plate", 10}
     },
     result = "jetpack-3"
@@ -1079,7 +1079,7 @@ data:extend({
         {"nullius-mechanical-pack", 1}},
       time = 10
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-storage-2"},
+    prerequisites = {"nullius-aluminum-working-1", "nullius-storage-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -3358,7 +3358,8 @@ data:extend({
       },
       time = 5
     },
-    prerequisites = {"nullius-illumination-1", "nullius-aluminum-working", "nullius-checkpoint-rubber"},
+    prerequisites = {"nullius-illumination-1", "nullius-aluminum-working-1",
+        "nullius-checkpoint-rubber"},
     ignore_tech_cost_multiplier = true
   }
 })

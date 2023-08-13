@@ -41,7 +41,7 @@ data:extend({
     name = "nullius-broken-electrolyzer",
     localised_name = {"item-name.nullius-broken", {"entity-name.nullius-priority-electrolyzer-1"}},
     icons = {
-      data.raw.item["nullius-priority-electrolyzer-1"].icons[1],
+      data.raw.item["nullius-electrolyzer-1"].icons[1],
       broken_overlay
     },
     subgroup = "broken",
@@ -223,7 +223,7 @@ data:extend({
       {"nullius-broken-electrolyzer", 1},
       {"nullius-iron-wire", 5}
     },
-    result = "nullius-priority-electrolyzer-1"
+    result = "nullius-electrolyzer-1"
   },
   {
     type = "recipe",

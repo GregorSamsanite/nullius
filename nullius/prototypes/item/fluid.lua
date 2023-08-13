@@ -1036,6 +1036,24 @@ data:extend({
     fuel_value = "6KJ",
     default_temperature = 50,
     max_temperature = 100
+  },
+  {
+    type = "fluid",
+    name = "nullius-power",
+	icons = {{
+      icon = FLUIDPATH .. "power.png",
+      icon_size = 32
+	}},
+	hidden = true,
+    subgroup = "compressed-air",
+    order = "nullius-x",
+    base_color = {r=1, g=1, b=0},
+    flow_color = {r=1, g=1, b=0},
+    heat_capacity = "0.1KJ",
+	fuel_value = "20KJ",
+    default_temperature = 100,
+    max_temperature = 200,
+    gas_temperature = 0
   }
 })
 
@@ -4071,7 +4089,7 @@ data:extend({
     energy_required = 0.5,
     no_productivity = true,
     ingredients = {
-      {type="fluid", name="nullius-steam", amount=2500}
+      {type="fluid", name="nullius-steam", amount=2000}
     },
     results = {
       {type="fluid", name="nullius-water", amount=250}
@@ -4131,25 +4149,6 @@ data:extend({
     },
     main_product = "nullius-pressure-steam"
   },
-
-  {
-    type = "recipe",
-    name = "nullius-compressed-hydrogen",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-	hide_from_stats = true,
-    category = "compression",
-    energy_required = 1,
-    ingredients = {
-      {type="fluid", name="nullius-hydrogen", amount=960}
-    },
-    results = {
-      {type="fluid", name="nullius-compressed-hydrogen", amount=240}
-    },
-    main_product = "nullius-compressed-hydrogen"
-  },
-
 
   {
     type = "recipe",
@@ -4450,6 +4449,96 @@ data:extend({
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=15}
     },
     main_product = "nullius-steam"
+  },
+  {
+    type = "recipe",
+    name = "nullius-aluminum-oxidation",
+    localised_name = {"recipe-name.nullius-oxidation", {"item-name.nullius-aluminum"}},
+    icons = {
+      {
+        icon = "__base__/graphics/icons/fluid/steam.png",
+		icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+	    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-7, -7}
+      },
+	  {
+	    icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+        icon_size = 32,
+		scale = 0.5,
+		shift = {7, 7}
+	  }
+    },
+    enabled = false,
+    category = "combustion",
+    subgroup = "combustion",
+    order = "nullius-gb",
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_as_intermediate = false,
+    energy_required = 1,
+    ingredients = {
+      {type="item", name="nullius-aluminum-powder", amount=8},
+      {type="fluid", name="nullius-water", amount=100}
+    },
+    results = {
+	  {type="item", name="nullius-aluminum-hydroxide", amount=1},
+	  {type="fluid", name="nullius-hydrogen", amount=90},
+      {type="fluid", name="nullius-steam", amount=180}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-aluminum-oxidation",
+    localised_name = {"recipe-name.nullius-boxed",
+	    {"recipe-name.nullius-oxidation", {"item-name.nullius-aluminum"}}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/steam.png",
+		icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+	    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.27,
+        shift = {-6, -6}
+      },
+	  {
+	    icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+        icon_size = 32,
+		scale = 0.45,
+		shift = {6, 6}
+	  }
+    },
+    enabled = false,
+    category = "combustion",
+    subgroup = "boxed-aluminum-1",
+    order = "nullius-kb",
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_as_intermediate = false,
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-box-aluminum-powder", amount=8},
+      {type="fluid", name="nullius-water", amount=500}
+    },
+    results = {
+	  {type="item", name="nullius-box-aluminum-hydroxide", amount=1},
+	  {type="fluid", name="nullius-hydrogen", amount=450},
+      {type="fluid", name="nullius-steam", amount=900}
+    }
   },
 
   {
@@ -5325,7 +5414,7 @@ data:extend({
       {type="fluid", name="nullius-compressed-oxygen", amount=150},
       {type="item", name="nullius-salt", amount=5},
       {type="item", name="nullius-iron-oxide", amount=3},
-      {type="item", name="nullius-aluminum-wire", amount=20},
+      {type="item", name="nullius-aluminum-powder", amount=35},
       {type="item", name="nullius-rubber", amount=14},
       {type="item", name="cliff-explosives", amount=2}
     },
@@ -5341,6 +5430,71 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    category = "basic-chemistry",
+    subgroup = "boxed-canister",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ammonia"].flow_color,
+      secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
+    },
+    energy_required = 200,
+    ingredients = {
+      {type="item", name="nullius-box-methanol-canister", amount=1},
+      {type="fluid", name="nullius-ammonia", amount=1200},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=1500},
+      {type="fluid", name="nullius-compressed-oxygen", amount=750},
+      {type="item", name="nullius-box-salt", amount=5},
+      {type="item", name="nullius-box-iron-oxide", amount=3},
+      {type="item", name="nullius-box-aluminum-powder", amount=35},
+      {type="item", name="nullius-box-rubber", amount=14},
+      {type="item", name="nullius-box-explosive", amount=2}
+    },
+    results = {
+      {type="item", name="nullius-box-rocket-fuel", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=1000}
+    },
+    main_product = "nullius-box-rocket-fuel"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-rocket-fuel",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "basic-chemistry",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ammonia"].flow_color,
+      secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
+    },
+    energy_required = 40,
+    ingredients = {
+      {type="item", name="processed-fuel", amount=1},
+      {type="fluid", name="nullius-ammonia", amount=240},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=300},
+      {type="fluid", name="nullius-compressed-oxygen", amount=150},
+      {type="item", name="nullius-salt", amount=5},
+      {type="item", name="nullius-iron-oxide", amount=3},
+      {type="item", name="nullius-aluminum-wire", amount=20},
+      {type="item", name="nullius-rubber", amount=14},
+      {type="item", name="cliff-explosives", amount=2}
+    },
+    results = {
+      {type="item", name="rocket-fuel", amount=3},
+      {type="fluid", name="nullius-wastewater", amount=200}
+    },
+    main_product = "rocket-fuel"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-rocket-fuel",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "boxed-canister",
     crafting_machine_tint = {
@@ -5870,9 +6024,8 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = ICONPATH .. "sand.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.18,
         shift = {-12, -11}
       }
@@ -6218,17 +6371,17 @@ data:extend({
     },
     energy_required = 50,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=270},
+      {type="fluid", name="nullius-ethylene", amount=300},
       {type="fluid", name="nullius-hydrogen-chloride", amount=40},
       {type="item", name="nullius-silicon-ingot", amount=1},
-      {type="item", name="nullius-aluminum-wire", amount=1}
+      {type="item", name="nullius-aluminum-powder", amount=2}
     },
     results = {
-      {type="item", name="nullius-plastic", amount=40},
+      {type="item", name="nullius-plastic", amount=45},
       {type="fluid", name="nullius-sludge", amount=40}
     },
     main_product = "nullius-plastic",
-    result_count = 40
+    result_count = 45
   },
   {
     type = "recipe",
@@ -6255,6 +6408,98 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
+    category = "basic-chemistry",
+    subgroup = "boxed-organic-2",
+    order = "nullius-bc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ethylene"].flow_color,
+      secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-ethylene", amount=300},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
+      {type="item", name="nullius-silicon-ingot", amount=1},
+      {type="item", name="nullius-aluminum-powder", amount=2}
+    },
+    results = {
+      {type="item", name="nullius-box-plastic", amount=9},
+      {type="fluid", name="nullius-sludge", amount=40}
+    },
+    main_product = "nullius-box-plastic",
+    result_count = 9
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-plastic-pex",
+    localised_name = {"recipe-name.nullius-pex"},
+    icons = {
+      {
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/ethylene.png",
+        icon_size = 72,
+        scale = 0.2,
+        shift = {10, -9}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "basic-chemistry",
+    order = "nullius-bd",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-ethylene"].flow_color,
+      secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-ethylene", amount=270},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
+      {type="item", name="nullius-silicon-ingot", amount=1},
+      {type="item", name="nullius-aluminum-wire", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-plastic", amount=40},
+      {type="fluid", name="nullius-sludge", amount=40}
+    },
+    main_product = "nullius-plastic",
+    result_count = 40
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-plastic-pex",
+    localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-pex"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/plastic-bar.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelspetrochem__/graphics/icons/molecules/ethylene.png",
+        icon_size = 72,
+        scale = 0.18,
+        shift = {9, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "basic-chemistry",
     subgroup = "boxed-organic-2",
     order = "nullius-bc",
@@ -6718,8 +6963,8 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "calcium-product",
-    order = "nullius-o",
+	subgroup = "ore-recovery",
+    order = "nullius-oe",
     energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=200},
@@ -6754,8 +6999,8 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "iron-ingot",
-    order = "nullius-o",
+    subgroup = "ore-recovery",
+    order = "nullius-ob",
     energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=200},
@@ -6790,8 +7035,8 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "aluminum-product",
-    order = "nullius-o",
+	subgroup = "ore-recovery",
+    order = "nullius-oc",
     energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=200},
@@ -6811,9 +7056,8 @@ data:extend({
     localised_name = {"recipe-name.nullius-sand-recovery"},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon = ICONPATH .. "sand.png",
+        icon_size = 64
       },
       {
         icon = FLUIDPATH .. "sludge.png",
@@ -6827,8 +7071,8 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "silicon-product",
-    order = "nullius-o",
+	subgroup = "ore-recovery",
+    order = "nullius-od",
     energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=200},
@@ -6864,8 +7108,8 @@ data:extend({
     allow_as_intermediate = false,
     allow_decomposition = false,
     category = "ore-flotation",
-    subgroup = "masonry-material",
-    order = "nullius-o",
+	subgroup = "ore-recovery",
+    order = "nullius-of",
     energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=250},

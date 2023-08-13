@@ -141,18 +141,18 @@ end
 
 
 function migrate_version(event)
-  local railloader = event.mod_changes["railloader"]
-  if ((railloader ~= nil) and (railloader.new_version ~= nil)) then
-    local old_loader = parse_version(railloader.old_version)
-	if ((old_loader == nil) or (old_loader < 10106)) then
-	  update_railloader_bulk()
-	end
-  end
-
   local version_info = event.mod_changes["nullius"]
   if (version_info == nil) then return end
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
+
+  if (version >= 10600) then return end
+  legacy_recipe_all("nullius-organic-chemistry-6", "plastic-pex")
+  legacy_recipe_all("nullius-organic-chemistry-6", "boxed-plastic-pex")
+  legacy_recipe_all("nullius-rocket-science-1", "rocket-fuel")
+  legacy_recipe_all("nullius-rocket-science-1", "boxed-rocket-fuel")
+  added_techs({"nullius-aluminum-working-2", "nullius-fluid-recapture"})
+  convert_all_turbines()
 
   if (version >= 10517) then return end
   find_all_mechas()
@@ -172,9 +172,6 @@ function migrate_version(event)
 
   if (version >= 10506) then return end
   added_techs({"nullius-personal-storage-3"})
-
-  if (version >= 10503) then return end
-  update_railloader_bulk()
 
   if (version >= 10502) then return end
   legacy_recipe_all("nullius-freight-transportation-1", "locomotive-1")

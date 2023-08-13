@@ -18,12 +18,14 @@ function add_chart_tag(player, character)
   local ctag = player.force.add_chart_tag(character.surface,
       {position=character.position, icon={type="item", name=icon},
       text=name, last_user=player})
-  if (global.nullius_tag_android == nil) then
-    global.nullius_tag_android = {}
-    global.nullius_android_tag = {}
+  if (ctag ~= nil) then
+    if (global.nullius_tag_android == nil) then
+      global.nullius_tag_android = {}
+      global.nullius_android_tag = {}
+    end
+    global.nullius_tag_android[ctag.tag_number] = character
+    global.nullius_android_tag[character.unit_number] = ctag
   end
-  global.nullius_tag_android[ctag.tag_number] = character
-  global.nullius_android_tag[character.unit_number] = ctag
 end
 
 function switch_body(player, target)
@@ -244,7 +246,7 @@ function change_character_entity(oldunit, newchar)
   if ((global.nullius_android_tag ~= nil) and
       (global.nullius_tag_android ~= nil)) then
     local tag = global.nullius_android_tag[oldunit]
-    if ((tag ~= nil) and (tag.tag_number ~= nil)) then
+    if ((tag ~= nil) and tag.valid and (tag.tag_number ~= nil)) then
       global.nullius_android_tag[oldunit] = nil
       global.nullius_android_tag[newunit] = tag
       global.nullius_tag_android[tag.tag_number] = newchar

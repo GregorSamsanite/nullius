@@ -1347,15 +1347,34 @@ tint_flotation_cell(1, 0.4, {0.77, 0.77, 0.60})
 tint_flotation_cell(2, 0.5, {0.8, 0.8, 1})
 tint_flotation_cell(3, 0.6, nil)
 
+local mfc1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-flotation-cell-1"])
+mfc1.name = "nullius-mirror-flotation-cell-1"
+mfc1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mfc1.placeable_by = {item = "nullius-flotation-cell-1", count = 1}
+mfc1.next_upgrade = "nullius-mirror-flotation-cell-2"
+mfc1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-flotation-cell-1"}}
+mfc1.fluid_boxes[1].pipe_connections[1].position = {-2.5, 0.5}
+mfc1.fluid_boxes[2].pipe_connections[1].position = {0.5, 2.5}
+mfc1.fluid_boxes[3].pipe_connections[1].position = {2.5, -0.5}
+mfc1.fluid_boxes[4].pipe_connections[1].position = {-0.5, -2.5}
 
 data:extend({
+  mfc1,
   {
     type = "assembling-machine",
     name = "nullius-mirror-flotation-cell-2",
-    icons = data.raw.item["nullius-mirror-flotation-cell-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-flotation-cell-2"}},
+	icons = {
+	  data.raw.item["nullius-flotation-cell-2"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-mirror-flotation-cell-2"},
+    minable = {mining_time = 1.5, result = "nullius-flotation-cell-2"},
+	placeable_by = {item = "nullius-flotation-cell-2", count = 1},
     fast_replaceable_group = "flotation-cell",
     next_upgrade = "nullius-mirror-flotation-cell-3",
     max_health = 400,
@@ -1414,10 +1433,16 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-flotation-cell-3",
-    icons = data.raw.item["nullius-mirror-flotation-cell-3"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-flotation-cell-3"}},
+	icons = {
+	  data.raw.item["nullius-flotation-cell-3"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2, result = "nullius-mirror-flotation-cell-3"},
+    minable = {mining_time = 2, result = "nullius-flotation-cell-3"},
+	placeable_by = {item = "nullius-flotation-cell-3", count = 1},
     fast_replaceable_group = "flotation-cell",
     max_health = 500,
     corpse = "big-remnants",

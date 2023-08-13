@@ -651,6 +651,166 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-composting-cellulose",
+    localised_name = {"recipe-name.nullius-composting", {"item-name.nullius-cellulose"}},
+    icons = {
+      {
+        icon = ENTICONPATH .. "landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon_size = 54,
+        scale = 0.41,
+        shift = {-7, -7}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+    subgroup = "biology-algae",
+    order = "nullius-m",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-land-fill-gravel", amount=2},
+      {type="item", name="nullius-cellulose", amount=25},
+      {type="fluid", name="nullius-freshwater", amount=30},
+      {type="fluid", name="nullius-bacteria", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-land-fill-bauxite", amount=6},
+      {type="fluid", name="nullius-methane", amount=20, fluidbox_index=1}
+    },
+    main_product = "nullius-land-fill-bauxite"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-composting-cellulose",
+    localised_name = {"recipe-name.nullius-composting", {"item-name.nullius-cellulose"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon_size = 54,
+        scale = 0.37,
+        shift = {-6, -6}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+    subgroup = "boxed-biology-burning",
+    order = "nullius-tc",
+    energy_required = 25,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-gravel", amount=1},
+      {type="item", name="nullius-box-cellulose", amount=25},
+      {type="fluid", name="nullius-freshwater", amount=150},
+      {type="fluid", name="nullius-bacteria", amount=5}
+    },
+    results = {
+      {type="item", name="nullius-box-land-fill-bauxite", amount=3},
+      {type="fluid", name="nullius-methane", amount=100, fluidbox_index=1}
+    },
+    main_product = "nullius-box-land-fill-bauxite"
+  },
+  {
+    type = "recipe",
+    name = "nullius-composting-wood",
+    localised_name = {"recipe-name.nullius-composting", {"item-name.nullius-wood"}},
+    icons = {
+      {
+        icon = ENTICONPATH .. "landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+	  	icon = ICONPATH .. "wood-chip.png",
+        icon_size = 64,
+        scale = 0.36,
+        shift = {-7, -8}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+    subgroup = "biology-tree",
+    order = "nullius-m",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="nullius-land-fill-sand", amount=6},
+      {type="item", name="nullius-wood-chip", amount=120},
+	  {type="item", name="nullius-worm", amount=1},
+      {type="fluid", name="nullius-freshwater", amount=120},
+      {type="fluid", name="nullius-oxygen", amount=160}      
+    },
+    results = {
+      {type="item", name="nullius-land-fill-bauxite", amount=16},
+      {type="fluid", name="nullius-carbon-dioxide", amount=150, fluidbox_index=1}
+    },
+    main_product = "nullius-land-fill-bauxite"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-composting-wood",
+    localised_name = {"recipe-name.nullius-composting", {"item-name.nullius-wood"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-brown.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+	  	icon = ICONPATH .. "wood-chip.png",
+        icon_size = 64,
+        scale = 0.33,
+        shift = {-6, -7}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+    subgroup = "boxed-biology-burning",
+    order = "nullius-tc",
+    energy_required = 100,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-sand", amount=3},
+      {type="item", name="nullius-box-wood-chip", amount=120},
+	  {type="item", name="nullius-worm", amount=5},
+      {type="fluid", name="nullius-freshwater", amount=600},
+      {type="fluid", name="nullius-oxygen", amount=800}      
+    },
+    results = {
+      {type="item", name="nullius-box-land-fill-bauxite", amount=8},
+      {type="fluid", name="nullius-carbon-dioxide", amount=750, fluidbox_index=1}
+    },
+    main_product = "nullius-box-land-fill-bauxite"
+  },
+  {
+    type = "recipe",
     name = "nullius-chlorine-sink",
     localised_name = {"recipe-name.nullius-chlorine-sink"},
     icons = {

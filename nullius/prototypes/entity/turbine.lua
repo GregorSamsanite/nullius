@@ -1,271 +1,409 @@
-local ICONPATH = "__nullius__/graphics/icons/"
-local ENTICONPATH = "__nullius__/graphics/icons/entity/"
-local ENTITYPATH = "__nullius__/graphics/entity/"
-local TURBINEP = ENTITYPATH .. "windturbine/"
+local invisible = {
+  filename = "__nullius__/graphics/icons/blank.png",
+  width = 32,
+  height = 32,
+  frame_count = 1,
+  line_length = 1
+}
 
--- Nullius wind turbine system is originally based on the windturbines mod by OwnlyMe
--- Unfortunately they withdrew support for it while Nullius was in development, and it's
--- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
--- to rely on it, so the graphics are replicated here.
+local turbine_graphics = {
+  [false] = { layers = {
+    {
+      filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H.png",
+      width = 320,
+      height = 245,
+      frame_count = 1,
+      line_length = 1,
+      shift = util.by_pixel(0, -2.75),
+      scale = 0.5
+    }, {
+      width = 320,
+      height = 245,
+      frame_count = 1,
+      line_length = 1,
+      shift = util.by_pixel(0, -2.75),
+      scale = 0.5
+    }, {
+      filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H-shadow.png",
+      width = 435,
+      height = 150,
+      frame_count = 1,
+      line_length = 1,
+      draw_as_shadow = true,
+      shift = util.by_pixel(28.5, 18),
+      scale = 0.5
+    }
+  }},
+  [true] = { layers = {
+    {
+      filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V.png",
+      width = 217,
+      height = 347,
+      frame_count = 1,
+      line_length = 1,
+      shift = util.by_pixel(4.75, 6.75),
+      scale = 0.5
+    }, {
+      width = 217,
+      height = 347,
+      frame_count = 1,
+      line_length = 1,
+      shift = util.by_pixel(4.75, 6.75),
+      scale = 0.5
+    }, {
+      filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V-shadow.png",
+      width = 302,
+      height = 260,
+      frame_count = 1,
+      line_length = 1,
+      draw_as_shadow = true,
+      shift = util.by_pixel(39.5, 24.5),
+      scale = 0.5
+    }
+  }}
+}
 
-for i=0,7 do
-  for j=1,3 do
-    local k = i + 1
-    local scale = 0.4 + (j * 0.2)
-    data:extend({
-      {
-        type = "animation",
-        name = "nullius-wind-shadow-"..j.."-"..i,
-        filename = TURBINEP .. "lds/angle"..k..".png",
-        width = 400,
-        height = 200,
-        frame_count = 24,
-        line_length = 5,
-        shift = {3.5*scale, -2.6*scale},
-        scale = 4*scale,
-        draw_as_shadow = true,
-        hr_version = {
-          filename = TURBINEP .. "hds/angle"..k..".png",
-          width = 800,
-          height = 400,
-          frame_count = 24,
-          line_length = 5,
-          shift = {3.5*scale,-2.6*scale},
-          scale = 2*scale,
-          draw_as_shadow = true,
-        }
-      },
-      {
-        type = "animation",
-        name = "nullius-wind-blade-"..j.."-"..i,
-        filename = TURBINEP .. "ld"..j.."/angle"..k..".png",
-        width = 300,
-        height = 400,
-        frame_count = 24,
-        line_length = 6,
-        shift = {0.15*scale, -1*scale},
-        scale = 2*scale,
-        hr_version = {
-          filename = TURBINEP .. "hd"..j.."/angle"..k..".png",
-          width = 600,
-          height = 800,
-          frame_count = 24,
-          line_length = 6,
-          scale = scale,
-          shift = {0.15*scale, -1*scale}
-        }
-      }
-    })
+
+local function turbine_frame(vertical, overlay, tint)
+  local ret = util.table.deepcopy(turbine_graphics[vertical])
+  ret.layers[2].filename = "__nullius__/graphics/entity/turbine/" ..
+      overlay .. "-turbine-" .. ((vertical and "v") or "h") .. ".png"
+  ret.layers[1].tint = tint
+  ret.layers[2].tint = tint
+  return ret
+end
+
+local function turbine_animation(vertical, overlay, tint)
+  local ret = turbine_frame(vertical, overlay, tint)
+  ret.layers[1].frame_count = 8
+  ret.layers[1].line_length = 4
+  ret.layers[2].repeat_count = 8
+  ret.layers[3] = nil
+  return ret
+end
+
+local function set_furnace_idle(proto, overlay, tint)
+  local vertical = turbine_frame(true, overlay, tint)
+  local horizontal = turbine_frame(false, overlay, tint)
+  proto.idle_animation = {
+	north = vertical,
+    east = horizontal,
+	south = vertical,
+    west = horizontal
+  }
+end
+
+local function set_generator_animation(proto, overlay, tint)
+  proto.horizontal_animation = turbine_animation(false, overlay, tint)
+  proto.vertical_animation = turbine_animation(true, overlay, tint)
+end
+
+local function finish_furnace(furnace, generator, overlay, openness, priority, tier, tint)
+  local midfix = openness .. "-" .. priority
+  local suffix = midfix .. "-" .. tier
+  furnace.name = "nullius-turbine-" .. suffix
+  furnace.localised_name = {"", {"entity-name.nullius-turbine-" .. midfix}, " ", tier}
+  furnace.localised_description = {"entity-description.nullius-" .. priority .. "-turbine"}
+  generator.name = "nullius-turbine-generator-" .. suffix
+  generator.localised_name = furnace.localised_name
+  generator.localised_description = furnace.localised_description
+
+  tint[4] = 1
+  furnace.icons = {{
+    icon = "__nullius__/graphics/icons/entity/turbine-" .. overlay .. ".png",
+    icon_size = 64, icon_mipmaps = 4, tint = tint
+  }}
+  generator.icons = furnace.icons
+  set_furnace_idle(furnace, overlay, tint)
+  set_generator_animation(generator, overlay, tint)
+  data:extend({ furnace, generator })
+end
+
+local function turbine_variants(tier, furnacecb, generatorob, loblue, lotint, hitint)
+  local furnaceob = util.table.deepcopy(furnacecb)
+  furnaceob.minable.result = "nullius-turbine-open-" .. tier
+  furnaceob.placeable_by.item = "nullius-turbine-open-" .. tier
+  furnaceob.crafting_categories = {"turbine-open"}
+  furnaceob.fluid_boxes[3] = nil
+  furnaceob.fluid_boxes[1].height = (furnacecb.fluid_boxes[1].height * 2)
+  furnaceob.fluid_boxes[1].pipe_connections = {
+    { type = "input-output", position = {0, 3} },
+    { type = "input-output", position = {0, -3} }
+  }
+
+  local furnacecs = util.table.deepcopy(furnacecb)
+  local furnacece = util.table.deepcopy(furnacecb)
+  local furnaceos = util.table.deepcopy(furnaceob)
+  local furnaceoe = util.table.deepcopy(furnaceob)
+  local generatoros = util.table.deepcopy(generatorob)
+  generatoros.energy_source.usage_priority = "secondary-output"
+  local generatoroe = util.table.deepcopy(generatorob)
+  generatoroe.energy_source.usage_priority = "primary-output"
+  local generatorcb = util.table.deepcopy(generatorob)
+  generatorcb.effectivity = generatorob.effectivity - 0.05
+  local generatorcs = util.table.deepcopy(generatoros)
+  generatorcs.effectivity = generatorcb.effectivity
+  local generatorce = util.table.deepcopy(generatoroe)
+  generatorce.effectivity = generatorcb.effectivity
+
+  if (tier < 3) then
+    local t2 = "-" .. (tier + 1)
+    furnaceob.next_upgrade = "nullius-turbine-open-backup" .. t2
+	furnaceos.next_upgrade = "nullius-turbine-open-standard" .. t2
+	furnaceoe.next_upgrade = "nullius-turbine-open-exhaust" .. t2
+	furnacecb.next_upgrade = "nullius-turbine-closed-backup" .. t2
+	furnacecs.next_upgrade = "nullius-turbine-closed-standard" .. t2
+	furnacece.next_upgrade = "nullius-turbine-closed-exhaust" .. t2
   end
+
+  finish_furnace(furnacecb, generatorcb, "green",
+      "closed", "backup", tier, {lotint, hitint, hitint})
+  finish_furnace(furnacecs, generatorcs, "yellow",
+      "closed", "standard", tier, {hitint, hitint, hitint})
+  finish_furnace(furnacece, generatorce, "red",
+      "closed", "exhaust", tier, {hitint, lotint, hitint})
+  finish_furnace(furnaceob, generatorob, "green",
+      "open", "backup", tier, {lotint, hitint, loblue})
+  finish_furnace(furnaceos, generatoros, "yellow",
+      "open", "standard", tier, {hitint, hitint, loblue})
+  finish_furnace(furnaceoe, generatoroe, "red",
+      "open", "exhaust", tier, {hitint, lotint, loblue})
 end
 
-local outputMultiplyer = settings.startup["nullius-wind-turbine-energy-output-multiplyer"].value
-local power_value = {1500*outputMultiplyer, 4000*outputMultiplyer, 12000*outputMultiplyer}
-for i=1,3 do
-  local scale = 0.4 + (i * 0.2)
-  local power = power_value[i]
 
-  data:extend({
+local furnace1cb = {
+  type = "furnace",
+  flags = { "placeable-neutral", "player-creation" },
+  minable = {mining_time = 0.8, result = "nullius-turbine-closed-1"},
+  placeable_by = {item = "nullius-turbine-closed-1", count = 1},
+  max_health = 300,
+  corpse = "steam-turbine-remnants",
+  dying_explosion = "steam-turbine-explosion",
+  resistances = {
+    { type = "impact", decrease = 100, percent = 90 },
+    { type = "fire", decrease = 40, percent = 60 }
+  },
+  fast_replaceable_group = "nullius-turbine",
+  selection_box = {{-1.4, -2.4}, {1.4, 2.4}},
+  collision_box = {{-1.25, -2.05}, {1.25, 2.05}},
+  drawing_box = {{-1.5, -3}, {1.5, 4}},
+  alert_icon_shift = util.by_pixel(0, -12),
+  energy_source = { type = "void" },
+  energy_usage = "1W",
+  crafting_categories = {"turbine-closed"},
+  crafting_speed = 1,
+  source_inventory_size = 0,
+  result_inventory_size = 0,
+  damaged_trigger_effect = data.raw.generator["steam-turbine"].damaged_trigger_effect,
+  open_sound = data.raw.generator["steam-turbine"].open_sound,
+  close_sound = data.raw.generator["steam-turbine"].close_sound,
+  vehicle_impact_sound = data.raw.generator["steam-turbine"].vehicle_impact_sound,
+  water_reflection = data.raw.generator["steam-turbine"].water_reflection,
+  bottleneck_ignore = true,
+  show_recipe_icon = false,
+  show_recipe_icon_on_map = false,
+  always_draw_idle_animation = true,
+  fluid_boxes = {
     {
-      type = "electric-energy-interface",
-      name = "nullius-wind-build-"..i,
-      icons = data.raw.item["nullius-wind-turbine-"..i].icons,
-      flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
-      minable = {mining_time = (i + 1), result = "nullius-wind-turbine-"..i},
-      max_health = 800*scale,
-      corpse = "medium-remnants",
-      resistances = {
-        { type = "impact", decrease = 100, percent = 90 }
-      },
-      collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
-      selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
-      collision_mask = {"layer-43", "item-layer", "object-layer", "player-layer", "water-tile"},
-      energy_source = {
-        type = "electric",
-        usage_priority = "primary-output",
-        input_flow_limit = "0kW",
-        output_flow_limit = power.."kW",
-        buffer_capacity = power.."kJ",
-        render_no_power_icon = false
-      },
-      energy_production = power.."kW",
-      energy_usage = "0kW",
-      fast_replaceable_group = "wind-turbine",
-      animations = {
-        layers = {
-          {
-            filename = TURBINEP .. "ld"..i.."/build.png",
-            width = 300,
-            height = 400,
-            frame_count = 1,
-            line_length = 1,
-            shift = {0.15*scale, -11*scale},
-            animation_speed = 0.2,
-            scale = 2*scale,
-            hr_version = {
-              filename = TURBINEP .. "hd"..i.."/build.png",
-              width = 600,
-              height = 800,
-              frame_count = 1,
-              line_length = 1,
-              scale = scale,
-              shift = {0.15*scale, -11*scale},
-              animation_speed = 0.2
-            }
-          },
-          {
-            filename = TURBINEP .. "lds/build.png",
-            width = 400,
-            height = 200,
-            frame_count = 1,
-            line_length = 1,
-            shift = {9.5*scale,-3.6*scale},
-            animation_speed = 0.2,
-            draw_as_shadow = true,
-            scale = 4*scale,
-            hr_version = {
-              filename = TURBINEP .. "hds/build.png",
-              width = 800,
-              height = 400,
-              frame_count = 1,
-              line_length = 1,
-              scale = 2*scale,
-              shift = {9.5*scale,-3.6*scale},
-              animation_speed = 0.2,
-              draw_as_shadow = true
-            }
-          }
-        }
-      },
-      working_sound = {
-        sound = {
-          filename = "__base__/sound/train-wheels.ogg",
-          volume = scale
-        },
-        match_speed_to_activity = true
-      }
+      production_type = "input",
+	  pipe_connections = {{ type = "input", position = {0, -3} }},
+      pipe_covers = pipecoverspictures(),
+      base_area = 5,
+      base_level = -2,
+	  height = 2,
+      secondary_draw_orders = { north = -1 }
     },
-
     {
-      type = "electric-energy-interface",
-      name = "nullius-wind-base-"..i,
-      icon = ENTICONPATH .. "windturbine"..i..".png",
-      icon_size = 64,
-      flags = {"placeable-neutral","player-creation"},
-      minable = {mining_time = (i + 1), result = "nullius-wind-turbine-"..i},
-      placeable_by = {item = "nullius-wind-turbine-"..i, count = 1},
-      max_health = 800*scale,
-      corpse = "big-remnants",
-      resistances = {
-        { type = "impact", decrease = 100, percent = 90 }
-      },
-      collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
-      selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
-      collision_mask = {"layer-43", "item-layer", "object-layer", "player-layer", "water-tile"},
-      energy_source = {
-        type = "electric",
-        usage_priority = "primary-output",
-        input_flow_limit = "0kW",
-        output_flow_limit =  power.."kW",
-        buffer_capacity = power.."kJ",
-        render_no_power_icon = false
-      },
-      energy_production = power.."kW",
-      energy_usage = "0kW",
-      fast_replaceable_group = "wind-turbine",
-      picture = {
-        filename = TURBINEP .. "ld"..i.."/base.png",
-        width = 300,
-        height = 400,
-        frame_count = 1,
-        line_length = 1,
-        shift = {0.15*scale, -11*scale},
-        animation_speed = 0.2,
-        scale = 2*scale,
-        hr_version = {
-          filename = TURBINEP .. "hd"..i.."/base.png",
-          width = 600,
-          height = 800,
-          frame_count = 1,
-          line_length = 1,
-          shift = {0.15*scale, -11*scale},
-          scale = scale,
-          animation_speed = 0.2
-        }
-      },
-      working_sound = {
-        sound = {
-          filename = "__base__/sound/train-wheels.ogg",
-          volume = scale
-        },
-        match_speed_to_activity = true,
-      }
-    }
-  })
-end
-
-data:extend({
-  {
-    type = "simple-entity-with-force",
-    name = "nullius-wind-collision",
-    render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
-    icon_size = 64,
-    order = "bb",
-    flags = {"placeable-neutral", "player-creation", "not-on-map"},
-    collision_box = {{-30.5, -30.5}, {30.5, 30.5}},
-    collision_mask = {"layer-43"},
-    selection_box = {{-0.9, -0.9}, {0.9, 0.9}},
-    selectable_in_game = false,
-    render_layer = "wires-above",
-    random_animation_offset = false,
-    picture = {
-      filename = ICONPATH .. "blank.png",
-      width = 32,
-      height = 32
-    }
-  },
-  {
-    type = "simple-entity-with-force",
-    name = "nullius-wind-collision-horizontal",
-    localised_name = {"entity-name.nullius-wind-collision"},
-    render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
-    icon_size = 64,
-    order = "bc",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
-    collision_box = {{-16, -13.5}, {16, 13.5}},
-    collision_mask = {"layer-43"},
-    render_layer = "wires-above",
-    selectable_in_game = false,
-    random_animation_offset = false,
-    picture = {
-      filename = ICONPATH .. "blank.png",
-      width = 32,
-      height = 32
-    }
-  },
-  {
-    type = "simple-entity-with-force",
-    name = "nullius-wind-collision-vertical",
-    localised_name = {"entity-name.nullius-wind-collision"},
-    render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
-    icon_size = 64,
-    order = "bd",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
-    collision_box = {{-13.5, -16}, {13.5, 16}},
-    collision_mask = {"layer-43"},
-    render_layer = "wires-above",
-    selectable_in_game = false,
-    random_animation_offset = false,
-    picture = {
-      filename = ICONPATH .. "blank.png",
-      width = 32,
-      height = 32
+	  filter = "nullius-power",
+      production_type = "output",
+	  pipe_connections = {{ type = "output", position = {1, -2.1} }},
+      base_area = 2,
+      base_level = 2,
+	  height = 2,
+	  hide_connection_info = true
+    },
+    {
+      production_type = "output",
+	  pipe_connections = {{ type = "output", position = {0, 3} }},
+      pipe_covers = pipecoverspictures(),
+      base_area = 6,
+      base_level = 2,
+	  height = 4,
+      secondary_draw_orders = { north = -1 }
     }
   }
-})
+}
 
-data.raw["electric-energy-interface"]["nullius-wind-base-1"].next_upgrade = "nullius-wind-build-2"
-data.raw["electric-energy-interface"]["nullius-wind-base-2"].next_upgrade = "nullius-wind-build-3"
+local furnace2cb = util.table.deepcopy(furnace1cb)
+furnace2cb.minable = {mining_time = 1.2, result = "nullius-turbine-closed-2"}
+furnace2cb.placeable_by = {item = "nullius-turbine-closed-2", count = 1}
+furnace2cb.max_health = 400
+furnace2cb.crafting_speed = 2.5
+furnace2cb.fluid_boxes[1].base_area = 8
+furnace2cb.fluid_boxes[1].base_level = -4
+furnace2cb.fluid_boxes[1].height = 4
+furnace2cb.fluid_boxes[2].base_area = 4
+furnace2cb.fluid_boxes[2].base_level = 3
+furnace2cb.fluid_boxes[2].height = 3
+furnace2cb.fluid_boxes[3].base_area = 10
+furnace2cb.fluid_boxes[3].base_level = 3
+furnace2cb.fluid_boxes[3].height = 8
+
+local furnace3cb = util.table.deepcopy(furnace1cb)
+furnace3cb.minable = {mining_time = 1.6, result = "nullius-turbine-closed-3"}
+furnace3cb.placeable_by = {item = "nullius-turbine-closed-3", count = 1}
+furnace3cb.max_health = 500
+furnace3cb.crafting_speed = 6
+furnace3cb.fluid_boxes[1].base_area = 10
+furnace3cb.fluid_boxes[1].base_level = -8
+furnace3cb.fluid_boxes[1].height = 8
+furnace3cb.fluid_boxes[2].base_area = 6
+furnace3cb.fluid_boxes[2].base_level = 5
+furnace3cb.fluid_boxes[2].height = 5
+furnace3cb.fluid_boxes[3].base_area = 15
+furnace3cb.fluid_boxes[3].base_level = 5
+furnace3cb.fluid_boxes[3].height = 15
+
+
+local generator1ob = {
+  type = "generator",
+  flags = { "placeable-neutral", "player-creation", "not-on-map",
+      "not-blueprintable", "not-deconstructable",
+	  "hidden", "hide-alt-info", "not-upgradable" },
+  max_power_output = "1MW",
+  effectivity = 0.9,
+  fluid_usage_per_tick = 2,
+  maximum_temperature = 1000,
+  burns_fluid = true,
+  scale_fluid_usage = true,
+  destroy_non_fuel_fluid = false,
+  selectable_in_game = false,
+  allow_copy_paste = false,
+  selection_box = {{-1.4, -2.4}, {1.4, 2.4}},
+  collision_box = {{-1.25, -2.05}, {1.25, 2.05}},
+  collision_mask = { "not-colliding-with-itself" },
+  alert_icon_shift = util.by_pixel(0, -12),
+  energy_source = { type = "electric", usage_priority = "tertiary" },
+  smoke = data.raw.generator["steam-turbine"].smoke,
+  working_sound = data.raw.generator["steam-turbine"].working_sound,
+  min_perceived_performance = 0.25,
+  performance_to_sound_speedup = 0.5,
+  horizontal_animation = generator_horizontal,
+  vertical_animation = generator_vertical,
+  fluid_box = {
+    filter = "nullius-power",
+    production_type = "input",
+	pipe_connections = {
+	  { type = "input-output", position = {-1, -2.1} },
+	  { type = "input-output", position = {1, 2.1} }
+	},
+    base_area = 1,
+    base_level = -2,
+	height = 4,
+	hide_connection_info = true
+  }
+}
+
+local generator2ob = util.table.deepcopy(generator1ob)
+generator2ob.max_power_output = "2.5MW"
+generator2ob.effectivity = 0.95
+generator2ob.fluid_usage_per_tick = 5
+generator2ob.maximum_temperature = 1800
+generator2ob.fluid_box.base_area = 1.5
+generator2ob.fluid_box.base_level = -5
+generator2ob.fluid_box.height = 8
+
+local generator3ob = util.table.deepcopy(generator1ob)
+generator3ob.max_power_output = "6MW"
+generator3ob.effectivity = 1
+generator3ob.fluid_usage_per_tick = 11
+generator3ob.maximum_temperature = 2000
+generator3ob.fluid_box.base_area = 2
+generator3ob.fluid_box.base_level = -11
+generator3ob.fluid_box.height = 16
+
+
+local connector = {
+  type = "storage-tank",
+  name = "nullius-turbine-connector",
+  icons = {{
+    icon = "__base__/graphics/icons/steam-turbine.png",
+    icon_size = 64,
+    icon_mipmaps = 4
+  }},
+  flags = { "placeable-neutral", "player-creation", "not-on-map",
+      "not-blueprintable", "not-deconstructable", "hidden",
+	  "hide-alt-info", "not-upgradable", "placeable-off-grid" },
+  selectable_in_game = false,
+  allow_copy_paste = false,
+  selection_box = {{-1.4, -0.3}, {1.4, 0.3}},
+  collision_box = {{-1.25, -0.05}, {1.25, 0.05}},
+  collision_mask = {"not-colliding-with-itself"},
+  window_bounding_box = {{0, 0}, {0, 0}},
+  flow_length_in_ticks = 360,
+  pictures = {
+    picture = invisible,
+    window_background = invisible,
+    fluid_background = invisible,
+    flow_sprite = invisible,
+    gas_flow = invisible
+  },
+  fluid_box = {
+    filter = "nullius-power",
+    base_area = 2,
+    base_level = 0,
+	height = 2,
+	hide_connection_info = true,
+    pipe_connections = {
+      { position = {1, 0.7} },
+      { position = {-1, 0.7} }
+    }
+  }
+}
+
+local vent1 = {
+  type = "furnace",
+  name = "nullius-turbine-vent-1",
+  icons = connector.icons,
+  flags = connector.flags,
+  collision_box = connector.collision_box,
+  selection_box = connector.selection_box,
+  selectable_in_game = false,
+  allow_copy_paste = false,
+  bottleneck_ignore = true,
+  show_recipe_icon = false,
+  show_recipe_icon_on_map = false,
+  crafting_categories = {"nullius-power-sink"},
+  result_inventory_size = 1,
+  crafting_speed = 1,
+  source_inventory_size = 0,
+  fluid_boxes = {{
+	filter = "nullius-power",
+    production_type = "input",
+    base_area = 3,
+    base_level = 1,
+	height = 1,
+	hide_connection_info = true,
+    pipe_connections = {{ type="input-output", position = {-1, 0.7} }}
+  }},
+  energy_source = {type = "void"},
+  energy_usage = "1W"
+}
+
+local vent2 = util.table.deepcopy(vent1)
+vent2.name = "nullius-turbine-vent-2"
+vent2.crafting_speed = 2.5
+vent2.fluid_boxes[1].base_area = 4
+vent2.fluid_boxes[1].height = 2
+local vent3 = util.table.deepcopy(vent1)
+vent3.name = "nullius-turbine-vent-3"
+vent3.crafting_speed = 6
+vent3.fluid_boxes[1].base_area = 5
+vent3.fluid_boxes[1].height = 4
+
+
+turbine_variants(1, furnace1cb, generator1ob, 0.25, 0.4, 0.6)
+turbine_variants(2, furnace2cb, generator2ob, 0.45, 0.6, 0.8)
+turbine_variants(3, furnace3cb, generator3ob, 0.6, 0.8, 1)
+
+data:extend({ connector, vent1, vent2, vent3 })

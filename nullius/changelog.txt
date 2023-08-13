@@ -1,4 +1,63 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 12.08.2023
+  Features:
+    - WARNING:  Some changes in this major update may not just work seamlessly
+      in an existing factory without taking some time to fix it up.  You may
+      choose not to update during an existing playthrough if you don't want to
+      deal with any disruption.  If you do upgrade, maintain a save from before
+      the upgrade in case you decide to go back.  Some items are combined into
+      fewer items, and some new items are added.  Any recipes involving the
+      changed items may be adjusted accordingly.  In particular, this may
+      require attention in your mall area for recipes using turbines, and in
+      your biology area for recipes involving wood.
+    - Two new intermediates with new recipes:  aluminum powder and wood chips.
+    - Pipe connections of fluid buildings can now be flipped using a new key
+      bind after building, rather than by using separate mirrored items.
+    - Priority of turbines, electrolyzers, and compressors can now be toggled
+      with a new key bind after building, rather than with separate items.
+    - New implementation of turbines using composite entities.  They are now
+      divided into 2 types, "open" and "closed".  Open turbines behave more
+      similarly to the prior implementations.  Closed turbines produce around
+      5% less energy per fluid, but recycle around 90% of the working fluid,
+      either uncompressed gas for compressed gas, or water for steam.  The
+      precise ratio recovered varies according to the working fluid.
+    - Priority turbines are now renamed exhaust turbines, and will reliably
+      consume fluid regardless of whether the energy is required.
+    - Oxygen or oxygen reducing gases consumed by a turbine now count toward
+      atmospheric oxygenation mission objective as if vented.  Previously this
+      wasn't the case due to technical limitations with vanilla turbines.
+    - New chirality checkpoint.
+  Changes:
+    - Backward compatible changes to recipes (if these are already automated,
+      your factory can keep using them, but new builds have a new recipe):
+      Rocket fuel, PEX plastic.
+    - Reorganized some recipe tabs to fit new recipes.
+  Balancing:
+    - Improve storage capacity of grid batteries.
+    - Improve condensation recipe ratio.
+    - Tweak cost of mecha 2 recipe.
+    - Increase stack size of cars to 2.
+  Bugfixes:
+    - Disable a couple of hidden vanilla achievements.
+    - Fix a problem with bulk rail loader ore only mode.
+  Info:
+    - Annotate voiding for wood and cellulose.
+  Modding:
+    - Add checkpoint for Lambent Nil.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.31
+Date: 29.07.2023
+  Balancing:
+    - Increase starting supply of cliff explosives.
+  Graphics:
+    - Fix icon for nucleotide voiding.
+  Bugfixes:
+    - Fix compatibility with update of Cargo Ships.
+    - Fix a crash on player death involving alternate body chart tags.
+  Modding:
+    - Fix a conflict with non-default settings for Spidertron Enhancements.
+---------------------------------------------------------------------------------------------------
 Version: 1.5.30
 Date: 14.07.2023
   Features:
@@ -7,7 +66,7 @@ Date: 14.07.2023
     - Increase fluid capacity/flow rate of electrolyzers.
     - Refactor how ores are generated for mod compatibilty.
   Modding:
-    - Add compatibility support for Crafting Ships mod.
+    - Add compatibility support for Cargo Ships mod.
     - Add compatibility support for Beautiful Bridge Railway and its forks.
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.29

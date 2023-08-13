@@ -862,7 +862,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-turbine-1"
+        recipe = "nullius-turbine-open-1"
       }
     },
     unit = {
@@ -1000,7 +1000,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-priority-electrolyzer-1"
+        recipe = "nullius-electrolyzer-1"
       },
       {
         type = "unlock-recipe",
@@ -1146,10 +1146,6 @@ data:extend({
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/steam-turbine.png",
     effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-surge-electrolyzer-1"
-      },
       {
         type = "unlock-recipe",
         recipe = "nullius-combustion-chamber-1"
@@ -1754,7 +1750,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-aluminum-working",
+    name = "nullius-aluminum-working-1",
     order = "nullius-ck",
     icon_size = 32,
     icon = "__angelssmelting__/graphics/icons/plate-aluminium.png",
@@ -1802,10 +1798,12 @@ data:extend({
     },
     unit = {
       count = 15,
-      ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
+      ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+	      {"nullius-mechanical-pack", 1}},
       time = 6
     },
-    prerequisites = {"nullius-aluminum-working", "nullius-cybernetics-1", "nullius-checkpoint-rubber"},
+    prerequisites = {"nullius-aluminum-working-1", "nullius-cybernetics-1",
+	    "nullius-checkpoint-rubber"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1865,10 +1863,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-capacitor"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-electrolyzer-reprioritization-1"
       }
     },
     unit = {
@@ -1922,27 +1916,12 @@ data:extend({
   {
     type = "technology",
     name = "nullius-chirality-1",
+	localised_description = {"technology-description.nullius-chirality", 1,
+	    {"technology-description.nullius-chirality-1"}},
     order = "nullius-cm",
     icon_size = 254,
     icon = TECHPATH .. "chiral.png",
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-heat-exchanger-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-heat-exchanger-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-combustion-chamber-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-combustion-chamber-1"
-      }
-    },
+    effects = { },
     unit = {
       count = 18,
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
@@ -1962,10 +1941,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-solar-collector-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-standard-turbine-1"
       }
     },
     unit = {
@@ -2054,6 +2029,27 @@ data:extend({
       time = 6
     },
     prerequisites = {"nullius-checkpoint-freight-transportation", "nullius-boiling-1"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-fluid-recapture",
+    order = "nullius-cn",
+    icon = "__base__/graphics/icons/steam-turbine.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-turbine-closed-1"
+      }
+    },
+    unit = {
+      count = 20,
+      ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
+      time = 5
+    },
+    prerequisites = {"nullius-checkpoint-plumbing"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -2252,7 +2248,7 @@ data:extend({
       },
       time = 15
     },
-    prerequisites = {"nullius-electromagnetism-2", "nullius-checkpoint-plumbing"},
+    prerequisites = {"nullius-electromagnetism-2", "nullius-fluid-recapture"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2425,11 +2421,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-priority-electrolyzer-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-surge-electrolyzer-2"
+        recipe = "nullius-electrolyzer-2"
       },
       {
         type = "unlock-recipe",
@@ -2438,10 +2430,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-steam-electrolysis"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-electrolyzer-reprioritization-2"
       }
     },
     unit = {
@@ -2748,19 +2736,15 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-surge-compressor-1"
+        recipe = "nullius-compressor-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-priority-compressor-1"
+        recipe = "nullius-turbine-open-2"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-turbine-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-backup-turbine-2"
+        recipe = "nullius-turbine-closed-2"
       },
       {
         type = "unlock-recipe",
@@ -2777,22 +2761,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-hydrogen-combustion-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-combustion-chamber-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-combustion-chamber-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-turbine-reprioritization-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-compressor-reprioritization-1"
       }
     },
     unit = {
@@ -3928,27 +3896,12 @@ data:extend({
   {
     type = "technology",
     name = "nullius-chirality-2",
+	localised_description = {"technology-description.nullius-chirality", 2,
+	    {"technology-description.nullius-chirality-2"}},
     order = "nullius-dl",
     icon_size = 254,
     icon = TECHPATH .. "chiral.png",
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-hydro-plant-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-flotation-cell-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-hydro-plant-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-flotation-cell-2"
-      }
-    },
+    effects = { },
     unit = {
       count = 160,
       ingredients = {
@@ -4197,7 +4150,7 @@ data:extend({
       },
       time = 30
     },
-    prerequisites = {"nullius-experimental-chemistry"},
+    prerequisites = {"nullius-experimental-chemistry", "nullius-checkpoint-chirality"},
   },
 
   {
@@ -4733,6 +4686,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-thermite"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-iron-oxidation"
       }
     },
     unit = {
@@ -4749,43 +4706,12 @@ data:extend({
   {
     type = "technology",
     name = "nullius-chirality-3",
+	localised_description = {"technology-description.nullius-chirality", 3,
+	    {"technology-description.nullius-chirality-3"}},
     order = "nullius-ef",
     icon_size = 254,
     icon = TECHPATH .. "chiral.png",
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-chemical-plant-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-surge-electrolyzer-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-priority-electrolyzer-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-distillery-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-chemical-plant-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-surge-electrolyzer-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-priority-electrolyzer-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-distillery-2"
-      }
-    },
+    effects = { },
     unit = {
       count = 250,
       ingredients = {
@@ -5023,19 +4949,11 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-boiler"
+        recipe = "nullius-boiler-1"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-boiling-wastewater"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-boiler"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-boiler"
       }
     },
     unit = {
@@ -6799,35 +6717,35 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-standard-turbine-1"
+        recipe = "nullius-box-turbine-open-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-unbox-standard-turbine-1"
+        recipe = "nullius-unbox-turbine-open-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-backup-turbine-1"
+        recipe = "nullius-box-turbine-closed-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-unbox-backup-turbine-1"
+        recipe = "nullius-unbox-turbine-closed-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-standard-turbine-2"
+        recipe = "nullius-box-turbine-open-2"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-unbox-standard-turbine-2"
+        recipe = "nullius-unbox-turbine-open-2"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-backup-turbine-2"
+        recipe = "nullius-box-turbine-closed-2"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-unbox-backup-turbine-2"
+        recipe = "nullius-unbox-turbine-closed-2"
       },
       {
         type = "unlock-recipe",
@@ -6958,11 +6876,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-surge-compressor-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-priority-compressor-2"
+        recipe = "nullius-compressor-2"
       },
       {
         type = "unlock-recipe",
@@ -6983,26 +6897,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-methanol-canister-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-combustion-chamber-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-combustion-chamber-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-priority-turbine-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-turbine-deprioritization-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-compressor-reprioritization-2"
       }
     },
     unit = {
@@ -7042,12 +6936,12 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-actuation-3", "nullius-checkpoint-titanium-ingot"}
+    prerequisites = {"nullius-actuation-3", "nullius-aluminum-working-2"}
   },
   {
     type = "technology",
     name = "nullius-insulation-2",
-    order = "nullius-em",
+    order = "nullius-ek",
     icon = "__angelssmelting__/graphics/icons/roll-manganese.png",
     icon_size = 64,
     icon_mipmaps = 4,
@@ -7066,6 +6960,46 @@ data:extend({
       time = 30
     },
     prerequisites = {"nullius-concrete-2", "nullius-packaging-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-aluminum-working-2",
+    order = "nullius-ek",
+    icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-aluminum-powder"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-aluminum-oxidation"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-aluminum-carbide"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-aluminum-powder"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-aluminum-powder"
+      }
+    },
+    unit = {
+      count = 300,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		{"nullius-chemical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-checkpoint-titanium-ingot", "nullius-ceramics-2"}
   },
 
   {
@@ -7679,14 +7613,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-heat-exchanger-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-heat-exchanger-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-heat-exchanger-2"
       }
     },
     unit = {
@@ -8851,6 +8777,22 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-boxed-titanium-sheet"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-aluminum-powder"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-aluminum-carbide-2"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-aluminum-oxidation"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-iron-oxidation"
+      },
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-lamp-1"
@@ -9377,19 +9319,19 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-backup-turbine-1"
+        recipe = "nullius-boxed-turbine-open-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-backup-turbine-2"
+        recipe = "nullius-boxed-turbine-open-2"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-standard-turbine-1"
+        recipe = "nullius-boxed-turbine-closed-1"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-standard-turbine-2"
+        recipe = "nullius-boxed-turbine-closed-2"
       },
       {
         type = "unlock-recipe",
@@ -10159,14 +10101,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-hydro-plant-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-hydro-plant-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-hydro-plant-3"
       }
     },
     unit = {
@@ -10334,14 +10268,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-flotation-cell-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-flotation-cell-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-flotation-cell-3"
       }
     },
     unit = {
@@ -10370,14 +10296,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-desalination-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-distillery-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-distillery-3"
       }
     },
     unit = {
@@ -10400,59 +10318,39 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-surge-compressor-3"
+        recipe = "nullius-compressor-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-priority-compressor-3"
+        recipe = "nullius-turbine-open-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-turbine-3"
+        recipe = "nullius-turbine-closed-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-backup-turbine-3"
+        recipe = "nullius-boxed-turbine-open-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-standard-turbine-3"
+        recipe = "nullius-box-turbine-open-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-standard-turbine-3"
+        recipe = "nullius-unbox-turbine-open-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-unbox-standard-turbine-3"
+        recipe = "nullius-boxed-turbine-closed-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-backup-turbine-3"
+        recipe = "nullius-box-turbine-closed-3"
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-box-backup-turbine-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unbox-backup-turbine-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-priority-turbine-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-turbine-reprioritization-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-turbine-deprioritization-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-compressor-reprioritization-3"
+        recipe = "nullius-unbox-turbine-closed-3"
       }
     },
     unit = {
@@ -10536,14 +10434,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-chemical-plant-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-chemical-plant-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-chemical-plant-3"
       }
     },
     unit = {
@@ -11218,31 +11108,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-surge-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-surge-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-surge-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-priority-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-priority-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-priority-electrolyzer-3"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-electrolyzer-reprioritization-3"
+        recipe = "nullius-electrolyzer-3"
       }
     },
     unit = {
@@ -11711,14 +11577,6 @@ data:extend({
       },
 	  {
         type = "unlock-recipe",
-        recipe = "nullius-mirror-heat-exchanger-3"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-heat-exchanger-3"
-      },
-	  {
-        type = "unlock-recipe",
         recipe = "nullius-pressure-boiling-water"
       },
 	  {
@@ -11792,14 +11650,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-nanofabricator-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-nanofabricator-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-nanofabricator-2"
       }
     },
     unit = {
@@ -13250,14 +13100,6 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-boiler-2"
       },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-mirror-boiler-2"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "nullius-unmirror-boiler-2"
-      },
       {
         type = "unlock-recipe",
         recipe = "fill-nullius-pressure-steam-barrel"
@@ -13464,6 +13306,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-microbiology-pack"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-composting-cellulose"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-composting-cellulose"
       }
     },
     unit = {
@@ -14290,7 +14140,11 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-wood-pulping"
+        recipe = "nullius-wood-chipping"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-wood-chip-burning"
       },
       {
         type = "unlock-recipe",
@@ -14318,11 +14172,31 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-wood-pulping"
+        recipe = "nullius-box-wood-chip"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-wood-chip"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-wood-chipping"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-wood-chip-burning"
       },
       {
         type = "unlock-recipe",
         recipe = "nullius-dendrology-pack"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-composting-wood"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-composting-wood"
       }
     },
     unit = {
@@ -14456,6 +14330,26 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-wood-burning"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fertilizer-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-wood-pulping"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-wood-pulping"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-wood-chip-pyrolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-wood-chip-pyrolysis"
       },
       {
         type = "unlock-recipe",

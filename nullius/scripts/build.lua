@@ -4,21 +4,21 @@ function entity_added(entity)
     return
   end
 
-  if (string.sub(entity.name, 1, 8) ~= "nullius-") then
-    return
-  end
+  if (string.sub(entity.name, 1, 8) ~= "nullius-") then return end
   if (string.sub(entity.name, 9, 13) == "wind-") then
     if (string.sub(entity.name, 14, -2) == "build-") then
       build_wind_turbine(entity, (string.byte(entity.name, 20) - 48))
     elseif (string.sub(entity.name, 14, -2) == "base-") then
       build_wind_turbine(entity, (string.byte(entity.name, 19) - 48))
-  end
+    end
   elseif (string.sub(entity.name, 9, 19) == "geothermal-") then
     if (string.sub(entity.name, 20, -2) == "build-") then
-    build_geothermal_plant(entity, (string.byte(entity.name, 26) - 48))
-  elseif (string.sub(entity.name, 20, -2) == "reactor-") then
+      build_geothermal_plant(entity, (string.byte(entity.name, 26) - 48))
+    elseif (string.sub(entity.name, 20, -2) == "reactor-") then
       build_geothermal_plant(entity, (string.byte(entity.name, 28) - 48))
-  end
+    end
+  elseif (string.sub(entity.name, 9, 16) == "turbine-") then
+    build_turbine(entity)
   elseif (string.sub(entity.name, 9, -2) == "stirling-engine-") then
     build_stirling_engine(entity, (string.byte(entity.name, 25) - 48))
   elseif (string.sub(entity.name, 9, -2) == "solar-collector-") then
@@ -42,6 +42,8 @@ function entity_removed(entity, died)
     remove_solar_collector(entity, died, (string.byte(entity.name, 25) - 48))
   elseif (entity.type == "beacon") then
     remove_beacon(entity.unit_number)
+  elseif (string.sub(entity.name, 9, 16) == "turbine-") then
+    remove_turbine(entity.unit_number)
   end
 end
 
@@ -64,6 +66,7 @@ function entity_destroyed(event)
   if (destroyed_stirling_engine(event.unit_number)) then return end
   if (destroyed_wind_turbine(event.unit_number)) then return end
   if (remove_beacon(event.unit_number)) then return end
+  if (remove_turbine(event.unit_number)) then return end
 end
 
 

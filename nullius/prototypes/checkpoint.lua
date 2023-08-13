@@ -347,12 +347,13 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-energy-storage"}}},
     localised_description = {"",
-	    {"technology-description.nullius-generate", {"technology-description.nullius-fluid",
-		    1000, "nullius-steam", {"fluid-name.nullius-steam"}}}, "\n",
-	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-surge-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
-	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-backup-turbine-1", {"entity-name.nullius-backup-turbine-1"}}}},
+	    {"technology-description.nullius-checkpoint-prioritize"}, "\n",
+	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
+		    1, "nullius-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
+	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
+		    1, "nullius-turbine-open-1", {"", {"entity-name.nullius-turbine-open-backup"}, " ", 1}}}, "\n",
+		{"technology-description.nullius-generate", {"technology-description.nullius-fluid",
+		    1000, "nullius-steam", {"fluid-name.nullius-steam"}}}},
     order = "nullius-yc",
     icons = {
       {
@@ -544,7 +545,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-mechanical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-aluminum-working"},
+    prerequisites = {"nullius-aluminum-working-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -912,8 +913,9 @@ data:extend({
     name = "nullius-checkpoint-compressed-nitrogen",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"technology-name.nullius-energy-storage"}}},
-    localised_description = {"technology-description.nullius-generate",
-	    {"technology-description.nullius-fluid", 1000, "nullius-compressed-nitrogen", {"fluid-name.nullius-compressed-nitrogen"}}},
+    localised_description = {"technology-description.nullius-generate-closed",
+	    {"technology-description.nullius-fluid", 1000,
+		    "nullius-compressed-nitrogen", {"fluid-name.nullius-compressed-nitrogen"}}},
     order = "nullius-yd",
     icons = {
       {
@@ -1141,6 +1143,43 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-chemical-engineering-2"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-chirality",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
+	    {"technology-name.nullius-chirality"}}},
+    localised_description = {"",
+	    {"technology-description.nullius-checkpoint-mirror"}, "\n",
+	    {"technology-description.nullius-checkpoint-configure",
+	        {"technology-description.nullius-item", 2, "nullius-electrolyzer-2",
+			    {"entity-name.nullius-mirror-surge-electrolyzer-2"}}}, "\n",
+	    {"technology-description.nullius-checkpoint-configure",
+	        {"technology-description.nullius-item", 2, "nullius-flotation-cell-2",
+			    {"entity-name.nullius-mirror-flotation-cell-2"}}}, "\n",
+	    {"technology-description.nullius-checkpoint-configure",
+	        {"technology-description.nullius-item", 2, "nullius-combustion-chamber-2",
+			    {"entity-name.nullius-mirror-combustion-chamber-2"}}}},
+    order = "nullius-yd",
+    icons = {
+      {
+        icon = BASEICON .. "blueprint.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = "__nullius__/graphics/technology/chiral.png",
+	    icon_size = 254,
+		scale = 0.25
+      }
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-chirality-2"},
     ignore_tech_cost_multiplier = true
   },
 
@@ -1406,7 +1445,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"item-name.nullius-explosive"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 25, "cliff-explosives", {"item-name.nullius-explosive"}}},
+	    {"technology-description.nullius-item", 30, "cliff-explosives", {"item-name.nullius-explosive"}}},
     order = "nullius-ye",
     icons = {
       {

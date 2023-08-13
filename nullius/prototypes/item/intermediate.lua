@@ -770,7 +770,7 @@ data:extend({
     icons = {{
       icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
       icon_size = 32,
-      tint = {0.77, 0.54, 0.48},
+      tint = {0.77, 0.54, 0.48}
     }},
     subgroup = "iron-ingot",
     order = "nullius-d",
@@ -780,7 +780,6 @@ data:extend({
     type = "recipe",
     name = "nullius-iron-oxide",
     enabled = false,
-    icon_size = 32,
     category = "ore-flotation",
     energy_required = 4,
     ingredients = {
@@ -797,7 +796,6 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-iron-oxide",
     enabled = false,
-    icon_size = 32,
     category = "ore-flotation",
     subgroup = "boxed-iron",
     energy_required = 20,
@@ -810,6 +808,79 @@ data:extend({
       {type="fluid", name="nullius-sludge", amount=75, fluidbox_index=1}
     },
     main_product = "nullius-box-iron-oxide"
+  },
+  {
+    type = "recipe",
+    name = "nullius-iron-oxidation",
+	localised_name = {"recipe-name.nullius-oxidation", {"item-name.nullius-iron"}},
+	icons = {
+      {
+	    icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+        icon_size = 32,
+        tint = {0.77, 0.54, 0.48}
+      },
+      {
+	    icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-7, -7}
+	  }
+    },
+    enabled = false,
+	no_productivity = true,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+	order = "nullius-o",
+    energy_required = 3,
+    ingredients = {
+      {type="item", name="nullius-iron-wire", amount=11},
+      {type="fluid", name="nullius-water", amount=20},
+      {type="fluid", name="nullius-oxygen", amount=40}
+    },
+	result = "nullius-iron-oxide",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-iron-oxidation",
+	localised_name = {"recipe-name.nullius-boxed",
+	    {"recipe-name.nullius-oxidation", {"item-name.nullius-iron"}}},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+	    icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+        icon_size = 32,
+        tint = {0.77, 0.54, 0.48},
+		scale = 0.9
+      },
+      {
+	    icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.27,
+        shift = {-6, -6}
+	  }
+    },
+    enabled = false,
+	no_productivity = true,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-flotation",
+	subgroup = "boxed-iron",
+	order = "nullius-o",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-box-iron-wire", amount=11},
+      {type="fluid", name="nullius-water", amount=100},
+      {type="fluid", name="nullius-oxygen", amount=200}
+    },
+	result = "nullius-box-iron-oxide",
+    result_count = 2
   },
 
   {
@@ -940,6 +1011,7 @@ data:extend({
     name = "nullius-crushed-bauxite",
     enabled = false,
     category = "ore-crushing",
+	subgroup = "alumina",
     energy_required = 5,
     ingredients = {{"nullius-bauxite", 7}},
     results = {
@@ -954,7 +1026,7 @@ data:extend({
     name = "nullius-boxed-crushed-bauxite",
     enabled = false,
     category = "ore-crushing",
-    subgroup = "boxed-titanium",
+    subgroup = "boxed-aluminum-1",
     order = "nullius-b",
     energy_required = 25,
     ingredients = {{"nullius-box-bauxite", 7}},
@@ -969,9 +1041,8 @@ data:extend({
   {
     type = "item",
     name = "nullius-sand",
-    icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+    icon = ICONPATH .. "sand.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "silicon-product",
     order = "nullius-c",
     stack_size = 100
@@ -1089,9 +1160,8 @@ data:extend({
         icon_mipmaps = 4
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = ICONPATH .. "sand.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.3,
         shift = {7, 7}
       }
@@ -1127,9 +1197,8 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = ICONPATH .. "sand.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.27,
         shift = {6, 6}
       }
@@ -1206,7 +1275,7 @@ data:extend({
     enabled = false,
 	no_productivity = true,
     category = "ore-crushing",
-	subgroup = "boxed-iron",
+	subgroup = "boxed-aluminum-1",
     order = "nullius-n",
     energy_required = 10,
     ingredients = {{"nullius-box-crushed-iron-ore", 4}},
@@ -1236,7 +1305,7 @@ data:extend({
     no_productivity = true,
     enabled = false,
     category = "ore-crushing",
-    subgroup = "aluminum-product",
+	subgroup = "alumina",
     order = "nullius-n",
     energy_required = 2,
     ingredients = {{"nullius-crushed-bauxite", 5}},
@@ -3100,7 +3169,7 @@ data:extend({
     name = "nullius-boxed-aluminum-rod",
     enabled = false,
     category = "machine-casting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-aluminum-ingot", amount=5},
@@ -3219,7 +3288,7 @@ data:extend({
     name = "nullius-boxed-aluminum-plate",
     enabled = false,
     category = "machine-casting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-aluminum-ingot", amount=6},
@@ -3585,7 +3654,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "machine-casting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-aluminum-plate", amount=5},
@@ -3720,11 +3789,25 @@ data:extend({
         icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
         icon_size = 64,
         icon_mipmaps = 4,
-        tint = {r=0.8, g=0.9, b=1},
+        tint = {r=0.8, g=0.9, b=1}
       }
     },
     subgroup = "aluminum-product",
     order = "nullius-i",
+    stack_size = 200
+  },
+  {
+    type = "item",
+    name = "nullius-aluminum-powder",
+    icons = {
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      }
+    },
+    subgroup = "aluminum-product",
+    order = "nullius-j",
     stack_size = 200
   },
   {
@@ -3875,7 +3958,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "machine-casting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-aluminum-rod", amount=6},
@@ -3883,6 +3966,40 @@ data:extend({
     },
     result = "nullius-box-aluminum-wire",
     result_count = 10
+  },
+  {
+    type = "recipe",
+    name = "nullius-aluminum-powder",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "ore-crushing",
+    energy_required = 3,
+    ingredients = {
+	  {type="item", name="nullius-aluminum-wire", amount=2},
+      {type="fluid", name="nullius-nitrogen", amount=12}
+    },
+    result = "nullius-aluminum-powder",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-aluminum-powder",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "ore-crushing",
+    subgroup = "boxed-aluminum-2",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-box-aluminum-wire", amount=2},
+      {type="fluid", name="nullius-nitrogen", amount=60}
+    },
+    result = "nullius-box-aluminum-powder",
+    result_count = 3
   },
 
   {
@@ -4358,6 +4475,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-aluminum-hydroxide"}, " ", 1},
     enabled = false,
     category = "ore-flotation",
+	subgroup = "alumina",
     order = "nullius-db",
     energy_required = 5,
     ingredients = {
@@ -4376,7 +4494,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", 1},
     enabled = false,
     category = "ore-flotation",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-1",
     order = "nullius-db",
     energy_required = 25,
     ingredients = {
@@ -4407,6 +4525,7 @@ data:extend({
     },
     enabled = false,
     category = "ore-flotation",
+	subgroup = "alumina",
     order = "nullius-dc",
     energy_required = 7,
     ingredients = {
@@ -4444,7 +4563,7 @@ data:extend({
     },
     enabled = false,
     category = "ore-flotation",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-1",
     order = "nullius-dc",
     energy_required = 35,
     ingredients = {
@@ -4468,6 +4587,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "dry-smelting",
+	subgroup = "alumina",
     order = "nullius-eb",
     energy_required = 2,
     ingredients = {
@@ -4495,6 +4615,7 @@ data:extend({
     },
     enabled = false,
     category = "wet-smelting",
+	subgroup = "alumina",
     order = "nullius-ec",
     energy_required = 2,
     ingredients = {
@@ -4512,7 +4633,7 @@ data:extend({
     name = "nullius-boxed-alumina",
     enabled = false,
     category = "bulk-smelting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-1",
     order = "nullius-ec",
     energy_required = 2,
     ingredients = {
@@ -4615,9 +4736,28 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-aluminum-carbide",
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", 1},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+		icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/solid-aluminium-oxide.png",
+        icon_size = 32,
+		scale = 0.5,
+        shift = {-6, -6}
+      }
+    },
     enabled = false,
     category = "bulk-smelting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     order = "nullius-gb",
     energy_required = 10,
     ingredients = {
@@ -4636,7 +4776,7 @@ data:extend({
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", 1},
     enabled = false,
     category = "bulk-smelting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     order = "nullius-gc",
     energy_required = 25,
     ingredients = {
@@ -4708,7 +4848,7 @@ data:extend({
     },
     enabled = false,
     category = "bulk-smelting",
-    subgroup = "boxed-aluminum",
+    subgroup = "boxed-aluminum-2",
     order = "nullius-gd",
     energy_required = 12,
     ingredients = {
@@ -4759,6 +4899,61 @@ data:extend({
       {type="fluid", name="nullius-oxygen", amount=250}
     },
     main_product = "nullius-box-aluminum-ingot"
+  },
+  {
+    type = "recipe",
+    name = "nullius-aluminum-carbide",
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "dry-smelting",
+    order = "nullius-hb",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-aluminum-powder", 20},
+      {"nullius-graphite", 2}
+    },
+	result = "nullius-aluminum-carbide",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-aluminum-carbide-2",
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+		icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.27,
+        shift = {-6, -6}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "bulk-smelting",
+	subgroup = "boxed-aluminum-1",
+    order = "nullius-lb",
+    energy_required = 2,
+    ingredients = {
+      {"nullius-box-aluminum-powder", 20},
+      {"nullius-box-graphite", 2}
+    },
+	result = "nullius-box-aluminum-carbide",
+    result_count = 3
   },
 
   {
@@ -6864,7 +7059,7 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 15,
     ingredients = {
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-turbine-open-2", 1},
       {"nullius-capacitor", 4},
       {"turbo-filter-inserter", 3},
       {"constant-combinator", 3},
@@ -6887,7 +7082,7 @@ data:extend({
     order = "nullius-gb",
     energy_required = 75,
     ingredients = {
-      {"nullius-box-standard-turbine-2", 1},
+      {"nullius-box-turbine-open-2", 1},
       {"nullius-box-capacitor", 4},
       {"nullius-box-filter-inserter-2", 3},
       {"nullius-box-memory-circuit", 3},
@@ -6912,7 +7107,7 @@ data:extend({
     order = "nullius-cbl",
     energy_required = 12,
     ingredients = {
-      {"nullius-standard-turbine-1", 1},
+      {"nullius-turbine-open-1", 1},
       {"nullius-capacitor", 2},
       {"turbo-filter-inserter", 2},
       {"constant-combinator", 2},
@@ -6937,7 +7132,7 @@ data:extend({
     order = "nullius-gbl",
     energy_required = 60,
     ingredients = {
-      {"nullius-box-standard-turbine-1", 1},
+      {"nullius-box-turbine-open-1", 1},
       {"nullius-box-capacitor", 2},
       {"nullius-box-filter-inserter-2", 2},
       {"nullius-box-memory-circuit", 2},
@@ -7000,7 +7195,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {"nullius-robot-frame-1", 1},
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-turbine-open-2", 1},
       {"nullius-battery-1", 3},
       {"nullius-sensor-1", 2},
       {"nullius-fiberglass", 5}
@@ -7024,7 +7219,7 @@ data:extend({
     energy_required = 75,
     ingredients = {
       {"nullius-box-robot-frame-1", 1},
-      {"nullius-box-standard-turbine-2", 1},
+      {"nullius-box-turbine-open-2", 1},
       {"nullius-box-battery-1", 3},
       {"nullius-box-sensor-1", 2},
       {"nullius-box-fiberglass", 5}
@@ -7043,7 +7238,7 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {"nullius-robot-frame-2", 2},
-      {"nullius-standard-turbine-3", 1},
+      {"nullius-turbine-open-3", 1},
       {"nullius-battery-2", 2},
       {"nullius-carbon-composite", 5},
       {"nullius-relay-3", 1},
@@ -7065,7 +7260,7 @@ data:extend({
     energy_required = 125,
     ingredients = {
       {"nullius-box-robot-frame-2", 2},
-      {"nullius-box-standard-turbine-3", 1},
+      {"nullius-box-turbine-open-3", 1},
       {"nullius-box-battery-2", 2},
       {"nullius-box-carbon-composite", 5},
       {"nullius-box-relay-3", 1},

@@ -1808,7 +1808,7 @@ if (mods["Inventory Sensor"] and mods["stack-combinator"] and
 end
 
 
-if mods["SpidertronPatrols"] then
+if (mods["SpidertronPatrols"] and settings.startup["sp-enable-spiderling"].value) then
   table.insert(data.raw.technology["nullius-inserter-capacity-3"].prerequisites,
       "nullius-sp-spidertron-automation")
 end
@@ -1846,20 +1846,26 @@ if mods["cargo-ships"] then
       {"entity-name.nullius-offshore-extractor"}
   data.raw["mining-drill"]["oil_rig"].localised_description =
       {"entity-description.nullius-offshore-extractor"}
-  data.raw["generator"]["or_power"].localised_name =
-      {"entity-name.nullius-offshore-steam"}
-  data.raw["electric-energy-interface"]["or_power_electric"].localised_name =
-      {"entity-name.nullius-offshore-electric"}
-  data.raw["radar"]["or_radar"].localised_name =
-      {"entity-name.nullius-offshore-radar"}
+  if (data.raw["generator"]["or_power"] ~= nil) then
+    data.raw["generator"]["or_power"].localised_name =
+        {"entity-name.nullius-offshore-steam"}
+  end
+  if (data.raw["electric-energy-interface"]["or_power_electric"] ~= nil) then
+    data.raw["electric-energy-interface"]["or_power_electric"].localised_name =
+        {"entity-name.nullius-offshore-electric"}
+  end
 
-  data.raw["radar"]["or_radar"].max_distance_of_sector_revealed = 3
-  data.raw["radar"]["or_radar"].max_distance_of_nearby_sector_revealed = 2
-  data.raw["radar"]["or_radar"].energy_per_sector = "20MJ"
-  data.raw["radar"]["or_radar"].energy_per_nearby_scan = "50kJ"
-  data.raw["radar"]["or_radar"].energy_usage = "20kW"
+  if (data.raw["radar"]["or_radar"] ~= nil) then
+    data.raw["radar"]["or_radar"].localised_name =
+        {"entity-name.nullius-offshore-radar"}
+    data.raw["radar"]["or_radar"].max_distance_of_sector_revealed = 3
+    data.raw["radar"]["or_radar"].max_distance_of_nearby_sector_revealed = 2
+    data.raw["radar"]["or_radar"].energy_per_sector = "20MJ"
+    data.raw["radar"]["or_radar"].energy_per_nearby_scan = "50kJ"
+    data.raw["radar"]["or_radar"].energy_usage = "20kW"
+  end
+
   data.raw["electric-pole"]["floating-electric-pole"].maximum_wire_distance = 32.5
-
   data.raw["car"]["indep-boat"].burner.fuel_category = "vehicle"
   data.raw["car"]["indep-boat"].burner.fuel_inventory_size = 1
   data.raw["car"]["indep-boat"].burner.burnt_inventory_size = 1
@@ -2017,7 +2023,7 @@ if mods["cargo-ships"] then
   data.raw.recipe["buoy"].energy_required = 5
   data.raw.recipe["buoy"].ingredients = {
     {type="item", name="rail-signal", amount=1},
-    {type="item", name="empty-barrel", amount=2},
+    {type="item", name="empty-barrel", amount=1},
     {type="item", name="nullius-steel-cable", amount=5},
     {type="item", name="concrete", amount=5},
 	{type="fluid", name="nullius-nitrogen", amount=250, fluidbox_index=1}
@@ -2050,12 +2056,12 @@ if mods["cargo-ships"] then
   data.raw.recipe["bridge_base"].always_show_made_in = true
   data.raw.recipe["bridge_base"].energy_required = 50
   data.raw.recipe["bridge_base"].ingredients = {
-    {type="item", name="rail", amount=16},
-    {type="item", name="nullius-steel-beam", amount=40},
-	{type="item", name="concrete", amount=50},
-    {type="item", name="nullius-steel-cable", amount=12},
-	{type="item", name="nullius-motor-2", amount=6},
-	{type="item", name="chain_buoy", amount=4}
+    {type="item", name="rail", amount=12},
+    {type="item", name="nullius-steel-beam", amount=30},
+	{type="item", name="concrete", amount=40},
+    {type="item", name="nullius-steel-cable", amount=10},
+	{type="item", name="nullius-motor-2", amount=4},
+	{type="item", name="chain_buoy", amount=2}
   }
 
 

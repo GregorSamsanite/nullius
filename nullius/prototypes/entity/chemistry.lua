@@ -265,14 +265,34 @@ data.raw["assembling-machine"]["nullius-hydro-plant-2"].working_visualisations[5
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].working_visualisations[4] = nil
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].working_visualisations[5] = nil
 
+local mhp1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-hydro-plant-1"])
+mhp1.name = "nullius-mirror-hydro-plant-1"
+mhp1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mhp1.placeable_by = {item = "nullius-hydro-plant-1", count = 1}
+mhp1.next_upgrade = "nullius-mirror-hydro-plant-2"
+mhp1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-hydro-plant-1"}}
+mhp1.fluid_boxes[1].pipe_connections[1].position = {1, -3}
+mhp1.fluid_boxes[2].pipe_connections[1].position = {-1, -3}
+mhp1.fluid_boxes[3].pipe_connections[1].position = {-1, 3}
+mhp1.fluid_boxes[4].pipe_connections[1].position = {1, 3}
+
 data:extend({
+  mhp1,
   {
     type = "assembling-machine",
     name = "nullius-mirror-hydro-plant-2",
-    icons = data.raw.item["nullius-mirror-hydro-plant-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-hydro-plant-2"}},
+	icons = {
+	  data.raw.item["nullius-hydro-plant-2"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-mirror-hydro-plant-2"},
+    minable = {mining_time = 1.5, result = "nullius-hydro-plant-2"},
+	placeable_by = {item = "nullius-hydro-plant-2", count = 1},
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -336,10 +356,16 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-hydro-plant-3",
-    icons = data.raw.item["nullius-mirror-hydro-plant-3"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+	    {"entity-name.nullius-hydro-plant-3"}},
+	icons = {
+	  data.raw.item["nullius-hydro-plant-3"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-hydro-plant"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 2, result = "nullius-mirror-hydro-plant-3"},
+    minable = {mining_time = 2, result = "nullius-hydro-plant-3"},
+	placeable_by = {item = "nullius-hydro-plant-3", count = 1},
     max_health = 500,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -501,7 +527,21 @@ data:extend({
   }
 })
 
+local md1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-distillery-1"])
+md1.name = "nullius-mirror-distillery-1"
+md1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+md1.placeable_by = {item = "nullius-distillery-1", count = 1}
+md1.next_upgrade = "nullius-mirror-distillery-2"
+md1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-distillery-1"}}
+md1.fluid_boxes[1].pipe_connections[1].position = {1, 3}
+md1.fluid_boxes[2].pipe_connections[1].position = {-1, 3}
+md1.fluid_boxes[3].pipe_connections[1].position = {2, -3}
+md1.fluid_boxes[5].pipe_connections[1].position = {-2, -3}
+
 data:extend({
+  md1,
   {
     type = "assembling-machine",
     name = "nullius-distillery-2",
@@ -696,10 +736,14 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-distillery-2",
-    icons = data.raw.item["nullius-mirror-distillery-2"].icons,
+	icons = {
+	  data.raw.item["nullius-distillery-2"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.8, result = "nullius-mirror-distillery-2"},
+    minable = {mining_time = 1.8, result = "nullius-distillery-2"},
+	placeable_by = {item = "nullius-distillery-2", count = 1},
     max_health = 500,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -763,10 +807,14 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-distillery-3",
-    icons = data.raw.item["nullius-mirror-distillery-3"].icons,
+	icons = {
+	  data.raw.item["nullius-distillery-3"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 2.4, result = "nullius-mirror-distillery-3"},
+    minable = {mining_time = 2.4, result = "nullius-distillery-3"},
+	placeable_by = {item = "nullius-distillery-3", count = 1},
     max_health = 600,
     dying_explosion = "medium-explosion",
     corpse = "oil-refinery-remnants",
@@ -840,10 +888,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-electrolyzer-1",
-    icons = data.raw.item["nullius-surge-electrolyzer-1"].icons,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+      icon_size = 32,
+      tint = {0.8, 0.8, 0.6}
+    }},
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-surge-electrolyzer-1"},
+    minable = {mining_time = 1, result = "nullius-electrolyzer-1"},
+	placeable_by = {item = "nullius-electrolyzer-1", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-surge-electrolyzer-2",
     max_health = 300,
@@ -959,10 +1012,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-1",
-    icons = data.raw.item["nullius-priority-electrolyzer-1"].icons,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+      icon_size = 32,
+      tint = {0.8, 0.68, 0.51}
+    }},
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1, result = "nullius-priority-electrolyzer-1"},
+    minable = {mining_time = 1, result = "nullius-electrolyzer-1"},
+	placeable_by = {item = "nullius-electrolyzer-1", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-priority-electrolyzer-2",
     max_health = 300,
@@ -1034,10 +1092,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-electrolyzer-2",
-    icons = data.raw.item["nullius-surge-electrolyzer-2"].icons,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+      icon_size = 32,
+      tint = {0.8, 0.9, 1}
+    }},
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-surge-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
+	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-surge-electrolyzer-3",
     max_health = 400,
@@ -1145,14 +1208,44 @@ data:extend({
   }
 })
 
+local mse1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"])
+mse1.name = "nullius-mirror-surge-electrolyzer-1"
+mse1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mse1.placeable_by = {item = "nullius-electrolyzer-1", count = 1}
+mse1.next_upgrade = "nullius-mirror-surge-electrolyzer-2"
+mse1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-surge-electrolyzer-1"}}
+mse1.fluid_boxes[1].pipe_connections[1].position = {1.5, -2.5}
+mse1.fluid_boxes[2].pipe_connections[1].position = {1.5, 2.5}
+mse1.fluid_boxes[3].pipe_connections[1].position = {-1.5, -2.5}
+mse1.fluid_boxes[4].pipe_connections[1].position = {-1.5, 2.5}
+
+local mpe1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-priority-electrolyzer-1"])
+mpe1.name = "nullius-mirror-priority-electrolyzer-1"
+mpe1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mpe1.placeable_by = {item = "nullius-electrolyzer-1", count = 1}
+mpe1.next_upgrade = "nullius-mirror-priority-electrolyzer-2"
+mpe1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-priority-electrolyzer-1"}}
+mpe1.fluid_boxes = mse1.fluid_boxes
+
 data:extend({
+  mse1,
+  mpe1,
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-2",
-    icons = data.raw.item["nullius-priority-electrolyzer-2"].icons,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+      icon_size = 32,
+      tint = {0.8, 0.76, 0.85}
+    }},
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-priority-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
+	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-priority-electrolyzer-3",
     max_health = 400,
@@ -1224,10 +1317,23 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-surge-electrolyzer-2",
-    icons = data.raw.item["nullius-mirror-surge-electrolyzer-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-surge-electrolyzer-2"}},
+	icons = {
+      {
+        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+        icon_size = 32,
+        tint = {0.8, 0.9, 1}
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-mirror-surge-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
+	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-mirror-surge-electrolyzer-3",
     max_health = 400,
@@ -1284,10 +1390,23 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-priority-electrolyzer-2",
-    icons = data.raw.item["nullius-mirror-priority-electrolyzer-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-priority-electrolyzer-2"}},
+	icons = {
+      {
+        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+        icon_size = 32,
+        tint = {0.8, 0.76, 0.85}
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.5, result = "nullius-mirror-priority-electrolyzer-2"},
+    minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
+	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
     fast_replaceable_group = "electrolyzer",
     next_upgrade = "nullius-mirror-priority-electrolyzer-3",
     max_health = 400,
@@ -1313,7 +1432,8 @@ data:extend({
     icon_size = 32,
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2, result = "nullius-surge-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
+	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1420,10 +1540,22 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-surge-electrolyzer-3",
-    icons = data.raw.item["nullius-mirror-surge-electrolyzer-3"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-surge-electrolyzer-3"}},
+	icons = {
+      {
+        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+        icon_size = 32
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
     localised_description = {"entity-description.nullius-surge-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2, result = "nullius-mirror-surge-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
+	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1479,10 +1611,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-electrolyzer-3",
-    icons = data.raw.item["nullius-priority-electrolyzer-3"].icons,
+	icons = {{
+      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+      icon_size = 32,
+      tint = {1, 0.85, 0.85}
+    }},
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2, result = "nullius-priority-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
+	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1551,10 +1688,23 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-priority-electrolyzer-3",
-    icons = data.raw.item["nullius-mirror-priority-electrolyzer-3"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-priority-electrolyzer-3"}},
+	icons = {
+      {
+        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
+        icon_size = 32,
+        tint = {1, 0.85, 0.85}
+      },
+      {
+        icon = ICONPATH .. "flip1.png",
+        icon_size = 64
+      }
+    },
     localised_description = {"entity-description.nullius-priority-electrolyzer"},
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2, result = "nullius-mirror-priority-electrolyzer-3"},
+    minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
+	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
     fast_replaceable_group = "electrolyzer",
     max_health = 500,
     corpse = "big-remnants",
@@ -1904,7 +2054,21 @@ data:extend({
   }
 })
 
+local mcp1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-chemical-plant-1"])
+mcp1.name = "nullius-mirror-chemical-plant-1"
+mcp1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mcp1.placeable_by = {item = "nullius-chemical-plant-1", count = 1}
+mcp1.next_upgrade = "nullius-mirror-chemical-plant-2"
+mcp1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-chemical-plant-1"}}
+mcp1.fluid_boxes[1].pipe_connections[1].position = {1, -2}
+mcp1.fluid_boxes[2].pipe_connections[1].position = {-1, -2}
+mcp1.fluid_boxes[4].pipe_connections[1].position = {1, 2}
+mcp1.fluid_boxes[5].pipe_connections[1].position = {-1, 2}
+
 data:extend({
+  mcp1,
   {
     type = "assembling-machine",
     name = "nullius-chemical-plant-2",
@@ -2027,10 +2191,16 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-chemical-plant-2",
-    icons = data.raw.item["nullius-mirror-chemical-plant-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-chemical-plant-2"}},
+	icons = {
+	  data.raw.item["nullius-chemical-plant-2"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 1.6, result = "nullius-mirror-chemical-plant-2"},
+    minable = { mining_time = 1.6, result = "nullius-chemical-plant-2"},
+	placeable_by = {item = "nullius-chemical-plant-2", count = 1},
     max_health = 400,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",
@@ -2174,10 +2344,16 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-chemical-plant-3",
-    icons = data.raw.item["nullius-mirror-chemical-plant-3"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-chemical-plant-3"}},
+    icons = {
+	  data.raw.item["nullius-chemical-plant-3"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = { mining_time = 2, result = "nullius-mirror-chemical-plant-3"},
+    minable = { mining_time = 2, result = "nullius-chemical-plant-3"},
+	placeable_by = {item = "nullius-chemical-plant-3", count = 1},
     max_health = 500,
     corpse = "chemical-plant-remnants",
     dying_explosion = "medium-explosion",

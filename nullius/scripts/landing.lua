@@ -157,7 +157,7 @@ function landing_site(surface, loc)
     if (part.pod == 1) then
       part_entity.insert({name="wooden-chest", count=2})
       part_entity.insert({name="inserter", count=30})
-	  part_entity.insert({name="cliff-explosives", count=10})
+	  part_entity.insert({name="cliff-explosives", count=20})
     else
       part_entity.insert({name="nullius-small-storage-chest-1", count=1})
       part_entity.insert({name="transport-belt", count=300})

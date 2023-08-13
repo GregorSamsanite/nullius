@@ -2037,7 +2037,7 @@ data:extend({
     ingredients = {
       {"nullius-cargo-wagon-1", 1},
       {"nullius-combustion-chamber-1", 1},
-      {"nullius-backup-turbine-1", 1},
+      {"nullius-turbine-open-1", 1},
       {"nullius-motor-1", 4},
       {"nullius-steel-gear", 10},
       {"nullius-glass", 3}
@@ -2075,7 +2075,7 @@ data:extend({
       {"nullius-locomotive-1", 1},
       {"nullius-cargo-wagon-2", 1},
       {"nullius-combustion-chamber-2", 1},
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-turbine-open-2", 1},
       {"nullius-motor-2", 4},
       {"nullius-sensor-1", 1}
     },
@@ -2091,7 +2091,7 @@ data:extend({
     ingredients = {
       {"nullius-locomotive-2", 1},
       {"nullius-combustion-chamber-3", 1},
-      {"nullius-standard-turbine-3", 1},
+      {"nullius-turbine-closed-3", 1},
       {"nullius-motor-3", 4},
       {"nullius-speed-module-2", 1}
     },
@@ -2969,7 +2969,7 @@ data:extend({
     subgroup = "vehicle",
     order = "nullius-bb",
     place_result = "nullius-car-1",
-    stack_size = 1
+    stack_size = 2
   },
   {
     type = "item-with-entity-data",
@@ -2983,7 +2983,7 @@ data:extend({
     subgroup = "vehicle",
     order = "nullius-bc",
     place_result = "nullius-car-2",
-    stack_size = 1
+    stack_size = 2
   },
   {
     type = "item-with-entity-data",
@@ -2997,7 +2997,7 @@ data:extend({
     subgroup = "vehicle",
     order = "nullius-bd",
     place_result = "nullius-car-3",
-    stack_size = 1
+    stack_size = 2
   },
   {
     type = "item-with-entity-data",
@@ -3171,12 +3171,12 @@ data:extend({
     category = "huge-assembly",
     energy_required = 600,
     ingredients = {
-      {type="item", name="nullius-mecha", amount=2},
+      {type="item", name="nullius-mecha", amount=1},
       {type="item", name="nullius-quadrupedal-adaptation-4", amount=4},
       {type="item", name="nullius-solar-panel-4", amount=8},
       {type="item", name="nullius-grid-battery-3", amount=4},
 	  {type="item", name="nullius-armor-plate", amount=16},
-	  {type="item", name="nullius-stabilizer-2", amount=2}
+	  {type="item", name="nullius-stabilizer-2", amount=4}
     },
     result = "nullius-mecha-2"
   },
@@ -4028,7 +4028,7 @@ data:extend({
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-combustion-chamber-1", amount=1},
-	  {type="item", name="nullius-backup-turbine-1", amount=1},
+	  {type="item", name="nullius-turbine-open-1", amount=1},
 	  {type="item", name="nullius-small-cargo-pod-1", amount=1},
 	  {type="item", name="copper-cable", amount=4}
     },
@@ -4043,7 +4043,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-combustion-chamber-2", amount=1},
-	  {type="item", name="nullius-standard-turbine-2", amount=1},
+	  {type="item", name="nullius-turbine-closed-2", amount=1},
 	  {type="item", name="nullius-large-cargo-pod-1", amount=1},
 	  {type="item", name="nullius-portable-generator-1", amount=1}
     },

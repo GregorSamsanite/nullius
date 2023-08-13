@@ -816,7 +816,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-backup-turbine-1", 2},
+      {"nullius-turbine-open-1", 2},
       {"small-electric-pole", 2}
     },
     result = "nullius-wind-turbine-1"
@@ -830,7 +830,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 25,
     ingredients = {
-      {"nullius-box-backup-turbine-1", 2},
+      {"nullius-box-turbine-open-1", 2},
       {"nullius-box-power-pole-1", 2}
     },
     result = "nullius-box-wind-turbine-1"
@@ -844,7 +844,7 @@ data:extend({
     energy_required = 20,
     ingredients = {
       {"nullius-wind-turbine-1", 1},
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-turbine-open-2", 1},
       {"big-electric-pole", 2},
       {"nullius-steel-cable", 5},
       {"concrete", 10}
@@ -861,7 +861,7 @@ data:extend({
     energy_required = 100,
     ingredients = {
       {"nullius-box-wind-turbine-1", 1},
-      {"nullius-box-standard-turbine-2", 1},
+      {"nullius-box-turbine-open-2", 1},
       {"nullius-box-pylon-1", 2},
       {"nullius-box-steel-cable", 5},
       {"nullius-box-concrete", 5}
@@ -877,7 +877,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-wind-turbine-2", 2},
-      {"nullius-standard-turbine-3", 2},
+      {"nullius-turbine-open-3", 2},
       {"nullius-pylon-2", 2},
       {"nullius-carbon-composite", 10},
       {"refined-concrete", 16}
@@ -894,7 +894,7 @@ data:extend({
     energy_required = 200,
     ingredients = {
       {"nullius-box-wind-turbine-2", 2},
-      {"nullius-box-standard-turbine-3", 2},
+      {"nullius-box-turbine-open-3", 2},
       {"nullius-box-pylon-2", 2},
       {"nullius-box-carbon-composite", 10},
       {"nullius-box-reinforced-concrete", 8}

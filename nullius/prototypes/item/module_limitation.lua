@@ -15,13 +15,18 @@ nullius_non_productivity_categories = {
   ["nullius-electrolysis"] = true,
   ["nullius-gas-void"] = true,
   ["nullius-liquid-void"] = true,
+  ["nullius-power-sink"] = true,
   ["nullius-barrel"] = true,
   ["nullius-unbarrel"] = true,
   ["air-filtration"] = true,
   ["compression"] = true,
   ["decompression"] = true,
   ["water-pumping"] = true,
-  ["combustion"] = true
+  ["combustion"] = true,
+  ["boiling"] = true,
+  ["pressure-boiling"] = true,
+  ["turbine-open"] = true,
+  ["turbine-closed"] = true
 }
 
 

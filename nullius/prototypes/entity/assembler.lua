@@ -626,6 +626,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-nanofabricator-1",
     icons = data.raw.item["nullius-nanofabricator-1"].icons,
+	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 2, result = "nullius-nanofabricator-1"},
     max_health = 300,
@@ -693,11 +694,26 @@ if (data.raw["assembling-machine"]["nullius-nanofabricator-1"].animation.layers[
 data.raw["assembling-machine"]["nullius-nanofabricator-1"].animation.layers[1].hr_version.tint = {0.6, 0.75, 0.75}
 end
 
+local mnf1 = util.table.deepcopy(
+    data.raw["assembling-machine"]["nullius-nanofabricator-1"])
+mnf1.name = "nullius-mirror-nanofabricator-1"
+mnf1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mnf1.placeable_by = {item = "nullius-nanofabricator-1", count = 1}
+mnf1.next_upgrade = "nullius-mirror-nanofabricator-2"
+mnf1.localised_name = {"entity-name.nullius-mirrored",
+    {"entity-name.nullius-nanofabricator-1"}}
+mnf1.fluid_boxes[1].pipe_connections[1].position = {-2.5, 0.5}
+mnf1.fluid_boxes[2].pipe_connections[1].position = {-0.5, -2.5}
+mnf1.fluid_boxes[3].pipe_connections[1].position = {0.5, 2.5}
+mnf1.fluid_boxes[4].pipe_connections[1].position = {2.5, -0.5}
+
 data:extend({
+  mnf1,
   {
     type = "assembling-machine",
     name = "nullius-nanofabricator-2",
     icons = data.raw.item["nullius-nanofabricator-2"].icons,
+	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 2.5, result = "nullius-nanofabricator-2"},
     max_health = 400,
@@ -771,9 +787,16 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-nanofabricator-2",
-    icons = data.raw.item["nullius-mirror-nanofabricator-2"].icons,
+	localised_name = {"entity-name.nullius-mirrored",
+        {"entity-name.nullius-nanofabricator-2"}},
+	icons = {
+	  data.raw.item["nullius-nanofabricator-2"].icons[1],
+      { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+    },
+	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {mining_time = 2.5, result = "nullius-mirror-nanofabricator-2"},
+    minable = {mining_time = 2.5, result = "nullius-nanofabricator-2"},
+	placeable_by = {item = "nullius-nanofabricator-2", count = 1},
     max_health = 400,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",

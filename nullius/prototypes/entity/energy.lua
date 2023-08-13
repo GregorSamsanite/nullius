@@ -206,9 +206,9 @@ data:extend({
     drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
     energy_source = {
       type = "electric",
-      buffer_capacity = "10MJ",
+      buffer_capacity = "15MJ",
       usage_priority = "tertiary",
-      input_flow_limit = "100kW",
+      input_flow_limit = "200kW",
       output_flow_limit = "400kW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
@@ -272,9 +272,9 @@ data:extend({
     drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
     energy_source = {
       type = "electric",
-      buffer_capacity = "30MJ",
+      buffer_capacity = "40MJ",
       usage_priority = "tertiary",
-      input_flow_limit = "250kW",
+      input_flow_limit = "400kW",
       output_flow_limit = "600kW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
@@ -337,9 +337,9 @@ data:extend({
     drawing_box = {{-1.5, -2.25}, {1.5, 1.5}},
     energy_source = {
       type = "electric",
-      buffer_capacity = "75MJ",
+      buffer_capacity = "100MJ",
       usage_priority = "tertiary",
-      input_flow_limit = "500kW",
+      input_flow_limit = "800kW",
       output_flow_limit = "1MW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
@@ -705,8 +705,8 @@ data:extend({
 local mcc1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-combustion-chamber-1"])
 mcc1.name = "nullius-mirror-combustion-chamber-1"
-mcc1.icons = data.raw.item["nullius-mirror-combustion-chamber-1"].icons
-mcc1.minable.result = "nullius-mirror-combustion-chamber-1"
+mcc1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mcc1.placeable_by = {item = "nullius-combustion-chamber-1", count = 1}
 mcc1.next_upgrade = "nullius-mirror-combustion-chamber-2"
 mcc1.localised_name = {"entity-name.nullius-mirrored",
     {"entity-name.nullius-combustion-chamber-1"}}
@@ -942,10 +942,14 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-combustion-chamber-2",
-    icons = data.raw.item["nullius-mirror-combustion-chamber-2"].icons,
+	icons = {
+	  data.raw.item["nullius-combustion-chamber-2"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.9, result = "nullius-mirror-combustion-chamber-2"},
+    minable = {mining_time = 0.9, result = "nullius-combustion-chamber-2"},
+	placeable_by = {item = "nullius-combustion-chamber-2", count = 1},
     crafting_categories = { "combustion" },
     crafting_speed = 2.5,
     base_productivity = 0.02,
@@ -1002,7 +1006,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-combustion-chamber-3",
-    icons = data.raw.item["nullius-combustion-chamber-3"].icons,
+	icons = data.raw.item["nullius-combustion-chamber-3"].icons,
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1.2, result = "nullius-combustion-chamber-3"},
@@ -1179,10 +1183,14 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-combustion-chamber-3",
-    icons = data.raw.item["nullius-mirror-combustion-chamber-3"].icons,
+	icons = {
+	  data.raw.item["nullius-combustion-chamber-3"].icons[1],
+	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+	},
     localised_description = {"entity-description.nullius-combustion-chamber"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-mirror-combustion-chamber-3"},
+    minable = {mining_time = 1.2, result = "nullius-combustion-chamber-3"},
+	placeable_by = {item = "nullius-combustion-chamber-3", count = 1},
     crafting_categories = { "combustion" },
     crafting_speed = 6,
     base_productivity = 0.04,
@@ -1202,381 +1210,17 @@ data:extend({
   },
 
   {
-    type = "generator",
-    name = "nullius-backup-turbine-1",
-    icons = data.raw.item["nullius-backup-turbine-1"].icons,
-    localised_description = {"entity-description.nullius-backup-turbine"},
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.8, result = "nullius-backup-turbine-1"},
-    max_health = 300,
-    corpse = "steam-turbine-remnants",
-    dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
-    effectivity = 0.9,
-    fluid_usage_per_tick = 4,
-    maximum_temperature = 1600,
-    max_power_output = "1MW",
-    burns_fluid = true,
-    scale_fluid_usage = true,
-    destroy_non_fuel_fluid = false,
-    resistances = {
-      { type = "impact", decrease = 100, percent = 90 },
-      { type = "fire", decrease = 40, percent = 60 }
-    },
-    fast_replaceable_group = "turbine",
-    next_upgrade = "nullius-backup-turbine-2",
-    collision_box = {{-1.35, -2.35}, {1.35, 2.35}},
-    selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
-    fluid_box = {
-      base_area = 10,
-      height = 2,
-      base_level = -1,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { type = "input-output", position = {0, 3} },
-        { type = "input-output", position = {0, -3} }
-      },
-      production_type = "input-output",
-      minimum_temperature = 0
-    },
-    energy_source = {
-      type = "electric",
-      usage_priority = "tertiary"
-    },
-    smoke = data.raw.generator["steam-turbine"].smoke,
-    working_sound = data.raw.generator["steam-turbine"].working_sound,
-    vehicle_impact_sound = { filename="__base__/sound/car-metal-impact.ogg", volume=0.65 },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
-
-    horizontal_animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-H.png",
-          width = 320,
-          height = 245,
-          frame_count = 8,
-          line_length = 4,
-          shift = util.by_pixel(0, -2.75),
-          tint = {0.5, 0.5, 0.5, 1},
-          scale = 0.5
-        },
-        {
-          filename = ENTITYPATH .. "turbine/green-turbine-h.png",
-          width = 320,
-          height = 245,
-          repeat_count = 8,
-          frame_count = 1,
-          line_length = 1,
-          shift = util.by_pixel(0, -2.75),
-          tint = {0.5, 0.6, 0.5, 1},
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-H-shadow.png",
-          width = 435,
-          height = 150,
-          repeat_count = 8,
-          frame_count = 1,
-          line_length = 1,
-          draw_as_shadow = true,
-          shift = util.by_pixel(28.5, 18),
-          scale = 0.5
-        }
-      }
-    },
-    vertical_animation = {
-     layers = {
-        {
-          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-V.png",
-          width = 217,
-          height = 347,
-          frame_count = 8,
-          line_length = 4,
-          shift = util.by_pixel(4.75, 6.75),
-          tint = {0.5, 0.5, 0.5, 1},
-          scale = 0.5
-        },
-        {
-          filename = ENTITYPATH .. "turbine/green-turbine-v.png",
-          width = 217,
-          height = 347,
-          repeat_count = 8,
-          frame_count = 1,
-          line_length = 1,
-          shift = util.by_pixel(4.75, 6.75),
-          tint = {0.5, 0.6, 0.5, 1},
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "steam-turbine/hr-steam-turbine-V-shadow.png",
-          width = 302,
-          height = 260,
-          repeat_count = 8,
-          frame_count = 1,
-          line_length = 1,
-          draw_as_shadow = true,
-          shift = util.by_pixel(39.5, 24.5),
-          scale = 0.5
-        }
-      }
-    }
-  }
-})
-
-data:extend({
-  {
-    type = "generator",
-    name = "nullius-backup-turbine-2",
-    icons = data.raw.item["nullius-backup-turbine-2"].icons,
-    localised_description = {"entity-description.nullius-backup-turbine"},
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-backup-turbine-2"},
-    max_health = 400,
-    corpse = "steam-turbine-remnants",
-    dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
-    effectivity = 0.95,
-    fluid_usage_per_tick = 8,
-    maximum_temperature = 1800,
-    max_power_output = "2.5MW",
-    burns_fluid = true,
-    scale_fluid_usage = true,
-    destroy_non_fuel_fluid = false,
-    resistances = data.raw.generator["nullius-backup-turbine-1"].resistances,
-    fast_replaceable_group = "turbine",
-    next_upgrade = "nullius-backup-turbine-3",
-    collision_box = {{-1.35, -2.35}, {1.35, 2.35}},
-    selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
-    fluid_box = {
-      base_area = 10,
-      height = 7.5,
-      base_level = -6,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { type = "input-output", position = {0, 3} },
-        { type = "input-output", position = {0, -3} }
-      },
-      production_type = "input-output",
-      minimum_temperature = 0
-    },
-    energy_source = data.raw.generator["nullius-backup-turbine-1"].energy_source,
-    smoke = data.raw.generator["steam-turbine"].smoke,
-    working_sound = data.raw.generator["steam-turbine"].working_sound,
-    vehicle_impact_sound = { filename="__base__/sound/car-metal-impact.ogg", volume=0.65 },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
-    horizontal_animation = data.raw.generator["steam-turbine"].horizontal_animation,
-    vertical_animation = data.raw.generator["steam-turbine"].vertical_animation
-  },
-
-  {
-    type = "generator",
-    name = "nullius-backup-turbine-3",
-    icons = data.raw.item["nullius-backup-turbine-3"].icons,
-    localised_description = {"entity-description.nullius-backup-turbine"},
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.6, result = "nullius-backup-turbine-3"},
-    max_health = 500,
-    corpse = "steam-turbine-remnants",
-    dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
-    effectivity = 1,
-    fluid_usage_per_tick = 20,
-    maximum_temperature = 2000,
-    max_power_output = "6MW",
-    burns_fluid = true,
-    scale_fluid_usage = true,
-    destroy_non_fuel_fluid = false,
-    resistances = data.raw.generator["nullius-backup-turbine-1"].resistances,
-    fast_replaceable_group = "turbine",
-    collision_box = {{-1.35, -2.35}, {1.35, 2.35}},
-    selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
-    fluid_box = {
-      base_area = 10,
-      height = 20,
-      base_level = -18,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections = {
-        { type = "input-output", position = {0, 3} },
-        { type = "input-output", position = {0, -3} }
-      },
-      production_type = "input-output",
-      minimum_temperature = 0
-    },
-    energy_source = data.raw.generator["nullius-backup-turbine-1"].energy_source,
-    smoke = data.raw.generator["steam-turbine"].smoke,
-    working_sound = data.raw.generator["steam-turbine"].working_sound,
-    vehicle_impact_sound = { filename="__base__/sound/car-metal-impact.ogg", volume=0.65 },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
-    horizontal_animation = data.raw.generator["steam-turbine"].horizontal_animation,
-    vertical_animation = data.raw.generator["steam-turbine"].vertical_animation
-  }
-})
-
-local st1 = util.table.deepcopy(data.raw.generator["nullius-backup-turbine-1"])
-st1.name = "nullius-standard-turbine-1"
-st1.icons = data.raw.item["nullius-standard-turbine-1"].icons
-st1.minable.result = "nullius-standard-turbine-1"
-st1.energy_source.usage_priority = "secondary-output"
-st1.localised_description = {"entity-description.nullius-standard-turbine"}
-st1.next_upgrade = "nullius-standard-turbine-2"
-local st2 = util.table.deepcopy(data.raw.generator["nullius-backup-turbine-2"])
-st2.name = "nullius-standard-turbine-2"
-st2.icons = data.raw.item["nullius-standard-turbine-2"].icons
-st2.minable.result = "nullius-standard-turbine-2"
-st2.energy_source.usage_priority = "secondary-output"
-st2.localised_description = {"entity-description.nullius-standard-turbine"}
-st2.next_upgrade = "nullius-standard-turbine-3"
-local st3 = util.table.deepcopy(data.raw.generator["nullius-backup-turbine-3"])
-st3.name = "nullius-standard-turbine-3"
-st3.icons = data.raw.item["nullius-standard-turbine-3"].icons
-st3.minable.result = "nullius-standard-turbine-3"
-st3.energy_source.usage_priority = "secondary-output"
-st3.localised_description = {"entity-description.nullius-standard-turbine"}
-
-data:extend({
-  st1,
-  st2,
-  st3,
-  {
-    type = "generator",
-    name = "nullius-priority-turbine-1",
-    icons = data.raw.item["nullius-priority-turbine-1"].icons,
-    localised_description = {"entity-description.nullius-priority-turbine"},
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-priority-turbine-1"},
-    max_health = 400,
-    corpse = "steam-turbine-remnants",
-    dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
-    effectivity = 0.95,
-    fluid_usage_per_tick = 8,
-    maximum_temperature = 1800,
-    max_power_output = "2.5MW",
-    burns_fluid = true,
-    scale_fluid_usage = true,
-    destroy_non_fuel_fluid = false,
-    resistances = data.raw.generator["nullius-backup-turbine-1"].resistances,
-    fast_replaceable_group = "turbine",
-    next_upgrade = "nullius-priority-turbine-2",
-    collision_box = {{-1.35, -2.35}, {1.35, 2.35}},
-    selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
-    fluid_box = data.raw.generator["nullius-backup-turbine-2"].fluid_box,
-    energy_source = {
-      type = "electric",
-      usage_priority = "primary-output"
-    },
-    smoke = data.raw.generator["steam-turbine"].smoke,
-    working_sound = data.raw.generator["steam-turbine"].working_sound,
-    vehicle_impact_sound = { filename="__base__/sound/car-metal-impact.ogg", volume=0.65 },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
-    horizontal_animation = data.raw.generator["steam-turbine"].horizontal_animation,
-    vertical_animation = data.raw.generator["steam-turbine"].vertical_animation
-  }
-})
-
-data:extend({
-  {
-    type = "generator",
-    name = "nullius-priority-turbine-2",
-    icons = data.raw.item["nullius-priority-turbine-2"].icons,
-    localised_description = {"entity-description.nullius-priority-turbine"},
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.6, result = "nullius-priority-turbine-2"},
-    max_health = 500,
-    corpse = "steam-turbine-remnants",
-    dying_explosion = "medium-explosion",
-    alert_icon_shift = util.by_pixel(0, -12),
-    effectivity = 1,
-    fluid_usage_per_tick = 20,
-    maximum_temperature = 2000,
-    max_power_output = "6MW",
-    burns_fluid = true,
-    scale_fluid_usage = true,
-    destroy_non_fuel_fluid = false,
-    resistances = data.raw.generator["nullius-backup-turbine-1"].resistances,
-    fast_replaceable_group = "turbine",
-    collision_box = {{-1.35, -2.35}, {1.35, 2.35}},
-    selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
-    fluid_box = data.raw.generator["nullius-backup-turbine-3"].fluid_box,
-    energy_source = data.raw.generator["nullius-priority-turbine-1"].energy_source,
-    smoke = data.raw.generator["steam-turbine"].smoke,
-    working_sound = data.raw.generator["steam-turbine"].working_sound,
-    vehicle_impact_sound = { filename="__base__/sound/car-metal-impact.ogg", volume=0.65 },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
-    horizontal_animation = data.raw.generator["steam-turbine"].horizontal_animation,
-    vertical_animation = data.raw.generator["steam-turbine"].vertical_animation
-  }
-})
-
-local bt1h = data.raw.generator["nullius-backup-turbine-1"].horizontal_animation
-local bt1v = data.raw.generator["nullius-backup-turbine-1"].vertical_animation
-local bt2h = util.table.deepcopy(bt1h)
-local bt2v = util.table.deepcopy(bt1v)
-bt2h.layers[1].tint = {0.75, 0.8, 0.75, 1}
-bt2h.layers[2].tint = {0.75, 0.8, 0.75, 1}
-bt2v.layers[1].tint = {0.75, 0.8, 0.75, 1}
-bt2v.layers[2].tint = {0.75, 0.8, 0.75, 1}
-data.raw.generator["nullius-backup-turbine-2"].horizontal_animation = bt2h
-data.raw.generator["nullius-backup-turbine-2"].vertical_animation = bt2v
-local bt3h = util.table.deepcopy(bt1h)
-local bt3v = util.table.deepcopy(bt1v)
-bt3h.layers[1].tint = {1, 1, 1, 1}
-bt3h.layers[2].tint = {1, 1, 1, 1}
-bt3v.layers[1].tint = {1, 1, 1, 1}
-bt3v.layers[2].tint = {1, 1, 1, 1}
-data.raw.generator["nullius-backup-turbine-3"].horizontal_animation = bt3h
-data.raw.generator["nullius-backup-turbine-3"].vertical_animation = bt3v
-local st3h = util.table.deepcopy(bt3h)
-local st3v = util.table.deepcopy(bt3v)
-st3h.layers[2].filename = ENTITYPATH .. "turbine/yellow-turbine-h.png"
-st3v.layers[2].filename = ENTITYPATH .. "turbine/yellow-turbine-v.png"
-data.raw.generator["nullius-standard-turbine-3"].horizontal_animation = st3h
-data.raw.generator["nullius-standard-turbine-3"].vertical_animation = st3v
-local st1h = util.table.deepcopy(st3h)
-local st1v = util.table.deepcopy(st3v)
-st1h.layers[1].tint = {0.6, 0.6, 0.5, 1}
-st1h.layers[2].tint = {0.6, 0.6, 0.5, 1}
-st1v.layers[1].tint = {0.6, 0.6, 0.5, 1}
-st1v.layers[2].tint = {0.6, 0.6, 0.5, 1}
-data.raw.generator["nullius-standard-turbine-1"].horizontal_animation = st1h
-data.raw.generator["nullius-standard-turbine-1"].vertical_animation = st1v
-local st2h = util.table.deepcopy(st3h)
-local st2v = util.table.deepcopy(st3v)
-st2h.layers[1].tint = {0.8, 0.8, 0.75, 1}
-st2h.layers[2].tint = {0.8, 0.8, 0.75, 1}
-st2v.layers[1].tint = {0.8, 0.8, 0.75, 1}
-st2v.layers[2].tint = {0.8, 0.8, 0.75, 1}
-data.raw.generator["nullius-standard-turbine-2"].horizontal_animation = st2h
-data.raw.generator["nullius-standard-turbine-2"].vertical_animation = st2v
-local pt2h = util.table.deepcopy(bt3h)
-local pt2v = util.table.deepcopy(bt3v)
-pt2h.layers[2].filename = ENTITYPATH .. "turbine/red-turbine-h.png"
-pt2v.layers[2].filename = ENTITYPATH .. "turbine/red-turbine-v.png"
-data.raw.generator["nullius-priority-turbine-2"].horizontal_animation = pt2h
-data.raw.generator["nullius-priority-turbine-2"].vertical_animation = pt2v
-local pt1h = util.table.deepcopy(pt2h)
-local pt1v = util.table.deepcopy(pt2v)
-pt1h.layers[1].tint = {0.8, 0.75, 0.75, 1}
-pt1h.layers[2].tint = {0.8, 0.75, 0.75, 1}
-pt1v.layers[1].tint = {0.8, 0.75, 0.75, 1}
-pt1v.layers[2].tint = {0.8, 0.75, 0.75, 1}
-data.raw.generator["nullius-priority-turbine-1"].horizontal_animation = pt1h
-data.raw.generator["nullius-priority-turbine-1"].vertical_animation = pt1v
-
-
-data:extend({
-  {
     type = "assembling-machine",
     name = "nullius-surge-compressor-1",
-    icons = data.raw.item["nullius-surge-compressor-1"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {0.6, 0.6, 0.4}
+    }},
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.8, result = "nullius-surge-compressor-1"},
+    minable = {mining_time = 0.8, result = "nullius-compressor-1"},
+	placeable_by = {item = "nullius-compressor-1", count = 1},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-surge-compressor-2",
     max_health = 200,
@@ -1717,10 +1361,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-compressor-1",
-    icons = data.raw.item["nullius-priority-compressor-1"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {0.6, 0.51, 0.34}
+    }},
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.8, result = "nullius-priority-compressor-1"},
+    minable = {mining_time = 0.8, result = "nullius-compressor-1"},
+	placeable_by = {item = "nullius-compressor-1", count = 1},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-priority-compressor-2",
     max_health = 200,
@@ -1839,10 +1488,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-compressor-2",
-    icons = data.raw.item["nullius-surge-compressor-2"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {0.65, 0.65, 0.9}
+    }},
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-surge-compressor-2"},
+    minable = {mining_time = 1.2, result = "nullius-compressor-2"},
+	placeable_by = {item = "nullius-compressor-2", count = 1},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-surge-compressor-3",
     max_health = 250,
@@ -1982,10 +1636,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-compressor-2",
-    icons = data.raw.item["nullius-priority-compressor-2"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {0.65, 0.55, 0.76}
+    }},
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-priority-compressor-2"},
+    minable = {mining_time = 1.2, result = "nullius-compressor-2"},
+	placeable_by = {item = "nullius-compressor-2", count = 1},
     fast_replaceable_group = "compressor",
     next_upgrade = "nullius-priority-compressor-3",
     max_health = 250,
@@ -2070,10 +1729,14 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-surge-compressor-3",
-    icons = data.raw.item["nullius-surge-compressor-3"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32
+    }},
     localised_description = {"entity-description.nullius-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.6, result = "nullius-surge-compressor-3"},
+    minable = {mining_time = 1.6, result = "nullius-compressor-3"},
+	placeable_by = {item = "nullius-compressor-3", count = 1},
     fast_replaceable_group = "compressor",
     max_health = 300,
     corpse = "big-remnants",
@@ -2208,10 +1871,15 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-priority-compressor-3",
-    icons = data.raw.item["nullius-priority-compressor-3"].icons,
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {1, 0.85, 0.85}
+    }},
     localised_description = {"entity-description.nullius-priority-compressor"},
     flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 1.6, result = "nullius-priority-compressor-3"},
+    minable = {mining_time = 1.6, result = "nullius-compressor-3"},
+	placeable_by = {item = "nullius-compressor-3", count = 1},
     fast_replaceable_group = "compressor",
     max_health = 300,
     corpse = "big-remnants",
@@ -4411,6 +4079,7 @@ data:extend({
     max_health = 200,
     resistances = data.raw["assembling-machine"]["nullius-combustion-chamber-1"].resistances,
     fast_replaceable_group = "heat-exchanger",
+	next_upgrade = "nullius-heat-exchanger-2",
     collision_box = {{-1.29, -0.79}, {1.29, 0.79}},
     selection_box = {{-1.5, -1}, {1.5, 1}},
     fluid_boxes = {
@@ -4469,13 +4138,15 @@ ex1m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 1}}
 ex1m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex1m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
-ex1m.icons = data.raw.item["nullius-mirror-heat-exchanger-1"].icons
-ex1m.minable = {mining_time = 0.6, result = "nullius-mirror-heat-exchanger-1"}
+ex1m.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+ex1m.placeable_by = {item = "nullius-heat-exchanger-1", count = 1}
+ex1m.next_upgrade = "nullius-mirror-heat-exchanger-2"
 local ex2 = util.table.deepcopy(ex1)
 ex2.name = "nullius-heat-exchanger-2"
 ex2.localised_name = {"", {"entity-name.heat-exchanger"}, " ", 2}
 ex2.icons = data.raw.item["nullius-heat-exchanger-2"].icons
 ex2.minable = {mining_time = 0.8, result = "nullius-heat-exchanger-2"}
+ex2.next_upgrade = "nullius-heat-exchanger-3"
 ex2.crafting_speed = 5
 ex2.max_health = 300
 ex2.energy_source.max_temperature = 400
@@ -4497,8 +4168,9 @@ local ex2m = util.table.deepcopy(ex2)
 ex2m.name = "nullius-mirror-heat-exchanger-2"
 ex2m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 2}}
-ex2m.icons = data.raw.item["nullius-mirror-heat-exchanger-2"].icons
-ex2m.minable = {mining_time = 0.8, result = "nullius-mirror-heat-exchanger-2"}
+ex2m.icons[2] = ex1m.icons[2]
+ex2m.placeable_by = {item = "nullius-heat-exchanger-2", count = 1}
+ex2m.next_upgrade = "nullius-mirror-heat-exchanger-3"
 ex2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex2m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
 
@@ -4507,6 +4179,7 @@ ex3.name = "nullius-heat-exchanger-3"
 ex3.localised_name = {"", {"entity-name.heat-exchanger"}, " ", 3}
 ex3.icons = data.raw.item["nullius-heat-exchanger-3"].icons
 ex3.minable = {mining_time = 1, result = "nullius-heat-exchanger-3"}
+ex3.next_upgrade = nil
 ex3.crafting_speed = 12
 ex3.max_health = 500
 ex3.crafting_categories = { "boiling", "pressure-boiling" }
@@ -4530,20 +4203,20 @@ local ex3m = util.table.deepcopy(ex3)
 ex3m.name = "nullius-mirror-heat-exchanger-3"
 ex3m.localised_name = {"entity-name.nullius-mirrored",
     {"", {"entity-name.heat-exchanger"}, " ", 3}}
-ex3m.icons = data.raw.item["nullius-mirror-heat-exchanger-3"].icons
-ex3m.minable = {mining_time = 1, result = "nullius-mirror-heat-exchanger-3"}
+ex3m.icons[2] = ex1m.icons[2]
+ex3m.placeable_by = {item = "nullius-heat-exchanger-3", count = 1}
+ex3m.next_upgrade = nil
 ex3m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 ex3m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
-ex1.next_upgrade = "nullius-heat-exchanger-2"
-ex1m.next_upgrade = "nullius-mirror-heat-exchanger-2"
 data:extend({ ex1m, ex2, ex2m, ex3, ex3m })
 
 
-boil.name = "nullius-boiler"
+boil.name = "nullius-boiler-1"
 boil.localised_name = {"", {"entity-name.boiler"}, " ", 1}
 boil.localised_description = {"entity-description.nullius-boiler"}
-boil.icons = data.raw.item["nullius-boiler"].icons
-boil.minable = {mining_time = 1, result = "nullius-boiler"}
+boil.icons = data.raw.item["nullius-boiler-1"].icons
+boil.minable = {mining_time = 1, result = "nullius-boiler-1"}
+boil.next_upgrade = "nullius-boiler-2"
 boil.crafting_speed = 2
 boil.energy_source = {
   type = "electric",
@@ -4609,18 +4282,20 @@ boil.animation = {
 boil.working_visualisations = data.raw["assembling-machine"]["nullius-combustion-chamber-1"].working_visualisations
 
 local boilm = util.table.deepcopy(boil)
-boilm.name = "nullius-mirror-boiler"
+boilm.name = "nullius-mirror-boiler-1"
 boilm.localised_name = {"entity-name.nullius-mirrored", {"", {"entity-name.boiler"}, " ", 1}}
 boilm.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 boilm.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
-boilm.icons = data.raw.item["nullius-mirror-boiler"].icons
-boilm.minable = {mining_time = 1, result = "nullius-mirror-boiler"}
+boilm.icons[2] = ex1m.icons[2]
+boilm.placeable_by = {item = "nullius-boiler-1", count = 1}
+boilm.next_upgrade = "nullius-mirror-boiler-2"
 
 local boil2 = util.table.deepcopy(boil)
 boil2.name = "nullius-boiler-2"
 boil2.localised_name = {"", {"entity-name.boiler"}, " ", 2}
 boil2.icons = data.raw.item["nullius-boiler-2"].icons
 boil2.minable = {mining_time = 1.5, result = "nullius-boiler-2"}
+boil2.next_upgrade = nil
 boil2.max_health = 500
 boil2.crafting_categories = { "boiling", "pressure-boiling" }
 boil2.crafting_speed = 5
@@ -4641,8 +4316,9 @@ boil2m.name = "nullius-mirror-boiler-2"
 boil2m.localised_name = {"entity-name.nullius-mirrored", {"", {"entity-name.boiler"}, " ", 2}}
 boil2m.fluid_boxes[1].pipe_connections[1].position = {2, 0.5}
 boil2m.fluid_boxes[3].pipe_connections[1].position = {-2, 0.5}
-boil2m.icons = data.raw.item["nullius-mirror-boiler-2"].icons
-boil2m.minable.result = "nullius-mirror-boiler-2"
+boil2m.icons[2] = boilm.icons[2]
+boil2m.placeable_by = {item = "nullius-boiler-2", count = 1}
+boil2m.next_upgrade = nil
 data:extend({ boil, boilm, boil2, boil2m})
 
 

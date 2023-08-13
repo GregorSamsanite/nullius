@@ -70,6 +70,10 @@ data:extend({
   },
   {
     type = "recipe-category",
+    name = "nullius-power-sink"
+  },
+  {
+    type = "recipe-category",
     name = "nullius-barrel"
   },
   {
@@ -115,6 +119,14 @@ data:extend({
   {
     type = "recipe-category",
     name = "pressure-boiling"
+  },
+  {
+    type = "recipe-category",
+    name = "turbine-open"
+  },
+  {
+    type = "recipe-category",
+    name = "turbine-closed"
   },
 
   {
@@ -483,15 +495,21 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "aluminum-ingot",
+    name = "alumina",
     group = "metallurgy",
     order = "eb"
   },
   {
     type = "item-subgroup",
-    name = "aluminum-product",
+    name = "aluminum-ingot",
     group = "metallurgy",
     order = "ec"
+  },
+  {
+    type = "item-subgroup",
+    name = "aluminum-product",
+    group = "metallurgy",
+    order = "ed"
   },
   {
     type = "item-subgroup",
@@ -534,6 +552,12 @@ data:extend({
     name = "uranium",
     group = "metallurgy",
     order = "j"
+  },
+  {
+    type = "item-subgroup",
+    name = "ore-recovery",
+    group = "metallurgy",
+    order = "o"
   },
 
   {
@@ -824,6 +848,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "biology-burning",
+    group = "biology",
+    order = "n"
+  },
+  {
+    type = "item-subgroup",
     name = "biology-research",
     group = "biology",
     order = "r"
@@ -927,14 +957,32 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    order = "x",
+    order = "wb",
+    name = "turbine-open",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "wc",
+    name = "turbine-closed",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "xb",
     name = "nullius-liquid-void",
     group = "fluids",
   },
   {
     type = "item-subgroup",
-    order = "y",
+    order = "xc",
     name = "nullius-gas-void",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
+    order = "xd",
+    name = "nullius-power-sink",
     group = "fluids",
   },
 
@@ -1129,19 +1177,37 @@ data:extend({
   {
     type = "item-subgroup",
     order = "d",
-    name = "boxing-aluminum",
+    name = "boxing-aluminum-1",
     group = "boxing",
   },
   {
     type = "item-subgroup",
     order = "d",
-    name = "unboxing-aluminum",
+    name = "unboxing-aluminum-1",
     group = "unboxing",
   },
   {
     type = "item-subgroup",
     order = "d",
-    name = "boxed-aluminum",
+    name = "boxed-aluminum-1",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
+    order = "d",
+    name = "boxing-aluminum-2",
+    group = "boxing",
+  },
+  {
+    type = "item-subgroup",
+    order = "d",
+    name = "unboxing-aluminum-2",
+    group = "unboxing",
+  },
+  {
+    type = "item-subgroup",
+    order = "d",
+    name = "boxed-aluminum-2",
     group = "boxed",
   },
   {
@@ -1280,6 +1346,12 @@ data:extend({
     type = "item-subgroup",
     order = "ig",
     name = "boxed-wood",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
+    order = "ih",
+    name = "boxed-biology-burning",
     group = "boxed",
   },
 

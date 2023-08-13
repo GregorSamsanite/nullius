@@ -1172,7 +1172,7 @@ data:extend({
     always_show_made_in = true,
     energy_required = 8,
     ingredients = {
-      {"nullius-backup-turbine-1", 1},
+      {"nullius-turbine-open-1", 1},
       {"nullius-filter-1", 2},
       {"nullius-pump-1", 1}
     },
@@ -1189,7 +1189,7 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {"nullius-air-filter-1", 2},
-      {"nullius-standard-turbine-2", 1},
+      {"nullius-turbine-open-2", 1},
       {"nullius-filter-1", 10},
       {"nullius-pump-2", 2}
     },
@@ -1207,7 +1207,7 @@ data:extend({
     energy_required = 60,
     ingredients = {
       {"nullius-air-filter-2", 3},
-      {"nullius-surge-compressor-2", 1},
+      {"nullius-compressor-2", 1},
       {"nullius-filter-2", 6},
       {"pump", 2},
       {"nullius-chimney-2", 1},
@@ -1235,26 +1235,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-combustion-chamber-1",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.77, 0.77, 0.66, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "energy-storage",
-    order = "nullius-bbc",
-    place_result = "nullius-mirror-combustion-chamber-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
     name = "nullius-combustion-chamber-2",
     icons = {
       {
@@ -1267,26 +1247,6 @@ data:extend({
     subgroup = "energy-storage",
     order = "nullius-bcb",
     place_result = "nullius-combustion-chamber-2",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-combustion-chamber-2",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "energy-storage",
-    order = "nullius-bcc",
-    place_result = "nullius-mirror-combustion-chamber-2",
     stack_size = 50
   },
   {
@@ -1305,25 +1265,6 @@ data:extend({
     stack_size = 50
   },
   {
-    type = "item",
-    name = "nullius-mirror-combustion-chamber-3",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "energy-storage",
-    order = "nullius-bdc",
-    place_result = "nullius-mirror-combustion-chamber-3",
-    stack_size = 50
-  },
-  {
     type = "recipe",
     name = "nullius-combustion-chamber-1",
     enabled = false,
@@ -1333,55 +1274,6 @@ data:extend({
     ingredients = {
       {"nullius-small-furnace-1", 1},
       {"storage-tank", 1}
-    },
-    result = "nullius-combustion-chamber-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-combustion-chamber-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "medium-crafting",
-    energy_required = 1,
-	requester_paste_multiplier = 5,
-    ingredients = {
-      {"nullius-combustion-chamber-1", 1},
-      {"pipe", 2}
-    },
-    result = "nullius-mirror-combustion-chamber-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-combustion-chamber-1",
-    localised_name = {"recipe-name.nullius-unmirrored",
-      {"entity-name.nullius-combustion-chamber-1"}},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.77, 0.77, 0.66, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-    category = "medium-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-hb",
-    energy_required = 0.5,
-	requester_paste_multiplier = 2.5,
-    ingredients = {
-      {"nullius-mirror-combustion-chamber-1", 1},
-      {"pipe", 1}
     },
     result = "nullius-combustion-chamber-1"
   },
@@ -1401,54 +1293,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mirror-combustion-chamber-2",
-    enabled = false,
-    category = "medium-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-combustion-chamber-2", 1},
-      {"nullius-pipe-2", 2}
-    },
-    result = "nullius-mirror-combustion-chamber-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-combustion-chamber-2",
-    localised_name = {"recipe-name.nullius-unmirror-combustion-chamber-2"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "medium-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-hc",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-combustion-chamber-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-combustion-chamber-2"
-  },
-  {
-    type = "recipe",
     name = "nullius-combustion-chamber-3",
     enabled = false,
     category = "medium-crafting",
@@ -1461,504 +1305,6 @@ data:extend({
       {"nullius-ceramic-powder", 8}
     },
     result = "nullius-combustion-chamber-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-combustion-chamber-3",
-    enabled = false,
-    category = "medium-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-combustion-chamber-3", 1},
-      {"nullius-pipe-2", 3}
-    },
-    result = "nullius-mirror-combustion-chamber-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-combustion-chamber-3",
-    localised_name = {"recipe-name.nullius-unmirror-combustion-chamber-3"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/boiler.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "medium-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-hd",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-combustion-chamber-3", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-combustion-chamber-3"
-  },
-
-  {
-    type = "item",
-    name = "nullius-backup-turbine-1",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-green.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.5, 0.6, 0.55, 1}
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-dbb",
-    place_result = "nullius-backup-turbine-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-standard-turbine-1",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-yellow.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.65, 0.6, 0.5, 1}
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-dbc",
-    place_result = "nullius-standard-turbine-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-backup-turbine-2",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-green.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.75, 0.8, 0.75, 1}
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-dcb",
-    place_result = "nullius-backup-turbine-2",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-standard-turbine-2",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-yellow.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.8, 0.75, 1}
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-dcc",
-    place_result = "nullius-standard-turbine-2",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-backup-turbine-3",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-green.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-ddb",
-    place_result = "nullius-backup-turbine-3",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-standard-turbine-3",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-yellow.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-ddc",
-    place_result = "nullius-standard-turbine-3",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-priority-turbine-1",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-red.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.75, 0.75, 1}
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-dcd",
-    place_result = "nullius-priority-turbine-1",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-priority-turbine-2",
-    icons = {{
-        icon = ENTICONPATH .. "turbine-red.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-    }},
-    subgroup = "energy-backup",
-    order = "nullius-ddd",
-    place_result = "nullius-priority-turbine-2",
-    stack_size = 50
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-1",
-    enabled = false,
-    category = "large-crafting",
-    always_show_made_in = true,
-    energy_required = 8,
-    ingredients = {
-      {"nullius-motor-1", 1},
-      {"nullius-iron-sheet", 2},
-      {"nullius-iron-gear", 1},
-      {"pipe", 2}
-    },
-    result = "nullius-backup-turbine-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-backup-turbine-1",
-    enabled = false,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    always_show_made_in = true,
-    energy_required = 40,
-    ingredients = {
-      {"nullius-box-motor-1", 1},
-      {"nullius-box-iron-sheet", 2},
-      {"nullius-box-iron-gear", 1},
-      {"nullius-box-pipe-1", 2}
-    },
-    result = "nullius-box-backup-turbine-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-standard-turbine-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"nullius-backup-turbine-1", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-standard-turbine-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-standard-turbine-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    energy_required = 10,
-    ingredients = {
-      {"nullius-box-backup-turbine-1", 1},
-      {"nullius-box-insulated-wire", 1}
-    },
-    result = "nullius-box-standard-turbine-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-2",
-    enabled = false,
-    always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 16,
-    ingredients = {
-      {"nullius-standard-turbine-1", 2},
-      {"nullius-motor-2", 2},
-      {"nullius-aluminum-sheet", 8},
-      {"nullius-steel-gear", 4},
-      {"nullius-pipe-2", 5},
-      {"nullius-capacitor", 2}
-    },
-    result = "nullius-standard-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-standard-turbine-2",
-    enabled = false,
-    always_show_made_in = true,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    energy_required = 80,
-    ingredients = {
-      {"nullius-box-standard-turbine-1", 2},
-      {"nullius-box-motor-2", 2},
-      {"nullius-box-aluminum-sheet", 8},
-      {"nullius-box-steel-gear", 4},
-      {"nullius-box-pipe-2", 5},
-      {"nullius-box-capacitor", 2}
-    },
-    result = "nullius-box-standard-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-backup-turbine-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 3,
-    ingredients = {
-      {"nullius-standard-turbine-2", 1},
-      {"power-switch", 1}
-    },
-    result = "nullius-backup-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-backup-turbine-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    energy_required = 15,
-    ingredients = {
-      {"nullius-box-standard-turbine-2", 1},
-      {"nullius-box-power-switch", 1}
-    },
-    result = "nullius-box-backup-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-3",
-    enabled = false,
-    always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 40,
-    ingredients = {
-      {"nullius-standard-turbine-2", 2},
-      {"nullius-motor-3", 4},
-      {"nullius-titanium-sheet", 12},
-      {"nullius-bearing", 6},
-      {"nullius-pipe-4", 8},
-      {"nullius-transformer", 1},
-      {"nullius-small-pump-2", 1}
-    },
-    result = "nullius-standard-turbine-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-standard-turbine-3",
-    enabled = false,
-    always_show_made_in = true,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    energy_required = 200,
-    ingredients = {
-      {"nullius-box-standard-turbine-2", 2},
-      {"nullius-box-motor-3", 4},
-      {"nullius-box-titanium-sheet", 12},
-      {"nullius-box-bearing", 6},
-      {"nullius-box-pipe-4", 8},
-      {"nullius-box-transformer", 1},
-      {"nullius-box-small-pump-2", 1}
-    },
-    result = "nullius-box-standard-turbine-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-backup-turbine-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 5,
-    ingredients = {
-      {"nullius-standard-turbine-3", 1},
-      {"power-switch", 2}
-    },
-    result = "nullius-backup-turbine-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-backup-turbine-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-assembly",
-    subgroup = "boxed-fluid-energy",
-    energy_required = 25,
-    ingredients = {
-      {"nullius-box-standard-turbine-3", 1},
-      {"nullius-box-power-switch", 2}
-    },
-    result = "nullius-box-backup-turbine-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-priority-turbine-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 5,
-    ingredients = {
-      {"nullius-standard-turbine-2", 1},
-      {"power-switch", 2}
-    },
-    result = "nullius-priority-turbine-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-priority-turbine-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 12,
-    ingredients = {
-      {"nullius-standard-turbine-3", 1},
-      {"power-switch", 3}
-    },
-    result = "nullius-priority-turbine-2"
-  }
-})
-
-data:extend({
-  {
-    type = "recipe",
-    name = "nullius-turbine-reprioritization-2",
-    localised_name = {"recipe-name.nullius-reprioritization", {"entity-name.nullius-backup-turbine-2"}},
-    icons = {
-      data.raw.item["nullius-backup-turbine-2"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-db",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-backup-turbine-2", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-standard-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-deprioritization-2",
-    localised_name = {"recipe-name.nullius-deprioritization", {"entity-name.nullius-priority-turbine-1"}},
-    icons = {
-      data.raw.item["nullius-priority-turbine-1"].icons[1],
-      {
-        icon = ICONPATH .. "down.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-dc",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-priority-turbine-1", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-standard-turbine-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-reprioritization-3",
-    localised_name = {"recipe-name.nullius-reprioritization", {"entity-name.nullius-backup-turbine-3"}},
-    icons = {
-      data.raw.item["nullius-backup-turbine-3"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-dd",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-backup-turbine-3", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-standard-turbine-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-turbine-deprioritization-3",
-    localised_name = {"recipe-name.nullius-deprioritization", {"entity-name.nullius-priority-turbine-2"}},
-    icons = {
-      data.raw.item["nullius-priority-turbine-2"].icons[1],
-      {
-        icon = ICONPATH .. "down.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {-8, 6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-de",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-priority-turbine-2", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-standard-turbine-3"
   },
 
   {
@@ -1991,26 +1337,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-hydro-plant-2",
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 64,
-	    icon_mipmaps = 4,
-        tint = {0.8, 0.8, 0.9}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "water-treatment",
-    order = "nullius-bcc",
-    place_result = "nullius-mirror-hydro-plant-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
     name = "nullius-hydro-plant-3",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
@@ -2020,25 +1346,6 @@ data:extend({
     subgroup = "water-treatment",
     order = "nullius-bdb",
     place_result = "nullius-hydro-plant-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-hydro-plant-3",
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-	  },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "water-treatment",
-    order = "nullius-bdc",
-    place_result = "nullius-mirror-hydro-plant-3",
     stack_size = 20
   },
   {
@@ -2072,54 +1379,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mirror-hydro-plant-2",
-    enabled = false,
-    category = "large-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-hydro-plant-2", 1},
-      {"nullius-pipe-2", 4}
-    },
-    result = "nullius-mirror-hydro-plant-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-hydro-plant-2",
-    localised_name = {"recipe-name.nullius-unmirror-hydro-plant-2"},
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 64,
-	    icon_mipmaps = 4,
-        tint = {0.8, 0.8, 0.9}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-fb",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-hydro-plant-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-hydro-plant-2"
-  },
-  {
-    type = "recipe",
     name = "nullius-hydro-plant-3",
     enabled = false,
     always_show_made_in = true,
@@ -2133,53 +1392,6 @@ data:extend({
       {"pump", 3},
       {"nullius-box-filter-2", 1},
       {"nullius-box-sensor-2", 1}
-    },
-    result = "nullius-hydro-plant-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-hydro-plant-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-hydro-plant-3", 1},
-      {"nullius-pipe-3", 5}
-    },
-    result = "nullius-mirror-hydro-plant-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-hydro-plant-3",
-    localised_name = {"recipe-name.nullius-unmirror-hydro-plant-3"},
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/hydro-plant.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-fc",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-hydro-plant-3", 1},
-      {"nullius-pipe-3", 1}
     },
     result = "nullius-hydro-plant-3"
   },
@@ -2218,26 +1430,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-distillery-2",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/oil-refinery.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.7, 0.7, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "air-treatment",
-    order = "nullius-ccc",
-    place_result = "nullius-mirror-distillery-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
     name = "nullius-distillery-3",
     icons = {
       {
@@ -2249,25 +1441,6 @@ data:extend({
     subgroup = "air-treatment",
     order = "nullius-cdb",
     place_result = "nullius-distillery-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-distillery-3",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/oil-refinery.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "air-treatment",
-    order = "nullius-cdc",
-    place_result = "nullius-mirror-distillery-3",
     stack_size = 20
   },
   {
@@ -2304,54 +1477,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mirror-distillery-2",
-    enabled = false,
-    category = "large-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-distillery-2", 1},
-      {"nullius-pipe-2", 5}
-    },
-    result = "nullius-mirror-distillery-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-distillery-2",
-    localised_name = {"recipe-name.nullius-unmirror-distillery-2"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/oil-refinery.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.7, 0.7, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-cb",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-distillery-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-distillery-2"
-  },
-  {
-    type = "recipe",
     name = "nullius-distillery-3",
     enabled = false,
     always_show_made_in = true,
@@ -2365,53 +1490,6 @@ data:extend({
       {"nullius-large-furnace-1", 1},
       {"nullius-thermal-tank-2", 2},
       {"nullius-barrel-pump-1", 1}
-    },
-    result = "nullius-distillery-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-distillery-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-distillery-3", 1},
-      {"nullius-pipe-3", 6}
-    },
-    result = "nullius-mirror-distillery-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-distillery-3",
-    localised_name = {"recipe-name.nullius-unmirror-distillery-3"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/oil-refinery.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-cc",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-distillery-3", 1},
-      {"nullius-pipe-3", 1}
     },
     result = "nullius-distillery-3"
   },
@@ -2446,26 +1524,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-flotation-cell-2",
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 64,
-	    icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "water-treatment",
-    order = "nullius-ccc",
-    place_result = "nullius-mirror-flotation-cell-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
     name = "nullius-flotation-cell-3",
     icons = {{
       icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
@@ -2475,25 +1533,6 @@ data:extend({
     subgroup = "water-treatment",
     order = "nullius-cdb",
     place_result = "nullius-flotation-cell-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-flotation-cell-3",
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "water-treatment",
-    order = "nullius-cdc",
-    place_result = "nullius-mirror-flotation-cell-3",
     stack_size = 20
   },
   {
@@ -2525,54 +1564,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mirror-flotation-cell-2",
-    enabled = false,
-    category = "large-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-flotation-cell-2", 1},
-      {"nullius-pipe-2", 4}
-    },
-    result = "nullius-mirror-flotation-cell-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-flotation-cell-2",
-    localised_name = {"recipe-name.nullius-unmirror-flotation-cell-2"},
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-	    icon_size = 64,
-	    icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-eb",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-flotation-cell-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-flotation-cell-2"
-  },
-  {
-    type = "recipe",
     name = "nullius-flotation-cell-3",
     enabled = false,
     always_show_made_in = true,
@@ -2582,53 +1573,6 @@ data:extend({
       {"nullius-flotation-cell-2", 1},
       {"nullius-hydro-plant-2", 1},
       {"nullius-crusher-2", 1}
-    },
-    result = "nullius-flotation-cell-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-flotation-cell-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-flotation-cell-3", 1},
-      {"nullius-pipe-3", 4}
-    },
-    result = "nullius-mirror-flotation-cell-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-flotation-cell-3",
-    localised_name = {"recipe-name.nullius-unmirror-flotation-cell-3"},
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/ore-floatation-cell.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-ec",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-flotation-cell-3", 1},
-      {"nullius-pipe-3", 1}
     },
     result = "nullius-flotation-cell-3"
   },
@@ -2667,26 +1611,6 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-chemical-plant-2",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/chemical-plant.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "chemical-plant",
-    order = "nullius-bcc",
-    place_result = "nullius-mirror-chemical-plant-2",
-    stack_size = 50
-  },
-  {
-    type = "item",
     name = "nullius-chemical-plant-3",
     icons = {
       {
@@ -2698,25 +1622,6 @@ data:extend({
     subgroup = "chemical-plant",
     order = "nullius-bdb",
     place_result = "nullius-chemical-plant-3",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-chemical-plant-3",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/chemical-plant.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "chemical-plant",
-    order = "nullius-bdc",
-    place_result = "nullius-mirror-chemical-plant-3",
     stack_size = 50
   },
   {
@@ -2752,54 +1657,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mirror-chemical-plant-2",
-    enabled = false,
-    category = "large-crafting",
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-chemical-plant-2", 1},
-      {"nullius-pipe-2", 3}
-    },
-    result = "nullius-mirror-chemical-plant-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-chemical-plant-2",
-    localised_name = {"recipe-name.nullius-unmirror-chemical-plant-2"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/chemical-plant.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-        tint = {0.8, 0.8, 1, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-bb",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-chemical-plant-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-chemical-plant-2"
-  },
-  {
-    type = "recipe",
     name = "nullius-chemical-plant-3",
     enabled = false,
     category = "large-crafting",
@@ -2814,74 +1671,15 @@ data:extend({
     },
     result = "nullius-chemical-plant-3"
   },
-  {
-    type = "recipe",
-    name = "nullius-mirror-chemical-plant-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-chemical-plant-3", 1},
-      {"nullius-pipe-3", 4}
-    },
-    result = "nullius-mirror-chemical-plant-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-chemical-plant-3",
-    localised_name = {"recipe-name.nullius-unmirror-chemical-plant-3"},
-    icons = {
-      {
-        icon = "__base__/graphics/icons/chemical-plant.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-bc",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-chemical-plant-3", 1},
-      {"nullius-pipe-3", 1}
-    },
-    result = "nullius-chemical-plant-3"
-  },
 
   {
     type = "item",
-    name = "nullius-surge-electrolyzer-1",
+    name = "nullius-electrolyzer-1",
+	localised_name = {"", {"entity-name.nullius-electrolyzer"}, " ", 1},
     icons = {{
       icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
       icon_size = 32,
-      tint = {0.8, 0.8, 0.6}
-    }},
-    subgroup = "electrolyzer",
-    order = "nullius-bbc",
-    place_result = "nullius-surge-electrolyzer-1",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-electrolyzer-1",
-    icons = {{
-      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-      icon_size = 32,
-      tint = {0.8, 0.68, 0.51}
+      tint = {0.8, 0.75, 0.55}
     }},
     subgroup = "electrolyzer",
     order = "nullius-bbb",
@@ -2890,43 +1688,12 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-surge-electrolyzer-2",
+    name = "nullius-electrolyzer-2",
+	localised_name = {"", {"entity-name.nullius-electrolyzer"}, " ", 2},
     icons = {{
       icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
       icon_size = 32,
-      tint = {0.8, 0.9, 1}
-    }},
-    subgroup = "electrolyzer",
-    order = "nullius-bccb",
-    place_result = "nullius-surge-electrolyzer-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-surge-electrolyzer-2",
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {0.8, 0.9, 1}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "electrolyzer",
-    order = "nullius-bccc",
-    place_result = "nullius-mirror-surge-electrolyzer-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-electrolyzer-2",
-    icons = {{
-      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-      icon_size = 32,
-      tint = {0.8, 0.76, 0.85}
+      tint = {0.8, 0.85, 0.9}
     }},
     subgroup = "electrolyzer",
     order = "nullius-bcbb",
@@ -2935,60 +1702,11 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-mirror-priority-electrolyzer-2",
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {0.8, 0.76, 0.85}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "electrolyzer",
-    order = "nullius-bcbc",
-    place_result = "nullius-mirror-priority-electrolyzer-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-surge-electrolyzer-3",
+    name = "nullius-electrolyzer-3",
+	localised_name = {"", {"entity-name.nullius-electrolyzer"}, " ", 3},
     icons = {{
       icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
       icon_size = 32
-    }},
-    subgroup = "electrolyzer",
-    order = "nullius-beb",
-    place_result = "nullius-surge-electrolyzer-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-surge-electrolyzer-3",
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "electrolyzer",
-    order = "nullius-bec",
-    place_result = "nullius-mirror-surge-electrolyzer-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-electrolyzer-3",
-    icons = {{
-      icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-      icon_size = 32,
-      tint = {1, 0.85, 0.85}
     }},
     subgroup = "electrolyzer",
     order = "nullius-bdb",
@@ -2996,27 +1714,8 @@ data:extend({
     stack_size = 20
   },
   {
-    type = "item",
-    name = "nullius-mirror-priority-electrolyzer-3",
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {1, 0.85, 0.85}
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "electrolyzer",
-    order = "nullius-bdc",
-    place_result = "nullius-mirror-priority-electrolyzer-3",
-    stack_size = 20
-  },
-  {
     type = "recipe",
-    name = "nullius-priority-electrolyzer-1",
+    name = "nullius-electrolyzer-1",
     category = "large-crafting",
     enabled = false,
     always_show_made_in = true,
@@ -3027,365 +1726,39 @@ data:extend({
       {"nullius-filter-1", 2},
       {"nullius-priority-valve", 4}
     },
-    result = "nullius-priority-electrolyzer-1"
+    result = "nullius-electrolyzer-1"
   },
   {
     type = "recipe",
-    name = "nullius-surge-electrolyzer-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 4,
-    ingredients = {
-      {"nullius-priority-electrolyzer-1", 1},
-      {"small-electric-pole", 1}
-    },
-    result = "nullius-surge-electrolyzer-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-priority-electrolyzer-2",
+    name = "nullius-electrolyzer-2",
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 25,
     ingredients = {
-      {"nullius-surge-electrolyzer-1", 1},
-      {"nullius-priority-electrolyzer-1", 1},
+      {"nullius-electrolyzer-1", 2},
       {"big-electric-pole", 3},
       {"nullius-small-tank-1", 3},
-      {"nullius-small-pump-1", 3}
+      {"nullius-small-pump-1", 3},
+	  {"power-switch", 2}
     },
-    result = "nullius-priority-electrolyzer-2"
+    result = "nullius-electrolyzer-2"
   },
   {
     type = "recipe",
-    name = "nullius-surge-electrolyzer-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-crafting",
-    energy_required = 8,
-    ingredients = {
-      {"nullius-priority-electrolyzer-2", 1},
-      {"power-switch", 1}
-    },
-    result = "nullius-surge-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-priority-electrolyzer-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-priority-electrolyzer-2", 1},
-      {"nullius-pipe-2", 4}
-    },
-    result = "nullius-mirror-priority-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-priority-electrolyzer-2",
-    localised_name = {"recipe-name.nullius-unmirror-priority-electrolyzer-2"},
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {0.8, 0.76, 0.85}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-gbb",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-priority-electrolyzer-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-priority-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-surge-electrolyzer-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-electrolyzer-2", 1},
-      {"nullius-pipe-2", 4}
-    },
-    result = "nullius-mirror-surge-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-surge-electrolyzer-2",
-    localised_name = {"recipe-name.nullius-unmirror-surge-electrolyzer-2"},
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {0.8, 0.9, 1}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-gbc",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-surge-electrolyzer-2", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-surge-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-priority-electrolyzer-3",
+    name = "nullius-electrolyzer-3",
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 60,
     ingredients = {
-      {"nullius-priority-electrolyzer-2", 1},
-      {"nullius-surge-electrolyzer-2", 1},
+      {"nullius-electrolyzer-2", 2},
       {"nullius-distillery-2", 1},
       {"nullius-substation-2", 1},
       {"nullius-charger-2", 2},
       {"nullius-efficiency-module-2", 1}
     },
-    result = "nullius-priority-electrolyzer-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-surge-electrolyzer-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-electrolyzer-3", 1},
-      {"nullius-pipe-3", 4}
-    },
-    result = "nullius-mirror-surge-electrolyzer-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-surge-electrolyzer-3",
-    localised_name = {"recipe-name.nullius-unmirror-surge-electrolyzer-3"},
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-gcc",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-surge-electrolyzer-3", 1},
-      {"nullius-pipe-3", 1}
-    },
-    result = "nullius-surge-electrolyzer-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-surge-electrolyzer-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-crafting",
-    energy_required = 15,
-    ingredients = {
-      {"nullius-priority-electrolyzer-3", 1},
-      {"nullius-sensor-1", 1}
-    },
-    result = "nullius-surge-electrolyzer-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-priority-electrolyzer-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-priority-electrolyzer-3", 1},
-      {"nullius-pipe-3", 4}
-    },
-    result = "nullius-mirror-priority-electrolyzer-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-priority-electrolyzer-3",
-    localised_name = {"recipe-name.nullius-unmirror-priority-electrolyzer-3"},
-    icons = {
-      {
-        icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
-        icon_size = 32,
-        tint = {1, 0.85, 0.85}
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-1",
-    order = "nullius-gcb",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-priority-electrolyzer-3", 1},
-      {"nullius-pipe-3", 1}
-    },
-    result = "nullius-priority-electrolyzer-3"
-  }
-})
-
-data:extend({
-  {
-    type = "recipe",
-    name = "nullius-electrolyzer-reprioritization-1",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-electrolyzer-1"}},
-    icons = {
-      data.raw.item["nullius-surge-electrolyzer-1"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-bb",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-electrolyzer-1", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-electrolyzer-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-electrolyzer-reprioritization-2",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-electrolyzer-2"}},
-    icons = {
-      data.raw.item["nullius-surge-electrolyzer-2"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "huge-crafting",
-    subgroup = "prioritization",
-    order = "nullius-bc",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-electrolyzer-2", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-electrolyzer-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-electrolyzer-reprioritization-3",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-electrolyzer-3"}},
-    icons = {
-      data.raw.item["nullius-surge-electrolyzer-3"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "huge-crafting",
-    subgroup = "prioritization",
-    order = "nullius-bd",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-electrolyzer-3", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-electrolyzer-3"
+    result = "nullius-electrolyzer-3"
   },
 
   {
@@ -3810,33 +2183,48 @@ data:extend({
 
   {
     type = "item",
-    name = "nullius-surge-compressor-1",
+    name = "nullius-compressor-1",
+	localised_name = {"", {"entity-name.nullius-compressor"}, " ", 1},
     icons = {{
       icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
       icon_size = 32,
-      tint = {0.6, 0.6, 0.4}
+      tint = {0.6, 0.55, 0.36}
     }},
-    subgroup = "compressor",
-    order = "nullius-cbc",
-    place_result = "nullius-surge-compressor-1",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-compressor-1",
-    icons = {{
-      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
-      icon_size = 32,
-      tint = {0.6, 0.51, 0.34}
-    }},
-    subgroup = "compressor",
+    subgroup = "electrolyzer",
     order = "nullius-cbb",
     place_result = "nullius-priority-compressor-1",
     stack_size = 20
   },
   {
+    type = "item",
+    name = "nullius-compressor-2",
+	localised_name = {"", {"entity-name.nullius-compressor"}, " ", 2},
+    icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32,
+      tint = {0.65, 0.6, 0.8}
+    }},
+    subgroup = "electrolyzer",
+    order = "nullius-ccb",
+    place_result = "nullius-priority-compressor-2",
+    stack_size = 20
+  },
+  {
+    type = "item",
+    name = "nullius-compressor-3",
+	localised_name = {"", {"entity-name.nullius-compressor"}, " ", 3},
+    icons = {{
+      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
+      icon_size = 32
+    }},
+    subgroup = "electrolyzer",
+    order = "nullius-cdb",
+    place_result = "nullius-priority-compressor-3",
+    stack_size = 20
+  },
+  {
     type = "recipe",
-    name = "nullius-priority-compressor-1",
+    name = "nullius-compressor-1",
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
@@ -3845,234 +2233,42 @@ data:extend({
       {"nullius-pump-2", 4},
       {"nullius-medium-tank-2", 2},
       {"nullius-top-up-valve", 2},
-      {"red-wire", 1}
-    },
-    result = "nullius-priority-compressor-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-surge-compressor-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "large-crafting",
-    energy_required = 5,
-    ingredients = {
-      {"nullius-priority-compressor-1", 1},
       {"power-switch", 1}
     },
-    result = "nullius-surge-compressor-1"
-  },
-
-  {
-    type = "item",
-    name = "nullius-surge-compressor-2",
-    icons = {{
-      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
-      icon_size = 32,
-      tint = {0.65, 0.65, 0.9}
-    }},
-    subgroup = "compressor",
-    order = "nullius-ccc",
-    place_result = "nullius-surge-compressor-2",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-compressor-2",
-    icons = {{
-      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
-      icon_size = 32,
-      tint = {0.65, 0.55, 0.76}
-    }},
-    subgroup = "compressor",
-    order = "nullius-ccb",
-    place_result = "nullius-priority-compressor-2",
-    stack_size = 20
+    result = "nullius-compressor-1"
   },
   {
     type = "recipe",
-    name = "nullius-priority-compressor-2",
+    name = "nullius-compressor-2",
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 25,
     ingredients = {
-      {"nullius-priority-compressor-1", 1},
-      {"nullius-surge-compressor-1", 1},
+      {"nullius-compressor-1", 2},
       {"nullius-air-filter-2", 1},
       {"nullius-large-tank-2", 1},
-      {"nullius-relief-valve", 5}
+      {"nullius-relief-valve", 5},
+	  {"nullius-sensor-1", 1}
     },
-    result = "nullius-priority-compressor-2"
+    result = "nullius-compressor-2"
   },
   {
     type = "recipe",
-    name = "nullius-surge-compressor-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-crafting",
-    energy_required = 10,
-    ingredients = {
-      {"nullius-priority-compressor-2", 1},
-      {"nullius-sensor-1", 1}
-    },
-    result = "nullius-surge-compressor-2"
-  },
-
-  {
-    type = "item",
-    name = "nullius-surge-compressor-3",
-    icons = {{
-      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
-      icon_size = 32
-    }},
-    subgroup = "compressor",
-    order = "nullius-cdc",
-    place_result = "nullius-surge-compressor-3",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "nullius-priority-compressor-3",
-    icons = {{
-      icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
-      icon_size = 32,
-      tint = {1, 0.85, 0.85}
-    }},
-    subgroup = "compressor",
-    order = "nullius-cdb",
-    place_result = "nullius-priority-compressor-3",
-    stack_size = 20
-  },
-  {
-    type = "recipe",
-    name = "nullius-priority-compressor-3",
+    name = "nullius-compressor-3",
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 45,
     ingredients = {
-      {"nullius-surge-compressor-2", 1},
-      {"nullius-priority-compressor-2", 1},
+      {"nullius-compressor-2", 2},
       {"nullius-air-filter-3", 1},
       {"nullius-large-tank-3", 1},
-      {"nullius-standard-turbine-3", 1},
+      {"nullius-turbine-closed-3", 1},
       {"nullius-box-pump-3", 1},
       {"nullius-pylon-2", 1}
     },
-    result = "nullius-priority-compressor-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-surge-compressor-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    category = "huge-crafting",
-    energy_required = 12,
-    ingredients = {
-      {"nullius-priority-compressor-3", 1},
-      {"nullius-sensor-2", 1}
-    },
-    result = "nullius-surge-compressor-3"
-  }
-})
-
-data:extend({
-  {
-    type = "recipe",
-    name = "nullius-compressor-reprioritization-1",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-compressor-1"}},
-    icons = {
-      data.raw.item["nullius-surge-compressor-1"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "large-crafting",
-    subgroup = "prioritization",
-    order = "nullius-cb",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-compressor-1", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-compressor-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-compressor-reprioritization-2",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-compressor-2"}},
-    icons = {
-      data.raw.item["nullius-surge-compressor-2"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "huge-crafting",
-    subgroup = "prioritization",
-    order = "nullius-cc",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-compressor-2", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-compressor-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-compressor-reprioritization-3",
-    localised_name = {"recipe-name.nullius-reprioritization",
-        {"entity-name.nullius-surge-compressor-3"}},
-    icons = {
-      data.raw.item["nullius-surge-compressor-3"].icons[1],
-      {
-        icon = ICONPATH .. "up.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {8, -6}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    category = "huge-crafting",
-    subgroup = "prioritization",
-    order = "nullius-cd",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-surge-compressor-3", 1},
-      {"copper-cable", 1}
-    },
-    result = "nullius-priority-compressor-3"
+    result = "nullius-compressor-3"
   },
 
   {
@@ -4460,7 +2656,7 @@ data:extend({
       icon_mipmaps = 4,
       tint = {0.8, 0.8, 0.6}
     }},
-    subgroup = "heat-energy",
+    subgroup = "heat-exchange",
     place_result = "nullius-stirling-engine-1",
     stack_size = 20
   },
@@ -4474,7 +2670,7 @@ data:extend({
       icon_mipmaps = 4,
       tint = {0.75, 0.75, 0.95}
     }},
-    subgroup = "heat-energy",
+    subgroup = "heat-exchange",
     place_result = "nullius-stirling-engine-2",
     stack_size = 20
   },
@@ -4487,7 +2683,7 @@ data:extend({
       icon_size = 64,
       icon_mipmaps = 4
     }},
-    subgroup = "heat-energy",
+    subgroup = "heat-exchange",
     place_result = "nullius-stirling-engine-3",
     stack_size = 20
   },
@@ -4501,8 +2697,8 @@ data:extend({
     category = "large-fluid-assembly",
     energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-surge-compressor-1", amount=1},
-      {type="item", name="nullius-standard-turbine-2", amount=2},
+      {type="item", name="nullius-compressor-1", amount=1},
+      {type="item", name="nullius-turbine-closed-2", amount=2},
       {type="item", name="nullius-heat-pipe-1", amount=8},
       {type="fluid", name="nullius-compressed-nitrogen", amount=600},
       {type="fluid", name="nullius-lubricant", amount=30}
@@ -4520,7 +2716,7 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {type="item", name="nullius-stirling-engine-1", amount=3},
-      {type="item", name="nullius-surge-compressor-2", amount=1},
+      {type="item", name="nullius-compressor-2", amount=1},
       {type="item", name="nullius-thermal-tank-2", amount=2},
       {type="item", name="nullius-transformer", amount=3},
       {type="fluid", name="nullius-compressed-argon", amount=500, fluidbox_index=1}
@@ -4538,9 +2734,9 @@ data:extend({
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-stirling-engine-2", amount=3},
-      {type="item", name="nullius-surge-compressor-3", amount=1},
+      {type="item", name="nullius-compressor-3", amount=1},
       {type="item", name="nullius-thermal-tank-3", amount=2},
-      {type="item", name="nullius-standard-turbine-3", amount=4},
+      {type="item", name="nullius-turbine-closed-3", amount=4},
       {type="item", name="nullius-grid-battery-2", amount=3},
       {type="fluid", name="nullius-compressed-helium", amount=300, fluidbox_index=1}
     },
@@ -4591,24 +2787,6 @@ data:extend({
     stack_size = 50
   },
   {
-    type = "item",
-    name = "nullius-mirror-heat-exchanger-1",
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger1.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "heat-exchange",
-    order = "nullius-bbc",
-    place_result = "nullius-mirror-heat-exchanger-1",
-    stack_size = 50
-  },
-  {
     type = "recipe",
     name = "nullius-heat-exchanger-1",
     enabled = false,
@@ -4622,52 +2800,6 @@ data:extend({
     result = "nullius-heat-exchanger-1"
   },
   {
-    type = "recipe",
-    name = "nullius-mirror-heat-exchanger-1",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "medium-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-heat-exchanger-1", 1},
-      {"nullius-pipe-2", 2}
-    },
-    result = "nullius-mirror-heat-exchanger-1"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-heat-exchanger-1",
-    localised_name = {"recipe-name.nullius-unmirrored",
-        {"", {"entity-name.heat-exchanger"}, " ", 1}},
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger1.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "medium-crafting",
-    order = "nullius-cb",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-heat-exchanger-1", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-heat-exchanger-1"
-  },
-  {
     type = "item",
     name = "nullius-heat-exchanger-2",
     icons = {{
@@ -4677,24 +2809,6 @@ data:extend({
     subgroup = "heat-exchange",
     order = "nullius-bcb",
     place_result = "nullius-heat-exchanger-2",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-heat-exchanger-2",
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger2.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "heat-exchange",
-    order = "nullius-bcc",
-    place_result = "nullius-mirror-heat-exchanger-2",
     stack_size = 50
   },
   {
@@ -4712,53 +2826,6 @@ data:extend({
     result = "nullius-heat-exchanger-2"
   },
   {
-    type = "recipe",
-    name = "nullius-mirror-heat-exchanger-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "medium-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-heat-exchanger-2", 1},
-      {"nullius-pipe-3", 2}
-    },
-    result = "nullius-mirror-heat-exchanger-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-heat-exchanger-2",
-    localised_name = {"recipe-name.nullius-unmirrored",
-        {"", {"entity-name.heat-exchanger"}, " ", 2}},
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger2.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "medium-crafting",
-    order = "nullius-cc",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-heat-exchanger-2", 1},
-      {"nullius-pipe-3", 1}
-    },
-    result = "nullius-heat-exchanger-2"
-  },
-
-  {
     type = "item",
     name = "nullius-heat-exchanger-3",
     icons = {{
@@ -4768,24 +2835,6 @@ data:extend({
     subgroup = "heat-exchange",
     order = "nullius-bdb",
     place_result = "nullius-heat-exchanger-3",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-heat-exchanger-3",
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger3.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "heat-exchange",
-    order = "nullius-bdc",
-    place_result = "nullius-mirror-heat-exchanger-3",
     stack_size = 50
   },
   {
@@ -4802,81 +2851,17 @@ data:extend({
     },
     result = "nullius-heat-exchanger-3"
   },
-  {
-    type = "recipe",
-    name = "nullius-mirror-heat-exchanger-3",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "medium-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-heat-exchanger-3", 1},
-      {"nullius-pipe-4", 2}
-    },
-    result = "nullius-mirror-heat-exchanger-3"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-heat-exchanger-3",
-    localised_name = {"recipe-name.nullius-unmirrored",
-        {"", {"entity-name.heat-exchanger"}, " ", 3}},
-    icons = {
-      {
-        icon = ENTICONPATH .. "exchanger3.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "medium-crafting",
-    order = "nullius-cd",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-heat-exchanger-3", 1},
-      {"nullius-pipe-4", 1}
-    },
-    result = "nullius-heat-exchanger-3"
-  },
 
   {
     type = "item",
-    name = "nullius-boiler",
+    name = "nullius-boiler-1",
     icons = {{
       icon = ENTICONPATH .. "boiler-blue.png",
       icon_size = 64
     }},
     subgroup = "energy-storage",
     order = "nullius-fbb",
-    place_result = "nullius-boiler",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "nullius-mirror-boiler",
-    icons = {
-      {
-        icon = ENTICONPATH .. "boiler-blue.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "energy-storage",
-    order = "nullius-fbc",
-    place_result = "nullius-mirror-boiler",
+    place_result = "nullius-boiler-1",
     stack_size = 50
   },
   {
@@ -4892,26 +2877,8 @@ data:extend({
     stack_size = 50
   },
   {
-    type = "item",
-    name = "nullius-mirror-boiler-2",
-    icons = {
-      {
-        icon = ENTICONPATH .. "boiler2.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "energy-storage",
-    order = "nullius-fcc",
-    place_result = "nullius-mirror-boiler-2",
-    stack_size = 50
-  },
-  {
     type = "recipe",
-    name = "nullius-boiler",
+    name = "nullius-boiler-1",
     enabled = false,
     always_show_made_in = true,
     category = "medium-crafting",
@@ -4922,54 +2889,7 @@ data:extend({
       {"nullius-ceramic-powder", 5},
       {"nullius-transformer", 1}
     },
-    result = "nullius-boiler"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-boiler",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "medium-crafting",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-boiler", 1},
-      {"nullius-pipe-2", 2}
-    },
-    result = "nullius-mirror-boiler"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-boiler",
-    localised_name = {"recipe-name.nullius-unmirrored",
-	    {"", {"entity-name.boiler"}, " ", 1}},
-    icons = {
-      {
-        icon = ENTICONPATH .. "boiler-blue.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "medium-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-fd",
-    energy_required = 0.5,
-    ingredients = {
-      {"nullius-mirror-boiler", 1},
-      {"nullius-pipe-2", 1}
-    },
-    result = "nullius-boiler"
+    result = "nullius-boiler-1"
   },
   {
     type = "recipe",
@@ -4980,55 +2900,8 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-heat-exchanger-3", 1},
-	  {"nullius-boiler", 1},
+	  {"nullius-boiler-1", 1},
       {"nullius-medium-furnace-3", 1}
-    },
-    result = "nullius-boiler-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-boiler-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 5,
-    category = "medium-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"nullius-boiler-2", 1},
-      {"nullius-pipe-4", 2}
-    },
-    result = "nullius-mirror-boiler-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-boiler-2",
-	localised_name = {"recipe-name.nullius-unmirrored",
-	    {"", {"entity-name.boiler"}, " ", 2}},
-    icons = {
-      {
-        icon = ENTICONPATH .. "boiler2.png",
-        icon_size = 64
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 2.5,
-    category = "medium-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-fe",
-    energy_required = 1,
-    ingredients = {
-      {"nullius-mirror-boiler-2", 1},
-      {"nullius-pipe-4", 1}
     },
     result = "nullius-boiler-2"
   },
@@ -5108,25 +2981,6 @@ data:extend({
     stack_size = 20
   },
   {
-    type = "item",
-    name = "nullius-mirror-nanofabricator-2",
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip1.png",
-        icon_size = 64
-      }
-    },
-    subgroup = "chemical-plant",
-    order = "nullius-ccc",
-    place_result = "nullius-mirror-nanofabricator-2",
-    stack_size = 20
-  },
-  {
     type = "recipe",
     name = "nullius-nanofabricator-1",
     enabled = false,
@@ -5137,7 +2991,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-chemical-plant-2", 1},
-      {"nullius-surge-electrolyzer-2", 1},
+      {"nullius-electrolyzer-2", 1},
 	  {"nullius-telekinesis-field-1", 1},
       {"nullius-foundry-2", 1},
       {"nullius-flotation-cell-2", 1},
@@ -5160,7 +3014,7 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-chemical-plant-2", 1},
-      {"nullius-surge-electrolyzer-2", 1},
+      {"nullius-electrolyzer-2", 1},
       {"nullius-foundry-2", 1},
       {"nullius-flotation-cell-2", 1},
       {"nullius-air-filter-2", 1}
@@ -5179,8 +3033,8 @@ data:extend({
     energy_required = 90,
     ingredients = {
       {"nullius-nanofabricator-1", 1},
-      {"nullius-mirror-chemical-plant-3", 1},
-      {"nullius-priority-electrolyzer-3", 1},
+      {"nullius-chemical-plant-3", 1},
+      {"nullius-electrolyzer-3", 1},
       {"nullius-large-furnace-2", 1},
       {"nullius-large-assembler-2", 1},
 	  {"nullius-fabrication-tool-3", 1},
@@ -5203,61 +3057,14 @@ data:extend({
     energy_required = 90,
     ingredients = {
       {"nullius-nanofabricator-1", 2},
-      {"nullius-mirror-chemical-plant-3", 1},
-      {"nullius-priority-electrolyzer-3", 1},
+      {"nullius-chemical-plant-3", 1},
+      {"nullius-electrolyzer-3", 1},
       {"nullius-large-furnace-2", 1},
       {"nullius-large-assembler-2", 1},
       {"nullius-large-dispatch-chest-2", 2}
     },
     result = "nullius-nanofabricator-2",
     result_count = 2
-  },
-  {
-    type = "recipe",
-    name = "nullius-mirror-nanofabricator-2",
-    enabled = false,
-    always_show_made_in = true,
-    no_productivity = true,
-	requester_paste_multiplier = 10,
-    category = "large-crafting",
-    energy_required = 2,
-    ingredients = {
-      {"nullius-nanofabricator-2", 1},
-      {"nullius-pipe-4", 5}
-    },
-    result = "nullius-mirror-nanofabricator-2"
-  },
-  {
-    type = "recipe",
-    name = "nullius-unmirror-nanofabricator-2",
-    localised_name = {"recipe-name.nullius-unmirror-nanofabricator-2"},
-    icons = {
-      {
-        icon = "__angelsrefining__/graphics/icons/crystallizer.png",
-        icon_size = 64,
-	    icon_mipmaps = 4
-      },
-      {
-        icon = ICONPATH .. "flip2.png",
-        icon_size = 64
-      }
-    },
-    enabled = false,
-    category = "large-crafting",
-    subgroup = "unmirror-2",
-    order = "nullius-e",
-    always_show_made_in = true,
-    no_productivity = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    always_show_products = true,
-	requester_paste_multiplier = 5,
-    energy_required = 1,
-    ingredients = {
-      {"nullius-mirror-nanofabricator-2", 1},
-      {"nullius-pipe-4", 1}
-    },
-    result = "nullius-nanofabricator-2"
   }
 })
 

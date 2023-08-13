@@ -119,6 +119,7 @@ local function reset_config()
   end
   init_checkpoint_prereqs()
   init_productivity_recipes()
+  update_railloader_bulk()
 end
 
 script.on_init(
@@ -132,7 +133,6 @@ script.on_init(
       remote.call("freeplay", "set_chart_distance", 250)
     end
     update_mission_global()
-	update_railloader_bulk()
 	on_load_mod_interface()
   end
 )
