@@ -396,3 +396,21 @@ if data.raw['int-setting']['tanker_capacity'] then
    data.raw['int-setting']['tanker_capacity'].hidden = true
    data.raw['int-setting']['tanker_capacity'].allowed_values = {250}
 end
+
+
+if data.raw['string-setting']['aai-loaders-mode'] then
+   data.raw['string-setting']['aai-loaders-mode'].hidden = true
+   data.raw['string-setting']['aai-loaders-mode'].default_value = "expensive"
+   data.raw['string-setting']['aai-loaders-mode'].allowed_values = {"expensive"}
+end
+
+if data.raw['string-setting']['aai-loaders-lubricant-recipe'] then
+   data.raw['string-setting']['aai-loaders-lubricant-recipe'].hidden = true
+   data.raw['string-setting']['aai-loaders-lubricant-recipe'].default_value = "disabled"
+   data.raw['string-setting']['aai-loaders-lubricant-recipe'].allowed_values = {"disabled"}
+end
+
+if data.raw['bool-setting']['aai-loaders-fit-assemblers'] then
+   data.raw['bool-setting']['aai-loaders-fit-assemblers'].hidden = true
+   data.raw['bool-setting']['aai-loaders-fit-assemblers'].forced_value = false
+end

@@ -32,7 +32,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-power-sink",
-	icons = data.raw.fluid["nullius-power"].icons,
+	icons = data.raw.fluid["nullius-energy"].icons,
     flags = {"hidden"},
     subgroup = "nullius-power-sink",
     stack_size = 100
@@ -583,15 +583,15 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-void-power",
-    icons = data.raw.fluid["nullius-power"].icons,
-    crafting_machine_tint = { primary = data.raw.fluid["nullius-power"].flow_color },
+    name = "nullius-void-energy",
+    icons = data.raw.fluid["nullius-energy"].icons,
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-energy"].flow_color },
     category = "nullius-power-sink",
     subgroup = "nullius-power-sink",
     hide_from_player_crafting = true,
 	hide_from_stats = true,
     energy_required = 1.5,
-    ingredients = {{type="fluid", name="nullius-power", amount=125}},
+    ingredients = {{type="fluid", name="nullius-energy", amount=150}},
     results = {{type="item", name="nullius-power-sink", amount=1, probability=0}}
   }
 })

@@ -693,7 +693,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-wildlife-management-2"},
+    prerequisites = {"nullius-wildlife-management-2", "nullius-checkpoint-arthropod"},
     max_level = "infinite",
     upgrade = true
   },
@@ -721,7 +721,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-asteroid-mining-2"},
+    prerequisites = {"nullius-wildlife-management-2"},
     max_level = "infinite",
     upgrade = true
   },

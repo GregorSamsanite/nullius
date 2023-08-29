@@ -1,6 +1,16 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local BASEICON = "__base__/graphics/icons/"
 
+local function checkmark(scale)
+  return {
+    icon = ICONPATH .. "checkpoint.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+	tint = {0.6, 0.6, 0.6, 0.6},
+	scale = scale
+  }
+end
+
 data:extend({
   {
     type = "technology",
@@ -2003,8 +2013,7 @@ data:extend({
     name = "nullius-checkpoint-android",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-android"}}},
-    localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-android-1", {"", {"item-name.nullius-android"}, " ", 1}}},
+    localised_description = {"objective-description.nullius-switch-bodies", 3},
     order = "nullius-yf",
     icons = {
       {
@@ -2492,7 +2501,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-antimatter-containment"},
+    prerequisites = {"nullius-antimatter-containment", "nullius-miniaturization-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2850,33 +2859,117 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-checkpoint-oxygen",
+    name = "nullius-checkpoint-algae",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"objective-name.nullius-atmospheric-modification"}},
-    localised_description = {"objective-description.nullius-atmospheric-modification"},
+	    {"objective-name.nullius-algae-seeding"}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"item-name.nullius-algae"}, 40},
     order = "nullius-yg",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
-        icon_size = 72
+	    icon = ICONPATH .. "algae.png",
+        icon_size = 64
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+	  checkmark(1.125)
     },
     unit = {
       count = 1,
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-botany-2"},
+    prerequisites = {"nullius-biochemistry-2"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-worm",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"objective-name.nullius-naturalization", {"item-name.nullius-worm"}}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"item-name.nullius-worm"}, 30},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/small-worm.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  checkmark(1.125)
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-biochemistry-4", "nullius-botany-2"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-arthropod",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"objective-name.nullius-naturalization", {"item-name.nullius-arthropod"}}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"item-name.nullius-arthropod"}, 20},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/small-biter.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  checkmark(1.125)
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-zoology-3"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-oxygen-partial",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 1}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"fluid-name.nullius-oxygen"}, 40},
+    order = "nullius-yg",
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-zoology-1"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-oxygen",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 2}},
+    localised_description = {"objective-description.nullius-atmospheric-modification"},
+    order = "nullius-yg",
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-checkpoint-worm", "nullius-zoology-2"},
     ignore_tech_cost_multiplier = true
   }
 })
+
+data.raw.technology["nullius-checkpoint-oxygen-partial"].icons = 
+    util.table.deepcopy(data.raw.fluid["nullius-oxygen"].icons)
+table.insert(data.raw.technology["nullius-checkpoint-oxygen-partial"].icons,
+    checkmark(0.56))
+data.raw.technology["nullius-checkpoint-oxygen"].icons = 
+    util.table.deepcopy(data.raw.fluid["nullius-compressed-oxygen"].icons)
+table.insert(data.raw.technology["nullius-checkpoint-oxygen"].icons,
+    checkmark(0.56))
+
 
 if mods["lambent-nil"] then
   data:extend({
@@ -2894,13 +2987,7 @@ if mods["lambent-nil"] then
           icon_size = 64,
           icon_mipmaps = 4
         },
-        {
-          icon = ICONPATH .. "checkpoint.png",
-          icon_size = 64,
-          icon_mipmaps = 4,
-          scale = 1,
-          tint = {0.6, 0.6, 0.6, 0.6}
-        }
+		checkmark(1)
       },
       unit = {
         count = 1,

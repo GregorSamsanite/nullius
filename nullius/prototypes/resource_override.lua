@@ -3,7 +3,11 @@ local resource_autoplace = require("resource-autoplace")
 for r, subdir in pairs(angelsmods.functions.store) do
   for r, input in pairs(subdir) do
     if (not input.inactive) then
-      angelsmods.functions.remove_resource(input.name)
+	  if ((input.name == "coal") or (input.name == "crude-oil")) then
+	    input.inactive = true
+	  else
+        angelsmods.functions.remove_resource(input.name)
+	  end
     end
   end
 end
@@ -24,6 +28,8 @@ end
 
 remove_autoplace("copper-ore")
 remove_autoplace("uranium-ore")
+remove_autoplace("coal")
+remove_autoplace("crude-oil")
 
 angelsmods.functions.remove_resource("stone")
 angelsmods.functions.remove_resource("trees")
@@ -38,6 +44,15 @@ data.raw.resource["copper-ore"].order = "a-b-f"
 data.raw.resource["uranium-ore"].order = "a-b-g"
 data.raw.resource["uranium-ore"].minable.fluid_amount = nil
 data.raw.resource["uranium-ore"].minable.required_fluid = nil
+
+data.raw.resource["coal"].order = "a-b-h"
+data.raw.resource["coal"].minable.result = "nullius-coal"
+data.raw.resource["crude-oil"].order = "a-b-i"
+data.raw.resource["crude-oil"].minable.results[1].name = "nullius-petroleum"
+data.raw.resource["crude-oil"].infinite = false
+data.raw.resource["crude-oil"].infinite_depletion_amount = nil
+data.raw.resource["crude-oil"].localised_name =
+    {"fluid-name.nullius-petroleum"}
 
 data.raw.resource["iron-ore"].autoplace =
     resource_autoplace.resource_autoplace_settings {
@@ -181,7 +196,7 @@ data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings.
 if (not settings.startup["no_oil_for_oil_rig"].value) then
   data.raw.resource["nullius-fumarole"].infinite = false
   data.raw.resource["nullius-fumarole"].infinite_depletion_amount = nil
-  data.raw["resource"]["nullius-fumarole"].localised_description =
+  data.raw.resource["nullius-fumarole"].localised_description =
     {"entity-description.nullius-fumarole-finite"}
 end
 end

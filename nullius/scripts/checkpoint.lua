@@ -1,7 +1,8 @@
 local CHK_ITEM = 1
 local CHK_FLUID = 2
 local CHK_BUILD = 3
-local CHK_SPECIAL = 4
+local CHK_OBJECTIVE = 4
+local CHK_SPECIAL = 5
 
 local STT_PRODUCE = 1
 local STT_CONSUME = 2
@@ -108,7 +109,7 @@ local checkpoint_data = {
 			{ CHK_ITEM, STT_CONSUME, 900000, {{"nullius-sandstone"},{"nullius-box-sandstone",5}} },
 			{ CHK_ITEM, STT_CONSUME, 600000, {{"nullius-bauxite"},{"nullius-box-bauxite",5}} },
 			{ CHK_ITEM, STT_CONSUME, 300000, {{"nullius-limestone"},{"nullius-box-limestone",5}} }},
-  ["android"] = {{ CHK_BUILD, STT_NET, 1, {{"character"}} }},
+  ["android"] = {{ CHK_SPECIAL, 1, 3, {} }},
   ["battery-2"] = {{ CHK_ITEM, STT_PRODUCE, 200, {{"nullius-battery-2"},{"nullius-box-battery-2",5}} }},
   ["calcium"] = {{ CHK_ITEM, STT_PRODUCE, 250, {{"nullius-calcium"},{"nullius-box-calcium",5}} }},
   ["helium"] = {{ CHK_FLUID, STT_PRODUCE, 2500, {{"nullius-helium"},{"nullius-compressed-helium",2.5}} }},
@@ -143,7 +144,11 @@ local checkpoint_data = {
   ["solar-panel"] = {{ CHK_BUILD, STT_NET, 1000, {{"nullius-solar-panel-3"}} }},
   ["grid-battery"] = {{ CHK_BUILD, STT_NET, 500, {{"nullius-grid-battery-3"}} }},
   ["cybernetics-2"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-6"}} }},
-  ["oxygen"] = {{ CHK_SPECIAL, STT_NET, 1, {} }}
+  ["algae"] = {{ CHK_OBJECTIVE, 3, 40, {} }},
+  ["worm"] = {{ CHK_OBJECTIVE, 6, 30, {} }},
+  ["arthropod"] = {{ CHK_OBJECTIVE, 8, 20, {} }},
+  ["oxygen-partial"] = {{ CHK_OBJECTIVE, 2, 40, {} }},
+  ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }}
 }
 
 if script.active_mods["lambent-nil"] then
@@ -158,9 +163,9 @@ local broken_data = {
   ["chemical-plant"] = 7,
   ["foundry"] = 2,
   ["assembler"] = 3,
-  ["pylon"] = 24,
-  ["solar-panel"] = 15,
-  ["grid-battery"] = 10,
+  ["pylon"] = 30,
+  ["solar-panel"] = 18,
+  ["grid-battery"] = 12,
   ["sensor-node"] = 2
 }
 
@@ -254,6 +259,7 @@ local function test_checkpoint_req(force, req)
   if (goal < 1) then return 1 end
 
   local ctyp = req[1]
+  local calc = req[2]
   local stats = nil
   if (ctyp == CHK_ITEM) then
     stats = force.item_production_statistics
@@ -261,20 +267,24 @@ local function test_checkpoint_req(force, req)
     stats = force.fluid_production_statistics
   elseif (ctyp == CHK_BUILD) then
     stats = force.entity_build_count_statistics
+  elseif (ctyp == CHK_OBJECTIVE) then
+    if (global.nullius_mission_status == nil) then return 0 end
+    if (global.nullius_mission_complete) then return 1 end
+	return math.min(1, math.max(0,
+	    (global.nullius_mission_status[calc] / goal)))
   elseif (ctyp == CHK_SPECIAL) then
-    if (goal == 1) then
-	  if (global.nullius_mission_status == nil) then return 0 end
-      if (global.nullius_mission_complete) then return 1 end
-	  return math.min(1, math.max(0,
-	      (global.nullius_mission_status[2] / 100)))
+    if (calc == 1) then
+	  if (global.nullius_switch_body_count == nil) then return 0 end
+	  local count = global.nullius_switch_body_count[force.name]
+	  if (count == nil) then return 0 end
+	  return math.min(1, math.max(0, (count / goal)))
     else
       return 0
-    end	
+    end
   else
     return 0
   end
 
-  local calc = req[2]
   local count = 0
   for _,item in pairs(req[4]) do
     local itemname = item[1]

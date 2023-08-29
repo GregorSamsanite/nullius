@@ -61,8 +61,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 1,
-    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.01, drain="5kW"},
-    energy_usage = "145kW",
+    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.01, drain="10kW"},
+    energy_usage = "240kW",
     ingredient_count = 3,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -130,8 +130,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 2,
-    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="10kW"},
-    energy_usage = "290kW",
+    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="20kW"},
+    energy_usage = "480kW",
     ingredient_count = 4,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -201,8 +201,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 4,
-    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="20kW"},
-    energy_usage = "580kW",
+    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="40kW"},
+    energy_usage = "960kW",
     ingredient_count = 6,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -300,8 +300,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 2,
-    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="10kW"},
-    energy_usage = "290kW",
+    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.05, drain="20kW"},
+    energy_usage = "480kW",
     ingredient_count = 4,
     resistances = data.raw["assembling-machine"]["nullius-hydro-plant-2"].resistances,
     module_specification = { module_slots = 2 },
@@ -373,8 +373,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     crafting_categories = {"nullius-water-treatment"},
     crafting_speed = 4,
-    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="20kW"},
-    energy_usage = "580kW",
+    energy_source = {type = "electric", usage_priority = "secondary-input", emissions = 0.1, drain="40kW"},
+    energy_usage = "960kW",
     ingredient_count = 6,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -451,7 +451,7 @@ data:extend({
       emissions_per_minute = 6,
       drain = "20kW"
     },
-    energy_usage = "230kW",
+    energy_usage = "280kW",
 
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
@@ -564,7 +564,7 @@ data:extend({
       emissions_per_minute = 12,
       drain = "50kW"
     },
-    energy_usage = "450kW",
+    energy_usage = "550kW",
 
     resistances = data.raw["assembling-machine"]["nullius-distillery-1"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
@@ -676,7 +676,7 @@ data:extend({
       emissions_per_minute = 24,
       drain = "100kW"
     },
-    energy_usage = "900kW",
+    energy_usage = "1100kW",
 
     resistances = data.raw["assembling-machine"]["nullius-distillery-1"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
@@ -754,7 +754,7 @@ data:extend({
     crafting_categories = {"distillation"},
     crafting_speed = 2,
     energy_source = data.raw["assembling-machine"]["nullius-distillery-2"].energy_source,
-    energy_usage = "450kW",
+    energy_usage = "550kW",
     resistances = data.raw["assembling-machine"]["nullius-distillery-2"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
     working_visualisations = data.raw["assembling-machine"]["nullius-distillery-2"].working_visualisations,
@@ -830,7 +830,7 @@ data:extend({
       emissions_per_minute = 24,
       drain = "100kW"
     },
-    energy_usage = "900kW",
+    energy_usage = "1100kW",
 
     resistances = data.raw["assembling-machine"]["nullius-distillery-1"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
@@ -893,7 +893,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.8, 0.6}
     }},
-    localised_description = {"entity-description.nullius-surge-electrolyzer"},
+    localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-electrolyzer-1"},
 	placeable_by = {item = "nullius-electrolyzer-1", count = 1},
@@ -1017,7 +1018,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.68, 0.51}
     }},
-    localised_description = {"entity-description.nullius-priority-electrolyzer"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-electrolyzer-1"},
 	placeable_by = {item = "nullius-electrolyzer-1", count = 1},
@@ -1097,7 +1099,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.9, 1}
     }},
-    localised_description = {"entity-description.nullius-surge-electrolyzer"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
 	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
@@ -1242,7 +1245,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.76, 0.85}
     }},
-    localised_description = {"entity-description.nullius-priority-electrolyzer"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
 	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
@@ -1330,7 +1334,8 @@ data:extend({
         icon_size = 64
       }
     },
-    localised_description = {"entity-description.nullius-surge-electrolyzer"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
 	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
@@ -1403,7 +1408,8 @@ data:extend({
         icon_size = 64
       }
     },
-    localised_description = {"entity-description.nullius-priority-electrolyzer"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1.5, result = "nullius-electrolyzer-2"},
 	placeable_by = {item = "nullius-electrolyzer-2", count = 1},
@@ -1430,7 +1436,8 @@ data:extend({
     name = "nullius-surge-electrolyzer-3",
     icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
     icon_size = 32,
-    localised_description = {"entity-description.nullius-surge-electrolyzer"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
 	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
@@ -1552,7 +1559,8 @@ data:extend({
         icon_size = 64
       }
     },
-    localised_description = {"entity-description.nullius-surge-electrolyzer"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
 	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
@@ -1616,7 +1624,8 @@ data:extend({
       icon_size = 32,
       tint = {1, 0.85, 0.85}
     }},
-    localised_description = {"entity-description.nullius-priority-electrolyzer"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
 	placeable_by = {item = "nullius-electrolyzer-3", count = 1},
@@ -1701,7 +1710,8 @@ data:extend({
         icon_size = 64
       }
     },
-    localised_description = {"entity-description.nullius-priority-electrolyzer"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 2, result = "nullius-electrolyzer-3"},
 	placeable_by = {item = "nullius-electrolyzer-3", count = 1},

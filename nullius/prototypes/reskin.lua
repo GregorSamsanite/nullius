@@ -43,16 +43,16 @@ function scale_shift(vec, scale)
   return vec
 end
 
-function scale_image(img, scale)
+function scale_image(img, scale, offs)
   local ret = util.table.deepcopy(img)
   local lookup = {}
-  local function scale_subtable(img, scale)
+  local function scale_subtable(img, scale, offs)
     if ((type(img) ~= "table") or (img.__self) or (lookup[img])) then
       return
     end
     lookup[img] = true
     for _, field in pairs(img) do
-      scale_subtable(field, scale)
+      scale_subtable(field, scale, offs)
     end
     if (img.filename ~= nil) then
 	  img.shift = scale_shift(img.shift, scale)
@@ -61,12 +61,42 @@ function scale_image(img, scale)
       else
         img.scale = scale
       end
+	  if (offs ~= nil) then
+	    if (img.shift ~= nil) then
+		  if (img.shift.x ~= nil) then
+		    img.shift.x = img.shift.x + offs.x
+		    img.shift.y = img.shift.y + offs.y
+		  else
+		    img.shift[1] = img.shift[1] + offs.x
+			img.shift[2] = img.shift[2] + offs.y
+		  end
+		else
+		  img.shift = offs
+		end
+	  end
     end
 	img.north_position = scale_shift(img.north_position, scale)
 	img.east_position = scale_shift(img.east_position, scale)
 	img.south_position = scale_shift(img.south_position, scale)
 	img.west_position = scale_shift(img.west_position, scale)
   end
-  scale_subtable(ret, scale)
+  scale_subtable(ret, scale, offs)
+  return ret
+end
+
+function animate_frame(frame, count, speed)
+  local ret = util.table.deepcopy(frame)
+  if (count == nil) then count = 32 end
+  if (speed == nil) then speed = 0.25 end
+  ret.priority = "high"
+  ret.frame_count = 1
+  ret.repeat_count = count
+  ret.animation_speed = speed
+  if (ret.hr_version ~= nil) then
+    ret.hr_version.priority = "high"
+    ret.hr_version.frame_count = 1
+    ret.hr_version.repeat_count = count
+    ret.hr_version.animation_speed = speed
+  end
   return ret
 end

@@ -1217,7 +1217,8 @@ data:extend({
       icon_size = 32,
       tint = {0.6, 0.6, 0.4}
     }},
-    localised_description = {"entity-description.nullius-compressor"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-compressor-1"},
 	placeable_by = {item = "nullius-compressor-1", count = 1},
@@ -1366,7 +1367,8 @@ data:extend({
       icon_size = 32,
       tint = {0.6, 0.51, 0.34}
     }},
-    localised_description = {"entity-description.nullius-priority-compressor"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-compressor-1"},
 	placeable_by = {item = "nullius-compressor-1", count = 1},
@@ -1493,7 +1495,8 @@ data:extend({
       icon_size = 32,
       tint = {0.65, 0.65, 0.9}
     }},
-    localised_description = {"entity-description.nullius-compressor"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1.2, result = "nullius-compressor-2"},
 	placeable_by = {item = "nullius-compressor-2", count = 1},
@@ -1641,7 +1644,8 @@ data:extend({
       icon_size = 32,
       tint = {0.65, 0.55, 0.76}
     }},
-    localised_description = {"entity-description.nullius-priority-compressor"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1.2, result = "nullius-compressor-2"},
 	placeable_by = {item = "nullius-compressor-2", count = 1},
@@ -1733,7 +1737,8 @@ data:extend({
       icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
       icon_size = 32
     }},
-    localised_description = {"entity-description.nullius-compressor"},
+	localised_description = {"entity-description.nullius-surge",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1.6, result = "nullius-compressor-3"},
 	placeable_by = {item = "nullius-compressor-3", count = 1},
@@ -1876,7 +1881,8 @@ data:extend({
       icon_size = 32,
       tint = {1, 0.85, 0.85}
     }},
-    localised_description = {"entity-description.nullius-priority-compressor"},
+	localised_description = {"entity-description.nullius-priority",
+	    {"entity-description.nullius-compressor"}},
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1.6, result = "nullius-compressor-3"},
 	placeable_by = {item = "nullius-compressor-3", count = 1},

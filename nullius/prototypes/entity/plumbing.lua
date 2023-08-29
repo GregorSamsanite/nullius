@@ -6,12 +6,136 @@ local BASEENTITY = "__base__/graphics/entity/"
 require("pipe_graphics")
 
 
+local op = data.raw["offshore-pump"]["offshore-pump"]
+local si1 = {
+  type = "assembling-machine",
+  name = "nullius-seawater-intake-1",
+  icons = data.raw.item["nullius-seawater-intake-1"].icons,
+  minable = {mining_time = 0.5, result = "nullius-seawater-intake-1"},
+  flags = {"placeable-neutral", "player-creation", "hide-alt-info"},
+  collision_mask = {"object-layer", "ground-tile"},
+  crafting_categories = {"seawater-pumping"},
+  crafting_speed = 1,
+  fixed_recipe = "nullius-seawater",
+  energy_source = {
+    type = "electric",
+	usage_priority = "secondary-input",
+	emissions = 0.01,
+	drain = "10kW"
+  },
+  energy_usage = "190kW",
+  ingredient_count = 1,
+  max_health = 150,
+  corpse = "small-remnants",
+  dying_explosion = "offshore-pump-explosion",
+  selection_box = {{-1.3, -1.3}, {1.3, 1.3}},
+  collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
+  resistances = {
+    { type = "impact", decrease = 100, percent = 90 },
+    { type = "fire", decrease = 100, percent = 90 }
+  },
+  fluid_boxes = {{
+	production_type = "output",
+    base_area = 8,
+    base_level = 1.5,
+    pipe_covers = pipecoverspictures(),
+    filter = "nullius-seawater",
+    pipe_connections = {{position = {0, 2}, type = "output"}}
+  }},
+  pipe_covers = pipecoverspictures(),
+  module_specification = { module_slots = 1 },
+  allowed_effects = {"speed", "consumption", "pollution"},
+  fast_replaceable_group = "seawater-intake",
+  next_upgrade = "nullius-seawater-intake-2",
+  working_sound = op.working_sound,
+  vehicle_impact_sound = op.vehicle_impact_sound
+}
+
+si2 = util.table.deepcopy(si1)
+si2.name = "nullius-seawater-intake-2"
+si2.icons = data.raw.item["nullius-seawater-intake-2"].icons
+si2.minable = {mining_time = 0.8, result = "nullius-seawater-intake-2"}
+si2.crafting_speed = 4
+si2.energy_source.drain = "50kW"
+si2.energy_usage = "750kW"
+si2.next_upgrade = nil
+si2.max_health = 300
+si2.fluid_boxes[1].base_level = 3
+si2.fluid_boxes[1].height = 2
+si2.module_specification.module_slots = 2
+
+si2.animation = {
+  north = scale_image({ layers = {
+    animate_frame(op.graphics_set.glass_pictures.north),
+    animate_frame(op.graphics_set.base_pictures.north),
+	animate_frame(op.graphics_set.underwater_pictures.north),
+	op.graphics_set.animation.north.layers[1],
+	op.graphics_set.animation.north.layers[2]
+  }}, 1.2, { x = 0, y = 0.9 }),
+  east = scale_image({ layers = {
+    animate_frame(op.graphics_set.glass_pictures.east),
+    animate_frame(op.graphics_set.base_pictures.east),
+	animate_frame(op.graphics_set.underwater_pictures.east),
+	op.graphics_set.animation.east.layers[1],
+	op.graphics_set.animation.east.layers[2]
+  }}, 1.2, { x = -0.9, y = 0 }),
+  south = scale_image({ layers = {
+    animate_frame(op.graphics_set.glass_pictures.south),
+    animate_frame(op.graphics_set.base_pictures.south),
+	animate_frame(op.graphics_set.underwater_pictures.south),
+	op.graphics_set.animation.south.layers[1],
+	op.graphics_set.animation.south.layers[2]
+  }}, 1.2, { x = 0, y = -0.9 }),
+  west = scale_image({ layers = {
+    animate_frame(op.graphics_set.glass_pictures.west),
+    animate_frame(op.graphics_set.base_pictures.west),
+	animate_frame(op.graphics_set.underwater_pictures.west),
+	op.graphics_set.animation.west.layers[1],
+	op.graphics_set.animation.west.layers[2]
+  }}, 1.2, { x = 0.9, y = 0 })
+}
+
+si2.working_visualisations = {{
+  apply_recipe_tint = "primary",
+  north_animation = scale_image(op.graphics_set.fluid_animation.north,
+      1.2, { x = 0, y = 0.9 }),
+  east_animation = scale_image(op.graphics_set.fluid_animation.east,
+      1.2, { x = -0.9, y = 0 }),
+  south_animation = scale_image(op.graphics_set.fluid_animation.south,
+      1.2, { x = 0, y = -0.9 }),
+  west_animation = scale_image(op.graphics_set.fluid_animation.west,
+      1.2, { x = 0.9, y = 0 })
+}}
+
+si1.animation = {
+  north = scale_image(si2.animation.north, 0.75, { x = 0, y = 0.38 }),
+  east = scale_image(si2.animation.east, 0.75, { x = -0.38, y = 0 }),
+  south = scale_image(si2.animation.south, 0.75, { x = 0, y = -0.38 }),
+  west = scale_image(si2.animation.west, 0.75, { x = 0.38, y = 0 })
+}
+
+local si2wv = si2.working_visualisations[1]
+si1.working_visualisations = {{
+  apply_recipe_tint = "primary",
+  north_animation = scale_image(si2wv.north_animation, 0.75, { x = 0, y = 0.38 }),
+  east_animation = scale_image(si2wv.east_animation, 0.75, { x = -0.38, y = 0 }),
+  south_animation = scale_image(si2wv.south_animation, 0.75, { x = 0, y = -0.38 }),
+  west_animation = scale_image(si2wv.west_animation, 0.75, { x = 0.38, y = 0 })
+}}
+
+
 data:extend({
+  si1,
+  si2,
   {
     type = "offshore-pump",
-    name = "nullius-seawater-intake-1",
-    icons = data.raw.item["nullius-seawater-intake-1"].icons,
-    flags = {"placeable-neutral", "player-creation", "filter-directions"},
+    name = "nullius-legacy-seawater-intake-1",
+	localised_name = {"entity-name.nullius-legacy",
+	    {"entity-name.nullius-seawater-intake-1"}},
+    localised_description = {"entity-description.nullius-seawater-intake-1"},
+    icons = data.raw.item["nullius-legacy-seawater-intake-1"].icons,
+    flags = {"placeable-neutral", "player-creation", "filter-directions",
+	    "hidden", "not-upgradable", "not-blueprintable"},
     collision_mask = { "object-layer", "train-layer" },
     center_collision_mask = { "water-tile", "object-layer", "player-layer" },
     fluid_box_tile_collision_test = { "ground-tile" },
@@ -19,6 +143,7 @@ data:extend({
     adjacent_tile_collision_mask = { "ground-tile" },
     adjacent_tile_collision_box = { { -1, -2 }, { 1, -1 } },
     minable = {mining_time = 0.5, result = "nullius-seawater-intake-1"},
+	placeable_by = {item = "nullius-legacy-seawater-intake-1", count = 1},
     max_health = 150,
     corpse = "small-remnants",
     dying_explosion = "offshore-pump-explosion",
@@ -36,8 +161,6 @@ data:extend({
     },
     tile_width = 1,
     tile_height = 1,
-    fast_replaceable_group = "seawater-intake",
-    next_upgrade = "nullius-seawater-intake-2",
     vehicle_impact_sound = data.raw["offshore-pump"]["offshore-pump"].vehicle_impact_sound,
     working_sound = data.raw["offshore-pump"]["offshore-pump"].working_sound,
     placeable_position_visualization = data.raw["offshore-pump"]["offshore-pump"].placeable_position_visualization,
@@ -316,11 +439,13 @@ data:extend({
 
   {
     type = "offshore-pump",
-    name = "nullius-seawater-intake-2",
-    icon = "__base__/graphics/icons/offshore-pump.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"placeable-neutral", "player-creation", "filter-directions"},
+    name = "nullius-legacy-seawater-intake-2",
+	localised_name = {"entity-name.nullius-legacy",
+	    {"entity-name.nullius-seawater-intake-2"}},
+    localised_description = {"entity-description.nullius-seawater-intake-2"},
+	icons = data.raw.item["nullius-legacy-seawater-intake-2"].icons,
+    flags = {"placeable-neutral", "player-creation", "filter-directions",
+	    "hidden", "not-upgradable", "not-blueprintable"},
     collision_mask = { "object-layer", "train-layer" },
     center_collision_mask = { "water-tile", "object-layer", "player-layer" },
     fluid_box_tile_collision_test = { "ground-tile" },
@@ -328,6 +453,7 @@ data:extend({
     adjacent_tile_collision_mask = { "ground-tile" },
     adjacent_tile_collision_box = { { -1, -2 }, { 1, -1 } },
     minable = {mining_time = 0.8, result = "nullius-seawater-intake-2"},
+	placeable_by = {item = "nullius-legacy-seawater-intake-2", count = 1},
     max_health = 300,
     corpse = "small-remnants",
     dying_explosion = "offshore-pump-explosion",
@@ -346,7 +472,6 @@ data:extend({
     },
     tile_width = 1,
     tile_height = 1,
-    fast_replaceable_group = "seawater-intake",
     graphics_set = data.raw["offshore-pump"]["offshore-pump"].graphics_set,
     vehicle_impact_sound = data.raw["offshore-pump"]["offshore-pump"].vehicle_impact_sound,
     working_sound = data.raw["offshore-pump"]["offshore-pump"].working_sound,
@@ -369,8 +494,13 @@ data:extend({
     crafting_categories = {"water-pumping"},
     crafting_speed = 1,
     fixed_recipe = "nullius-freshwater",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.01, drain="1kW"},
-    energy_usage = "49kW",
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions = 0.02,
+	  drain = "20kW"
+	},
+    energy_usage = "280kW",
     ingredient_count = 1,
     minable = {mining_time = 1, result = "nullius-well-1"},
     max_health = 200,
@@ -616,8 +746,13 @@ data:extend({
     crafting_categories = {"water-pumping"},
     crafting_speed = 4,
     fixed_recipe = "nullius-freshwater",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.02, drain="5kW"},
-    energy_usage = "175kW",
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions = 0.05,
+	  drain = "100kW"
+	},
+    energy_usage = "1100kW",
     ingredient_count = 1,
     minable = {mining_time = 1.5, result = "nullius-well-2"},
     max_health = 300,
@@ -852,8 +987,35 @@ data:extend({
         }
       }
     }
-  },
+  }
+})
 
+local lw1 = util.table.deepcopy(data.raw["assembling-machine"]["nullius-well-1"])
+lw1.name = "nullius-legacy-well-1"
+lw1.localised_name = {"entity-name.nullius-legacy", {"entity-name.nullius-well-1"}}
+lw1.icons = data.raw.item["nullius-legacy-well-1"].icons
+lw1.flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-blueprintable"}
+lw1.placeable_by = {item = "nullius-legacy-well-1", count = 1}
+lw1.fast_replaceable_group = nil
+lw1.next_upgrade = nil
+lw1.energy_source = {type="electric", usage_priority="secondary-input", emissions=0.01, drain="1kW"}
+lw1.energy_usage = "49kW"
+lw1.crafting_speed = 1.25
+
+local lw2 = util.table.deepcopy(data.raw["assembling-machine"]["nullius-well-2"])
+lw2.name = "nullius-legacy-well-2"
+lw2.localised_name = {"entity-name.nullius-legacy", {"entity-name.nullius-well-2"}}
+lw2.icons = data.raw.item["nullius-legacy-well-2"].icons
+lw2.flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-blueprintable"}
+lw2.placeable_by = {item = "nullius-legacy-well-2", count = 1}
+lw2.fast_replaceable_group = nil
+lw2.energy_source = {type="electric", usage_priority="secondary-input", emissions=0.02, drain="5kW"}
+lw2.energy_usage = "175kW"
+lw2.crafting_speed = 5
+
+data:extend({
+  lw1,
+  lw2,
   {
     type = "assembling-machine",
     name = "nullius-air-filter-1",
@@ -862,8 +1024,13 @@ data:extend({
     crafting_categories = {"air-filtration"},
     crafting_speed = 1,
     fixed_recipe = "nullius-air-filtration",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.01, drain="1kW"},
-    energy_usage = "49kW",
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions = 0.01,
+	  drain = "5kW"
+	},
+    energy_usage = "115kW",
     ingredient_count = 1,
     minable = {mining_time = 0.6, result = "nullius-air-filter-1"},
     max_health = 200,
@@ -942,8 +1109,13 @@ data:extend({
     crafting_categories = {"air-filtration"},
     crafting_speed = 3,
     fixed_recipe = "nullius-air-filtration",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.03, drain="8kW"},
-    energy_usage = "152kW",
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions = 0.03,
+	  drain = "25kW"
+	},
+    energy_usage = "375kW",
     ingredient_count = 1,
     minable = {mining_time = 0.8, result = "nullius-air-filter-2"},
     max_health = 300,
@@ -1024,8 +1196,13 @@ data:extend({
     crafting_categories = {"air-filtration"},
     crafting_speed = 8,
     fixed_recipe = "nullius-air-filtration",
-    energy_source = {type="electric", usage_priority="secondary-input", emissions=0.1, drain="25kW"},
-    energy_usage = "475kW",
+    energy_source = {
+	  type = "electric",
+	  usage_priority = "secondary-input",
+	  emissions = 0.1,
+	  drain = "100kW"
+	},
+    energy_usage = "1100kW",
     ingredient_count = 1,
     minable = {mining_time = 1, result = "nullius-air-filter-3"},
     max_health = 400,
@@ -2006,7 +2183,7 @@ data:extend({
         { positions = { {1.5, -2.5}, {2.5, -1.5}, {-1.5, 2.5}, {-2.5, 1.5} } }
       }
     },
-    energy_usage = "190kW",
+    energy_usage = "390kW",
     mining_speed = 1,
     resource_searching_radius = 0.99,
     vector_to_place_result = {0, 0},
@@ -2102,7 +2279,7 @@ data:extend({
       type = "electric",
       emissions_per_minute = 10,
       usage_priority = "secondary-input",
-      drain = "20kW"
+      drain = "25kW"
     },
     output_fluid_box = {
       base_area = 10,
@@ -2113,7 +2290,7 @@ data:extend({
         { positions = { {1.5, -2.5}, {2.5, -1.5}, {-1.5, 2.5}, {-2.5, 1.5} } }
       }
     },
-    energy_usage = "380kW",
+    energy_usage = "775kW",
     mining_speed = 2,
     resource_searching_radius = 0.99,
     vector_to_place_result = {0, 0},

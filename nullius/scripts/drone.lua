@@ -204,7 +204,7 @@ function paving_effect(event, tile, dirt)
 end
 
 
-function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
+local function clear_radius(event, size)
   scout_effect(event, 1)
   safe_demolition(event, (size+4))
   local s = game.surfaces[event.surface_index]
@@ -220,8 +220,14 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
     newtiles[j] = {name = "nuclear-ground", position = t.position}
   end
   s.set_tiles(newtiles)
-  local threshold = size * size * 0.14063
+end
 
+function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
+  clear_radius(event, size)
+  local s = game.surfaces[event.surface_index]
+  local c = tile_center(event)
+  local a = area_bound(c, (size+2))
+  local threshold = size * size * 0.14063
   tiles = s.find_tiles_filtered{area=a, position=c, radius=(size+0.5), collision_mask="ground-tile"}
   for i, t in pairs(tiles) do
     local dx = (t.position.x - c.x)
@@ -253,6 +259,52 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
       event.source_entity.valid) then
     bump_mission_goal(goal_ind, goal_amount, event.source_entity.force)
   end
+end
+
+local function count_resource(event, name, limit, objective)
+  if ((event.source_entity ~= nil) and event.source_entity.valid and
+	  (global.nullius_mission_status ~= nil)) then
+    local s = game.surfaces[event.surface_index]
+	local total = 0
+	local entities = s.find_entities_filtered{name=name,
+	    type="resource", limit=limit}
+	for _, e in pairs(entities) do
+      if (e.valid and (e.amount ~= nil)) then
+	    total = total + e.amount
+	  end
+    end
+    set_mission_goal(objective, total, event.source_entity.force)
+  end
+end
+
+function coal_effect(event)
+  miner_effect(event, "coal", 13, 0.08)
+  count_resource(event, "coal", 40000, 12)
+end
+
+function petroleum_effect(event)
+  scout_effect(event, 1)
+  local s = game.surfaces[event.surface_index]
+  local c = tile_center(event)
+  local count = 0
+  local target = math.floor(9 + (math.random() * 7))
+  local attempts = (target * 4)
+
+  for _ = 1, attempts do
+    if (count < target) then
+      local angle = 2 * math.pi * math.random()
+      local distance = (math.random() * 32) + (math.random() * 24) - 28
+      local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
+      local overlap_water = s.count_tiles_filtered{area=area_bound(p, 2), limit=2, collision_mask="water-tile"}
+      local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 4), limit=2}
+      if ((overlap_obstacle < 1) and (overlap_water < 1)) then
+        local newentity = s.create_entity({name="crude-oil", position=p,
+		    amount=math.floor((25000 + (30001 * math.random())))})
+		count = count + 1
+      end
+	end
+  end
+  count_resource(event, "crude-oil", 1000, 13)
 end
 
 
@@ -934,6 +986,10 @@ function trigger_effect(event)
     aquaculture_effect(event)
   elseif (event.effect_id == "nullius-husbandry-drone-effect") then
     husbandry_effect(event)
+  elseif (event.effect_id == "nullius-sequestration-coal-drone-effect") then
+    coal_effect(event)
+  elseif (event.effect_id == "nullius-sequestration-petroleum-drone-effect") then
+    petroleum_effect(event)
   end
   end
 end

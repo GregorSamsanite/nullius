@@ -132,7 +132,7 @@ script.on_init(
       remote.call("freeplay", "set_disable_crashsite", true)
       remote.call("freeplay", "set_chart_distance", 250)
     end
-    update_mission_global()
+    init_mission_global()
 	on_load_mod_interface()
   end
 )
@@ -148,7 +148,7 @@ script.on_configuration_changed(
     migrate_version(event)
     reset_config()
     init_techs()
-    update_mission_global()
+    init_mission_global()
 	update_all_upgrades()
   end
 )
@@ -205,8 +205,8 @@ script.on_event(defines.events.on_player_created,
       player.insert({name="nullius-construction-bot-1", count=6})
 	end
     player.insert({name="nullius-solar-panel-1", count=10})
-    player.insert({name="nullius-grid-battery-1", count=5})
-	player.insert({name="small-electric-pole", count=10})
+    player.insert({name="nullius-grid-battery-1", count=6})
+	player.insert({name="small-electric-pole", count=15})
 	player.insert({name="nullius-small-miner-1", count=2})
 
     if not global.init_ran then

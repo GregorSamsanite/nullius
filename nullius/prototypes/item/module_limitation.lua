@@ -22,6 +22,7 @@ nullius_non_productivity_categories = {
   ["compression"] = true,
   ["decompression"] = true,
   ["water-pumping"] = true,
+  ["seawater-pumping"] = true,
   ["combustion"] = true,
   ["boiling"] = true,
   ["pressure-boiling"] = true,

@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.0
-Date: 12.08.2023
+Date: 29.08.2023
   Features:
     - WARNING:  Some changes in this major update may not just work seamlessly
       in an existing factory without taking some time to fix it up.  You may
@@ -11,6 +11,8 @@ Date: 12.08.2023
       changed items may be adjusted accordingly.  In particular, this may
       require attention in your mall area for recipes using turbines, and in
       your biology area for recipes involving wood.
+    - Two new end game mission objectives:  coal and petroleum.
+    - Four new biology objective checkpoints.
     - Two new intermediates with new recipes:  aluminum powder and wood chips.
     - Pipe connections of fluid buildings can now be flipped using a new key
       bind after building, rather than by using separate mirrored items.
@@ -28,22 +30,36 @@ Date: 12.08.2023
       atmospheric oxygenation mission objective as if vented.  Previously this
       wasn't the case due to technical limitations with vanilla turbines.
     - New chirality checkpoint.
+    - New methanol and graphite combustion, and oil incineration recipes.
   Changes:
+    - Seawater intakes now require power.  Already placed intakes will keep
+      working without power for compatibility, but newly built ones will not.
     - Backward compatible changes to recipes (if these are already automated,
       your factory can keep using them, but new builds have a new recipe):
-      Rocket fuel, PEX plastic.
+      Rocket fuel, graphite to carbon monoxide, PEX plastic, egg harvesting.
     - Reorganized some recipe tabs to fit new recipes.
+    - New item group: drones.
+    - Moved terrain tile recipes to Intermediates group.
+    - Move carbon monoxide to carbon dioxide recipe to a later tech.
+    - Android checkpoint requires switching bodies.
   Balancing:
+    - Increased power consumption of wells, air filters, and hydro plants.
+    - 20% well speed reduction.  Already placed wells will maintain old speed.
     - Improve storage capacity of grid batteries.
     - Improve condensation recipe ratio.
+    - Extra starting equipment:
+      Pylons, solar panels, grid batteries, explosives, and circuit wire.
+    - Add antennas to starting equipment.
     - Tweak cost of mecha 2 recipe.
     - Increase stack size of cars to 2.
+    - Reduce cost of antimatter containment and asteroid mining 2 research.
   Bugfixes:
     - Disable a couple of hidden vanilla achievements.
     - Fix a problem with bulk rail loader ore only mode.
-  Info:
-    - Annotate voiding for wood and cellulose.
+    - Make drone launcher upgradeable in place.
+    - Remove a beacon/ghost workaround that should no longer be necessary.
   Modding:
+    - Compatibility support for AAI Loaders mod.
     - Add checkpoint for Lambent Nil.
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.31

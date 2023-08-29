@@ -352,6 +352,106 @@ table.insert(data.raw.technology["nullius-inserter-capacity-5"].prerequisites,"n
 end
 
 
+if mods["aai-loaders"] then
+data.raw["item-subgroup"]["loader"].order = "cal"
+
+data.raw["transport-belt"]["basic-transport-belt"].speed = 0.2 / 32
+AAILoaders.make_tier{
+  name = "basic",
+  transport_belt = "basic-transport-belt",
+  color = {125, 125, 125},
+  fluid = "lubricant", fluid_per_minute = "0.05",
+  fluid_technology_prerequisites = {"lubricant"},
+  technology = {
+    prerequisites = {"logistics"},
+    unit = {
+      count = 30, time = 30,
+      ingredients = {{"automation-science-pack", 1}}
+    }
+  },
+  recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
+}
+
+data.raw["transport-belt"]["ultimate-transport-belt"].speed = 4 / 32
+AAILoaders.make_tier{
+  name = "ultimate",
+  transport_belt = "ultimate-transport-belt",
+  color = {22, 242, 99},
+  fluid = "lubricant", fluid_per_minute = "0.25",
+  fluid_technology_prerequisites = {"lubricant"},
+  technology = {
+    prerequisites = {"aai-express-loader"},
+    unit = {
+      count = 250, time = 30,
+      ingredients = {{"automation-science-pack", 1},
+	      {"logistic-science-pack", 1}, {"chemical-science-pack", 1}}
+    }
+  },
+  recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
+}
+data.raw["transport-belt"]["ultimate-transport-belt"].speed = 5 / 32
+
+data.raw["loader-1x1"]["aai-basic-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 1}
+data.raw["loader-1x1"]["aai-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 2}
+data.raw["loader-1x1"]["aai-fast-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 3}
+data.raw["loader-1x1"]["aai-express-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 4}
+data.raw["loader-1x1"]["aai-ultimate-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 5}
+data.raw["loader-1x1"]["aai-basic-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw["loader-1x1"]["aai-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw["loader-1x1"]["aai-fast-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw["loader-1x1"]["aai-express-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw["loader-1x1"]["aai-ultimate-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw["loader-1x1"]["aai-basic-loader"].minable.mining_time = 0.4
+data.raw["loader-1x1"]["aai-loader"].minable.mining_time = 0.5
+data.raw["loader-1x1"]["aai-fast-loader"].minable.mining_time = 0.6
+data.raw["loader-1x1"]["aai-express-loader"].minable.mining_time = 0.8
+data.raw["loader-1x1"]["aai-ultimate-loader"].minable.mining_time = 1
+data.raw["loader-1x1"]["aai-basic-loader"].next_upgrade = "aai-loader"
+data.raw["loader-1x1"]["aai-loader"].next_upgrade = "aai-fast-loader"
+data.raw["loader-1x1"]["aai-fast-loader"].next_upgrade = "aai-express-loader"
+data.raw["loader-1x1"]["aai-express-loader"].next_upgrade = "aai-ultimate-loader"
+data.raw["loader-1x1"]["aai-ultimate-loader"].next_upgrade = nil
+
+data.raw["loader-1x1"]["aai-basic-loader"].energy_source = {type = "electric", usage_priority = "secondary-input"}
+data.raw["loader-1x1"]["aai-loader"].energy_source = {type = "electric", usage_priority = "secondary-input"}
+data.raw["loader-1x1"]["aai-fast-loader"].energy_source = {type = "electric", usage_priority = "secondary-input"}
+data.raw["loader-1x1"]["aai-express-loader"].energy_source = {type = "electric", usage_priority = "secondary-input"}
+data.raw["loader-1x1"]["aai-ultimate-loader"].energy_source = {type = "electric", usage_priority = "secondary-input"}
+data.raw["loader-1x1"]["aai-basic-loader"].energy_per_item = "2.5kJ"
+data.raw["loader-1x1"]["aai-loader"].energy_per_item = "3kJ"
+data.raw["loader-1x1"]["aai-fast-loader"].energy_per_item = "3.5kJ"
+data.raw["loader-1x1"]["aai-express-loader"].energy_per_item = "4kJ"
+data.raw["loader-1x1"]["aai-ultimate-loader"].energy_per_item = "4.5kJ"
+
+data.raw["loader-1x1"]["aai-basic-loader"].order = "nullius-lb"
+data.raw["loader-1x1"]["aai-loader"].order = "nullius-lc"
+data.raw["loader-1x1"]["aai-fast-loader"].order = "nullius-ld"
+data.raw["loader-1x1"]["aai-express-loader"].order = "nullius-le"
+data.raw["loader-1x1"]["aai-ultimate-loader"].order = "nullius-lf"
+data.raw.item["aai-basic-loader"].order = "nullius-lb"
+data.raw.item["aai-loader"].order = "nullius-lc"
+data.raw.item["aai-fast-loader"].order = "nullius-ld"
+data.raw.item["aai-express-loader"].order = "nullius-le"
+data.raw.item["aai-ultimate-loader"].order = "nullius-lf"
+
+data.raw.technology["nullius-loader-1"].icons = data.raw.technology["aai-basic-loader"].icons
+data.raw.technology["nullius-loader-2"].icons = data.raw.technology["aai-loader"].icons
+data.raw.technology["nullius-loader-3"].icons = data.raw.technology["aai-fast-loader"].icons
+data.raw.technology["nullius-loader-4"].icons = data.raw.technology["aai-express-loader"].icons
+data.raw.technology["nullius-loader-5"].icons = data.raw.technology["aai-ultimate-loader"].icons
+
+table.insert(data.raw.technology["nullius-mechanical-separation"].prerequisites,"nullius-loader-1")
+table.insert(data.raw.technology["nullius-checkpoint-mass-production"].prerequisites,"nullius-loader-2")
+if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
+table.insert(data.raw.technology["long-inserters-2"].prerequisites,"nullius-loader-3")
+else
+table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"nullius-loader-3")
+end
+table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-loader-4")
+table.insert(data.raw.technology["nullius-inserter-capacity-5"].prerequisites,"nullius-loader-5")
+end
+
+
 if mods["bobinserters"] then
 if (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-checkpoint-steel-ingot"}
@@ -1411,8 +1511,8 @@ end
 
 
 if mods["Companion_Drones"] then
-  data.raw["item-subgroup"]["companion"].group = "equipment"
-  data.raw["item-subgroup"]["companion"].order = "gg"
+  data.raw["item-subgroup"]["companion"].group = "drones"
+  data.raw["item-subgroup"]["companion"].order = "d"
   -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"
   table.insert(data.raw["technology"]["nullius-hydrocarbon-combustion-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-companion-fuel"})
@@ -1589,13 +1689,19 @@ end
 
 
 if mods["railloader"] then
-  data.raw.item["railloader"].subgroup = "miniloader"
   data.raw.item["railloader"].order = "nullius-rb"
-  data.raw.item["railunloader"].subgroup = "miniloader"
   data.raw.item["railunloader"].order = "nullius-rc"
   table.insert(data.raw.technology["nullius-inserter-capacity-2"].prerequisites,"nullius-rail-loader")
   data.raw.container["railloader-chest"].minable.mining_time = 2
   data.raw.container["railunloader-chest"].minable.mining_time = 2
+  local rlsg = "railway"
+  if mods["aai-loaders"] then
+    rlsg = "loader"
+  elseif mods["miniloader"] then
+    rlsg = "miniloader"
+  end
+  data.raw.item["railloader"].subgroup = rlsg
+  data.raw.item["railunloader"].subgroup = rlsg
 end
 
 
@@ -1750,7 +1856,8 @@ end
 
 if mods["safefill"] then
 table.insert(data.raw.technology["nullius-plumbing-5"].prerequisites,"nullius-irrigation")
-data.raw["item-subgroup"]["safefill"].order = "lb"
+data.raw["item-subgroup"]["safefill"].group = "intermediate-products"
+data.raw["item-subgroup"]["safefill"].order = "nb"
 end
 
 

@@ -151,7 +151,13 @@ function migrate_version(event)
   legacy_recipe_all("nullius-organic-chemistry-6", "boxed-plastic-pex")
   legacy_recipe_all("nullius-rocket-science-1", "rocket-fuel")
   legacy_recipe_all("nullius-rocket-science-1", "boxed-rocket-fuel")
-  added_techs({"nullius-aluminum-working-2", "nullius-fluid-recapture"})
+  legacy_recipe_all("nullius-biochemistry-4", "worm-egg-harvest")
+  legacy_recipe_all("nullius-biochemistry-5", "fish-egg-harvest")
+  legacy_recipe_all("nullius-biochemistry-6", "arthropod-egg-harvest")
+  legacy_recipe_all("nullius-organic-chemistry-2", "graphite-to-carbon-monoxide")
+  legacy_recipe_all("nullius-mass-production-4", "boxed-carbon-monoxide")
+  added_techs({"nullius-aluminum-working-2", "nullius-fluid-recapture",
+      "nullius-carbon-sequestration-4"})
   convert_all_turbines()
 
   if (version >= 10517) then return end

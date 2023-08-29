@@ -138,7 +138,8 @@ local function toggle_turbine(entity, force)
     return
   end
 
-  local newname = "nullius-turbine-" .. typestr .. "-" .. priority .. tierstr
+  local newname = "nullius-turbine-" .. typestr .. "-" ..
+      priority .. string.sub(entity.name, -2, -1)
   replace_turbine(entity, force, newname)
 end
 

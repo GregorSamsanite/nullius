@@ -1074,12 +1074,54 @@ data:extend({
     type = "item",
     name = "nullius-seawater-intake-2",
     order = "nullius-cc",
-    icon = "__base__/graphics/icons/offshore-pump.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+	icons = {{
+      icon = "__base__/graphics/icons/offshore-pump.png",
+      icon_size = 64,
+      icon_mipmaps = 4
+	}},
     subgroup = "water-intake",
     order = "nullius-bc",
     place_result = "nullius-seawater-intake-2",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-legacy-seawater-intake-1",
+    icons = {
+	  {
+        icon = ENTICONPATH .. "intake.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "broken.png",
+        icon_size = 64
+      }
+	},
+	flags = {"hidden"},
+    subgroup = "water-intake",
+    order = "nullius-bb",
+    place_result = "nullius-legacy-seawater-intake-1",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-legacy-seawater-intake-2",
+    order = "nullius-cc",
+    icons = {
+	  {
+        icon = "__base__/graphics/icons/offshore-pump.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "broken.png",
+        icon_size = 64
+      }
+	},
+	flags = {"hidden"},
+    subgroup = "water-intake",
+    order = "nullius-bc",
+    place_result = "nullius-legacy-seawater-intake-2",
     stack_size = 50
   },
   {
@@ -1681,6 +1723,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.75, 0.55}
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-electrolyzer"}},
     subgroup = "electrolyzer",
     order = "nullius-bbb",
     place_result = "nullius-priority-electrolyzer-1",
@@ -1695,6 +1739,8 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.85, 0.9}
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-electrolyzer"}},
     subgroup = "electrolyzer",
     order = "nullius-bcbb",
     place_result = "nullius-priority-electrolyzer-2",
@@ -1708,6 +1754,8 @@ data:extend({
       icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
       icon_size = 32
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-electrolyzer"}},
     subgroup = "electrolyzer",
     order = "nullius-bdb",
     place_result = "nullius-priority-electrolyzer-3",
@@ -2090,6 +2138,44 @@ data:extend({
     stack_size = 50
   },
   {
+    type = "item",
+    name = "nullius-legacy-well-1",
+    icons = {
+	  {
+        icon = ENTICONPATH .. "well1.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "broken.png",
+        icon_size = 64
+      }
+	},
+	flags = {"hidden"},
+    subgroup = "water-intake",
+    order = "nullius-cd",
+    place_result = "nullius-legacy-well-1",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-legacy-well-2",
+    icons = {
+	  {
+        icon = ENTICONPATH .. "well2.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "broken.png",
+        icon_size = 64
+      }
+	},
+	flags = {"hidden"},
+    subgroup = "water-intake",
+    order = "nullius-ce",
+    place_result = "nullius-legacy-well-2",
+    stack_size = 50
+  },
+  {
     type = "recipe",
     name = "nullius-well-1",
     enabled = false,
@@ -2190,6 +2276,8 @@ data:extend({
       icon_size = 32,
       tint = {0.6, 0.55, 0.36}
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-compressor"}},
     subgroup = "electrolyzer",
     order = "nullius-cbb",
     place_result = "nullius-priority-compressor-1",
@@ -2204,6 +2292,8 @@ data:extend({
       icon_size = 32,
       tint = {0.65, 0.6, 0.8}
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-compressor"}},
     subgroup = "electrolyzer",
     order = "nullius-ccb",
     place_result = "nullius-priority-compressor-2",
@@ -2217,6 +2307,8 @@ data:extend({
       icon = "__angelsrefining__/graphics/icons/thermal-extractor.png",
       icon_size = 32
     }},
+	localised_description = {"entity-description.nullius-prioritize",
+	    {"entity-description.nullius-compressor"}},
     subgroup = "electrolyzer",
     order = "nullius-cdb",
     place_result = "nullius-priority-compressor-3",

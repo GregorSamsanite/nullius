@@ -277,8 +277,8 @@ local function create_miner(mineral, suborder, group, landfill, iname, isize, it
   })
 end
 
-local function create_farmer(base, suborder, species, spore, spore_count,
-    remote, modtype, iname, cost1, cost2, cost3, cost4)
+
+local function create_bio_drone(base, suborder, iname)
   local drone_icons = {
     {
       icon = "__base__/graphics/icons/defender.png",
@@ -304,7 +304,12 @@ local function create_farmer(base, suborder, species, spore, spore_count,
       shift = {0, -1}
     }
   }
-  create_drone(base, "farming", "b"..suborder, nil, 5, nil, drone_icons, remote_icons)
+  create_drone(base, "farming", suborder, nil, 5, nil, drone_icons, remote_icons)
+end
+
+local function create_farmer(base, suborder, species, spore, spore_count,
+    remote, modtype, iname, cost1, cost2, cost3, cost4)
+  create_bio_drone(base, "b"..suborder, iname)
   data:extend({
     {
       type = "recipe",
@@ -389,6 +394,10 @@ create_farmer("aquaculture", "f", "fish", "fish-egg", 50, "entomology-remote",
 create_farmer("husbandry", "g", "arthropod", "arthropod-egg", 30, "aquaculture-remote",
     "yield-module-4", "__base__/graphics/icons/small-biter.png",
     {"nullius-box-wood", 15}, {"nullius-fish", 40}, {"nullius-arthropod", 5}, {"nullius-shackle", 6})
+
+create_bio_drone("sequestration-coal", "cb", "__base__/graphics/icons/coal-1.png")
+create_bio_drone("sequestration-petroleum", "cc", "__base__/graphics/icons/fluid/crude-oil.png")
+
 
 data:extend({
   {

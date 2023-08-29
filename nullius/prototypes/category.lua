@@ -98,6 +98,10 @@ data:extend({
   },
   {
     type = "recipe-category",
+    name = "seawater-pumping"
+  },
+  {
+    type = "recipe-category",
     name = "distillation",
   },
   {
@@ -272,24 +276,6 @@ data:extend({
     group = "production",
     order = "n"
   },
-  {
-    type = "item-subgroup",
-    name = "space",
-    group = "production",
-    order = "sb"
-  },
-  {
-    type = "item-subgroup",
-    name = "asteroid-1",
-    group = "production",
-    order = "scb"
-  },
-  {
-    type = "item-subgroup",
-    name = "asteroid-2",
-    group = "production",
-    order = "scc"
-  },
 
   {
     type = "item-subgroup",
@@ -327,29 +313,85 @@ data:extend({
     group = "logistics",
     order = "g"
   },
+
   {
-    type = "item-subgroup",
-    name = "masonry",
-    group = "logistics",
-    order = "n"
+    type = "item-group",
+    name = "drones",
+    order = "fb",
+    icon_size = 256,
+    icon = "__base__/graphics/technology/construction-robotics.png",
   },
   {
     type = "item-subgroup",
-    name = "concrete",
-    group = "logistics",
-    order = "ob"
+    name = "hangar-1",
+    group = "drones",
+    order = "bb"
   },
   {
     type = "item-subgroup",
-    name = "colored-concrete",
-    group = "logistics",
-    order = "oc"
+    name = "hangar-2",
+    group = "drones",
+    order = "bc"
+  },
+  {
+    type = "item-subgroup",
+    name = "robot",
+    group = "drones",
+    order = "c"
+  },
+  {
+    type = "item-subgroup",
+    name = "space",
+    group = "drones",
+    order = "e"
+  },
+  {
+    type = "item-subgroup",
+    name = "drone-launcher",
+    group = "drones",
+    order = "f"
+  },
+  {
+    type = "item-subgroup",
+    name = "drone",
+    group = "drones",
+    order = "gb"
+  },
+  {
+    type = "item-subgroup",
+    name = "drone-remote",
+    group = "drones",
+    order = "gc"
+  },
+  {
+    type = "item-subgroup",
+    name = "paving",
+    group = "drones",
+    order = "hb"
+  },
+  {
+    type = "item-subgroup",
+    name = "paving-remote",
+    group = "drones",
+    order = "hc"
+  },
+  {
+    type = "item-subgroup",
+    name = "asteroid-1",
+    group = "drones",
+    order = "ib"
+  },
+  {
+    type = "item-subgroup",
+    name = "asteroid-2",
+    group = "drones",
+    order = "ic"
   },
 
   {
     type = "item-group",
     name = "equipment",
-    order = "f",
+    order = "fc",
     icon_size = 256,
     icon = "__base__/graphics/technology/armor-making.png",
   },
@@ -407,59 +449,11 @@ data:extend({
     group = "equipment",
     order = "fc"
   },
-  {
-    type = "item-subgroup",
-    name = "hangar-1",
-    group = "equipment",
-    order = "gb"
-  },
-  {
-    type = "item-subgroup",
-    name = "hangar-2",
-    group = "equipment",
-    order = "gc"
-  },
-  {
-    type = "item-subgroup",
-    name = "robot",
-    group = "equipment",
-    order = "gd"
-  },
-  {
-    type = "item-subgroup",
-    name = "drone-launcher",
-    group = "equipment",
-    order = "hb"
-  },
-  {
-    type = "item-subgroup",
-    name = "drone",
-    group = "equipment",
-    order = "hc"
-  },
-  {
-    type = "item-subgroup",
-    name = "drone-remote",
-    group = "equipment",
-    order = "hd"
-  },
-  {
-    type = "item-subgroup",
-    name = "paving",
-    group = "equipment",
-    order = "ib"
-  },
-  {
-    type = "item-subgroup",
-    name = "paving-remote",
-    group = "equipment",
-    order = "ic"
-  },
 
   {
     type = "item-group",
     name = "metallurgy",
-    order = "f",
+    order = "fm",
     icon_size = 256,
     icon = "__base__/graphics/technology/steel-processing.png",
   },
@@ -637,6 +631,24 @@ data:extend({
     name = "research-pack-2",
     group = "intermediate-products",
     order = "lc"
+  },
+  {
+    type = "item-subgroup",
+    name = "masonry",
+    group = "intermediate-products",
+    order = "nd"
+  },
+  {
+    type = "item-subgroup",
+    name = "concrete",
+    group = "intermediate-products",
+    order = "ne"
+  },
+  {
+    type = "item-subgroup",
+    name = "colored-concrete",
+    group = "intermediate-products",
+    order = "nf"
   },
   {
     type = "item-subgroup",
@@ -879,14 +891,20 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    order = "d",
+    order = "db",
     name = "carbon",
     group = "fluids",
   },
   {
     type = "item-subgroup",
+    order = "dc",
+    name = "hydrocarbon",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
     order = "e",
-    name = "compressed-organic",
+    name = "reforming",
     group = "fluids",
   },
   {
@@ -1953,6 +1971,14 @@ data:extend({
   {
     type = "ammo-category",
     name = "nullius-husbandry-drone"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-sequestration-coal-drone"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-sequestration-petroleum-drone"
   },
 
   {

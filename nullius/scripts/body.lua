@@ -60,6 +60,16 @@ function switch_body(player, target)
 	end
   end
 
+  if ((player.force ~= nil) and player.force.valid) then
+    if (global.nullius_switch_body_count == nil) then
+	  global.nullius_switch_body_count = { }
+	end
+    local count = global.nullius_switch_body_count[player.force.name]
+	if (count == nil) then count = 0 end
+	count = count + 1
+	global.nullius_switch_body_count[player.force.name] = count
+  end
+
   player.set_controller{type=defines.controllers.character, character=target}
   update_player_upgrades(player)
 

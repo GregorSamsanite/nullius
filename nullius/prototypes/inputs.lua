@@ -7,7 +7,6 @@ data:extend({
     name = "nullius-prioritize",
     order = "nullius-ibb",
     key_sequence = "PAD +",
-	alternative_key_sequence = "PAD -",
 	include_selected_prototype = true
   },
   {

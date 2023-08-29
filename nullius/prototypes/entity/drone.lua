@@ -14,6 +14,8 @@ data:extend({
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 1.5, result = "nullius-drone-launcher-1"},
+	fast_replaceable_group = "drone-launcher",
+    next_upgrade = "nullius-drone-launcher-2",
     open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
     close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
     mined_sound = {filename = "__core__/sound/deconstruct-large.ogg",volume = 0.8},
@@ -108,6 +110,7 @@ data:extend({
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 2, result = "nullius-drone-launcher-2"},
+	fast_replaceable_group = "drone-launcher",
     open_sound = data.raw["artillery-turret"]["artillery-turret"].open_sound,
     close_sound = data.raw["artillery-turret"]["artillery-turret"].close_sound,
     mined_sound = {filename = "__core__/sound/deconstruct-large.ogg",volume = 0.8},
@@ -575,3 +578,5 @@ create_farmer("entomology")
 create_farmer("arboriculture")
 create_farmer("aquaculture")
 create_farmer("husbandry")
+create_farmer("sequestration-coal")
+create_farmer("sequestration-petroleum")

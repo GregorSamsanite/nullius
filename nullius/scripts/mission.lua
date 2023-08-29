@@ -1,14 +1,14 @@
 local mod_gui = require("mod-gui")
 
 local objective_name = {
-    "probe", "oxygen", "algae", "grass",
-	"tree", "worm", "fish", "arthropod",
-	"terraform", "copper", "uranium", "overall"
+    "probe", "oxygen", "algae", "grass", "tree",
+	"worm", "fish", "arthropod", "terraform", "copper",
+	"uranium", "coal", "petroleum", "overall"
 }
 
 local function objective_locale(goal)
-  local group = {"item", "fluid", "item", "item", "item", "item",
-      "item", "item", "technology", "ore", "ore", "objective"}
+  local group = {"item", "fluid", "item", "item", "item", "item", "item",
+      "item", "technology", "ore", "ore", "item", "fluid", "objective"}
   local labname = nil
   if (group[goal] == "ore") then
     labname = "item-name."..objective_name[goal].."-ore"
@@ -32,12 +32,12 @@ function update_mission_panel(player)
 
     gui.add({type = "table", name = "table", column_count = 1})
     gui.table.add({type = "label", name = "mission_overall",
-        caption = {"", objective_locale(12), ": ",
-            global.nullius_mission_status[12], "%"},
+        caption = {"", objective_locale(14), ": ",
+            global.nullius_mission_status[14], "%"},
 		tooltip = {"objective-description.nullius-overall"}})
 
     local oxygen = global.nullius_mission_status[2]
-    for i = 1, 11 do
+    for i = 1, 13 do
 	  local str = nil
       if (global.nullius_mission_status[i] < 100) then
         str = {"", objective_locale(i), ": ",
@@ -101,12 +101,6 @@ end
 
 function update_mission_player(player)
   if (global.nullius_mission_status ~= nil) then
-    for i = 9, 12 do
-      if (global.nullius_mission_count[i] == nil) then
-        global.nullius_mission_count[i] = 0
-        global.nullius_mission_status[i] = 0
-      end
-    end
     if (global.nullius_mission_complete) then
       global.nullius_mission_show[player.index] = false
       if mod_gui.get_button_flow(player).nullius_mission_button then
@@ -125,17 +119,28 @@ function update_mission_player(player)
   end
 end
 
-function update_mission_global()
+local function update_mission_global()
   for _, player in pairs(game.players) do
     update_mission_player(player)
   end
+end
+
+function init_mission_global()
+  if (global.nullius_mission_status == nil) then return end
+  for i = 1, 14 do
+    if (global.nullius_mission_count[i] == nil) then
+      global.nullius_mission_count[i] = 0
+      global.nullius_mission_status[i] = 0
+    end
+  end
+  update_mission_global()
 end
 
 function set_mission_goal(goal, amount, force)
   if (global.nullius_mission_complete) then return end
 
   local mission_target = {10, 125, 1800, 12000000,
-      32000, 750, 320, 60, 2500000, 20, 12}
+      32000, 750, 320, 60, 2500000, 20, 12, 3000000, 12000000}
   local count = global.nullius_mission_count
   local status = global.nullius_mission_status
   local oldstatus = status[goal]
@@ -154,7 +159,7 @@ function set_mission_goal(goal, amount, force)
   local finished = false
   if ((status[goal] >= 100) and (oldstatus < 100)) then
     finished = true
-    for i = 1, 11 do
+    for i = 1, 13 do
       if (status[i] < 100) then
         finished = false
       end
@@ -164,10 +169,10 @@ function set_mission_goal(goal, amount, force)
   end
 
   local overall = global.nullius_mission_status[2]
-  for i = 1, 11 do
+  for i = 1, 13 do
     overall = overall + math.min(100, global.nullius_mission_status[i])
   end
-  global.nullius_mission_status[12] = (math.floor(100 * (overall / 12)) / 100)
+  global.nullius_mission_status[14] = (math.floor(100 * (overall / 14)) / 100)
 
   if (finished and (force ~= nil)) then
     global.nullius_mission_complete = true
@@ -285,7 +290,7 @@ function create_mission(force)
 	  global.nullius_oxygen_legacy = 0
 	end
 
-    for i = 1, 12 do
+    for i = 1, 14 do
       global.nullius_mission_count[i] = 0
       global.nullius_mission_status[i] = 0
     end

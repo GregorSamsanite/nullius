@@ -44,7 +44,9 @@ data:extend({
         "nullius-entomology-drone",
         "nullius-arboriculture-drone",
         "nullius-aquaculture-drone",
-        "nullius-husbandry-drone"
+        "nullius-husbandry-drone",
+        "nullius-sequestration-coal-drone",
+        "nullius-sequestration-petroleum-drone"
       },
       cooldown = 200,
       movement_slow_down_factor = 0,

@@ -94,7 +94,7 @@ data:extend({
       mining_time = 2,
       results = {
         {type="item", name="small-lamp", amount=20},
-        {type="item", name="nullius-solar-panel-1", amount=5}
+        {type="item", name="nullius-solar-panel-1", amount=8}
       }
     },
     collision_box = {{-0.9, -0.1}, {1.4, 1.2}},
@@ -308,7 +308,7 @@ data:extend({
     minable = {
       mining_time = 1.5,
       results = {
-        {type="item", name="nullius-broken-solar-panel", amount=15},
+        {type="item", name="nullius-broken-solar-panel", amount=18},
         {type="item", name="nullius-aluminum-ingot", amount=10}
       }
     },
@@ -470,7 +470,7 @@ data:extend({
       mining_time = 1,
       results = {
         {type="item", name="nullius-lab-1", amount=1},
-        {type="item", name="red-wire", amount=10},
+        {type="item", name="red-wire", amount=20},
         {type="item", name="nullius-broken-sensor-node", amount=2}
       }
     },
@@ -525,10 +525,9 @@ data:extend({
       mining_time = 1,
       results = {
         {type="item", name="small-electric-pole", amount=30},
-        {type="item", name="big-electric-pole", amount=8},
-        {type="item", name="nullius-broken-pylon", amount=24},
-        {type="item", name="nullius-grid-battery-1", amount=5},
-        {type="item", name="nullius-broken-grid-battery", amount=10}
+        {type="item", name="big-electric-pole", amount=10},
+        {type="item", name="nullius-broken-pylon", amount=30},
+		{type="item", name="programmable-speaker", amount=5}
       }
     },
     collision_box = {{-1.5, -0.9}, {0.9, 0.9}},
@@ -688,7 +687,10 @@ data:extend({
     allow_copy_paste = false,
     minable = {
       mining_time = 1,
-      results = { {type="item", name="nullius-small-miner-1", amount=3} }
+      results = {
+	    {type="item", name="nullius-small-miner-1", amount=3},
+		{type="item", name="nullius-broken-grid-battery", amount=12}
+	  }
     },
     collision_box = {{-1.2, -0.7}, {1.2, 0.7}},
     selection_box = {{-1.5, -1}, {1.5, 1}},
@@ -741,7 +743,8 @@ data:extend({
       mining_time = 1,
       results = {
         {type="item", name="nullius-medium-assembler-1", amount=1},
-        {type="item", name="nullius-broken-assembler", amount=3}
+        {type="item", name="nullius-broken-assembler", amount=3},
+        {type="item", name="nullius-grid-battery-1", amount=6}
       }
     },
     collision_box = {{-0.7, -1.2}, {0.7, 1.2}},

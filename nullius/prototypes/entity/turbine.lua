@@ -98,12 +98,17 @@ local function set_generator_animation(proto, overlay, tint)
   proto.vertical_animation = turbine_animation(true, overlay, tint)
 end
 
-local function finish_furnace(furnace, generator, overlay, openness, priority, tier, tint)
+local function finish_furnace(furnace, generator, overlay,
+    openness, priority, tier, power, tint)
   local midfix = openness .. "-" .. priority
   local suffix = midfix .. "-" .. tier
   furnace.name = "nullius-turbine-" .. suffix
   furnace.localised_name = {"", {"entity-name.nullius-turbine-" .. midfix}, " ", tier}
-  furnace.localised_description = {"entity-description.nullius-" .. priority .. "-turbine"}
+  furnace.localised_description = {"entity-description.nullius-turbine-info",
+	  power, (generator.effectivity * 100),
+	  {"entity-description.nullius-turbine-entity",
+	      {"entity-description.nullius-turbine-" .. openness},
+	      {"entity-description.nullius-turbine-" .. priority}}}
   generator.name = "nullius-turbine-generator-" .. suffix
   generator.localised_name = furnace.localised_name
   generator.localised_description = furnace.localised_description
@@ -119,7 +124,13 @@ local function finish_furnace(furnace, generator, overlay, openness, priority, t
   data:extend({ furnace, generator })
 end
 
-local function turbine_variants(tier, furnacecb, generatorob, loblue, lotint, hitint)
+local closed_smoke = util.table.deepcopy(data.raw.generator["steam-turbine"].smoke)
+closed_smoke[1].name = "light-smoke"
+closed_smoke[1].north_position = {0.12, -1.19}
+closed_smoke[1].east_position = {0.57, -0.94}
+
+local function turbine_variants(tier, furnacecb, generatorob,
+    power, loblue, lotint, hitint)
   local furnaceob = util.table.deepcopy(furnacecb)
   furnaceob.minable.result = "nullius-turbine-open-" .. tier
   furnaceob.placeable_by.item = "nullius-turbine-open-" .. tier
@@ -141,10 +152,13 @@ local function turbine_variants(tier, furnacecb, generatorob, loblue, lotint, hi
   generatoroe.energy_source.usage_priority = "primary-output"
   local generatorcb = util.table.deepcopy(generatorob)
   generatorcb.effectivity = generatorob.effectivity - 0.05
+  generatorcb.smoke = closed_smoke
   local generatorcs = util.table.deepcopy(generatoros)
   generatorcs.effectivity = generatorcb.effectivity
+  generatorcs.smoke = closed_smoke
   local generatorce = util.table.deepcopy(generatoroe)
   generatorce.effectivity = generatorcb.effectivity
+  generatorce.smoke = closed_smoke
 
   if (tier < 3) then
     local t2 = "-" .. (tier + 1)
@@ -157,17 +171,17 @@ local function turbine_variants(tier, furnacecb, generatorob, loblue, lotint, hi
   end
 
   finish_furnace(furnacecb, generatorcb, "green",
-      "closed", "backup", tier, {lotint, hitint, hitint})
+      "closed", "backup", tier, power, {lotint, hitint, hitint})
   finish_furnace(furnacecs, generatorcs, "yellow",
-      "closed", "standard", tier, {hitint, hitint, hitint})
+      "closed", "standard", tier, power, {hitint, hitint, hitint})
   finish_furnace(furnacece, generatorce, "red",
-      "closed", "exhaust", tier, {hitint, lotint, hitint})
+      "closed", "exhaust", tier, power, {hitint, lotint, hitint})
   finish_furnace(furnaceob, generatorob, "green",
-      "open", "backup", tier, {lotint, hitint, loblue})
+      "open", "backup", tier, power, {lotint, hitint, loblue})
   finish_furnace(furnaceos, generatoros, "yellow",
-      "open", "standard", tier, {hitint, hitint, loblue})
+      "open", "standard", tier, power, {hitint, hitint, loblue})
   finish_furnace(furnaceoe, generatoroe, "red",
-      "open", "exhaust", tier, {hitint, lotint, loblue})
+      "open", "exhaust", tier, power, {hitint, lotint, loblue})
 end
 
 
@@ -214,7 +228,7 @@ local furnace1cb = {
       secondary_draw_orders = { north = -1 }
     },
     {
-	  filter = "nullius-power",
+	  filter = "nullius-energy",
       production_type = "output",
 	  pipe_connections = {{ type = "output", position = {1, -2.1} }},
       base_area = 2,
@@ -238,7 +252,7 @@ local furnace2cb = util.table.deepcopy(furnace1cb)
 furnace2cb.minable = {mining_time = 1.2, result = "nullius-turbine-closed-2"}
 furnace2cb.placeable_by = {item = "nullius-turbine-closed-2", count = 1}
 furnace2cb.max_health = 400
-furnace2cb.crafting_speed = 2.5
+furnace2cb.crafting_speed = 2.4
 furnace2cb.fluid_boxes[1].base_area = 8
 furnace2cb.fluid_boxes[1].base_level = -4
 furnace2cb.fluid_boxes[1].height = 4
@@ -253,7 +267,7 @@ local furnace3cb = util.table.deepcopy(furnace1cb)
 furnace3cb.minable = {mining_time = 1.6, result = "nullius-turbine-closed-3"}
 furnace3cb.placeable_by = {item = "nullius-turbine-closed-3", count = 1}
 furnace3cb.max_health = 500
-furnace3cb.crafting_speed = 6
+furnace3cb.crafting_speed = 5.4
 furnace3cb.fluid_boxes[1].base_area = 10
 furnace3cb.fluid_boxes[1].base_level = -8
 furnace3cb.fluid_boxes[1].height = 8
@@ -291,7 +305,7 @@ local generator1ob = {
   horizontal_animation = generator_horizontal,
   vertical_animation = generator_vertical,
   fluid_box = {
-    filter = "nullius-power",
+    filter = "nullius-energy",
     production_type = "input",
 	pipe_connections = {
 	  { type = "input-output", position = {-1, -2.1} },
@@ -349,7 +363,7 @@ local connector = {
     gas_flow = invisible
   },
   fluid_box = {
-    filter = "nullius-power",
+    filter = "nullius-energy",
     base_area = 2,
     base_level = 0,
 	height = 2,
@@ -378,7 +392,7 @@ local vent1 = {
   crafting_speed = 1,
   source_inventory_size = 0,
   fluid_boxes = {{
-	filter = "nullius-power",
+	filter = "nullius-energy",
     production_type = "input",
     base_area = 3,
     base_level = 1,
@@ -402,8 +416,8 @@ vent3.fluid_boxes[1].base_area = 5
 vent3.fluid_boxes[1].height = 4
 
 
-turbine_variants(1, furnace1cb, generator1ob, 0.25, 0.4, 0.6)
-turbine_variants(2, furnace2cb, generator2ob, 0.45, 0.6, 0.8)
-turbine_variants(3, furnace3cb, generator3ob, 0.6, 0.8, 1)
+turbine_variants(1, furnace1cb, generator1ob, 1, 0.25, 0.4, 0.6)
+turbine_variants(2, furnace2cb, generator2ob, 2.5, 0.45, 0.6, 0.8)
+turbine_variants(3, furnace3cb, generator3ob, 6, 0.6, 0.8, 1)
 
 data:extend({ connector, vent1, vent2, vent3 })

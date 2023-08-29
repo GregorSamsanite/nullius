@@ -4758,7 +4758,7 @@ data:extend({
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-aluminum-2",
-    order = "nullius-gb",
+    order = "nullius-gbb",
     energy_required = 10,
     ingredients = {
       {"nullius-box-alumina", 9},
@@ -4945,8 +4945,8 @@ data:extend({
     always_show_products = true,
 	no_productivity = true,
     category = "bulk-smelting",
-	subgroup = "boxed-aluminum-1",
-    order = "nullius-lb",
+	subgroup = "boxed-aluminum-2",
+    order = "nullius-gbc",
     energy_required = 2,
     ingredients = {
       {"nullius-box-aluminum-powder", 20},

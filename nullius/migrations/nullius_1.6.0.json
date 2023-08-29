@@ -52,6 +52,10 @@
   ],
   "entity":
   [
+    ["nullius-well-1", "nullius-legacy-well-1"],
+	["nullius-well-2", "nullius-legacy-well-2"],
+    ["nullius-seawater-intake-1", "nullius-legacy-seawater-intake-1"],
+	["nullius-seawater-intake-2", "nullius-legacy-seawater-intake-2"],
     ["nullius-boiler", "nullius-boiler-1"],
 	["nullius-mirror-boiler", "nullius-mirror-boiler-1"],
 	["nullius-backup-turbine-1", "nullius-turbine-open-backup-1"],
@@ -65,6 +69,15 @@
   ],
   "recipe":
   [
+	["nullius-plastic-pex", "nullius-legacy-plastic-pex"],
+	["nullius-boxed-plastic-pex", "nullius-legacy-boxed-plastic-pex"],
+	["nullius-rocket-fuel", "nullius-legacy-rocket-fuel"],
+	["nullius-boxed-rocket-fuel", "nullius-legacy-boxed-rocket-fuel"],
+	["nullius-worm-egg-harvest", "nullius-legacy-worm-egg-harvest"],
+	["nullius-fish-egg-harvest", "nullius-legacy-fish-egg-harvest"],
+	["nullius-arthropod-egg-harvest", "nullius-legacy-arthropod-egg-harvest"],
+	["nullius-graphite-to-carbon-monoxide", "nullius-legacy-graphite-to-carbon-monoxide"],
+	["nullius-boxed-carbon-monoxide", "nullius-legacy-boxed-carbon-monoxide"],
     ["nullius-boiler", "nullius-boiler-1"],
 	["nullius-backup-turbine-1", "nullius-turbine-open-1"],
 	["nullius-standard-turbine-2", "nullius-turbine-open-2"],

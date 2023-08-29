@@ -488,6 +488,172 @@ end
 end
 
 
+if mods["aai-loaders"] then
+data:extend({
+  {
+    type = "technology",
+    name = "nullius-loader-1",
+    order = "nullius-ce",
+	localised_description = {"technology-description.nullius-miniloader"},
+    effects = {{type = "unlock-recipe", recipe = "nullius-loader-1"}},
+    unit = {
+      count = 3,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 2}
+      },
+      time = 12
+    },
+    prerequisites = {"nullius-logistics-1", "nullius-toolmaking-1"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-loader-2",
+    order = "nullius-ck",
+	localised_description = {"technology-description.nullius-miniloader"},
+    effects = {{type = "unlock-recipe", recipe = "nullius-loader-2"}},
+    unit = {
+      count = 25,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}
+      },
+      time = 6
+    },
+    prerequisites = {"nullius-storage-2", "nullius-lubrication"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-loader-3",
+    order = "nullius-dg",
+	localised_description = {"technology-description.nullius-miniloader"},
+	effects = {{type = "unlock-recipe", recipe = "nullius-loader-3"}},
+    unit = {
+      count = 100,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-freight-logistics", "nullius-logistics-2"}
+  },
+  {
+    type = "technology",
+    name = "nullius-loader-4",
+    order = "nullius-ek",
+	localised_description = {"technology-description.nullius-miniloader"},
+	effects = {{type = "unlock-recipe", recipe = "nullius-loader-4"}},
+    unit = {
+      count = 1000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      },
+      time = 35
+    },
+    prerequisites = {"nullius-storage-3"}
+  },
+  {
+    type = "technology",
+    name = "nullius-loader-5",
+    order = "nullius-fo",
+	localised_description = {"technology-description.nullius-miniloader"},
+	effects = {{type = "unlock-recipe", recipe = "nullius-loader-5"}},
+    unit = {
+      count = 3000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 50
+    },
+    prerequisites = {"nullius-distribution-4"}
+  }
+})
+
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-loader-1",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 3,
+    ingredients = {
+      {type="item", name="wooden-chest", amount=1},
+      {type="item", name="underground-belt", amount=1}
+    },
+    result = "aai-basic-loader"
+  },
+  {
+    type = "recipe",
+    name = "nullius-loader-2",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="aai-basic-loader", amount=1},
+      {type="item", name="underground-belt", amount=1},
+      {type="item", name="inserter", amount=4},
+	  {type="fluid", name="nullius-lubricant", amount=30},
+    },
+    result = "aai-loader"
+  },
+  {
+    type = "recipe",
+    name = "nullius-loader-3",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 8,
+    ingredients = {
+      {type="item", name="aai-loader", amount=2},
+      {type="item", name="iron-chest", amount=1},
+      {type="item", name="fast-underground-belt", amount=2},
+      {type="item", name="turbo-inserter", amount=3}
+    },
+    result = "aai-fast-loader"
+  },
+  {
+    type = "recipe",
+    name = "nullius-loader-4",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 12,
+    ingredients = {
+      {type="item", name="aai-fast-loader", amount=1},
+      {type="item", name="steel-chest", amount=1},
+      {type="item", name="express-underground-belt", amount=1},
+      {type="item", name="stack-inserter", amount=2}
+    },
+    result = "aai-express-loader"
+  },
+  {
+    type = "recipe",
+    name = "nullius-loader-5",
+    enabled = false,
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 20,
+    ingredients = {
+      {type="item", name="aai-express-loader", amount=2},
+      {type="item", name="logistic-chest-storage", amount=1},
+      {type="item", name="ultimate-underground-belt", amount=1},
+      {type="item", name="express-stack-inserter", amount=2}
+    },
+    result = "aai-ultimate-loader"
+  }
+})
+end
+
+
 if mods["train-pubsub"] then
 data:extend({
   {

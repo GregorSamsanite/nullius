@@ -93,57 +93,11 @@ end
 
 function create_collision_box(surface, pos, force, box_name, 
     xoffs, yoffs, xsz, ysz, layer)
-  local bx = (pos.x + xoffs)
-  local by = (pos.y + yoffs)
-  local dx = xsz + 0.9
-  local dy = ysz + 0.9
-  local bound = {{(bx - dx), (by - dy)}, {(bx + dx), (by + dy)}}
-  local ghosts = surface.find_entities_filtered{area = bound,
-      name = "entity-ghost"}
-  local ghost_info = { }
-
-  for _,ghost in pairs(ghosts) do
-    if (ghost.valid and
-	    (ghost.ghost_prototype.collision_mask[layer] == nil)) then
-	  local dir = nil
-	  if (ghost.supports_direction) then
-	    dir = ghost.direction
-	  end  
-	  ghost_info[ghost.unit_number] = {
-	    inner_name = ghost.ghost_name,
-		position = ghost.position,
-		duration = ghost.time_to_live,
-		requests = ghost.item_requests,
-		force = ghost.force,
-		direction = dir
-	  }
-	end
-  end
-
+  local pos = {x = (pos.x + xoffs), y = (pos.y + yoffs)}
   local collision = surface.create_entity{name = box_name, force = force,
-      position = {x = bx, y = by}, create_build_effect_smoke = false}
+      position = pos, create_build_effect_smoke = false}
   collision.destructible = false
   collision.minable = false
-
-  local ghosts = surface.find_entities_filtered{area = bound,
-      name = "entity-ghost"}
-  for _,ghost in pairs(ghosts) do
-    if (ghost.valid) then
-	  ghost_info[ghost.unit_number] = nil
-	end
-  end
-  for _,ghost in pairs(ghost_info) do
-    local g = surface.create_entity{name = "entity-ghost",
-	    inner_name = ghost.inner_name, force = ghost.force, 
-	    position = ghost.position, direction = ghost.direction,
-		expires = (ghost.duration ~= nil)}
-	if (ghost.duration ~= nil) then
-	  g.time_to_live = ghost.duration
-	end
-	if (ghost.requests ~= nil) then
-	  g.item_requests = ghost.requests
-	end
-  end
   return collision
 end
 
