@@ -33,8 +33,8 @@ local function create_turbine_recipe(fluidname, exhaust, energy, counto, countc,
 end
 
 
-create_turbine_recipe("steam", "water", 6, 335, 360, 36) -- 1 water per 10
-create_turbine_recipe("pressure-steam", "water", 20, 100, 108, 36) -- 1 water per 3
+create_turbine_recipe("steam", "water", 6, 335, 360, 60) -- 1 water per 6
+create_turbine_recipe("pressure-steam", "water", 20, 100, 106, 53) -- 1 water per 2
 create_turbine_recipe("compressed-air", "air", 14, 145, 155, 527) -- 85%
 create_turbine_recipe("compressed-residual-gas", "residual-gas", 15, 134, 150, 540) -- 90%
 create_turbine_recipe("compressed-trace-gas", "trace-gas", 15, 134, 150, 540)  -- 90%

@@ -99,27 +99,25 @@ local function replace_turbine(entity, force, newname)
   if (entry ~= nil) then
     connector_contents = save_fluid_contents(entry.connector)
 	generator_contents = save_fluid_contents(entry.generator)
+	remove_turbine(entity.unit_number)
   end
 
-  local tierstr = string.sub(entity.name, -2, -1)
-  update_build_statistics(entity, force, true)
-  remove_turbine(entity.unit_number)
+  if (newname ~= nil) then
+    update_build_statistics(entity, force, true)
+    entity = entity.surface.create_entity{
+        name = newname, force = force, direction = entity.direction,
+	    position = entity.position, spill = false,
+	    fast_replace = true, create_build_effect_smoke = false}
+	if ((entity == nil) or (not entity.valid)) then return end
+	update_build_statistics(entity, force, false)
+  end
 
-  local newturbine = entity.surface.create_entity{
-      name = newname,
-	  force = force, direction = entity.direction,
-	  position = entity.position, spill = false,
-	  fast_replace = true, create_build_effect_smoke = false}
-
-  if ((newturbine ~= nil) and newturbine.valid) then
-    build_turbine(newturbine)
-	restore_fluid_contents(newturbine, furnace_contents)
-	update_build_statistics(newturbine, force, false)
-	local newentry = global.nullius_turbines[newturbine.unit_number]
-    if (newentry ~= nil) then
-      restore_fluid_contents(newentry.connector, connector_contents)
-	  restore_fluid_contents(newentry.generator, generator_contents)
-    end
+  build_turbine(entity)
+  restore_fluid_contents(entity, furnace_contents)
+  local newentry = global.nullius_turbines[entity.unit_number]
+  if (newentry ~= nil) then
+    restore_fluid_contents(newentry.connector, connector_contents)
+	restore_fluid_contents(newentry.generator, generator_contents)
   end
 end
 
@@ -186,6 +184,18 @@ end
 script.on_event("nullius-prioritize", function(event)
   priority_event(event)
 end)
+
+
+function dolly_moved_entity(event)
+  if (global.nullius_turbines == nil) then return end
+  if (event == nil) then return end
+  local entity = event.moved_entity
+  if ((entity == nil) or (not entity.valid)) then return end
+  if (string.sub(entity.name, 1, 16) ~= "nullius-turbine-") then return end
+  local entry = global.nullius_turbines[entity.unit_number]
+  if (entry == nil) then return end
+  replace_turbine(entity, force, nil)
+end
 
 
 function convert_all_turbines()

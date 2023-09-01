@@ -1,6 +1,34 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.6.0
+Version: 1.6.2
+Date: 31.08.2023
+  Features:
+    - New biology tier explosive recipe.
+  Balancing:
+    - Improve ratio of water recaptured from steam by closed turbines.
+    - Increase cost of chemistry tier explosive recipe.
+    - Reduce water cost of boiling recipes.
+    - Increase water cost of high-pressure boiling recipes.
+    - Increase water cost of electrolysis recipes by about a third.
+    - Reduce water byproduct of organic recipes.
+    - Improve ratio of condensation recipe.
+  Bugfixes:
+    - Preserve fluid contents when prioritizing turbines.
+  Changes:
+    - Move thermite iron recipe to later tech.
+  Modding:
+    - Support moving turbines with Picker Dollies mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.6.1
 Date: 29.08.2023
+  Bugfixes:
+    - Fix a problem with migration of coal mission status.
+  Changes:
+    - Adjust recipe for sequestration drones.
+  Info:
+    - Show oxygen vented and surplus plant coverage a bit earlier.
+---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 28.08.2023
   Features:
     - WARNING:  Some changes in this major update may not just work seamlessly
       in an existing factory without taking some time to fix it up.  You may

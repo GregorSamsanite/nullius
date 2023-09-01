@@ -382,6 +382,7 @@ local vent1 = {
   flags = connector.flags,
   collision_box = connector.collision_box,
   selection_box = connector.selection_box,
+  collision_mask = { "not-colliding-with-itself" },
   selectable_in_game = false,
   allow_copy_paste = false,
   bottleneck_ignore = true,

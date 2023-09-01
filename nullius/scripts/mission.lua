@@ -43,7 +43,7 @@ function update_mission_panel(player)
         str = {"", objective_locale(i), ": ",
             global.nullius_mission_status[i], "%"}
 	  elseif ((i >= 3) and (i <= 5) and
-	      (oxygen < 100) and (oxygen >= (i * 10))) then
+	      (oxygen < 100) and (oxygen >= (i * 8))) then
 		local s = math.floor(global.nullius_mission_status[i] + 0.5)
 		local m = s - 100
 		if (i == 3) then
@@ -66,7 +66,7 @@ function update_mission_panel(player)
 	    gui.table.add({type = "label",
 		    name = "mission_"..objective_name[i], caption = str,
 			tooltip = {"objective-description.nullius-"..objective_name[i]}})
-		if ((i == 2) and (oxygen >= 20) and
+		if ((i == 2) and (oxygen >= 16) and
 		    (global.nullius_vent_total ~= nil)) then
 		  local total = math.floor(global.nullius_vent_total / 1000)
 		  local m = total

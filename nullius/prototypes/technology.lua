@@ -4685,10 +4685,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-thermite"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-iron-oxidation"
       }
     },
@@ -7201,10 +7197,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-steel-ingot-1"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-boxed-thermite"
       },
       {
         type = "unlock-recipe",
@@ -10873,6 +10865,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-steel-ingot-hydrogen"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-thermite"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-thermite"
       }
     },
     unit = {
@@ -13817,6 +13817,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-cellulose-pyrolysis"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-explosive-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-explosive-2"
       }
     },
     unit = {

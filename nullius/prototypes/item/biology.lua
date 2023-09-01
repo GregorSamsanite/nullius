@@ -1674,7 +1674,7 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-wood", amount=3},
-      {type="fluid", name="nullius-water", amount=100},
+      {type="fluid", name="nullius-water", amount=120},
       {type="fluid", name="nullius-oxygen", amount=60}
     },
     results = {
@@ -1715,7 +1715,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-wood", amount=3},
-      {type="fluid", name="nullius-water", amount=500},
+      {type="fluid", name="nullius-water", amount=600},
       {type="fluid", name="nullius-oxygen", amount=300}
     },
     results = {
@@ -1749,7 +1749,7 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-wood-chip", amount=8},
-      {type="fluid", name="nullius-water", amount=150},
+      {type="fluid", name="nullius-water", amount=160},
       {type="fluid", name="nullius-oxygen", amount=100}
     },
     results = {
@@ -1789,7 +1789,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-wood-chip", amount=8},
-      {type="fluid", name="nullius-water", amount=750},
+      {type="fluid", name="nullius-water", amount=800},
       {type="fluid", name="nullius-oxygen", amount=500}
     },
     results = {
@@ -1949,7 +1949,8 @@ data:extend({
       {"nullius-terraforming-drone-grey", 1},
       {"nullius-box-rocket-fuel", 20},
       {"nullius-box-coal", 30000},
-      {"nullius-large-dispatch-chest-2", 1}
+      {"nullius-large-dispatch-chest-2", 1},
+      {"nullius-large-miner-2", 4}
     },
     result = "nullius-sequestration-coal-drone"
   },
@@ -1977,7 +1978,8 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-terraforming-drone-tan", amount=1},
       {type="item", name="nullius-box-rocket-fuel", amount=20},
-      {type="item", name="nullius-petroleum-barrel", amount=10000}
+      {type="item", name="nullius-petroleum-barrel", amount=10000},
+      {type="item", name="nullius-extractor-2", amount=3}
     },
 	results = {
       {type="item", name="nullius-sequestration-petroleum-drone", amount=1},

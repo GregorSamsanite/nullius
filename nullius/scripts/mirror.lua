@@ -22,8 +22,8 @@ function save_fluid_contents(entity)
 end
 
 function restore_fluid_contents(entity, contents)
-  if ((entity ~= nil) and entity.valid and (contest ~= nil)) then
-    for i = 1, #entity.fluidbox do
+  if ((entity ~= nil) and entity.valid and (contents ~= nil)) then
+    for i = 1, #contents do
       entity.fluidbox[i] = contents[i]
     end
   end

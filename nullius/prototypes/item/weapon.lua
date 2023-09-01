@@ -772,7 +772,21 @@ data:extend({
     type = "recipe",
     name = "nullius-improvised-explosive",
     localised_name = {"recipe-name.nullius-improvised-explosive"},
-    order = "nullius-bb",
+	icons = {
+      {
+        icon = "__base__/graphics/icons/explosives.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.5
+      },
+      {
+        icon = "__core__/graphics/icons/mip/slot-item-in-hand.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-7, -7}
+      }
+	},
+    order = "nullius-xb",
     enabled = false,
     always_show_made_in = true,
     allow_decomposition = false,
@@ -791,7 +805,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-explosive",
-    order = "nullius-bc",
+	localised_name = {"", {"item-name.nullius-explosive"}, " ", 1},
+    order = "nullius-xc",
     enabled = false,
     always_show_made_in = true,
     category = "basic-chemistry",
@@ -799,7 +814,7 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
     },
-    energy_required = 5,
+    energy_required = 4,
     ingredients = {
       {type="fluid", name="nullius-acid-nitric", amount=18},
       {type="fluid", name="nullius-acid-sulfuric", amount=18},
@@ -809,23 +824,26 @@ data:extend({
       {type="item", name="red-wire", amount=1}
     },
     results = {
-      {type="item", name="cliff-explosives", amount=2},
-      {type="fluid", name="nullius-wastewater", amount=20}
+      {type="item", name="cliff-explosives", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=16}
     },
     main_product = "cliff-explosives"
   },
   {
     type = "recipe",
     name = "nullius-boxed-explosive",
+	localised_name = {"recipe-name.nullius-boxed",
+	    {"", {"item-name.nullius-explosive"}, " ", 1}},
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-demolition",
+	order = "nullius-cb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
     },
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-acid-nitric", amount=90},
       {type="fluid", name="nullius-acid-sulfuric", amount=90},
@@ -835,8 +853,102 @@ data:extend({
       {type="item", name="nullius-box-red-wire", amount=1}
     },
     results = {
-      {type="item", name="nullius-box-explosive", amount=2},
-      {type="fluid", name="nullius-wastewater", amount=100}
+      {type="item", name="nullius-box-explosive", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=80}
+    },
+    main_product = "nullius-box-explosive"
+  },
+  {
+    type = "recipe",
+    name = "nullius-explosive-2",
+	localised_name = {"", {"item-name.nullius-explosive"}, " ", 2},
+	icons = {
+      {
+        icon = "__base__/graphics/icons/explosives.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.5
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-7, -7}
+      }
+	},
+    order = "nullius-xd",
+    enabled = false,
+    always_show_made_in = true,
+    category = "basic-chemistry",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-glycerol"].flow_color,
+      secondary = data.raw.fluid["nullius-acid-nitric"].flow_color
+    },
+    energy_required = 10,
+    ingredients = {
+      {type="fluid", name="nullius-acid-nitric", amount=24},
+      {type="fluid", name="nullius-acid-sulfuric", amount=20},
+      {type="fluid", name="nullius-glycerol", amount=8},
+      {type="item", name="nullius-cellulose", amount=5},
+      {type="item", name="nullius-aluminum-powder", amount=4},
+      {type="item", name="nullius-plastic", amount=2},
+      {type="item", name="red-wire", amount=1},
+      {type="item", name="green-wire", amount=1}
+    },
+    results = {
+      {type="item", name="cliff-explosives", amount=4},
+      {type="fluid", name="nullius-sludge", amount=10}
+    },
+    main_product = "cliff-explosives"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-explosive-2",
+	localised_name = {"recipe-name.nullius-boxed",
+	    {"", {"item-name.nullius-explosive"}, " ", 2}},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/explosives.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.27,
+        shift = {-6, -6}
+      }
+	},
+    enabled = false,
+    always_show_made_in = true,
+    category = "basic-chemistry",
+	subgroup = "boxed-demolition",
+	order = "nullius-cc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-glycerol"].flow_color,
+      secondary = data.raw.fluid["nullius-acid-nitric"].flow_color
+    },
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-acid-nitric", amount=120},
+      {type="fluid", name="nullius-acid-sulfuric", amount=100},
+      {type="fluid", name="nullius-glycerol", amount=40},
+      {type="item", name="nullius-box-cellulose", amount=5},
+      {type="item", name="nullius-box-aluminum-powder", amount=4},
+      {type="item", name="nullius-box-plastic", amount=2},
+      {type="item", name="nullius-box-red-wire", amount=1},
+      {type="item", name="nullius-box-green-wire", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-box-explosive", amount=4},
+      {type="fluid", name="nullius-sludge", amount=50}
     },
     main_product = "nullius-box-explosive"
   },

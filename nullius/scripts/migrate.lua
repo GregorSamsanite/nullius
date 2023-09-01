@@ -147,6 +147,11 @@ function migrate_version(event)
   if (version == nil) then return end
 
   if (version >= 10600) then return end
+  if ((global.nullius_mission_status ~= nil) and
+      (global.nullius_mission_count[13] == nil)) then
+    global.nullius_mission_count[12] = 0
+    global.nullius_mission_status[12] = 0
+  end
   legacy_recipe_all("nullius-organic-chemistry-6", "plastic-pex")
   legacy_recipe_all("nullius-organic-chemistry-6", "boxed-plastic-pex")
   legacy_recipe_all("nullius-rocket-science-1", "rocket-fuel")
