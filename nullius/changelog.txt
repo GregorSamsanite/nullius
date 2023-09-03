@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.3
+Date: 03.09.2023
+  Features:
+    - New copper recipe for battery 1.
+  Balancing:
+    - Increase water from water canister emptying.
+  Bugfixes:
+    - Make final locomotion tech infinite, as intended.
+  Info:
+    - Give a warning when trying to mirror without the required tech.
+    - Steer people toward Control Settings in Mirror/Prioritize techs.
+---------------------------------------------------------------------------------------------------
 Version: 1.6.2
 Date: 31.08.2023
   Features:

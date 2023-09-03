@@ -80,7 +80,12 @@ local function mirror_event(event)
   local force = (target.force or player.force)
   if ((force == nil) or (not force.valid)) then return end
   local tech = force.technologies["nullius-chirality-" .. tier]
-  if (not ((tech ~= nil) and tech.valid and tech.researched)) then return end
+  if ((tech == nil) or (not tech.valid)) then return end
+  if (not tech.researched) then
+    force.print({"technology-description.nullius-mirror-requirement",
+	    tech.localised_name, target.localised_name})
+    return
+  end
 
   local newname = ("nullius-" .. ((ismirror and "") or "mirror-") ..
       string.sub(target.name, offs, -1))

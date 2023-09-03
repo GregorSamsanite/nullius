@@ -5230,7 +5230,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-water", amount=50}
+      {type="fluid", name="nullius-water", amount=100}
     }
   },
   {
@@ -5259,7 +5259,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-box-canister", amount=1},
-      {type="fluid", name="nullius-water", amount=250}
+      {type="fluid", name="nullius-water", amount=500}
     }
   },
 

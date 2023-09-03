@@ -844,6 +844,8 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-checkpoint-android-2"}
+    prerequisites = {"nullius-checkpoint-android-2"},
+    max_level = "infinite",
+    upgrade = true
   }
 })

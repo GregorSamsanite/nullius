@@ -1908,8 +1908,9 @@ data:extend({
   {
     type = "technology",
     name = "nullius-chirality-1",
-	localised_description = {"technology-description.nullius-chirality", 1,
-	    {"technology-description.nullius-chirality-1"}},
+	localised_description = {"", {"technology-description.nullius-chirality", 1,
+	    {"technology-description.nullius-chirality-1"}}, "\n",
+		{"technology-description.nullius-checkpoint-mirror"}},
     order = "nullius-cm",
     icon_size = 254,
     icon = TECHPATH .. "chiral.png",
@@ -13733,6 +13734,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-logic-circuit-2"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-battery-1-copper"
       }
     },
     unit = {

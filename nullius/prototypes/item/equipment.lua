@@ -562,6 +562,7 @@ data:extend({
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-renewable",
+	order = "nullius-ebb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-solvent"].flow_color,
       secondary = data.raw.fluid["nullius-caustic-solution"].flow_color
@@ -576,6 +577,44 @@ data:extend({
       {type="fluid", name="nullius-solvent", amount=80, fluidbox_index=1},
       {type="item", name="nullius-box-aluminum-sheet", amount=3},
       {type="item", name="nullius-box-plastic", amount=4}
+    },
+    result = "nullius-box-battery-1"
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-battery-1-copper",
+	localised_name = {"recipe-name.nullius-copper",
+	    {"item-name.nullius-box", {"item-name.nullius-battery-1"}}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/battery-equipment.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.36
+      }
+    },
+    enabled = false,
+    category = "basic-chemistry",
+    subgroup = "boxed-renewable",
+	order = "nullius-ebc",
+    crafting_machine_tint = {
+      primary = data.raw.fluid["nullius-solvent"].flow_color,
+      secondary = data.raw.fluid["nullius-copper-solution"].flow_color
+    },
+    always_show_made_in = true,
+    always_show_products = true,
+    energy_required = 40,
+    ingredients = {
+      {type="item", name="nullius-box-sodium", amount=2},
+      {type="item", name="nullius-box-iron-oxide", amount=1},
+      {type="item", name="nullius-box-carbon-fiber", amount=2},
+      {type="fluid", name="nullius-solvent", amount=60, fluidbox_index=1},
+      {type="item", name="nullius-box-copper-sheet", amount=2},
+      {type="item", name="nullius-box-plastic", amount=3}
     },
     result = "nullius-box-battery-1"
   },
@@ -618,7 +657,7 @@ data:extend({
     no_productivity = true,
     category = "nullius-electrolysis",
     subgroup = "boxed-renewable",
-    order = "nullius-eb",
+	order = "nullius-ebd",
     energy_required = 10,
     ingredients = {
       {"nullius-uncharged-battery-1", 5}
