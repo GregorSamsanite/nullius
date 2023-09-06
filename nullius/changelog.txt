@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.5
+Date: 05.09.2023
+  Features:
+    - Make prioritize and mirror controls work on ghosts.
+  Translation:
+    - Updated Russian localization by Shadow_Man.
+    - Fix file type of Chinese localization.
+---------------------------------------------------------------------------------------------------
+Version: 1.6.4
+Date: 04.09.2023
+  Translation:
+    - Simplified Chinese language localization added by luaotix.
+---------------------------------------------------------------------------------------------------
 Version: 1.6.3
 Date: 03.09.2023
   Features:

@@ -32,17 +32,36 @@ end
 
 function replace_fluid_entity(entity, newname, force, dir)
   if (game.entity_prototypes[newname] == nil) then return end
-  local contents = save_fluid_contents(entity)
   if (dir == nil) then dir = entity.direction end
-  update_build_statistics(entity, force, true)
-  local newentity = entity.surface.create_entity{
-      name = newname, force = force, direction = dir,
-	  position = entity.position, spill = false,
-	  fast_replace = true, create_build_effect_smoke = false}
-  if ((newentity ~= nil) and newentity.valid) then
-    restore_fluid_contents(newentity, contents)
-	update_build_statistics(newentity, force, false)
-	if (dir ~= newentity.direction) then newentity.direction = dir end
+  if (entity.type == "entity-ghost") then
+    local pos = entity.position
+	local surface = entity.surface
+	local requests = entity.item_requests
+	local recipe = nil
+	if (entity.ghost_type == "assembling-machine") then
+	  recipe = entity.get_recipe()
+	end
+	entity.destroy()
+    entity = surface.create_entity{
+        name = "entity-ghost", force = force, direction = dir,
+	    position = pos, inner_name = newname,
+	    fast_replace = true, create_build_effect_smoke = false}
+	entity.item_requests = requests
+	if (recipe ~= nil) then entity.set_recipe(recipe) end
+  else
+    local contents = save_fluid_contents(entity)
+    update_build_statistics(entity, force, true)
+    entity = entity.surface.create_entity{
+        name = newname, force = force, direction = dir,
+	    position = entity.position, spill = false,
+	    fast_replace = true, create_build_effect_smoke = false}
+    if ((entity ~= nil) and entity.valid) then
+      restore_fluid_contents(entity, contents)
+	  update_build_statistics(entity, force, false)
+    end
+  end
+  if ((entity ~= nil) and entity.valid and (dir ~= entity.direction)) then
+    entity.direction = dir
   end
 end
 
@@ -53,10 +72,17 @@ local function mirror_event(event)
   local target = player.selected
   if ((target == nil) or (not target.valid)) then return end
 
-  if (string.sub(target.name, 1, 8) ~= "nullius-") then return end
-  local ismirror = (string.sub(target.name, 9, 15) == "mirror-")
+  local name = target.name
+  local local_name = target.localised_name
+  if (target.type == "entity-ghost") then
+    name = target.ghost_name
+	local_name = target.ghost_localised_name
+  end
+
+  if (string.sub(name, 1, 8) ~= "nullius-") then return end
+  local ismirror = (string.sub(name, 9, 15) == "mirror-")
   local offs = ((ismirror and 16) or 9)
-  local suffix = string.sub(target.name, offs, -3)
+  local suffix = string.sub(name, offs, -3)
 
   local tier = nil
   local dir = nil
@@ -83,12 +109,12 @@ local function mirror_event(event)
   if ((tech == nil) or (not tech.valid)) then return end
   if (not tech.researched) then
     force.print({"technology-description.nullius-mirror-requirement",
-	    tech.localised_name, target.localised_name})
+	    tech.localised_name, local_name})
     return
   end
 
   local newname = ("nullius-" .. ((ismirror and "") or "mirror-") ..
-      string.sub(target.name, offs, -1))
+      string.sub(name, offs, -1))
   replace_fluid_entity(target, newname, force, dir)
 end
 

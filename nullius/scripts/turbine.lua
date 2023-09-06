@@ -6,8 +6,8 @@ local connector_offset = {
 }
 
 
-local function turbine_priority(entity)
-  local priority = string.sub(entity.name, -9, -2)
+local function turbine_priority(name)
+  local priority = string.sub(name, -9, -2)
   if (priority == "-backup-") then
     return "backup"
   elseif (priority == "tandard-") then
@@ -18,8 +18,8 @@ local function turbine_priority(entity)
   return nil
 end
 
-local function turbine_type(entity)
-  local typestr = string.sub(entity.name, 17, 21)
+local function turbine_type(name)
+  local typestr = string.sub(name, 17, 21)
   if (typestr == "open-") then
     return "open"
   elseif (typestr == "close") then
@@ -45,8 +45,8 @@ function build_turbine(entity)
   local offs = connector_offset[dir]
   if (offs == nil) then return end
 
-  local typestr = turbine_type(entity)
-  local priority = turbine_priority(entity)
+  local typestr = turbine_type(entity.name)
+  local priority = turbine_priority(entity.name)
   if ((typestr == nil) or (priority == nil)) then return end
 
   script.register_on_entity_destroyed(entity)
@@ -121,9 +121,9 @@ local function replace_turbine(entity, force, newname)
   end
 end
 
-local function toggle_turbine(entity, force)
-  local typestr = turbine_type(entity)
-  local priority = turbine_priority(entity)
+local function toggle_turbine(entity, entityname, force)
+  local typestr = turbine_type(entityname)
+  local priority = turbine_priority(entityname)
   if ((typestr == nil) or (priority == nil)) then return end
 
   if (priority == "backup") then
@@ -137,18 +137,22 @@ local function toggle_turbine(entity, force)
   end
 
   local newname = "nullius-turbine-" .. typestr .. "-" ..
-      priority .. string.sub(entity.name, -2, -1)
-  replace_turbine(entity, force, newname)
+      priority .. string.sub(entityname, -2, -1)
+  if (entity.type == "entity-ghost") then
+    replace_fluid_entity(entity, newname, force, nil)
+  else
+    replace_turbine(entity, force, newname)
+  end
 end
 
-local function toggle_surge(entity, machinename, force)
+local function toggle_surge(entity, entityname, force)
   local offs = 9
-  if (string.sub(entity.name, 9, 15) == "mirror-") then
+  if (string.sub(entityname, 9, 15) == "mirror-") then
     offs = 16
   end
 
   local offs2 = offs + 5
-  local priority = string.sub(entity.name, offs, offs2)
+  local priority = string.sub(entityname, offs, offs2)
   if (priority == "surge-") then
 	priority = "priority"
   elseif (priority == "priori") then
@@ -158,8 +162,8 @@ local function toggle_surge(entity, machinename, force)
     return
   end
 
-  local newname = string.sub(entity.name, 1, (offs - 1)) ..
-      priority .. string.sub(entity.name, offs2, -1)
+  local newname = string.sub(entityname, 1, (offs - 1)) ..
+      priority .. string.sub(entityname, offs2, -1)
   replace_fluid_entity(entity, newname, force, nil)
 end
 
@@ -169,15 +173,19 @@ local function priority_event(event)
   if ((player == nil) or (not player.valid)) then return end
   local target = player.selected
   if ((target == nil) or (not target.valid)) then return end
+  local name = target.name
+  if (target.type == "entity-ghost") then
+    name = target.ghost_name
+  end
 
-  if (string.sub(target.name, 1, 8) ~= "nullius-") then return end
+  if (string.sub(name, 1, 8) ~= "nullius-") then return end
   local force = (target.force or player.force)
-  if (string.sub(target.name, 9, 16) == "turbine-") then
-    toggle_turbine(target, force)
-  elseif (string.sub(target.name, -15, -2) == "-electrolyzer-") then
-    toggle_surge(target, "electrolyzer", force)
-  elseif (string.sub(target.name, -13, -2) == "-compressor-") then
-    toggle_surge(target, "compressor", force)
+  if (string.sub(name, 9, 16) == "turbine-") then
+    toggle_turbine(target, name, force)
+  elseif (string.sub(name, -15, -2) == "-electrolyzer-") then
+    toggle_surge(target, name, force)
+  elseif (string.sub(name, -13, -2) == "-compressor-") then
+    toggle_surge(target, name, force)
   end
 end
 
