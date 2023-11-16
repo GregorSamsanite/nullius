@@ -95,7 +95,7 @@ local function create_terraform(suffix, tile, suborder)
       category = "huge-crafting",
       energy_required = 60,
       ingredients = {
-        {"nullius-excavation-drone", 1},
+        {"nullius-shallow-excavation-drone", 1},
         {"nullius-construction-bot-3", 2},
         {"rocket-fuel", 2},
         {"nullius-box-land-fill-"..tile, 300}
@@ -111,7 +111,7 @@ local function create_terraform(suffix, tile, suborder)
       category = "small-crafting",
       energy_required = 10,
       ingredients = {
-        {"nullius-excavation-remote", 1},
+        {"nullius-shallow-excavation-remote", 1},
         {"nullius-productivity-module-1", 1}
       },
       result = "nullius-terraforming-remote-"..suffix
@@ -348,7 +348,8 @@ end
 create_drone("scout", "drone", "bb", "1", 10, "nullius-scout-drone")
 create_drone("scout", "drone", "bc", "2", 10, "nullius-scout-drone")
 create_drone("demolition", "drone", "cb", nil, 10)
-create_drone("excavation", "drone", "cc", nil, 10)
+create_drone("shallow-excavation", "drone", "cc", nil, 10)
+create_drone("excavation", "drone", "cd", nil, 10)
 
 create_terraform("grey", "gravel", "b")
 create_terraform("tan", "sand", "c")
@@ -506,16 +507,30 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-excavation-drone",
+    name = "nullius-shallow-excavation-drone",
     enabled = false,
     always_show_made_in = true,
     category = "small-crafting",
     energy_required = 10,
     ingredients = {
       {"nullius-demolition-drone", 1},
-      {"nullius-box-missile-2", 1},
+      {"nullius-missile-2", 3},
       {"nullius-trash-compactor", 1},
       {"nullius-large-cargo-pod-2", 2}
+    },
+    result = "nullius-shallow-excavation-drone"
+  },
+  {
+    type = "recipe",
+    name = "nullius-excavation-drone",
+    enabled = false,
+    always_show_made_in = true,
+	no_productivity = true,
+    category = "small-crafting",
+    energy_required = 4,
+    ingredients = {
+      {"nullius-shallow-excavation-drone", 1},
+      {"nullius-missile-2", 2}
     },
     result = "nullius-excavation-drone"
   },
@@ -537,7 +552,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-excavation-remote",
+    name = "nullius-shallow-excavation-remote",
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
@@ -546,6 +561,20 @@ data:extend({
     ingredients = {
       {"nullius-demolition-remote", 1},
       {"nullius-processor-2", 1}
+    },
+    result = "nullius-shallow-excavation-remote"
+  },
+  {
+    type = "recipe",
+    name = "nullius-excavation-remote",
+    enabled = false,
+    always_show_made_in = true,
+    no_productivity = true,
+    category = "small-crafting",
+    energy_required = 3,
+    ingredients = {
+      {"nullius-shallow-excavation-remote", 1},
+      {"red-wire", 1}
     },
     result = "nullius-excavation-remote"
   },
@@ -750,8 +779,7 @@ data:extend({
     localised_description = {"item-description.nullius-android"},
     icons = {{
       icon = ICONPATH .. "android1.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "armor",
     order = "nullius-cb",
@@ -765,8 +793,7 @@ data:extend({
     localised_description = {"item-description.nullius-android"},
     icons = {{
       icon = ICONPATH .. "android2.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "armor",
     order = "nullius-cc",

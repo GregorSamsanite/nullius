@@ -33,8 +33,8 @@ data.raw.item["storage-tank"].icons = {{
   icon_size = 64, icon_mipmaps = 4
 }}
 data.raw["storage-tank"]["storage-tank"].icons = data.raw.item["storage-tank"].icons
-data.raw["storage-tank"]["storage-tank"].fluid_box.height = 1.7
-data.raw["storage-tank"]["storage-tank"].fluid_box.base_area = 88.235295
+data.raw["storage-tank"]["storage-tank"].fluid_box.height = 4.25
+data.raw["storage-tank"]["storage-tank"].fluid_box.base_area = 35.29411765
 data.raw["storage-tank"]["storage-tank"].pictures =
     util.table.deepcopy(data.raw["storage-tank"]["nullius-medium-tank-3"].pictures)
 data.raw["storage-tank"]["storage-tank"].pictures.picture.sheets[1].tint = {0.9, 0.8, 0.6}
@@ -85,7 +85,7 @@ data.raw.item["big-electric-pole"].order = "nullius-cb"
 data.raw.item["big-electric-pole"].stack_size = 50
 data.raw.item["big-electric-pole"].icons = {{
   icon = ENTICONPATH .. "large-pole-1.png",
-  icon_size = 64, icon_mipmaps = 4
+  icon_size = 64
 }}
 label_icon("big-electric-pole", 1, "yellow")
 data.raw["electric-pole"]["big-electric-pole"].localised_name =
@@ -105,8 +105,7 @@ data.raw.item["small-electric-pole"].subgroup = "electric-pole"
 data.raw.item["small-electric-pole"].order = "nullius-bb"
 data.raw.item["small-electric-pole"].stack_size = 100
 data.raw.item["small-electric-pole"].icons = {{
-  icon = ENTICONPATH .. "pole1.png",
-  icon_size = 64, icon_mipmaps = 4
+  icon = ENTICONPATH .. "pole1.png", icon_size = 64
 }}
 label_icon("small-electric-pole", 1, "yellow")
 data.raw["electric-pole"]["small-electric-pole"].localised_name =
@@ -123,8 +122,7 @@ data.raw.item["medium-electric-pole"].subgroup = "electric-pole"
 data.raw.item["medium-electric-pole"].order = "nullius-bc"
 data.raw.item["medium-electric-pole"].stack_size = 100
 data.raw.item["medium-electric-pole"].icons = {{
-  icon = ENTICONPATH .. "pole2.png",
-  icon_size = 64, icon_mipmaps = 4
+  icon = ENTICONPATH .. "pole2.png", icon_size = 64
 }}
 label_icon("medium-electric-pole", 2, "red")
 data.raw["electric-pole"]["medium-electric-pole"].localised_name =
@@ -141,8 +139,7 @@ data.raw.item["substation"].subgroup = "electric-pole"
 data.raw.item["substation"].order = "nullius-db"
 data.raw.item["substation"].stack_size = 50
 data.raw.item["substation"].icons = {{
-  icon = ENTICONPATH .. "substation1.png",
-  icon_size = 64, icon_mipmaps = 4
+  icon = ENTICONPATH .. "substation1.png", icon_size = 64
 }}
 label_icon("substation", 1, "yellow")
 data.raw["electric-pole"]["substation"].localised_name =
@@ -240,10 +237,10 @@ data.raw["logistic-container"]["logistic-chest-active-provider"].next_upgrade = 
 
 data.raw["pipe"]["pipe"].next_upgrade = "nullius-pipe-2"
 data.raw["pipe-to-ground"]["pipe-to-ground"].next_upgrade = "nullius-underground-pipe-2"
-data.raw["pipe"]["pipe"].fluid_box.height = 0.8
-data.raw["pipe"]["pipe"].fluid_box.base_area = 1.5
-data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.height = 0.8
-data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.base_area = 1.875
+data.raw["pipe"]["pipe"].fluid_box.height = 2
+data.raw["pipe"]["pipe"].fluid_box.base_area = 2
+data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.height = 2
+data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.base_area = 2
 data.raw["pipe-to-ground"]["pipe-to-ground"].fluid_box.max_underground_distance = 11
 data.raw.item["pipe"].stack_size = 200
 data.raw.item["pipe-to-ground"].stack_size = 100
@@ -253,7 +250,7 @@ data.raw.item["pump"].stack_size = 50
 data.raw["pump"]["pump"].fast_replaceable_group = "pump"
 data.raw["pump"]["pump"].next_upgrade = nil
 data.raw["pump"]["pump"].fluid_box.height = 10
-data.raw["pump"]["pump"].pumping_speed = 160
+data.raw["pump"]["pump"].pumping_speed = 200
 data.raw.pump["nullius-pump-2"].collision_mask = data.raw.pump.pump.collision_mask
 data.raw.pump["nullius-pump-2"].collision_box = data.raw.pump.pump.collision_box
 data.raw.pump["nullius-pump-2"].selection_box = data.raw.pump.pump.selection_box
@@ -366,7 +363,11 @@ for _,character in pairs(data.raw["character"]) do
     { filename = "__base__/sound/robot-repair-6.ogg", volume = 0.5 }
   }
   character.healing_per_tick = 0
-  character.respawn_time = 4
+  if (settings.startup["nullius-alignment"].value) then
+    character.respawn_time = 10
+  else
+    character.respawn_time = 4
+  end
   character.flags = {"placeable-off-grid", "not-on-map", "not-flammable"}
   character.localised_description = {"entity-description.nullius-android"}
 end

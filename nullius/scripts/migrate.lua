@@ -146,6 +146,11 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10700) then return end
+  global.nullius_alignment = false
+  init_alignment()
+  added_techs({"nullius-nuclear-power-2"})
+
   if (version >= 10600) then return end
   if ((global.nullius_mission_status ~= nil) and
       (global.nullius_mission_count[13] == nil)) then

@@ -5,45 +5,49 @@ function entity_added(entity)
   end
 
   if (string.sub(entity.name, 1, 8) ~= "nullius-") then return end
-  if (string.sub(entity.name, 9, 13) == "wind-") then
-    if (string.sub(entity.name, 14, -2) == "build-") then
+  local suffix = string.sub(entity.name, 9, -2)
+  if (string.sub(suffix, 1, 5) == "wind-") then
+    if (string.sub(suffix, 6, -1) == "build-") then
       build_wind_turbine(entity, (string.byte(entity.name, 20) - 48))
-    elseif (string.sub(entity.name, 14, -2) == "base-") then
+    elseif (string.sub(suffix, 6, -1) == "base-") then
       build_wind_turbine(entity, (string.byte(entity.name, 19) - 48))
     end
-  elseif (string.sub(entity.name, 9, 19) == "geothermal-") then
-    if (string.sub(entity.name, 20, -2) == "build-") then
+  elseif (string.sub(suffix, 1, 11) == "geothermal-") then
+    if (string.sub(suffix, 12, -1) == "build-") then
       build_geothermal_plant(entity, (string.byte(entity.name, 26) - 48))
-    elseif (string.sub(entity.name, 20, -2) == "reactor-") then
+    elseif (string.sub(suffix, 12, -1) == "reactor-") then
       build_geothermal_plant(entity, (string.byte(entity.name, 28) - 48))
     end
-  elseif (string.sub(entity.name, 9, 16) == "turbine-") then
+  elseif (string.sub(suffix, 1, 8) == "turbine-") then
     build_turbine(entity)
-  elseif (string.sub(entity.name, 9, -2) == "stirling-engine-") then
+  elseif (suffix == "stirling-engine-") then
     build_stirling_engine(entity, (string.byte(entity.name, 25) - 48))
-  elseif (string.sub(entity.name, 9, -2) == "solar-collector-") then
+  elseif (suffix == "solar-collector-") then
     build_solar_collector(entity, (string.byte(entity.name, 25) - 48))
-  elseif (string.sub(entity.name, 9, -2) == "thermal-tank-build-") then
+  elseif (suffix == "thermal-tank-build-") then
     build_thermal_tank(entity, (string.byte(entity.name, 28) - 48))
+  elseif (suffix == "align-concordance-transmitte") then
+    build_transmitter(entity)
   elseif (entity.type == "beacon") then
     build_beacon(entity)
   end
 end
 
 function entity_removed(entity, died)
-  if (string.sub(entity.name, 1, 8) ~= "nullius-") then
-    return
-  end
-  if (string.sub(entity.name, 9, -2) == "wind-base-") then
+  if (string.sub(entity.name, 1, 8) ~= "nullius-") then return end
+  local suffix = string.sub(entity.name, 9, -2)
+  if (suffix == "wind-base-") then
     remove_wind_turbine(entity, died, (string.byte(entity.name, 19) - 48))
-  elseif (string.sub(entity.name, 9, -2) == "stirling-engine-") then
+  elseif (suffix == "stirling-engine-") then
     remove_stirling_engine(entity, died, (string.byte(entity.name, 25) - 48))
-  elseif (string.sub(entity.name, 9, -2) == "solar-collector-") then
+  elseif (suffix == "solar-collector-") then
     remove_solar_collector(entity, died, (string.byte(entity.name, 25) - 48))
   elseif (entity.type == "beacon") then
     remove_beacon(entity.unit_number)
-  elseif (string.sub(entity.name, 9, 16) == "turbine-") then
+  elseif (string.sub(suffix, 1, 8) == "turbine-") then
     remove_turbine(entity.unit_number)
+  elseif (suffix == "align-concordance-transmitte") then
+    remove_transmitter(entity.unit_number)
   end
 end
 
@@ -67,6 +71,7 @@ function entity_destroyed(event)
   if (destroyed_wind_turbine(event.unit_number)) then return end
   if (remove_beacon(event.unit_number)) then return end
   if (remove_turbine(event.unit_number)) then return end
+  if (remove_transmitter(event.unit_number)) then return end
 end
 
 
@@ -90,8 +95,10 @@ function update_tick()
     update_mechas()
   elseif (tickmod1 == 5) then
     update_checkpoints()
-  elseif (tickmod1 == 8) then
+  elseif (tickmod1 == 7) then
     update_grass()
+  elseif (tickmod1 == 9) then
+    update_align()
   elseif (tickmod1 == 11) then
     local tickmod2 = (game.tick % 15)
     if (tickmod2 == 2) then

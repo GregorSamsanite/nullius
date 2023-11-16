@@ -53,7 +53,7 @@ function replace_fluid_entity(entity, newname, force, dir)
     update_build_statistics(entity, force, true)
     entity = entity.surface.create_entity{
         name = newname, force = force, direction = dir,
-	    position = entity.position, spill = false,
+	    position = entity.position, spill = false, raise_built = true,
 	    fast_replace = true, create_build_effect_smoke = false}
     if ((entity ~= nil) and entity.valid) then
       restore_fluid_contents(entity, contents)
@@ -87,7 +87,7 @@ local function mirror_event(event)
   local tier = nil
   local dir = nil
   if ((suffix == "combustion-chamber") or (suffix == "heat-exchanger") or
-	  (suffix == "boiler")) then
+	  (suffix == "boiler") or (suffix == "chimney")) then
 	tier = 1
   elseif ((suffix == "priority-electrolyzer") or
       (suffix == "surge-electrolyzer") or (suffix == "hydro-plant")) then
@@ -108,7 +108,7 @@ local function mirror_event(event)
   local tech = force.technologies["nullius-chirality-" .. tier]
   if ((tech == nil) or (not tech.valid)) then return end
   if (not tech.researched) then
-    force.print({"technology-description.nullius-mirror-requirement",
+    player.print({"technology-description.nullius-mirror-requirement",
 	    tech.localised_name, local_name})
     return
   end

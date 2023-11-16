@@ -361,6 +361,14 @@ data:extend({
   }
 })
 
+local exs = util.table.deepcopy(data.raw["artillery-projectile"]["nullius-excavation-drone-projectile"])
+exs.name = "nullius-shallow-excavation-drone-projectile"
+exs.action.action_delivery.target_effects[11] = {
+  type = "script",
+  effect_id = "nullius-shallow-excavation-drone-effect"
+}
+data:extend({ exs })
+
 
 local function create_flare(base_name, suffix)
   local prefix = "nullius-"..base_name
@@ -548,6 +556,7 @@ end
 create_flare("scout")
 create_flare("demolition")
 create_flare("excavation")
+create_flare("shallow-excavation")
 
 create_terraform("terraforming", "grey")
 create_terraform("terraforming", "tan")

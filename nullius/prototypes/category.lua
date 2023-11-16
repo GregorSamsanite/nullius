@@ -449,6 +449,12 @@ data:extend({
     group = "equipment",
     order = "fc"
   },
+  {
+    type = "item-subgroup",
+    name = "alignment",
+    group = "equipment",
+    order = "n"
+  },
 
   {
     type = "item-group",
@@ -1137,7 +1143,6 @@ data:extend({
     name = "boxed",
     order = "kb",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "crate.png"
   },
   {
@@ -1145,7 +1150,6 @@ data:extend({
     name = "boxing",
     order = "kc",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "boxing.png"
   },
   {
@@ -1153,7 +1157,6 @@ data:extend({
     name = "unboxing",
     order = "kd",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "unboxing.png"
   },
   {
@@ -1854,6 +1857,10 @@ data:extend({
 
   {
     type = "ammo-category",
+    name = "nullius-conscription"
+  },
+  {
+    type = "ammo-category",
     name = "nullius-scout-drone"
   },
   {
@@ -1863,6 +1870,10 @@ data:extend({
   {
     type = "ammo-category",
     name = "nullius-excavation-drone"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-shallow-excavation-drone"
   },
   {
     type = "ammo-category",

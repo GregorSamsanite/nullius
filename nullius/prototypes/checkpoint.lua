@@ -232,7 +232,6 @@ data:extend({
       {
         icon = ICONPATH .. "fluid/purewater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.8
       }
     },
@@ -399,8 +398,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
@@ -483,8 +481,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = BASEICON .. "plastic-bar.png",
@@ -596,8 +593,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
@@ -808,8 +804,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
@@ -964,7 +959,6 @@ data:extend({
       {
         icon = ICONPATH .. "fluid/freshwater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.8
       }
     },
@@ -1315,8 +1309,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
@@ -1343,8 +1336,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__angelssmelting__/graphics/icons/powder-lead.png",
@@ -1431,8 +1423,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
@@ -1460,8 +1451,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
 		icon = "__base__/graphics/technology/explosives.png",
@@ -2023,8 +2013,7 @@ data:extend({
       },
       {
         icon = ICONPATH .. "android1.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       }
     },
     unit = {
@@ -2194,8 +2183,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__base__/graphics/technology/advanced-electronics-2.png",
@@ -2223,8 +2211,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__base__/graphics/icons/atomic-bomb.png",
@@ -2252,8 +2239,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__base__/graphics/technology/rocket-fuel.png",
@@ -2310,13 +2296,11 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = ICONPATH .. "excavation.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.8
       }
     },
@@ -2431,13 +2415,11 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = ICONPATH .. "breeder-spent.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.8
       }
     },
@@ -2446,7 +2428,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-nuclear-power-2"},
+    prerequisites = {"nullius-nuclear-power-3"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2472,7 +2454,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-nuclear-power-3"},
+    prerequisites = {"nullius-nuclear-power-4"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2486,13 +2468,11 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = ICONPATH .. "antimatter.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.8
       }
     },
@@ -2530,7 +2510,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-nuclear-power-2"},
+    prerequisites = {"nullius-nuclear-power-3"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2575,8 +2555,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__base__/graphics/technology/advanced-electronics-2.png",
@@ -2599,14 +2578,13 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-wood"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", 300000, "nullius-wood",
+	    {"technology-description.nullius-item-boxable", 500000, "nullius-wood",
 		    "nullius-box-wood", {"item-name.nullius-wood"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = "__base__/graphics/icons/wood.png",
@@ -2669,8 +2647,7 @@ data:extend({
       },
       {
         icon = ICONPATH .. "android2.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       }
     },
     unit = {
@@ -2692,8 +2669,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "asteroid-miner-2.png",
@@ -2720,8 +2696,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "uncrate.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/crash-site-spaceship.png",
@@ -2902,6 +2877,30 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-biochemistry-4", "nullius-botany-2"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-fish",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"objective-name.nullius-naturalization", {"item-name.nullius-fish"}}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"item-name.nullius-fish"}, 30},
+    order = "nullius-yg",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/fish.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  checkmark(1.125)
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-biochemistry-5"},
     ignore_tech_cost_multiplier = true
   },
   {

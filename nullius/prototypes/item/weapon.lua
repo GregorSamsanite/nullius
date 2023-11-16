@@ -18,6 +18,7 @@ data:extend({
         "nullius-scout-drone",
         "nullius-demolition-drone",
         "nullius-excavation-drone",
+		"nullius-shallow-excavation-drone",
         "nullius-terraforming-drone-grey",
         "nullius-terraforming-drone-tan",
         "nullius-terraforming-drone-brown",

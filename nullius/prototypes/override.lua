@@ -305,37 +305,37 @@ data.raw.item["ultimate-transport-belt"].subgroup = "belt"
 data.raw.item["ultimate-transport-belt"].order = "nullius-be"
 data.raw.item["ultimate-transport-belt"].icon = ENTICONPATH .. "belt4.png"
 data.raw.item["ultimate-transport-belt"].icon_size = 64
-data.raw.item["ultimate-transport-belt"].icon_mipmaps = 4
+data.raw.item["ultimate-transport-belt"].icon_mipmaps = nil
 data.raw.item["ultimate-transport-belt"].stack_size = 200
 data.raw["transport-belt"]["ultimate-transport-belt"].localised_name = {"entity-name.nullius-belt-4"}
 data.raw["transport-belt"]["ultimate-transport-belt"].next_upgrade = nil
 data.raw["transport-belt"]["ultimate-transport-belt"].icon = ENTICONPATH .. "belt4.png"
 data.raw["transport-belt"]["ultimate-transport-belt"].icon_size = 64
-data.raw["transport-belt"]["ultimate-transport-belt"].icon_mipmaps = 4
+data.raw["transport-belt"]["ultimate-transport-belt"].icon_mipmaps = nil
 data.raw["transport-belt"]["ultimate-transport-belt"].minable.mining_time = 0.4
 data.raw.item["ultimate-underground-belt"].subgroup = "belt"
 data.raw.item["ultimate-underground-belt"].order = "nullius-ce"
 data.raw.item["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
 data.raw.item["ultimate-underground-belt"].icon_size = 64
-data.raw.item["ultimate-underground-belt"].icon_mipmaps = 4
+data.raw.item["ultimate-underground-belt"].icon_mipmaps = nil
 data.raw.item["ultimate-underground-belt"].stack_size = 100
 data.raw["underground-belt"]["ultimate-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-4"}
 data.raw["underground-belt"]["ultimate-underground-belt"].max_distance = 19
 data.raw["underground-belt"]["ultimate-underground-belt"].next_upgrade = nil
 data.raw["underground-belt"]["ultimate-underground-belt"].icon = ENTICONPATH .. "underground-belt4.png"
 data.raw["underground-belt"]["ultimate-underground-belt"].icon_size = 64
-data.raw["underground-belt"]["ultimate-underground-belt"].icon_mipmaps = 4
+data.raw["underground-belt"]["ultimate-underground-belt"].icon_mipmaps = nil
 data.raw["underground-belt"]["ultimate-underground-belt"].minable.mining_time = 1
 data.raw.item["ultimate-splitter"].subgroup = "splitter"
 data.raw.item["ultimate-splitter"].order = "nullius-de"
 data.raw.item["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
 data.raw.item["ultimate-splitter"].icon_size = 64
-data.raw.item["ultimate-splitter"].icon_mipmaps = 4
+data.raw.item["ultimate-splitter"].icon_mipmaps = nil
 data.raw["splitter"]["ultimate-splitter"].localised_name = {"entity-name.nullius-splitter-4"}
 data.raw["splitter"]["ultimate-splitter"].next_upgrade = nil
 data.raw["splitter"]["ultimate-splitter"].icon = ENTICONPATH .. "splitter4.png"
 data.raw["splitter"]["ultimate-splitter"].icon_size = 64
-data.raw["splitter"]["ultimate-splitter"].icon_mipmaps = 4
+data.raw["splitter"]["ultimate-splitter"].icon_mipmaps = nil
 data.raw["splitter"]["ultimate-splitter"].minable.mining_time = 1.5
 
 data.raw.item["inserter"].subgroup = "inserter"
@@ -822,18 +822,20 @@ data.raw["logistic-container"]["logistic-chest-active-provider"].minable.mining_
 
 
 data.raw.item["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
-data.raw.item["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
+data.raw.item["pipe"].localised_description =
+    {"entity-description.nullius-pipe", 40, 2290, 450}
 data.raw["pipe"]["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
-data.raw["pipe"]["pipe"].localised_description = {"entity-description.nullius-pipe-1"}
+data.raw["pipe"]["pipe"].localised_description =
+    data.raw.item["pipe"].localised_description
 data.raw["pipe"]["pipe"].minable.mining_time = 0.2
 data.raw.item["pipe-to-ground"].localised_name =
     {"entity-name.nullius-underground-pipe-1"}
 data.raw.item["pipe-to-ground"].localised_description =
-    {"entity-description.nullius-underground-pipe-1"}
+    {"entity-description.nullius-underground-pipe", 40}
 data.raw["pipe-to-ground"]["pipe-to-ground"].localised_name =
     {"entity-name.nullius-underground-pipe-1"}
 data.raw["pipe-to-ground"]["pipe-to-ground"].localised_description =
-    {"entity-description.nullius-underground-pipe-1"}
+    data.raw.item["pipe-to-ground"].localised_description
 
 data.raw["pipe"]["pipe"].resistances = {
   { type = "impact", decrease = 100, percent = 90 },
@@ -860,6 +862,7 @@ data.raw.item["pump"].localised_description = {"entity-description.nullius-pump-
 data.raw.item["pump"].subgroup = "pumping"
 data.raw.item["pump"].order = "nullius-bd"
 data.raw["pump"]["pump"].energy_source.drain = nil
+data.raw["pump"]["pump"].energy_source.usage_priority = "primary-input"
 data.raw["pump"]["pump"].energy_usage = "30kW"
 data.raw["pump"]["pump"].max_health = 250
 data.raw["pump"]["pump"].minable.mining_time = 1

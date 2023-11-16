@@ -197,10 +197,8 @@ local function landfill_map(fillname, goalname)
 end
 
 
-function landfill_surface(surface)
-  local basename = surface.name
-  local landfillname = "nullius-landfill-" .. basename
-  local ret = game.surfaces[landfillname]
+function blank_surface(surface, newname)
+  local ret = game.surfaces[newname]
   if (ret ~= nil) then return ret end
 
   local mapgen = util.table.deepcopy(surface.map_gen_settings)
@@ -229,8 +227,13 @@ function landfill_surface(surface)
     end
   end
 
-  game.create_surface(landfillname, mapgen)
-  return game.surfaces[landfillname]
+  game.create_surface(newname, mapgen)
+  return game.surfaces[newname]
+end
+
+function landfill_surface(surface)
+  local newname = "nullius-landfill-" .. surface.name
+  return (blank_surface(surface, newname))
 end
 
 
@@ -663,7 +666,33 @@ local function count_water(surface, a)
 	        "deepwater-green", "water-green", "water-mud"}}
 end
 
-function excavate_area(surface, center)
+function water_level(oldtile)
+  if ((oldname == "water") or (oldname == "water-green")) then
+    return 2
+  elseif ((oldname == "water-shallow") or (oldname == "water-mud")) then
+	return 1
+  elseif ((oldname == "deepwater-green") or (oldname == "deepwater")) then
+	return 3
+  end
+  return 0
+end
+
+function beach_tile(oldtile)
+  if (string.sub(oldtile, 1, 8) ~= "mineral-") then
+    return "nuclear-ground"
+  end
+  if (string.sub(oldtile, -6, -3) == "dirt") then
+	local variation = tonumber(string.sub(oldtile, -1, -1))
+	local newvar = math.floor((variation + 1) / 2)
+	local sandname = (string.sub(oldtile, 1, -7) .. "sand-" .. newvar)
+	if (game.tile_prototypes[sandname] ~= nil) then
+	  return sandname
+	end
+  end
+  return oldtile
+end
+
+function excavate_area(surface, center, shallow)
   local a = area_bound(center, 96)
   local oldtiles = surface.find_tiles_filtered{area=a}
   local x = center.x
@@ -689,9 +718,11 @@ function excavate_area(surface, center)
 
   local max_matrix = 0
   local matrix = census_to_matrix(census)
+  local mf1 = ((shallow and 24000) or 3200)
+  local mf2 = ((shallow and 800) or 1600)
   for i=1,4 do
     for j=1,4 do
-	  local mv = (matrix[i][j] + (math.random() * 3200)) * 1600
+	  local mv = (matrix[i][j] + (math.random() * mf1)) * mf2
 	  max_matrix = math.max(mv, max_matrix)
 	  matrix[i][j] = mv
 	end
@@ -701,7 +732,7 @@ function excavate_area(surface, center)
 
   for i, t in pairs(oldtiles) do
     local oldname = t.name
-    if (oldname ~= "deepwater") then
+    if ((oldname ~= "deepwater") or shallow) then
 	  local tx = t.position.x
 	  local ty = t.position.y
       local dx = (tx - cx)
@@ -710,23 +741,16 @@ function excavate_area(surface, center)
 	  dy = dy * dy
       local dist = (dx * dx) + (dy * dy)
 
-	  local oldlevel = nil
-	  if ((oldname == "water") or (oldname == "water-green")) then
-	    oldlevel = 2
-	  elseif ((oldname == "water-shallow") or (oldname == "water-mud")) then
-	    oldlevel = 1
-	  elseif (oldname == "deepwater-green") then
-	    oldlevel = 3
-	  end
-	  if (oldlevel ~= nil) then
+	  local oldlevel = water_level(oldname)
+	  if (oldlevel > 0) then
 	    if (waterlevel[tx] == nil) then
 		  waterlevel[tx] = { }
 		end
 		waterlevel[tx][ty] = oldlevel
 	  end
 
-      if (dist < 300000) then
-	    newind = newind + 1
+      if ((dist < 300000) and (not shallow)) then
+        newind = newind + 1
 	    newtiles[newind] = { name = "deepwater", position = t.position }
 	    score = score + terraform_score(t.name)
 	  elseif (dist <= threshold) then
@@ -780,7 +804,12 @@ function excavate_area(surface, center)
 	local g = ((max_e - e) * efactor)
 	local h = ((a - min_a) * afactor)
 	local r = (math.random() * 24)
-	local d = bi.distance - ((f + g + h + r) * tfactor)
+	local od = nil
+	if (shallow) then
+	  od = 20000000 + (bi.distance - ((f + g + h + r) * tfactor * 3))
+	else
+	  od = bi.distance - ((f + g + h + r) * tfactor)
+	end
 
     local tx = bi.tile.position.x
     local ty = bi.tile.position.y
@@ -809,7 +838,8 @@ function excavate_area(surface, center)
 	  end
 	end
 
-	d = d - ((matrix[xi][yi] * (1 - xv) * (1 - yv)) +
+	local d = od -
+	    ((matrix[xi][yi] * (1 - xv) * (1 - yv)) +
 	    (matrix[xi+1][yi] * xv * (1 - yv)) +
 	    (matrix[xi][yi+1] * (1 - xv) * yv) +
 		(matrix[xi+1][yi+1] * xv * yv))
@@ -819,6 +849,11 @@ function excavate_area(surface, center)
 	if (waterlevel[tx] ~= nil) then
 	  oldlevel = waterlevel[tx][ty]
 	  if (oldlevel == nil) then oldlevel = 0 end
+	end
+	if (not shallow) then
+	  d = d - (oldlevel * 10000000)
+	elseif (oldlevel > 1) then
+	  d = d - ((oldlevel - 1) * 5000000)
 	end
 
 	for j=-3,3 do
@@ -834,34 +869,35 @@ function excavate_area(surface, center)
 		  end
 		end
       end
-	end  
-	d = d - (oldlevel * 10000000)
+	end
 
 	local newname = nil
-	if (d < 300000) then
+	if (shallow and (d < -10000000)) then
+	  if (oldlevel ~= 2) then
+	    newname = "water"
+	  end	  
+	elseif ((d < 300000) and (not shallow)) then
 	  newname = "deepwater"
 	elseif (d < 10000000) then
-	  if (oldlevel < 2) then
+	  if (shallow) then
+		if (oldlevel < 1) then
+	      newname = "water-shallow"
+		elseif (oldlevel > 2) then
+		  newname = "water"
+	    end
+	  elseif (oldlevel < 2) then
 	    newname = "water"
 	  end
 	elseif (d < 20000000) then
 	  if (oldlevel < 1) then
-	    newname = "water-shallow"
-	  end
-	elseif ((d < 30000000) and (oldlevel < 1)) then
-	  newname = "nuclear-ground"
-	  if (string.sub(oldname, 1, 8) == "mineral-") then
-	    if (string.sub(oldname, -6, -3) == "dirt") then
-		  local variation = tonumber(string.sub(oldname, -1, -1))
-		  local newvar = math.floor((variation + 1) / 2)
-		  local sandname = (string.sub(oldname, 1, -7) .. "sand-" .. newvar)
-		  if (game.tile_prototypes[sandname] ~= nil) then
-		    newname = sandname
-		  end
+	    if (shallow) then
+		  newname = "water-mud"
 		else
-		  newname = oldname
+	      newname = "water-shallow"
 		end
 	  end
+	elseif ((d < 30000000) and (oldlevel < 1)) then
+	  newname = beach_tile(oldname)
 	end
 
 	if (newname ~= nil) then
@@ -873,7 +909,11 @@ function excavate_area(surface, center)
 	end
   end
 
-  surface.set_tiles(newtiles)
+  if (shallow) then
+    surface.set_tiles(newtiles, true, "abort_on_collision")
+  else
+    surface.set_tiles(newtiles)
+  end
   return score
 end
 

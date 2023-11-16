@@ -1,4 +1,71 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.0
+Date: 14.11.2023
+  Features:
+    - Optional new multiplayer game mode in which players begin game at
+      separate crash sites in separate factions.  New alignment technologies
+      provide multiple options for merging factions together.  Ultimately they
+      must learn to work together as one, but there are many paths that may
+      lead to that eventual outcome.
+      This feature is only relevent for new multiplayer games, and may be
+      disabled in mod settings to revert to traditional multiplayer gameplay.
+      WARNING:  Due to the complexity of testing multiplayer features, this
+      system is still of beta test quality.  You may wish to wait for a few
+      updates before committing to a major multiplayer server event.
+    - New biology evolution technologies.
+    - New shallow water version of excavation drone.
+    - New type of nuclear fuel.
+    - New barrel recipe.
+  Balancing:
+    - Increase throughput and capacity of pipes.
+    - Increase pump speed.
+    - Reduce research cost of early biology techs, but increase later ones.
+    - Increase stack size of boxed empty barrels.
+    - Increase ammonia cost of rocket fuel.
+    - Improve chlorine sink ratio.
+    - Increase wood checkpoint threshold.
+  Changes:
+    - Add Bob's Ores and Angel's Infinite Ores as incompatible mod conflicts.
+    - Excavation and terraforming drone recipes adjusted to use shallow drone.
+    - Research pack names changed to more consistent pattern.
+    - Pumps, seawater intakes, and wells are high priority power consumers.
+    - Clear some obstacles when placing petroleum drone.
+    - Move valve 2 recipe 1 tech later.
+    - Make large tanks non-rotatable, since they're symmetric.
+  Bugfixes:
+    - Show modules in seawater intakes.
+    - Fix mismatch in boxed version of polycrystalline silicon 1 recipe.
+    - Don't kick out driver when switching bodies to a vehicle passenger.
+    - Fix "turbine recapture" description.
+    - Fix order of boxed heat pipe recipes.
+    - Show made in for reactor, silo, truck 2, and mecha recipes.
+    - Fix warnings about incorrect sprite mipmaps.
+    - Fix broken electrolyzer name.
+  Graphics:
+    - Increase visibility of tiny worm decals on map.
+    - Differentiate icon of copper version of insulated wire recipe.
+  Modding:
+    - Increase speed of green AAI loader to exceed equivalent belt.
+    - Notify mods like Bottleneck when buildings mirrored/prioritized.
+    - Change hidden parameter for wind power from an int to a double.
+    - Add explicit conflict with Stack Size Tooltip for erasing descriptions.
+  Info:
+    - Correct description of small pump, which do connect to fluid wagons.
+    - Clarify description of combustion chamber and air filter.
+    - Fix typo in description of breeder cell.
+    - Mention oil and petroleum objectives in end game mission text.
+    - Change animal item descriptions.
+  Sounds:
+    - Make electrolyzers and low tier furnaces quieter.
+    - Make foundry sound less unpleasant.
+---------------------------------------------------------------------------------------------------
+Version: 1.6.6
+Date: 07.09.2023
+  Features:
+    - Allow mirroring of chimneys.
+  Bugfixes:
+    - Report warning about mirror tech to individual player, not their force.
+---------------------------------------------------------------------------------------------------
 Version: 1.6.5
 Date: 05.09.2023
   Features:

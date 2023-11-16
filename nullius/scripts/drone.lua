@@ -126,9 +126,22 @@ function excavation_effect(event)
   surface.request_to_generate_chunks(center, 4)
   surface.force_generate_chunk_requests()
   demolition_effect(event, 80)
-  local score = excavate_area(surface, center)
+  local score = excavate_area(surface, center, false)
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
     bump_mission_goal(9, score, event.source_entity.force)
+  end
+end
+
+function shallow_excavation_effect(event)
+  local surface = game.surfaces[event.surface_index]
+  local center = area_center(event)
+  surface.request_to_generate_chunks(center, 4)
+  surface.force_generate_chunk_requests()
+  scout_effect(event, 3)
+  safe_demolition(event, 64)
+  local score = excavate_area(surface, center, true)
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
+    bump_mission_goal(9, (score * 0.5), event.source_entity.force)
   end
 end
 
@@ -283,21 +296,28 @@ function coal_effect(event)
 end
 
 function petroleum_effect(event)
-  scout_effect(event, 1)
+  clear_radius(event, 24)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local count = 0
   local target = math.floor(9 + (math.random() * 7))
   local attempts = (target * 4)
 
-  for _ = 1, attempts do
+  for n = 1, attempts do
     if (count < target) then
       local angle = 2 * math.pi * math.random()
       local distance = (math.random() * 32) + (math.random() * 24) - 28
       local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
       local overlap_water = s.count_tiles_filtered{area=area_bound(p, 2), limit=2, collision_mask="water-tile"}
       local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 4), limit=2}
-      if ((overlap_obstacle < 1) and (overlap_water < 1)) then
+      if ((overlap_obstacle > 0) or (overlap_water > 0)) then
+	    if ((n % 3) == 0) then
+	      p = s.find_non_colliding_position("crude-oil", p, 8, 1)
+		else
+		  p = nil
+		end
+	  end
+	  if (p ~= nil) then
         local newentity = s.create_entity({name="crude-oil", position=p,
 		    amount=math.floor((25000 + (30001 * math.random())))})
 		count = count + 1
@@ -595,39 +615,41 @@ function entomology_effect(event)
 
 		if (change_ground) then
 	      local near_tiles = s.find_tiles_filtered{area=o,
-		      position=p, radius=4.4, collision_mask="ground-tile"}
+		      position=p, radius=5.4, collision_mask="ground-tile"}
 		  for _,nt in pairs(near_tiles) do
 		    local dx = nt.position.x - p.x
 		    local dy = nt.position.y - p.y
 		    local dist = (dx * dx) + (dy * dy)
-		    local threshold = (1 + (1.6 * (rv + math.random())))
+		    local threshold = (1 + (2 * (rv + math.random())))
 		    local newtiles = { }
 		    local newind = 0
 		    if (dist < (threshold * threshold)) then
-		      local newname = nil
+			  local newname = nil
 			  local oldname = nt.name
-			  if (oldname == "grass-1") then
-			    if (dist < ((threshold - 1) * (threshold - 1))) then
-				  newname = "grass-3"
-				else
-			      newname = "grass-2"
-				end
-			  elseif (oldname == "grass-2") then
-			    if (dist < ((threshold - 1) * (threshold - 1))) then
-				  newname = "grass-4"
-				else
-			      newname = "grass-3"
-				end
-			  elseif (oldname == "grass-3") then
-			    if (dist < ((threshold - 1) * (threshold - 1))) then
-				  newname = "dry-dirt"
-				else
-			      newname = "grass-4"
-				end
+			  local grasslvl = 0
+			  local isgrass = false
+			  if (string.sub(oldname, 1, 6) == "grass-") then
+			    isgrass = true
+			    grasslvl = 5 - (string.byte(oldname, 7) - 48)
+			    if ((grasslvl < 1) or (grasslvl > 4)) then grasslvl = 0 end
+			  end
+			  if (dist < ((threshold - 2.1) * (threshold - 2.1))) then
+			    grasslvl = grasslvl - 4
+			  elseif (dist < ((threshold - 1.4) * (threshold - 1.4))) then
+			    grasslvl = grasslvl - 3
+			  elseif (dist < ((threshold - 0.7) * (threshold - 0.7))) then
+			    grasslvl = grasslvl - 2
 			  else
+			    grasslvl = grasslvl - 1
+			  end
+			  if (grasslvl > 0) then
+			    newname = "grass-"..(5 - grasslvl)
+			  elseif (grasslvl < -1) then
+			    newname = "nuclear-ground"
+			  elseif (isgrass or (grasslvl < 0)) then
 			    newname = "dry-dirt"
 			  end
-			  if (newname ~= nil) then
+			  if ((newname ~= nil) and (newname ~= oldname)) then
 			    newind = newind + 1
 	            newtiles[newind] = { name = newname, position = nt.position }
 			  end
@@ -905,92 +927,102 @@ end
 
 
 function trigger_effect(event)
-  if (string.find(event.effect_id, "nullius%-") == 1) then
-    if (event.effect_id == "nullius-scout-drone-effect-1") then
+  if (string.sub(event.effect_id, 1, 8) ~= "nullius-") then return end
+  local midfix = string.sub(event.effect_id, 9, 14)
+  local suffix = string.sub(event.effect_id, 15, -1)
+
+  if (midfix == "scout-") then
+    if (suffix == "drone-effect-1") then
       scout_effect(event, 3, true)
-    elseif (event.effect_id == "nullius-scout-drone-effect-2") then
+    elseif (suffix == "drone-effect-2") then
       scout_effect(event, 6, true)
-    elseif (event.effect_id == "nullius-demolition-drone-effect") then
-      demolition_effect(event, 64)
-    elseif (event.effect_id == "nullius-excavation-drone-effect") then
-      excavation_effect(event)
-  elseif (string.find(event.effect_id, "terraforming%-drone%-effect%-", 9) == 9) then
-    if (event.effect_id == "nullius-terraforming-drone-effect-grey") then
-        terraforming_effect(event, "landfill", 1)
-    elseif (event.effect_id == "nullius-terraforming-drone-effect-tan") then
-        terraforming_effect(event, "nullius-land-fill-sand", 1.25)
-    elseif (event.effect_id == "nullius-terraforming-drone-effect-brown") then
-        terraforming_effect(event, "nullius-land-fill-bauxite", 1.5)
-    elseif (event.effect_id == "nullius-terraforming-drone-effect-red") then
-        terraforming_effect(event, "nullius-land-fill-iron", 1.25)
-    elseif (event.effect_id == "nullius-terraforming-drone-effect-beige") then
-        terraforming_effect(event, "nullius-land-fill-limestone", 1)
-      end
-  elseif (string.find(event.effect_id, "paving%-drone%-effect%-", 9) == 9) then
-    if (event.effect_id == "nullius-paving-drone-effect-grey") then
-        paving_effect(event, "refined-concrete", "landfill")
-    elseif (event.effect_id == "nullius-paving-drone-effect-hazard") then
-        paving_effect(event, "refined-hazard-concrete-left", "mineral-beige-sand-1")
-    elseif (event.effect_id == "nullius-paving-drone-effect-red") then
-        paving_effect(event, "red-refined-concrete", "mineral-brown-sand-2")
-    elseif (event.effect_id == "nullius-paving-drone-effect-blue") then
-        paving_effect(event, "blue-refined-concrete", "mineral-white-sand-3")
-    elseif (event.effect_id == "nullius-paving-drone-effect-yellow") then
-        paving_effect(event, "yellow-refined-concrete", "mineral-beige-sand-1")
-    elseif (event.effect_id == "nullius-paving-drone-effect-green") then
-        paving_effect(event, "green-refined-concrete", "mineral-white-sand-3")
-    elseif (event.effect_id == "nullius-paving-drone-effect-purple") then
-        paving_effect(event, "purple-refined-concrete", "mineral-brown-sand-2")
-    elseif (event.effect_id == "nullius-paving-drone-effect-white") then
-        paving_effect(event, "nullius-white-concrete", "mineral-white-sand-3")
-    elseif (event.effect_id == "nullius-paving-drone-effect-brown") then
-        paving_effect(event, "brown-refined-concrete", "mineral-tan-dirt-6")
-    elseif (event.effect_id == "nullius-paving-drone-effect-black") then
-        paving_effect(event, "black-refined-concrete", "landfill")
+	end
+  elseif (midfix == "align-") then
+    align_effect(event, suffix)
+  elseif (midfix == "terraf") then
+    if (suffix == "orming-drone-effect-grey") then
+      terraforming_effect(event, "landfill", 1)
+    elseif (suffix == "orming-drone-effect-tan") then
+      terraforming_effect(event, "nullius-land-fill-sand", 1.25)
+    elseif (suffix == "orming-drone-effect-brown") then
+      terraforming_effect(event, "nullius-land-fill-bauxite", 1.5)
+    elseif (suffix == "orming-drone-effect-red") then
+      terraforming_effect(event, "nullius-land-fill-iron", 1.25)
+    elseif (suffix == "orming-drone-effect-beige") then
+      terraforming_effect(event, "nullius-land-fill-limestone", 1)
     end
-  elseif (string.find(event.effect_id, "guide%-drone%-effect%-", 9) == 9) then
-    if (event.effect_id == "nullius-guide-drone-effect-iron-1") then
+  elseif (midfix == "paving") then
+    if (suffix == "-drone-effect-grey") then
+      paving_effect(event, "refined-concrete", "landfill")
+    elseif (suffix == "-drone-effect-hazard") then
+      paving_effect(event, "refined-hazard-concrete-left", "mineral-beige-sand-1")
+    elseif (suffix == "-drone-effect-red") then
+      paving_effect(event, "red-refined-concrete", "mineral-brown-sand-2")
+    elseif (suffix == "-drone-effect-blue") then
+      paving_effect(event, "blue-refined-concrete", "mineral-white-sand-3")
+    elseif (suffix == "-drone-effect-yellow") then
+      paving_effect(event, "yellow-refined-concrete", "mineral-beige-sand-1")
+    elseif (suffix == "-drone-effect-green") then
+      paving_effect(event, "green-refined-concrete", "mineral-white-sand-3")
+    elseif (suffix == "-drone-effect-purple") then
+      paving_effect(event, "purple-refined-concrete", "mineral-brown-sand-2")
+    elseif (suffix == "-drone-effect-white") then
+      paving_effect(event, "nullius-white-concrete", "mineral-white-sand-3")
+    elseif (suffix == "-drone-effect-brown") then
+      paving_effect(event, "brown-refined-concrete", "mineral-tan-dirt-6")
+    elseif (suffix == "-drone-effect-black") then
+      paving_effect(event, "black-refined-concrete", "landfill")
+    end    
+  elseif (midfix == "guide-") then
+    if (suffix == "drone-effect-iron-1") then
         miner_effect(event, "iron-ore", 16, 1.493)
-    elseif (event.effect_id == "nullius-guide-drone-effect-iron-2") then
+    elseif (suffix == "drone-effect-iron-2") then
         miner_effect(event, "iron-ore", 32, 14.93)
-    elseif (event.effect_id == "nullius-guide-drone-effect-sandstone-1") then
+    elseif (suffix == "drone-effect-sandstone-1") then
         miner_effect(event, "nullius-sandstone", 16, 1.243)
-    elseif (event.effect_id == "nullius-guide-drone-effect-sandstone-2") then
+    elseif (suffix == "drone-effect-sandstone-2") then
         miner_effect(event, "nullius-sandstone", 32, 12.43)
-    elseif (event.effect_id == "nullius-guide-drone-effect-bauxite-1") then
+    elseif (suffix == "drone-effect-bauxite-1") then
         miner_effect(event, "nullius-bauxite", 15, 1.132)
-    elseif (event.effect_id == "nullius-guide-drone-effect-bauxite-2") then
+    elseif (suffix == "drone-effect-bauxite-2") then
         miner_effect(event, "nullius-bauxite", 30, 11.32)
-    elseif (event.effect_id == "nullius-guide-drone-effect-limestone-1") then
+    elseif (suffix == "drone-effect-limestone-1") then
         miner_effect(event, "nullius-limestone", 14, 1.05)
-    elseif (event.effect_id == "nullius-guide-drone-effect-limestone-2") then
+    elseif (suffix == "drone-effect-limestone-2") then
         miner_effect(event, "nullius-limestone", 28, 10.5)
-    elseif (event.effect_id == "nullius-guide-drone-effect-copper-1") then
+    elseif (suffix == "drone-effect-copper-1") then
         miner_effect(event, "copper-ore", 13, 0.941, 10, 1)
-    elseif (event.effect_id == "nullius-guide-drone-effect-copper-2") then
+    elseif (suffix == "drone-effect-copper-2") then
         miner_effect(event, "copper-ore", 26, 9.41, 10, 40)
-    elseif (event.effect_id == "nullius-guide-drone-effect-uranium-1") then
+    elseif (suffix == "drone-effect-uranium-1") then
         miner_effect(event, "uranium-ore", 10, 0.781, 11, 1)
-    elseif (event.effect_id == "nullius-guide-drone-effect-uranium-2") then
+    elseif (suffix == "drone-effect-uranium-2") then
         miner_effect(event, "uranium-ore", 20, 7.91, 11, 40)
     end
-  elseif (event.effect_id == "nullius-algaculture-drone-effect") then
+  elseif (midfix == "seques") then
+    if (suffix == "tration-coal-drone-effect") then
+      coal_effect(event)
+    elseif (suffix == "tration-petroleum-drone-effect") then
+      petroleum_effect(event)
+	end
+  elseif (midfix == "excava") then
+    excavation_effect(event)
+  elseif (midfix == "shallo") then
+    shallow_excavation_effect(event)
+  elseif (midfix == "algacu") then
     algaculture_effect(event)
-  elseif (event.effect_id == "nullius-horticulture-drone-effect") then
+  elseif (midfix == "hortic") then
     horticulture_effect(event)
-  elseif (event.effect_id == "nullius-arboriculture-drone-effect") then
+  elseif (midfix == "arbori") then
     arboriculture_effect(event)
-  elseif (event.effect_id == "nullius-entomology-drone-effect") then
+  elseif (midfix == "entomo") then
     entomology_effect(event)
-  elseif (event.effect_id == "nullius-aquaculture-drone-effect") then
+  elseif (midfix == "aquacu") then
     aquaculture_effect(event)
-  elseif (event.effect_id == "nullius-husbandry-drone-effect") then
+  elseif (midfix == "husban") then
     husbandry_effect(event)
-  elseif (event.effect_id == "nullius-sequestration-coal-drone-effect") then
-    coal_effect(event)
-  elseif (event.effect_id == "nullius-sequestration-petroleum-drone-effect") then
-    petroleum_effect(event)
-  end
+  elseif (midfix == "demoli") then
+    demolition_effect(event, 64)
   end
 end
 

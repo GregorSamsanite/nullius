@@ -20,7 +20,7 @@ data:extend({
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     vehicle_impact_sound =  { filename = "__base__/sound/car-stone-impact.ogg", volume = 1.0 },
-    working_sound = { sound = { filename = "__base__/sound/furnace.ogg" }},
+	working_sound = data.raw["furnace"]["steel-furnace"].working_sound,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
@@ -55,7 +55,7 @@ data:extend({
     max_health = 250,
     corpse = "steel-furnace-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = { sound = { filename = "__base__/sound/furnace.ogg" }},
+    working_sound = data.raw["furnace"]["steel-furnace"].working_sound,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
@@ -236,7 +236,7 @@ data:extend({
     max_health = 300,
     corpse = "steel-furnace-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = { sound = { filename = "__base__/sound/furnace.ogg" }},
+	working_sound = data.raw["furnace"]["steel-furnace"].working_sound,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
@@ -251,7 +251,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 3,
         pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
@@ -376,7 +376,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 2,
+        base_level = 5,
         pipe_connections = {{ type="output", position = {0, -2} }}
       },
       off_when_no_fluid_recipe = true
@@ -474,7 +474,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 2,
+        base_level = 5,
         pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       },
       off_when_no_fluid_recipe = true
@@ -790,12 +790,12 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 3,
         pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["casting-machine"].working_sound
+	vehicle_impact_sound = data.raw["furnace"]["stone-furnace"].vehicle_impact_sound,
+    working_sound = data.raw["furnace"]["stone-furnace"].working_sound
   }
 })
 
@@ -869,12 +869,12 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 1.5,
+        base_level = 4,
         pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["casting-machine"].working_sound
+	vehicle_impact_sound = data.raw["assembling-machine"]["nullius-foundry-1"].vehicle_impact_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound
   },
 
   {
@@ -944,12 +944,12 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_area = 10,
-        base_level = 2,
+        base_level = 5,
         pipe_connections = {{ type="output", position = {2, -1} }}
       },
     },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    working_sound = data.raw["assembling-machine"]["casting-machine"].working_sound
+	vehicle_impact_sound = data.raw["assembling-machine"]["nullius-foundry-1"].vehicle_impact_sound,
+    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound
   },
 
   {
@@ -992,7 +992,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 2,
         base_area = 3,
         height = 2,
         pipe_connections = {{ type="output", position = {0, -2} }}
@@ -1046,7 +1046,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1.5,
+        base_level = 4,
         base_area = 4,
         height = 2,
         pipe_connections = {{ type="output", position = {0, -2} }}
@@ -1097,7 +1097,7 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 2,
+        base_level = 5,
         base_area = 5,
         height = 2,
         pipe_connections = {{ type="output", position = {0, -2} }}
@@ -1167,14 +1167,14 @@ data:extend({
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 3,
         pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 3,
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
@@ -1236,7 +1236,8 @@ data:extend({
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 2,
+        base_level = 4,
+		height = 2,
         pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
@@ -1244,7 +1245,8 @@ data:extend({
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 2,
+        base_level = 4,
+		height = 2,
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
@@ -1307,8 +1309,8 @@ data:extend({
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_level = 5,
+        height = 3,
         pipe_connections = {{ type="output", position = {0.5, -2.5} }}
       },
       {
@@ -1316,8 +1318,8 @@ data:extend({
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 3,
-        height = 2,
+        base_level = 5,
+        height = 3,
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       }
     },
@@ -1415,16 +1417,18 @@ data:extend({
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 2,
+		base_area = 5,
+        base_level = 4,
+		height = 2,
         pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },
       {
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 2,
+		base_area = 5,
+        base_level = 4,
+		height = 2,
         pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       }
     }
@@ -1484,18 +1488,18 @@ data:extend({
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+		base_area = 5,
+        base_level = 5,
+        height = 3,
         pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },
       {
         production_type = "output",
         pipe_picture = floatpipepics,
         pipe_covers = pipecoverspictures(),
-        base_area = 5,
-        base_level = 3,
-        height = 2,
+		base_area = 5,
+        base_level = 5,
+        height = 3,
         pipe_connections = {{ type="output", position = {-0.5, -2.5} }}
       }
     }

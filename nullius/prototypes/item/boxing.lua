@@ -442,3 +442,5 @@ create_boxed_item("solar-collector-3", "heat-energy", "bd")
 if mods["ch-concentrated-solar"] then
 create_boxed_item("heliostat-mirror", "heat-energy", "cb", "chcs-heliostat-mirror")
 end
+
+data.raw.item["nullius-box-barrel"].stack_size = 20

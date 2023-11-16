@@ -1135,6 +1135,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-barrel",
+	localised_name = {"", {"item-name.empty-barrel"}, " ", 1},
     enabled = false,
     category = "large-crafting",
     subgroup = "canisters",
@@ -1154,9 +1155,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-barrel",
+	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 1},
     enabled = false,
     category = "huge-assembly",
     subgroup = "boxed-canister",
+	order = "nullius-bb",
     always_show_made_in = true,
     allow_decomposition = false,
     show_amount_in_title = false,
@@ -1168,6 +1171,81 @@ data:extend({
     },
     result = "nullius-box-barrel",
     result_count = 5
+  },
+  {
+    type = "recipe",
+    name = "nullius-barrel-2",
+	localised_name = {"", {"item-name.empty-barrel"}, " ", 2},
+	icons = {
+      {
+        icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.3,
+        shift = {8, -9}
+      }
+    },
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "canisters",
+    order = "nullius-bc",
+    always_show_made_in = true,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    energy_required = 3,
+    ingredients = {
+      {type="item", name="nullius-steel-sheet", amount=2},
+	  {type="item", name="nullius-plastic", amount=1},
+      {type="item", name="nullius-one-way-valve", amount=2}
+    },
+    result = "empty-barrel",
+    result_count = 2
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-barrel-2",
+	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.27,
+        shift = {7, -8}
+      }
+    },
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "boxed-canister",
+    order = "nullius-bc",
+    always_show_made_in = true,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-box-steel-sheet", amount=2},
+	  {type="item", name="nullius-box-plastic", amount=1},
+      {type="item", name="nullius-box-one-way-valve", amount=2}
+    },
+    result = "nullius-box-barrel",
+    result_count = 2
   },
   {
     type = "recipe",

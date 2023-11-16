@@ -12,11 +12,13 @@ local si1 = {
   name = "nullius-seawater-intake-1",
   icons = data.raw.item["nullius-seawater-intake-1"].icons,
   minable = {mining_time = 0.5, result = "nullius-seawater-intake-1"},
-  flags = {"placeable-neutral", "player-creation", "hide-alt-info"},
+  flags = {"placeable-neutral", "player-creation"},
   collision_mask = {"object-layer", "ground-tile"},
   crafting_categories = {"seawater-pumping"},
   crafting_speed = 1,
   fixed_recipe = "nullius-seawater",
+  show_recipe_icon = false,
+  show_recipe_icon_on_map = false,
   energy_source = {
     type = "electric",
 	usage_priority = "secondary-input",
@@ -37,13 +39,16 @@ local si1 = {
   fluid_boxes = {{
 	production_type = "output",
     base_area = 8,
-    base_level = 1.5,
+    base_level = 4,
     pipe_covers = pipecoverspictures(),
     filter = "nullius-seawater",
     pipe_connections = {{position = {0, 2}, type = "output"}}
   }},
   pipe_covers = pipecoverspictures(),
-  module_specification = { module_slots = 1 },
+  module_specification = {
+    module_slots = 1,
+	module_info_icon_shift = { 0, 0 }
+  },
   allowed_effects = {"speed", "consumption", "pollution"},
   fast_replaceable_group = "seawater-intake",
   next_upgrade = "nullius-seawater-intake-2",
@@ -60,7 +65,7 @@ si2.energy_source.drain = "50kW"
 si2.energy_usage = "750kW"
 si2.next_upgrade = nil
 si2.max_health = 300
-si2.fluid_boxes[1].base_level = 3
+si2.fluid_boxes[1].base_level = 6
 si2.fluid_boxes[1].height = 2
 si2.module_specification.module_slots = 2
 
@@ -153,7 +158,7 @@ data:extend({
     pumping_speed = 2,
     fluid_box = {
       base_area = 8,
-      base_level = 1.5,
+      base_level = 4,
       pipe_covers = pipecoverspictures(),
       production_type = "output",
       filter = "nullius-seawater",
@@ -463,7 +468,7 @@ data:extend({
     pumping_speed = 10,
     fluid_box = {
       base_area = 6,
-      base_level = 3,
+      base_level = 5,
       height = 2,
       pipe_covers = pipecoverspictures(),
       production_type = "output",
@@ -519,7 +524,7 @@ data:extend({
         production_type = "output",
         base_area = 10,
         base_level = 0,
-        height = 2,
+        height = 4,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
           { positions = { {1, -2}, {2, -1}, {-1, 2}, {-2, 1} } }
@@ -771,7 +776,7 @@ data:extend({
         production_type = "output",
         base_area = 10,
         base_level = 0,
-        height = 4,
+        height = 6,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {
           { positions = { {1, -2}, {2, -1}, {-1, 2}, {-2, 1} } }
@@ -1093,7 +1098,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_area = 2,
-        base_level = 1.5,
+        base_level = 3,
         height = 2,
         pipe_connections = {{ position = {0, 2}, type = "output" }}
       },
@@ -1180,7 +1185,7 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_area = 5,
-        base_level = 2,
+        base_level = 4,
         height = 2,
         pipe_connections = {{ position = {0, 2}, type = "output" }}
       },
@@ -1234,8 +1239,8 @@ data:extend({
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_area = 10,
-        base_level = 3,
-        height = 2,
+        base_level = 5,
+        height = 3,
         pipe_connections = {{ position = {0, 2}, type = "output" }}
       },
     },
@@ -1260,9 +1265,9 @@ data:extend({
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box = {
-      base_area = 1.5,
-      base_level = 0.5,
-      height = 2,
+      base_area = 1,
+      base_level = 1.25,
+      height = 5,
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
@@ -1362,8 +1367,8 @@ data:extend({
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box = {
-      base_area = 1.2,
-      height = 2.5,
+      base_area = 1,
+      height = 6.25,
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
@@ -1463,8 +1468,8 @@ data:extend({
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box = {
-      base_area = 3,
-      height = 1,
+      base_area = 1,
+      height = 2.5,
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
@@ -1564,9 +1569,9 @@ data:extend({
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box = {
-      base_area = 2,
-      base_level = 1.5,
-      height = 1.5,
+      base_area = 1,
+      base_level = 3.75,
+      height = 2.5,
       pipe_connections = {
         { position = {0, 1}, type="output"},
         { position = {0, -1} }
@@ -1662,8 +1667,8 @@ data:extend({
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     fluid_box = {
-      height = 1.8,
-      base_area = 166.66667,
+      height = 4.5,
+      base_area = 66.6666667,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {-1, -2} },
@@ -1740,8 +1745,8 @@ data:extend({
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     fluid_box = {
-      height = 2,
-      base_area = 300,
+      height = 5,
+      base_area = 120,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {-1, -2} },
@@ -1815,8 +1820,8 @@ data:extend({
     selection_box = {{-1, -1}, {1, 1}},
     two_direction_only = false,
     fluid_box = {
-      height = 1.8,
-      base_area = 55.55556,
+      height = 4.5,
+      base_area = 22.2222223,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0.5, -1.5} },
@@ -2002,8 +2007,8 @@ data:extend({
     selection_box = {{-1, -1}, {1, 1}},
     two_direction_only = false,
     fluid_box = {
-      height = 2,
-      base_area = 100,
+      height = 5,
+      base_area = 40,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0.5, -1.5} },
@@ -2042,7 +2047,7 @@ data:extend({
     type = "storage-tank",
     name = "nullius-large-tank-1",
     icons = data.raw.item["nullius-large-tank-1"].icons,
-    flags = {"placeable-player", "player-creation"},
+    flags = {"placeable-player", "player-creation", "not-rotatable"},
     minable = {hardness = 2, mining_time = 3, result = "nullius-large-tank-1"},
     max_health = 1000,
     corpse = "medium-remnants",
@@ -2050,8 +2055,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     two_direction_only = false,
     fluid_box = {
-      height = 2,
-      base_area = 625,
+      height = 5,
+      base_area = 250,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -3} },
@@ -2076,7 +2081,7 @@ data:extend({
     type = "storage-tank",
     name = "nullius-large-tank-2",
     icons = data.raw.item["nullius-large-tank-2"].icons,
-    flags = {"placeable-player", "player-creation"},
+    flags = {"placeable-player", "player-creation", "not-rotatable"},
     minable = {hardness = 2.5, mining_time = 3, result = "nullius-large-tank-2"},
     max_health = 1200,
     corpse = "medium-remnants",
@@ -2084,8 +2089,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     two_direction_only = false,
     fluid_box = {
-      height = 2.2,
-      base_area = 1136.3636364,
+      height = 5.5,
+      base_area = 454.545454546,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -3} },
@@ -2110,7 +2115,7 @@ data:extend({
     type = "storage-tank",
     name = "nullius-large-tank-3",
     icons = data.raw.item["nullius-large-tank-3"].icons,
-    flags = {"placeable-player", "player-creation"},
+    flags = {"placeable-player", "player-creation", "not-rotatable"},
     minable = {hardness = 3, mining_time = 3, result = "nullius-large-tank-3"},
     max_health = 1500,
     corpse = "medium-remnants",
@@ -2118,8 +2123,8 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     two_direction_only = false,
     fluid_box = {
-      height = 2.5,
-      base_area = 2000,
+      height = 6.25,
+      base_area = 800,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -3} },
@@ -2177,7 +2182,7 @@ data:extend({
     },
     output_fluid_box = {
       base_area = 5,
-      base_level = 2,
+      base_level = 4,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { positions = { {1.5, -2.5}, {2.5, -1.5}, {-1.5, 2.5}, {-2.5, 1.5} } }
@@ -2283,7 +2288,7 @@ data:extend({
     },
     output_fluid_box = {
       base_area = 10,
-      base_level = 3,
+      base_level = 5,
       height = 2,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
@@ -2415,7 +2420,8 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 2,
+		base_area = 5,
+        base_level = 5,
         pipe_connections = {{type="output", position = {0, -2}}}
       }
     },
@@ -2514,15 +2520,17 @@ data:extend({
       {
         production_type = "input",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -2,
+        base_area = 5,
+        base_level = -3,
+		height = 2,
         pipe_connections = {{type = "input", position = {0, 2}}}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = 3,
+        base_area = 5,
+        base_level = 6,
+		height = 2,
         pipe_connections = {{type="output", position = {0, -2}}}
       }
     },
@@ -2586,7 +2594,6 @@ data:extend({
     name = "nullius-pump-1",
     icon = ENTICONPATH .. "pump-yellow.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.6, result = "nullius-pump-1"},
     max_health = 150,
@@ -2604,7 +2611,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 3,
+      height = 6,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
@@ -2614,10 +2621,10 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-      usage_priority = "secondary-input"
+      usage_priority = "primary-input"
     },
-    energy_usage = "10kW",
-    pumping_speed = 20,
+    energy_usage = "15kW",
+    pumping_speed = 50,
     vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
     open_sound = data.raw.pump["pump"].open_sound,
     close_sound = data.raw.pump["pump"].close_sound,
@@ -2755,7 +2762,6 @@ data:extend({
     name = "nullius-pump-2",
     icon = ENTICONPATH .. "pump-blue.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-pump-2"},
     max_health = 200,
@@ -2773,7 +2779,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 5,
+      height = 8,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
@@ -2783,10 +2789,10 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-      usage_priority = "secondary-input"
+      usage_priority = "primary-input"
     },
-    energy_usage = "15kW",
-    pumping_speed = 40,
+    energy_usage = "20kW",
+    pumping_speed = 100,
     vehicle_impact_sound = data.raw.pump["pump"].vehicle_impact_sound,
     open_sound = data.raw.pump["pump"].open_sound,
     close_sound = data.raw.pump["pump"].close_sound,
@@ -2939,8 +2945,8 @@ data:extend({
       { type = "fire", decrease = 20, percent = 50 }
     },
     fluid_box = {
-      base_area = 0.8,
-      height = 2.5,
+      base_area = 1,
+      height = 5,
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
@@ -2949,10 +2955,10 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-      usage_priority = "secondary-input"
+      usage_priority = "primary-input"
     },
     energy_usage = "10kW",
-    pumping_speed = 20,
+    pumping_speed = 40,
     vehicle_impact_sound = data.raw["pump"]["pump"].vehicle_impact_sound,
     open_sound = data.raw["pump"]["pump"].open_sound,
     close_sound = data.raw["pump"]["pump"].close_sound,
@@ -3052,7 +3058,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 4,
+      height = 6,
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
@@ -3061,10 +3067,10 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-      usage_priority = "secondary-input"
+      usage_priority = "primary-input"
     },
     energy_usage = "15kW",
-    pumping_speed = 40,
+    pumping_speed = 80,
     vehicle_impact_sound = data.raw["pump"]["pump"].vehicle_impact_sound,
     open_sound = data.raw["pump"]["pump"].open_sound,
     close_sound = data.raw["pump"]["pump"].close_sound,
@@ -3147,6 +3153,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-2",
+	localised_description = {"entity-description.nullius-pipe", 60, 4360, 1260},
     icons = data.raw.item["nullius-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.3, result = "nullius-pipe-2"},
@@ -3163,8 +3170,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe"]["pipe"].damaged_trigger_effect,
     fluid_box = {
-      height = 1.2,
-      base_area = 1,
+      height = 3,
+      base_area = 1.333334,
       pipe_connections = {
         { position = {0, -1} },
         { position = {1, 0} },
@@ -3182,6 +3189,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-3",
+	localised_description = {"entity-description.nullius-pipe", 80, 5370, 4260},
     icons = data.raw.item["nullius-pipe-3"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.4, result = "nullius-pipe-3"},
@@ -3198,8 +3206,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe"]["pipe"].damaged_trigger_effect,
     fluid_box = {
-      height = 1.6,
-      base_area = 0.75,
+      height = 4,
+      base_area = 1,
       pipe_connections = {
         { position = {0, -1} },
         { position = {1, 0} },
@@ -3217,6 +3225,7 @@ data:extend({
   {
     type = "pipe",
     name = "nullius-pipe-4",
+	localised_description = {"entity-description.nullius-pipe", 100, 6720, 5180},
     icons = data.raw.item["nullius-pipe-4"].icons,
     flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"},
     minable = {mining_time = 0.5, result = "nullius-pipe-4"},
@@ -3232,8 +3241,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe"]["pipe"].damaged_trigger_effect,
     fluid_box = {
-      height = 2,
-      base_area = 0.6,
+      height = 5,
+      base_area = 0.8,
       pipe_connections = {
         { position = {0, -1} },
         { position = {1, 0} },
@@ -3251,6 +3260,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-2",
+	localised_description = {"entity-description.nullius-underground-pipe", 60},
     icons = data.raw.item["nullius-underground-pipe-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.6, result = "nullius-underground-pipe-2"},
@@ -3267,8 +3277,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
     fluid_box = {
-      height = 1.2,
-      base_area = 1,
+      height = 3,
+      base_area = 1.333334,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -1} },
@@ -3285,6 +3295,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-3",
+	localised_description = {"entity-description.nullius-underground-pipe", 80},
     icons = data.raw.item["nullius-underground-pipe-3"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-underground-pipe-3"},
@@ -3301,8 +3312,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
     fluid_box = {
-      height = 1.6,
-      base_area = 0.75,
+      height = 4,
+      base_area = 1,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -1} },
@@ -3319,6 +3330,7 @@ data:extend({
   {
     type = "pipe-to-ground",
     name = "nullius-underground-pipe-4",
+	localised_description = {"entity-description.nullius-underground-pipe", 100},
     icons = data.raw.item["nullius-underground-pipe-4"].icons,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 1, result = "nullius-underground-pipe-4"},
@@ -3334,8 +3346,8 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     damaged_trigger_effect = data.raw["pipe-to-ground"]["pipe-to-ground"].damaged_trigger_effect,
     fluid_box = {
-      height = 2,
-      base_area = 0.6,
+      height = 5,
+      base_area = 0.8,
       pipe_covers = pipecoverspictures(),
       pipe_connections = {
         { position = {0, -1} },

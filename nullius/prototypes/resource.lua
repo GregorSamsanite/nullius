@@ -334,6 +334,7 @@ data:extend({
 
     flags = {"placeable-neutral"},
     category = "basic-fluid",
+    subgroup = "raw-resource",
     infinite = true,
     highlight = true,
     minimum = 75000,

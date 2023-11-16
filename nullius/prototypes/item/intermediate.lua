@@ -142,7 +142,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-geology-pack-1",
-    localised_name = {"recipe-name.nullius-geology-pack-1"},
+	localised_name = {"", {"item-name.nullius-geology-pack"}, " ", 1},
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -159,7 +159,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-geology-pack-2",
-    localised_name = {"recipe-name.nullius-geology-pack-2"},
+	localised_name = {"", {"item-name.nullius-geology-pack"}, " ", 2},
     icons = {
       {
         icon = "__base__/graphics/icons/utility-science-pack.png",
@@ -4103,6 +4103,20 @@ data:extend({
     type = "recipe",
     name = "nullius-insulated-wire-2",
     localised_name = {"", {"item-name.nullius-insulated-wire"}, " ", 2},
+	icons = {
+      {
+        icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+		icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.25,
+        shift = {12, -10}
+      }
+    },
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -4120,6 +4134,25 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-insulated-wire-2",
     localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-insulated-wire"}}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+		icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.22,
+        shift = {11, -9}
+      }
+    },
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -4185,7 +4218,6 @@ data:extend({
     name = "nullius-motor-1",
     icon = ICONPATH .. "motor1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "mechanical-intermediate",
     order = "nullius-db",
     stack_size = 50
@@ -4205,7 +4237,6 @@ data:extend({
     name = "nullius-motor-3",
     icon = ICONPATH .. "motor3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "mechanical-intermediate",
     order = "nullius-dd",
     stack_size = 50
@@ -4608,7 +4639,6 @@ data:extend({
       {
         icon = ICONPATH .. "fluid/purewater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.25,
         shift = {12, -10}
       }
@@ -5086,8 +5116,8 @@ data:extend({
     energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-silicon-ingot", amount=3},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=200, fluidbox_index=1},
-      {type="fluid", name="nullius-nitrogen", amount=50, fluidbox_index=3}
+      {type="fluid", name="nullius-hydrogen-chloride", amount=225, fluidbox_index=1},
+      {type="fluid", name="nullius-nitrogen", amount=100, fluidbox_index=3}
     },
     results = {
       {type="item", name="nullius-box-polycrystalline-silicon", amount=2},
@@ -6286,7 +6316,6 @@ data:extend({
     name = "nullius-sensor-2",
     icon = ICONPATH .. "sensor2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
     order = "nullius-bc",
     stack_size = 100
@@ -7014,7 +7043,6 @@ data:extend({
     name = "nullius-robot-frame-1",
     icon = ICONPATH .. "frame1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
     order = "nullius-cb",
     stack_size = 50
@@ -7024,7 +7052,6 @@ data:extend({
     name = "nullius-robot-frame-2",
     icon = ICONPATH .. "frame2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
     order = "nullius-cc",
     stack_size = 50
@@ -7034,7 +7061,6 @@ data:extend({
     name = "nullius-robot-frame-3",
     icon = ICONPATH .. "frame3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
     order = "nullius-cd",
     stack_size = 50
@@ -7044,7 +7070,6 @@ data:extend({
     name = "nullius-robot-frame-4",
     icon = ICONPATH .. "frame4.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "robotic-intermediate",
     order = "nullius-ce",
     stack_size = 50
@@ -7863,7 +7888,6 @@ data:extend({
     name = "nullius-antimatter-trap",
     icon = ICONPATH .. "antimatter-trap.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-antimatter",
     fuel_value = "1GJ",
@@ -7877,7 +7901,6 @@ data:extend({
     name = "nullius-antimatter",
     icon = ICONPATH .. "antimatter.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nuclear",
     order = "nullius-fc",
     fuel_category = "vehicle",

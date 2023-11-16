@@ -73,31 +73,41 @@ function switch_body(player, target)
   player.set_controller{type=defines.controllers.character, character=target}
   update_player_upgrades(player)
 
+  local do_set_tag = true
+  local old_passenger = nil
   if ((vehicle ~= nil) and (oldchar ~= nil)) then
-    if (((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) and
-        (vehicle.get_passenger() == nil)) then
-      vehicle.set_passenger(oldchar)
-    elseif ((vehicle.type == "locomotive") and
-        (vehicle.get_driver() == nil)) then
-      vehicle.set_driver(oldchar)
-    else
-      add_chart_tag(player, oldchar)
+    if ((vehicle.type == "car") or (vehicle.type == "spider-vehicle")) then
+	  old_passenger = vehicle.get_passenger()
+	  if ((old_passenger == nil) or (old_passenger == target)) then
+        vehicle.set_passenger(oldchar)
+	    do_set_tag = false
+	  end
+    elseif (vehicle.type == "locomotive") then
+	  if (vehicle.get_driver() == nil) then
+        vehicle.set_driver(oldchar)
+	    do_set_tag = false
+	  end
     end
-  else
+  end
+  if (do_set_tag) then
     add_chart_tag(player, oldchar)
   end
 
   if (global.nullius_body_queue ~= nil) then
     local queue = global.nullius_body_queue[player.index]
-  if (queue ~= nil) then
-    queue.last_index = target.unit_number
-  end
+    if (queue ~= nil) then
+      queue.last_index = target.unit_number
+    end
   end
 
-  if ((target_vehicle ~= nil) and (target_vehicle.get_driver() == nil) and
-      (target == target_vehicle.get_passenger())) then
-    target_vehicle.set_passenger(nil)
-    target_vehicle.set_driver(target)
+  if ((target_vehicle ~= nil) and (target_vehicle.get_driver() == nil)) then
+    if ((target_vehicle == vehicle) and (old_passenger == target) and
+	    (oldchar == target_vehicle.get_passenger())) then
+	  target_vehicle.set_driver(target)
+    elseif (target == target_vehicle.get_passenger()) then
+      target_vehicle.set_passenger(nil)
+      target_vehicle.set_driver(target)
+	end
   end
 end
 

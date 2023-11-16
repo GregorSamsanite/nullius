@@ -141,6 +141,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-sugar", amount=5},
@@ -540,7 +541,8 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "bacteria.png",
-        icon_size = 64
+        icon_size = 64,
+		scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -555,8 +557,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-bacteria-genome",
+	localised_name = {"", {"item-name.nullius-bacteria-genome"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-bb",
     energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
@@ -567,6 +571,45 @@ data:extend({
     results = {
       {type="item", name="nullius-bacteria-genome", amount=1},
       {type="fluid", name="nullius-wastewater", amount=5}
+    },
+    main_product = "nullius-bacteria-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-bacteria-genome-2",
+    localised_name = {"", {"item-name.nullius-bacteria-genome"}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "bacteria.png",
+        icon_size = 64,
+		scale = 0.5
+      },
+	  {
+		icon = ICONPATH .. "bacteria.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {10, -10}
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.45
+      }
+    },
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-bc",
+    energy_required = 25,
+    ingredients = {
+      {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
+	  {type="fluid", name="nullius-bacteria", amount=20, fluidbox_index=2},
+      {type="item", name="nullius-box-astronomy-pack", amount=2},
+      {type="item", name="nullius-box-chemical-pack", amount=3},
+      {type="item", name="nullius-canister", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-bacteria-genome", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=20}
     },
     main_product = "nullius-bacteria-genome"
   },
@@ -614,7 +657,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "biology-bacteria",
     order = "nullius-cc",
-    energy_required = 8,
+    energy_required = 9,
     ingredients = {
       {type="fluid", name="nullius-saline", amount=40},
       {type="fluid", name="nullius-bacteria", amount=6},
@@ -625,6 +668,41 @@ data:extend({
     results = {
       {type="fluid", name="nullius-bacteria", amount=10},
       {type="fluid", name="nullius-methane", amount=50}
+    },
+    main_product = "nullius-bacteria"
+  },
+  {
+    type = "recipe",
+    name = "nullius-bacteria-3",
+    localised_name = {"", {"fluid-name.nullius-bacteria"}, " ", 3},
+	icons = {
+	  {
+        icon = ICONPATH .. "bacteria.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "ore-flotation",
+    subgroup = "biology-bacteria",
+    order = "nullius-cd",
+    energy_required = 8,
+    ingredients = {
+      {type="fluid", name="nullius-saline", amount=40},
+      {type="fluid", name="nullius-bacteria", amount=5},
+      {type="item", name="nullius-sugar", amount=2},
+      {type="item", name="nullius-cellulose", amount=3},
+      {type="item", name="nullius-mineral-dust", amount=1}
+    },
+    results = {
+      {type="fluid", name="nullius-bacteria", amount=11},
+      {type="fluid", name="nullius-methane", amount=55}
     },
     main_product = "nullius-bacteria"
   },
@@ -871,7 +949,8 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "algae.png",
-        icon_size = 64
+        icon_size = 64,
+		scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -945,8 +1024,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-algae-progenitor",
+	localised_name = {"", {"item-name.nullius-algae-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 150,
     ingredients = {
       {type="item", name="nullius-algae-genome", amount=1},
@@ -959,6 +1040,41 @@ data:extend({
     results = {
       {type="item", name="nullius-algae-progenitor", amount=1},
       {type="fluid", name="nullius-wastewater", amount=5}
+    },
+    main_product = "nullius-algae-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-algae-progenitor-2",
+	localised_name = {"", {"item-name.nullius-algae-progenitor"}, " ", 2},
+	icons = {
+	  {
+        icon = ICONPATH .. "algae-progenitor.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "algae.png",
+        icon_size = 64,
+		scale = 0.36,
+        shift = {-8, -8}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 250,
+    ingredients = {
+      {type="item", name="nullius-algae-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=8},
+      {type="fluid", name="nullius-amino-acids", amount=5},
+      {type="fluid", name="nullius-fatty-acids", amount=3},
+      {type="item", name="nullius-sugar", amount=1},
+	  {type="item", name="nullius-algae", amount=5},
+      {type="item", name="nullius-algae-spore", amount=12}
+    },
+    results = {
+      {type="item", name="nullius-algae-progenitor", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=25}
     },
     main_product = "nullius-algae-progenitor"
   },
@@ -1004,17 +1120,51 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 12,
+    energy_required = 13,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=500},
       {type="fluid", name="nullius-air", amount=2000},
-      {type="item", name="nullius-algae-spore", amount=10},
+      {type="item", name="nullius-algae-spore", amount=11},
       {type="item", name="nullius-mineral-dust", amount=3}
     },
     results = {
       {type="item", name="nullius-algae", amount=8},
       {type="fluid", name="nullius-wastewater", amount=300},
       {type="fluid", name="nullius-oxygen", amount=600}
+    },
+    main_product = "nullius-algae"
+  },
+  {
+    type = "recipe",
+    name = "nullius-algae-3",
+    localised_name = {"", {"item-name.nullius-algae"}, " ", 3},
+	icons = {
+	  {
+        icon = ICONPATH .. "algae.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "ore-flotation",
+    order = "nullius-dd",
+    energy_required = 12,
+    ingredients = {
+      {type="fluid", name="nullius-seawater", amount=500},
+      {type="fluid", name="nullius-air", amount=1800},
+      {type="item", name="nullius-algae-spore", amount=10},
+      {type="item", name="nullius-mineral-dust", amount=3}
+    },
+    results = {
+      {type="item", name="nullius-algae", amount=9},
+      {type="fluid", name="nullius-wastewater", amount=300},
+      {type="fluid", name="nullius-oxygen", amount=700}
     },
     main_product = "nullius-algae"
   },
@@ -1044,8 +1194,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "wastewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "protocell.png",
@@ -1171,7 +1320,8 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "grass.png",
-        icon_size = 64
+        icon_size = 64,
+		scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -1246,8 +1396,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-grass-progenitor",
+	localised_name = {"", {"item-name.nullius-grass-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 200,
     ingredients = {
       {type="item", name="nullius-grass-genome", amount=1},
@@ -1260,6 +1412,41 @@ data:extend({
     results = {
       {type="item", name="nullius-grass-progenitor", amount=1},
       {type="fluid", name="nullius-wastewater", amount=8}
+    },
+    main_product = "nullius-grass-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-grass-progenitor-2",
+	localised_name = {"", {"item-name.nullius-grass-progenitor"}, " ", 2},
+	icons = {
+	  {
+        icon = ICONPATH .. "grass-progenitor.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "grass.png",
+        icon_size = 64,
+		scale = 0.36,
+        shift = {-8, -8}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 350,
+    ingredients = {
+      {type="item", name="nullius-grass-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=10},
+      {type="fluid", name="nullius-amino-acids", amount=8},
+      {type="fluid", name="nullius-fatty-acids", amount=5},
+      {type="item", name="nullius-sugar", amount=3},
+      {type="item", name="nullius-grass", amount=10},
+	  {type="item", name="nullius-grass-seed", amount=25}
+    },
+    results = {
+      {type="item", name="nullius-grass-progenitor", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=30}
     },
     main_product = "nullius-grass-progenitor"
   },
@@ -1305,7 +1492,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 18,
+    energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=400},
       {type="fluid", name="nullius-air", amount=2500},
@@ -1317,6 +1504,41 @@ data:extend({
       {type="item", name="nullius-grass", amount=8},
       {type="fluid", name="nullius-sludge", amount=40},
       {type="fluid", name="nullius-oxygen", amount=800}
+    },
+    main_product = "nullius-grass"
+  },
+  {
+    type = "recipe",
+    name = "nullius-grass-3",
+    localised_name = {"", {"item-name.nullius-grass"}, " ", 3},
+	icons = {
+	  {
+        icon = ICONPATH .. "grass.png",
+        icon_size = 64
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "nullius-water-treatment",
+    order = "nullius-dd",
+    energy_required = 18,
+    ingredients = {
+      {type="fluid", name="nullius-freshwater", amount=400},
+      {type="fluid", name="nullius-air", amount=2200},
+      {type="item", name="nullius-land-fill-bauxite", amount=2},
+      {type="item", name="nullius-fertilizer", amount=2},
+      {type="item", name="nullius-grass-seed", amount=14}
+    },
+    results = {
+      {type="item", name="nullius-grass", amount=9},
+      {type="fluid", name="nullius-sludge", amount=45},
+      {type="fluid", name="nullius-oxygen", amount=900}
     },
     main_product = "nullius-grass"
   },
@@ -2009,7 +2231,8 @@ data:extend({
       {
         icon = "__base__/graphics/icons/small-worm.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        icon_mipmaps = 4,
+        scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -2087,8 +2310,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-worm-progenitor",
+	localised_name = {"", {"item-name.nullius-worm-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 240,
     ingredients = {
       {type="item", name="nullius-worm-genome", amount=1},
@@ -2100,6 +2325,43 @@ data:extend({
     results = {
       {type="item", name="nullius-worm-progenitor", amount=1},
       {type="fluid", name="nullius-wastewater", amount=10}
+    },
+    main_product = "nullius-worm-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-worm-progenitor-2",
+	localised_name = {"", {"item-name.nullius-worm-progenitor"}, " ", 2},
+	icons = {
+	  {
+	    icon = "__base__/graphics/icons/big-worm.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+	    icon = "__base__/graphics/icons/small-worm.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 420,
+    ingredients = {
+      {type="item", name="nullius-worm-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=15},
+      {type="fluid", name="nullius-amino-acids", amount=20},
+      {type="fluid", name="nullius-oil", amount=10},
+      {type="item", name="nullius-sugar", amount=8},
+      {type="item", name="nullius-worm", amount=4},
+      {type="item", name="nullius-worm-egg", amount=10}
+    },
+    results = {
+      {type="item", name="nullius-worm-progenitor", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=40}
     },
     main_product = "nullius-worm-progenitor"
   },
@@ -2147,18 +2409,54 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 25,
+    energy_required = 28,
     ingredients = {
-      {type="fluid", name="nullius-sludge", amount=300},
+      {type="fluid", name="nullius-sludge", amount=320},
       {type="item", name="nullius-sand", amount=7},
-      {type="fluid", name="nullius-oxygen", amount=600},
+      {type="fluid", name="nullius-oxygen", amount=650},
       {type="item", name="nullius-grass", amount=9},
-      {type="item", name="nullius-worm-egg", amount=10}
+      {type="item", name="nullius-worm-egg", amount=11}
     },
     results = {
       {type="item", name="nullius-worm", amount=8},
       {type="item", name="nullius-worm-egg", amount=12},
       {type="fluid", name="nullius-carbon-dioxide", amount=500, fluidbox_index=1}
+    },
+    main_product = "nullius-worm"
+  },
+  {
+    type = "recipe",
+    name = "nullius-worm-3",
+    localised_name = {"", {"item-name.nullius-worm"}, " ", 3},
+	icons = {
+	  {
+	    icon = "__base__/graphics/icons/small-worm.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "ore-flotation",
+    order = "nullius-dd",
+    energy_required = 25,
+    ingredients = {
+      {type="fluid", name="nullius-sludge", amount=300},
+      {type="item", name="nullius-sand", amount=6},
+      {type="fluid", name="nullius-oxygen", amount=600},
+      {type="item", name="nullius-grass", amount=8},
+      {type="item", name="nullius-worm-egg", amount=10}
+    },
+    results = {
+      {type="item", name="nullius-worm", amount=9},
+      {type="item", name="nullius-worm-egg", amount=13},
+      {type="fluid", name="nullius-carbon-dioxide", amount=550, fluidbox_index=1}
     },
     main_product = "nullius-worm"
   },
@@ -2205,16 +2503,16 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-worm"}},
     icons = {
       {
-        icon = FLUIDPATH .. "sludge.png",
+	    icon = "__base__/graphics/icons/small-worm-corpse.png",
         icon_size = 64,
-        icon_mipmaps = 4
+		icon_mipmaps = 4
       },
       {
         icon = "__base__/graphics/icons/small-worm.png",
         icon_size = 64,
         icon_mipmaps = 4,
-        scale = 0.4,
-        shift = {-8, -4}
+        scale = 0.3,
+        shift = {-9, -6}
       }
     },
     enabled = false,
@@ -2330,8 +2628,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "protocell.png",
@@ -2372,7 +2669,8 @@ data:extend({
       {
         icon = "__base__/graphics/icons/tree-08.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        icon_mipmaps = 4,
+        scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -2472,8 +2770,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-tree-progenitor",
+	localised_name = {"", {"item-name.nullius-tree-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 270,
     ingredients = {
       {type="item", name="nullius-tree-genome", amount=1},
@@ -2487,6 +2787,44 @@ data:extend({
     results = {
       {type="item", name="nullius-tree-progenitor", amount=1},
       {type="fluid", name="nullius-wastewater", amount=12}
+    },
+    main_product = "nullius-tree-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-tree-progenitor-2",
+	localised_name = {"", {"item-name.nullius-tree-progenitor"}, " ", 2},
+	icons = {
+	  {	    
+		icon = "__base__/graphics/icons/tree-08-red.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+		icon = "__base__/graphics/icons/tree-08.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-10, -10}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 480,
+    ingredients = {
+      {type="item", name="nullius-tree-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=15},
+      {type="fluid", name="nullius-amino-acids", amount=10},
+      {type="fluid", name="nullius-oil", amount=12},
+      {type="item", name="nullius-rubber", amount=2},
+      {type="item", name="nullius-cellulose", amount=10},
+	  {type="item", name="nullius-tree", amount=8},
+      {type="item", name="nullius-tree-seed", amount=15}
+    },
+    results = {
+      {type="item", name="nullius-tree-progenitor", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=50}
     },
     main_product = "nullius-tree-progenitor"
   },
@@ -2534,9 +2872,9 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 50,
+    energy_required = 55,
     ingredients = {
-      {type="fluid", name="nullius-freshwater", amount=600},
+      {type="fluid", name="nullius-freshwater", amount=650},
       {type="fluid", name="nullius-air", amount=7500},
       {type="item", name="nullius-land-fill-sand", amount=4},
       {type="item", name="nullius-fertilizer", amount=5},
@@ -2547,6 +2885,43 @@ data:extend({
       {type="item", name="nullius-tree", amount=5},
       {type="fluid", name="nullius-sludge", amount=100},
       {type="fluid", name="nullius-oxygen", amount=2000}
+    },
+    main_product = "nullius-tree"
+  },
+  {
+    type = "recipe",
+    name = "nullius-tree-3",
+    localised_name = {"", {"item-name.nullius-tree"}, " ", 3},
+	icons = {
+	  {
+		icon = "__base__/graphics/icons/tree-08.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "nullius-water-treatment",
+    order = "nullius-dd",
+    energy_required = 50,
+    ingredients = {
+      {type="fluid", name="nullius-freshwater", amount=600},
+      {type="fluid", name="nullius-air", amount=7000},
+      {type="item", name="nullius-land-fill-sand", amount=4},
+      {type="item", name="nullius-fertilizer", amount=5},
+      {type="item", name="nullius-worm", amount=2},
+      {type="item", name="nullius-tree-seed", amount=7}
+    },
+    results = {
+      {type="item", name="nullius-tree", amount=6},
+      {type="fluid", name="nullius-sludge", amount=120},
+      {type="fluid", name="nullius-oxygen", amount=2400}
     },
     main_product = "nullius-tree"
   },
@@ -2754,7 +3129,6 @@ data:extend({
       {
         icon = ICONPATH .. "wood-chip.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.33,
         shift = {-8, -10}
       }
@@ -2798,7 +3172,6 @@ data:extend({
       {
         icon = ICONPATH .. "wood-chip.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.3,
         shift = {-7, -9}
       }
@@ -2845,8 +3218,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "distillation",
-    subgroup = "biology-tree",
-    order = "nullius-g",
+    subgroup = "biology-material",
+    order = "nullius-cc",
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-wood-chip", amount=20},
@@ -2950,7 +3323,8 @@ data:extend({
       {
         icon = "__base__/graphics/icons/fish.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        icon_mipmaps = 4,
+        scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -3029,8 +3403,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-fish-progenitor",
+	localised_name = {"", {"item-name.nullius-fish-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 300,
     ingredients = {
       {type="item", name="nullius-fish-genome", amount=1},
@@ -3043,6 +3419,45 @@ data:extend({
     results = {
       {type="item", name="nullius-fish-progenitor", amount=1},
       {type="fluid", name="nullius-wastewater", amount=15}
+    },
+    main_product = "nullius-fish-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-fish-progenitor-2",
+	localised_name = {"", {"item-name.nullius-fish-progenitor"}, " ", 2},
+	icons = {
+	  {
+		icon = "__base__/graphics/icons/fish.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        tint = {0.75, 0.9, 1}
+      },
+	  {
+		icon = "__base__/graphics/icons/fish.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-10, -10}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 540,
+    ingredients = {
+      {type="item", name="nullius-fish-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=18},
+      {type="fluid", name="nullius-amino-acids", amount=25},
+      {type="fluid", name="nullius-oil", amount=50},
+      {type="item", name="nullius-calcium", amount=2},
+      {type="item", name="nullius-sugar", amount=10},
+	  {type="item", name="nullius-fish", amount=5},
+      {type="item", name="nullius-fish-egg", amount=12}
+    },
+    results = {
+      {type="item", name="nullius-fish-progenitor", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=75}
     },
     main_product = "nullius-fish-progenitor"
   },
@@ -3091,6 +3506,43 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
+    energy_required = 45,
+    ingredients = {
+      {type="fluid", name="nullius-seawater", amount=900},
+      {type="fluid", name="nullius-oxygen", amount=1100},
+      {type="item", name="nullius-algae", amount=10},
+      {type="item", name="nullius-worm", amount=3},
+      {type="item", name="nullius-fish-egg", amount=10}
+    },
+    results = {
+      {type="item", name="nullius-fish", amount=6},
+      {type="item", name="nullius-fish-egg", amount=13},
+      {type="fluid", name="nullius-wastewater", amount=600},
+      {type="fluid", name="nullius-carbon-dioxide", amount=700}
+    },
+    main_product = "nullius-fish"
+  },
+  {
+    type = "recipe",
+    name = "nullius-fish-3",
+    localised_name = {"", {"item-name.nullius-fish"}, " ", 3},
+	icons = {
+	  {
+		icon = "__base__/graphics/icons/fish.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "ore-flotation",
+    order = "nullius-dd",
     energy_required = 40,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=800},
@@ -3100,9 +3552,9 @@ data:extend({
       {type="item", name="nullius-fish-egg", amount=9}
     },
     results = {
-      {type="item", name="nullius-fish", amount=6},
-      {type="item", name="nullius-fish-egg", amount=13},
-      {type="fluid", name="nullius-wastewater", amount=600},
+      {type="item", name="nullius-fish", amount=7},
+      {type="item", name="nullius-fish-egg", amount=15},
+      {type="fluid", name="nullius-wastewater", amount=700},
       {type="fluid", name="nullius-carbon-dioxide", amount=800}
     },
     main_product = "nullius-fish"
@@ -3149,8 +3601,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fish.png",
@@ -3271,8 +3722,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "protocell.png",
@@ -3313,8 +3763,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "seawater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
 	  {
         icon = ICONPATH .. "sugar.png",
@@ -3329,7 +3778,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "nullius-water-treatment",
-    subgroup = "biology-fish",
+    subgroup = "biology-oil",
     order = "nullius-l",
     energy_required = 2,
     ingredients = {
@@ -3350,7 +3799,8 @@ data:extend({
       {
         icon = "__base__/graphics/icons/small-biter.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        icon_mipmaps = 4,
+        scale = 0.5
       },
       {
         icon = ICONPATH .. "genome.png",
@@ -3366,10 +3816,9 @@ data:extend({
     type = "item",
     name = "nullius-arthropod-progenitor",
     icons = {{
-      icon = "__base__/graphics/icons/small-biter.png",
+      icon = "__base__/graphics/icons/big-biter.png",
       icon_size = 64,
-      icon_mipmaps = 4,
-      tint = {0.75, 0.9, 1}
+      icon_mipmaps = 4
     }},
     subgroup = "biology-arthropod",
     order = "nullius-c",
@@ -3430,8 +3879,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-arthropod-progenitor",
+	localised_name = {"", {"item-name.nullius-arthropod-progenitor"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
+	order = "nullius-cb",
     energy_required = 360,
     ingredients = {
       {type="item", name="nullius-arthropod-genome", amount=1},
@@ -3446,6 +3897,45 @@ data:extend({
     results = {
       {type="item", name="nullius-arthropod-progenitor", amount=1},
       {type="fluid", name="nullius-sludge", amount=10}
+    },
+    main_product = "nullius-arthropod-progenitor"
+  },
+  {
+    type = "recipe",
+    name = "nullius-arthropod-progenitor-2",
+	localised_name = {"", {"item-name.nullius-arthropod-progenitor"}, " ", 2},
+	icons = {
+	  {
+		icon = "__base__/graphics/icons/big-biter.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+		icon = "__base__/graphics/icons/small-biter.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {-9, -10}
+      }
+	},
+    enabled = false,
+    category = "nanotechnology",
+	order = "nullius-cc",
+    energy_required = 640,
+    ingredients = {
+      {type="item", name="nullius-arthropod-genome", amount=1},
+      {type="fluid", name="nullius-protocell", amount=25},
+      {type="fluid", name="nullius-amino-acids", amount=30},
+      {type="fluid", name="nullius-oil", amount=25},
+      {type="item", name="nullius-plastic", amount=3},
+      {type="item", name="nullius-graphene", amount=1},
+      {type="item", name="nullius-sugar", amount=8},
+	  {type="item", name="nullius-arthropod", amount=6},
+      {type="item", name="nullius-arthropod-egg", amount=15}
+    },
+    results = {
+      {type="item", name="nullius-arthropod-progenitor", amount=2},
+      {type="fluid", name="nullius-sludge", amount=40}
     },
     main_product = "nullius-arthropod-progenitor"
   },
@@ -3497,13 +3987,13 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 40,
+    energy_required = 50,
     ingredients = {
-      {type="fluid", name="nullius-freshwater", amount=400},
-      {type="fluid", name="nullius-oxygen", amount=1500},
+      {type="fluid", name="nullius-freshwater", amount=425},
+      {type="fluid", name="nullius-oxygen", amount=1600},
       {type="item", name="nullius-box-wood-chip", amount=2},
       {type="item", name="nullius-fish", amount=8},
-      {type="item", name="nullius-arthropod-egg", amount=8},
+      {type="item", name="nullius-arthropod-egg", amount=9},
       {type="item", name="nullius-gun", amount=1},
       {type="item", name="nullius-box-magazine", amount=2}
     },
@@ -3513,6 +4003,46 @@ data:extend({
       {type="item", name="nullius-iron-oxide", amount=4},
       {type="fluid", name="nullius-sludge", amount=100},
       {type="fluid", name="nullius-carbon-dioxide", amount=1200}
+    },
+    main_product = "nullius-arthropod"
+  },
+  {
+    type = "recipe",
+    name = "nullius-arthropod-3",
+    localised_name = {"", {"item-name.nullius-arthropod"}, " ", 3},
+	icons = {
+	  {
+		icon = "__base__/graphics/icons/small-biter.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+    category = "nullius-water-treatment",
+    order = "nullius-dd",
+    energy_required = 45,
+    ingredients = {
+      {type="fluid", name="nullius-freshwater", amount=400},
+      {type="fluid", name="nullius-oxygen", amount=1500},
+      {type="item", name="nullius-box-wood-chip", amount=2},
+      {type="item", name="nullius-fish", amount=7},
+      {type="item", name="nullius-arthropod-egg", amount=8},
+      {type="item", name="nullius-gun", amount=1},
+      {type="item", name="nullius-box-magazine", amount=2}
+    },
+    results = {
+      {type="item", name="nullius-arthropod", amount=7},
+      {type="item", name="nullius-arthropod-egg", amount=12},
+      {type="item", name="nullius-iron-oxide", amount=4},
+      {type="fluid", name="nullius-sludge", amount=110},
+      {type="fluid", name="nullius-carbon-dioxide", amount=1300}
     },
     main_product = "nullius-arthropod"
   },
@@ -3609,7 +4139,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-arthropod"}},
     icons = {
       {
-        icon = FLUIDPATH .. "sludge.png",
+        icon = "__base__/graphics/icons/small-biter-corpse.png",
         icon_size = 64,
         icon_mipmaps = 4
       },
@@ -3618,7 +4148,7 @@ data:extend({
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.3,
-        shift = {-8, -8}
+        shift = {-9, -9}
       }
     },
     enabled = false,
@@ -3650,9 +4180,9 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = FLUIDPATH .. "sludge.png",
+	    icon = "__base__/graphics/icons/small-biter-corpse.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+		icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -3660,7 +4190,7 @@ data:extend({
         icon_size = 64,
         icon_mipmaps = 4,
         scale = 0.27,
-        shift = {-7, -7}
+        shift = {-8, -8}
       }
     },
     enabled = false,
@@ -3783,8 +4313,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "protocell.png",

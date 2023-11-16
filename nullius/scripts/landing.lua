@@ -94,19 +94,20 @@ local get_offset = function(part)
   return offset
 end
 
-function landing_site(surface, loc)
-  local main_ship = surface.create_entity {
-    name = "nullius-landing-main",
-    position = loc,
-    force = "player"
-  }
-  for _, entity in pairs (surface.find_entities_filtered{area = {{-48, -16}, {24, 32}},
+function landing_site(surface, loc, frc)
+  for _, entity in pairs (surface.find_entities_filtered{
+      area = {{loc.x - 32, loc.y - 24}, {loc.x + 32, loc.y + 24}},
       force = "neutral", collision_mask = "player-layer"}) do
     if entity.valid then
       entity.destroy()
     end
   end
 
+  local main_ship = surface.create_entity {
+    name = "nullius-landing-main",
+    position = loc,
+    force = frc
+  }
   main_ship.insert({name="nullius-foundry-1", count=1})
   main_ship.insert({name="nullius-broken-foundry", count=2})
   main_ship.insert({name="nullius-hydro-plant-1", count=1})
@@ -124,45 +125,39 @@ function landing_site(surface, loc)
       local x = (loc[1] or loc.x) + offset[1]
       local y = (loc[2] or loc.y) + offset[2]
       part_position = {x, y}
-      if surface.can_place_entity {
-          name = part.name,
-          position = part_position,
-          force = "player",
-          build_check_type = defines.build_check_type.ghost_place,
-          forced = true
-      } then
-        if (part.min_separation == nil) or
-        (surface.count_entities_filtered{position = part_position,
-          radius = part.min_separation, limit = 1,
-        type = {"simple-entity", "container"}} == 0) then
-          break
-        end
+	  local can_place = surface.can_place_entity{
+          name = part.name, position = part_position,
+          force = frc, forced = true,
+          build_check_type = defines.build_check_type.ghost_place }
+      if (can_place and ((part.min_separation == nil) or
+          (surface.count_entities_filtered{position = part_position,
+            radius = part.min_separation, limit = 1,
+            type = {"simple-entity", "container"}} < 1))) then
+        break
       end
       count = count + 1
-      if count > 20 then
+      if (count > 20) then
         part_position = surface.find_non_colliding_position(part.name,
         part_position, (((count - 20) * 5) + 25), 4)
-        if (part_position ~= nil) then
-          break
-        end
+        if (part_position ~= nil) then break end
       end
     end
 
     local part_entity = surface.create_entity {
       name = part.name,
       position = part_position,
-      force = "player"
+      force = frc
     }
-  if (part.pod ~= nil) then
-    if (part.pod == 1) then
-      part_entity.insert({name="wooden-chest", count=2})
-      part_entity.insert({name="inserter", count=30})
-	  part_entity.insert({name="cliff-explosives", count=30})
-    else
-      part_entity.insert({name="nullius-small-storage-chest-1", count=1})
-      part_entity.insert({name="transport-belt", count=300})
-      part_entity.insert({name="splitter", count=5})
+    if (part.pod ~= nil) then
+      if (part.pod == 1) then
+        part_entity.insert({name="wooden-chest", count=2})
+        part_entity.insert({name="inserter", count=30})
+	    part_entity.insert({name="cliff-explosives", count=30})
+      else
+        part_entity.insert({name="nullius-small-storage-chest-1", count=1})
+        part_entity.insert({name="transport-belt", count=300})
+        part_entity.insert({name="splitter", count=5})
+      end
     end
-  end
   end
 end

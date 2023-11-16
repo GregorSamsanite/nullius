@@ -539,7 +539,6 @@ data:extend({
     name = "nullius-pump-1",
     icon = ENTICONPATH .. "pump-yellow.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "pumping",
     order = "nullius-bb",
     place_result = "nullius-pump-1",
@@ -550,7 +549,6 @@ data:extend({
     name = "nullius-pump-2",
     icon = ENTICONPATH .. "pump-blue.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "pumping",
     order = "nullius-bc",
     place_result = "nullius-pump-2",
@@ -2213,8 +2211,7 @@ data:extend({
     name = "nullius-extractor-1",
     icons = {{
       icon = ENTICONPATH .. "well-extractor1.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "water-intake",
     order = "nullius-db",
@@ -2226,8 +2223,7 @@ data:extend({
     name = "nullius-extractor-2",
     icons = {{
       icon = ENTICONPATH .. "well-extractor2.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "water-intake",
     order = "nullius-dc",
@@ -2489,6 +2485,7 @@ data:extend({
     always_show_products = true,
     category = "large-fluid-assembly",
     subgroup = "boxed-heat-energy",
+	order = "nullius-cb",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-pipe-2", amount=2},
@@ -2533,12 +2530,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-heat-pipe-2",
-	order = "nullius-ccb",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     subgroup = "boxed-heat-energy",
+	order = "nullius-ccb",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-heat-pipe-1", amount=1},
@@ -2644,6 +2641,7 @@ data:extend({
     always_show_products = true,
     category = "machine-casting",
     subgroup = "boxed-heat-energy",
+	order = "nullius-cd",
     energy_required = 150,
     ingredients = {
       {type="item", name="nullius-box-heat-pipe-2", amount=5},

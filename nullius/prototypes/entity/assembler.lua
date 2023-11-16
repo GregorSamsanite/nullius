@@ -681,7 +681,7 @@ data:extend({
         pipe_picture = nanofab_pipes,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
-        base_level = 2,
+        base_level = 4,
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       },
       off_when_no_fluid_recipe = true
@@ -774,7 +774,7 @@ data:extend({
 		    ["nullius-nanofabricator-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
-        base_level = 3,
+        base_level = 5,
         height = 2,
         pipe_connections = {{ type="output", position = {2.5, 0.5} }}
       },
@@ -850,7 +850,7 @@ data:extend({
 		    ["nullius-nanofabricator-1"].fluid_boxes[4].pipe_picture,
         pipe_covers = pipecoverspictures(),
         base_area = 3,
-        base_level = 3,
+        base_level = 5,
         height = 2,
         pipe_connections = {{ type="output", position = {2.5, -0.5} }}
       },

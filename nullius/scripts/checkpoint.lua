@@ -135,7 +135,7 @@ local checkpoint_data = {
 			{{"nullius-copper-ingot"},{"nullius-box-copper-ingot",5}} }},
   ["processor-3"] = {{ CHK_ITEM, STT_CONSUME, 2000,
 			{{"nullius-processor-3"},{"nullius-box-processor-3",5}} }},
-  ["wood"] = {{ CHK_ITEM, STT_CONSUME, 300000, {{"nullius-wood"},{"nullius-box-wood",5}} }},
+  ["wood"] = {{ CHK_ITEM, STT_CONSUME, 500000, {{"nullius-wood"},{"nullius-box-wood",5}} }},
   ["logistic-robot-3"] = {{ CHK_ITEM, STT_PRODUCE, 1000,
 			{{"nullius-logistic-bot-4"},{"nullius-box-logistic-bot-4",5}} }},
   ["android-2"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-android-2"}} }},
@@ -146,6 +146,7 @@ local checkpoint_data = {
   ["cybernetics-2"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-6"}} }},
   ["algae"] = {{ CHK_OBJECTIVE, 3, 40, {} }},
   ["worm"] = {{ CHK_OBJECTIVE, 6, 30, {} }},
+  ["fish"] = {{ CHK_OBJECTIVE, 7, 30, {} }},
   ["arthropod"] = {{ CHK_OBJECTIVE, 8, 20, {} }},
   ["oxygen-partial"] = {{ CHK_OBJECTIVE, 2, 40, {} }},
   ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }}
@@ -170,9 +171,14 @@ local broken_data = {
 }
 
 function init_broken()
-  global.nullius_broken_status = {}
+  if ((global.nullius_broken_status == nil) or
+      (not global.nullius_alignment)) then
+    global.nullius_broken_status = {}
+  end
   for suffix, count in pairs(broken_data) do
-    global.nullius_broken_status["nullius-broken-" .. suffix] = count
+    local ind = "nullius-broken-" .. suffix
+	local cur = (global.nullius_broken_status[ind] or 0)
+    global.nullius_broken_status[ind] = (count + cur)
   end
 end
 
@@ -197,7 +203,8 @@ function reset_checkpoints(force)
 	end
   end
 
-  if (global.nullius_broken_status ~= nil) then
+  if ((global.nullius_broken_status ~= nil) and
+      (not global.nullius_alignment)) then
     for suffix, count in pairs(broken_data) do
       local broken_name = "nullius-broken-" .. suffix
 	  if (not broken_disabled(broken_name)) then

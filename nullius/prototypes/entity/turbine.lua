@@ -116,7 +116,7 @@ local function finish_furnace(furnace, generator, overlay,
   tint[4] = 1
   furnace.icons = {{
     icon = "__nullius__/graphics/icons/entity/turbine-" .. overlay .. ".png",
-    icon_size = 64, icon_mipmaps = 4, tint = tint
+    icon_size = 64, tint = tint
   }}
   generator.icons = furnace.icons
   set_furnace_idle(furnace, overlay, tint)
@@ -241,7 +241,7 @@ local furnace1cb = {
 	  pipe_connections = {{ type = "output", position = {0, 3} }},
       pipe_covers = pipecoverspictures(),
       base_area = 6,
-      base_level = 2,
+      base_level = 5,
 	  height = 4,
       secondary_draw_orders = { north = -1 }
     }
@@ -260,7 +260,7 @@ furnace2cb.fluid_boxes[2].base_area = 4
 furnace2cb.fluid_boxes[2].base_level = 3
 furnace2cb.fluid_boxes[2].height = 3
 furnace2cb.fluid_boxes[3].base_area = 10
-furnace2cb.fluid_boxes[3].base_level = 3
+furnace2cb.fluid_boxes[3].base_level = 8
 furnace2cb.fluid_boxes[3].height = 8
 
 local furnace3cb = util.table.deepcopy(furnace1cb)
@@ -275,7 +275,7 @@ furnace3cb.fluid_boxes[2].base_area = 6
 furnace3cb.fluid_boxes[2].base_level = 5
 furnace3cb.fluid_boxes[2].height = 5
 furnace3cb.fluid_boxes[3].base_area = 15
-furnace3cb.fluid_boxes[3].base_level = 5
+furnace3cb.fluid_boxes[3].base_level = 10
 furnace3cb.fluid_boxes[3].height = 15
 
 

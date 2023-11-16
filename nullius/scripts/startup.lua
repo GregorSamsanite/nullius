@@ -1,5 +1,5 @@
-local function fuel_companion_drones()
-  local entities = game.surfaces[1].find_entities_filtered{
+function fuel_companion_drones(surface)
+  local entities = surface.find_entities_filtered{
       name="companion", type="spider-vehicle"}
   for _,drone in pairs(entities) do
     local num = drone.remove_item({name="coal", count=500})
@@ -11,13 +11,9 @@ end
 
 
 function broken_disabled(name)
-  if (global.nullius_broken_status == nil) then
-    return true
-  end
+  if (global.nullius_broken_status == nil) then return true end
   local count = global.nullius_broken_status[name]
-  if ((count == nil) or (count < 1)) then
-    return true
-  end
+  if ((count == nil) or (count < 1)) then return true end
   return false
 end
 
@@ -29,7 +25,7 @@ function broken_finished(name)
 
   if (script.active_mods["Companion_Drones"] and
       (global.nullius_companion_fix == nil)) then
-    fuel_companion_drones()
+    fuel_companion_drones(game.surfaces[1])
 	global.nullius_companion_fix = true
   end
 end
@@ -59,7 +55,7 @@ local function init_tech(force)
     end
   end
 
-  if ((force.name == "player") and
+  if ((global.nullius_alignment ~= true) and (force.name == "player") and
       force.technologies["nullius-experimental-chemistry"].researched) then
     global.nullius_broken_status = nil
   end
@@ -79,6 +75,7 @@ local function init_tech(force)
     end
   end
 
+  init_alignment_force(force)
   init_force_checkpoints(force)
   init_legacy_recipes(force)
 end
@@ -96,6 +93,7 @@ script.on_event(defines.events.on_player_joined_game,
     init_tech(player.force)
     update_mission_player(player)
 	rematerialize_body(event)
+	align_player_join(player)
   end
 )
 
@@ -107,16 +105,13 @@ script.on_event(defines.events.on_force_created,
 
 local function reset_config()
   if (remote.interfaces["freeplay"] ~= nil) then
-    if (script.active_mods["Companion_Drones"]) then
-      remote.call("freeplay", "set_created_items", {})	
-	else
-      remote.call("freeplay", "set_created_items", {["nullius-chassis-1"] = 1})
-	end
+    remote.call("freeplay", "set_created_items", {})	
     remote.call("freeplay", "set_respawn_items", {})
   end
   if (remote.interfaces["silo_script"] ~= nil) then
     remote.call("silo_script", "set_no_victory", true)
   end
+
   init_checkpoint_prereqs()
   init_productivity_recipes()
   update_railloader_bulk()
@@ -147,14 +142,15 @@ script.on_configuration_changed(
   function(event)
     migrate_version(event)
     reset_config()
+	init_alignment()
     init_techs()
     init_mission_global()
 	update_all_upgrades()
   end
 )
 
-local chart_starting_area = function()
-  local r = global.chart_distance or 250
+local function chart_starting_area()
+  local r = (global.nullius_alignment or 250)
   local force = game.forces.player
   local surface = game.surfaces[1]
   local origin = force.get_spawn_position(surface)
@@ -195,37 +191,47 @@ local function equip_armor(player)
   end
 end
 
+function equip_player(player)
+  equip_armor(player)
+  if (not script.active_mods["Companion_Drones"]) then
+    player.insert({name="nullius-construction-bot-1", count=6})
+  end
+  player.insert({name="nullius-solar-panel-1", count=10})
+  player.insert({name="nullius-grid-battery-1", count=6})
+  player.insert({name="small-electric-pole", count=15})
+  player.insert({name="nullius-small-miner-1", count=2})
+end
+
 script.on_event(defines.events.on_player_created,
   function(event)
     local player = game.players[event.player_index]
     player.remove_item{name = "burner-ore-crusher", count = 1}
 
-	equip_armor(player)
-    if (not script.active_mods["Companion_Drones"]) then
-      player.insert({name="nullius-construction-bot-1", count=6})
-	end
-    player.insert({name="nullius-solar-panel-1", count=10})
-    player.insert({name="nullius-grid-battery-1", count=6})
-	player.insert({name="small-electric-pole", count=15})
-	player.insert({name="nullius-small-miner-1", count=2})
-
-    if not global.init_ran then
-      global.init_ran = true
-      chart_starting_area()
-    end
-
-    if not global.init_landing then
+    local intro = {"nullius-intro"}
+    if (not global.init_landing) then
+	  init_alignment()
       global.init_landing = true
-      player.surface.daytime = 0.7
-      landing_site(player.surface, {-5, -6})
+	  local surface = player.surface
+      surface.daytime = 0.7
       init_broken()
 	  reset_checkpoints(player.force)
+	  if (global.nullius_alignment) then
+	    intro = align_first_player_created(player)
+	  else
+	  	chart_starting_area()
+	    landing_site(surface, {x=-5, y=-6}, player.force)
+	    equip_player(player)
+	  end
+	elseif (global.nullius_alignment) then
+	  intro = align_player_created(player)
+	else
+	  equip_player(player)
     end
 
     if game.is_multiplayer() then
-      player.print({"nullius-intro"})
+      player.print(intro)
     else
-      game.show_message_dialog{text = {"nullius-intro"}}
+      game.show_message_dialog{text = intro}
     end
     update_mission_player(player)
 	update_player_upgrades(player)
@@ -235,7 +241,8 @@ script.on_event(defines.events.on_player_created,
 script.on_event(defines.events.on_research_finished,
   function(event)
     local techname = event.research.name
-    if (global.nullius_broken_status ~= nil) then
+    if ((global.nullius_broken_status ~= nil) and
+	    (not global.nullius_alignment)) then
       if (techname == "nullius-experimental-chemistry") then
         init_techs()
       elseif (techname == "nullius-distillation-1") then

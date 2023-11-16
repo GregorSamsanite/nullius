@@ -3,8 +3,8 @@
 -- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
 -- to rely on it, so the graphics are replicated here.
 
-local outputMultiplyer = settings.startup["nullius-wind-turbine-energy-output-multiplyer"].value
-local base_wind_power = {1500000*outputMultiplyer/60, 4000000*outputMultiplyer/60, 12000000*outputMultiplyer/60}
+local multiplier = (settings.startup["nullius-wind-turbine-energy-multiplier"].value / 60)
+local base_wind_power = {1500000*multiplier, 4000000*multiplier, 12000000*multiplier}
 
 function init_wind()
   global.nullius_wind_orientation = 4

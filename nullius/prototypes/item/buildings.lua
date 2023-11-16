@@ -1192,8 +1192,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "logistic-small.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
@@ -1316,8 +1315,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "logistic-small.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
@@ -1433,8 +1431,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "logistic-small.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
@@ -1550,8 +1547,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "logistic-small.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
@@ -1667,8 +1663,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "logistic-small.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__boblogistics__/graphics/icons/logistic-chest-port.png",
@@ -2745,7 +2740,7 @@ data:extend({
     name = "nullius-power-pole-3",
     icons = {{
       icon = ENTICONPATH .. "pole3.png",
-      icon_size = 64, icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "electric-pole",
     order = "nullius-bd",
@@ -2781,7 +2776,7 @@ data:extend({
     name = "nullius-pylon-3",
     icons = {{
       icon = ENTICONPATH .. "large-pole-3.png",
-      icon_size = 64, icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "electric-pole",
     order = "nullius-cd",
@@ -2805,7 +2800,7 @@ data:extend({
     name = "nullius-substation-3",
     icons = {{
       icon = ENTICONPATH .. "substation3.png",
-      icon_size = 64, icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "electric-pole",
     order = "nullius-dd",
@@ -3203,6 +3198,7 @@ data:extend({
     type = "recipe",
     name = "nullius-reactor",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 160,
     ingredients = {
@@ -3231,6 +3227,7 @@ data:extend({
     type = "recipe",
     name = "nullius-silo",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 120,
     ingredients = {

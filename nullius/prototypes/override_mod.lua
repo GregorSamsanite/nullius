@@ -208,10 +208,10 @@ data.raw.technology["factory-recursion-t2"].unit = {
 }
 table.insert(data.raw.technology["nullius-logistics-4"].prerequisites,"factory-recursion-t2")
 
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.south].fluid_box.height = 2
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.north].fluid_box.height = 2
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.east].fluid_box.height = 2
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.west].fluid_box.height = 2
+data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.south].fluid_box.height = 5
+data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.north].fluid_box.height = 5
+data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.east].fluid_box.height = 5
+data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.west].fluid_box.height = 5
 
 data.raw["storage-tank"]["factory-1"].minable.mining_time = 4
 data.raw["storage-tank"]["factory-2"].minable.mining_time = 6
@@ -355,10 +355,10 @@ end
 if mods["aai-loaders"] then
 data.raw["item-subgroup"]["loader"].order = "cal"
 
-data.raw["transport-belt"]["basic-transport-belt"].speed = 0.2 / 32
 AAILoaders.make_tier{
   name = "basic",
   transport_belt = "basic-transport-belt",
+  speed = 0.2 / 32,
   color = {125, 125, 125},
   fluid = "lubricant", fluid_per_minute = "0.05",
   fluid_technology_prerequisites = {"lubricant"},
@@ -372,10 +372,10 @@ AAILoaders.make_tier{
   recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
 }
 
-data.raw["transport-belt"]["ultimate-transport-belt"].speed = 4 / 32
 AAILoaders.make_tier{
   name = "ultimate",
   transport_belt = "ultimate-transport-belt",
+  speed = 6 / 32,
   color = {22, 242, 99},
   fluid = "lubricant", fluid_per_minute = "0.25",
   fluid_technology_prerequisites = {"lubricant"},
@@ -389,7 +389,6 @@ AAILoaders.make_tier{
   },
   recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
 }
-data.raw["transport-belt"]["ultimate-transport-belt"].speed = 5 / 32
 
 data.raw["loader-1x1"]["aai-basic-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 1}
 data.raw["loader-1x1"]["aai-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 2}
@@ -550,7 +549,7 @@ data.raw.technology["teleporter"].effects = {
 data.raw.item["teleporter"].subgroup = "vehicle"
 data.raw.item["teleporter"].order = "nullius-f"
 data.raw.item["teleporter"].stack_size = 5
-table.insert(data.raw.technology["nullius-nuclear-power-2"].prerequisites,"teleporter")
+table.insert(data.raw.technology["nullius-nuclear-power-3"].prerequisites,"teleporter")
 end
 
 
@@ -898,7 +897,7 @@ data.raw.pump["underground-mini-pump"].localised_name =
   {"item-name.nullius-underground-pump"}
 data.raw.pump["underground-mini-pump"].localised_description =
   {"item-description.nullius-underground-pump"}
-data.raw.pump["underground-mini-pump"].fluid_box.height = 5
+data.raw.pump["underground-mini-pump"].fluid_box.height = 8
 data.raw.pump["underground-mini-pump"].fluid_box.pipe_connections[1].max_underground_distance=24
 data.raw.pump["underground-mini-pump"].fluid_box.pipe_connections[2].max_underground_distance=24
 data.raw.pump["underground-mini-pump"].energy_usage = '20kW'
@@ -981,14 +980,14 @@ for i=1,9 do
   relief.localised_name = {"", (i*10), "% ", {"entity-name.nullius-relief-valve"}}
   topup.localised_description = {"item-description.nullius-adjustable-top-up-valve"}
   relief.localised_description = {"item-description.nullius-adjustable-relief-valve"}
-  local theight = (i * 0.2)
+  local theight = (i * 0.5)
   topup.fluid_box.height = theight
   topup.fluid_box.base_level = 0
-  topup.fluid_box.base_area = 3 / theight
-  local rheight = 2.5 - theight
+  topup.fluid_box.base_area = 5 / theight
+  local rheight = 6 - theight
   relief.fluid_box.height = rheight
   relief.fluid_box.base_level = theight
-  relief.fluid_box.base_area = 3 / rheight
+  relief.fluid_box.base_area = 5 / rheight
   topup.minable.mining_time = 0.8
   relief.minable.mining_time = 0.8
 
@@ -1398,14 +1397,14 @@ data.raw.recipe["transport-depot-writer"].ingredients = {
   {"green-wire", 3}
 }
 
-data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 3
-data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 3
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -2
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 4
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 500
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -2
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 4
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 250
+data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 6
+data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 6
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -3
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 8
+data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 250
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -3
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 8
+data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
 
 data.raw.item["fast-road"].stack_size = 500
 data.raw.item["fast-road"].subgroup = "concrete"

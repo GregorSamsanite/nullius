@@ -39,7 +39,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-broken-electrolyzer",
-    localised_name = {"item-name.nullius-broken", {"entity-name.nullius-priority-electrolyzer-1"}},
+    localised_name = {"item-name.nullius-broken", {"", {"entity-name.nullius-electrolyzer"}, " ", 1}},
     icons = {
       data.raw.item["nullius-electrolyzer-1"].icons[1],
       broken_overlay
@@ -91,7 +91,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "large-pole-1.png",
-        icon_size = 64, icon_mipmaps = 4
+        icon_size = 64
       },
       broken_overlay
     },

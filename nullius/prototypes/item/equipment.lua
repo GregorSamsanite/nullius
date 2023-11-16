@@ -109,7 +109,6 @@ data:extend({
     localised_description = {"item-description.nullius-chassis-5"},
     icon = ICONPATH .. "chassis6.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     resistances = {
       { type = "explosion", decrease = 50, percent = 80 },
       { type = "impact", decrease = 40, percent = 75 },
@@ -528,7 +527,6 @@ data:extend({
     localised_name = {"item-name.nullius-uncharged-battery-1"},
     icon = ICONPATH .. "uncharged1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-1",
     subgroup = "battery",
     order = "nullius-eb",
@@ -624,7 +622,6 @@ data:extend({
     localised_name = {"recipe-name.nullius-battery-recharging-1"},
     icon = ICONPATH .. "uncharged1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     enabled = false,
     always_show_products = true,
     no_productivity = true,
@@ -648,7 +645,6 @@ data:extend({
       {
         icon = ICONPATH .. "uncharged1.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -689,7 +685,6 @@ data:extend({
     localised_name = {"item-name.nullius-uncharged-battery-2"},
     icon = ICONPATH .. "uncharged2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-2",
     subgroup = "battery",
     order = "nullius-ec",
@@ -734,7 +729,6 @@ data:extend({
     localised_name = {"recipe-name.nullius-battery-recharging-2"},
     icon = ICONPATH .. "uncharged2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     enabled = false,
     always_show_products = true,
     no_productivity = true,
@@ -758,7 +752,6 @@ data:extend({
       {
         icon = ICONPATH .. "uncharged2.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -782,7 +775,6 @@ data:extend({
     localised_description = {"equipment-description.nullius-battery"},
     icon = ICONPATH .. "battery3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-charged-battery-3",
     subgroup = "battery",
     order = "nullius-dd",
@@ -799,7 +791,6 @@ data:extend({
     localised_name = {"item-name.nullius-uncharged-battery-3"},
     icon = ICONPATH .. "uncharged3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     placed_as_equipment_result = "nullius-battery-3",
     subgroup = "battery",
     order = "nullius-ed",
@@ -828,7 +819,6 @@ data:extend({
     localised_name = {"recipe-name.nullius-battery-recharging-3"},
     icon = ICONPATH .. "uncharged3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     enabled = false,
     always_show_products = true,
     no_productivity = true,
@@ -1460,8 +1450,7 @@ data:extend({
 		{"entity-description.nullius-kilojoule", 200}},
     icons = {{
       icon = ICONPATH .. "levitation2.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     placed_as_equipment_result = "nullius-levitation-field-2",
     subgroup = "equipment",
@@ -2000,8 +1989,7 @@ data:extend({
     name = "nullius-locomotive-1",
     icons = {{
       icon = ICONPATH .. "locomotive1.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "train-wagon",
     order = "nullius-bb",
@@ -2026,8 +2014,7 @@ data:extend({
     name = "nullius-locomotive-3",
     icons = {{
       icon = ICONPATH .. "locomotive3.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "train-wagon",
     order = "nullius-bd",
@@ -2039,8 +2026,7 @@ data:extend({
     name = "nullius-solar-locomotive",
     icons = {{
       icon = ICONPATH .. "locomotive4.png",
-      icon_size = 64,
-      icon_mipmaps = 4
+      icon_size = 64
     }},
     subgroup = "train-wagon",
     order = "nullius-be",
@@ -3150,6 +3136,7 @@ data:extend({
     type = "recipe",
     name = "nullius-truck-2",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 60,
     ingredients = {
@@ -3190,6 +3177,7 @@ data:extend({
     type = "recipe",
     name = "nullius-mecha",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-crafting",
     energy_required = 200,
     ingredients = {
@@ -3207,6 +3195,7 @@ data:extend({
     type = "recipe",
     name = "nullius-mecha-2",
     enabled = false,
+	always_show_made_in = true,
     category = "huge-assembly",
     energy_required = 600,
     ingredients = {

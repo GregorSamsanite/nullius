@@ -429,7 +429,7 @@ data:extend({
       {
         base_area = 4,
         height = 2,
-        base_level = 2,
+        base_level = 5,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, -1.5}}},
         production_type = "output"
@@ -437,7 +437,7 @@ data:extend({
       {
         base_area = 4,
         height = 2,
-        base_level = 2,
+        base_level = 5,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, 1.5}}},
         production_type = "output"
@@ -758,7 +758,7 @@ data:extend({
       {
         base_area = 5,
         height = 2,
-        base_level = 3,
+        base_level = 6,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, -1.5}}},
         production_type = "output"
@@ -766,7 +766,7 @@ data:extend({
       {
         base_area = 5,
         height = 2,
-        base_level = 3,
+        base_level = 6,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, 1.5}}},
         production_type = "output"
@@ -987,7 +987,7 @@ data:extend({
       {
         base_area = 5,
         height = 2,
-        base_level = 3,
+        base_level = 6,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, -1.5}}},
         production_type = "output"
@@ -995,7 +995,7 @@ data:extend({
       {
         base_area = 5,
         height = 2,
-        base_level = 3,
+        base_level = 6,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, 1.5}}},
         production_type = "output"
@@ -1257,8 +1257,9 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 4,
-        base_area = 5,
+        base_level = 8,
+		height = 2,
+        base_area = 4,
         pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
@@ -1533,8 +1534,8 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 5,
-        height = 2,
+        base_level = 10,
+        height = 3,
         base_area = 5,
         pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
@@ -1774,9 +1775,9 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 6,
-        height = 2,
-        base_area = 10,
+        base_level = 10,
+        height = 3,
+        base_area = 8,
         pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
@@ -1916,9 +1917,9 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 6,
-        height = 2,
-        base_area = 10,
+        base_level = 10,
+        height = 3,
+        base_area = 8,
         pipe_connections = {{ type="output", position = {-2.5, -1.5} }}
       }
     },
@@ -4100,7 +4101,7 @@ data:extend({
       {
         base_area = 8,
         height = 2,
-        base_level = 4,
+        base_level = 8,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {0, -1.5}}},
         production_type = "output"
@@ -4108,7 +4109,7 @@ data:extend({
       {
         base_area = 8,
         height = 2,
-        base_level = 4,
+        base_level = 8,
         pipe_covers = pipecoverspictures(),
         pipe_connections = {{type = "output", position = {2, 0.5}}},
         production_type = "output"
@@ -4198,13 +4199,13 @@ ex3.animation.north.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exc
 ex3.animation.east.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-E.png"
 ex3.animation.south.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-S.png"
 ex3.animation.west.layers[1].hr_version.filename = ENTITYPATH .. "exchanger/exchanger3-W.png"
-ex2.fluid_boxes[1].base_area = 10
-ex2.fluid_boxes[1].height = 4
-ex2.fluid_boxes[1].base_level = -4
-ex2.fluid_boxes[2].base_area = 20
-ex2.fluid_boxes[2].height = 5
-ex2.fluid_boxes[3].base_area = 20
-ex2.fluid_boxes[3].height = 5
+ex3.fluid_boxes[1].base_area = 10
+ex3.fluid_boxes[1].height = 4
+ex3.fluid_boxes[1].base_level = -4
+ex3.fluid_boxes[2].base_area = 20
+ex3.fluid_boxes[2].height = 5
+ex3.fluid_boxes[3].base_area = 20
+ex3.fluid_boxes[3].height = 5
 local ex3m = util.table.deepcopy(ex3)
 ex3m.name = "nullius-mirror-heat-exchanger-3"
 ex3m.localised_name = {"entity-name.nullius-mirrored",

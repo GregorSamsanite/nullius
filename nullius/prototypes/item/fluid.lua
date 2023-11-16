@@ -35,7 +35,6 @@ data:extend({
     name = "nullius-water",
     icon = FLUIDPATH .. "purewater.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-b",
     base_color = {r=18, g=193, b=200},
@@ -80,7 +79,6 @@ data:extend({
     name = "nullius-seawater",
     icon = FLUIDPATH .. "seawater.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-d",
     base_color = {r=72, g=144, b=140},
@@ -94,7 +92,6 @@ data:extend({
     name = "nullius-freshwater",
     icon = FLUIDPATH .. "freshwater.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-e",
     base_color = {r=76, g=160, b=148},
@@ -122,7 +119,6 @@ data:extend({
     name = "nullius-brine",
     icon = FLUIDPATH .. "brine.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-g",
     base_color = {r=36, g=94, b=142},
@@ -151,7 +147,6 @@ data:extend({
     name = "nullius-wastewater",
     icon = FLUIDPATH .. "wastewater.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-i",
     base_color = {r=97, g=127, b=104},
@@ -165,7 +160,6 @@ data:extend({
     name = "nullius-sludge",
     icon = FLUIDPATH .. "sludge.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nullius-water-treatment",
     order = "nullius-j",
     base_color = {r=115, g=94, b=57},
@@ -507,7 +501,6 @@ data:extend({
     name = "nullius-solvent",
     icon = FLUIDPATH .. "solvent.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "organic-chemistry",
     order = "nullius-i",
     base_color = {r = 232, g = 228, b = 200},
@@ -521,7 +514,6 @@ data:extend({
     name = "nullius-epoxy",
     icon = FLUIDPATH .. "epoxy.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "organic-chemistry",
     order = "nullius-j",
     base_color = {r = 192, g = 184, b = 136},
@@ -1123,7 +1115,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-climatology-pack-1",
-    localised_name = {"recipe-name.nullius-climatology-pack-1"},
+	localised_name = {"", {"item-name.nullius-climatology-pack"}, " ", 1},
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
@@ -1139,7 +1131,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-climatology-pack-2",
-    localised_name = {"recipe-name.nullius-climatology-pack-2"},
+	localised_name = {"", {"item-name.nullius-climatology-pack"}, " ", 2},
     icons = {
       {
         icon = "__base__/graphics/icons/chemical-science-pack.png",
@@ -1149,7 +1141,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.3,
         shift = {0, 6},
         tint = {r=1, g=1, b=0.8, a=1}
@@ -1475,8 +1466,7 @@ data:extend({
     icons = {
       {
 	    icon = FLUIDPATH .. "brine.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
@@ -3846,8 +3836,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "purewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -3884,7 +3873,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "purewater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.36
       }
     },
@@ -3982,8 +3970,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "brine.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -4021,7 +4008,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "brine.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.36
       }
     },
@@ -4051,8 +4037,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "seawater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -4090,7 +4075,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "seawater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.36
       }
     },
@@ -4120,8 +4104,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "freshwater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -4159,7 +4142,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "freshwater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.36
       }
     },
@@ -4189,8 +4171,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "wastewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -4229,7 +4210,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "wastewater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.36
       }
     },
@@ -4260,8 +4240,7 @@ data:extend({
     icon_size = 64,
     icons = {
       {
-        icon = FLUIDPATH .. "purewater.png",
-        icon_mipmaps = 4
+        icon = FLUIDPATH .. "purewater.png"
       },
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
@@ -5706,8 +5685,8 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {type="item", name="processed-fuel", amount=1},
-      {type="fluid", name="nullius-ammonia", amount=240},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=300},
+      {type="fluid", name="nullius-ammonia", amount=400},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=200},
       {type="fluid", name="nullius-compressed-oxygen", amount=150},
       {type="item", name="nullius-salt", amount=5},
       {type="item", name="nullius-iron-oxide", amount=3},
@@ -5736,8 +5715,8 @@ data:extend({
     energy_required = 200,
     ingredients = {
       {type="item", name="nullius-box-methanol-canister", amount=1},
-      {type="fluid", name="nullius-ammonia", amount=1200},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=1500},
+      {type="fluid", name="nullius-ammonia", amount=2000},
+      {type="fluid", name="nullius-acid-hydrochloric", amount=1000},
       {type="fluid", name="nullius-compressed-oxygen", amount=750},
       {type="item", name="nullius-box-salt", amount=5},
       {type="item", name="nullius-box-iron-oxide", amount=3},
@@ -6247,13 +6226,11 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "wastewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.2,
         shift = {-12, -10}
       }
@@ -6282,13 +6259,11 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "wastewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = FLUIDPATH .. "freshwater.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.2,
         shift = {-12, -10}
       }
@@ -6317,8 +6292,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "wastewater.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "sand.png",
@@ -6351,8 +6325,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
@@ -6388,7 +6361,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -6420,8 +6392,7 @@ data:extend({
     icons = {
       {
         icon = FLUIDPATH .. "sludge.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
@@ -6457,7 +6428,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -7251,7 +7221,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.35,
         shift = {10, -7}
       }
@@ -7287,7 +7256,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.35,
         shift = {10, -7}
       }
@@ -7323,7 +7291,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.35,
         shift = {10, -7}
       }
@@ -7359,7 +7326,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.35,
         shift = {10, -7}
       }
@@ -7396,7 +7362,6 @@ data:extend({
       {
         icon = FLUIDPATH .. "sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.35,
         shift = {10, -7}
       }
@@ -7481,10 +7446,24 @@ data:extend({
 
   {
     type = "item",
+    name = "nullius-aneutronic-cell",
+    icon = ICONPATH .. "aneutronic-cell.png",
+    icon_size = 64,
+    fuel_category = "nullius-nuclear",
+    burnt_result = "nullius-spent-fusion-cell",
+    fuel_value = "1GJ",
+    fuel_acceleration_multiplier = 1.6,
+    fuel_top_speed_multiplier = 1.3,
+	fuel_glow_color = {r=0.8, g=0.7, b=0, a=1},
+    subgroup = "nuclear",
+    order = "nullius-can",
+    stack_size = 20
+  },
+  {
+    type = "item",
     name = "nullius-fusion-cell",
     icon = ICONPATH .. "fusion-cell.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fusion-cell",
     fuel_value = "3GJ",
@@ -7500,7 +7479,6 @@ data:extend({
     name = "nullius-spent-fusion-cell",
     icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nuclear",
     order = "nullius-cc",
     stack_size = 20
@@ -7510,7 +7488,6 @@ data:extend({
     name = "nullius-breeder-cell",
     icon = ICONPATH .. "breeder-cell.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-breeder-cell",
     fuel_value = "500MJ",
@@ -7526,10 +7503,24 @@ data:extend({
     name = "nullius-spent-breeder-cell",
     icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "nuclear",
     order = "nullius-dc",
     stack_size = 20
+  },
+  {
+    type = "recipe",
+    name = "nullius-aneutronic-cell",
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "nullius-barrel",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-canister", amount=1},
+      {type="fluid", name="nullius-compressed-hydrogen", amount=25},
+      {type="item", name="nullius-boron", amount=4}
+    },
+    result = "nullius-aneutronic-cell"
   },
   {
     type = "recipe",
@@ -7555,7 +7546,6 @@ data:extend({
     name = "nullius-fusion-recycling",
     icon = ICONPATH .. "fusion-spent.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -7600,7 +7590,6 @@ data:extend({
     name = "nullius-breeder-recycling",
     icon = ICONPATH .. "breeder-spent.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,

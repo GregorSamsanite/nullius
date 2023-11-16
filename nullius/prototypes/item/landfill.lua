@@ -10,7 +10,6 @@ data:extend({
     name = "nullius-land-fill-gravel",
     icon = ENTICONPATH .. "landfill-grey.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "terrain",
     order = "nullius-db",
     stack_size = 500,
@@ -25,7 +24,6 @@ data:extend({
     name = "nullius-land-fill-sand",
     icon = ENTICONPATH .. "landfill-tan.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "terrain",
     order = "nullius-dc",
     stack_size = 500,
@@ -40,7 +38,6 @@ data:extend({
     name = "nullius-land-fill-bauxite",
     icon = ENTICONPATH .. "landfill-brown.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "terrain",
     order = "nullius-dd",
     stack_size = 500,
@@ -55,7 +52,6 @@ data:extend({
     name = "nullius-land-fill-iron",
     icon = ENTICONPATH .. "landfill-red.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "terrain",
     order = "nullius-de",
     stack_size = 500,
@@ -70,7 +66,6 @@ data:extend({
     name = "nullius-land-fill-limestone",
     icon = ENTICONPATH .. "landfill-beige.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     subgroup = "terrain",
     order = "nullius-df",
     stack_size = 500,
@@ -212,8 +207,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-grey.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/concrete.png",
@@ -250,7 +244,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-grey.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -283,8 +276,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-tan.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/concrete.png",
@@ -321,7 +313,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-tan.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -354,8 +345,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-brown.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/concrete.png",
@@ -405,8 +395,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-red.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/concrete.png",
@@ -454,8 +443,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-beige.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/concrete.png",
@@ -503,13 +491,11 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-brown.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "fluid/sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.25,
         shift = {-12, -10}
       }
@@ -542,13 +528,11 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
         icon = ICONPATH .. "fluid/sludge.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.225,
         shift = {-11, -9}
       }
@@ -581,7 +565,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -621,7 +604,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-grey.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -656,8 +638,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-brown.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
@@ -671,8 +652,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    subgroup = "biology-algae",
-    order = "nullius-m",
+    subgroup = "biology-material",
+    order = "nullius-mb",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-land-fill-gravel", amount=2},
@@ -698,7 +679,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.45
       },
       {
@@ -735,8 +715,7 @@ data:extend({
     icons = {
       {
         icon = ENTICONPATH .. "landfill-brown.png",
-        icon_size = 64,
-        icon_mipmaps = 4
+        icon_size = 64
       },
       {
 	  	icon = ICONPATH .. "wood-chip.png",
@@ -750,8 +729,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    subgroup = "biology-tree",
-    order = "nullius-m",
+    subgroup = "biology-material",
+    order = "nullius-mc",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-land-fill-sand", amount=6},
@@ -778,7 +757,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
-        icon_mipmaps = 4,
 		scale = 0.45
       },
       {
@@ -821,7 +799,6 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-tan.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       },
       {
@@ -839,15 +816,15 @@ data:extend({
     category = "bulk-smelting",
     subgroup = "boxed-terrain",
     order = "nullius-s",
-    energy_required = 5,
+    energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-box-land-fill-limestone", amount=4},
-	  {type="item", name="nullius-box-land-fill-iron", amount=3},
+      {type="item", name="nullius-box-land-fill-limestone", amount=3},
+	  {type="item", name="nullius-box-land-fill-iron", amount=2},
       {type="item", name="nullius-box-plastic", amount=1},
-      {type="fluid", name="nullius-chlorine", amount=2500}
+      {type="fluid", name="nullius-chlorine", amount=5000}
     },
     result = "nullius-box-land-fill-sand",
-    result_count = 10
+    result_count = 8
   },
 
   {
@@ -862,7 +839,6 @@ data:extend({
       {
         icon = ICONPATH .. "terraforming-grey.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -883,10 +859,10 @@ data:extend({
       {type="item", name="nullius-box-rocket-fuel", amount=4}
     },
     results = {
-      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-shallow-excavation-drone", amount=3},
       {type="item", name="nullius-construction-bot-3", amount=8}
     },
-    main_product = "nullius-excavation-drone"
+    main_product = "nullius-shallow-excavation-drone"
   },
   {
     type = "recipe",
@@ -900,7 +876,6 @@ data:extend({
       {
         icon = ICONPATH .. "terraforming-brown.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -921,10 +896,10 @@ data:extend({
 	  {type="item", name="nullius-box-rocket-fuel", amount=4}
     },
     results = {
-      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-shallow-excavation-drone", amount=3},
       {type="item", name="nullius-construction-bot-3", amount=8}
     },
-    main_product = "nullius-excavation-drone"
+    main_product = "nullius-shallow-excavation-drone"
   },
   {
     type = "recipe",
@@ -938,7 +913,6 @@ data:extend({
       {
         icon = ICONPATH .. "terraforming-tan.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.45
       }
     },
@@ -959,10 +933,10 @@ data:extend({
 	  {type="item", name="nullius-box-rocket-fuel", amount=4}
     },
     results = {
-      {type="item", name="nullius-excavation-drone", amount=3},
+      {type="item", name="nullius-shallow-excavation-drone", amount=3},
       {type="item", name="nullius-construction-bot-3", amount=8}
     },
-    main_product = "nullius-excavation-drone"
+    main_product = "nullius-shallow-excavation-drone"
   },
 
   {

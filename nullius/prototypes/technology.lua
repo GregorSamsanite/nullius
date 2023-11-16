@@ -1405,7 +1405,6 @@ data:extend({
     name = "nullius-waste-management",
     order = "nullius-ci",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "fluid/wastewater.png",
     effects = {
       {
@@ -1450,7 +1449,6 @@ data:extend({
     name = "nullius-organic-chemistry-3",
     order = "nullius-ci",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "rubber.png",
     effects = {
       {
@@ -1872,7 +1870,6 @@ data:extend({
     order = "nullius-cl",
     icon = ENTICONPATH .. "exchanger1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -1929,7 +1926,6 @@ data:extend({
     order = "nullius-cm",
     icon = ENTICONPATH .. "collector1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -1996,7 +1992,6 @@ data:extend({
     name = "nullius-hydrocarbon-combustion-2",
     order = "nullius-cm",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "canister-methanol.png",
     effects = {
       {
@@ -2474,7 +2469,6 @@ data:extend({
     name = "nullius-hydrology-1",
     order = "nullius-de",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "fluid/freshwater.png",
     effects = {
       {
@@ -3583,7 +3577,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-one-way-valve-2"
+        recipe = "nullius-barrel-2"
       },
       {
         type = "unlock-recipe",
@@ -3878,6 +3872,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-large-tank-1"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-one-way-valve-2"
       }
     },
     unit = {
@@ -4388,7 +4386,6 @@ data:extend({
     name = "nullius-silicon-production-2",
     order = "nullius-ee",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "mono.png",
     effects = {
       {
@@ -4777,7 +4774,6 @@ data:extend({
     name = "nullius-waste-reclamation",
     order = "nullius-eg",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "fluid/sludge.png",
     effects = {
       {
@@ -4945,7 +4941,6 @@ data:extend({
     name = "nullius-boiling-2",
     order = "nullius-eh",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ENTICONPATH .. "boiler-blue.png",
     effects = {
       {
@@ -4972,7 +4967,6 @@ data:extend({
     name = "nullius-packaging-1",
     order = "nullius-eh",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = ICONPATH .. "crate.png",
     effects = {
       {
@@ -8125,6 +8119,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-boxed-barrel"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-barrel-2"
+      },
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-pipe-1"
@@ -10195,7 +10193,6 @@ data:extend({
     order = "nullius-fh",
     icon = ICONPATH .. "android1.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -12123,6 +12120,29 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-nuclear-power-2",
+    order = "nullius-fs",
+    icon = "__nullius__/graphics/icons/aneutronic-cell.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-aneutronic-cell"
+      }
+    },
+    unit = {
+      count = 3000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 2}
+      },
+      time = 55
+    },
+    prerequisites = {"nullius-high-pressure-chemistry-2", "nullius-broadcasting-3"}
+  },
+  {
+    type = "technology",
     name = "nullius-rocket-science-1",
     order = "nullius-fs",
     icon = "__base__/graphics/technology/rocket-fuel.png",
@@ -12346,7 +12366,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-sensors-4", "nullius-inserter-capacity-5"}
+    prerequisites = {"nullius-sensors-4", "nullius-inserter-capacity-5", "nullius-nuclear-power-2"}
   },
 
   {
@@ -12459,7 +12479,15 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-shallow-excavation-drone"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-excavation-drone"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-shallow-excavation-remote"
       },
       {
         type = "unlock-recipe",
@@ -12919,7 +12947,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-nuclear-power-2",
+    name = "nullius-nuclear-power-3",
     order = "nullius-gc",
     icon = "__base__/graphics/technology/nuclear-power.png",
     icon_size = 256,
@@ -13181,7 +13209,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-checkpoint-uranium-ore", "nullius-nuclear-power-2"}
+    prerequisites = {"nullius-checkpoint-uranium-ore", "nullius-nuclear-power-3"}
   },
   {
     type = "technology",
@@ -13220,7 +13248,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 20,
       ingredients = {
         {"nullius-biochemistry-pack", 1}
       },
@@ -13338,7 +13366,7 @@ data:extend({
       }
     },
     unit = {
-      count = 80,
+      count = 30,
       ingredients = {
         {"nullius-biochemistry-pack", 1}
       },
@@ -13348,7 +13376,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-nuclear-power-3",
+    name = "nullius-nuclear-power-4",
     order = "nullius-ge",
     icon = "__base__/graphics/technology/uranium-processing.png",
     icon_size = 256,
@@ -13505,7 +13533,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 25,
       ingredients = {
         {"nullius-biochemistry-pack", 2}, {"nullius-microbiology-pack", 1}
       },
@@ -13654,7 +13682,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 30,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 2}
       },
@@ -13682,7 +13710,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 40,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1}
       },
@@ -13833,7 +13861,7 @@ data:extend({
       }
     },
     unit = {
-      count = 75,
+      count = 40,
       ingredients = {
         {"nullius-biochemistry-pack", 2}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}
@@ -13844,11 +13872,34 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-evolution-1",
+    order = "nullius-gg",
+    icons = data.raw.item["nullius-bacteria-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-bacteria-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-bacteria-genome-2"
+      }
+    },
+    unit = {
+      count = 100,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 2}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-algae", "nullius-nitrogen-chemistry-3"}
+  },
+  {
+    type = "technology",
     name = "nullius-antimatter-containment",
     order = "nullius-gg",
     icon = ICONPATH .. "antimatter.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     effects = {
       {
         type = "unlock-recipe",
@@ -13913,7 +13964,7 @@ data:extend({
       }
     },
     unit = {
-      count = 150,
+      count = 50,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}
@@ -14008,7 +14059,7 @@ data:extend({
       }
     },
     unit = {
-      count = 180,
+      count = 75,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-nematology-pack", 1}
@@ -14134,7 +14185,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 40,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 2}
@@ -14233,7 +14284,7 @@ data:extend({
       }
     },
     unit = {
-      count = 90,
+      count = 50,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 2}, {"nullius-nematology-pack", 1}
@@ -14288,7 +14339,7 @@ data:extend({
       }
     },
     unit = {
-      count = 90,
+      count = 60,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}, {"nullius-nematology-pack", 2}
@@ -14394,7 +14445,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 80,
       ingredients = {
         {"nullius-biochemistry-pack", 2}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 2},
@@ -14454,7 +14505,7 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 150,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
@@ -14545,6 +14596,56 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-evolution-2",
+    order = "nullius-gh",
+    icons = data.raw.item["nullius-algae-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-algae-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-algae-progenitor-2"
+      }
+    },
+    unit = {
+      count = 200,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 1}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-oxygen-partial", "nullius-evolution-1"}
+  },
+  {
+    type = "technology",
+    name = "nullius-evolution-3",
+    order = "nullius-gi",
+    icons = data.raw.item["nullius-grass-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-grass-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-grass-progenitor-2"
+      }
+    },
+    unit = {
+      count = 200,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 2}, {"nullius-nematology-pack", 1}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-worm", "nullius-weaving-3", "nullius-evolution-2"}
+  },
+  {
+    type = "technology",
     name = "nullius-cybernetics-6",
     order = "nullius-gi",
     icon = "__base__/graphics/technology/power-armor-mk2.png",
@@ -14616,6 +14717,32 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-evolution-4",
+    order = "nullius-gj",
+    icons = data.raw.item["nullius-worm-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-worm-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-worm-progenitor-2"
+      }
+    },
+    unit = {
+      count = 250,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 1}, {"nullius-nematology-pack", 2},
+		{"nullius-dendrology-pack", 1}, {"nullius-ichthyology-pack", 1}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-fish", "nullius-evolution-3"}
+  },
+  {
+    type = "technology",
     name = "nullius-carbon-sequestration-4",
     order = "nullius-gj",
     icon = "__base__/graphics/technology/coal-liquefaction.png",
@@ -14660,14 +14787,14 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 180,
       ingredients = {
         {"nullius-biochemistry-pack", 2}, {"nullius-microbiology-pack", 2},
         {"nullius-dendrology-pack", 1}, {"nullius-ichthyology-pack", 1}
       },
       time = 600
     },
-    prerequisites = {"nullius-woodworking", "nullius-biochemistry-5"}
+    prerequisites = {"nullius-woodworking", "nullius-biochemistry-5", "nullius-evolution-2"}
   },
   {
     type = "technology",
@@ -14739,7 +14866,7 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 200,
       ingredients = {
         {"nullius-biochemistry-pack", 2}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
@@ -14764,7 +14891,7 @@ data:extend({
       }
     },
     unit = {
-      count = 150,
+      count = 250,
       ingredients = {
         {"nullius-nematology-pack", 1}, {"nullius-ichthyology-pack", 1},
         {"nullius-zoology-pack", 2}
@@ -14791,7 +14918,7 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 125,
       ingredients = {
         {"nullius-microbiology-pack", 1}, {"nullius-botany-pack", 1},
         {"nullius-dendrology-pack", 1}, {"nullius-nematology-pack", 1},
@@ -14802,6 +14929,85 @@ data:extend({
     prerequisites = {"nullius-zoology-3", "nullius-cybernetics-6", "nullius-checkpoint-antimatter"}
   },
 
+  {
+    type = "technology",
+    name = "nullius-evolution-5",
+    order = "nullius-gk",
+    icons = data.raw.item["nullius-fish-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fish-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fish-progenitor-2"
+      }
+    },
+    unit = {
+      count = 300,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 1}, {"nullius-nematology-pack", 1},
+		{"nullius-ichthyology-pack", 2}, {"nullius-zoology-pack", 1}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-locomotion-5", "nullius-biochemistry-6", "nullius-evolution-4"}
+  },
+  {
+    type = "technology",
+    name = "nullius-evolution-6",
+    order = "nullius-gl",
+    icons = data.raw.item["nullius-tree-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-tree-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-tree-progenitor-2"
+      }
+    },
+    unit = {
+      count = 400,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 1}, {"nullius-nematology-pack", 1},
+		{"nullius-dendrology-pack", 2}, {"nullius-zoology-pack", 1}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-solar-panel", "nullius-evolution-5"}
+  },
+  {
+    type = "technology",
+    name = "nullius-evolution-7",
+    order = "nullius-gm",
+    icons = data.raw.item["nullius-arthropod-genome"].icons,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-arthropod-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-arthropod-progenitor-2"
+      }
+    },
+    unit = {
+      count = 500,
+      ingredients = {
+        {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
+		{"nullius-botany-pack", 1}, {"nullius-nematology-pack", 1},
+		{"nullius-dendrology-pack", 1}, {"nullius-ichthyology-pack", 1},
+		{"nullius-zoology-pack", 2}
+      },
+      time = 600
+    },
+    prerequisites = {"nullius-checkpoint-android-2", "nullius-evolution-6"}
+  },
   {
     type = "technology",
     name = "nullius-biochemistry-7",
@@ -14838,7 +15044,7 @@ data:extend({
       }
     },
     unit = {
-      count = 200,
+      count = 250,
       ingredients = {
         {"nullius-biochemistry-pack", 1}, {"nullius-microbiology-pack", 1},
         {"nullius-botany-pack", 1}, {"nullius-dendrology-pack", 1},
@@ -15137,7 +15343,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-battery-storage-5", "nullius-miniaturization-3"}
+    prerequisites = {"nullius-battery-storage-5", "nullius-miniaturization-3", "nullius-evolution-6"}
   },
   {
     type = "technology",
@@ -15166,7 +15372,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-solar-power-4", "nullius-broadcasting-5"}
+    prerequisites = {"nullius-solar-power-4", "nullius-broadcasting-5", "nullius-evolution-7"}
   },
   {
     type = "technology",

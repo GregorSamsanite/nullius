@@ -106,7 +106,7 @@ local function replace_turbine(entity, force, newname)
     update_build_statistics(entity, force, true)
     entity = entity.surface.create_entity{
         name = newname, force = force, direction = entity.direction,
-	    position = entity.position, spill = false,
+	    position = entity.position, spill = false, raise_built = true,
 	    fast_replace = true, create_build_effect_smoke = false}
 	if ((entity == nil) or (not entity.valid)) then return end
 	update_build_statistics(entity, force, false)

@@ -311,6 +311,8 @@ function rocket_launched(event)
     local payload = rocket.get_inventory(defines.inventory.rocket).get_contents()
     if (payload["nullius-probe"] ~= nil) then
       bump_mission_goal(1, 1, rocket.force)
+	elseif (payload["nullius-align-concordance-satellite"] ~= nil) then
+	  align_satellite_launch(rocket)
     end
   end
 end

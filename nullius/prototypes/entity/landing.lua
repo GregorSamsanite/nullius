@@ -80,7 +80,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-tail",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-big-1.png",
     icon_size = 64,
@@ -90,13 +90,16 @@ data:extend({
     max_health = 200,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	  "20x[item=small-lamp] 8x[item=nullius-solar-panel-1]"},
     minable = {
-      mining_time = 2,
+      mining_time = 1,
       results = {
         {type="item", name="small-lamp", amount=20},
         {type="item", name="nullius-solar-panel-1", amount=8}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.9, -0.1}, {1.4, 1.2}},
     selection_box = {{-0.9, -0.1}, {1.4, 1.2}},
     dying_explosion = "big-explosion",
@@ -133,7 +136,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-propulsion",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-big-2.png",
     icon_size = 64,
@@ -143,8 +146,11 @@ data:extend({
     max_health = 200,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "[item=nullius-small-furnace-2] 2x[item=nullius-chimney-1] "
+	    .. "2x[item=nullius-outfall-1] 2x[item=storage-tank]"},
     minable = {
-      mining_time = 2,
+      mining_time = 1.5,
       results = {
         {type="item", name="nullius-small-furnace-2", amount=1},
         {type="item", name="nullius-chimney-1", amount=2},
@@ -152,6 +158,7 @@ data:extend({
         {type="item", name="storage-tank", amount=2}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-1.6, -1.6}, {1.3, 1.3}},
     selection_box = {{-1.6, -1.6}, {1.3, 1.3}},
     dying_explosion = "big-explosion",
@@ -188,7 +195,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-vent",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-1.png",
     icon_size = 64,
@@ -198,13 +205,16 @@ data:extend({
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "3x[item=nullius-air-filter-1] 3x[item=nullius-broken-air-filter]"},
     minable = {
-      mining_time = 1.5,
+      mining_time = 1,
       results = {
         {type="item", name="nullius-air-filter-1", amount=3},
         {type="item", name="nullius-broken-air-filter", amount=3}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-1.2, -1.0}, {1.2, 0.7}},
     selection_box = {{-1.2, -1.0}, {1.2, 0.7}},
     dying_explosion = "big-explosion",
@@ -241,7 +251,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-intake",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-2.png",
     icon_size = 64,
@@ -251,13 +261,16 @@ data:extend({
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "2x[item=nullius-seawater-intake-1] 4x[item=storage-tank]"},
     minable = {
-      mining_time = 1.5,
+      mining_time = 1,
       results = {
         {type="item", name="nullius-seawater-intake-1", amount=2},
         {type="item", name="storage-tank", amount=4}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-1.1, -0.6}, {1.0, 1.0}},
     selection_box = {{-1.1, -0.6}, {1.0, 1.0}},
     dying_explosion = "big-explosion",
@@ -295,7 +308,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-wing",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-medium-3.png",
     icon_size = 64,
@@ -305,13 +318,16 @@ data:extend({
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "18x[item=nullius-broken-solar-panel] 10x[item=nullius-aluminum-ingot]"},
     minable = {
-      mining_time = 1.5,
+      mining_time = 1,
       results = {
         {type="item", name="nullius-broken-solar-panel", amount=18},
         {type="item", name="nullius-aluminum-ingot", amount=10}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.8, -1.4}, {0.7, 1.4}},
     selection_box = {{-0.8, -1.4}, {0.7, 1.4}},
     dying_explosion = "big-explosion",
@@ -349,7 +365,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-duct",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-small-3.png",
     icon_size = 64,
@@ -359,8 +375,11 @@ data:extend({
     max_health = 50,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "40x[item=nullius-pipe-2] 24x[item=nullius-underground-pipe-2]"
+		.. "3x[item=nullius-priority-valve] 3x[item=nullius-pump-1]"},
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = {
         {type="item", name="nullius-pipe-2", amount=40},
         {type="item", name="nullius-underground-pipe-2", amount=24},
@@ -368,6 +387,7 @@ data:extend({
         {type="item", name="nullius-pump-1", amount=3}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.7, -0.8}, {1.2, 0.6}},
     selection_box = {{-0.7, -0.8}, {1.2, 0.6}},
     dying_explosion = "medium-explosion",
@@ -405,7 +425,7 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-shielding",
     icon = "__base__/graphics/icons/crash-site-spaceship-wreck-small-4.png",
     icon_size = 64,
@@ -415,10 +435,13 @@ data:extend({
     max_health = 50,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "20x[item=nullius-aluminum-ingot]"},
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = { {type="item", name="nullius-aluminum-ingot", amount=20} }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.9, -0.8}, {1.1, 0.6}},
     selection_box = {{-0.9, -0.8}, {1.1, 0.6}},
     dying_explosion = "medium-explosion",
@@ -456,16 +479,17 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-lab",
     icon = ENTICONPATH .. "crash-site-lab-broken.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "[item=nullius-lab-1] 20x[item=red-wire] 2x[item=nullius-broken-sensor-node]"},
     minable = {
       mining_time = 1,
       results = {
@@ -474,6 +498,7 @@ data:extend({
         {type="item", name="nullius-broken-sensor-node", amount=2}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-2.2, -1.2}, {2.2, 1.2}},
     selection_box = {{-2.5, -1.5}, {2.5, 1.5}},
     dying_explosion = "medium-explosion",
@@ -511,18 +536,20 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-pylon",
     icon = ENTICONPATH .. "crash-site-generator.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 50,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "30x[item=small-electric-pole] 10x[item=big-electric-pole]" ..
+		"30x[item=nullius-broken-pylon] 5x[item=programmable-speaker]"},
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = {
         {type="item", name="small-electric-pole", amount=30},
         {type="item", name="big-electric-pole", amount=10},
@@ -530,6 +557,7 @@ data:extend({
 		{type="item", name="programmable-speaker", amount=5}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-1.5, -0.9}, {0.9, 0.9}},
     selection_box = {{-1.5, -0.9}, {0.9, 0.9}},
     dying_explosion = "medium-explosion",
@@ -580,9 +608,10 @@ data:extend({
     inventory_size = 10,
     enable_inventory_bar = false,
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     dying_explosion = "medium-explosion",
@@ -634,9 +663,10 @@ data:extend({
     inventory_size = 10,
     enable_inventory_bar = false,
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     dying_explosion = "medium-explosion",
@@ -675,23 +705,25 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-machine-1",
     icon = ENTICONPATH .. "crash-site-assembling-machine-1-repaired.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "3x[item=nullius-small-miner-1] 12x[item=nullius-broken-grid-battery]"},
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = {
 	    {type="item", name="nullius-small-miner-1", amount=3},
 		{type="item", name="nullius-broken-grid-battery", amount=12}
 	  }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-1.2, -0.7}, {1.2, 0.7}},
     selection_box = {{-1.5, -1}, {1.5, 1}},
     dying_explosion = "medium-explosion",
@@ -729,24 +761,27 @@ data:extend({
   },
 
   {
-    type = "simple-entity",
+    type = "simple-entity-with-owner",
     name = "nullius-landing-machine-2",
     icon = ENTICONPATH .. "crash-site-assembling-machine-2-repaired.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = wreck_flags,
     map_color = {r = 0, g = 0.365, b = 0.58, a = 1},
     max_health = 100,
     alert_when_damaged = false,
     allow_copy_paste = false,
+	localised_description = {"entity-description.nullius-minable",
+	    "[item=nullius-medium-assembler-1] 3x[item=nullius-broken-assembler] "
+		.. "6x[item=nullius-grid-battery-1]"},
     minable = {
-      mining_time = 1,
+      mining_time = 0.5,
       results = {
         {type="item", name="nullius-medium-assembler-1", amount=1},
         {type="item", name="nullius-broken-assembler", amount=3},
         {type="item", name="nullius-grid-battery-1", amount=6}
       }
     },
+	placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.7, -1.2}, {0.7, 1.2}},
     selection_box = {{-1, -1.5}, {1, 1.5}},
     dying_explosion = "medium-explosion",
