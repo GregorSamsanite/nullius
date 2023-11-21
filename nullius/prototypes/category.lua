@@ -311,7 +311,7 @@ data:extend({
     type = "item-subgroup",
     name = "train-wagon",
     group = "logistics",
-    order = "g"
+    order = "gb"
   },
 
   {

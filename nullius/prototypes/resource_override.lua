@@ -176,6 +176,8 @@ data.raw.resource["deep_oil"].mining_visualisation_tint = {r = 1.0, g = 0.7, b =
 data.raw.resource["deep_oil"].localised_name = {"entity-name.nullius-hydrothermal-vent"}
 data.raw.resource["deep_oil"].localised_description = {"entity-description.nullius-hydrothermal-vent"}
 
+table.insert(data.raw.resource["deep_oil"].collision_mask, 'ground-tile')
+
 data.raw.resource["deep_oil"].stages = { sheet = {
   filename = "__angelsrefining__/graphics/entity/patches/gas.png",
   tint = {0.4, 0.2, 0, 0.4},

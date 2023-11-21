@@ -2223,3 +2223,213 @@ if (mods["beautiful_bridge_railway"] or
 	data.raw.recipe["bridge_base"].subgroup = data.raw.item["bridge_base"].subgroup
   end
 end
+
+
+if mods["Mini_Trains"] then
+  data.raw.technology["nullius-electromagnetism-2"].prerequisites[2] = "nullius-light-rail"
+  table.insert(data.raw.technology["nullius-freight-logistics"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-fluid-wagon-1" })
+  table.insert(data.raw.technology["nullius-freight-transportation-2"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-locomotive-2" })
+  table.insert(data.raw.technology["nullius-freight-transportation-2"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-cargo-wagon-2" })
+  table.insert(data.raw.technology["nullius-freight-transportation-2"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-fluid-wagon-2" })
+  table.insert(data.raw.technology["nullius-freight-transportation-3"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-locomotive-3" })
+  table.insert(data.raw.technology["nullius-freight-transportation-3"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-solar-locomotive" })
+  table.insert(data.raw.technology["nullius-freight-transportation-3"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-cargo-wagon-3" })
+  table.insert(data.raw.technology["nullius-freight-transportation-3"].effects,
+      { type = "unlock-recipe", recipe = "nullius-small-fluid-wagon-3" })
+
+
+  local mtl1 = util.table.deepcopy(data.raw.locomotive["mini-locomotive"])
+  mtl1.name = "nullius-small-locomotive-1"
+  mtl1.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-locomotive-1"}}
+  mtl1.localised_description = {"entity-description.nullius-locomotive-1"}
+  mtl1.icons = data.raw.item["nullius-small-locomotive-1"].icons
+  mtl1.icon = nil
+  mtl1.icon_size = nil
+  mtl1.minable.result = "nullius-small-locomotive-1"
+  mtl1.resistances = data.raw.locomotive["nullius-locomotive-1"].resistances
+  mtl1.burner = {
+    fuel_category = "vehicle",
+    effectivity = 0.9,
+    fuel_inventory_size = 1,
+    burnt_inventory_size = 2,
+    smoke = data.raw.locomotive["mini-locomotive"].burner.smoke
+  }
+  mtl1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtl1.color = {r = 0.9, g = 0.85, b = 0}
+  mtl1.weight = 500
+  mtl1.max_speed = 0.50925925925925926
+  mtl1.max_power = "75kW"
+  mtl1.reversing_power_modifier = 0.5
+  mtl1.braking_force = 1.5
+  mtl1.friction_force = 0.1
+  mtl1.air_resistance = 0.0016
+
+  local mtl2 = util.table.deepcopy(mtl1)
+  mtl2.name = "nullius-small-locomotive-2"
+  mtl2.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-locomotive-2"}}
+  mtl2.localised_description = {"entity-description.nullius-locomotive-2"}
+  mtl2.icons = data.raw.item["nullius-small-locomotive-2"].icons
+  mtl2.minable.result = "nullius-small-locomotive-2"
+  mtl2.burner.effectivity = 0.95
+  mtl2.burner.fuel_inventory_size = 2
+  mtl2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtl2.color = {r = 0.95, g = 0.1, b = 0}
+  mtl2.weight = 800
+  mtl2.max_speed = 1.0416666666666667
+  mtl2.max_power = "190kW"
+  mtl2.reversing_power_modifier = 0.7
+  mtl2.braking_force = 4
+  mtl2.friction_force = 0.16
+  mtl2.air_resistance = 0.0028
+
+  local mtl3 = util.table.deepcopy(mtl2)
+  mtl3.name = "nullius-small-locomotive-3"
+  mtl3.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-locomotive-3"}}
+  mtl3.localised_description = {"entity-description.nullius-locomotive-3"}
+  mtl3.icons = data.raw.item["nullius-small-locomotive-3"].icons
+  mtl3.minable.result = "nullius-small-locomotive-3"
+  mtl3.burner.effectivity = 1
+  mtl3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtl3.color = {r = 0.2, g = 0.3, b = 0.8}
+  mtl3.weight = 1200
+  mtl3.max_speed = 1.75925925925926
+  mtl3.max_power = "400kW"
+  mtl3.reversing_power_modifier = 0.8
+  mtl3.braking_force = 12
+  mtl3.friction_force = 0.24
+  mtl3.air_resistance = 0.004
+
+  local mtls = util.table.deepcopy(mtl3)
+  mtls.name = "nullius-small-solar-locomotive"
+  mtls.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-solar-locomotive"}}
+  mtls.localised_description = {"entity-description.nullius-solar-locomotive"}
+  mtls.icons = data.raw.item["nullius-small-solar-locomotive"].icons
+  mtls.minable.result = "nullius-small-solar-locomotive"
+  mtls.energy_source = {type = "void"}
+  mtls.burner = nil
+  mtls.pictures.layers[1].tint = {r = 0.8, g = 1, b = 0.8}
+  mtls.color = {r = 0.2, g = 0.8, b = 0.3}
+  mtls.max_speed = 1.0416666666666667
+  mtls.max_power = "280kW"
+  mtls.braking_force = 8
+
+
+  local mtc1 = util.table.deepcopy(data.raw["cargo-wagon"]["mini-cargo-wagon"])
+  mtc1.name = "nullius-small-cargo-wagon-1"
+  mtc1.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-cargo-wagon-1"}}
+  mtc1.icons = data.raw.item["nullius-small-cargo-wagon-1"].icons
+  mtc1.icon = nil
+  mtc1.icon_size = nil
+  mtc1.minable.result = "nullius-small-cargo-wagon-1"
+  mtc1.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-1"].resistances
+  mtc1.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-1"].max_speed * 0.95)
+  mtc1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtc1.color = {r = 0.9, g = 0.85, b = 0}
+  mtc1.inventory_size = 12
+  mtc1.weight = 250
+  mtc1.braking_force = 0.4
+  mtc1.friction_force = 0.1
+  mtc1.air_resistance = 0.002
+
+  local mtc2 = util.table.deepcopy(mtc1)
+  mtc2.name = "nullius-small-cargo-wagon-2"
+  mtc2.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-cargo-wagon-2"}}
+  mtc2.icons = data.raw.item["nullius-small-cargo-wagon-2"].icons
+  mtc2.minable.result = "nullius-small-cargo-wagon-2"
+  mtc2.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-2"].resistances
+  mtc2.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-2"].max_speed * 0.95)
+  mtc2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtc2.color = {r = 0.95, g = 0.1, b = 0}
+  mtc2.inventory_size = 25
+  mtc2.weight = 500
+  mtc2.braking_force = 1
+  mtc2.friction_force = 0.2
+  mtc2.air_resistance = 0.005
+
+  local mtc3 = util.table.deepcopy(mtc2)
+  mtc3.name = "nullius-small-cargo-wagon-3"
+  mtc3.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-cargo-wagon-3"}}
+  mtc3.icons = data.raw.item["nullius-small-cargo-wagon-3"].icons
+  mtc3.minable.result = "nullius-small-cargo-wagon-3"
+  mtc3.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-3"].resistances
+  mtc3.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-3"].max_speed * 0.95)
+  mtc3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtc3.color = {r = 0.2, g = 0.3, b = 0.8}
+  mtc3.inventory_size = 50
+  mtc3.weight = 750
+  mtc3.braking_force = 2
+  mtc3.friction_force = 0.3
+  mtc3.air_resistance = 0.0075
+
+
+  local mtf1 = util.table.deepcopy(data.raw["fluid-wagon"]["mini-fluid-wagon"])
+  mtf1.name = "nullius-small-fluid-wagon-1"
+  mtf1.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-fluid-wagon-1"}}
+  mtf1.icons = data.raw.item["nullius-small-fluid-wagon-1"].icons
+  mtf1.icon = nil
+  mtf1.icon_size = nil
+  mtf1.minable.result = "nullius-small-fluid-wagon-1"
+  mtf1.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].resistances
+  mtf1.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].max_speed * 0.95)
+  mtf1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtf1.color = {r = 0.9, g = 0.85, b = 0}
+  mtf1.capacity = 12000
+  mtf1.weight = 300
+  mtf1.braking_force = 0.4
+  mtf1.friction_force = 0.1
+  mtf1.air_resistance = 0.0024
+
+  local mtf2 = util.table.deepcopy(mtf1)
+  mtf2.name = "nullius-small-fluid-wagon-2"
+  mtf2.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-fluid-wagon-2"}}
+  mtf2.icons = data.raw.item["nullius-small-fluid-wagon-2"].icons
+  mtf2.minable.result = "nullius-small-fluid-wagon-2"
+  mtf2.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-2"].resistances
+  mtf2.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-2"].max_speed * 0.95)
+  mtf2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtf2.color = {r = 0.95, g = 0.1, b = 0}
+  mtf2.capacity = 25000
+  mtf2.weight = 600
+  mtf2.braking_force = 1
+  mtf2.friction_force = 0.2
+  mtf2.air_resistance = 0.006
+
+  local mtf3 = util.table.deepcopy(mtf2)
+  mtf3.name = "nullius-small-fluid-wagon-3"
+  mtf3.localised_name = {"entity-name.nullius-small", {"entity-name.nullius-fluid-wagon-3"}}
+  mtf3.icons = data.raw.item["nullius-small-fluid-wagon-3"].icons
+  mtf3.minable.result = "nullius-small-fluid-wagon-3"
+  mtf3.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-3"].resistances
+  mtf3.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-3"].max_speed * 0.95)
+  mtf3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtf3.color = {r = 0.2, g = 0.3, b = 0.8}
+  mtf3.capacity = 50000
+  mtf3.weight = 900
+  mtf3.braking_force = 2
+  mtf3.friction_force = 0.3
+  mtf3.air_resistance = 0.009
+  
+  data:extend({ mtl1, mtl2, mtl3, mtls, mtc1, mtc2, mtc3, mtf1, mtf2, mtf3 })
+
+
+  data.raw.item["nullius-small-locomotive-1"].place_result = "nullius-small-locomotive-1"
+  data.raw.item["nullius-small-locomotive-2"].place_result = "nullius-small-locomotive-2"
+  data.raw.item["nullius-small-locomotive-3"].place_result = "nullius-small-locomotive-3"
+  data.raw.item["nullius-small-solar-locomotive"].place_result = "nullius-small-solar-locomotive"
+  data.raw.item["nullius-small-cargo-wagon-1"].place_result = "nullius-small-cargo-wagon-1"
+  data.raw.item["nullius-small-cargo-wagon-2"].place_result = "nullius-small-cargo-wagon-2"
+  data.raw.item["nullius-small-cargo-wagon-3"].place_result = "nullius-small-cargo-wagon-3"
+  data.raw.item["nullius-small-fluid-wagon-1"].place_result = "nullius-small-fluid-wagon-1"
+  data.raw.item["nullius-small-fluid-wagon-2"].place_result = "nullius-small-fluid-wagon-2"
+  data.raw.item["nullius-small-fluid-wagon-3"].place_result = "nullius-small-fluid-wagon-3"
+end
+
+
+

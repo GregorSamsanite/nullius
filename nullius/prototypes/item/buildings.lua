@@ -3290,10 +3290,10 @@ data:extend({
     category = "large-crafting",
     energy_required = 8,
     ingredients = {
-      {"nullius-glass", 8},
-      {"nullius-aluminum-sheet", 6},
-      {"nullius-steel-rod", 4},
-      {"nullius-heat-pipe-1", 5}
+      {"nullius-glass", 6},
+      {"nullius-aluminum-sheet", 5},
+      {"nullius-steel-rod", 3},
+      {"nullius-heat-pipe-1", 4}
     },
     result = "nullius-solar-collector-1"
   },
@@ -3306,10 +3306,10 @@ data:extend({
     subgroup = "boxed-heat-energy",
     energy_required = 40,
     ingredients = {
-      {"nullius-box-glass", 8},
-      {"nullius-box-aluminum-sheet", 6},
-      {"nullius-box-steel-rod", 4},
-      {"nullius-box-heat-pipe-1", 5}
+      {"nullius-box-glass", 6},
+      {"nullius-box-aluminum-sheet", 5},
+      {"nullius-box-steel-rod", 3},
+      {"nullius-box-heat-pipe-1", 4}
     },
     result = "nullius-box-solar-collector-1"
   },

@@ -217,6 +217,17 @@ local furnace1cb = {
   show_recipe_icon = false,
   show_recipe_icon_on_map = false,
   always_draw_idle_animation = true,
+  additional_pastable_entities = {
+      "nullius-turbine-open-backup-1", "nullius-turbine-closed-backup-1",
+	  "nullius-turbine-open-standard-1", "nullius-turbine-closed-standard-1",
+      "nullius-turbine-open-exhaust-1", "nullius-turbine-closed-exhaust-1",
+	  "nullius-turbine-open-backup-2", "nullius-turbine-closed-backup-2",
+	  "nullius-turbine-open-standard-2", "nullius-turbine-closed-standard-2",
+      "nullius-turbine-open-exhaust-2", "nullius-turbine-closed-exhaust-2",
+	  "nullius-turbine-open-backup-3", "nullius-turbine-closed-backup-3",
+	  "nullius-turbine-open-standard-3", "nullius-turbine-closed-standard-3",
+      "nullius-turbine-open-exhaust-3", "nullius-turbine-closed-exhaust-3"
+  },
   fluid_boxes = {
     {
       production_type = "input",

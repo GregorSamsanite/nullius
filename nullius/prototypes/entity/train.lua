@@ -27,7 +27,7 @@ data:extend({
     braking_force = 3,
     friction_force = 0.25,
     vertical_selection_shift = -0.5,
-    air_resistance = 0.004, -- this is a percentage of current speed that will be subtracted
+    air_resistance = 0.004,
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 4,
@@ -226,7 +226,7 @@ data:extend({
     braking_force = 10,
     friction_force = 0.4,
     vertical_selection_shift = -0.5,
-    air_resistance = 0.007, -- this is a percentage of current speed that will be subtracted
+    air_resistance = 0.007,
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 5,

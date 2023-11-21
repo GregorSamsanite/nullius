@@ -145,46 +145,69 @@ local function toggle_turbine(entity, entityname, force)
   end
 end
 
-local function toggle_surge(entity, entityname, force)
+local function scan_surge_priority(name)
   local offs = 9
-  if (string.sub(entityname, 9, 15) == "mirror-") then
+  if (string.sub(name, 9, 15) == "mirror-") then
     offs = 16
   end
-
   local offs2 = offs + 5
-  local priority = string.sub(entityname, offs, offs2)
+  local priority = string.sub(name, offs, offs2)
   if (priority == "surge-") then
-	priority = "priority"
-  elseif (priority == "priori") then
 	priority = "surge"
+  elseif (priority == "priori") then
+	priority = "priority"
 	offs2 = offs2 + 3
   else
-    return
+    return nil
   end
+  return { priority = priority, offs1 = offs, offs2 = offs2 }
+end
 
-  local newname = string.sub(entityname, 1, (offs - 1)) ..
-      priority .. string.sub(entityname, offs2, -1)
+local function toggle_surge(entity, entityname, force)
+  local surge = scan_surge_priority(entityname)
+  if (surge == nil) then return end
+  local priority = surge.priority
+  if (priority == "surge") then
+    priority = "priority"
+  else
+    priority = "surge"
+  end
+  local newname = string.sub(entityname, 1, (surge.offs1 - 1)) ..
+      priority .. string.sub(entityname, surge.offs2, -1)
   replace_fluid_entity(entity, newname, force, nil)
 end
 
+
+local function valid_entity_name(entity)
+  if ((entity == nil) or (not entity.valid)) then return nil end
+  local name = entity.name
+  if (entity.type == "entity-ghost") then
+    name = entity.ghost_name
+  end
+  if (string.sub(name, 1, 8) ~= "nullius-") then return nil end
+  return name
+end
+
+local function is_surge_entity(name)
+  if (string.sub(name, -15, -2) == "-electrolyzer-") then
+    return true
+  elseif (string.sub(name, -13, -2) == "-compressor-") then
+    return true
+  end
+  return false
+end
 
 local function priority_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
   local target = player.selected
-  if ((target == nil) or (not target.valid)) then return end
-  local name = target.name
-  if (target.type == "entity-ghost") then
-    name = target.ghost_name
-  end
+  local name = valid_entity_name(target)
+  if (name == nil) then return end
 
-  if (string.sub(name, 1, 8) ~= "nullius-") then return end
   local force = (target.force or player.force)
   if (string.sub(name, 9, 16) == "turbine-") then
     toggle_turbine(target, name, force)
-  elseif (string.sub(name, -15, -2) == "-electrolyzer-") then
-    toggle_surge(target, name, force)
-  elseif (string.sub(name, -13, -2) == "-compressor-") then
+  elseif (is_surge_entity(name)) then
     toggle_surge(target, name, force)
   end
 end
@@ -192,6 +215,44 @@ end
 script.on_event("nullius-prioritize", function(event)
   priority_event(event)
 end)
+
+
+function entity_paste_event(event)
+  local player = game.players[event.player_index]
+  if ((player == nil) or (not player.valid)) then return end
+  local source = event.source
+  local sname = valid_entity_name(source)
+  if (sname == nil) then return end
+  local target = event.destination
+  local tname = valid_entity_name(target)
+  if (tname == nil) then return end
+  local force = (target.force or player.force)
+
+  if (string.sub(tname, 9, 16) == "turbine-") then
+    if (string.sub(sname, 9, 16) ~= "turbine-") then return end
+	local ttyp = turbine_type(tname)
+    local tpri = turbine_priority(tname)
+    if ((ttyp == nil) or (tpri == nil)) then return end
+	local spri = turbine_priority(sname)
+    if ((spri == nil) or (spri == tpri)) then return end
+
+    local newname = "nullius-turbine-" .. ttyp .. "-" ..
+      spri .. string.sub(tname, -2, -1)
+    if (target.type == "entity-ghost") then
+      replace_fluid_entity(target, newname, force, nil)
+    else
+      replace_turbine(target, force, newname)
+    end
+  elseif (is_surge_entity(tname) and is_surge_entity(sname)) then
+    local tsurge = scan_surge_priority(tname)
+	local ssurge = scan_surge_priority(sname)
+    if ((tsurge == nil) or (ssurge == nil)) then return end
+	if (tsurge.priority == ssurge.priority) then return end
+    toggle_surge(target, tname, force)
+  end
+end
+
+script.on_event(defines.events.on_entity_settings_pasted, entity_paste_event)
 
 
 function dolly_moved_entity(event)

@@ -13,7 +13,7 @@ end
 
 function save_fluid_contents(entity)
   local ret = { }
-  if ((entity ~= nil) and entity.valid) then
+  if ((entity ~= nil) and entity.valid and (entity.fluidbox ~= nil)) then
     for i = 1, #entity.fluidbox do
 	  ret[i] = entity.fluidbox[i]
     end
@@ -31,7 +31,7 @@ end
 
 
 function replace_fluid_entity(entity, newname, force, dir)
-  if (game.entity_prototypes[newname] == nil) then return end
+  if (game.entity_prototypes[newname] == nil) then return nil end
   if (dir == nil) then dir = entity.direction end
   if (entity.type == "entity-ghost") then
     local pos = entity.position
@@ -63,6 +63,7 @@ function replace_fluid_entity(entity, newname, force, dir)
   if ((entity ~= nil) and entity.valid and (dir ~= entity.direction)) then
     entity.direction = dir
   end
+  return entity
 end
 
 
@@ -121,3 +122,85 @@ end
 script.on_event("nullius-mirror", function(event)
   mirror_event(event)
 end)
+
+
+local function mineable_result(proto)
+  if (proto == nil) then return nil end
+  local mineable = proto.mineable_properties
+  if ((mineable == nil) or (not mineable.minable)) then return nil end
+  if (mineable.products == nil) then return nil end
+  local result = mineable.products[1]
+  if ((result == nil) or (result.type ~= "item")) then return nil end
+  return result.name
+end
+
+local function match_pipette(pipette, player, event)
+  if (event.tick > (pipette.tick + 7200)) then return nil end
+  if (not (pipette.entity.valid and pipette.item.valid)) then return nil end
+  local iname = pipette.item.name
+  local ename = pipette.entity.name
+  local entity = event.created_entity
+
+  if (player.is_cursor_empty()) then return nil end
+  if (player.is_cursor_blueprint()) then return nil end
+  if (player.cursor_stack ~= nil) then
+    if (player.cursor_stack.name ~= iname) then return nil end
+  else
+    if (player.cursor_ghost == nil) then return nil end
+	if (player.cursor_ghost.name ~= iname) then return nil end
+  end
+
+  if (entity.type == "entity-ghost") then
+    if (entity.ghost_name == ename) then return nil end
+	local result = mineable_result(entity.ghost_prototype)
+	if ((result == nil) or (result ~= iname)) then return nil end
+  else
+    if (entity.name == ename) then return nil end
+    local item = event.item
+    if ((item == nil) or (item.name ~= iname)) then return nil end
+  end
+
+  pipette.tick = event.tick
+  return replace_fluid_entity(entity, ename, player.force, nil)
+end
+  
+function check_pipette(event)
+  if ((event == nil) or (global.nullius_pipette == nil)) then return nil end
+  local player = game.players[event.player_index]
+  if ((player == nil) or (not player.valid)) then return nil end
+  local pipette = global.nullius_pipette[player.index]
+  if (pipette == nil) then return nil end
+  local ret = match_pipette(pipette, player, event)
+  if (ret ~= nil) then return ret end
+  global.nullius_pipette[player.index] = nil
+  return nil
+end
+
+function pipette_event(event)
+  local player = game.players[event.player_index]
+  if ((player == nil) or (not player.valid)) then return end
+  if (global.nullius_pipette == nil) then
+    global.nullius_pipette = { }
+  end
+  global.nullius_pipette[player.index] = nil
+
+  local target = player.selected
+  if ((target == nil) or (not target.valid)) then return end
+  local item = event.item
+  if ((item == nil) or (item.place_result == nil)) then return end
+  if (item.place_result.name == target.name) then return end
+  local proto = target.prototype
+  if (target.type == "entity-ghost") then
+	proto = target.ghost_prototype
+  end
+  local result = mineable_result(proto)
+  if ((result == nil) or (item.name ~= result)) then return end
+
+  global.nullius_pipette[player.index] = {
+    item = item,
+	entity = proto,
+	tick = event.tick
+  }
+end
+
+script.on_event(defines.events.on_player_pipette, pipette_event)

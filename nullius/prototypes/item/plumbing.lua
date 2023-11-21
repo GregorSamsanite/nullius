@@ -1898,7 +1898,7 @@ data:extend({
     type = "recipe",
     name = "nullius-medium-tank-3",
     enabled = false,
-    category = "large-crafting",
+    category = "large-assembly",
     always_show_made_in = true,
     energy_required = 25,
     ingredients = {

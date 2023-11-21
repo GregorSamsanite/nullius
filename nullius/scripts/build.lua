@@ -1,10 +1,15 @@
-function entity_added(entity)
+function entity_added(entity, handbuilt)
   if (entity.type == "spider-vehicle") then
 	mecha_added(entity)
     return
   end
+  if (string.sub(entity.name, 1, 8) ~= "nullius-") then
+    if (entity.name == "entity-ghost") then
+      check_pipette(handbuilt)
+	end
+    return
+  end
 
-  if (string.sub(entity.name, 1, 8) ~= "nullius-") then return end
   local suffix = string.sub(entity.name, 9, -2)
   if (string.sub(suffix, 1, 5) == "wind-") then
     if (string.sub(suffix, 6, -1) == "build-") then
@@ -19,6 +24,8 @@ function entity_added(entity)
       build_geothermal_plant(entity, (string.byte(entity.name, 28) - 48))
     end
   elseif (string.sub(suffix, 1, 8) == "turbine-") then
+    local new_entity = check_pipette(handbuilt)
+	if (new_entity ~= nil) then entity = new_entity end
     build_turbine(entity)
   elseif (suffix == "stirling-engine-") then
     build_stirling_engine(entity, (string.byte(entity.name, 25) - 48))
@@ -30,6 +37,8 @@ function entity_added(entity)
     build_transmitter(entity)
   elseif (entity.type == "beacon") then
     build_beacon(entity)
+  else
+    check_pipette(handbuilt)
   end
 end
 
@@ -52,11 +61,14 @@ function entity_removed(entity, died)
 end
 
 
-function entity_built(event)
-  entity_added(event.created_entity)
+function entity_hand_built(event)
+  entity_added(event.created_entity, event)
+end
+function entity_bot_built(event)
+  entity_added(event.created_entity, nil)
 end
 function entity_raised(event)
-  entity_added(event.entity)
+  entity_added(event.entity, nil)
 end
 function entity_mined(event)
   entity_removed(event.entity, false)
@@ -75,8 +87,8 @@ function entity_destroyed(event)
 end
 
 
-script.on_event(defines.events.on_built_entity, entity_built)
-script.on_event(defines.events.on_robot_built_entity, entity_built)
+script.on_event(defines.events.on_built_entity, entity_hand_built)
+script.on_event(defines.events.on_robot_built_entity, entity_bot_built)
 script.on_event(defines.events.script_raised_revive, entity_raised)
 
 script.on_event(defines.events.on_player_mined_entity, entity_mined)

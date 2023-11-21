@@ -3739,3 +3739,329 @@ if (mods["beautiful_bridge_railway"] or
     }
   })
 end
+
+
+if mods["Mini_Trains"] then
+  data:extend({
+    {
+      type = "item-subgroup",
+      name = "light-rail",
+      group = "logistics",
+      order = "gl"
+    },
+    {
+      type = "item",
+      name = "nullius-small-locomotive-1",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cab64.png",
+        icon_size = 64,
+		tint = { r = 0.65, g = 0.65, b = 0.4 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-bb",
+      place_result = "mini-locomotive",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-locomotive-2",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cab64.png",
+        icon_size = 64,
+		tint = { r = 1, g = 0.7, b = 0.7 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-bc",
+      place_result = "mini-locomotive",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-locomotive-3",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cab64.png",
+        icon_size = 64,
+		tint = { r = 0.8, g = 0.8, b = 1 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-bd",
+      place_result = "mini-locomotive",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-solar-locomotive",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cab64.png",
+        icon_size = 64,
+		tint = { r = 0.8, g = 1, b = 0.8 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-be",
+      place_result = "mini-locomotive",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-cargo-wagon-1",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cargo64.png",
+        icon_size = 64,
+		tint = { r = 0.65, g = 0.65, b = 0.4 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-cb",
+      place_result = "mini-cargo-wagon",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-cargo-wagon-2",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cargo64.png",
+        icon_size = 64,
+		tint = { r = 1, g = 0.7, b = 0.7 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-cc",
+      place_result = "mini-cargo-wagon",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-cargo-wagon-3",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/cargo64.png",
+        icon_size = 64,
+		tint = { r = 0.8, g = 0.8, b = 1 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-cd",
+      place_result = "mini-cargo-wagon",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-fluid-wagon-1",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/fluid64.png",
+        icon_size = 64,
+		tint = { r = 0.65, g = 0.65, b = 0.4 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-db",
+      place_result = "mini-fluid-wagon",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-fluid-wagon-2",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/fluid64.png",
+        icon_size = 64,
+		tint = { r = 1, g = 0.7, b = 0.7 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-dc",
+      place_result = "mini-fluid-wagon",
+      stack_size = 10
+    },
+    {
+      type = "item",
+      name = "nullius-small-fluid-wagon-3",
+	  icons = {{
+	    icon = "__Mini_Trains__/data/icons/fluid64.png",
+        icon_size = 64,
+		tint = { r = 0.8, g = 0.8, b = 1 }
+	  }},
+      subgroup = "light-rail",
+      order = "nullius-dd",
+      place_result = "mini-fluid-wagon",
+      stack_size = 10
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-locomotive-1",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 8,
+      ingredients = {
+        {"nullius-locomotive-1", 1},
+		{"nullius-aluminum-plate", 4}
+      },
+      result = "nullius-small-locomotive-1",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-locomotive-2",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 15,
+      ingredients = {
+        {"nullius-locomotive-2", 1},
+		{"nullius-small-locomotive-1", 2},
+		{"nullius-titanium-plate", 4}
+      },
+      result = "nullius-small-locomotive-2",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-locomotive-3",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 30,
+      ingredients = {
+        {"nullius-locomotive-3", 1},
+		{"nullius-small-locomotive-2", 2}
+      },
+      result = "nullius-small-locomotive-3",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-solar-locomotive",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 30,
+      ingredients = {
+        {"nullius-solar-locomotive", 1},
+		{"nullius-small-locomotive-2", 2}
+      },
+      result = "nullius-small-solar-locomotive",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-cargo-wagon-1",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 5,
+      ingredients = {
+        {"nullius-cargo-wagon-1", 1},
+		{"nullius-aluminum-plate", 4}
+      },
+      result = "nullius-small-cargo-wagon-1",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-cargo-wagon-2",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 10,
+      ingredients = {
+	    {"nullius-cargo-wagon-2", 1},
+		{"nullius-small-cargo-wagon-1", 2},
+		{"nullius-titanium-plate", 4}
+      },
+      result = "nullius-small-cargo-wagon-2",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-cargo-wagon-3",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 20,
+      ingredients = {
+	    {"nullius-cargo-wagon-3", 1},
+		{"nullius-small-cargo-wagon-2", 2}
+      },
+      result = "nullius-small-cargo-wagon-3",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-fluid-wagon-1",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 6,
+      ingredients = {
+        {"nullius-fluid-wagon-1", 1},
+		{"nullius-aluminum-sheet", 6}
+      },
+      result = "nullius-small-fluid-wagon-1",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-fluid-wagon-2",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 12,
+      ingredients = {
+	    {"nullius-fluid-wagon-2", 1},
+		{"nullius-small-fluid-wagon-1", 2},
+		{"nullius-titanium-sheet", 6}
+      },
+      result = "nullius-small-fluid-wagon-2",
+	  result_count = 2
+    },
+    {
+      type = "recipe",
+      name = "nullius-small-fluid-wagon-3",
+      enabled = false,
+      show_amount_in_title = false,
+      always_show_products = true,
+	  always_show_made_in = true,
+      category = "large-crafting",
+      energy_required = 25,
+      ingredients = {
+	    {"nullius-fluid-wagon-3", 1},
+		{"nullius-small-fluid-wagon-2", 2}
+      },
+      result = "nullius-small-fluid-wagon-3",
+	  result_count = 2
+    },
+    {
+      type = "technology",
+      name = "nullius-light-rail",
+      order = "nullius-cn",
+	  icons = {{
+        icon = "__Mini_Trains__/data/icons/tech256.png",
+        icon_size = 256
+	  }},
+      effects = {
+	    { type = "unlock-recipe", recipe = "nullius-small-locomotive-1" },
+        { type = "unlock-recipe", recipe = "nullius-small-cargo-wagon-1" }
+      },
+      unit = {
+        count = 10, time = 10,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 2}
+        }
+      },
+      prerequisites = {"nullius-personal-transportation-1", "nullius-checkpoint-freight-transportation"}
+    }
+  })
+end

@@ -1,6 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.1
+Date: 20.11.2023
+  Features:
+    - When copying and pasting the properties of a turbine, electrolyzer, or
+      compressor to another, copy the priority of the original building.
+    - When using a pipette on a mirrored or prioritized building, construct
+      that item in the same configuration as the originally sampled building.
+  Balancing:
+    - Make solar collector 1 cheaper.
+  Bugfixes:
+    - Don't spawn cargo ship offshore hydrothermal vents on land.
+  Changes:
+    - Set unoccupied body associated_player to last player that used it.
+  Modding:
+    - Support Mini Trains mod.
+  Translation:
+    - Updated Russian localization by Shadow_Man.
+---------------------------------------------------------------------------------------------------
 Version: 1.7.0
-Date: 14.11.2023
+Date: 15.11.2023
   Features:
     - Optional new multiplayer game mode in which players begin game at
       separate crash sites in separate factions.  New alignment technologies
@@ -41,6 +59,7 @@ Date: 14.11.2023
     - Show made in for reactor, silo, truck 2, and mecha recipes.
     - Fix warnings about incorrect sprite mipmaps.
     - Fix broken electrolyzer name.
+    - Crafting category for medium tank 3 wrongly said it was hand craftable.
   Graphics:
     - Increase visibility of tiny worm decals on map.
     - Differentiate icon of copper version of insulated wire recipe.

@@ -72,6 +72,9 @@ function switch_body(player, target)
 
   player.set_controller{type=defines.controllers.character, character=target}
   update_player_upgrades(player)
+  if ((oldchar ~= nil) and oldchar.valid and (oldchar.player == nil)) then
+    oldchar.associated_player = player
+  end
 
   local do_set_tag = true
   local old_passenger = nil
