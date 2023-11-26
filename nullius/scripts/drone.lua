@@ -707,14 +707,20 @@ function husbandry_effect(event)
 
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
-  local near = area_bound(c, 3.6)
-  local overlap_water = s.count_tiles_filtered{area=near, limit=2,
-      name={"deepwater", "water", "water-shallow",
-	        "deepwater-green", "water-green", "water-mud"}}
-  local overlap_nest = s.count_entities_filtered{area=near, limit=2,
-      invert=true, type={"unit", "tree", "simple-entity", "item-entity",
-	      "artillery-projectile", "entity-ghost", "resource", "cliff"}}
-  if ((overlap_nest > 0) or (overlap_water > 0)) then return end
+  local p = s.find_non_colliding_position("biter-spawner", c, 12, 1)
+  if (p == nil) then
+    local near = area_bound(c, 5.6)
+    local entities = s.find_entities_filtered{area=near, limit=16,
+        type={"unit", "tree", "simple-entity", "item-entity", "cliff"}}
+    for _, e in pairs(entities) do
+      if (e.valid and e.destructible) then
+        e.destroy({do_cliff_correction = true})
+      end
+    end
+	p = s.find_non_colliding_position("biter-spawner", c, 24, 2)
+	if (p == nil) then return end
+  end
+  c = p
 
   local far = area_bound(c, 160)
   local mid = area_bound(c, 56)
@@ -739,14 +745,6 @@ function husbandry_effect(event)
 	  (global.nullius_mission_status[2] - 55) / 30)
   local odds = math.sqrt(math.max(0, ((bonus / penalty) - 0.1))) - 0.2
   if (math.random() > odds) then return end
-
-  local entities = s.find_entities_filtered{area=near, limit=2,
-      type={"unit", "tree", "simple-entity", "item-entity", "cliff"}}
-  for _, e in pairs(entities) do
-    if (e.valid and e.destructible) then
-      e.destroy({do_cliff_correction = true})
-    end
-  end
 
   local nest = s.create_entity{name="biter-spawner", amount=1, position=c}
   if (nest == nil) then return end

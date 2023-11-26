@@ -2007,10 +2007,10 @@ data:extend({
     category = "huge-crafting",
     energy_required = 150,
     ingredients = {
-      {"nullius-lab-3", 2},
-      {"nullius-flotation-cell-3", 1},
-      {"nullius-air-filter-3", 1},
-      {"nullius-hydro-plant-3", 1},
+      {"nullius-lab-2", 3},
+	  {"nullius-sensor-node-2", 1},
+      {"nullius-nanofabricator-1", 1},
+	  {"nullius-logistic-bot-2", 2},
       {"nullius-box-insulation", 10}
     },
     result = "nullius-biology-lab"

@@ -683,22 +683,20 @@ data:extend({
 	    {"technology-name.nullius-fueling"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    3, "nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
+		    2, "nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    2, "nullius-water-canister", {"item-name.nullius-water-canister"}}}},
+		    1, "nullius-water-canister", {"item-name.nullius-water-canister"}}}},
     order = "nullius-yc",
     icons = {
-      {
-        icon = "__base__/graphics/technology/railway.png",
-        icon_size = 256,
-        icon_mipmaps = 4
+      { 
+		icon = ICONPATH .. "canister-water.png",
+        icon_size = 64
       },
       {
         icon = ICONPATH .. "checkpoint.png",
         icon_size = 64,
         icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6},
-		scale = 4
+		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
     unit = {
@@ -1193,7 +1191,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-propene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 400000, "nullius-propene", {"fluid-name.nullius-propene"}}},
+	    {"technology-description.nullius-fluid", 300000, "nullius-propene", {"fluid-name.nullius-propene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1211,7 +1209,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-chemical-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-metallurgy-3", "nullius-explosives-1"},
+    prerequisites = {"nullius-metallurgy-3", "nullius-air-separation-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1304,7 +1302,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-crushed-iron-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 50000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
+	    {"technology-description.nullius-item", 40000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1331,7 +1329,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-aluminum-carbide"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 50000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
+	    {"technology-description.nullius-item", 40000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1446,7 +1444,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"item-name.nullius-explosive"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 30, "cliff-explosives", {"item-name.nullius-explosive"}}},
+	    {"technology-description.nullius-item", 50, "cliff-explosives", {"item-name.nullius-explosive"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -2598,7 +2596,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-woodworking"},
+    prerequisites = {"nullius-woodworking", "nullius-biochemistry-5"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2739,7 +2737,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-biochemistry-7"},
+    prerequisites = { "nullius-air-separation-5" },
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2829,7 +2827,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-carbon-sequestration-3"},
+    prerequisites = {"nullius-carbon-sequestration-4"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2838,7 +2836,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"objective-name.nullius-algae-seeding"}},
     localised_description = {"objective-description.nullius-objective",
-	    {"item-name.nullius-algae"}, 40},
+	    {"item-name.nullius-algae"}, 30},
     order = "nullius-yg",
     icons = {
       {
@@ -2849,10 +2847,10 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-biochemistry-2"},
+    prerequisites = {"nullius-ecology-1", "nullius-botany-2"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2876,7 +2874,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-biochemistry-4", "nullius-botany-2"},
+    prerequisites = {"nullius-zoology-3", "nullius-evolution-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2900,7 +2898,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-biochemistry-5"},
+    prerequisites = { "nullius-ecology-5" },
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2924,7 +2922,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-zoology-3"},
+    prerequisites = { "nullius-ecology-6" },
     ignore_tech_cost_multiplier = true
   },
   {
@@ -2933,21 +2931,53 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 1}},
     localised_description = {"objective-description.nullius-objective",
-	    {"fluid-name.nullius-oxygen"}, 40},
+	    {"fluid-name.nullius-oxygen"}, 25},
+    order = "nullius-yg",
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-physics-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-ecology-2", "nullius-checkpoint-wood"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-oxygen-partial-2",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 2}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"fluid-name.nullius-oxygen"}, 50},
     order = "nullius-yg",
     unit = {
       count = 1,
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-zoology-1"},
+    prerequisites = { "nullius-ecology-4", "nullius-wildlife-management-1" },
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-oxygen-partial-3",
+    localised_name = {"technology-name.nullius-checkpoint",
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 3}},
+    localised_description = {"objective-description.nullius-objective",
+	    {"fluid-name.nullius-oxygen"}, 75},
+    order = "nullius-yg",
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-ecology-5", "nullius-evolution-3"},
     ignore_tech_cost_multiplier = true
   },
   {
     type = "technology",
     name = "nullius-checkpoint-oxygen",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 2}},
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 4}},
     localised_description = {"objective-description.nullius-atmospheric-modification"},
     order = "nullius-yg",
     unit = {
@@ -2955,7 +2985,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-checkpoint-worm", "nullius-zoology-2"},
+    prerequisites = {"nullius-ecology-6"},
     ignore_tech_cost_multiplier = true
   }
 })
@@ -2968,7 +2998,10 @@ data.raw.technology["nullius-checkpoint-oxygen"].icons =
     util.table.deepcopy(data.raw.fluid["nullius-compressed-oxygen"].icons)
 table.insert(data.raw.technology["nullius-checkpoint-oxygen"].icons,
     checkmark(0.56))
-
+data.raw.technology["nullius-checkpoint-oxygen-partial-2"].icons = 
+    data.raw.technology["nullius-checkpoint-oxygen-partial"].icons
+data.raw.technology["nullius-checkpoint-oxygen-partial-3"].icons = 
+    data.raw.technology["nullius-checkpoint-oxygen"].icons
 
 if mods["lambent-nil"] then
   data:extend({

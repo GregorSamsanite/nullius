@@ -12,7 +12,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 5,
+      count = 2,
       ingredients = {{"nullius-geology-pack", 1}},
       time = 5
     },
@@ -29,7 +29,7 @@ data:extend({
         modifier = 0.01
     }},
     unit = {
-      count = 10,
+      count = 3,
       ingredients = {{"nullius-geology-pack", 1}},
       time = 5
     },
@@ -52,7 +52,7 @@ data:extend({
       }
 	},
     unit = {
-      count = 15,
+      count = 5,
       ingredients = {{"nullius-geology-pack", 1}},
       time = 10
     },
@@ -69,7 +69,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 10,
+      count = 3,
       ingredients = {{"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1}},
       time = 10
     },
@@ -92,7 +92,7 @@ data:extend({
       }
 	},
     unit = {
-      count = 15,
+      count = 4,
       ingredients = {{"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1}},
       time = 10
     },
@@ -109,7 +109,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 20,
+      count = 6,
       ingredients = {{"nullius-geology-pack", 2}, {"nullius-climatology-pack", 1}},
       time = 15
     },
@@ -126,7 +126,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 20,
+      count = 6,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}
@@ -152,7 +152,7 @@ data:extend({
       }
 	},
     unit = {
-      count = 40,
+      count = 12,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}
@@ -172,7 +172,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 60,
+      count = 25,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}
@@ -192,7 +192,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 80,
+      count = 60,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -218,7 +218,7 @@ data:extend({
       }
 	},
     unit = {
-      count = 120,
+      count = 100,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -238,7 +238,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 160,
+      count = 150,
       ingredients = {
         {"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -258,7 +258,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 200,
+      count = 150,
       ingredients = {
         {"nullius-geology-pack", 4}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -285,7 +285,7 @@ data:extend({
       }
 	},
     unit = {
-      count = 400,
+      count = 300,
       ingredients = {
         {"nullius-geology-pack", 4}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -306,7 +306,7 @@ data:extend({
         modifier = 0.02
     }},
     unit = {
-      count = 800,
+      count = 600,
       ingredients = {
         {"nullius-geology-pack", 4}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -562,7 +562,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-cybernetics-6", "nullius-checkpoint-wood"},
+    prerequisites = {"nullius-cybernetics-6"},
     max_level = "infinite",
     upgrade = true
   },
@@ -749,7 +749,7 @@ data:extend({
       },
       time = 600
     },
-    prerequisites = {"nullius-artificial-intelligence-2", "nullius-biochemistry-7"},
+    prerequisites = { "nullius-artificial-intelligence-2", "nullius-evolution-5" },
     max_level = "infinite",
     upgrade = true
   },
@@ -777,7 +777,7 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-personal-storage-4", "nullius-biochemistry-5"},
+    prerequisites = {"nullius-personal-storage-4"},
     max_level = "infinite",
     upgrade = true
   },

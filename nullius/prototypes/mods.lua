@@ -531,7 +531,7 @@ data:extend({
 	localised_description = {"technology-description.nullius-miniloader"},
 	effects = {{type = "unlock-recipe", recipe = "nullius-loader-3"}},
     unit = {
-      count = 100,
+      count = 50,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1240,7 +1240,7 @@ data:extend({
       }
     },
     unit = {
-      count = 20,
+      count = 15,
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}},
       time = 10
@@ -1263,7 +1263,7 @@ data:extend({
       }
     },
     unit = {
-      count = 120,
+      count = 100,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1544,7 +1544,7 @@ data:extend({
       }
     },
     unit = {
-      count = 8,
+      count = 6,
       ingredients = {{"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1}},
       time = 3
     },
@@ -1576,7 +1576,7 @@ data:extend({
       }
     },
     unit = {
-      count = 20,
+      count = 10,
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}},
       time = 6
@@ -3517,7 +3517,7 @@ data:extend({
       }
     },
     unit = {
-      count = 20,
+      count = 12,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}

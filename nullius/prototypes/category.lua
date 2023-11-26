@@ -387,6 +387,18 @@ data:extend({
     group = "drones",
     order = "ic"
   },
+  {
+    type = "item-subgroup",
+    name = "farming",
+    group = "drones",
+    order = "jb"
+  },
+  {
+    type = "item-subgroup",
+    name = "farming-remote",
+    group = "drones",
+    order = "jc"
+  },
 
   {
     type = "item-group",
@@ -848,18 +860,6 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "farming",
-    group = "biology",
-    order = "i"
-  },
-  {
-    type = "item-subgroup",
-    name = "farming-remote",
-    group = "biology",
-    order = "j"
-  },
-  {
-    type = "item-subgroup",
     name = "woodworking",
     group = "biology",
     order = "m"
@@ -868,7 +868,13 @@ data:extend({
     type = "item-subgroup",
     name = "biology-burning",
     group = "biology",
-    order = "n"
+    order = "nb"
+  },
+  {
+    type = "item-subgroup",
+    name = "biology-disposal",
+    group = "biology",
+    order = "nc"
   },
   {
     type = "item-subgroup",

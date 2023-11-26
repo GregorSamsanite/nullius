@@ -42,7 +42,8 @@ data:extend({
     icons = {{
         icon = "__base__/graphics/icons/coal-1.png",
         icon_size = 64,
-		icon_mipmaps = 4
+		icon_mipmaps = 4,
+		tint = {0.5, 0.5, 0.5}
     }},
     subgroup = "biology-material",
     order = "nullius-g",
@@ -97,14 +98,14 @@ data:extend({
       primary = data.raw.fluid["nullius-glycerol"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
     },
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
       {type="item", name="nullius-cellulose", amount=3},
       {type="fluid", name="nullius-acid-hydrochloric", amount=4, fluidbox_index=1},
       {type="fluid", name="nullius-caustic-solution", amount=4, fluidbox_index=2}
     },
     results = {
-      {type="item", name="nullius-sugar", amount=4},
+      {type="item", name="nullius-sugar", amount=2},
       {type="fluid", name="nullius-wastewater", amount=6}
     },
     main_product = "nullius-sugar"
@@ -122,14 +123,14 @@ data:extend({
       primary = data.raw.fluid["nullius-glycerol"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color
     },
-    energy_required = 5,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-cellulose", amount=3},
       {type="fluid", name="nullius-acid-hydrochloric", amount=20, fluidbox_index=1},
       {type="fluid", name="nullius-caustic-solution", amount=20, fluidbox_index=2}
     },
     results = {
-      {type="item", name="nullius-box-sugar", amount=4},
+      {type="item", name="nullius-box-sugar", amount=2},
       {type="fluid", name="nullius-wastewater", amount=30}
     },
     main_product = "nullius-box-sugar"
@@ -272,13 +273,13 @@ data:extend({
     order = "nullius-bd",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-oil", amount=20},
-      {type="fluid", name="nullius-steam", amount=20}
+      {type="fluid", name="nullius-oil", amount=16},
+      {type="fluid", name="nullius-steam", amount=18}
     },
     results = {
       {type="fluid", name="nullius-lubricant", amount=10},
-      {type="fluid", name="nullius-methane", amount=12},
-      {type="fluid", name="nullius-carbon-monoxide", amount=15}
+      {type="fluid", name="nullius-methane", amount=8},
+      {type="fluid", name="nullius-carbon-monoxide", amount=12}
     },
     main_product = "nullius-lubricant"
   },
@@ -291,13 +292,13 @@ data:extend({
     category = "distillation",
     subgroup = "biology-oil",
     order = "nullius-d",
-    energy_required = 1,
+    energy_required = 3,
     ingredients = {
       {type="fluid", name="nullius-fatty-acids", amount=20},
-      {type="fluid", name="nullius-methanol", amount=6}
+      {type="fluid", name="nullius-methanol", amount=8}
     },
     results = {
-      {type="fluid", name="nullius-biodiesel", amount=25},
+      {type="fluid", name="nullius-biodiesel", amount=24},
       {type="fluid", name="nullius-wastewater", amount=5}
     },
     main_product = "nullius-biodiesel"
@@ -563,14 +564,14 @@ data:extend({
 	order = "nullius-bb",
     energy_required = 30,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=3},
-      {type="item", name="nullius-box-chemical-pack", amount=4},
+      {type="fluid", name="nullius-nucleotides", amount=18, fluidbox_index=1},
+      {type="item", name="nullius-physics-pack", amount=6},
+      {type="item", name="nullius-chemical-pack", amount=12},
       {type="item", name="nullius-canister", amount=1}
     },
     results = {
       {type="item", name="nullius-bacteria-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=5}
+      {type="fluid", name="nullius-wastewater", amount=12}
     },
     main_product = "nullius-bacteria-genome"
   },
@@ -584,32 +585,38 @@ data:extend({
         icon_size = 64,
 		scale = 0.5
       },
-	  {
-		icon = ICONPATH .. "bacteria.png",
-        icon_size = 64,
-        scale = 0.3,
-        shift = {10, -10}
-      },
       {
         icon = ICONPATH .. "genome.png",
         icon_size = 64,
-        scale = 0.45
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
       }
     },
     enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "nanotechnology",
 	order = "nullius-bc",
-    energy_required = 25,
+    energy_required = 45,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
+      {type="fluid", name="nullius-nucleotides", amount=25, fluidbox_index=1},
 	  {type="fluid", name="nullius-bacteria", amount=20, fluidbox_index=2},
-      {type="item", name="nullius-box-astronomy-pack", amount=2},
-      {type="item", name="nullius-box-chemical-pack", amount=3},
-      {type="item", name="nullius-canister", amount=1}
+	  {type="item", name="nullius-physics-pack", amount=4},
+      {type="item", name="nullius-chemical-pack", amount=8},
+      {type="item", name="nullius-astronomy-pack", amount=3},
+      {type="item", name="nullius-canister", amount=2}
     },
     results = {
-      {type="item", name="nullius-bacteria-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=20}
+      {type="item", name="nullius-bacteria-genome", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=30}
     },
     main_product = "nullius-bacteria-genome"
   },
@@ -631,6 +638,8 @@ data:extend({
     },
     enabled = false,
     allow_decomposition = false,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "nanotechnology",
     subgroup = "biology-bacteria",
     order = "nullius-cb",
@@ -657,7 +666,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "biology-bacteria",
     order = "nullius-cc",
-    energy_required = 9,
+    energy_required = 16,
     ingredients = {
       {type="fluid", name="nullius-saline", amount=40},
       {type="fluid", name="nullius-bacteria", amount=6},
@@ -692,7 +701,7 @@ data:extend({
     category = "ore-flotation",
     subgroup = "biology-bacteria",
     order = "nullius-cd",
-    energy_required = 8,
+    energy_required = 15,
     ingredients = {
       {type="fluid", name="nullius-saline", amount=40},
       {type="fluid", name="nullius-bacteria", amount=5},
@@ -730,16 +739,16 @@ data:extend({
     subgroup = "biology-bacteria",
     order = "nullius-f",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-methanol"].flow_color },
-    energy_required = 3,
+    energy_required = 10,
     ingredients = {
-      {type="item", name="nullius-sugar", amount=4},
-      {type="fluid", name="nullius-freshwater", amount=20},
+      {type="item", name="nullius-sugar", amount=6},
+      {type="fluid", name="nullius-freshwater", amount=100},
       {type="fluid", name="nullius-bacteria", amount=1}
     },
     results = {
-      {type="fluid", name="nullius-methanol", amount=25},
-      {type="fluid", name="nullius-carbon-dioxide", amount=20},
-      {type="fluid", name="nullius-wastewater", amount=10}
+      {type="fluid", name="nullius-methanol", amount=80},
+      {type="fluid", name="nullius-carbon-dioxide", amount=60},
+      {type="fluid", name="nullius-wastewater", amount=40}
     },
     main_product = "nullius-methanol"
   },
@@ -770,16 +779,16 @@ data:extend({
     subgroup = "boxed-biology",
     order = "nullius-fc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-methanol"].flow_color },
-    energy_required = 15,
+    energy_required = 50,
     ingredients = {
-      {type="item", name="nullius-box-sugar", amount=4},
-      {type="fluid", name="nullius-freshwater", amount=100},
+      {type="item", name="nullius-box-sugar", amount=6},
+      {type="fluid", name="nullius-freshwater", amount=500},
       {type="fluid", name="nullius-bacteria", amount=5}
     },
     results = {
-      {type="fluid", name="nullius-methanol", amount=125},
-      {type="fluid", name="nullius-carbon-dioxide", amount=100},
-      {type="fluid", name="nullius-wastewater", amount=50}
+      {type="fluid", name="nullius-methanol", amount=400},
+      {type="fluid", name="nullius-carbon-dioxide", amount=300},
+      {type="fluid", name="nullius-wastewater", amount=200}
     },
     main_product = "nullius-methanol"
   },
@@ -929,15 +938,15 @@ data:extend({
     subgroup = "biology-bacteria",
     order = "nullius-g",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-nucleotides"].flow_color },
-    energy_required = 4,
+    energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=12},
-      {type="fluid", name="nullius-bacteria", amount=2}
+      {type="fluid", name="nullius-nucleotides", amount=8},
+      {type="fluid", name="nullius-bacteria", amount=1}
     },
     results = {
-      {type="fluid", name="nullius-amino-acids", amount=5},
+      {type="fluid", name="nullius-amino-acids", amount=4},
       {type="item", name="nullius-sugar", amount=1},
-      {type="fluid", name="nullius-methane", amount=8},
+      {type="fluid", name="nullius-methane", amount=5},
       {type="fluid", name="nullius-wastewater", amount=6}
     },
     main_product = "nullius-amino-acids"
@@ -1006,18 +1015,63 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-algae-genome",
+	localised_name = {"", {"item-name.nullius-algae-genome"}, " ", 1},
     enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "nanotechnology",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-bacteria-genome", amount=1},
-      {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=1},
-      {type="item", name="nullius-box-climatology-pack", amount=3}
+      {type="fluid", name="nullius-nucleotides", amount=10, fluidbox_index=1},
+      {type="item", name="nullius-climatology-pack", amount=12}
     },
     results = {
       {type="item", name="nullius-algae-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=3}
+      {type="fluid", name="nullius-wastewater", amount=4}
+    },
+    main_product = "nullius-algae-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-algae-genome-2",
+    localised_name = {"", {"item-name.nullius-algae-genome"}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "algae.png",
+        icon_size = 64,
+		scale = 0.5
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+	order = "nullius-bc",
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-bacteria-genome", amount=1},
+      {type="fluid", name="nullius-nucleotides", amount=16, fluidbox_index=1},
+      {type="item", name="nullius-climatology-pack", amount=15},
+      {type="item", name="nullius-astronomy-pack", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-algae-genome", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=6}
     },
     main_product = "nullius-algae-genome"
   },
@@ -1098,7 +1152,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-db",
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=125},
       {type="fluid", name="nullius-air", amount=500},
@@ -1120,7 +1174,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 13,
+    energy_required = 25,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=500},
       {type="fluid", name="nullius-air", amount=2000},
@@ -1154,7 +1208,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dd",
-    energy_required = 12,
+    energy_required = 24,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=500},
       {type="fluid", name="nullius-air", amount=1800},
@@ -1215,8 +1269,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-	subgroup = "biology-algae",
-    order = "nullius-ed",
+	subgroup = "biology-disposal",
+    order = "nullius-c",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-algae-spore", amount=4},
@@ -1254,17 +1308,17 @@ data:extend({
     category = "ore-flotation",
     subgroup = "biology-algae",
     order = "nullius-f",
-    energy_required = 45,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-algae-spore", amount=4},
-      {type="item", name="nullius-mineral-dust", amount=30},
-      {type="fluid", name="nullius-wastewater", amount=800},
+      {type="item", name="nullius-mineral-dust", amount=20},
+      {type="fluid", name="nullius-wastewater", amount=600},
       {type="fluid", name="nullius-bacteria", amount=5}
     },
     results = {
-      {type="item", name="nullius-cellulose", amount=5},
-      {type="fluid", name="nullius-oil", amount=100},
-      {type="fluid", name="nullius-methane", amount=140}
+      {type="item", name="nullius-cellulose", amount=10},
+      {type="fluid", name="nullius-oil", amount=200},
+      {type="fluid", name="nullius-methane", amount=250}
     },
     main_product = "nullius-oil"
   },
@@ -1299,17 +1353,17 @@ data:extend({
     category = "ore-flotation",
     subgroup = "boxed-biology",
     order = "nullius-fd",
-    energy_required = 45,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-algae-spore", amount=4},
-      {type="item", name="nullius-box-mineral-dust", amount=6},
-      {type="fluid", name="nullius-wastewater", amount=800},
+      {type="item", name="nullius-box-mineral-dust", amount=4},
+      {type="fluid", name="nullius-wastewater", amount=600},
       {type="fluid", name="nullius-bacteria", amount=5}
     },
     results = {
-      {type="item", name="nullius-box-cellulose", amount=1},
-      {type="fluid", name="nullius-oil", amount=100},
-      {type="fluid", name="nullius-methane", amount=140}
+      {type="item", name="nullius-box-cellulose", amount=2},
+      {type="fluid", name="nullius-oil", amount=200},
+      {type="fluid", name="nullius-methane", amount=250}
     },
     main_product = "nullius-oil"
   },
@@ -1377,19 +1431,63 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-grass-genome",
+	localised_name = {"", {"item-name.nullius-grass-genome"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
     energy_required = 30,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
+      {type="fluid", name="nullius-nucleotides", amount=12, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=1, fluidbox_index=2},
       {type="item", name="nullius-algae-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=2},
-      {type="item", name="nullius-box-geology-pack", amount=4}
+      {type="item", name="nullius-geology-pack", amount=6}
     },
     results = {
       {type="item", name="nullius-grass-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=3}
+      {type="fluid", name="nullius-wastewater", amount=5}
+    },
+    main_product = "nullius-grass-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-grass-genome-2",
+    localised_name = {"", {"item-name.nullius-grass-genome"}, " ", 2},
+	icons = {
+      {
+        icon = ICONPATH .. "grass.png",
+        icon_size = 64,
+		scale = 0.5
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+	order = "nullius-bc",
+    energy_required = 45,
+    ingredients = {
+      {type="fluid", name="nullius-nucleotides", amount=20, fluidbox_index=1},
+      {type="fluid", name="nullius-bacteria", amount=2, fluidbox_index=2},
+      {type="item", name="nullius-algae-genome", amount=1},
+      {type="item", name="nullius-geology-pack", amount=8},
+      {type="item", name="nullius-astronomy-pack", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-grass-genome", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=8}
     },
     main_product = "nullius-grass-genome"
   },
@@ -1470,7 +1568,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-db",
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=100},
       {type="fluid", name="nullius-air", amount=600},
@@ -1492,7 +1590,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=400},
       {type="fluid", name="nullius-air", amount=2500},
@@ -1527,7 +1625,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dd",
-    energy_required = 18,
+    energy_required = 36,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=400},
       {type="fluid", name="nullius-air", amount=2200},
@@ -1614,13 +1712,13 @@ data:extend({
     category = "bio-harvesting",
     subgroup = "biology-grass",
     order = "nullius-g",
-    energy_required = 1,
+    energy_required = 2,
     ingredients = {
       {type="item", name="nullius-grass-seed", amount=4}
     },
     results = {
-      {type="item", name="nullius-cellulose", amount=3},
-      {type="item", name="nullius-sugar", amount=2}
+      {type="item", name="nullius-cellulose", amount=2},
+      {type="item", name="nullius-sugar", amount=3}
     },
     main_product = "nullius-cellulose"
   },
@@ -1659,13 +1757,13 @@ data:extend({
     category = "bio-harvesting",
     subgroup = "boxed-biology",
     order = "nullius-bc",
-    energy_required = 5,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-box-grass-seed", amount=4}
     },
     results = {
-      {type="item", name="nullius-box-cellulose", amount=3},
-      {type="item", name="nullius-box-sugar", amount=2}
+      {type="item", name="nullius-box-cellulose", amount=2},
+      {type="item", name="nullius-box-sugar", amount=3}
     },
     main_product = "nullius-box-cellulose"
   },
@@ -1823,10 +1921,10 @@ data:extend({
     category = "wet-smelting",
     subgroup = "biology-burning",
     order = "nullius-f",
-    energy_required = 8,
+    energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-cellulose", amount=4},
-      {type="fluid", name="nullius-argon", amount=3}
+      {type="item", name="nullius-cellulose", amount=5},
+      {type="fluid", name="nullius-argon", amount=4}
     },
     results = {
 	  {type="item", name="nullius-carbon-fiber", amount=1},
@@ -1860,10 +1958,10 @@ data:extend({
     category = "bulk-smelting",
     subgroup = "boxed-biology-burning",
     order = "nullius-f",
-    energy_required = 8,
+    energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-box-cellulose", amount=4},
-      {type="fluid", name="nullius-argon", amount=15}
+      {type="item", name="nullius-box-cellulose", amount=5},
+      {type="fluid", name="nullius-argon", amount=20}
     },
     results = {
 	  {type="item", name="nullius-box-carbon-fiber", amount=1},
@@ -1892,7 +1990,7 @@ data:extend({
     enabled = false,
     category = "combustion",
     subgroup = "biology-burning",
-    order = "nullius-b",
+    order = "nullius-ca",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-wood", amount=3},
@@ -1933,7 +2031,7 @@ data:extend({
     enabled = false,
     category = "combustion",
     subgroup = "boxed-biology-burning",
-    order = "nullius-b",
+    order = "nullius-ca",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-wood", amount=3},
@@ -2095,6 +2193,7 @@ data:extend({
     enabled = false,
     category = "distillation",
     subgroup = "biology-burning",
+	order = "nullius-b",
 	crafting_machine_tint = {
       primary = data.raw.fluid["nullius-petroleum"].flow_color,
       secondary = data.raw.fluid["nullius-petroleum"].flow_color
@@ -2119,7 +2218,7 @@ data:extend({
     enabled = false,
     category = "distillation",
     subgroup = "boxed-biology-burning",
-	order = "nullius-s",
+	order = "nullius-b",
 	crafting_machine_tint = {
       primary = data.raw.fluid["nullius-petroleum"].flow_color,
       secondary = data.raw.fluid["nullius-petroleum"].flow_color
@@ -2143,7 +2242,8 @@ data:extend({
     name = "nullius-petroleum",
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "biology-burning",
+	subgroup = "biology-oil",
+    order = "nullius-e",
 	crafting_machine_tint = {
       primary = data.raw.fluid["nullius-petroleum"].flow_color,
       secondary = data.raw.fluid["nullius-petroleum"].flow_color
@@ -2186,7 +2286,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"nullius-terraforming-remote-grey", 1},
-      {"nullius-productivity-module-3", 1}
+      {"nullius-yield-module-3", 1}
     },
     result = "nullius-sequestration-coal-remote"
   },
@@ -2219,7 +2319,7 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {"nullius-terraforming-remote-tan", 1},
-      {"nullius-productivity-module-3", 1}
+      {"nullius-yield-module-3", 1}
     },
     result = "nullius-sequestration-petroleum-remote"
   },
@@ -2291,19 +2391,64 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-worm-genome",
+	localised_name = {"", {"item-name.nullius-worm-genome"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
     energy_required = 40,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=10, fluidbox_index=1},
+      {type="fluid", name="nullius-nucleotides", amount=16, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=2, fluidbox_index=2},
       {type="item", name="nullius-algae-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=2},
-      {type="item", name="nullius-box-geology-pack", amount=3}
+      {type="item", name="nullius-geology-pack", amount=8}
     },
     results = {
       {type="item", name="nullius-worm-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=4}
+      {type="fluid", name="nullius-wastewater", amount=8}
+    },
+    main_product = "nullius-worm-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-worm-genome-2",
+    localised_name = {"", {"item-name.nullius-worm-genome"}, " ", 2},
+	icons = {
+      {
+	    icon = "__base__/graphics/icons/small-worm.png",
+        icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.5
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+	order = "nullius-bc",
+    energy_required = 60,
+    ingredients = {
+      {type="fluid", name="nullius-nucleotides", amount=25, fluidbox_index=1},
+      {type="fluid", name="nullius-bacteria", amount=3, fluidbox_index=2},
+      {type="item", name="nullius-algae-genome", amount=1},
+      {type="item", name="nullius-geology-pack", amount=10},
+      {type="item", name="nullius-astronomy-pack", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-worm-genome", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=12}
     },
     main_product = "nullius-worm-genome"
   },
@@ -2386,7 +2531,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-db",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=100},
       {type="item", name="nullius-sand", amount=2},
@@ -2409,7 +2554,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 28,
+    energy_required = 60,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=320},
       {type="item", name="nullius-sand", amount=7},
@@ -2445,7 +2590,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dd",
-    energy_required = 25,
+    energy_required = 55,
     ingredients = {
       {type="fluid", name="nullius-sludge", amount=300},
       {type="item", name="nullius-sand", amount=6},
@@ -2484,16 +2629,16 @@ data:extend({
     subgroup = "biology-worm",
     order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-amino-acids"].flow_color },
-    energy_required = 5,
+    energy_required = 8,
     ingredients = {
-      {type="item", name="nullius-worm", amount=1},
-      {type="fluid", name="nullius-saline", amount=40}
+      {type="item", name="nullius-worm", amount=2},
+      {type="fluid", name="nullius-saline", amount=75}
     },
     results = {
-      {type="fluid", name="nullius-amino-acids", amount=30},
-      {type="fluid", name="nullius-ammonia", amount=12},
-      {type="fluid", name="nullius-wastewater", amount=25},
-      {type="item", name="nullius-rutile", amount=1}
+      {type="fluid", name="nullius-amino-acids", amount=60},
+      {type="fluid", name="nullius-ammonia", amount=25},
+      {type="fluid", name="nullius-wastewater", amount=50},
+      {type="item", name="nullius-rutile", amount=3}
     },
     main_product = "nullius-amino-acids"
   },
@@ -2520,8 +2665,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-worm",
-    order = "nullius-fc",
+	subgroup = "biology-disposal",
+    order = "nullius-db",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-worm", amount=1}
@@ -2650,8 +2795,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-worm",
-    order = "nullius-gc",
+	subgroup = "biology-disposal",
+    order = "nullius-dc",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-worm-egg", amount=3}
@@ -2752,18 +2897,62 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-tree-genome",
+	localised_name = {"", {"item-name.nullius-tree-genome"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
     energy_required = 60,
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
       {type="item", name="nullius-grass-genome", amount=2},
-      {type="item", name="nullius-box-astronomy-pack", amount=1},
-      {type="item", name="nullius-box-mechanical-pack", amount=6}
+      {type="item", name="nullius-mechanical-pack", amount=8}
     },
     results = {
       {type="item", name="nullius-tree-genome", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=5}
+      {type="fluid", name="nullius-wastewater", amount=3}
+    },
+    main_product = "nullius-tree-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-tree-genome-2",
+    localised_name = {"", {"item-name.nullius-tree-genome"}, " ", 2},
+	icons = {
+      {
+		icon = "__base__/graphics/icons/tree-08.png",
+        icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.5
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+	order = "nullius-bc",
+	energy_required = 40,
+    ingredients = {
+      {type="fluid", name="nullius-nucleotides", amount=5, fluidbox_index=1},
+      {type="item", name="nullius-grass-genome", amount=1},
+      {type="item", name="nullius-mechanical-pack", amount=4},
+      {type="item", name="nullius-astronomy-pack", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-tree-genome", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=2}
     },
     main_product = "nullius-tree-genome"
   },
@@ -2777,12 +2966,12 @@ data:extend({
     energy_required = 270,
     ingredients = {
       {type="item", name="nullius-tree-genome", amount=1},
-      {type="fluid", name="nullius-protocell", amount=15},
-      {type="fluid", name="nullius-amino-acids", amount=10},
-      {type="fluid", name="nullius-oil", amount=12},
-      {type="item", name="nullius-sugar", amount=3},
-      {type="item", name="nullius-rubber", amount=2},
-      {type="item", name="nullius-cellulose", amount=10}
+      {type="fluid", name="nullius-protocell", amount=18},
+      {type="fluid", name="nullius-amino-acids", amount=12},
+      {type="fluid", name="nullius-oil", amount=15},
+      {type="item", name="nullius-sugar", amount=5},
+      {type="item", name="nullius-rubber", amount=3},
+      {type="item", name="nullius-cellulose", amount=25}
     },
     results = {
       {type="item", name="nullius-tree-progenitor", amount=1},
@@ -2811,16 +3000,16 @@ data:extend({
     enabled = false,
     category = "nanotechnology",
 	order = "nullius-cc",
-    energy_required = 480,
+    energy_required = 420,
     ingredients = {
       {type="item", name="nullius-tree-genome", amount=1},
-      {type="fluid", name="nullius-protocell", amount=15},
-      {type="fluid", name="nullius-amino-acids", amount=10},
-      {type="fluid", name="nullius-oil", amount=12},
-      {type="item", name="nullius-rubber", amount=2},
-      {type="item", name="nullius-cellulose", amount=10},
-	  {type="item", name="nullius-tree", amount=8},
-      {type="item", name="nullius-tree-seed", amount=15}
+      {type="fluid", name="nullius-protocell", amount=18},
+      {type="fluid", name="nullius-amino-acids", amount=12},
+      {type="fluid", name="nullius-oil", amount=15},
+      {type="item", name="nullius-rubber", amount=3},
+      {type="item", name="nullius-cellulose", amount=25},
+	  {type="item", name="nullius-tree", amount=4},
+      {type="item", name="nullius-tree-seed", amount=6}
     },
     results = {
       {type="item", name="nullius-tree-progenitor", amount=2},
@@ -2849,7 +3038,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-db",
-    energy_required = 40,
+    energy_required = 80,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=150},
       {type="fluid", name="nullius-air", amount=1600},
@@ -2872,7 +3061,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 55,
+    energy_required = 110,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=650},
       {type="fluid", name="nullius-air", amount=7500},
@@ -2909,7 +3098,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dd",
-    energy_required = 50,
+    energy_required = 100,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=600},
       {type="fluid", name="nullius-air", amount=7000},
@@ -3072,8 +3261,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-tree",
-    order = "nullius-g",
+	subgroup = "biology-material",
+    order = "nullius-cd",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-wood", amount=2}
@@ -3145,12 +3334,12 @@ data:extend({
     order = "nullius-p",
     energy_required = 10,
     ingredients = {
-      {type="item", name="nullius-wood-chip", amount=28},
-	  {type="fluid", name="nullius-epoxy", amount=4}
+      {type="item", name="nullius-wood-chip", amount=26},
+	  {type="fluid", name="nullius-epoxy", amount=5}
     },
     results = {
-      {type="item", name="nullius-wood", amount=15},
-      {type="fluid", name="nullius-carbon-monoxide", amount=3}
+      {type="item", name="nullius-wood", amount=20},
+      {type="fluid", name="nullius-carbon-monoxide", amount=5}
     },
     main_product = "nullius-wood"
   },
@@ -3188,12 +3377,12 @@ data:extend({
     order = "nullius-wp",
     energy_required = 50,
     ingredients = {
-      {type="item", name="nullius-box-wood-chip", amount=28},
-	  {type="fluid", name="nullius-epoxy", amount=20}
+      {type="item", name="nullius-box-wood-chip", amount=26},
+	  {type="fluid", name="nullius-epoxy", amount=25}
     },
     results = {
-      {type="item", name="nullius-box-wood", amount=15},
-      {type="fluid", name="nullius-carbon-monoxide", amount=15}
+      {type="item", name="nullius-box-wood", amount=20},
+      {type="fluid", name="nullius-carbon-monoxide", amount=20}
     },
     main_product = "nullius-box-wood"
   },
@@ -3222,14 +3411,14 @@ data:extend({
     order = "nullius-cc",
     energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-wood-chip", amount=20},
+      {type="item", name="nullius-wood-chip", amount=30},
 	  {type="item", name="nullius-sodium-sulfate", amount=1},
 	  {type="item", name="nullius-graphite", amount=2},
-	  {type="fluid", name="nullius-caustic-solution", amount=12}
+	  {type="fluid", name="nullius-caustic-solution", amount=16}
     },
     results = {
-      {type="item", name="nullius-cellulose", amount=16},
-      {type="fluid", name="nullius-sludge", amount=12}
+      {type="item", name="nullius-cellulose", amount=25},
+      {type="fluid", name="nullius-sludge", amount=15}
     },
     main_product = "nullius-cellulose"
   },
@@ -3263,14 +3452,14 @@ data:extend({
     order = "nullius-cc",
     energy_required = 60,
     ingredients = {
-      {type="item", name="nullius-box-wood-chip", amount=20},
+      {type="item", name="nullius-box-wood-chip", amount=30},
 	  {type="item", name="nullius-box-sodium-sulfate", amount=1},
 	  {type="item", name="nullius-box-graphite", amount=2},
-	  {type="fluid", name="nullius-caustic-solution", amount=60}
+	  {type="fluid", name="nullius-caustic-solution", amount=80}
     },
     results = {
-      {type="item", name="nullius-box-cellulose", amount=16},
-      {type="fluid", name="nullius-sludge", amount=60}
+      {type="item", name="nullius-box-cellulose", amount=25},
+      {type="fluid", name="nullius-sludge", amount=75}
     },
     main_product = "nullius-box-cellulose"
   },
@@ -3385,18 +3574,62 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-fish-genome",
+	localised_name = {"", {"item-name.nullius-fish-genome"}, " ", 1},
     enabled = false,
     category = "nanotechnology",
     energy_required = 60,
     ingredients = {
       {type="fluid", name="nullius-nucleotides", amount=8, fluidbox_index=1},
       {type="item", name="nullius-worm-genome", amount=2},
-      {type="item", name="nullius-box-astronomy-pack", amount=1},
-      {type="item", name="nullius-box-mechanical-pack", amount=4}
+      {type="item", name="nullius-mechanical-pack", amount=10}
     },
     results = {
       {type="item", name="nullius-fish-genome", amount=1},
       {type="fluid", name="nullius-wastewater", amount=5}
+    },
+    main_product = "nullius-fish-genome"
+  },
+  {
+    type = "recipe",
+    name = "nullius-fish-genome-2",
+    localised_name = {"", {"item-name.nullius-fish-genome"}, " ", 2},
+	icons = {
+      {
+		icon = "__base__/graphics/icons/fish.png",
+        icon_size = 64,
+		icon_mipmaps = 4,
+		scale = 0.5
+      },
+      {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+        scale = 0.4,
+        shift = {-3, 2}
+      },
+	  {
+        icon = "__base__/graphics/icons/military-science-pack.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.3,
+        shift = {9, -8},
+        tint = {0.75, 0.72, 0.78}
+      }
+    },
+    enabled = false,
+	show_amount_in_title = false,
+    always_show_products = true,
+    category = "nanotechnology",
+	order = "nullius-bc",
+	energy_required = 40,
+    ingredients = {
+      {type="fluid", name="nullius-nucleotides", amount=6, fluidbox_index=1},
+      {type="item", name="nullius-worm-genome", amount=1},
+      {type="item", name="nullius-mechanical-pack", amount=5},
+      {type="item", name="nullius-astronomy-pack", amount=1}
+    },
+    results = {
+      {type="item", name="nullius-fish-genome", amount=1},
+      {type="fluid", name="nullius-wastewater", amount=3}
     },
     main_product = "nullius-fish-genome"
   },
@@ -3482,7 +3715,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-db",
-    energy_required = 35,
+    energy_required = 60,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=400},
       {type="fluid", name="nullius-oxygen", amount=500},
@@ -3506,7 +3739,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 45,
+    energy_required = 90,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=900},
       {type="fluid", name="nullius-oxygen", amount=1100},
@@ -3543,7 +3776,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dd",
-    energy_required = 40,
+    energy_required = 80,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=800},
       {type="fluid", name="nullius-oxygen", amount=1000},
@@ -3581,16 +3814,16 @@ data:extend({
     subgroup = "biology-fish",
     order = "nullius-fb",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-oil"].flow_color },
-    energy_required = 5,
+    energy_required = 12,
     ingredients = {
-      {type="item", name="nullius-fish", amount=1},
-      {type="fluid", name="nullius-saline", amount=40}
+      {type="item", name="nullius-fish", amount=3},
+      {type="fluid", name="nullius-saline", amount=125}
     },
     results = {
-      {type="fluid", name="nullius-oil", amount=50},
-      {type="fluid", name="nullius-amino-acids", amount=15},
-      {type="fluid", name="nullius-wastewater", amount=25},
-      {type="item", name="nullius-lithium-chloride", amount=1}
+      {type="fluid", name="nullius-oil", amount=110},
+      {type="fluid", name="nullius-amino-acids", amount=50},
+      {type="fluid", name="nullius-wastewater", amount=80},
+      {type="item", name="nullius-lithium-chloride", amount=2}
     },
     main_product = "nullius-oil"
   },
@@ -3616,8 +3849,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-fish",
-    order = "nullius-fc",
+	subgroup = "biology-disposal",
+    order = "nullius-eb",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-fish", amount=1}
@@ -3745,8 +3978,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-fish",
-    order = "nullius-gc",
+	subgroup = "biology-disposal",
+    order = "nullius-ec",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-fish-egg", amount=4}
@@ -3778,8 +4011,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "nullius-water-treatment",
-    subgroup = "biology-oil",
-    order = "nullius-l",
+	subgroup = "biology-disposal",
+    order = "nullius-b",
     energy_required = 2,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=450},
@@ -3862,13 +4095,13 @@ data:extend({
     name = "nullius-arthropod-genome",
     enabled = false,
     category = "nanotechnology",
-    energy_required = 80,
+    energy_required = 75,
     ingredients = {
-      {type="fluid", name="nullius-nucleotides", amount=15, fluidbox_index=1},
+      {type="fluid", name="nullius-nucleotides", amount=16, fluidbox_index=1},
       {type="fluid", name="nullius-bacteria", amount=3, fluidbox_index=2},
       {type="item", name="nullius-fish-genome", amount=1},
-      {type="item", name="nullius-box-astronomy-pack", amount=3},
-      {type="item", name="nullius-box-physics-pack", amount=12}
+      {type="item", name="nullius-astronomy-pack", amount=4},
+      {type="item", name="nullius-physics-pack", amount=8}
     },
     results = {
       {type="item", name="nullius-arthropod-genome", amount=1},
@@ -3960,7 +4193,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-db",
-    energy_required = 35,
+    energy_required = 70,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=200},
       {type="fluid", name="nullius-oxygen", amount=800},
@@ -3987,7 +4220,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dc",
-    energy_required = 50,
+    energy_required = 100,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=425},
       {type="fluid", name="nullius-oxygen", amount=1600},
@@ -4027,7 +4260,7 @@ data:extend({
     allow_decomposition = false,
     category = "nullius-water-treatment",
     order = "nullius-dd",
-    energy_required = 45,
+    energy_required = 95,
     ingredients = {
       {type="fluid", name="nullius-freshwater", amount=400},
       {type="fluid", name="nullius-oxygen", amount=1500},
@@ -4081,9 +4314,9 @@ data:extend({
       {type="item", name="nullius-plastic", amount=8},
       {type="item", name="nullius-cellulose", amount=3},
       {type="item", name="nullius-graphene", amount=1},
-      {type="fluid", name="nullius-oil", amount=30},
+      {type="fluid", name="nullius-oil", amount=25},
       {type="fluid", name="nullius-amino-acids", amount=40},
-      {type="fluid", name="nullius-heavy-water", amount=5}
+      {type="fluid", name="nullius-heavy-water", amount=6}
     },
     main_product = "nullius-graphene"
   },
@@ -4127,9 +4360,9 @@ data:extend({
       {type="item", name="nullius-box-plastic", amount=8},
       {type="item", name="nullius-box-cellulose", amount=3},
       {type="item", name="nullius-box-graphene", amount=1},
-      {type="fluid", name="nullius-oil", amount=150},
+      {type="fluid", name="nullius-oil", amount=125},
       {type="fluid", name="nullius-amino-acids", amount=200},
-      {type="fluid", name="nullius-heavy-water", amount=25}
+      {type="fluid", name="nullius-heavy-water", amount=30}
     },
     main_product = "nullius-box-graphene"
   },
@@ -4156,8 +4389,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-arthropod",
-    order = "nullius-fc",
+	subgroup = "biology-disposal",
+    order = "nullius-fb",
     energy_required = 4,
     ingredients = {
       {type="fluid", name="nullius-saline", amount=12},
@@ -4336,8 +4569,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    subgroup = "biology-arthropod",
-    order = "nullius-gc",
+	subgroup = "biology-disposal",
+    order = "nullius-fc",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-arthropod-egg", amount=1}
@@ -4369,7 +4602,7 @@ data:extend({
     enabled = false,
     category = "wet-smelting",
     subgroup = "biology-burning",
-    order = "nullius-p",
+    order = "nullius-pb",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-plastic", amount=10},
@@ -4378,6 +4611,40 @@ data:extend({
     results = {
       {type="item", name="nullius-graphite", amount=4},
       {type="fluid", name="nullius-carbon-monoxide", amount=40}
+    }
+  },
+  {
+    type = "recipe",
+    name = "nullius-rubber-pyrolysis",
+    localised_name = {"recipe-name.nullius-pyrolysis", {"item-name.nullius-rubber"}},
+    icons = {
+      {
+        icon = "__base__/graphics/icons/coal-dark-background.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = ICONPATH .. "rubber.png",
+        icon_size = 64,
+        scale = 0.36,
+        shift = {-6, -6}
+      }
+    },
+    enabled = false,
+    category = "distillation",
+    subgroup = "biology-burning",
+    order = "nullius-pc",
+    crafting_machine_tint = { primary = {r=0, g=0, b=0} },
+    energy_required = 1,
+    ingredients = {
+      {type="item", name="nullius-rubber", amount=6},
+      {type="fluid", name="nullius-compressed-oxygen", amount=12}
+    },
+    results = {
+      {type="item", name="nullius-graphite", amount=2},
+      {type="fluid", name="nullius-carbon-monoxide", amount=25},
+      {type="fluid", name="nullius-carbon-dioxide", amount=15},
+      {type="fluid", name="nullius-benzene", amount=5}
     }
   },
   {
@@ -4724,7 +4991,7 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=5}
     },
     results = {
-      {type="item", name="stone-wall", amount=5},
+      {type="item", name="stone-wall", amount=4},
       {type="item", name="nullius-wood-chip", amount=2}
     },
     main_product = "stone-wall"
@@ -4770,7 +5037,7 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=25}
     },
     results = {
-      {type="item", name="nullius-box-wall", amount=5},
+      {type="item", name="nullius-box-wall", amount=4},
       {type="item", name="nullius-box-wood-chip", amount=2}
     },
     main_product = "nullius-box-wall"
@@ -4799,7 +5066,7 @@ data:extend({
       {"nullius-textile", 1}
     },
     results = {
-      {type="item", name="nullius-insulation", amount=4},
+      {type="item", name="nullius-insulation", amount=3},
       {type="item", name="nullius-wood-chip", amount=1}
     },
     main_product = "nullius-insulation"
@@ -5109,12 +5376,12 @@ data:extend({
     },
     energy_required = 80,
     ingredients = {
-      {type="item", name="nullius-box-chemical-pack", amount=10},
-      {type="item", name="nullius-box-electrical-pack", amount=5},
-      {type="item", name="nullius-box-sugar", amount=5},
-      {type="fluid", name="nullius-amino-acids", amount=200},
-      {type="fluid", name="nullius-fatty-acids", amount=250},
-      {type="fluid", name="nullius-nucleotides", amount=100}
+      {type="item", name="nullius-chemical-pack", amount=6},
+      {type="item", name="nullius-electrical-pack", amount=4},
+      {type="item", name="nullius-box-sugar", amount=20},
+      {type="fluid", name="nullius-amino-acids", amount=800},
+      {type="fluid", name="nullius-fatty-acids", amount=500},
+      {type="fluid", name="nullius-nucleotides", amount=200}
     },
     result = "nullius-biochemistry-pack"
   },
@@ -5126,8 +5393,8 @@ data:extend({
     energy_required = 90,
     ingredients = {
       {type="item", name="nullius-algae-progenitor", amount=1},
-      {type="item", name="nullius-algae", amount=80},
-      {type="fluid", name="nullius-bacteria", amount=150}
+      {type="item", name="nullius-algae", amount=100},
+      {type="fluid", name="nullius-bacteria", amount=200}
     },
     result = "nullius-microbiology-pack"
   },
@@ -5140,8 +5407,8 @@ data:extend({
     energy_required = 120,
     ingredients = {
       {type="item", name="nullius-grass-progenitor", amount=1},
-      {type="item", name="nullius-grass", amount=60},
-      {type="item", name="nullius-box-cellulose", amount=60}
+      {type="item", name="nullius-grass", amount=120},
+      {type="item", name="nullius-box-cellulose", amount=120}
     },
     result = "nullius-botany-pack"
   },
@@ -5154,8 +5421,8 @@ data:extend({
     energy_required = 160,
     ingredients = {
       {type="item", name="nullius-tree-progenitor", amount=1},
-      {type="item", name="nullius-tree", amount=30},
-      {type="item", name="nullius-box-wood", amount=100}
+      {type="item", name="nullius-tree", amount=80},
+      {type="item", name="nullius-box-wood", amount=200}
     },
     result = "nullius-dendrology-pack"
   },
@@ -5167,8 +5434,8 @@ data:extend({
     energy_required = 100,
     ingredients = {
       {type="item", name="nullius-worm-progenitor", amount=1},
-      {type="item", name="nullius-worm", amount=50},
-      {type="fluid", name="nullius-carbon-dioxide", amount=3000}
+      {type="item", name="nullius-worm", amount=150},
+      {type="fluid", name="nullius-carbon-dioxide", amount=7500}
     },
     result = "nullius-nematology-pack"
   },
@@ -5181,8 +5448,8 @@ data:extend({
     energy_required = 120,
     ingredients = {
       {type="item", name="nullius-fish-progenitor", amount=1},
-      {type="item", name="nullius-fish", amount=40},
-      {type="fluid", name="nullius-wastewater", amount=3000}
+      {type="item", name="nullius-fish", amount=120},
+      {type="fluid", name="nullius-wastewater", amount=10000}
     },
     result = "nullius-ichthyology-pack"
   },
@@ -5195,8 +5462,8 @@ data:extend({
     energy_required = 200,
     ingredients = {
       {type="item", name="nullius-arthropod-progenitor", amount=1},
-      {type="item", name="nullius-arthropod", amount=30},
-      {type="item", name="nullius-box-plastic", amount=10}
+      {type="item", name="nullius-arthropod", amount=80},
+      {type="item", name="nullius-box-plastic", amount=50}
     },
     result = "nullius-zoology-pack"
   }

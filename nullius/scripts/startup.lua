@@ -90,7 +90,6 @@ end
 script.on_event(defines.events.on_player_joined_game,
   function(event)
     local player = game.players[event.player_index]
-    init_tech(player.force)
     update_mission_player(player)
 	rematerialize_body(event)
 	align_player_join(player)
@@ -233,6 +232,7 @@ script.on_event(defines.events.on_player_created,
     else
       game.show_message_dialog{text = intro}
     end
+	init_tech(player.force)
     update_mission_player(player)
 	update_player_upgrades(player)
   end

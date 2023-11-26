@@ -1121,10 +1121,10 @@ data:extend({
     enabled = false,
 	allow_decomposition = false,
     category = "nullius-water-treatment",
-    energy_required = 25,
+    energy_required = 60,
     ingredients = {
-      {type="fluid", name="nullius-air", amount=3000},
-      {type="fluid", name="nullius-seawater", amount=2000}
+      {type="fluid", name="nullius-air", amount=5000},
+      {type="fluid", name="nullius-seawater", amount=4000}
     },
     result = "nullius-climatology-pack"
   },
@@ -1156,11 +1156,11 @@ data:extend({
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
       secondary = data.raw.fluid["nullius-nitrogen"].flow_color
     },
-    energy_required = 6,
+    energy_required = 10,
     ingredients = {
-      {type="fluid", name="nullius-nitrogen", amount=80},
-      {type="fluid", name="nullius-wastewater", amount=40},
-      {type="fluid", name="nullius-volcanic-gas", amount=2}
+      {type="fluid", name="nullius-nitrogen", amount=200},
+      {type="fluid", name="nullius-wastewater", amount=100},
+      {type="fluid", name="nullius-volcanic-gas", amount=5}
     },
     result = "nullius-climatology-pack"
   },
@@ -1177,11 +1177,11 @@ data:extend({
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
       secondary = data.raw.fluid["nullius-nitrogen"].flow_color
     },
-    energy_required = 30,
+    energy_required = 60,
     ingredients = {
-      {type="fluid", name="nullius-nitrogen", amount=400},
-      {type="fluid", name="nullius-wastewater", amount=200},
-      {type="fluid", name="nullius-volcanic-gas", amount=10}
+      {type="fluid", name="nullius-nitrogen", amount=800},
+      {type="fluid", name="nullius-wastewater", amount=400},
+      {type="fluid", name="nullius-volcanic-gas", amount=20}
     },
     result = "nullius-box-climatology-pack"
   },
@@ -1211,17 +1211,16 @@ data:extend({
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
     },
-    energy_required = 25,
+    energy_required = 15,
     ingredients = {
       {type="item", name="nullius-glass", amount=3},
-      {type="item", name="concrete", amount=6},
+      {type="item", name="concrete", amount=5},
       {type="item", name="nullius-ammonia-barrel", amount=1},
       {type="item", name="nullius-sodium-hydroxide", amount=2},
-      {type="fluid", name="nullius-acid-sulfuric", amount=18},
-      {type="fluid", name="nullius-lubricant", amount=5}
+      {type="fluid", name="nullius-acid-sulfuric", amount=20},
+      {type="fluid", name="nullius-lubricant", amount=4}
     },
-    result = "nullius-chemical-pack",
-    result_count = 2
+    result = "nullius-chemical-pack"
   },
   {
     type = "recipe",
@@ -1236,17 +1235,16 @@ data:extend({
       primary = data.raw.fluid["nullius-ammonia"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
     },
-    energy_required = 125,
+    energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-glass", amount=3},
-      {type="item", name="nullius-box-concrete", amount=6},
+      {type="item", name="nullius-box-concrete", amount=5},
       {type="item", name="nullius-ammonia-barrel", amount=5},
       {type="item", name="nullius-box-sodium-hydroxide", amount=2},
-      {type="fluid", name="nullius-acid-sulfuric", amount=90},
-      {type="fluid", name="nullius-lubricant", amount=25}
+      {type="fluid", name="nullius-acid-sulfuric", amount=100},
+      {type="fluid", name="nullius-lubricant", amount=20}
     },
-    result = "nullius-box-chemical-pack",
-    result_count = 2
+    result = "nullius-box-chemical-pack"
   },
   {
     type = "recipe",
@@ -1294,7 +1292,7 @@ data:extend({
       {type="item", name="nullius-box-calcium-chloride", amount=3}
     },
     results = {
-      {type="item", name="nullius-box-chemical-pack", amount=8},
+      {type="item", name="nullius-box-chemical-pack", amount=5},
       {type="item", name="nullius-sludge-barrel", amount=1},
       {type="item", name="nullius-wastewater-barrel", amount=1},
       {type="item", name="nullius-hydrogen-chloride-barrel", amount=1}
@@ -1575,11 +1573,11 @@ data:extend({
     always_show_products = true,
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-hydrogen", amount=5},
-      {type="fluid", name="nullius-compressed-nitrogen", amount=2}
+      {type="fluid", name="nullius-compressed-hydrogen", amount=8},
+      {type="fluid", name="nullius-compressed-nitrogen", amount=3}
     },
     results = {
-      {type="fluid", name="nullius-ammonia", amount=10}
+      {type="fluid", name="nullius-ammonia", amount=8}
     },
     main_product = "nullius-ammonia"
   },
@@ -3611,8 +3609,8 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-methane", amount=12, fluidbox_index=1},
-      {type="fluid", name="nullius-oxygen", amount=6, fluidbox_index=2}
+      {type="fluid", name="nullius-methane", amount=16, fluidbox_index=1},
+      {type="fluid", name="nullius-oxygen", amount=8, fluidbox_index=2}
     },
     results = {
       {type="fluid", name="nullius-methanol", amount=2}
@@ -3640,8 +3638,8 @@ data:extend({
     },
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-compressed-methane", amount=6, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-oxygen", amount=3, fluidbox_index=2}
+      {type="fluid", name="nullius-compressed-methane", amount=8, fluidbox_index=1},
+      {type="fluid", name="nullius-compressed-oxygen", amount=4, fluidbox_index=2}
     },
     results = {
       {type="fluid", name="nullius-methanol", amount=4}
@@ -6636,10 +6634,10 @@ data:extend({
       primary = data.raw.fluid["nullius-ethylene"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
     },
-    energy_required = 50,
+    energy_required = 60,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=300},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
+      {type="fluid", name="nullius-ethylene", amount=325},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=50},
       {type="item", name="nullius-silicon-ingot", amount=1},
       {type="item", name="nullius-aluminum-powder", amount=2}
     },
@@ -6682,10 +6680,10 @@ data:extend({
       primary = data.raw.fluid["nullius-ethylene"].flow_color,
       secondary = data.raw.fluid["nullius-hydrogen-chloride"].flow_color
     },
-    energy_required = 50,
+    energy_required = 60,
     ingredients = {
-      {type="fluid", name="nullius-ethylene", amount=300},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=40},
+      {type="fluid", name="nullius-ethylene", amount=325},
+      {type="fluid", name="nullius-hydrogen-chloride", amount=50},
       {type="item", name="nullius-silicon-ingot", amount=1},
       {type="item", name="nullius-aluminum-powder", amount=2}
     },

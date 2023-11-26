@@ -28,6 +28,16 @@ function add_chart_tag(player, character)
   end
 end
 
+local function is_rolling_stock(vehicle)
+  if ((vehicle.type == "locomotive") or
+      (vehicle.type == "cargo-wagon") or
+	  (vehicle.type == "fluid-wagon") or
+	  (vehicle.type == "artillery-wagon")) then
+	return true
+  end
+  return false
+end
+
 function switch_body(player, target)
   local target_vehicle = nil
   if ((target.vehicle ~= nil) and ((target.vehicle.type == "car") or
@@ -73,7 +83,7 @@ function switch_body(player, target)
   player.set_controller{type=defines.controllers.character, character=target}
   update_player_upgrades(player)
   if ((oldchar ~= nil) and oldchar.valid and (oldchar.player == nil)) then
-    oldchar.associated_player = player
+    player.associate_character(oldchar)
   end
 
   local do_set_tag = true
@@ -85,7 +95,7 @@ function switch_body(player, target)
         vehicle.set_passenger(oldchar)
 	    do_set_tag = false
 	  end
-    elseif (vehicle.type == "locomotive") then
+    elseif (is_rolling_stock(vehicle)) then
 	  if (vehicle.get_driver() == nil) then
         vehicle.set_driver(oldchar)
 	    do_set_tag = false
@@ -162,7 +172,7 @@ function upload_mind(player, target)
   if ((target.type == "car") or (target.type == "spider-vehicle")) then
     target = target.get_passenger()
     if ((target == nil) or (not target.valid)) then return end
-  elseif (target.type == "locomotive") then
+  elseif (is_rolling_stock(target)) then
     target = target.get_driver()
     if ((target == nil) or (not target.valid)) then return end
   end
@@ -322,16 +332,38 @@ end)
 function rematerialize_body(event)
   local player = game.players[event.player_index]
   update_player_upgrades(player)
-  local newchar = player.character
-  if ((newchar == nil) or (not newchar.valid)) then return end
-
   if (global.nullius_body_queue == nil) then return end
   local queue = global.nullius_body_queue[player.index]
   if (queue == nil) then return end
-  local node = queue.nodes[newchar.unit_number]
-  if (node == nil) then return end
-  
-  node.body = newchar
+
+  local newchar = player.character
+  if ((newchar ~= nil) and newchar.valid) then
+    local charnode = queue.nodes[newchar.unit_number]
+    if (charnode ~= nil) then  
+      charnode.body = newchar
+	end
+  end
+
+  local bodies = player.surface.find_entities_filtered{
+    type = "character", force = player.force }
+  for _,body in pairs(bodies) do
+    if ((body ~= nil) and body.valid) then
+	  local node = queue.nodes[body.unit_number]
+	  if ((node ~= nil) and (node.body ~= body)) then
+	    node.body = body
+	  end
+	end
+  end
+
+  local associates = player.get_associated_characters()
+  for _,associate in pairs(associates) do
+    if ((associate ~= nil) and associate.valid) then
+	  local node = queue.nodes[associate.unit_number]
+	  if ((node ~= nil) and (node.body ~= associate)) then
+	    node.body = associate
+	  end
+	end
+  end
 end
 
 script.on_event(defines.events.on_player_toggled_map_editor,

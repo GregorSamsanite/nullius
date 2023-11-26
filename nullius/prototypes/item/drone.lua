@@ -308,7 +308,7 @@ local function create_bio_drone(base, suborder, iname)
 end
 
 local function create_farmer(base, suborder, species, spore, spore_count,
-    remote, modtype, iname, cost1, cost2, cost3, cost4)
+    remote, modtype, iname, drone_tier, bot_tier, cost1, cost2, cost3, cost4)
   create_bio_drone(base, "b"..suborder, iname)
   data:extend({
     {
@@ -319,8 +319,8 @@ local function create_farmer(base, suborder, species, spore, spore_count,
       category = "huge-crafting",
       energy_required = 60,
       ingredients = {
-        {"nullius-scout-drone-2", 1},
-        {"nullius-construction-bot-3", 1},
+        {"nullius-scout-drone-" .. drone_tier, 1},
+        {"nullius-construction-bot-" .. bot_tier, 1},
         {"nullius-"..species.."-progenitor", 1},
         {"nullius-"..spore, spore_count},
         cost1, cost2, cost3, cost4
@@ -378,22 +378,22 @@ create_miner("copper", "f", 2, "grey", "__base__/graphics/icons/copper-ore.png",
 create_miner("uranium", "g", 2, "grey", "__base__/graphics/icons/uranium-ore.png", 64)
 
 create_farmer("algaculture", "b", "algae", "algae-spore", 60, "excavation-remote",
-    "productivity-module-1", ICONPATH .. "algae.png",
+    "productivity-module-1", ICONPATH .. "algae.png", 1, 1,
     {"nullius-box-mineral-dust", 10}, {"nullius-bacteria-barrel", 1})
 create_farmer("horticulture", "c", "grass", "box-grass-seed", 20, "algaculture-remote",
-    "productivity-module-2", ICONPATH .. "grass.png",
+    "productivity-module-1", ICONPATH .. "grass.png", 1, 1,
     {"nullius-fertilizer", 20}, {"nullius-water-barrel", 10}, {"nullius-bacteria-barrel", 1})
 create_farmer("arboriculture", "d", "tree", "tree-seed", 40, "horticulture-remote",
-    "productivity-module-2", "__base__/graphics/icons/tree-08.png",
+    "productivity-module-2", "__base__/graphics/icons/tree-08.png", 2, 1,
     {"nullius-fertilizer", 30}, {"nullius-water-barrel", 15}, {"nullius-worm", 10})
 create_farmer("entomology", "e", "worm", "worm-egg", 40, "algaculture-remote",
-    "productivity-module-2", "__base__/graphics/icons/small-worm.png",
+    "productivity-module-2", "__base__/graphics/icons/small-worm.png", 1, 2,
     {"nullius-grass", 30}, {"nullius-sludge-barrel", 5}, {"nullius-bacteria-barrel", 2})
 create_farmer("aquaculture", "f", "fish", "fish-egg", 50, "entomology-remote",
-    "productivity-module-3", "__base__/graphics/icons/fish.png",
+    "productivity-module-2", "__base__/graphics/icons/fish.png", 2, 2,
     {"nullius-algae", 40}, {"nullius-worm", 20})
 create_farmer("husbandry", "g", "arthropod", "arthropod-egg", 30, "aquaculture-remote",
-    "yield-module-4", "__base__/graphics/icons/small-biter.png",
+    "productivity-module-3", "__base__/graphics/icons/small-biter.png", 2, 3,
     {"nullius-box-wood", 15}, {"nullius-fish", 40}, {"nullius-arthropod", 5}, {"nullius-shackle", 6})
 
 create_bio_drone("sequestration-coal", "cb", "__base__/graphics/icons/coal-1.png")
@@ -409,7 +409,7 @@ data:extend({
     category = "small-crafting",
     energy_required = 4,
     ingredients = {
-      {"nullius-robot-frame-2", 1},
+      {"nullius-robot-frame-1", 1},
       {"nullius-haste-module-1", 1},
       {"nullius-sensor-2", 1},
       {"nullius-missile-1", 1}
@@ -425,7 +425,7 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {"nullius-scout-drone-1", 2},
-      {"nullius-robot-frame-3", 1},
+      {"nullius-robot-frame-2", 1},
       {"nullius-processor-2", 2}
     },
     result = "nullius-scout-drone-2"
@@ -725,12 +725,12 @@ data:extend({
     ingredients = {
       {"nullius-satellite", 1},
       {"nullius-box-rocket-fuel", 25},
-      {"nullius-excavation-drone", 4},
-      {"nullius-medium-miner-3", 6},
+      {"nullius-excavation-drone", 3},
+      {"nullius-medium-miner-3", 5},
       {"nullius-drone-launcher-2", 1},
-      {"nullius-box-construction-bot-3", 1},
-      {"nullius-box-astronomy-pack", 10},
-      {"nullius-large-buffer-chest-2", 8}
+      {"nullius-construction-bot-3", 3},
+      {"nullius-box-astronomy-pack", 6},
+      {"nullius-large-buffer-chest-2", 4}
     },
     result = "nullius-asteroid-miner-1"
   },
@@ -767,7 +767,7 @@ data:extend({
       {"nullius-turret", 4},
       {"nullius-hangar-3", 1},
       {"nullius-sensor-node-3", 1},
-      {"nullius-box-construction-bot-4", 1},
+      {"nullius-construction-bot-4", 3},
 	  {"nullius-trash-compactor-2", 2}
     },
     result = "nullius-asteroid-miner-2"

@@ -185,8 +185,8 @@ data:extend({
       {"nullius-box-carbon-composite", 8},
       {"nullius-armor-plate", 8},
       {"nullius-box-robot-frame-4", 1},
-      {"nullius-leg-augmentation-3", 4},
-      {"nullius-box-productivity-module-3", 1},
+      {"nullius-leg-augmentation-3", 2},
+      {"nullius-productivity-module-3", 2},
       {"nullius-large-cargo-pod-3", 2}
     },
     result = "nullius-chassis-5"
@@ -3255,14 +3255,14 @@ data:extend({
     ingredients = {
       {"nullius-box-rocket-fuel", 50},
       {"nullius-box-carbon-composite", 40},
-      {"nullius-box-titanium-sheet", 25},
-      {"nullius-haste-module-3", 3},
-      {"nullius-sensor-node-2", 4},
+      {"nullius-box-titanium-sheet", 30},
+      {"nullius-haste-module-3", 2},
+      {"nullius-sensor-node-2", 3},
       {"nullius-box-steel-beam", 20},
-      {"nullius-box-heat-pipe-3", 10},
+      {"nullius-box-heat-pipe-3", 6},
       {"nullius-box-insulation", 12},
       {"nullius-box-ceramic-powder", 20},
-      {"nullius-box-logistic-bot-2", 2},
+      {"nullius-box-logistic-bot-2", 1},
       {"nullius-box-gate", 1}
     },
     result = "nullius-rocket"
@@ -3277,7 +3277,7 @@ data:extend({
     subgroup = "space",
     order = "nullius-d",
     stack_size = 1,
-    rocket_launch_product = {"nullius-box-astronomy-pack", 50}
+    rocket_launch_product = {"nullius-box-astronomy-pack", 100}
   },
   {
     type = "recipe",
@@ -3288,13 +3288,13 @@ data:extend({
     energy_required = 120,
     ingredients = {
       {"nullius-box-rocket-fuel", 10},
-      {"nullius-box-carbon-composite", 8},
+      {"nullius-box-carbon-composite", 6},
       {"nullius-box-aluminum-sheet", 5},
-      {"nullius-efficiency-module-3", 3},
-      {"nullius-lab-2", 4},
-      {"nullius-beacon-3", 3},
+      {"nullius-efficiency-module-3", 2},
+      {"nullius-lab-2", 3},
+      {"nullius-beacon-3", 2},
       {"nullius-box-solar-panel-2", 3},
-      {"nullius-box-grid-battery-2", 1}
+      {"nullius-grid-battery-2", 4}
     },
     result = "nullius-satellite"
   },
@@ -3309,10 +3309,10 @@ data:extend({
     order = "nullius-l",
     stack_size = 1,
     rocket_launch_products = {
-      {"nullius-box-astronomy-pack", 300},
-      {"nullius-box-physics-pack", 75},
-      {"nullius-box-chemical-pack", 75},
-      {"nullius-box-electrical-pack", 75}
+      {"nullius-box-astronomy-pack", 1000},
+      {"nullius-box-physics-pack", 200},
+      {"nullius-box-chemical-pack", 200},
+      {"nullius-box-electrical-pack", 200}
     }
   },
   {
@@ -3321,7 +3321,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "huge-crafting",
-    energy_required = 400,
+    energy_required = 800,
     ingredients = {
       {"nullius-asteroid-miner-1", 1},
       {"nullius-satellite", 2},

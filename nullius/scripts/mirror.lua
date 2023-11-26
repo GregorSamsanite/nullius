@@ -143,7 +143,8 @@ local function match_pipette(pipette, player, event)
 
   if (player.is_cursor_empty()) then return nil end
   if (player.is_cursor_blueprint()) then return nil end
-  if (player.cursor_stack ~= nil) then
+  if ((player.cursor_stack ~= nil) and
+      player.cursor_stack.valid_for_read) then
     if (player.cursor_stack.name ~= iname) then return nil end
   else
     if (player.cursor_ghost == nil) then return nil end

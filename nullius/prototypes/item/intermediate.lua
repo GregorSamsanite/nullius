@@ -148,11 +148,11 @@ data:extend({
     always_show_made_in = true,
     enabled = false,
     category = "small-crafting",
-    energy_required = 15,
+    energy_required = 30,
     ingredients = {
-      {"nullius-bauxite", 2},
-      {"nullius-sandstone", 2},
-      {"iron-ore", 2}
+      {"nullius-bauxite", 4},
+      {"nullius-sandstone", 4},
+      {"iron-ore", 4}
     },
     result = "nullius-geology-pack"
   },
@@ -188,8 +188,7 @@ data:extend({
       {"nullius-sand", 1},
       {"nullius-mineral-dust", 4}
     },
-    result = "nullius-geology-pack",
-    result_count = 2
+    result = "nullius-geology-pack"
   },
   {
     type = "recipe",
@@ -208,8 +207,7 @@ data:extend({
       {"nullius-box-sand", 1},
       {"nullius-box-mineral-dust", 4}
     },
-    result = "nullius-box-geology-pack",
-    result_count = 2
+    result = "nullius-box-geology-pack"
   },
 
   {
@@ -516,7 +514,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 400,
+    energy_required = 900,
     ingredients = {
       {"nullius-stirling-engine-2", 1},
       {"nullius-nanofabricator-1", 1},
@@ -528,7 +526,7 @@ data:extend({
       {"nullius-box-missile-1", 3}
     },
     result = "nullius-box-physics-pack",
-    result_count = 12
+    result_count = 25
   },
 
   {
@@ -2637,7 +2635,7 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {type="item", name="nullius-sand", amount=5},
-      {type="fluid", name="nullius-acid-sulfuric", amount=12, fluidbox_index=1}
+      {type="fluid", name="nullius-acid-sulfuric", amount=15, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-rutile", amount=1},
@@ -2656,7 +2654,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-sand", amount=5},
-      {type="fluid", name="nullius-acid-sulfuric", amount=60, fluidbox_index=1}
+      {type="fluid", name="nullius-acid-sulfuric", amount=75, fluidbox_index=1}
     },
     results = {
       {type="item", name="nullius-box-rutile", amount=1},

@@ -1,4 +1,34 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.0
+Date: 25.11.2023
+  Features:
+    - Major rework of research pacing.  Research pack cost adjustments, moving
+      biology earlier, added techs and recipes, and rebalanced recipes.
+  Balancing:
+    - Produce more physics per craft and astronomy per satellite or probe.
+    - Cheaper satellite, rocket, chassis 5, and asteroid miners.
+    - More expensive climatology, geology, and chemistry packs.
+    - Lower early game research costs up to early green science.
+    - Move improvised explosives earlier in tech tree.
+    - Reduce refueling checkpoint requirement and change icon.
+    - Decrease oil and lithium from fish and increase oil from biomass.
+    - Reduce thresholds for early green science consumption checkpoints.
+    - Increase time cost of agriculture recipes.
+    - Improve fermentation and make regular methanol a little more expensive.
+    - Make initial ammonia recipe a bit more expensive.
+  Bugfixes:
+    - Body queue was getting cleared when game reloaded.
+    - Don't kick unoccupied bodies out of cargo/fluid/drone wagons.
+  Changes:
+    - Changed recipe for biology lab and scout drones.
+    - Reduce odds of arthropod drones failing due to obstacles.
+    - Don't hide incompatible tech every time player joins in multiplayer.   
+---------------------------------------------------------------------------------------------------
+Version: 1.7.2
+Date: 21.11.2023
+  Bugfixes:
+    - Fix potential crash involving new pipette/copy/paste behavior.
+---------------------------------------------------------------------------------------------------
 Version: 1.7.1
 Date: 20.11.2023
   Features:

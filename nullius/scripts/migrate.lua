@@ -146,10 +146,17 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10800) then return end
+  added_techs({"nullius-ecology-1", "nullius-ecology-2", "nullius-ecology-3",
+      "nullius-ecology-4", "nullius-ecology-5", "nullius-ecology-6",
+	  "nullius-biochemistry-8", "nullius-biochemistry-9",
+	  "nullius-genetic-archive-1", "nullius-genetic-archive-2" })
+
   if (version >= 10700) then return end
   global.nullius_alignment = false
   init_alignment()
-  added_techs({"nullius-nuclear-power-2"})
+  added_techs({"nullius-nuclear-power-2", "nullius-evolution-1",
+      "nullius-evolution-2", "nullius-evolution-3", "nullius-evolution-4"})
 
   if (version >= 10600) then return end
   if ((global.nullius_mission_status ~= nil) and
