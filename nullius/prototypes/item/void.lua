@@ -13,7 +13,7 @@ data:extend({
       }
     },
     flags = {"hidden"},
-    subgroup = "nullius-gas-void",
+    subgroup = "other",
     stack_size = 100
   },
   {
@@ -26,7 +26,7 @@ data:extend({
       }
     },
     flags = {"hidden"},
-    subgroup = "nullius-liquid-void",
+    subgroup = "other",
     stack_size = 100
   },
   {
@@ -34,7 +34,7 @@ data:extend({
     name = "nullius-power-sink",
 	icons = data.raw.fluid["nullius-energy"].icons,
     flags = {"hidden"},
-    subgroup = "nullius-power-sink",
+    subgroup = "other",
     stack_size = 100
   },
 

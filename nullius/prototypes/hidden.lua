@@ -106,12 +106,17 @@ end
 
 for _,type in pairs(item_types_list) do
   for _,item in pairs(data.raw[type]) do
-    if (not table_contains(item.flags, "hidden") and
-	    (string.sub(item.name, 1, 8) ~= "nullius-")) then
-      if (item.flags == nil) then
-        item.flags = {}
-      end
-      table.insert(item.flags,"temphidden")
+    if ((string.sub(item.name, 1, 8) ~= "nullius-") and
+		((item.order == nil) or
+		    (string.sub(item.order, 1, 8) ~= "nullius-"))) then
+	  if (table_contains(item.flags, "hidden")) then
+	    item.subgroup = "hidden"
+	  else
+        if (item.flags == nil) then
+          item.flags = {}
+        end
+        table.insert(item.flags,"temphidden")
+	  end
     end
   end
 end
@@ -162,6 +167,7 @@ for _,type in pairs(item_types_list) do
     if remove_table(item.flags, "temphidden") then
       item.flags["temphidden"] = nil
       table.insert(item.flags,"hidden")
+	  item.subgroup = "hidden"
     end
   end
 end
@@ -252,3 +258,9 @@ end
 
 data.raw.recipe["pipe"].normal.result = "stone-pipe"
 data.raw.recipe["pipe"].expensive.result = "stone-pipe"
+
+
+data.raw.item["nullius-energy-barrel"] = nil
+data.raw.recipe["fill-nullius-energy-barrel"] = nil
+data.raw.recipe["empty-nullius-energy-barrel"] = nil
+data.raw.technology["fluid-handling"].effects = { }

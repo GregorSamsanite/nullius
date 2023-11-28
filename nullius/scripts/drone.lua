@@ -427,10 +427,12 @@ function algaculture_effect(event)
     end
   end
 
-  if ((event.source_entity ~= nil) and event.source_entity.valid and
-      (global.nullius_mission_status ~= nil)) then
+  if ((event.source_entity ~= nil) and event.source_entity.valid) then
     local new_count = count_decoratives(s, nil, 10000, "nullius-algae")
-    set_mission_goal(3, new_count, event.source_entity.force)
+	if (new_count > 0) then
+	  create_mission(force)
+      set_mission_goal(3, new_count, event.source_entity.force)
+	end
   end
 end
 

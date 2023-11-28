@@ -258,6 +258,10 @@ data.raw.pump["nullius-pump-1"].collision_mask = data.raw.pump.pump.collision_ma
 data.raw.pump["nullius-pump-1"].collision_box = data.raw.pump.pump.collision_box
 data.raw.pump["nullius-pump-1"].selection_box = data.raw.pump.pump.selection_box
 
+data.raw.item["chemical-plant"].subgroup = "hidden"
+data.raw.item["oil-refinery"].subgroup = "hidden"
+
+
 if mods["reskins-library"] then
   data.raw.item["pump"].icons = {{
     icon = "__base__/graphics/icons/pump.png",
@@ -281,13 +285,12 @@ data.raw["mining-drill"]["nullius-geothermal-build-3"].collision_box =
     data.raw["reactor"]["nullius-geothermal-reactor-3"].collision_box
 
 for _,fluid in pairs(data.raw.fluid) do
+  local barrel_name = fluid.name .. "-barrel"
   if (string.sub(fluid.name, 1, 8) == "nullius-") and
-      data.raw.recipe["fill-" .. fluid.name .. "-barrel"] then
-    local barrel_name = fluid.name .. "-barrel"
+      data.raw.recipe["fill-" .. fluid.name .. "-barrel"] then  
     local fill_name = "fill-" .. barrel_name
     local empty_name = "empty-" .. barrel_name
 	local subgroup = fluid.subgroup
-	if (subgroup == "compressed-air") then subgroup = "compression" end
     data.raw.item[barrel_name].subgroup = "fill-" .. subgroup
     data.raw.item[barrel_name].order = fluid.order
     data.raw.item[barrel_name].stack_size = 20
@@ -321,17 +324,10 @@ for _,fluid in pairs(data.raw.fluid) do
       data.raw.recipe[fill_name].enabled = false
       data.raw.recipe[empty_name].enabled = false
     end
+  elseif (data.raw.item[barrel_name] ~= nil) then
+    data.raw.item[barrel_name].subgroup = "hidden"
   end
 end
-
-data.raw.recipe["fill-nullius-compressed-residual-gas-barrel"].subgroup =
-    "fill-air-filtration"
-data.raw.recipe["empty-nullius-compressed-residual-gas-barrel"].subgroup =
-    "empty-air-filtration"
-data.raw.recipe["fill-nullius-compressed-trace-gas-barrel"].subgroup =
-    "fill-air-filtration"
-data.raw.recipe["empty-nullius-compressed-trace-gas-barrel"].subgroup =
-    "empty-air-filtration"
 
 
 -- Mods might overwrite character crafting categories, making everything un-hand-craftable in

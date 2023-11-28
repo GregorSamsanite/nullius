@@ -463,6 +463,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "vehicle-weapon",
+    group = "equipment",
+    order = "fd"
+  },
+  {
+    type = "item-subgroup",
     name = "alignment",
     group = "equipment",
     order = "n"
@@ -1094,6 +1100,12 @@ data:extend({
     name = "fill-compression",
     group = "barreling",
   },
+  {
+    type = "item-subgroup",
+    order = "i",
+    name = "fill-compressed-air",
+    group = "barreling",
+  },
 
   {
     type = "item-subgroup",
@@ -1141,6 +1153,12 @@ data:extend({
     type = "item-subgroup",
     order = "i",
     name = "empty-compression",
+    group = "unbarreling",
+  },
+  {
+    type = "item-subgroup",
+    order = "i",
+    name = "empty-compressed-air",
     group = "unbarreling",
   },
 
@@ -1837,6 +1855,13 @@ data:extend({
     order = "z",
     name = "unboxing-misc",
     group = "unboxing",
+  },
+
+  {
+    type = "item-subgroup",
+    order = "zx",
+    name = "hidden",
+    group = "other",
   },
 
   {

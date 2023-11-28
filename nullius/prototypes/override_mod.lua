@@ -1438,10 +1438,11 @@ local textplatematerial = {
   ["iron"] = {material="nullius-iron-plate", order="c"},
   ["steel"] = {material="nullius-steel-plate", order="d"},
   ["gold"] = {material="nullius-aluminum-plate", order="e"},
-  ["glass"] = {material="nullius-glass", order="f"},
-  ["concrete"] = {material="concrete", order="g"},
-  ["copper"] = {material="nullius-copper-sheet", order="h"},
-  ["uranium"] = {material="nullius-uranium", order="i"}
+  ["plastic"] = {material="nullius-plastic", order="f"},
+  ["glass"] = {material="nullius-glass", order="g"},
+  ["concrete"] = {material="concrete", order="h"},
+  ["copper"] = {material="nullius-copper-sheet", order="i"},
+  ["uranium"] = {material="nullius-uranium", order="j"}
 }
 
 for _, recipe in pairs(data.raw.recipe) do
@@ -1579,7 +1580,8 @@ end
 
 if mods["stack-combinator"] then
   data.raw["arithmetic-combinator"]["stack-combinator"].minable.mining_time = 0.8
-  table.insert(data.raw.technology["nullius-optimization-2"].prerequisites,"stack-combinator") 
+  table.insert(data.raw.technology["nullius-optimization-2"].prerequisites,"stack-combinator")
+  data.raw.item["stack-combinator"].subgroup = "circuit-network"
 end
 
 

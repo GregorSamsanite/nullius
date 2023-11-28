@@ -1573,6 +1573,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "textplate-large-steel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-small-plastic"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "textplate-large-plastic"
       }
     },
     unit = {

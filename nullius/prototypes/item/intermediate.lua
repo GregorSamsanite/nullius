@@ -74,7 +74,8 @@ data:extend({
         icon_mipmaps = 4
       }
     },
-    subgroup = "research-pack",
+	flags = {"hidden"},
+    subgroup = "other",
     stack_size = 1,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
@@ -91,7 +92,8 @@ data:extend({
         icon_mipmaps = 4
       }
     },
-    subgroup = "research-pack",
+	flags = {"hidden"},
+    subgroup = "other",
     stack_size = 1,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
@@ -107,7 +109,8 @@ data:extend({
         icon_size = 64
       }
     },
-    subgroup = "research-pack",
+	flags = {"hidden"},
+    subgroup = "other",
     stack_size = 1,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",

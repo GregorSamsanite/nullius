@@ -1096,7 +1096,7 @@ data:extend({
       }
 	},
 	flags = {"hidden"},
-    subgroup = "water-intake",
+    subgroup = "other",
     order = "nullius-bb",
     place_result = "nullius-legacy-seawater-intake-1",
     stack_size = 50
@@ -1117,7 +1117,7 @@ data:extend({
       }
 	},
 	flags = {"hidden"},
-    subgroup = "water-intake",
+    subgroup = "other",
     order = "nullius-bc",
     place_result = "nullius-legacy-seawater-intake-2",
     stack_size = 50
@@ -2149,7 +2149,7 @@ data:extend({
       }
 	},
 	flags = {"hidden"},
-    subgroup = "water-intake",
+    subgroup = "other",
     order = "nullius-cd",
     place_result = "nullius-legacy-well-1",
     stack_size = 50
@@ -2168,7 +2168,7 @@ data:extend({
       }
 	},
 	flags = {"hidden"},
-    subgroup = "water-intake",
+    subgroup = "other",
     order = "nullius-ce",
     place_result = "nullius-legacy-well-2",
     stack_size = 50

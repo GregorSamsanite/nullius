@@ -465,12 +465,12 @@ data:extend({
     order = "nullius-g",
     energy_required = 3,
     ingredients = {
-      {type="fluid", name="nullius-fatty-acids", amount=30}
+      {type="fluid", name="nullius-fatty-acids", amount=25}
     },
     results = {
       {type="fluid", name="nullius-ethylene", amount=50},
-      {type="fluid", name="nullius-propene", amount=70},
-      {type="fluid", name="nullius-benzene", amount=4},
+      {type="fluid", name="nullius-propene", amount=75},
+      {type="fluid", name="nullius-benzene", amount=6},
       {type="item", name="nullius-graphite", amount=1}
     },
     main_product = "nullius-propene"
@@ -497,12 +497,12 @@ data:extend({
     order = "nullius-o",
     energy_required = 15,
     ingredients = {
-      {type="fluid", name="nullius-fatty-acids", amount=150}
+      {type="fluid", name="nullius-fatty-acids", amount=125}
     },
     results = {
       {type="fluid", name="nullius-ethylene", amount=250},
-      {type="fluid", name="nullius-propene", amount=350},
-      {type="fluid", name="nullius-benzene", amount=20},
+      {type="fluid", name="nullius-propene", amount=375},
+      {type="fluid", name="nullius-benzene", amount=30},
       {type="item", name="nullius-box-graphite", amount=1}
     },
     main_product = "nullius-propene"

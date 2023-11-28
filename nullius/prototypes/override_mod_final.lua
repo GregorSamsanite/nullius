@@ -280,3 +280,8 @@ if (mods["cargo-ships"] and settings.startup["deep_oil"].value) then
     }
   }
 end
+
+
+if mods["stack-combinator"] then
+  data.raw.item["stack-combinator"].subgroup = "circuit-network"
+end

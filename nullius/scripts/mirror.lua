@@ -46,8 +46,10 @@ function replace_fluid_entity(entity, newname, force, dir)
         name = "entity-ghost", force = force, direction = dir,
 	    position = pos, inner_name = newname,
 	    fast_replace = true, create_build_effect_smoke = false}
-	entity.item_requests = requests
-	if (recipe ~= nil) then entity.set_recipe(recipe) end
+    if ((entity ~= nil) and entity.valid) then
+	  entity.item_requests = requests
+	  if (recipe ~= nil) then entity.set_recipe(recipe) end
+	end
   else
     local contents = save_fluid_contents(entity)
     update_build_statistics(entity, force, true)
@@ -189,6 +191,7 @@ function pipette_event(event)
   if ((target == nil) or (not target.valid)) then return end
   local item = event.item
   if ((item == nil) or (item.place_result == nil)) then return end
+  if (string.sub(item.name, 1, 8) ~= "nullius-") then return end
   if (item.place_result.name == target.name) then return end
   local proto = target.prototype
   if (target.type == "entity-ghost") then
@@ -196,6 +199,8 @@ function pipette_event(event)
   end
   local result = mineable_result(proto)
   if ((result == nil) or (item.name ~= result)) then return end
+  if (item.place_result.name == proto.name) then return end
+  if (string.sub(proto.name, 1, 8) ~= "nullius-") then return end
 
   global.nullius_pipette[player.index] = {
     item = item,

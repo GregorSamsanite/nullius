@@ -9,7 +9,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xm",
     stack_size = 1,
     attack_parameters = {
@@ -69,7 +69,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xb",
     stack_size = 1,
     attack_parameters = {
@@ -101,7 +101,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xb",
     stack_size = 1,
     attack_parameters = {
@@ -134,7 +134,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xd",
     stack_size = 1,
     attack_parameters = {
@@ -167,7 +167,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xd",
     stack_size = 1,
     attack_parameters = {
@@ -201,7 +201,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xf",
     stack_size = 1,
     attack_parameters = {
@@ -236,7 +236,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xc",
     stack_size = 1,
     attack_parameters = {
@@ -260,7 +260,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xe",
     stack_size = 1,
     attack_parameters = {
@@ -284,7 +284,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     flags = {"hidden"},
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     order = "nullius-xg",
     stack_size = 1,
     attack_parameters = {
@@ -309,7 +309,7 @@ data:extend({
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
     icon_mipmaps = 4,
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     flags = {"hidden"},
     order = "nullius-xmb",
     attack_parameters = {
@@ -333,7 +333,7 @@ data:extend({
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
     icon_mipmaps = 4,
-    subgroup = "gun",
+    subgroup = "vehicle-weapon",
     flags = {"hidden"},
     order = "nullius-xmc",
     attack_parameters = {

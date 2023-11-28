@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.2
+Date: 27.11.2023
+  Bugfixes:
+    - Problem with new pipette behavior and rails.
+  Changes:
+    - Move hidden items into a separate item group.
+    - Divide barreled compressed gas into separate subgroups.
+  Modding:
+    - Add recipe for plastic text plates.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.1
+Date: 26.11.2023
+  Bugfixes:
+    - Trigger end game mission panel by launching algaculture drones.
+  Balancing:
+    - Improve fatty acid pyrolysis.
+  Translation:
+    - Updated Chinese localization by sdQwo.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.0
 Date: 25.11.2023
   Features:
