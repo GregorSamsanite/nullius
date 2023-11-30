@@ -44,6 +44,11 @@ end
 function summon_train(station)
   local train = station.train_set[station.train_index]
   if ((not train.valid) or train.manual_mode) then return end
+  local cs_train = nil
+  if remote.interfaces["cybersyn"] then
+    cs_train = remote.call("cybersyn", "read_global", "trains", train.id)
+    if cs_train and cs_train.status ~= 0 then return end
+  end
   if (not upgrade_any_carriage(train, station, false)) then return end
 
   if (station.last_summon > 0) then
@@ -56,7 +61,7 @@ function summon_train(station)
 	if ((tsl ~= nil) and (station.pending_count >= tsl)) then return end
 	station.hold = false
   end
-  insert_train_schedule(train, station)
+  insert_train_schedule(train, station, cs_train)
 end
 
 function update_train_set(station)
