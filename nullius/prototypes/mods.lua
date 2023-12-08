@@ -4073,3 +4073,50 @@ if mods["Mini_Trains"] then
     }
   })
 end
+
+if mods["fcpu"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-fcpu",
+      enabled = false,
+      always_show_made_in = true,
+      category = "tiny-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"decider-combinator", 10},
+        {"arithmetic-combinator", 10},
+        {"nullius-processor-2", 1}
+      },
+      result = "fcpu"
+    },
+    {
+      type = "technology",
+      name = "nullius-fcpu",
+        localised_name = {"technology-name.fcpu"},
+        localised_description = {"technology-description.fcpu"},
+      icon_size = 128,
+      icon = "__fcpu__/graphics/technology/fcpu.png",
+      effects =
+      {
+        {
+        type = "unlock-recipe",
+        recipe = "fcpu"
+        }
+      },
+      prerequisites = {"nullius-computation", "nullius-electronics-2"},
+      unit =
+      {
+        count = 200,
+        ingredients =
+        {
+        {"nullius-electrical-pack", 2},
+        {"nullius-mechanical-pack", 1},
+        {"nullius-chemical-pack", 1}
+        },
+        time = 45
+      },
+      order = "a-d-d"
+    }
+  });
+end
