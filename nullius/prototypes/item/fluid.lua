@@ -1177,11 +1177,11 @@ data:extend({
       primary = data.raw.fluid["nullius-wastewater"].flow_color,
       secondary = data.raw.fluid["nullius-nitrogen"].flow_color
     },
-    energy_required = 60,
+    energy_required = 50,
     ingredients = {
-      {type="fluid", name="nullius-nitrogen", amount=800},
-      {type="fluid", name="nullius-wastewater", amount=400},
-      {type="fluid", name="nullius-volcanic-gas", amount=20}
+      {type="fluid", name="nullius-nitrogen", amount=1000},
+      {type="fluid", name="nullius-wastewater", amount=500},
+      {type="fluid", name="nullius-volcanic-gas", amount=25}
     },
     result = "nullius-box-climatology-pack"
   },

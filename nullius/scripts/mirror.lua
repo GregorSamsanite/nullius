@@ -193,6 +193,7 @@ function pipette_event(event)
   if ((item == nil) or (item.place_result == nil)) then return end
   if (string.sub(item.name, 1, 8) ~= "nullius-") then return end
   if (item.place_result.name == target.name) then return end
+  if (string.sub(item.name, 9, 19) == "geothermal-") then return end
   local proto = target.prototype
   if (target.type == "entity-ghost") then
 	proto = target.ghost_prototype

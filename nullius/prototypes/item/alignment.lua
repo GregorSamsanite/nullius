@@ -397,8 +397,8 @@ local function alignment_tech(num, item, typ, cnt, tm, pack, ignore, item2)
   data:extend({ tech })
 end
 
-alignment_tech(1, "identification-card", "capsule", 10, 5, "mechanical", true)
-alignment_tech(2, "invitation-card", "capsule", 25, 10, "mechanical", true)
+alignment_tech(1, "identification-card", "capsule", 5, 5, "mechanical", true)
+alignment_tech(2, "invitation-card", "capsule", 20, 10, "mechanical", true)
 alignment_tech(3, "transponder", "capsule", 50, 25, "electrical", true)
 alignment_tech(4, "conscription-ray", "gun", 100, 25, "electrical", true, "conscription-charge")
 alignment_tech(5, "conscription-turret", "item", 300, 30, "chemical", true)

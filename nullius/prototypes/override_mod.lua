@@ -422,11 +422,21 @@ data.raw["loader-1x1"]["aai-fast-loader"].energy_per_item = "3.5kJ"
 data.raw["loader-1x1"]["aai-express-loader"].energy_per_item = "4kJ"
 data.raw["loader-1x1"]["aai-ultimate-loader"].energy_per_item = "4.5kJ"
 
+data.raw["loader-1x1"]["aai-basic-loader"].subgroup = "loader"
+data.raw["loader-1x1"]["aai-loader"].subgroup = "loader"
+data.raw["loader-1x1"]["aai-fast-loader"].subgroup = "loader"
+data.raw["loader-1x1"]["aai-express-loader"].subgroup = "loader"
+data.raw["loader-1x1"]["aai-ultimate-loader"].subgroup = "loader"
 data.raw["loader-1x1"]["aai-basic-loader"].order = "nullius-lb"
 data.raw["loader-1x1"]["aai-loader"].order = "nullius-lc"
 data.raw["loader-1x1"]["aai-fast-loader"].order = "nullius-ld"
 data.raw["loader-1x1"]["aai-express-loader"].order = "nullius-le"
 data.raw["loader-1x1"]["aai-ultimate-loader"].order = "nullius-lf"
+data.raw.item["aai-basic-loader"].subgroup = "loader"
+data.raw.item["aai-loader"].subgroup = "loader"
+data.raw.item["aai-fast-loader"].subgroup = "loader"
+data.raw.item["aai-express-loader"].subgroup = "loader"
+data.raw.item["aai-ultimate-loader"].subgroup = "loader"
 data.raw.item["aai-basic-loader"].order = "nullius-lb"
 data.raw.item["aai-loader"].order = "nullius-lc"
 data.raw.item["aai-fast-loader"].order = "nullius-ld"
@@ -438,6 +448,10 @@ data.raw.technology["nullius-loader-2"].icons = data.raw.technology["aai-loader"
 data.raw.technology["nullius-loader-3"].icons = data.raw.technology["aai-fast-loader"].icons
 data.raw.technology["nullius-loader-4"].icons = data.raw.technology["aai-express-loader"].icons
 data.raw.technology["nullius-loader-5"].icons = data.raw.technology["aai-ultimate-loader"].icons
+
+if (data.raw["loader-1x1"]["aai-turbo-loader"] ~= nil) then
+data.raw["loader-1x1"]["aai-turbo-loader"].next_upgrade = nil
+end
 
 table.insert(data.raw.technology["nullius-mechanical-separation"].prerequisites,"nullius-loader-1")
 table.insert(data.raw.technology["nullius-checkpoint-mass-production"].prerequisites,"nullius-loader-2")
@@ -1429,6 +1443,11 @@ data.raw.recipe["fast-road"].ingredients = {
   {"nullius-box-black-concrete", 6},
   {"road-network-reader", 1}
 }
+
+  if ((data.raw.resource["sea-pump-resource"] ~= nil) and
+      (data.raw.resource["sea-pump-resource"].map_color == nil)) then
+    data.raw.resource["sea-pump-resource"].map_color = {128, 128, 128}
+  end
 end
 
 

@@ -160,8 +160,8 @@ local function faction_has_identification(force)
   if (not faction_has_tech(force, "steelworking")) then return false end
   return (faction_has_crafted(force, "align-identification-card", 1) and
       faction_has_crafted(force, "steel-sheet", 1) and
-	  faction_has_crafted(force, "plastic", 40) and
-	  faction_has_crafted(force, "mechanical-pack", 40))
+	  faction_has_crafted(force, "plastic", 20) and
+	  faction_has_crafted(force, "mechanical-pack", 20))
 end
 
 local function player_has_identification(player)

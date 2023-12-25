@@ -2085,7 +2085,7 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-helium",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
-	    {"fluid-name.nullius-compressed-helium"}}},
+	    {"fluid-name.nullius-helium"}}},
     localised_description = {"technology-description.nullius-produce",
 	    {"technology-description.nullius-fluid-compressible", 2500, "nullius-helium",
 		    "nullius-compressed-helium", {"fluid-name.nullius-helium"}}},

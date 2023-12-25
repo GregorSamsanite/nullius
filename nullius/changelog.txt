@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.4
+Date: 25.12.2023
+  Bugfixes:
+    - Fix crash with pipette of geothermal plant ghosts.
+    - Workaround a conflict between Transport Drones and Angel's Refining.
+    - Mismatch in boxed version of new climatology recipe.
+    - Corrected name of helium checkpoint.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.3
+Date: 23.12.2023
+  Bugfixes:
+    - Fix a conflict with AAI loaders and updated Bob's Logistics.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.2
 Date: 27.11.2023
   Bugfixes:
