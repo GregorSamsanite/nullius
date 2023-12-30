@@ -334,11 +334,11 @@ data:extend({
     category = "nanotechnology",
     energy_required = 25,
     ingredients = {
-      {type="item", name="nullius-solar-panel-1", amount=3},
+      {type="item", name="nullius-solar-panel-1", amount=2},
       {type="item", name="nullius-monocrystalline-silicon", amount=15},
       {type="item", name="nullius-boron", amount=1},
       {type="item", name="nullius-ceramic-powder", amount=5},
-      {type="fluid", name="nullius-epoxy", amount=10, fluidbox_index=1}
+      {type="fluid", name="nullius-epoxy", amount=8, fluidbox_index=1}
     },
     result = "nullius-solar-panel-2",
     result_count = 2
@@ -354,11 +354,11 @@ data:extend({
     subgroup = "boxed-renewable",
     energy_required = 125,
     ingredients = {
-      {type="item", name="nullius-box-solar-panel-1", amount=3},
+      {type="item", name="nullius-box-solar-panel-1", amount=2},
       {type="item", name="nullius-box-monocrystalline-silicon", amount=15},
       {type="item", name="nullius-box-boron", amount=1},
       {type="item", name="nullius-box-ceramic-powder", amount=5},
-      {type="fluid", name="nullius-epoxy", amount=50, fluidbox_index=1}
+      {type="fluid", name="nullius-epoxy", amount=40, fluidbox_index=1}
     },
     result = "nullius-box-solar-panel-2",
     result_count = 2

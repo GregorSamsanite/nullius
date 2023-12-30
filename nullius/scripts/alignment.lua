@@ -1096,7 +1096,11 @@ local function align_set_invite_status(source, target, id)
   if (source.force == target.force) then return false end
   if (not check_entity_player(target)) then return false end
   if (not check_entity_player(source)) then return false end
-  if (not faction_has_identification(source.force)) then return false end
+  if (not faction_has_identification(source.force)) then
+    source.player.print({"alignment.align-msg",
+	        {"alignment.align-no-identification"}})
+    return false
+  end
   global.nullius_align_invite_status[source.player.index] = {
     target = target.player, ident = id, tick = game.tick,
 	tforce = target.force, sforce = source.force

@@ -580,8 +580,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-land-fill",
-    order = "nullius-dd",
+    subgroup = "boxed-dumping",
+    order = "nullius-fd",
     energy_required = 30,
     ingredients = {
       {type="item", name="nullius-box-land-fill-iron", amount=2},
@@ -619,8 +619,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-crushing",
-    subgroup = "boxed-land-fill",
-    order = "nullius-bd",
+    subgroup = "boxed-dumping",
+    order = "nullius-fb",
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-land-fill-limestone", amount=4},
@@ -653,7 +653,7 @@ data:extend({
     always_show_products = true,
     category = "ore-flotation",
     subgroup = "biology-material",
-    order = "nullius-mb",
+    order = "nullius-fd",
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-land-fill-gravel", amount=2},
@@ -693,8 +693,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    subgroup = "boxed-biology-burning",
-    order = "nullius-tc",
+	subgroup = "boxed-dumping",
+    order = "nullius-gb",
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-land-fill-gravel", amount=1},
@@ -771,8 +771,8 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-    subgroup = "boxed-biology-burning",
-    order = "nullius-tc",
+    subgroup = "boxed-dumping",
+    order = "nullius-gc",
     energy_required = 100,
     ingredients = {
       {type="item", name="nullius-box-land-fill-sand", amount=3},
@@ -814,8 +814,8 @@ data:extend({
     always_show_products = true,
 	no_productivity = true,
     category = "bulk-smelting",
-    subgroup = "boxed-terrain",
-    order = "nullius-s",
+    subgroup = "boxed-dumping",
+    order = "nullius-fc",
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-box-land-fill-limestone", amount=3},
@@ -825,6 +825,45 @@ data:extend({
     },
     result = "nullius-box-land-fill-sand",
     result_count = 8
+  },
+  {
+    type = "recipe",
+    name = "nullius-boron-sink",
+    localised_name = {"recipe-name.nullius-boron-sink"},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = ENTICONPATH .. "landfill-red.png",
+        icon_size = 64,
+        scale = 0.45
+      },
+	  {
+        icon = ICONPATH .. "lye.png",
+        icon_size = 64,
+        tint = { 240, 172, 172 },
+		scale = 0.25,
+        shift = {-8, -8}
+      }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	no_productivity = true,
+    category = "ore-crushing",
+    subgroup = "boxed-dumping",
+    order = "nullius-h",
+    energy_required = 10,
+    ingredients = {
+      {type="item", name="nullius-box-land-fill-limestone", amount=4},
+      {type="item", name="nullius-box-soda-ash", amount=2},
+      {type="item", name="nullius-box-acid-boric", amount=40}
+    },
+    result = "nullius-box-land-fill-iron",
+    result_count = 6
   },
 
   {
@@ -850,8 +889,8 @@ data:extend({
     allow_as_intermediate = false,
     no_productivity = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
-    order = "nullius-kb",
+    subgroup = "boxed-dumping",
+    order = "nullius-db",
     energy_required = 720,
     ingredients = {
       {type="item", name="nullius-terraforming-drone-grey", amount=5},
@@ -887,8 +926,8 @@ data:extend({
     allow_as_intermediate = false,
     no_productivity = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
-    order = "nullius-kc",
+    subgroup = "boxed-dumping",
+    order = "nullius-dd",
     energy_required = 720,
     ingredients = {
       {type="item", name="nullius-terraforming-drone-brown", amount=5},
@@ -924,8 +963,8 @@ data:extend({
     allow_as_intermediate = false,
     no_productivity = true,
     category = "ore-crushing",
-    subgroup = "boxed-terrain",
-    order = "nullius-kd",
+    subgroup = "boxed-dumping",
+    order = "nullius-dc",
     energy_required = 720,
     ingredients = {
       {type="item", name="nullius-terraforming-drone-tan", amount=5},

@@ -1178,7 +1178,7 @@ data:extend({
     ingredients = {{"nullius-gravel", 6}},
     results = {
       {type="item", name="nullius-sand", amount=2},
-      {type="item", name="nullius-mineral-dust", amount=3}
+      {type="item", name="nullius-mineral-dust", amount=4}
     },
     main_product = "nullius-sand"
   },
@@ -1215,7 +1215,7 @@ data:extend({
     ingredients = {{"nullius-box-gravel", 6}},
     results = {
       {type="item", name="nullius-box-sand", amount=2},
-      {type="item", name="nullius-box-mineral-dust", amount=3}
+      {type="item", name="nullius-box-mineral-dust", amount=4}
     },
     main_product = "nullius-box-sand"
   },

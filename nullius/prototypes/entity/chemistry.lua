@@ -940,6 +940,7 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.8, 0.6}
     }},
+	order = data.raw.item["nullius-electrolyzer-1"].order .. "d",
     localised_description = {"entity-description.nullius-surge",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1066,6 +1067,7 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.68, 0.51}
     }},
+	order = data.raw.item["nullius-electrolyzer-1"].order .. "b",
 	localised_description = {"entity-description.nullius-priority",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1147,6 +1149,7 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.9, 1}
     }},
+	order = data.raw.item["nullius-electrolyzer-2"].order .. "d",
 	localised_description = {"entity-description.nullius-surge",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1263,6 +1266,7 @@ local mse1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"])
 mse1.name = "nullius-mirror-surge-electrolyzer-1"
 mse1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mse1.order = data.raw.item["nullius-electrolyzer-1"].order .. "e"
 mse1.placeable_by = {item = "nullius-electrolyzer-1", count = 1}
 mse1.next_upgrade = "nullius-mirror-surge-electrolyzer-2"
 mse1.localised_name = {"entity-name.nullius-mirrored",
@@ -1276,6 +1280,7 @@ local mpe1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-priority-electrolyzer-1"])
 mpe1.name = "nullius-mirror-priority-electrolyzer-1"
 mpe1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mpe1.order = data.raw.item["nullius-electrolyzer-1"].order .. "c"
 mpe1.placeable_by = {item = "nullius-electrolyzer-1", count = 1}
 mpe1.next_upgrade = "nullius-mirror-priority-electrolyzer-2"
 mpe1.localised_name = {"entity-name.nullius-mirrored",
@@ -1293,6 +1298,7 @@ data:extend({
       icon_size = 32,
       tint = {0.8, 0.76, 0.85}
     }},
+	order = data.raw.item["nullius-electrolyzer-2"].order .. "b",
 	localised_description = {"entity-description.nullius-priority",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1382,6 +1388,7 @@ data:extend({
         icon_size = 64
       }
     },
+	order = data.raw.item["nullius-electrolyzer-2"].order .. "e",
 	localised_description = {"entity-description.nullius-surge",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1456,6 +1463,7 @@ data:extend({
         icon_size = 64
       }
     },
+	order = data.raw.item["nullius-electrolyzer-2"].order .. "c",
 	localised_description = {"entity-description.nullius-priority",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1484,6 +1492,7 @@ data:extend({
     name = "nullius-surge-electrolyzer-3",
     icon = "__angelspetrochem__/graphics/icons/electrolyser.png",
     icon_size = 32,
+	order = data.raw.item["nullius-electrolyzer-3"].order .. "d",
 	localised_description = {"entity-description.nullius-surge",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1607,6 +1616,7 @@ data:extend({
         icon_size = 64
       }
     },
+	order = data.raw.item["nullius-electrolyzer-3"].order .. "e",
 	localised_description = {"entity-description.nullius-surge",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1672,6 +1682,7 @@ data:extend({
       icon_size = 32,
       tint = {1, 0.85, 0.85}
     }},
+	order = data.raw.item["nullius-electrolyzer-3"].order .. "b",
 	localised_description = {"entity-description.nullius-priority",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},
@@ -1758,6 +1769,7 @@ data:extend({
         icon_size = 64
       }
     },
+	order = data.raw.item["nullius-electrolyzer-3"].order .. "c",
 	localised_description = {"entity-description.nullius-priority",
 	    {"entity-description.nullius-electrolyzer"}},
     flags = {"placeable-neutral","player-creation"},

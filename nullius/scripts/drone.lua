@@ -483,13 +483,11 @@ function arboriculture_effect(event)
     local distance = ((math.random() * 120) + (math.random() * 64) - 92)
     local p = {x = c.x + (math.cos(angle) * distance),
 	    y = c.y + (math.sin(angle) * distance)}
-    local overlap_water = s.count_tiles_filtered{area=area_bound(p, 1.2), limit=2,
-	    name={"deepwater", "water", "water-shallow",
-	        "deepwater-green", "water-green", "water-mud"}}
-	if (overlap_water < 1) then
-      local overlap_obstacle = s.count_entities_filtered{
+    local p = s.find_non_colliding_position("tree-05", p, 6, 0.1)
+    if (p ~= nil) then
+	  local overlap_obstacle = s.count_entities_filtered{
 	      area=area_bound(p, 1.2), limit=2}
-      if (overlap_obstacle < 1) then
+      if ((overlap_obstacle < 1) or (math.random() < 0.4)) then
 		local near_tiles = s.find_tiles_filtered{area=area_bound(p, 1.8),
 		    radius=1.6, collision_mask="ground-tile"}
 		local near_num = 0
@@ -541,7 +539,7 @@ function arboriculture_effect(event)
 			end
 		  end
         end
-      end
+	  end
 	end
   end
 

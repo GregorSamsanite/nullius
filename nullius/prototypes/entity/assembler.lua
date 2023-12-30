@@ -626,6 +626,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-nanofabricator-1",
     icons = data.raw.item["nullius-nanofabricator-1"].icons,
+	order = data.raw.item["nullius-nanofabricator-1"].order .. "b",
 	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 2, result = "nullius-nanofabricator-1"},
@@ -698,6 +699,7 @@ local mnf1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-nanofabricator-1"])
 mnf1.name = "nullius-mirror-nanofabricator-1"
 mnf1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mnf1.order = data.raw.item["nullius-nanofabricator-1"].order .. "c"
 mnf1.placeable_by = {item = "nullius-nanofabricator-1", count = 1}
 mnf1.next_upgrade = "nullius-mirror-nanofabricator-2"
 mnf1.localised_name = {"entity-name.nullius-mirrored",
@@ -713,6 +715,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-nanofabricator-2",
     icons = data.raw.item["nullius-nanofabricator-2"].icons,
+	order = data.raw.item["nullius-nanofabricator-2"].order .. "b",
 	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 2.5, result = "nullius-nanofabricator-2"},
@@ -793,6 +796,7 @@ data:extend({
 	  data.raw.item["nullius-nanofabricator-2"].icons[1],
       { icon = ICONPATH .. "flip1.png", icon_size = 64 }
     },
+	order = data.raw.item["nullius-nanofabricator-2"].order .. "c",
 	localised_description = {"entity-description.nullius-nanofabricator"},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 2.5, result = "nullius-nanofabricator-2"},

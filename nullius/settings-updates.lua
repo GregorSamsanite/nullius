@@ -26,10 +26,6 @@ if data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'] then
    data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'].hidden = true
    data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'].forced_value = true
 end
-if data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'] then
-   data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'].hidden = true
-   data.raw['bool-setting']['bobmods-logistics-inserteroverhaul'].forced_value = true
-end
 if data.raw['bool-setting']['bobmods-logistics-inserterrequireprevious'] then
    data.raw['bool-setting']['bobmods-logistics-inserterrequireprevious'].hidden = true
    data.raw['bool-setting']['bobmods-logistics-inserterrequireprevious'].forced_value = true

@@ -12658,6 +12658,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-chlorine-sink"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boron-sink"
+      },
       {
         type = "unlock-recipe",
         recipe = "nullius-dumping-rock"

@@ -46,8 +46,5 @@ require("prototypes.yafc")
 require("prototypes.inputs")
 require("prototypes.achievements")
 
-settings.startup["alien-biomes-disable-vegetation"].value = "Enabled"
-settings.startup["bobmods-logistics-inserteroverhaul"].value = true
-
 data.raw["map-settings"]["map-settings"].pollution.enabled = false
 data.raw["map-settings"]["map-settings"].difficulty_settings.research_queue_setting = "always"

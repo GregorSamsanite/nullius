@@ -666,7 +666,7 @@ local function count_water(surface, a)
 	        "deepwater-green", "water-green", "water-mud"}}
 end
 
-function water_level(oldtile)
+function water_level(oldname)
   if ((oldname == "water") or (oldname == "water-green")) then
     return 2
   elseif ((oldname == "water-shallow") or (oldname == "water-mud")) then

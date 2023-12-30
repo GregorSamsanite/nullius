@@ -99,7 +99,7 @@ local function set_generator_animation(proto, overlay, tint)
 end
 
 local function finish_furnace(furnace, generator, overlay,
-    openness, priority, tier, power, tint)
+    suborder, openness, priority, tier, power, tint)
   local midfix = openness .. "-" .. priority
   local suffix = midfix .. "-" .. tier
   furnace.name = "nullius-turbine-" .. suffix
@@ -109,6 +109,7 @@ local function finish_furnace(furnace, generator, overlay,
 	  {"entity-description.nullius-turbine-entity",
 	      {"entity-description.nullius-turbine-" .. openness},
 	      {"entity-description.nullius-turbine-" .. priority}}}
+  furnace.order = data.raw.item[furnace.minable.result].order .. suborder
   generator.name = "nullius-turbine-generator-" .. suffix
   generator.localised_name = furnace.localised_name
   generator.localised_description = furnace.localised_description
@@ -170,17 +171,17 @@ local function turbine_variants(tier, furnacecb, generatorob,
 	furnacece.next_upgrade = "nullius-turbine-closed-exhaust" .. t2
   end
 
-  finish_furnace(furnacecb, generatorcb, "green",
+  finish_furnace(furnacecb, generatorcb, "green", "b",
       "closed", "backup", tier, power, {lotint, hitint, hitint})
-  finish_furnace(furnacecs, generatorcs, "yellow",
+  finish_furnace(furnacecs, generatorcs, "yellow", "c",
       "closed", "standard", tier, power, {hitint, hitint, hitint})
-  finish_furnace(furnacece, generatorce, "red",
+  finish_furnace(furnacece, generatorce, "red", "d",
       "closed", "exhaust", tier, power, {hitint, lotint, hitint})
-  finish_furnace(furnaceob, generatorob, "green",
+  finish_furnace(furnaceob, generatorob, "green", "b",
       "open", "backup", tier, power, {lotint, hitint, loblue})
-  finish_furnace(furnaceos, generatoros, "yellow",
+  finish_furnace(furnaceos, generatoros, "yellow", "c",
       "open", "standard", tier, power, {hitint, hitint, loblue})
-  finish_furnace(furnaceoe, generatoroe, "red",
+  finish_furnace(furnaceoe, generatoroe, "red", "d",
       "open", "exhaust", tier, power, {hitint, lotint, loblue})
 end
 

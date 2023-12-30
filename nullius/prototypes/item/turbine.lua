@@ -232,12 +232,11 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 5,
+    energy_required = 4,
     ingredients = {
       {"nullius-turbine-open-1", 1},
       {"nullius-small-tank-1", 1},
-	  {"nullius-pump-1", 1},
-	  {"nullius-top-up-valve", 2}
+	  {"nullius-top-up-valve", 1}
     },
     result = "nullius-turbine-closed-1"
   },
@@ -248,12 +247,11 @@ data:extend({
     always_show_made_in = true,
     category = "huge-assembly",
     subgroup = "boxed-fluid-energy",
-    energy_required = 25,
+    energy_required = 20,
     ingredients = {
       {"nullius-box-turbine-open-1", 1},
 	  {"nullius-box-small-tank-1", 1},
-	  {"nullius-box-pump-1", 1},
-	  {"nullius-box-top-up-valve", 2}
+	  {"nullius-box-top-up-valve", 1}
     },
     result = "nullius-box-turbine-closed-1"
   },

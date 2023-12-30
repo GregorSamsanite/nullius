@@ -1486,6 +1486,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "mn",
+    name = "boxed-dumping",
+    group = "boxed",
+  },
+  {
+    type = "item-subgroup",
     order = "n",
     name = "boxing-terrain",
     group = "boxing",

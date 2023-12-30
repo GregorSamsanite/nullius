@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.5
+Date: 30.12.2023
+  Features:
+    - Boron disposal recipe.
+  Bugfixes:
+    - Fix ring of land around excavation drones.
+  Balancing:
+    - Increase mineral dust from gravel to sand recipe.
+    - Reduce cost of closed turbine 1 and solar panel 2.
+  Changes:
+    - Increase density of forest growth.
+    - Give mirrored/prioritized versions of entities a deterministic order.
+    - Reorganize boxed solid waste disposal recipes.
+  Info:
+    - Explain requirements of alignment cards and give a message on failure.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.4
 Date: 25.12.2023
   Bugfixes:
