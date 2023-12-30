@@ -9,7 +9,7 @@ function special_stop(stop)
   return true
 end
 
-function insert_train_schedule(train, station)
+function insert_train_schedule(train, station, cs_train)
   if ((not train.valid) or train.manual_mode) then return false end
   local sched = train.schedule
   if (sched == nil) then return false end
@@ -23,6 +23,16 @@ function insert_train_schedule(train, station)
   local ind = hi + 1
   sched.records[ind] = { station = stop_name,
       wait_conditions = {{type="time", compare_type="and", ticks=36007}} }
+  if cs_train then
+    remote.call("cybersyn", "remove_train", train.id)
+    if not cs_train.use_any_depot then
+      table.insert(
+        sched.records, 1,
+        remote.call("cybersyn", "create_direct_to_station_order", train.station)
+      )
+      ind = 3
+    end
+  end
   station.pending[train.id] = {
     train = train,
     tick = game.tick,
