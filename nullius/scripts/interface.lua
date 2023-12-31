@@ -7,7 +7,39 @@ remote.add_interface("nullius", {
   end,
   on_character_swapped = function(data)
     change_character_entity(data.old_unit_number, data.new_character)
-  end
+  end,
+  ["better-victory-screen-statistics"] = function(winning_force)
+    local stats = { by_force = { }}
+    local surface = game.surfaces["nauvis"]
+
+    local arthropods = surface.count_entities_filtered{name = {
+        "small-biter", "medium-biter", "big-biter", "behemoth-biter",
+        "small-spitter", "medium-spitter", "big-spitter", "behemoth-spitter",
+    }}
+    local worms = surface.count_entities_filtered{name = {
+      "small-worm-turret", "medium-worm-turret", "big-worm-turret", "behemoth-worm-turret",
+    }}
+    local fish = surface.count_entities_filtered{type = "fish"}
+    local trees = surface.count_entities_filtered{type = "tree"}
+
+    local grass = surface.count_tiles_filtered{name = {
+      "grass-1", "grass-2", "grass-3", "grass-4"
+    }} / (1000 * 1000) -- Convert tiles to km2
+
+    local petroleum = surface.count_entities_filtered{name = "crude-oil"}
+
+    for force_name, force in pairs(game.forces) do
+      stats.by_force[force_name] = {["terraforming"] = { order = "a", stats = {
+        arthropods    = { value = arthropods,                 order = "a"},
+        worms         = { value = worms,                      order = "b"},
+        fish          = { value = fish,                       order = "c"},
+        trees         = { value = trees,                      order = "d"},
+        grass         = { value = grass,  unit = "area",      order = "e"},
+        petroleum     = { value = petroleum,                  order = "f"},
+      }}}
+    end
+    return stats
+  end,
 })
 
 

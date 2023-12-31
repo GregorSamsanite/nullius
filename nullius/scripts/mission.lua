@@ -179,8 +179,14 @@ function set_mission_goal(goal, amount, force)
   end
   update_mission_global()
   if (global.nullius_mission_complete) then
-    game.set_game_state{game_finished=true, player_won=true,
+
+    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
+      remote.call("better-victory-screen", "trigger_victory", force)
+    else
+      game.set_game_state{game_finished=true, player_won=true,
 	    can_continue=true, victorious_force=force}
+    end
+
   end
 end
 

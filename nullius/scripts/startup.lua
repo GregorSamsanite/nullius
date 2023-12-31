@@ -107,8 +107,10 @@ local function reset_config()
     remote.call("freeplay", "set_created_items", {})	
     remote.call("freeplay", "set_respawn_items", {})
   end
-  if (remote.interfaces["silo_script"] ~= nil) then
-    remote.call("silo_script", "set_no_victory", true)
+  for interface, functions in pairs(remote.interfaces) do
+    if (functions["set_no_victory"] ~= nil) then
+      remote.call(interface, "set_no_victory", true)
+    end
   end
 
   init_checkpoint_prereqs()
