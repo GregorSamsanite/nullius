@@ -5130,11 +5130,11 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {"nullius-small-assembler-1", 5},
-      {"nullius-wood", 7}
+      {"nullius-wood", 4}
     },
     results = {
       {type="item", name="nullius-medium-assembler-1", amount=3},
-      {type="item", name="nullius-wood-chip", amount=2}
+      {type="item", name="nullius-wood-chip", amount=1}
     },
     main_product = "nullius-medium-assembler-1"
   },
@@ -5160,14 +5160,14 @@ data:extend({
     category = "large-crafting",
     subgroup = "woodworking",
     order = "nullius-g",
-    energy_required = 15,
+    energy_required = 12,
     ingredients = {
-      {"nullius-small-miner-1", 5},
-      {"nullius-box-wood", 2}
+      {"nullius-small-miner-1", 3},
+      {"nullius-box-wood", 1}
     },
     results = {
-      {type="item", name="nullius-medium-miner-1", amount=3},
-      {type="item", name="nullius-wood-chip", amount=3}
+      {type="item", name="nullius-medium-miner-1", amount=2},
+      {type="item", name="nullius-wood-chip", amount=1}
     },
     main_product = "nullius-medium-miner-1"
   },

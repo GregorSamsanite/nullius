@@ -1,4 +1,30 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.7
+Date: 01.01.2024
+  Bugfixes:
+    - Some mismatches in boxed versions of changed recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.6
+Date: 31.12.2023
+  Balancing:
+    - Make many buildings and complex items cheaper:
+      barrel, chemical plant 1 + 2, compressor 1, crucible 1,
+      electrolyzer 1 + 2, filter 1, foundry 2, heat pipe 1 + 2,
+      hydro plant 1 + 2, inserter 1, laboratory 1, large assembler 1,
+      large beacon 1 + 2, large chest 1 + 2, large furnace 2,
+      large storage chest 2, large tank 1 - 3, medium assembler 1 + 3,
+      medium furnace 3, medium miner 1 - 3, medium tank 2, motor 2,
+      modules tier 2+, open turbine 2, pipe 4, pump 1, pylon 1, rail signal,
+      reactor, seawater intake 2, sensor node 1 + 2, silo, small assembler 3,
+      small furnace 2, small miner 3, small tank 1, thermal tank 2 + 3,
+      transformer, and underground pipe 3 + 4.
+  Modding:
+    - Add support for Better Victory Screen mod.
+    - Add support for fCPU mod.
+  Graphics:
+    - Tint colored concrete recipe smoke to match corresponding pigment.
+    - Fix icon of flotation cell 1 entity.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.5
 Date: 30.12.2023
   Features:

@@ -264,10 +264,10 @@ data:extend({
     energy_required = 16,
     ingredients = {
       {"nullius-turbine-open-1", 2},
-      {"nullius-pump-2", 2},
-      {"nullius-aluminum-sheet", 8},
-      {"nullius-steel-gear", 4},
-      {"nullius-capacitor", 2}
+      {"nullius-pump-2", 1},
+      {"nullius-aluminum-sheet", 6},
+      {"nullius-steel-gear", 3},
+      {"nullius-capacitor", 1}
     },
     result = "nullius-turbine-open-2"
   },
@@ -281,10 +281,10 @@ data:extend({
     energy_required = 80,
     ingredients = {
       {"nullius-box-turbine-open-1", 2},
-      {"nullius-box-pump-2", 2},
-      {"nullius-box-aluminum-sheet", 8},
-      {"nullius-box-steel-gear", 4},
-      {"nullius-box-capacitor", 2}
+      {"nullius-box-pump-2", 1},
+      {"nullius-box-aluminum-sheet", 6},
+      {"nullius-box-steel-gear", 3},
+      {"nullius-box-capacitor", 1}
     },
     result = "nullius-box-turbine-open-2"
   },

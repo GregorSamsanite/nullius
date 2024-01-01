@@ -116,14 +116,14 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "small-crafting",
-    energy_required = 6,
+    energy_required = 8,
     ingredients = {
       {"nullius-motor-1", 1},
       {"nullius-iron-gear", 2},
       {"nullius-iron-rod", 3}
     },
     result = "inserter",
-    result_count = 3
+    result_count = 4
   },
   {
     type = "recipe",
@@ -141,7 +141,7 @@ data:extend({
       {"nullius-box-steel-rod", 2}
     },
     result = "nullius-box-inserter-1",
-    result_count = 4
+    result_count = 5
   },
   {
     type = "recipe",
@@ -880,15 +880,18 @@ data:extend({
     name = "nullius-rail-signal",
     enabled = false,
 	always_show_made_in = true,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "small-crafting",
-    energy_required = 4,
+    energy_required = 8,
     ingredients = {
       {"decider-combinator", 1},
       {"small-lamp", 3},
       {"nullius-sensor-1", 1},
       {"power-switch", 1}
     },
-    result = "rail-signal"
+    result = "rail-signal",
+	result_count = 2
   },
   {
     type = "recipe",
@@ -914,14 +917,15 @@ data:extend({
 	always_show_made_in = true,
     category = "large-assembly",
     subgroup = "boxed-rail",
-    energy_required = 20,
+    energy_required = 40,
     ingredients = {
       {"nullius-box-logic-circuit", 1},
       {"nullius-box-lamp-1", 3},
       {"nullius-box-sensor-1", 1},
       {"nullius-box-power-switch", 1}
     },
-    result = "nullius-box-rail-signal"
+    result = "nullius-box-rail-signal",
+	result_count = 2
   },
   {
     type = "recipe",
@@ -1144,13 +1148,13 @@ data:extend({
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 4,
+    energy_required = 5,
     ingredients = {
       {type="item", name="nullius-small-tank-1", amount=1},
-      {type="item", name="nullius-one-way-valve", amount=5}
+      {type="item", name="nullius-one-way-valve", amount=3}
     },
     result = "empty-barrel",
-    result_count = 5
+    result_count = 6
   },
   {
     type = "recipe",
@@ -1164,13 +1168,13 @@ data:extend({
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 20,
+    energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-small-tank-1", amount=1},
-      {type="item", name="nullius-box-one-way-valve", amount=5}
+      {type="item", name="nullius-box-one-way-valve", amount=3}
     },
     result = "nullius-box-barrel",
-    result_count = 5
+    result_count = 6
   },
   {
     type = "recipe",
@@ -1198,14 +1202,14 @@ data:extend({
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 3,
+    energy_required = 4,
     ingredients = {
       {type="item", name="nullius-steel-sheet", amount=2},
 	  {type="item", name="nullius-plastic", amount=1},
-      {type="item", name="nullius-one-way-valve", amount=2}
+      {type="item", name="nullius-one-way-valve", amount=1}
     },
     result = "empty-barrel",
-    result_count = 2
+    result_count = 3
   },
   {
     type = "recipe",

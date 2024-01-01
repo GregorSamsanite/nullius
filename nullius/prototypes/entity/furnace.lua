@@ -1120,7 +1120,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-flotation-cell-1",
-    icons = data.raw.item["nullius-flotation-cell-2"].icons,
+    icons = data.raw.item["nullius-flotation-cell-1"].icons,
     localised_description = {"entity-description.nullius-flotation-cell"},
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "nullius-flotation-cell-1"},
