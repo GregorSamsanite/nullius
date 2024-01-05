@@ -209,7 +209,7 @@ data:extend({
       buffer_capacity = "15MJ",
       usage_priority = "tertiary",
       input_flow_limit = "200kW",
-      output_flow_limit = "400kW"
+      output_flow_limit = "500kW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
     picture = accumulator_picture({ r=0.9, g=0.85, b=0.7, a=1 }),
@@ -275,7 +275,7 @@ data:extend({
       buffer_capacity = "40MJ",
       usage_priority = "tertiary",
       input_flow_limit = "400kW",
-      output_flow_limit = "600kW"
+      output_flow_limit = "800kW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
     picture = accumulator_picture({ r=1, g=1, b=1, a=1 }),
@@ -340,7 +340,7 @@ data:extend({
       buffer_capacity = "100MJ",
       usage_priority = "tertiary",
       input_flow_limit = "800kW",
-      output_flow_limit = "1MW"
+      output_flow_limit = "1.5MW"
     },
     resistances = { { type = "impact", decrease = 100, percent = 90 } },
     picture = accumulator_picture({ r=1, g=0.85, b=1, a=1 }),

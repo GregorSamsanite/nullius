@@ -1015,12 +1015,17 @@ local function align_conscript_character(target, source)
   if (not check_entity_player(target)) then return end
   local player = target.player
   local oldforce = target.force
-  if (not (player_has_identification(player) and
-      faction_has_identification(oldforce))) then
-	local newforce = source.force
-    convert_player_faction(player, newforce)
-    check_faction_empty(oldforce, newforce, target)
+  if (player_has_identification(player) and
+      faction_has_identification(oldforce)) then
+    if (check_entity_player(source)) then
+      source.player.print({"alignment.align-msg",
+	        {"alignment.align-protected-identity"}})
+	end 
+    return	  
   end
+  local newforce = source.force
+  convert_player_faction(player, newforce)
+  check_faction_empty(oldforce, newforce, target)
 end
 
 local function align_conscript_building(target, source)
@@ -1032,6 +1037,10 @@ local function align_conscript_building(target, source)
 	      (player.character ~= nil) and player.character.valid and
 	      (player.character.type == "character") and
 		  player_has_identification(player)) then
+		if (check_entity_player(source)) then
+          source.player.print({"alignment.align-msg",
+	            {"alignment.align-guarded-identity"}})
+	    end 
 	    return
 	  end
     end
@@ -1051,8 +1060,21 @@ end
 local function align_effect_conscription(target, source)
   if (source.force == target.force) then return end
   local entry = lookup_force(target.force)
-  if ((entry == nil) or entry.has_transmitter) then return end
-  if (not faction_has_identification(source.force)) then return end
+  if (entry == nil) then return end
+  if (entry.has_transmitter) then
+    if (check_entity_player(source)) then
+      source.player.print({"alignment.align-msg",
+	        {"alignment.align-protected-transmitter"}})
+	end 
+    return
+  end
+  if (not faction_has_identification(source.force)) then
+    if (check_entity_player(source)) then
+      source.player.print({"alignment.align-msg",
+	        {"alignment.align-no-identification"}})
+	end 
+    return
+  end
   if (target.type == "character") then
     align_conscript_character(target, source)
   else

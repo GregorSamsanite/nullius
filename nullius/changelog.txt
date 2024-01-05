@@ -1,8 +1,30 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.8.7
-Date: 01.01.2024
+Version: 1.8.8
+Date: 05.01.2024
+  Balancing:
+    - Increase fluid capacity of fluid wagon 2 + 3.
+    - Increase maximum speed of fluid wagon 1 + 2.
+    - Reduce landfill/concrete cost of terraforming/paving drones.
+  Changes:
+    - Lower tech recipe for algaculture remote.
   Bugfixes:
-    - Some mismatches in boxed versions of changed recipes.
+    - Let low tier pumps completely fill high tier large tanks.
+  Modding:
+    - Don't allow Packing Tape to pack crash site.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.7
+Date: 02.01.2024
+  Balancing:
+    - Increase discharge rate of grid batteries.
+  Bugfixes:
+    - Mismatch in boxed version of transformer recipe.
+    - Hide broken recipes in multiplayer when all are repaired.
+  Changes:
+    - Provide a broken transponder in multiplayer Alignment mode.
+  Info:
+    - Provide explanation when conscription ray fails to convert.
+  Modding:
+    - Update description of AAI loader items.
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.6
 Date: 31.12.2023

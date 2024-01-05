@@ -201,6 +201,9 @@ function equip_player(player)
   player.insert({name="nullius-grid-battery-1", count=6})
   player.insert({name="small-electric-pole", count=15})
   player.insert({name="nullius-small-miner-1", count=2})
+  if (global.nullius_alignment) then
+    player.insert({name="nullius-broken-align-transponder", count=1})
+  end
 end
 
 script.on_event(defines.events.on_player_created,
@@ -214,11 +217,11 @@ script.on_event(defines.events.on_player_created,
       global.init_landing = true
 	  local surface = player.surface
       surface.daytime = 0.7
-      init_broken()
-	  reset_checkpoints(player.force)
 	  if (global.nullius_alignment) then
 	    intro = align_first_player_created(player)
 	  else
+        init_broken()
+	    reset_checkpoints(player.force)
 	  	chart_starting_area()
 	    landing_site(surface, {x=-5, y=-6}, player.force)
 	    equip_player(player)

@@ -442,6 +442,11 @@ data.raw.item["aai-loader"].order = "nullius-lc"
 data.raw.item["aai-fast-loader"].order = "nullius-ld"
 data.raw.item["aai-express-loader"].order = "nullius-le"
 data.raw.item["aai-ultimate-loader"].order = "nullius-lf"
+data.raw.item["aai-basic-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw.item["aai-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw.item["aai-fast-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw.item["aai-express-loader"].localised_description = {"entity-description.nullius-loader"}
+data.raw.item["aai-ultimate-loader"].localised_description = {"entity-description.nullius-loader"}
 
 data.raw.technology["nullius-loader-1"].icons = data.raw.technology["aai-basic-loader"].icons
 data.raw.technology["nullius-loader-2"].icons = data.raw.technology["aai-loader"].icons
@@ -2416,7 +2421,7 @@ if mods["Mini_Trains"] then
   mtf2.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-2"].max_speed * 0.95)
   mtf2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
   mtf2.color = {r = 0.95, g = 0.1, b = 0}
-  mtf2.capacity = 25000
+  mtf2.capacity = 40000
   mtf2.weight = 600
   mtf2.braking_force = 1
   mtf2.friction_force = 0.2
@@ -2431,7 +2436,7 @@ if mods["Mini_Trains"] then
   mtf3.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-3"].max_speed * 0.95)
   mtf3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
   mtf3.color = {r = 0.2, g = 0.3, b = 0.8}
-  mtf3.capacity = 50000
+  mtf3.capacity = 125000
   mtf3.weight = 900
   mtf3.braking_force = 2
   mtf3.friction_force = 0.3

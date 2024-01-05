@@ -2611,7 +2611,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 6,
+      height = 7,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
@@ -2946,7 +2946,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 5,
+      height = 6.5,
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }
@@ -3058,7 +3058,7 @@ data:extend({
     },
     fluid_box = {
       base_area = 1,
-      height = 6,
+      height = 7.5,
       pipe_connections = {
         { position = {0, 1}, type = "output" },
         { position = {0, -1}, type = "input" }

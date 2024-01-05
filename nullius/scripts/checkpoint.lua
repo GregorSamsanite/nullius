@@ -177,6 +177,9 @@ function init_broken()
       (not global.nullius_alignment)) then
     global.nullius_broken_status = {}
   end
+  if (global.nullius_alignment) then
+	broken_data["align-transponder"] = 1
+  end
   for suffix, count in pairs(broken_data) do
     local ind = "nullius-broken-" .. suffix
 	local cur = (global.nullius_broken_status[ind] or 0)

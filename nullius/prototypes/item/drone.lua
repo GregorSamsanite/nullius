@@ -98,7 +98,7 @@ local function create_terraform(suffix, tile, suborder)
         {"nullius-shallow-excavation-drone", 1},
         {"nullius-construction-bot-3", 2},
         {"rocket-fuel", 2},
-        {"nullius-box-land-fill-"..tile, 300}
+        {"nullius-box-land-fill-"..tile, 200}
       },
       result = "nullius-terraforming-drone-"..suffix
     },
@@ -136,7 +136,7 @@ local function create_paving(suffix, landfill, suborder, tile)
         {"nullius-terraforming-drone-"..landfill, 1},
         {"nullius-logistic-bot-3", 1},
         {"rocket-fuel", 1},
-        {"nullius-box-"..tile.."-concrete", 400}
+        {"nullius-box-"..tile.."-concrete", 300}
       },
       result = "nullius-paving-drone-"..suffix
     },
@@ -377,7 +377,7 @@ create_miner("limestone", "e", 2, "beige",
 create_miner("copper", "f", 2, "grey", "__base__/graphics/icons/copper-ore.png", 64)
 create_miner("uranium", "g", 2, "grey", "__base__/graphics/icons/uranium-ore.png", 64)
 
-create_farmer("algaculture", "b", "algae", "algae-spore", 60, "excavation-remote",
+create_farmer("algaculture", "b", "algae", "algae-spore", 60, "scout-remote",
     "productivity-module-1", ICONPATH .. "algae.png", 1, 1,
     {"nullius-box-mineral-dust", 10}, {"nullius-bacteria-barrel", 1})
 create_farmer("horticulture", "c", "grass", "box-grass-seed", 20, "algaculture-remote",

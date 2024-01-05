@@ -108,7 +108,7 @@ data:extend({
 	  icon_mipmaps = 4
     }},
     subgroup = "alignment",
-    order = "nullius-d",
+    order = "nullius-db",
     stack_size = 20,
     capsule_action = {
       type = "use-on-self",
@@ -239,6 +239,51 @@ data:extend({
     order = "nullius-i",
     stack_size = 1,
     rocket_launch_product = {"nullius-astronomy-pack", 42}
+  },
+
+  {
+    type = "item",
+    name = "nullius-broken-align-transponder",
+    localised_name = {"item-name.nullius-broken", {"item-name.nullius-align-transponder"}},
+    icons = {
+      {
+	    icon = "__base__/graphics/icons/rocket-part.png",
+        icon_size = 64,
+	    icon_mipmaps = 4
+      },
+      {
+        icon = "__nullius__/graphics/icons/broken.png",
+        icon_size = 64
+      }
+    },
+	subgroup = "alignment",
+    order = "nullius-dc",
+    stack_size = 20
+  }
+})
+
+data:extend({
+  {
+    type = "recipe",
+    name = "nullius-broken-align-transponder",
+    localised_name = {"recipe-name.nullius-repair", {"item-name.nullius-align-transponder"}},
+    icons = data.raw.item["nullius-broken-align-transponder"].icons,
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    no_productivity = true,
+    category = "small-crafting",
+    subgroup = "alignment",
+    order = "nullius-dc",
+    energy_required = 3,
+    ingredients = {
+      {"nullius-broken-align-transponder", 1},
+      {"nullius-iron-wire", 1}
+    },
+    result = "nullius-align-transponder"
   },
 
   {
@@ -392,15 +437,15 @@ local function alignment_tech(num, item, typ, cnt, tm, pack, ignore, item2)
   }
   if (item2 ~= nil) then
     tech.effects[2] = { type = "unlock-recipe",
-	    recipe = ("nullius-align-" .. item2) }
+	    recipe = ("nullius-" .. item2) }
   end
   data:extend({ tech })
 end
 
-alignment_tech(1, "identification-card", "capsule", 5, 5, "mechanical", true)
+alignment_tech(1, "identification-card", "capsule", 5, 5, "mechanical", true, "broken-align-transponder")
 alignment_tech(2, "invitation-card", "capsule", 20, 10, "mechanical", true)
 alignment_tech(3, "transponder", "capsule", 50, 25, "electrical", true)
-alignment_tech(4, "conscription-ray", "gun", 100, 25, "electrical", true, "conscription-charge")
+alignment_tech(4, "conscription-ray", "gun", 100, 25, "electrical", true, "align-conscription-charge")
 alignment_tech(5, "conscription-turret", "item", 300, 30, "chemical", true)
 alignment_tech(6, "concordance-transmitter", "item", 1000, 40, "physics", true)
 alignment_tech(7, "concordance-satellite", "item", 3000, 60, "astronomy", true)

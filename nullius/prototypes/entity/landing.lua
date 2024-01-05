@@ -28,6 +28,7 @@ data:extend({
     allow_copy_paste = false,
     inventory_size = 20,
     enable_inventory_bar = false,
+	not_inventory_moveable = true,
     minable = {
       mining_time = 4,
       results = {
@@ -607,6 +608,7 @@ data:extend({
     allow_copy_paste = false,
     inventory_size = 10,
     enable_inventory_bar = false,
+	not_inventory_moveable = true,
     minable = {
       mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
@@ -662,6 +664,7 @@ data:extend({
     allow_copy_paste = false,
     inventory_size = 10,
     enable_inventory_bar = false,
+	not_inventory_moveable = true,
     minable = {
       mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
