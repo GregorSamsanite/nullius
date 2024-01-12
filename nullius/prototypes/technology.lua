@@ -1696,7 +1696,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-barrel"
+        recipe = "nullius-barrel-1"
       },
       {
         type = "unlock-recipe",
@@ -8117,7 +8117,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-barrel"
+        recipe = "nullius-boxed-barrel-1"
       },
 	  {
         type = "unlock-recipe",
@@ -10759,6 +10759,36 @@ data:extend({
     },
     prerequisites = {"nullius-lithium-production", "nullius-chemical-engineering-3", "nullius-energy-storage-4"}
   },
+  {
+    type = "technology",
+    name = "nullius-venting-3",
+    order = "nullius-fj",
+	icons = {{
+      icon = "__angelspetrochem__/graphics/technology/flare-stack-tech.png",
+      icon_size = 256,
+	  icon_mipmaps = 4
+	}},
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-outfall-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-chimney-3"
+      }
+    },
+    unit = {
+      count = 1600,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2},
+        {"nullius-mechanical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      },
+      time = 45
+    },
+    prerequisites = {"nullius-air-separation-3", "nullius-lithium-production"}
+  },
 
   {
     type = "technology",
@@ -10842,7 +10872,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-air-separation-3", "nullius-experimental-chemistry-2"}
+    prerequisites = {"nullius-venting-3", "nullius-experimental-chemistry-2"}
   },
   {
     type = "technology",
@@ -11032,7 +11062,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-steelmaking-3", "nullius-silicon-production-3"}
+    prerequisites = {"nullius-steelmaking-3", "nullius-silicon-production-3", "nullius-venting-3"}
   },
   {
     type = "technology",

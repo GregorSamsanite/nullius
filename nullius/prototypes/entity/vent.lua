@@ -270,9 +270,42 @@ nmc2.working_visualisations[1].north_position = nmc2.working_visualisations[1].s
 nmc2.working_visualisations[1].east_position = nmc2.working_visualisations[1].south_position
 nmc2.working_visualisations[1].west_position = nmc2.working_visualisations[1].south_position
 
+local nc3 = util.table.deepcopy(data.raw.furnace["nullius-chimney-2"])
+nc3.name = "nullius-chimney-3"
+nc3.icons = data.raw.item["nullius-chimney-3"].icons
+nc3.minable = {mining_time = 1.5, result = "nullius-chimney-3"}
+nc3.max_health = 500
+nc3.corpse = "medium-remnants"
+nc3.collision_box = {{-1.25, -1.25}, {1.25, 1.25}}
+nc3.selection_box = {{-1.5, -1.5}, {1.5, 1.5}}
+nc3.crafting_speed = 20
+nc3.fluid_boxes = {{
+  production_type = "input",
+  pipe_covers = pipecoverspictures(),
+  base_area = 10,
+  base_level = -5,
+  height = 15,
+  pipe_connections = {{ type="input-output", position = {0, 2} }}
+}}
+nc3.energy_source = {
+  type = "electric",
+  usage_priority = "secondary-input",
+  emissions = 0.1,
+  drain = "5kW"
+}
+nc3.energy_usage = "295kW"
+nc3.module_specification = { module_slots = 1 }
+nc3.allowed_effects = {"speed", "consumption", "pollution"}
+nc3.animation = scale_image(nc3.animation.south, 1.5)
+nc3.working_visualisations[1] = scale_image(nc3.working_visualisations[1], 1.5)
+nc3.working_visualisations[1].north_position = nc3.working_visualisations[1].south_position
+nc3.working_visualisations[1].east_position = nc3.working_visualisations[1].south_position
+nc3.working_visualisations[1].west_position = nc3.working_visualisations[1].south_position
+
 data:extend({
   nmc1,
   nmc2,
+  nc3,
   {
     type = "furnace",
     name = "nullius-outfall-1",
@@ -361,12 +394,13 @@ data:extend({
     minable = {mining_time = 0.8, result = "nullius-outfall-2"},
     max_health = 300,
     fast_replaceable_group = "nullius-outfall",
+	next_upgrade = "nullius-outfall-3",
     corpse = "small-remnants",
     collision_box = {{-1.4, -2.45}, {1.4, 0.3}},
     selection_box = {{-1.6, -2.49}, {1.6, 0.49}},
     crafting_categories = {"nullius-liquid-void"},
     result_inventory_size = 1,
-    crafting_speed = 5,
+    crafting_speed = 4,
     source_inventory_size = 0,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -428,3 +462,31 @@ data:extend({
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
   }
 })
+
+
+local no3 = util.table.deepcopy(data.raw.furnace["nullius-outfall-2"])
+no3.name = "nullius-outfall-3"
+no3.icons = data.raw.item["nullius-outfall-3"].icons
+no3.minable = {mining_time = 1, result = "nullius-outfall-3"}
+no3.max_health = 400
+no3.crafting_speed = 10
+no3.energy_source = {
+  type = "electric",
+  usage_priority = "secondary-input",
+  emissions = 0.1,
+  drain = "5kW"
+}
+no3.energy_usage = "195kW"
+no3.module_specification = {
+  module_slots = 1,
+  module_info_icon_shift = {0, 0}
+}
+no3.allowed_effects = {"speed", "consumption", "pollution"}
+no3.next_upgrade = nil
+no3.animation.north.filename = "__angelsrefining__/graphics/entity/sea-pump/sea-pump.png"
+no3.animation.east.filename = no3.animation.north.filename
+no3.animation.south.filename = no3.animation.north.filename
+no3.animation.west.filename = no3.animation.north.filename
+
+data:extend({ no3 })
+

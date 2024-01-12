@@ -1138,16 +1138,159 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-barrel",
+    name = "nullius-barrel-1",
 	localised_name = {"", {"item-name.empty-barrel"}, " ", 1},
+	icons = {
+      {
+        icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.3,
+        shift = {8, -9}
+      }
+    },
     enabled = false,
-    category = "large-crafting",
+    category = "hand-casting",
     subgroup = "canisters",
     order = "nullius-bb",
     always_show_made_in = true,
     allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
+    energy_required = 5,
+    ingredients = {
+      {type="item", name="nullius-steel-sheet", amount=2},
+	  {type="item", name="nullius-plastic", amount=1},
+      {type="item", name="nullius-one-way-valve", amount=1}
+    },
+    result = "empty-barrel",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-barrel-1",
+	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 1},
+	icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.27,
+        shift = {7, -8}
+      }
+    },
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "boxed-canister",
+    order = "nullius-bb",
+    always_show_made_in = true,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    energy_required = 25,
+    ingredients = {
+      {type="item", name="nullius-box-steel-sheet", amount=2},
+	  {type="item", name="nullius-box-plastic", amount=1},
+      {type="item", name="nullius-box-one-way-valve", amount=1}
+    },
+    result = "nullius-box-barrel",
+    result_count = 3
+  },
+  {
+    type = "recipe",
+    name = "nullius-barrel-2",
+	localised_name = {"", {"item-name.empty-barrel"}, " ", 2},
+    enabled = false,
+    category = "hand-casting",
+    subgroup = "canisters",
+    order = "nullius-bc",
+    always_show_made_in = true,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    energy_required = 6,
+    ingredients = {
+      {type="item", name="nullius-small-tank-1", amount=1},
+      {type="item", name="nullius-one-way-valve", amount=3}
+    },
+    result = "empty-barrel",
+    result_count = 6
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-barrel-2",
+	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 2},
+    enabled = false,
+    category = "machine-casting",
+    subgroup = "boxed-canister",
+	order = "nullius-bc",
+    always_show_made_in = true,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    energy_required = 30,
+    ingredients = {
+      {type="item", name="nullius-box-small-tank-1", amount=1},
+      {type="item", name="nullius-box-one-way-valve", amount=3}
+    },
+    result = "nullius-box-barrel",
+    result_count = 6
+  },
+  {
+    type = "recipe",
+    name = "nullius-barrel-recycling",
+    localised_name = {"recipe-name.nullius-barrel-recycling"},
+    icon = "__base__/graphics/icons/fluid/barreling/barrel-empty.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    enabled = false,
+    category = "hand-casting",
+	subgroup = "canister-emptying",
+    order = "nullius-b",
+    always_show_made_in = true,
+    no_productivity = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    energy_required = 2,
+    ingredients = {
+      {type="item", name="empty-barrel", amount=6}
+    },
+    results = {
+      {type="item", name="nullius-iron-ingot", amount=1},
+      {type="item", name="nullius-plastic", amount=1}
+    }
+  },
+
+
+  {
+    type = "recipe",
+    name = "nullius-legacy-barrel-1",
+	localised_name = {"", {"item-name.empty-barrel"}, " ", 1},
+    enabled = false,
+    category = "large-crafting",
+    subgroup = "canisters",
+    order = "nullius-bb",
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-small-tank-1", amount=1},
@@ -1158,16 +1301,18 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-boxed-barrel",
+    name = "nullius-legacy-boxed-barrel-1",
 	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 1},
     enabled = false,
     category = "huge-assembly",
     subgroup = "boxed-canister",
 	order = "nullius-bb",
     always_show_made_in = true,
-    allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-small-tank-1", amount=1},
@@ -1178,7 +1323,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-barrel-2",
+    name = "nullius-legacy-barrel-2",
 	localised_name = {"", {"item-name.empty-barrel"}, " ", 2},
 	icons = {
       {
@@ -1199,9 +1344,11 @@ data:extend({
     subgroup = "canisters",
     order = "nullius-bc",
     always_show_made_in = true,
-    allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     energy_required = 4,
     ingredients = {
       {type="item", name="nullius-steel-sheet", amount=2},
@@ -1213,7 +1360,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-boxed-barrel-2",
+    name = "nullius-legacy-boxed-barrel-2",
 	localised_name = {"", {"item-name.nullius-box", {"item-name.empty-barrel"}}, " ", 2},
 	icons = {
       {
@@ -1239,21 +1386,23 @@ data:extend({
     subgroup = "boxed-canister",
     order = "nullius-bc",
     always_show_made_in = true,
-    allow_decomposition = false,
     show_amount_in_title = false,
     always_show_products = true,
-    energy_required = 15,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-box-steel-sheet", amount=2},
 	  {type="item", name="nullius-box-plastic", amount=1},
-      {type="item", name="nullius-box-one-way-valve", amount=2}
+      {type="item", name="nullius-box-one-way-valve", amount=1}
     },
     result = "nullius-box-barrel",
-    result_count = 2
+    result_count = 3
   },
   {
     type = "recipe",
-    name = "nullius-barrel-recycling",
+    name = "nullius-legacy-barrel-recycling",
     localised_name = {"recipe-name.nullius-barrel-recycling"},
     icon = "__base__/graphics/icons/fluid/barreling/barrel-empty.png",
     icon_size = 64,
@@ -1264,6 +1413,7 @@ data:extend({
     order = "nullius-b",
     always_show_made_in = true,
     no_productivity = true,
+    hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     energy_required = 2,
@@ -1271,8 +1421,8 @@ data:extend({
       {type="item", name="empty-barrel", amount=5}
     },
     results = {
-      {type="item", name="nullius-iron-ingot", amount=2},
-      {type="item", name="nullius-plastic", amount=2}
+      {type="item", name="nullius-iron-ingot", amount=1},
+      {type="item", name="nullius-plastic", amount=1}
     }
   }
 })

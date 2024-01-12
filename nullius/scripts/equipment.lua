@@ -335,6 +335,12 @@ local function select_area(event, alt)
   local filter = nil
   if (alt) then
     filter = {"rail-remnants", "corpse"}
+  elseif ((player.force ~= nil) and player.force.valid and
+      player.force.research_enabled and
+	  (player.force.technologies["nullius-explosives-2"] ~= nil) and
+	  player.force.technologies["nullius-explosives-2"].researched) then
+	filter = {"simple-entity", "item-entity", "rail-remnants", "corpse",
+	    "cliff"}
   else
     filter = {"simple-entity", "item-entity", "rail-remnants", "corpse"}
   end
@@ -348,6 +354,11 @@ local function select_area(event, alt)
 	    destroy = false
 		if ((string.find(e.name, "rock") ~= nil) and
 		    e.is_entity_with_health and e.destructible) then
+		  e.order_deconstruction(player.force, player)
+		end
+	  elseif (e.type == "cliff") then
+	    destroy = false
+		if (e.destructible) then
 		  e.order_deconstruction(player.force, player)
 		end
 	  elseif (e.type == "corpse") then

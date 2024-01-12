@@ -1,0 +1,13 @@
+{
+  "recipe":
+  [
+	["nullius-barrel", "nullius-legacy-barrel-1"],
+	["nullius-boxed-barrel", "nullius-legacy-boxed-barrel-1"],
+	["nullius-barrel-2", "nullius-legacy-barrel-2"],
+	["nullius-boxed-barrel-2", "nullius-legacy-boxed-barrel-2"],
+	["nullius-barrel-recycling", "nullius-legacy-barrel-recycling"],
+	["nullius-empty-canister", "nullius-legacy-empty-canister"],
+	["nullius-boxed-canister", "nullius-legacy-boxed-canister"],
+	["nullius-extractor-2", "nullius-legacy-extractor-2"]
+  ]
+}

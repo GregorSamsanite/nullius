@@ -227,7 +227,7 @@ end
 if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["long-inserters-1"].order = "nullius-ce"
 data.raw.technology["long-inserters-1"].prerequisites = {"nullius-automation"}
-data.raw.technology["long-inserters-1"].unit = { count = 8,
+data.raw.technology["long-inserters-1"].unit = { count = 3,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
@@ -235,7 +235,7 @@ table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"long-ins
 
 data.raw.technology["long-inserters-2"].order = "nullius-dd"
 data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["long-inserters-2"].unit = { count = 25,
+data.raw.technology["long-inserters-2"].unit = { count = 20,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 20
 }
@@ -244,7 +244,7 @@ data.raw.technology["long-inserters-1"].order = "nullius-dd"
 data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
 data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication", "nullius-mass-production-1"}
-data.raw.technology["long-inserters-1"].unit = { count = 16,
+data.raw.technology["long-inserters-1"].unit = { count = 8,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 6
 }
@@ -475,7 +475,7 @@ if (settings.startup["bobmods-inserters-long2"].value == true) then
 data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-checkpoint-steel-ingot"}
 data.raw.technology["near-inserters"].order = "nullius-cf"
 data.raw.technology["near-inserters"].ignore_tech_cost_multiplier = true
-data.raw.technology["near-inserters"].unit = { count = 10,
+data.raw.technology["near-inserters"].unit = { count = 3,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
@@ -483,7 +483,7 @@ table.insert(data.raw.technology["nullius-toolmaking-2"].prerequisites,"near-ins
 else
 data.raw.technology["near-inserters"].prerequisites = {"nullius-maintenance"}
 data.raw.technology["near-inserters"].order = "nullius-dg"
-data.raw.technology["near-inserters"].unit = { count = 40,
+data.raw.technology["near-inserters"].unit = { count = 20,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 25
 }
@@ -491,7 +491,7 @@ table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"near-ins
 end
 
 data.raw.technology["more-inserters-1"].order = "nullius-df"
-data.raw.technology["more-inserters-1"].unit = { count = 100,
+data.raw.technology["more-inserters-1"].unit = { count = 70,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 30
 }
@@ -501,7 +501,7 @@ table.insert(data.raw.technology["nullius-cybernetics-2"].prerequisites,"more-in
 
 if settings.startup["bobmods-inserters-more2"].value == true then
 data.raw.technology["more-inserters-2"].order = "nullius-ek"
-data.raw.technology["more-inserters-2"].unit = { count = 400,
+data.raw.technology["more-inserters-2"].unit = { count = 300,
   ingredients = {
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
     {"nullius-chemical-pack", 1}
@@ -773,7 +773,7 @@ data.raw.technology["advanced-underground-piping"].prerequisites = {"nullius-che
 table.insert(data.raw.technology["nullius-volcanism-1"].prerequisites,"advanced-underground-piping")
 data.raw.technology["advanced-underground-piping"].order = "nullius-df"
 data.raw.technology["advanced-underground-piping"].unit = {
-  count = 80, time = 20,
+  count = 40, time = 20,
   ingredients = {
     {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -824,7 +824,7 @@ data.raw.technology["advanced-underground-piping-t2"].prerequisites = {"nullius-
 table.insert(data.raw.technology["nullius-pressure-containment"].prerequisites,"advanced-underground-piping-t2")
 data.raw.technology["advanced-underground-piping-t2"].order = "nullius-ek"
 data.raw.technology["advanced-underground-piping-t2"].unit = {
-  count = 600, time = 30,
+  count = 500, time = 30,
   ingredients = {
     {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
     {"nullius-mechanical-pack", 1}, {"nullius-chemical-pack", 1}
@@ -864,7 +864,7 @@ data.raw.technology["advanced-underground-piping-t3"].localised_description =
 data.raw.technology["advanced-underground-piping-t3"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t1.png"
 data.raw.technology["advanced-underground-piping-t3"].prerequisites = {"nullius-chemical-engineering-3"}
-table.insert(data.raw.technology["nullius-volcanism-2"].prerequisites,"advanced-underground-piping-t3")
+table.insert(data.raw.technology["nullius-venting-3"].prerequisites,"advanced-underground-piping-t3")
 data.raw.technology["advanced-underground-piping-t3"].order = "nullius-fi"
 data.raw.technology["advanced-underground-piping-t3"].unit = {
   count = 2000, time = 45,
@@ -1156,7 +1156,7 @@ data.raw.technology["transport-system"].order = "nullius-dg"
 data.raw.technology["transport-system"].prerequisites = {
   "nullius-robotics-1", "nullius-checkpoint-compressed-nitrogen" }
 data.raw.technology["transport-system"].unit = {
-  count = 150, time = 30,
+  count = 100, time = 30,
   ingredients = {
     {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1166,7 +1166,7 @@ data.raw.technology["transport-depot-circuits"].order = "nullius-dk"
 data.raw.technology["transport-depot-circuits"].prerequisites = {
   "transport-system", "nullius-broadcasting-1" }
 data.raw.technology["transport-depot-circuits"].unit = {
-  count = 150, time = 30,
+  count = 80, time = 30,
   ingredients = {
     {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1738,7 +1738,7 @@ if settings.startup["RTThrowersSetting"].value then
   data.raw.technology["RTFocusedFlinging"].prerequisites =
     {"nullius-logistic-ballistics-2", "nullius-mechanical-separation"}
   data.raw.technology["RTFocusedFlinging"].unit = {
-    count = 8,
+    count = 4,
     ingredients = {{"nullius-geology-pack", 1}, {"nullius-mechanical-pack", 1}},
     time = 10
   }

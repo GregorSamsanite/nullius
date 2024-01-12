@@ -18,7 +18,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 50,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -114,7 +114,7 @@ data:extend({
       { type = "unlock-recipe", recipe = "nullius-aai-signal-receiver" }
     },
     unit = {
-      count = 200,
+      count = 150,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1240,7 +1240,7 @@ data:extend({
       }
     },
     unit = {
-      count = 15,
+      count = 10,
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}},
       time = 10
@@ -1263,7 +1263,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 80,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1307,7 +1307,7 @@ data:extend({
       }
     },
     unit = {
-      count = 250,
+      count = 180,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1343,7 +1343,7 @@ data:extend({
       }
     },
     unit = {
-      count = 600,
+      count = 400,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -1544,7 +1544,7 @@ data:extend({
       }
     },
     unit = {
-      count = 6,
+      count = 2,
       ingredients = {{"nullius-geology-pack", 3}, {"nullius-climatology-pack", 1}},
       time = 3
     },
@@ -1584,7 +1584,7 @@ data:extend({
       }
     },
     unit = {
-      count = 10,
+      count = 8,
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}},
       time = 6
@@ -1617,7 +1617,7 @@ data:extend({
       }
     },
     unit = {
-      count = 100,
+      count = 80,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -1969,7 +1969,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       icon = "__UPSFriendlyNixieTubeDisplay__/graphics/old-nixie-technology-icon.png",
       icon_size = 32,
       unit = {
-        count = 50,
+        count = 25,
         ingredients = {
           {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
           {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
@@ -1991,7 +1991,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       icon = "__UPSFriendlyNixieTubeDisplay__/graphics/nixie-technology-icon.png",
       icon_size = 32,
       unit = {
-        count = 50,
+        count = 40,
         ingredients = {
           {"nullius-climatology-pack", 1},
           {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -2047,7 +2047,7 @@ data:extend({
       }
     },
     unit = {
-      count = 50,
+      count = 30,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
@@ -2905,7 +2905,7 @@ data:extend({
       }
     },
     unit = {
-      count = 5,
+      count = 2,
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
@@ -2925,7 +2925,7 @@ data:extend({
       }
     },
     unit = {
-      count = 6,
+      count = 3,
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
@@ -2945,7 +2945,7 @@ data:extend({
       }
     },
     unit = {
-      count = 10,
+      count = 5,
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
@@ -2969,7 +2969,7 @@ data:extend({
       }
     },
     unit = {
-      count = 12,
+      count = 6,
       ingredients = {{"nullius-climatology-pack", 1}, {"nullius-mechanical-pack", 1}},
       time = 10
     },
@@ -2993,7 +2993,7 @@ data:extend({
       }
     },
     unit = {
-      count = 90,
+      count = 10,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3024,7 +3024,7 @@ data:extend({
       }
     },
     unit = {
-      count = 200,
+      count = 100,
       ingredients = {
         {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3050,7 +3050,7 @@ data:extend({
       }
     },
     unit = {
-      count = 500,
+      count = 400,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -3120,7 +3120,7 @@ data:extend({
       }
     },
     unit = {
-      count = 25,
+      count = 10,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3152,7 +3152,7 @@ data:extend({
       }
     },
     unit = {
-      count = 300,
+      count = 160,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3175,7 +3175,7 @@ data:extend({
       }
     },
     unit = {
-      count = 600,
+      count = 500,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -3255,7 +3255,7 @@ if settings.startup["RTTrainRampSetting"].value then
       }
     },
     unit = {
-      count = 250,
+      count = 150,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
@@ -3281,7 +3281,7 @@ if settings.startup["RTTrainRampSetting"].value then
       }
     },
     unit = {
-      count = 300,
+      count = 250,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
@@ -3525,7 +3525,7 @@ data:extend({
       }
     },
     unit = {
-      count = 12,
+      count = 10,
       ingredients = {
         {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
         {"nullius-mechanical-pack", 1}

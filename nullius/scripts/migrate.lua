@@ -146,6 +146,16 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10810) then return end
+  added_techs({"nullius-venting-3"})
+  legacy_recipe_all("nullius-barreling-1", "barrel-1")
+  legacy_recipe_all("nullius-barreling-2", "barrel-2")
+  legacy_recipe_all("nullius-mass-production-5", "boxed-barrel-1")
+  legacy_recipe_all("nullius-mass-production-5", "boxed-barrel-2")
+  legacy_recipe_all("nullius-waste-reclamation", "barrel-recycling")
+  legacy_recipe_all("nullius-freight-transportation-1", "empty-canister")
+  legacy_recipe_all("nullius-mass-production-4", "boxed-canister")
+
   if (version >= 10800) then return end
   added_techs({"nullius-ecology-1", "nullius-ecology-2", "nullius-ecology-3",
       "nullius-ecology-4", "nullius-ecology-5", "nullius-ecology-6",

@@ -322,7 +322,7 @@ data:extend({
     subgroup = "pipes",
     energy_required = 10,
     ingredients = {
-      {"nullius-pipe-2", 10},
+      {"nullius-pipe-2", 8},
       {"nullius-gravel", 3}
     },
     result = "nullius-underground-pipe-2",
@@ -339,7 +339,7 @@ data:extend({
     subgroup = "boxed-pipe",
     energy_required = 50,
     ingredients = {
-      {"nullius-box-pipe-2", 10},
+      {"nullius-box-pipe-2", 8},
       {"nullius-box-gravel", 3}
     },
     result = "nullius-box-underground-pipe-2",
@@ -435,7 +435,7 @@ data:extend({
     subgroup = "pipes",
     energy_required = 20,
     ingredients = {
-      {"nullius-pipe-3", 12},
+      {"nullius-pipe-3", 10},
       {"concrete", 4}
     },
     result = "nullius-underground-pipe-3",
@@ -452,7 +452,7 @@ data:extend({
     subgroup = "boxed-pipe",
     energy_required = 100,
     ingredients = {
-      {"nullius-box-pipe-3", 12},
+      {"nullius-box-pipe-3", 10},
       {"nullius-box-concrete", 2}
     },
     result = "nullius-box-underground-pipe-3",
@@ -477,7 +477,7 @@ data:extend({
       {type="item", name="nullius-graphene", amount=1}
     },
     result = "nullius-pipe-4",
-    result_count = 8
+    result_count = 10
   },
   {
     type = "recipe",
@@ -498,7 +498,7 @@ data:extend({
       {type="item", name="nullius-box-graphene", amount=1}
     },
     result = "nullius-box-pipe-4",
-    result_count = 8
+    result_count = 10
   },
   {
     type = "recipe",
@@ -510,7 +510,7 @@ data:extend({
     always_show_products = true,
     energy_required = 30,
     ingredients = {
-      {"nullius-pipe-4", 15},
+      {"nullius-pipe-4", 12},
       {"refined-concrete", 6}
     },
     result = "nullius-underground-pipe-4",
@@ -527,7 +527,7 @@ data:extend({
     always_show_products = true,
     energy_required = 150,
     ingredients = {
-      {"nullius-box-pipe-4", 15},
+      {"nullius-box-pipe-4", 12},
       {"nullius-box-reinforced-concrete", 3}
     },
     result = "nullius-box-underground-pipe-4",
@@ -742,18 +742,10 @@ data:extend({
   {
     type = "item",
     name = "nullius-chimney-1",
-    icons = {
-      {
-        icon = ICONPATH .. "shadow.png",
-        icon_size = 64
-      },
-      {
-        icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-        icon_size = 64,
-		icon_mipmaps = 4,
-        scale = 0.4
-      }
-    },
+    icons = {{
+      icon = ENTICONPATH .. "chimney1.png",
+      icon_size = 128
+    }},
     subgroup = "air-treatment",
     order = "nullius-db",
     place_result = "nullius-chimney-1",
@@ -762,15 +754,26 @@ data:extend({
   {
     type = "item",
     name = "nullius-chimney-2",
-    icons = {{
-      icon = "__angelspetrochem__/graphics/icons/flare-stack.png",
-      icon_size = 64,
-	  icon_mipmaps = 4
+	icons = {{
+      icon = ENTICONPATH .. "chimney2.png",
+      icon_size = 128
     }},
     subgroup = "air-treatment",
     order = "nullius-dc",
     place_result = "nullius-chimney-2",
     stack_size = 50
+  },
+  {
+    type = "item",
+    name = "nullius-chimney-3",
+	icons = {{
+      icon = ENTICONPATH .. "chimney3.png",
+      icon_size = 128
+    }},
+    subgroup = "air-treatment",
+    order = "nullius-dd",
+    place_result = "nullius-chimney-3",
+    stack_size = 20
   },
   {
     type = "recipe",
@@ -802,6 +805,21 @@ data:extend({
       {"nullius-pump-2", 1}
     },
     result = "nullius-chimney-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-chimney-3",
+    enabled = false,
+    category = "huge-crafting",
+    always_show_made_in = true,
+    energy_required = 25,
+    ingredients = {
+      {"nullius-chimney-2", 4},
+      {"nullius-underground-pipe-3", 8},
+      {"nullius-compressor-2", 1},
+      {"stone-wall", 4}
+    },
+    result = "nullius-chimney-3"
   },
 
   {
@@ -1028,6 +1046,18 @@ data:extend({
     stack_size = 50
   },
   {
+    type = "item",
+    name = "nullius-outfall-3",
+	icons = {{
+      icon = "__angelsrefining__/graphics/icons/sea-pump-ico.png",
+      icon_size = 32
+	}},
+    subgroup = "water-intake",
+    order = "nullius-ed",
+    place_result = "nullius-outfall-3",
+    stack_size = 50
+  },
+  {
     type = "recipe",
     name = "nullius-outfall-1",
     enabled = false,
@@ -1054,6 +1084,21 @@ data:extend({
       {"nullius-pump-2", 1}
     },
     result = "nullius-outfall-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-outfall-3",
+    enabled = false,
+	always_show_made_in = true,
+    category = "large-crafting",
+    energy_required = 15,
+    ingredients = {
+	  {"nullius-outfall-2", 1},
+	  {"nullius-underground-pipe-3", 4},
+      {"nullius-barrel-pump-2", 1},
+      {"nullius-seawater-intake-2", 1}
+    },
+    result = "nullius-outfall-3"
   },
 
   {
@@ -1865,13 +1910,13 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 12,
+    energy_required = 10,
     ingredients = {
       {"storage-tank", 1},
-      {"nullius-steel-sheet", 3},
+      {"nullius-steel-sheet", 2},
       {"nullius-steel-rod", 1},
       {"nullius-plastic", 2},
-      {"nullius-pipe-2", 4}
+      {"nullius-pipe-2", 3}
     },
     result = "nullius-medium-tank-2"
   },
@@ -1882,13 +1927,13 @@ data:extend({
     category = "huge-assembly",
     subgroup = "boxed-tank",
     always_show_made_in = true,
-    energy_required = 60,
+    energy_required = 50,
     ingredients = {
       {"nullius-box-medium-tank-1", 1},
-      {"nullius-box-steel-sheet", 3},
+      {"nullius-box-steel-sheet", 2},
       {"nullius-box-steel-rod", 1},
       {"nullius-box-plastic", 2},
-      {"nullius-box-pipe-2", 4}
+      {"nullius-box-pipe-2", 3}
     },
     result = "nullius-box-medium-tank-2"
   },
@@ -1909,11 +1954,11 @@ data:extend({
     enabled = false,
     category = "large-assembly",
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-medium-tank-2", amount=1},
-      {type="item", name="nullius-fiberglass", amount=5},
-      {type="item", name="nullius-pipe-3", amount=3},
+      {type="item", name="nullius-fiberglass", amount=3},
+      {type="item", name="nullius-pipe-3", amount=2},
       {type="fluid", name="nullius-epoxy", amount=2, fluidbox_index=1}
     },
     result = "nullius-medium-tank-3"
@@ -1925,11 +1970,11 @@ data:extend({
     category = "huge-assembly",
     subgroup = "boxed-tank",
     always_show_made_in = true,
-    energy_required = 125,
+    energy_required = 100,
     ingredients = {
       {type="item", name="nullius-box-medium-tank-2", amount=1},
-      {type="item", name="nullius-box-fiberglass", amount=5},
-      {type="item", name="nullius-box-pipe-3", amount=3},
+      {type="item", name="nullius-box-fiberglass", amount=3},
+      {type="item", name="nullius-box-pipe-3", amount=2},
       {type="fluid", name="nullius-epoxy", amount=10, fluidbox_index=1}
     },
     result = "nullius-box-medium-tank-3"
@@ -2052,12 +2097,12 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 12,
+    energy_required = 10,
     ingredients = {
       {type="item", name="nullius-medium-tank-2", amount=3},
-      {type="item", name="nullius-steel-cable", amount=6},
-      {type="item", name="concrete", amount=15},
-      {type="item", name="nullius-relief-valve", amount=2}
+      {type="item", name="nullius-steel-cable", amount=3},
+      {type="item", name="concrete", amount=8},
+      {type="item", name="nullius-relief-valve", amount=1}
     },
     result = "nullius-large-tank-1"
   },
@@ -2082,12 +2127,12 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 25,
+    energy_required = 20,
     ingredients = {
       {type="item", name="nullius-medium-tank-3", amount=2},
       {type="item", name="nullius-large-tank-1", amount=1},
-      {type="item", name="nullius-steel-beam", amount=10},
-      {type="item", name="refined-concrete", amount=16}
+      {type="item", name="nullius-steel-beam", amount=6},
+      {type="item", name="refined-concrete", amount=10}
     },
     result = "nullius-large-tank-2"
   },
@@ -2111,10 +2156,10 @@ data:extend({
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
-    energy_required = 60,
+    energy_required = 40,
     ingredients = {
-      {type="item", name="nullius-large-tank-2", amount=2},
-      {type="item", name="nullius-box-wall", amount=3},
+      {type="item", name="nullius-large-tank-2", amount=1},
+      {type="item", name="nullius-box-wall", amount=2},
       {type="item", name="nullius-box-underground-pipe-4", amount=1}
     },
     result = "nullius-large-tank-3"
@@ -2263,6 +2308,26 @@ data:extend({
     energy_required = 75,
     ingredients = {
       {"nullius-extractor-1", 2},
+      {"nullius-well-2", 1},
+      {"nullius-box-heat-pipe-2", 2},
+      {"nullius-chimney-3", 1},
+      {"nullius-medium-miner-3", 1},
+      {"nullius-sensor-2", 1}
+    },
+    result = "nullius-extractor-2"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-extractor-2",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "huge-crafting",
+    energy_required = 75,
+    ingredients = {
+      {"nullius-extractor-1", 2},
       {"nullius-well-2", 2},
       {"nullius-box-heat-pipe-2", 3},
       {"nullius-barrel-pump-2", 1},
@@ -2325,11 +2390,11 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     category = "large-crafting",
-    energy_required = 10,
+    energy_required = 8,
     ingredients = {
-      {"nullius-pump-2", 3},
+      {"nullius-pump-2", 1},
       {"nullius-medium-tank-2", 1},
-      {"nullius-top-up-valve", 2},
+      {"nullius-top-up-valve", 1},
       {"power-switch", 1}
     },
     result = "nullius-compressor-1"
@@ -2339,33 +2404,39 @@ data:extend({
     name = "nullius-compressor-2",
     enabled = false,
     always_show_made_in = true,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "huge-crafting",
-    energy_required = 25,
+    energy_required = 40,
     ingredients = {
-      {"nullius-compressor-1", 2},
+      {"nullius-compressor-1", 5},
       {"nullius-air-filter-2", 1},
       {"nullius-large-tank-2", 1},
-      {"nullius-relief-valve", 5},
+      {"nullius-relief-valve", 6},
 	  {"nullius-sensor-1", 1}
     },
-    result = "nullius-compressor-2"
+    result = "nullius-compressor-2",
+	result_count = 3
   },
   {
     type = "recipe",
     name = "nullius-compressor-3",
     enabled = false,
     always_show_made_in = true,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "huge-crafting",
-    energy_required = 45,
+    energy_required = 90,
     ingredients = {
-      {"nullius-compressor-2", 2},
+      {"nullius-compressor-2", 6},
       {"nullius-air-filter-3", 1},
       {"nullius-large-tank-3", 1},
       {"nullius-turbine-closed-3", 1},
       {"nullius-box-pump-3", 1},
-      {"nullius-pylon-2", 1}
+      {"nullius-pylon-2", 2}
     },
-    result = "nullius-compressor-3"
+    result = "nullius-compressor-3",
+	result_count = 4
   },
 
   {

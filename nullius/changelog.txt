@@ -1,4 +1,29 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.10
+Date: 11.01.2024
+  Features:
+    - New Chimney 3 and Outfall 3 structures, which use power and modules.
+  Changes:
+    - Swap order of barrel 1 and barrel 2 recipes.
+    - Changed Extractor 2 recipe (backward compatible).
+    - Rock Picker will schedule cliffs for deconstruction with Explosives 2.
+    - Move empty canister, barrel, and barrel recycling recipes to foundry.
+  Balancing:
+    - Reduce costs of Medium Tank 2 + 3, Large Tank 1 - 3, Compressor 1 - 3,
+      Pipe 4, and Underground Pipe 2 - 4.
+    - Reduce speed of Outfall 2 by 20%.
+    - Reduce research costs of red and purple tier modded techs.
+    - Increase air and water requirement and oxygen output of plant recipes.
+    - Decrease oxygen cost of animal and biological burning recipes.
+    - Reduce yield of barrel recycling recipe.
+  Bugfixes:
+    - Fix name of Titanium Ingot 1 recipe.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.9
+Date: 05.01.2024
+  Bugfixes:
+    - Fix incorrect language localization in previous update.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.8
 Date: 05.01.2024
   Balancing:
