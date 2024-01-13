@@ -1174,7 +1174,7 @@ data:extend({
     allow_decomposition = false,
     category = "ore-flotation",
     order = "nullius-dc",
-    energy_required = 25,
+    energy_required = 26,
     ingredients = {
       {type="fluid", name="nullius-seawater", amount=1400},
       {type="fluid", name="nullius-air", amount=3500},
@@ -1217,7 +1217,7 @@ data:extend({
     },
     results = {
       {type="item", name="nullius-algae", amount=9},
-      {type="fluid", name="nullius-wastewater", amount=400},
+      {type="fluid", name="nullius-wastewater", amount=450},
       {type="fluid", name="nullius-oxygen", amount=1200}
     },
     main_product = "nullius-algae"
@@ -1230,14 +1230,14 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
-    energy_required = 4,
+    energy_required = 8,
     ingredients = {
-      {type="item", name="nullius-algae", amount=3}
+      {type="item", name="nullius-algae", amount=5}
     },
     results = {
-      {type="item", name="nullius-algae-spore", amount=5},
-      {type="fluid", name="nullius-sludge", amount=15},
-      {type="item", name="nullius-cellulose", amount=1}
+      {type="item", name="nullius-algae-spore", amount=9},
+      {type="fluid", name="nullius-sludge", amount=25},
+      {type="item", name="nullius-cellulose", amount=2}
     },
     main_product = "nullius-algae-spore"
   },
@@ -1993,7 +1993,7 @@ data:extend({
     order = "nullius-ca",
     energy_required = 1,
     ingredients = {
-      {type="item", name="nullius-wood", amount=3},
+      {type="item", name="nullius-wood", amount=2},
       {type="fluid", name="nullius-water", amount=120},
       {type="fluid", name="nullius-oxygen", amount=50}
     },
@@ -2034,7 +2034,7 @@ data:extend({
     order = "nullius-ca",
     energy_required = 5,
     ingredients = {
-      {type="item", name="nullius-box-wood", amount=3},
+      {type="item", name="nullius-box-wood", amount=2},
       {type="fluid", name="nullius-water", amount=600},
       {type="fluid", name="nullius-oxygen", amount=250}
     },
@@ -3124,15 +3124,15 @@ data:extend({
     category = "bio-harvesting",
     subgroup = "biology-tree",
     order = "nullius-fb",
-    energy_required = 3,
+    energy_required = 10,
     ingredients = {
-      {type="item", name="nullius-tree", amount=1}
+      {type="item", name="nullius-tree", amount=3}
     },
     results = {
-      {type="item", name="nullius-wood", amount=15},
-      {type="item", name="nullius-wood-chip", amount=6},
-      {type="item", name="nullius-tree-seed", amount=2},
-      {type="fluid", name="nullius-sludge", amount=5}
+      {type="item", name="nullius-wood", amount=48},
+      {type="item", name="nullius-wood-chip", amount=20},
+      {type="item", name="nullius-tree-seed", amount=7},
+      {type="fluid", name="nullius-sludge", amount=15}
     },
     main_product = "nullius-wood"
   },
@@ -3146,15 +3146,15 @@ data:extend({
     category = "bio-harvesting",
     subgroup = "boxed-wood",
     order = "nullius-bb",
-    energy_required = 15,
+    energy_required = 50,
     ingredients = {
-      {type="item", name="nullius-tree", amount=5}
+      {type="item", name="nullius-tree", amount=15}
     },
     results = {
-      {type="item", name="nullius-box-wood", amount=15},
-      {type="item", name="nullius-box-wood-chip", amount=6},
-      {type="item", name="nullius-tree-seed", amount=10},
-      {type="fluid", name="nullius-sludge", amount=25}
+      {type="item", name="nullius-box-wood", amount=48},
+      {type="item", name="nullius-box-wood-chip", amount=20},
+      {type="item", name="nullius-tree-seed", amount=35},
+      {type="fluid", name="nullius-sludge", amount=75}
     },
     main_product = "nullius-box-wood"
   },
@@ -3180,16 +3180,16 @@ data:extend({
     subgroup = "biology-tree",
     order = "nullius-fc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color },
-    energy_required = 10,
+    energy_required = 12,
     ingredients = {
       {type="item", name="nullius-tree", amount=2},
       {type="fluid", name="nullius-acid-sulfuric", amount=10},
       {type="item", name="nullius-sodium-sulfate", amount=1}
     },
     results = {
-      {type="item", name="nullius-wood", amount=30},
+      {type="item", name="nullius-wood", amount=33},
       {type="item", name="nullius-wood-chip", amount=10},
-      {type="item", name="nullius-tree-seed", amount=4},
+      {type="item", name="nullius-tree-seed", amount=5},
       {type="item", name="nullius-rubber", amount=10},
       {type="item", name="nullius-sugar", amount=6},
       {type="fluid", name="nullius-wastewater", amount=10}
@@ -3223,16 +3223,16 @@ data:extend({
     subgroup = "boxed-wood",
     order = "nullius-bc",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color },
-    energy_required = 50,
+    energy_required = 60,
     ingredients = {
       {type="item", name="nullius-tree", amount=10},
       {type="fluid", name="nullius-acid-sulfuric", amount=50},
       {type="item", name="nullius-box-sodium-sulfate", amount=1}
     },
     results = {
-      {type="item", name="nullius-box-wood", amount=30},
+      {type="item", name="nullius-box-wood", amount=33},
       {type="item", name="nullius-box-wood-chip", amount=10},
-      {type="item", name="nullius-tree-seed", amount=20},
+      {type="item", name="nullius-tree-seed", amount=25},
       {type="item", name="nullius-box-rubber", amount=10},
       {type="item", name="nullius-box-sugar", amount=6},
       {type="fluid", name="nullius-wastewater", amount=50}
@@ -5100,7 +5100,7 @@ data:extend({
       {"nullius-box-textile", 1}
     },
     results = {
-      {type="item", name="nullius-box-insulation", amount=4},
+      {type="item", name="nullius-box-insulation", amount=3},
       {type="item", name="nullius-box-wood-chip", amount=1}
     },
     main_product = "nullius-box-insulation"

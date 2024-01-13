@@ -1130,10 +1130,10 @@ data:extend({
     icon_size = 32,
     category = "ore-crushing",
     order = "nullius-nb",
-    energy_required = 2,
-    ingredients = {{"nullius-gravel", 4}},
+    energy_required = 3,
+    ingredients = {{"nullius-gravel", 6}},
     result = "nullius-mineral-dust",
-    result_count = 3
+    result_count = 5
   },
   {
     type = "recipe",
@@ -1145,10 +1145,10 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-silicon",
     order = "nullius-nb",
-    energy_required = 10,
-    ingredients = {{"nullius-box-gravel", 4}},
+    energy_required = 15,
+    ingredients = {{"nullius-box-gravel", 6}},
     result = "nullius-box-mineral-dust",
-    result_count = 3
+    result_count = 5
   },
   {
     type = "recipe",
@@ -1174,11 +1174,11 @@ data:extend({
     category = "ore-crushing",
     subgroup = "masonry-material",
     order = "nullius-nc",
-    energy_required = 4,
-    ingredients = {{"nullius-gravel", 6}},
+    energy_required = 6,
+    ingredients = {{"nullius-gravel", 8}},
     results = {
-      {type="item", name="nullius-sand", amount=2},
-      {type="item", name="nullius-mineral-dust", amount=4}
+      {type="item", name="nullius-sand", amount=3},
+      {type="item", name="nullius-mineral-dust", amount=6}
     },
     main_product = "nullius-sand"
   },
@@ -1211,11 +1211,11 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-silicon",
     order = "nullius-nc",
-    energy_required = 20,
-    ingredients = {{"nullius-box-gravel", 6}},
+    energy_required = 30,
+    ingredients = {{"nullius-box-gravel", 8}},
     results = {
-      {type="item", name="nullius-box-sand", amount=2},
-      {type="item", name="nullius-box-mineral-dust", amount=4}
+      {type="item", name="nullius-box-sand", amount=3},
+      {type="item", name="nullius-box-mineral-dust", amount=6}
     },
     main_product = "nullius-box-sand"
   },
@@ -1303,7 +1303,6 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
-    no_productivity = true,
     enabled = false,
     category = "ore-crushing",
 	subgroup = "alumina",
@@ -1311,6 +1310,41 @@ data:extend({
     energy_required = 2,
     ingredients = {{"nullius-crushed-bauxite", 5}},
     result = "nullius-mineral-dust",
+    result_count = 4
+  },
+  {
+    type = "recipe",
+    name = "nullius-boxed-bauxite-disposal",
+    localised_name = {"recipe-name.nullius-boxed",
+	    {"recipe-name.nullius-bauxite-disposal"}},
+    icons = {
+      {
+        icon = ICONPATH .. "crate.png",
+        icon_size = 64
+      },
+      {
+        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.45
+      },
+      {
+        icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
+        icon_size = 64,
+        tint = {0.867, 0.820, 0.609},
+        scale = 0.22,
+        shift = {9, -8}
+      }
+    },
+    show_amount_in_title = false,
+    always_show_products = true,
+    enabled = false,
+    category = "ore-crushing",
+	subgroup = "boxed-aluminum-1",
+    order = "nullius-l",
+    energy_required = 10,
+    ingredients = {{"nullius-box-crushed-bauxite", 5}},
+    result = "nullius-box-mineral-dust",
     result_count = 4
   },
   {
@@ -1398,13 +1432,12 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
-    no_productivity = true,
     enabled = false,
     category = "ore-crushing",
     subgroup = "calcium-product",
     order = "nullius-m",
     energy_required = 2,
-    ingredients = {{"nullius-crushed-limestone", 4}},
+    ingredients = {{"nullius-crushed-limestone", 3}},
     result = "nullius-mineral-dust",
     result_count = 3
   },
@@ -1432,13 +1465,12 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
-    no_productivity = true,
     enabled = false,
     category = "ore-crushing",
     subgroup = "boxed-calcium",
     order = "nullius-y",
     energy_required = 10,
-    ingredients = {{"nullius-box-crushed-limestone", 4}},
+    ingredients = {{"nullius-box-crushed-limestone", 3}},
     result = "nullius-box-mineral-dust",
     result_count = 3
   },

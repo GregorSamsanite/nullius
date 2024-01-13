@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.11
+Date: 13.01.2024
+  Features:
+    - Sludge to mineral dust recipe.
+  Bugfixes:
+    - Mismatch in boxed version of wood paneling recipe.
+  Changes:
+    - Add boxed version of bauxite disposal.
+  Balancing:
+    - Increase mineral dust from gravel, slag, bauxite, or limestone.
+    - Allow productivity for limestone and bauxite disposal.
+    - Increase algae spore and tree seed production rate.
+    - Increase energy output of wood burning.
+  Translation:
+    - Updated Russian localization by Shadow_Man.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.10
 Date: 11.01.2024
   Features:

@@ -1984,6 +1984,37 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "nullius-sludge-dehydration",
+	localised_name = {"recipe-name.nullius-dehydration", {"fluid-name.nullius-sludge"}},
+	icons = {
+      {
+	    icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+      {
+        icon = FLUIDPATH .. "sludge.png",
+        icon_size = 64,
+        scale = 0.3,
+        shift = {-8, -6}
+      }
+    },
+    enabled = false,
+	allow_decomposition = false,
+    category = "pressure-boiling",
+    subgroup = "waste-management",
+    order = "nullius-ea",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-sludge", amount=25}
+    },
+    results = {
+      {type="item", name="nullius-mineral-dust", amount=2},
+      {type="fluid", name="nullius-steam", amount=60}
+    }
+  },
+  {
+    type = "recipe",
     name = "nullius-desalination",
     localised_name = {"", {"recipe-name.nullius-desalination"}, " ", 1},
     icons = angelsmods.functions.create_liquid_recipe_icon(

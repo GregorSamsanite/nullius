@@ -9240,6 +9240,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-boxed-iron-disposal"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-bauxite-disposal"
+      },	  
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-pressure-filter-1"
@@ -11806,6 +11810,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-carbon-gasification-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-sludge-dehydration"
       }
     },
     unit = {
