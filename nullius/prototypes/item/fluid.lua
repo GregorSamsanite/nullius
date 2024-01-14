@@ -2006,11 +2006,12 @@ data:extend({
     order = "nullius-ea",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-sludge", amount=25}
+      {type="fluid", name="nullius-sludge", amount=30}
     },
     results = {
       {type="item", name="nullius-mineral-dust", amount=2},
-      {type="fluid", name="nullius-steam", amount=60}
+      {type="fluid", name="nullius-steam", amount=80},
+	  {type="fluid", name="nullius-carbon-monoxide", amount=6}
     }
   },
   {

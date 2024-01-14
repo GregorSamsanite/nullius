@@ -2550,8 +2550,8 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 1},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 15, 10, 5}, "\n",
-			{"equipment-description.nullius-bonus-speed", 5}, "\n",
+			{"equipment-description.nullius-coprocessor-speed", 20, 10, 5}, "\n",
+			{"equipment-description.nullius-bonus-speed", 8}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 30}}},
 		{"entity-description.nullius-megajoule", 3}}, "\n",
@@ -2596,8 +2596,8 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 2},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 25, 15, 10}, "\n",
-			{"equipment-description.nullius-bonus-speed", 8}, "\n",
+			{"equipment-description.nullius-coprocessor-speed", 30, 15, 10}, "\n",
+			{"equipment-description.nullius-bonus-speed", 12}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 50}}},
 		{"entity-description.nullius-megajoule", 10}}, "\n",
@@ -2642,8 +2642,8 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 3},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 40, 25, 20}, "\n",
-			{"equipment-description.nullius-bonus-speed", 12}, "\n",
+			{"equipment-description.nullius-coprocessor-speed", 50, 25, 20}, "\n",
+			{"equipment-description.nullius-bonus-speed", 20}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 80}}},
 		{"entity-description.nullius-megajoule", 20}}, "\n",
@@ -2688,7 +2688,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 1},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 40, 15}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", 100, 20}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-1"}},
     order = "lpcb",
     sprite = {
@@ -2707,7 +2707,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-	power = "40kW",
+	power = "100kW",
     categories = {"android"}
   },
   {
@@ -2717,7 +2717,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 2},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 60, 25}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", 200, 30}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-2"}},
     order = "lpcc",
     sprite = {
@@ -2736,7 +2736,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-	power = "60kW",
+	power = "200kW",
     categories = {"android"}
   },
   {
@@ -2746,7 +2746,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 3},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 100, 40}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", 300, 40}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-3"}},
     order = "lpcd",
     sprite = {
@@ -2765,7 +2765,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-output"
     },
-	power = "100kW",
+	power = "300kW",
     categories = {"android"}
   },
   {
@@ -2775,7 +2775,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 1},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 5, 10, 25, 10}, "\n",
+			{"equipment-description.nullius-coprocessor-productivity", 6, 10, 25, 20}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 20}}},
 		{"entity-description.nullius-megajoule", 3}}, "\n",
@@ -2820,7 +2820,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 2},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 7, 15, 30, 15}, "\n",
+			{"equipment-description.nullius-coprocessor-productivity", 8, 15, 30, 30}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 40}}},
 		{"entity-description.nullius-megajoule", 10}}, "\n",
@@ -2865,7 +2865,7 @@ data:extend({
 	localised_name = {"",
 	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 3},
 	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 9, 15, 40, 25}, "\n",
+			{"equipment-description.nullius-coprocessor-productivity", 10, 15, 40, 50}, "\n",
 			{"equipment-description.nullius-energy",
 				{"entity-description.nullius-kilowatt", 60}}},
 		{"entity-description.nullius-megajoule", 20}}, "\n",

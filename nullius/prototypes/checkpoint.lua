@@ -2363,6 +2363,12 @@ data:extend({
 		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
+	effects = {
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-crushed-uranium-ore"
+      }
+	},
     unit = {
       count = 1,
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},
@@ -2393,6 +2399,32 @@ data:extend({
 		tint = {0.6, 0.6, 0.6, 0.6}
       }
     },
+	effects = {
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-box-copper-ore"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-copper-ore"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-crushed-copper-ore"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-crushed-copper-ore"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-crushed-copper-ore"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-crushed-copper-ore"
+      }
+	},
     unit = {
       count = 1,
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-consume", 1}, {"nullius-astronomy-pack", 1}},

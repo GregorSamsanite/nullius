@@ -13166,10 +13166,6 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "nullius-crushed-copper-ore"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-copper-solution"
       },
       {
@@ -13186,10 +13182,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-boxed-crushed-copper-ore"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-boxed-copper-solution"
       },
       {
@@ -13203,22 +13195,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-copper-sheet"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-box-copper-ore"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unbox-copper-ore"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-box-crushed-copper-ore"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unbox-crushed-copper-ore"
       },
       {
         type = "unlock-recipe",
@@ -13309,10 +13285,6 @@ data:extend({
     icon_size = 256,
     icon_mipmaps = 4,
     effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-crushed-uranium-ore"
-      },
       {
         type = "unlock-recipe",
         recipe = "nullius-yellowcake"

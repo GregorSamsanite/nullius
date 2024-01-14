@@ -1448,11 +1448,6 @@ data.raw.recipe["fast-road"].ingredients = {
   {"nullius-box-black-concrete", 6},
   {"road-network-reader", 1}
 }
-
-  if ((data.raw.resource["sea-pump-resource"] ~= nil) and
-      (data.raw.resource["sea-pump-resource"].map_color == nil)) then
-    data.raw.resource["sea-pump-resource"].map_color = {128, 128, 128}
-  end
 end
 
 

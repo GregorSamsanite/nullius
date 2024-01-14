@@ -62,21 +62,21 @@ local upgrade_data = {
   ["stabilizer-2"] = {{UPG_CARGO, 3}, {UPG_SPEED, 0.1}},
   ["shackle"] = {{UPG_SPEED, -0.25}},
   ["coprocessor-quantum"] = {{UPG_CO_QUANTUM, 1}},
-  ["coprocessor-speed-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_SPEED_1, 1}, {UPG_SPEED, 0.05},
-      {UPG_CRAFT_MULT, 0.15}, {UPG_COST_MULT, 0.1}, {UPG_COST, 5}},
-  ["coprocessor-speed-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_SPEED_2, 1}, {UPG_SPEED, 0.08},
-      {UPG_CRAFT_MULT, 0.25}, {UPG_COST_MULT, 0.15}, {UPG_COST, 10}},
-  ["coprocessor-speed-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_SPEED_3, 1}, {UPG_SPEED, 0.12},
-      {UPG_CRAFT_MULT, 0.4}, {UPG_COST_MULT, 0.25}, {UPG_COST, 20}},
-  ["coprocessor-efficiency-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_EFFICIENCY_1, 1}, {UPG_COST_MULT, -0.15}},
-  ["coprocessor-efficiency-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_EFFICIENCY_2, 1}, {UPG_COST_MULT, -0.25}},
+  ["coprocessor-speed-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_SPEED_1, 1}, {UPG_SPEED, 0.08},
+      {UPG_CRAFT_MULT, 0.2}, {UPG_COST_MULT, 0.1}, {UPG_COST, 5}},
+  ["coprocessor-speed-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_SPEED_2, 1}, {UPG_SPEED, 0.12},
+      {UPG_CRAFT_MULT, 0.3}, {UPG_COST_MULT, 0.15}, {UPG_COST, 10}},
+  ["coprocessor-speed-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_SPEED_3, 1}, {UPG_SPEED, 0.2},
+      {UPG_CRAFT_MULT, 0.5}, {UPG_COST_MULT, 0.25}, {UPG_COST, 20}},
+  ["coprocessor-efficiency-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_EFFICIENCY_1, 1}, {UPG_COST_MULT, -0.2}},
+  ["coprocessor-efficiency-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_EFFICIENCY_2, 1}, {UPG_COST_MULT, -0.3}},
   ["coprocessor-efficiency-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_EFFICIENCY_3, 1}, {UPG_COST_MULT, -0.4}},
   ["coprocessor-productivity-1"] = {{UPG_CO_TIER_1, 1}, {UPG_CO_PRODUCTIVITY_1, 1}, {UPG_COST, 25},
-      {UPG_CARGO_MULT, 0.1}, {UPG_CRAFT_PROD, 0.05}, {UPG_CRAFT_MULT, -0.1}},
+      {UPG_CARGO_MULT, 0.2}, {UPG_CRAFT_PROD, 0.06}, {UPG_CRAFT_MULT, -0.1}},
   ["coprocessor-productivity-2"] = {{UPG_CO_TIER_2, 1}, {UPG_CO_PRODUCTIVITY_2, 1}, {UPG_COST, 30},
-      {UPG_CARGO_MULT, 0.15}, {UPG_CRAFT_PROD, 0.07}, {UPG_CRAFT_MULT, -0.15}},
+      {UPG_CARGO_MULT, 0.3}, {UPG_CRAFT_PROD, 0.08}, {UPG_CRAFT_MULT, -0.15}},
   ["coprocessor-productivity-3"] = {{UPG_CO_TIER_3, 1}, {UPG_CO_PRODUCTIVITY_3, 1}, {UPG_COST, 40},
-      {UPG_CARGO_MULT, 0.25}, {UPG_CRAFT_PROD, 0.09}, {UPG_CRAFT_MULT, -0.15}}
+      {UPG_CARGO_MULT, 0.5}, {UPG_CRAFT_PROD, 0.1}, {UPG_CRAFT_MULT, -0.15}}
 }
 
 
