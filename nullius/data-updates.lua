@@ -1,6 +1,5 @@
 require("prototypes.resource_override")
 require("prototypes.override")
-require("prototypes.item.module_limitation")
 require("prototypes.rock")
 require("prototypes.override_mod")
 require("prototypes.hidden")

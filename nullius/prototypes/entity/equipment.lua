@@ -328,10 +328,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "4MJ",
-      input_flow_limit = "300kW",
+      input_flow_limit = "400kW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "250kW",
+    charging_energy = "300kW",
 
     robot_limit = 10,
     construction_radius = 8,
@@ -380,10 +380,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "10MJ",
-      input_flow_limit = "800kW",
+      input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "600kW",
+    charging_energy = "750kW",
 
     robot_limit = 16,
     construction_radius = 12,
@@ -536,10 +536,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "4MJ",
-      input_flow_limit = "300kW",
+      input_flow_limit = "400kW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "250kW",
+    charging_energy = "300kW",
 
     robot_limit = 0,
     construction_radius = 4,
@@ -587,10 +587,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "10MJ",
-      input_flow_limit = "800kW",
+      input_flow_limit = "1MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "600kW",
+    charging_energy = "750kW",
 
     robot_limit = 0,
     construction_radius = 4,
@@ -638,10 +638,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "30MJ",
-      input_flow_limit = "1.8MW",
+      input_flow_limit = "2.5MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "800kW",
+    charging_energy = "1MW",
 
     robot_limit = 0,
     construction_radius = 4,
@@ -689,10 +689,10 @@ data:extend({
     energy_source = {
       type = "electric",
       buffer_capacity = "20MJ",
-      input_flow_limit = "1.8MW",
+      input_flow_limit = "2.5MW",
       usage_priority = "secondary-input"
     },
-    charging_energy = "800kW",
+    charging_energy = "1MW",
 
     robot_limit = 0,
     construction_radius = 4,
@@ -1249,7 +1249,7 @@ data:extend({
     },
     energy_consumption = "300kW",
     movement_bonus = 0.5,
-    categories = {"android"}
+    categories = {"cybernetic"}
   },
   {
     type = "movement-bonus-equipment",
@@ -1278,7 +1278,7 @@ data:extend({
     },
     energy_consumption = "550kW",
     movement_bonus = 0.75,
-    categories = {"android"}
+    categories = {"cybernetic"}
   },
   {
     type = "movement-bonus-equipment",
@@ -1306,7 +1306,7 @@ data:extend({
     },
     energy_consumption = "900kW",
     movement_bonus = 1,
-    categories = {"android"}
+    categories = {"cybernetic"}
   },
   {
     type = "movement-bonus-equipment",
@@ -1334,7 +1334,7 @@ data:extend({
     },
     energy_consumption = "750kW",
     movement_bonus = 1,
-    categories = {"android"}
+    categories = {"cybernetic"}
   },
 
   {

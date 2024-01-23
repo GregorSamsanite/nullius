@@ -3868,6 +3868,18 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-one-way-valve-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-air"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-nitrogen"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-hydrogen"
       }
     },
     unit = {
@@ -4134,6 +4146,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-compressed-argon"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-argon"
       }
     },
     unit = {
@@ -6879,10 +6895,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-compressed-oxygen"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-hydrogen-combustion-3"
       },
       {
@@ -6896,6 +6908,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-methanol-canister-2"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-compressed-oxygen"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-oxygen"
       }
     },
     unit = {
@@ -7504,26 +7524,6 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-decompress-air"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-decompress-nitrogen"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-decompress-argon"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-decompress-hydrogen"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-decompress-oxygen"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-decompress-carbon-dioxide"
       },
       {
@@ -7533,6 +7533,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-decompress-methane"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-residual-gas"
       }
     },
     unit = {
@@ -10690,6 +10694,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-compressed-trace-gas"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-decompress-trace-gas"
       },
       {
         type = "unlock-recipe",

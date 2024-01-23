@@ -434,6 +434,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-distillery-1",
+	order = "z-nullius-cbb",
     icons = data.raw.item["nullius-distillery-1"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
@@ -571,6 +572,7 @@ data:extend({
 local md1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-distillery-1"])
 md1.name = "nullius-mirror-distillery-1"
+md1.order = "z-nullius-cbc"
 md1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
 md1.placeable_by = {item = "nullius-distillery-1", count = 1}
 md1.next_upgrade = "nullius-mirror-distillery-2"
@@ -586,6 +588,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-distillery-2",
+	order = "z-nullius-ccb",
     icons = data.raw.item["nullius-distillery-2"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral","player-creation"},
@@ -701,6 +704,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-distillery-3",
+	order = "z-nullius-cdb",
     icons = data.raw.item["nullius-distillery-3"].icons,
     localised_description = {"entity-description.nullius-distillery"},
     flags = {"placeable-neutral", "player-creation"},
@@ -780,6 +784,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-distillery-2",
+	order = "z-nullius-ccc",
 	icons = {
 	  data.raw.item["nullius-distillery-2"].icons[1],
 	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
@@ -854,6 +859,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-mirror-distillery-3",
+	order = "z-nullius-cdc",
 	icons = {
 	  data.raw.item["nullius-distillery-3"].icons[1],
 	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
@@ -1796,6 +1802,7 @@ data:extend({
     type = "assembling-machine",
     name = "nullius-chemical-plant-1",
     icons = data.raw.item["nullius-chemical-plant-1"].icons,
+	order = "z-nullius-bbb",
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = { mining_time = 1.2, result = "nullius-chemical-plant-1"},
@@ -2130,6 +2137,7 @@ local mcp1 = util.table.deepcopy(
     data.raw["assembling-machine"]["nullius-chemical-plant-1"])
 mcp1.name = "nullius-mirror-chemical-plant-1"
 mcp1.icons[2] = { icon = ICONPATH .. "flip1.png", icon_size = 64 }
+mcp1.order = "z-nullius-bbc"
 mcp1.placeable_by = {item = "nullius-chemical-plant-1", count = 1}
 mcp1.next_upgrade = "nullius-mirror-chemical-plant-2"
 mcp1.localised_name = {"entity-name.nullius-mirrored",
@@ -2144,6 +2152,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-chemical-plant-2",
+	order = "z-nullius-bcb",
     icons = data.raw.item["nullius-chemical-plant-2"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
@@ -2267,6 +2276,7 @@ data:extend({
     name = "nullius-mirror-chemical-plant-2",
 	localised_name = {"entity-name.nullius-mirrored",
         {"entity-name.nullius-chemical-plant-2"}},
+	order = "z-nullius-bcc",
 	icons = {
 	  data.raw.item["nullius-chemical-plant-2"].icons[1],
 	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }
@@ -2344,6 +2354,7 @@ data:extend({
   {
     type = "assembling-machine",
     name = "nullius-chemical-plant-3",
+	order = "z-nullius-bdb",
     icons = data.raw.item["nullius-chemical-plant-3"].icons,
     localised_description = {"entity-description.nullius-chemical-plant"},
     flags = {"placeable-neutral","placeable-player", "player-creation"},
@@ -2466,6 +2477,7 @@ data:extend({
     name = "nullius-mirror-chemical-plant-3",
 	localised_name = {"entity-name.nullius-mirrored",
         {"entity-name.nullius-chemical-plant-3"}},
+	order = "z-nullius-bdc",
     icons = {
 	  data.raw.item["nullius-chemical-plant-3"].icons[1],
 	  { icon = ICONPATH .. "flip1.png", icon_size = 64 }

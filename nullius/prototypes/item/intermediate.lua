@@ -2126,14 +2126,14 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
     },
-    energy_required = 2,
+    energy_required = 4,
     ingredients = {
-      {type="item", name="nullius-lime", amount=1},
-      {type="fluid", name="nullius-acid-sulfuric", amount=20, fluidbox_index=1}
+      {type="item", name="nullius-lime", amount=3},
+      {type="fluid", name="nullius-acid-sulfuric", amount=40, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-gypsum", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=15, fluidbox_index=1}
+      {type="item", name="nullius-gypsum", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=30, fluidbox_index=1}
     },
     main_product = "nullius-gypsum"
   },
@@ -2168,14 +2168,14 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-acid-sulfuric"].flow_color
     },
-    energy_required = 10,
+    energy_required = 20,
     ingredients = {
-      {type="item", name="nullius-box-lime", amount=1},
-      {type="fluid", name="nullius-acid-sulfuric", amount=100, fluidbox_index=1}
+      {type="item", name="nullius-box-lime", amount=3},
+      {type="fluid", name="nullius-acid-sulfuric", amount=200, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-box-gypsum", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=75, fluidbox_index=1}
+      {type="item", name="nullius-box-gypsum", amount=2},
+      {type="fluid", name="nullius-wastewater", amount=150, fluidbox_index=1}
     },
     main_product = "nullius-box-gypsum"
   },
@@ -2203,14 +2203,14 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
     },
-    energy_required = 2,
+    energy_required = 3,
     ingredients = {
-      {type="item", name="nullius-sodium-sulfate", amount=2},
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=20, fluidbox_index=1}
+      {type="item", name="nullius-sodium-sulfate", amount=3},
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=25, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-gypsum", amount=1},
-      {type="fluid", name="nullius-brine", amount=15, fluidbox_index=1}
+      {type="item", name="nullius-gypsum", amount=2},
+      {type="fluid", name="nullius-brine", amount=20, fluidbox_index=1}
     },
     main_product = "nullius-gypsum"
   },
@@ -2245,14 +2245,14 @@ data:extend({
       primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
       secondary = data.raw.fluid["nullius-brine"].flow_color
     },
-    energy_required = 10,
+    energy_required = 15,
     ingredients = {
-      {type="item", name="nullius-box-sodium-sulfate", amount=2},
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=100, fluidbox_index=1}
+      {type="item", name="nullius-box-sodium-sulfate", amount=3},
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=125, fluidbox_index=1}
     },
     results = {
-      {type="item", name="nullius-box-gypsum", amount=1},
-      {type="fluid", name="nullius-brine", amount=75, fluidbox_index=1}
+      {type="item", name="nullius-box-gypsum", amount=2},
+      {type="fluid", name="nullius-brine", amount=100, fluidbox_index=1}
     },
     main_product = "nullius-box-gypsum"
   },

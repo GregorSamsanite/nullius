@@ -523,13 +523,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "5MW",
+      input_flow_limit = "6MW",
       buffer_capacity = "50MJ"
     },
     recharge_minimum = "10MJ",
     energy_usage = "300kW",
     -- per one charge slot
-    charging_energy = "900kW",
+    charging_energy = "1.2MW",
     logistics_radius = 24.5,
     construction_radius = 54.5,
     charge_approach_distance = 4,
@@ -685,13 +685,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "12MW",
+      input_flow_limit = "16MW",
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",
     energy_usage = "500kW",
     -- per one charge slot
-    charging_energy = "1.8MW",
+    charging_energy = "3MW",
     logistics_radius = 32.5,
     construction_radius = 72.5,
     charge_approach_distance = 4,
@@ -847,13 +847,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "12MW",
+      input_flow_limit = "16MW",
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "30MJ",
     energy_usage = "400kW",
     -- per one charge slot
-    charging_energy = "1.8MW",
+    charging_energy = "3MW",
     logistics_radius = 33,
     construction_radius = 73,
     charge_approach_distance = 4,
@@ -1356,13 +1356,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "4MW",
+      input_flow_limit = "5MW",
       buffer_capacity = "40MJ"
     },
     recharge_minimum = "2MJ",
     energy_usage = "100kW",
     -- per one charge slot
-    charging_energy = "1.2MW",
+    charging_energy = "1.6MW",
 
     logistics_radius = 5,
     construction_radius = 5,
@@ -1437,13 +1437,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "10MW",
+      input_flow_limit = "15MW",
       buffer_capacity = "100MJ"
     },
     recharge_minimum = "5MJ",
     energy_usage = "200kW",
     -- per one charge slot
-    charging_energy = "2.4MW",
+    charging_energy = "4MW",
 
     logistics_radius = 6,
     construction_radius = 6,
@@ -1517,13 +1517,13 @@ data:extend({
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "10MW",
+      input_flow_limit = "15MW",
       buffer_capacity = "100MJ"
     },
     recharge_minimum = "5MJ",
     energy_usage = "150kW",
     -- per one charge slot
-    charging_energy = "2.4MW",
+    charging_energy = "5MW",
 
     logistics_radius = 4.5,
     construction_radius = 4.5,

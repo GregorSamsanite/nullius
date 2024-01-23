@@ -6030,7 +6030,7 @@ data:extend({
 	hide_from_stats = true,
     category = "decompression",
     subgroup = "decompression",
-    order = "nullius-b",
+    order = "nullius-bb",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-air", amount=125}
@@ -6185,8 +6185,8 @@ data:extend({
     allow_as_intermediate = false,
 	hide_from_stats = true,
     category = "decompression",
-    subgroup = "decompression",
-    order = "nullius-h",
+	subgroup = "compression",
+    order = "nullius-pb",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=150}
@@ -6211,8 +6211,8 @@ data:extend({
     allow_as_intermediate = false,
 	hide_from_stats = true,
     category = "decompression",
-    subgroup = "decompression",
-    order = "nullius-i",
+    subgroup = "compression",
+    order = "nullius-pc",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-carbon-monoxide", amount=150}
@@ -6237,8 +6237,8 @@ data:extend({
     allow_as_intermediate = false,
 	hide_from_stats = true,
     category = "decompression",
-    subgroup = "decompression",
-    order = "nullius-j",
+	subgroup = "compression",
+    order = "nullius-pd",
     energy_required = 1,
     ingredients = {
       {type="fluid", name="nullius-compressed-methane", amount=150}
@@ -6248,6 +6248,61 @@ data:extend({
     },
     main_product = "nullius-methane"
   },
+  
+  {
+    type = "recipe",
+    name = "nullius-decompress-residual-gas",
+    localised_name = {"recipe-name.nullius-decompression", {"fluid-name.nullius-residual-gas"}},
+    icons = angelsmods.functions.create_gas_fluid_icon(
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["residual"], element_tint["trace"], element_tint["residual"]}
+    ),
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	hide_from_stats = true,
+    category = "decompression",
+    subgroup = "decompression",
+    order = "nullius-bc",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-residual-gas", amount=100}
+    },
+    results = {
+      {type="fluid", name="nullius-residual-gas", amount=400}
+    },
+    main_product = "nullius-residual-gas"
+  },
+  {
+    type = "recipe",
+    name = "nullius-decompress-trace-gas",
+    localised_name = {"recipe-name.nullius-decompression", {"fluid-name.nullius-trace-gas"}},
+    icons = angelsmods.functions.create_gas_fluid_icon(
+      {"__angelsrefining__/graphics/icons/barreling-pump.png", 32 },
+      {element_tint["trace"], element_tint["volcanic"], element_tint["trace"]}
+    ),
+    enabled = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+	hide_from_stats = true,
+    category = "decompression",
+    subgroup = "decompression",
+    order = "nullius-bd",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-trace-gas", amount=50}
+    },
+    results = {
+      {type="fluid", name="nullius-trace-gas", amount=200}
+    },
+    main_product = "nullius-trace-gas"
+  },
+
+
 
   {
     type = "recipe",

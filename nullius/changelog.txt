@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.14
+Date: 22.01.2024
+  Balancing:
+    - Increase charge rate of chargers and hangars.
+  Changes:
+    - Allow quadrupedal adaptations in mechas.
+    - Allow productivity with more third party mod recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.8.13
+Date: 19.01.2024
+  Features:
+    - Add residual and trace gas decompression recipes.
+  Changes:
+    - Count plants as consuming co2 for carbon sequestration checkpoint.
+  Balancing:
+    - Make gypsum 2 recipe cheaper and gypsum 1 more expensive.
+    - Move some decompression recipes to earlier techs.
+  Bugfixes:
+    - Don't allow placing mirrored ghosts before researching chirality.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.12
 Date: 14.01.2024
   Balancing:

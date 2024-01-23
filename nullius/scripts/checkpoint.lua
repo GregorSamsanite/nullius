@@ -121,9 +121,10 @@ local checkpoint_data = {
   ["mecha"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-mecha"}} }},
   ["excavation-drone"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-excavation-drone"}} }},
 
-  ["carbon-sequestration"] = {{ CHK_FLUID, STT_CONSUME, 1500000000,
-				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}} },
-			{ CHK_FLUID, STT_PRODUCE, 2000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},
+  ["carbon-sequestration"] = {{ CHK_SPECIAL, 2, 1500000000, {
+				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}},
+				{{"nullius-algae",100}, {"nullius-grass",200}, {"nullius-tree",500}} } },
+			{ CHK_FLUID, STT_PRODUCE, 2000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},			
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},
   ["uranium-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-uranium-1"}} }},
   ["copper-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-copper-1"}} }},
@@ -266,39 +267,9 @@ function init_checkpoint_prereqs()
 end
 
 
-local function test_checkpoint_req(force, req)
-  local goal = req[3]
-  if (goal < 1) then return 1 end
-
-  local ctyp = req[1]
-  local calc = req[2]
-  local stats = nil
-  if (ctyp == CHK_ITEM) then
-    stats = force.item_production_statistics
-  elseif (ctyp == CHK_FLUID) then
-    stats = force.fluid_production_statistics
-  elseif (ctyp == CHK_BUILD) then
-    stats = force.entity_build_count_statistics
-  elseif (ctyp == CHK_OBJECTIVE) then
-    if (global.nullius_mission_status == nil) then return 0 end
-    if (global.nullius_mission_complete) then return 1 end
-	return math.min(1, math.max(0,
-	    (global.nullius_mission_status[calc] / goal)))
-  elseif (ctyp == CHK_SPECIAL) then
-    if (calc == 1) then
-	  if (global.nullius_switch_body_count == nil) then return 0 end
-	  local count = global.nullius_switch_body_count[force.name]
-	  if (count == nil) then return 0 end
-	  return math.min(1, math.max(0, (count / goal)))
-    else
-      return 0
-    end
-  else
-    return 0
-  end
-
+local function count_req_list(list, stats, calc)
   local count = 0
-  for _,item in pairs(req[4]) do
+  for _,item in pairs(list) do
     local itemname = item[1]
 	local value = 0
     if (calc == STT_PRODUCE) then
@@ -320,6 +291,48 @@ local function test_checkpoint_req(force, req)
 	if (item[2] ~= nil) then value = (value * item[2]) end
 	count = count + value
   end
+  return count
+end
+
+local function test_checkpoint_req(force, req)
+  local goal = req[3]
+  if (goal < 1) then return 1 end
+
+  local ctyp = req[1]
+  local calc = req[2]
+  local list = req[4]
+  local stats = nil
+  if (ctyp == CHK_ITEM) then
+    stats = force.item_production_statistics
+  elseif (ctyp == CHK_FLUID) then
+    stats = force.fluid_production_statistics
+  elseif (ctyp == CHK_BUILD) then
+    stats = force.entity_build_count_statistics
+  elseif (ctyp == CHK_OBJECTIVE) then
+    if (global.nullius_mission_status == nil) then return 0 end
+    if (global.nullius_mission_complete) then return 1 end
+	return math.min(1, math.max(0,
+	    (global.nullius_mission_status[calc] / goal)))
+  elseif (ctyp == CHK_SPECIAL) then
+    if (calc == 1) then
+	  if (global.nullius_switch_body_count == nil) then return 0 end
+	  local count = global.nullius_switch_body_count[force.name]
+	  if (count == nil) then return 0 end
+	  return math.min(1, math.max(0, (count / goal)))
+	elseif (calc == 2) then
+	  local count = count_req_list(list[1],
+	          force.fluid_production_statistics, STT_CONSUME) +
+		  count_req_list(list[2],
+	          force.item_production_statistics, STT_PRODUCE)
+      return math.min(math.max((count / goal), 0), 1)
+    else
+      return 0
+    end
+  else
+    return 0
+  end
+
+  local count = count_req_list(list, stats, calc)
   return math.min(math.max((count / goal), 0), 1)
 end
 

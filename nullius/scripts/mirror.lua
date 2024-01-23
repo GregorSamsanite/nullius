@@ -69,6 +69,21 @@ function replace_fluid_entity(entity, newname, force, dir)
 end
 
 
+local function mirror_tier(suffix)
+  if ((suffix == "combustion-chamber") or (suffix == "heat-exchanger") or
+	  (suffix == "boiler") or (suffix == "chimney")) then
+	return 1
+  elseif ((suffix == "priority-electrolyzer") or
+      (suffix == "flotation-cell") or
+      (suffix == "surge-electrolyzer") or (suffix == "hydro-plant")) then
+	return 2
+  elseif ((suffix == "distillery") or (suffix == "chemical-plant") or
+      (suffix == "nanofabricator")) then
+    return 3
+  end
+  return 0
+end
+
 local function mirror_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
@@ -87,23 +102,11 @@ local function mirror_event(event)
   local offs = ((ismirror and 16) or 9)
   local suffix = string.sub(name, offs, -3)
 
-  local tier = nil
-  local dir = nil
-  if ((suffix == "combustion-chamber") or (suffix == "heat-exchanger") or
-	  (suffix == "boiler") or (suffix == "chimney")) then
-	tier = 1
-  elseif ((suffix == "priority-electrolyzer") or
-      (suffix == "surge-electrolyzer") or (suffix == "hydro-plant")) then
-	tier = 2
-  elseif (suffix == "flotation-cell") then
-    tier = 2
-	dir = rotate_right[target.direction]
-  elseif ((suffix == "distillery") or (suffix == "chemical-plant")) then
-    tier = 3
-  elseif (suffix == "nanofabricator") then
-	tier = 3
-  else
+  local tier = mirror_tier(suffix)
+  if (tier == 0) then
     return
+  elseif ((tier == 2) and (suffix == "flotation-cell")) then
+	dir = rotate_right[target.direction]
   end
 
   local force = (target.force or player.force)
@@ -211,3 +214,24 @@ function pipette_event(event)
 end
 
 script.on_event(defines.events.on_player_pipette, pipette_event)
+
+
+function check_mirror(entity)
+  if ((entity == nil) or (not entity.valid)) then return end
+  if (entity.type ~= "entity-ghost") then return end
+  local name = entity.ghost_name
+  if (string.sub(name, 1, 15) ~= "nullius-mirror-") then return end
+  local suffix = string.sub(name, 16, -3)
+  local tier = mirror_tier(suffix)
+  if (tier == 0) then return end
+
+  local force = entity.force
+  if ((force == nil) or (not force.valid)) then return end
+  local tech = force.technologies["nullius-chirality-" .. tier]
+  if ((tech == nil) or (not tech.valid)) then return end
+  if (tech.researched) then return end
+
+  local newname = ("nullius-" .. string.sub(name, 16, -1))
+  replace_fluid_entity(entity, newname, force, nil)
+end
+

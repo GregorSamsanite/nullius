@@ -5,7 +5,9 @@ function entity_added(entity, handbuilt)
   end
   if (string.sub(entity.name, 1, 8) ~= "nullius-") then
     if (entity.name == "entity-ghost") then
-      check_pipette(handbuilt)
+      local result = check_pipette(handbuilt)
+      if (result ~= nil) then entity = result end
+      check_mirror(entity)
 	end
     return
   end
