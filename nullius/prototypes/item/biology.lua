@@ -1162,7 +1162,7 @@ data:extend({
     results = {
       {type="item", name="nullius-algae", amount=2},
       {type="fluid", name="nullius-wastewater", amount=150},
-      {type="fluid", name="nullius-oxygen", amount=300}
+      {type="fluid", name="nullius-oxygen", amount=400}
     },
     main_product = "nullius-algae"
   },
@@ -1184,7 +1184,7 @@ data:extend({
     results = {
       {type="item", name="nullius-algae", amount=8},
       {type="fluid", name="nullius-wastewater", amount=400},
-      {type="fluid", name="nullius-oxygen", amount=1000}
+      {type="fluid", name="nullius-oxygen", amount=1200}
     },
     main_product = "nullius-algae"
   },
@@ -1218,7 +1218,7 @@ data:extend({
     results = {
       {type="item", name="nullius-algae", amount=9},
       {type="fluid", name="nullius-wastewater", amount=450},
-      {type="fluid", name="nullius-oxygen", amount=1200}
+      {type="fluid", name="nullius-oxygen", amount=1400}
     },
     main_product = "nullius-algae"
   },
@@ -1230,6 +1230,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "bio-harvesting",
+	order = "nullius-eb",
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-algae", amount=5}
@@ -1238,6 +1239,56 @@ data:extend({
       {type="item", name="nullius-algae-spore", amount=9},
       {type="fluid", name="nullius-sludge", amount=25},
       {type="item", name="nullius-cellulose", amount=2}
+    },
+    main_product = "nullius-algae-spore"
+  },
+  {
+    type = "recipe",
+    name = "nullius-algae-harvest",
+	localised_name = {"recipe-name.nullius-harvest", {"item-name.nullius-algae"}},
+    icons = {
+      {
+        icon = ICONPATH .. "protocell.png",
+        icon_size = 64,
+        tint = {1, 1, 1, 0.8}
+      },
+      {
+        icon = ICONPATH .. "algae.png",
+        icon_size = 64,
+        scale = 0.4
+      },
+	  {
+	    icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon_size = 32,
+		scale = 0.48,
+		shift = {11, 10}
+	  },
+	  {
+	    icon = "__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png",
+        icon_size = 72,
+		scale = 0.2,
+		shift = {-10, 10}
+	  }
+    },
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "distillation",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-fatty-acids"].flow_color },
+	order = "nullius-ec",
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="nullius-algae", amount=6},
+	  {type="fluid", name="nullius-saline", amount=30}
+    },
+    results = {
+      {type="item", name="nullius-algae-spore", amount=11},
+      {type="fluid", name="nullius-wastewater", amount=60},
+	  {type="fluid", name="nullius-sulfur-dioxide", amount=20},
+	  {type="fluid", name="nullius-fatty-acids", amount=12},
+      {type="item", name="nullius-cellulose", amount=2},
+      {type="item", name="nullius-crushed-limestone", amount=1}
     },
     main_product = "nullius-algae-spore"
   },
@@ -2542,6 +2593,7 @@ data:extend({
     results = {
       {type="item", name="nullius-worm", amount=1},
       {type="item", name="nullius-worm-egg", amount=2},
+	  {type="item", name="nullius-mineral-dust", amount=1},
       {type="fluid", name="nullius-carbon-dioxide", amount=125, fluidbox_index=1}
     },
     main_product = "nullius-worm"
@@ -2565,6 +2617,7 @@ data:extend({
     results = {
       {type="item", name="nullius-worm", amount=8},
       {type="item", name="nullius-worm-egg", amount=12},
+	  {type="item", name="nullius-mineral-dust", amount=5},
       {type="fluid", name="nullius-carbon-dioxide", amount=400, fluidbox_index=1}
     },
     main_product = "nullius-worm"
@@ -2588,6 +2641,72 @@ data:extend({
 	},
     enabled = false,
     allow_decomposition = false,
+    category = "ore-flotation",
+    order = "nullius-dd",
+    energy_required = 55,
+    ingredients = {
+      {type="fluid", name="nullius-sludge", amount=300},
+      {type="item", name="nullius-sand", amount=6},
+      {type="fluid", name="nullius-oxygen", amount=500},
+      {type="item", name="nullius-grass", amount=8},
+      {type="item", name="nullius-worm-egg", amount=10}
+    },
+    results = {
+      {type="item", name="nullius-worm", amount=9},
+      {type="item", name="nullius-worm-egg", amount=13},
+	  {type="item", name="nullius-mineral-dust", amount=6},
+      {type="fluid", name="nullius-carbon-dioxide", amount=450, fluidbox_index=1}
+    },
+    main_product = "nullius-worm"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-worm-2",
+    localised_name = {"", {"item-name.nullius-worm"}, " ", 2},
+    enabled = false,
+    allow_decomposition = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "ore-flotation",
+    order = "nullius-dc",
+    energy_required = 60,
+    ingredients = {
+      {type="fluid", name="nullius-sludge", amount=320},
+      {type="item", name="nullius-sand", amount=7},
+      {type="fluid", name="nullius-oxygen", amount=550},
+      {type="item", name="nullius-grass", amount=9},
+      {type="item", name="nullius-worm-egg", amount=11}
+    },
+    results = {
+      {type="item", name="nullius-worm", amount=8},
+      {type="item", name="nullius-worm-egg", amount=12},
+      {type="fluid", name="nullius-carbon-dioxide", amount=400, fluidbox_index=1}
+    },
+    main_product = "nullius-worm"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-worm-3",
+    localised_name = {"", {"item-name.nullius-worm"}, " ", 3},
+	icons = {
+	  {
+	    icon = "__base__/graphics/icons/small-worm.png",
+        icon_size = 64,
+        icon_mipmaps = 4
+      },
+	  {
+        icon = ICONPATH .. "genome.png",
+        icon_size = 64,
+		scale = 0.3,
+        shift = {-10, -9}
+      }
+	},
+    enabled = false,
+    allow_decomposition = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "ore-flotation",
     order = "nullius-dd",
     energy_required = 55,

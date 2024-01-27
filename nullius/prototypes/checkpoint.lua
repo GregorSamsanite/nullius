@@ -1506,10 +1506,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-construction-robot"}}},
     localised_description = {"",
+	    {"technology-description.nullius-checkpoint-construction"}, "\n",
+		{"technology-description.nullius-checkpoint-configure",
+		    {"technology-description.nullius-item", 4, "nullius-relay-2",
+			    {"entity-name.nullius-construction-only", {"entity-name.nullius-relay-2"}}}}, "\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    25, "nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}, "\n",
-	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    4, "nullius-relay-2", {"entity-name.nullius-relay-2"}}}},
+		    25, "nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}},
     order = "nullius-ye",
     icons = {
       {
@@ -2837,9 +2839,10 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-carbon-sequestration"}}},
     localised_description = {"",
-	    {"technology-description.nullius-consume", {"technology-description.nullius-fluid-compressible",
-		    1500000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
-			    {"fluid-name.nullius-carbon-dioxide"}}},"\n",
+	    {"technology-description.nullius-consume",
+		    {"technology-description.nullius-fluid-sequestration",
+		        1500000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
+			        {"fluid-name.nullius-carbon-dioxide"}}},"\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
 		    2000000000, "nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
     order = "nullius-yg",
@@ -2906,7 +2909,7 @@ data:extend({
       ingredients = {{"nullius-checkpoint", 1}, {"nullius-astronomy-pack", 1}},
       time = 1
     },
-    prerequisites = {"nullius-zoology-3", "nullius-evolution-1"},
+    prerequisites = {"nullius-zoology-3", "nullius-evolution-1", "nullius-reconnaissance-3"},
     ignore_tech_cost_multiplier = true
   },
   {

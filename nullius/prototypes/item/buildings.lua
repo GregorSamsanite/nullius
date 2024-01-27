@@ -1869,9 +1869,9 @@ data:extend({
     category = "large-crafting",
     energy_required = 15,
     ingredients = {
-      {"nullius-grid-battery-1", 3},
-      {"nullius-fiberglass", 4},
-      {"nullius-battery-2", 6},
+      {"nullius-grid-battery-1", 2},
+      {"nullius-fiberglass", 3},
+      {"nullius-battery-2", 4},
       {"nullius-sensor-2", 1},
       {"nullius-power-pole-4", 1},
       {"nullius-heat-pipe-2", 2}
@@ -1887,9 +1887,9 @@ data:extend({
     subgroup = "boxed-renewable",
     energy_required = 75,
     ingredients = {
-      {"nullius-box-grid-battery-1", 3},
-      {"nullius-box-fiberglass", 4},
-      {"nullius-box-battery-2", 6},
+      {"nullius-box-grid-battery-1", 2},
+      {"nullius-box-fiberglass", 3},
+      {"nullius-box-battery-2", 4},
       {"nullius-box-sensor-2", 1},
       {"nullius-box-power-pole-4", 1},
       {"nullius-box-heat-pipe-2", 2}
@@ -3223,11 +3223,11 @@ data:extend({
     category = "huge-crafting",
     energy_required = 160,
     ingredients = {
-      {type="item", name="nullius-thermal-tank-3", amount=2},
+      {type="item", name="nullius-thermal-tank-3", amount=1},
       {type="item", name="nullius-box-heat-pipe-3", amount=2},
       {type="item", name="nullius-lab-2", amount=1},
       {type="item", name="nullius-box-hazard-concrete", amount=5},
-      {type="item", name="nullius-large-furnace-2", amount=2},
+      {type="item", name="nullius-large-furnace-2", amount=1},
       {type="item", name="nullius-box-processor-2", amount=1}
     },
     result = "nullius-reactor"

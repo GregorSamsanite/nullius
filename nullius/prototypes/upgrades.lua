@@ -700,7 +700,7 @@ data:extend({
 
   {
     type = "technology",
-    name = "nullius-reconnaissance-2",
+    name = "nullius-reconnaissance-4",
     order = "nullius-xc",
     icon = "__base__/graphics/technology/artillery-range.png",
     icon_size = 256,
@@ -712,7 +712,7 @@ data:extend({
       }
     },
     unit = {
-      count_formula = "12500*(2^(L-2))",
+      count_formula = "25000*(2^(L-4))",
       ingredients = {
         {"nullius-geology-pack", 2}, {"nullius-climatology-pack", 2},
         {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},

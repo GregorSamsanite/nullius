@@ -2908,17 +2908,17 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "large-fluid-assembly",
-    energy_required = 60,
+    energy_required = 90,
     ingredients = {
       {type="item", name="nullius-stirling-engine-2", amount=3},
       {type="item", name="nullius-compressor-3", amount=1},
       {type="item", name="nullius-thermal-tank-3", amount=2},
-      {type="item", name="nullius-turbine-closed-3", amount=4},
-      {type="item", name="nullius-grid-battery-2", amount=3},
-      {type="fluid", name="nullius-compressed-helium", amount=300, fluidbox_index=1}
+      {type="item", name="nullius-turbine-closed-3", amount=3},
+      {type="item", name="nullius-grid-battery-2", amount=2},
+      {type="fluid", name="nullius-compressed-helium", amount=400, fluidbox_index=1}
     },
     result = "nullius-stirling-engine-3",
-    result_count = 2
+    result_count = 3
   },
 
   {

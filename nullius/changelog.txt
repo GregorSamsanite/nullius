@@ -1,4 +1,31 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.9.0
+Date: 26.01.2024
+  Features:
+    - Hangars and relays can be configured into construction only mode.
+    - Locomotive 3 can consume nuclear fuel.
+    - Algae harvest recipe.
+    - New tiers of reconnaissance tech.
+  Changes:
+    - Backward compatible change to locomotive 3 recipe.
+    - Add dust byproduct to worms (backward compatible).
+    - Rename limestone as calcite and crushed limestone and calcium carbonate.
+    - Eliminate logistic bot radius from chargers.
+    - Require construction only relays for robotic construction checkpoint.
+    - Move portable reactor to earlier tech.
+  Balancing:
+    - Make reactor, portable reactor, stirling engine 3, solar locomotive,
+      battery 2, grid battery 2, truck 2, and biodiesel canister cheaper.
+    - Make breeder cell and aneutronic cell more expensive.
+    - Increase vehicle acceleration bonus of fusion cell.
+    - Increase fuel value of biodiesel canister.
+    - Increase range of drone launchers.
+    - Increase oxygen production of algae.
+  Bugfixes:
+    - Mirroring could sometimes duplicate non-square machines.
+  Info:
+    - Mention plants as an option in carbon dioxide consumption checkpoint.
+---------------------------------------------------------------------------------------------------
 Version: 1.8.14
 Date: 22.01.2024
   Balancing:

@@ -700,8 +700,8 @@ data:extend({
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-battery-1", amount=2},
-      {type="item", name="nullius-graphene", amount=2},
-      {type="item", name="nullius-lithium", amount=3},
+      {type="item", name="nullius-graphene", amount=1},
+      {type="item", name="nullius-lithium", amount=2},
       {type="item", name="nullius-capacitor", amount=2}
     },
     result = "nullius-battery-2"
@@ -2115,6 +2115,24 @@ data:extend({
     energy_required = 40,
     ingredients = {
       {"nullius-locomotive-2", 1},
+      {"nullius-portable-reactor", 1},
+      {"nullius-motor-3", 4},
+      {"nullius-speed-module-2", 1}
+    },
+    result = "nullius-locomotive-3"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-locomotive-3",
+    enabled = false,
+    always_show_made_in = true,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "huge-crafting",
+    energy_required = 40,
+    ingredients = {
+      {"nullius-locomotive-2", 1},
       {"nullius-combustion-chamber-3", 1},
       {"nullius-turbine-closed-3", 1},
       {"nullius-motor-3", 4},
@@ -2132,7 +2150,7 @@ data:extend({
     ingredients = {
       {"nullius-locomotive-2", 1},
       {"nullius-solar-panel-2", 8},
-      {"nullius-grid-battery-2", 2},
+      {"nullius-grid-battery-2", 1},
       {"nullius-motor-3", 2},
       {"nullius-efficiency-module-2", 1}
     },
@@ -3141,8 +3159,7 @@ data:extend({
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-truck-1", amount=1},
-      {type="item", name="nullius-locomotive-3", amount=1},
-      {type="item", name="nullius-portable-reactor", amount=1}
+      {type="item", name="nullius-locomotive-3", amount=1}
     },
     result = "nullius-truck-2"
   },
@@ -4127,14 +4144,17 @@ data:extend({
     name = "nullius-portable-reactor",
     enabled = false,
     always_show_made_in = true,
+	show_amount_in_title = false,
+    always_show_products = true,
     category = "large-crafting",
-    energy_required = 60,
+    energy_required = 180,
     ingredients = {
-      {type="item", name="nullius-portable-generator-2", amount=1},
+      {type="item", name="nullius-portable-generator-2", amount=8},
 	  {type="item", name="nullius-reactor", amount=1},
-	  {type="item", name="nullius-stirling-engine-3", amount=1}
+	  {type="item", name="nullius-stirling-engine-3", amount=2}
     },
-    result = "nullius-portable-reactor"
+    result = "nullius-portable-reactor",
+    result_count = 6
   }
 })
 

@@ -1,0 +1,8 @@
+{
+  "recipe":
+  [
+	["nullius-locomotive-3", "nullius-legacy-locomotive-3"],
+	["nullius-worm-2", "nullius-legacy-worm-2"],
+	["nullius-worm-3", "nullius-legacy-worm-3"]
+  ]
+}

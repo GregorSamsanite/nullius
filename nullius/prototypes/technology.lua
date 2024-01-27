@@ -10014,6 +10014,30 @@ data:extend({
   },
   {
     type = "technology",
+    name = "nullius-reconnaissance-2",
+    order = "nullius-ff",
+    icon = "__base__/graphics/technology/artillery-range.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "artillery-range",
+        modifier = 0.25
+      }
+    },
+    unit = {
+      count = 1400,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-physics-pack", 1}
+      },
+      time = 40
+    },
+    prerequisites = {"nullius-single-layer-materials", "nullius-toolmaking-7"}
+  },
+  {
+    type = "technology",
     name = "nullius-pumping-3",
     order = "nullius-ff",
     icon_size = 64,
@@ -10216,7 +10240,8 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-locomotion-3", "nullius-mechanical-engineering-2", "nullius-checkpoint-automation"}
+    prerequisites = {"nullius-locomotion-3", "nullius-mechanical-engineering-2",
+	    "nullius-checkpoint-automation", "nullius-reconnaissance-2"}
   },
   {
     type = "technology",
@@ -10238,7 +10263,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-flotation-3", "nullius-water-filtration-4"}
+    prerequisites = {"nullius-flotation-3", "nullius-water-filtration-4", "nullius-reconnaissance-2"}
   },
   {
     type = "technology",
@@ -11463,6 +11488,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-fusion-recycling"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-portable-reactor"
       }
     },
     unit = {
@@ -12270,10 +12299,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-truck-2"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-portable-reactor"
       }
     },
     unit = {
@@ -13136,6 +13161,31 @@ data:extend({
 
   {
     type = "technology",
+    name = "nullius-reconnaissance-3",
+    order = "nullius-gd",
+    icon = "__base__/graphics/technology/artillery-range.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    effects = {
+      {
+        type = "artillery-range",
+        modifier = 0.25
+      }
+    },
+	unit = {
+      count = 6000,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+        {"nullius-astronomy-pack", 1}
+      },
+      time = 60
+    },
+    prerequisites = {"nullius-asteroid-mining-1", "nullius-land-fill-5"}
+  },
+  {
+    type = "technology",
     name = "nullius-toolmaking-9",
     order = "nullius-gd",
     icon = "__base__/graphics/technology/personal-laser-defense-equipment.png",
@@ -13418,7 +13468,8 @@ data:extend({
       },
       time = 60
     },
-    prerequisites = {"nullius-copper-production", "nullius-inserter-capacity-6"}
+    prerequisites = {"nullius-copper-production",
+	    "nullius-inserter-capacity-6", "nullius-reconnaissance-3"}
   },
   {
     type = "technology",
@@ -13875,6 +13926,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-oil"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-algae-harvest"
       },
       {
         type = "unlock-recipe",

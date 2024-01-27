@@ -178,6 +178,26 @@ local function toggle_surge(entity, entityname, force)
 end
 
 
+local function scan_hangar_name(name)
+  local offs = -3
+  local iscon = false
+  if (string.sub(name, -15, -3) == "-construction") then
+    iscon = true
+	offs = -16
+  end
+  return { prefix = string.sub(name, 1, offs), iscon = iscon }
+end
+
+local function toggle_hangar(entity, entityname, force)
+  local hangar = scan_hangar_name(entityname)
+  local midfix = ""
+  if (not hangar.iscon) then midfix = "-construction" end
+  local newname = (hangar.prefix .. midfix ..
+      string.sub(entityname, -2, -1))
+  replace_fluid_entity(entity, newname, force, nil)
+end
+
+
 local function valid_entity_name(entity)
   if ((entity == nil) or (not entity.valid)) then return nil end
   local name = entity.name
@@ -189,12 +209,13 @@ local function valid_entity_name(entity)
 end
 
 local function is_surge_entity(name)
-  if (string.sub(name, -15, -2) == "-electrolyzer-") then
-    return true
-  elseif (string.sub(name, -13, -2) == "-compressor-") then
-    return true
-  end
-  return false
+  local suffix = string.sub(name, -13, -2)
+  return ((suffix == "lectrolyzer-") or (suffix == "-compressor-"))
+end
+
+local function is_hangar_entity(name)
+  local suffix = string.sub(name, 9, 14)
+  return ((suffix == "hangar") or (suffix == "relay-"))
 end
 
 local function priority_event(event)
@@ -209,6 +230,8 @@ local function priority_event(event)
     toggle_turbine(target, name, force)
   elseif (is_surge_entity(name)) then
     toggle_surge(target, name, force)
+  elseif (is_hangar_entity(name)) then
+    toggle_hangar(target, name, force)
   end
 end
 
@@ -249,6 +272,11 @@ function entity_paste_event(event)
     if ((tsurge == nil) or (ssurge == nil)) then return end
 	if (tsurge.priority == ssurge.priority) then return end
     toggle_surge(target, tname, force)
+  elseif (is_hangar_entity(tname) and is_hangar_entity(sname)) then
+    local thang = scan_hangar_name(tname)
+	local shang = scan_hangar_name(sname)
+	if (thang.iscon == shang.iscon) then return end
+	toggle_hangar(target, tname, force)
   end
 end
 

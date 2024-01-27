@@ -321,7 +321,7 @@ data:extend({
     energy_per_hit_point = 5,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
     burner = {
-      fuel_category = "vehicle",
+	  fuel_categories = {"nullius-nuclear", "vehicle"},
       effectivity = 1,
       fuel_inventory_size = 2,
       burnt_inventory_size = 2,
@@ -879,7 +879,7 @@ data:extend({
     turn_after_shooting_cooldown = 60,
     cannon_parking_frame_count = 8,
     cannon_parking_speed = 0.25,
-    manual_range_modifier = 128,
+    manual_range_modifier = 200,
     resistances = {
       { type = "impact", decrease = 40, percent = 60 },
       { type = "poison", decrease = 40, percent = 60 },
@@ -974,7 +974,7 @@ data:extend({
     turn_after_shooting_cooldown = 60,
     cannon_parking_frame_count = 8,
     cannon_parking_speed = 0.25,
-    manual_range_modifier = 256,
+    manual_range_modifier = 300,
     resistances = {
       { type = "impact", decrease = 40, percent = 60 },
       { type = "poison", decrease = 40, percent = 60 },

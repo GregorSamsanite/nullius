@@ -1282,7 +1282,8 @@ data:extend({
     -- per one charge slot
     charging_energy = "600kW",
 
-    logistics_radius = 4,
+    logistics_radius = 0,
+	logistics_connection_distance = 4,
     construction_radius = 4,
     charge_approach_distance = 4,
     robot_slots_count = 0,
@@ -1364,7 +1365,8 @@ data:extend({
     -- per one charge slot
     charging_energy = "1.6MW",
 
-    logistics_radius = 5,
+    logistics_radius = 0,
+	logistics_connection_distance = 5,
     construction_radius = 5,
     charge_approach_distance = 4,
     robot_slots_count = 0,
@@ -1445,7 +1447,8 @@ data:extend({
     -- per one charge slot
     charging_energy = "4MW",
 
-    logistics_radius = 6,
+    logistics_radius = 0,
+	logistics_connection_distance = 6,
     construction_radius = 6,
     charge_approach_distance = 4,
     robot_slots_count = 0,
@@ -1525,7 +1528,8 @@ data:extend({
     -- per one charge slot
     charging_energy = "5MW",
 
-    logistics_radius = 4.5,
+    logistics_radius = 0,
+	logistics_connection_distance = 4.5,
     construction_radius = 4.5,
     charge_approach_distance = 4,
     robot_slots_count = 0,
@@ -1608,3 +1612,75 @@ android2.distance_per_frame = 0.15
 android2.tool_attack_result.action_delivery.target_effects.damage.amount = 12
 android2.mining_speed = 0.8
 data:extend({ android2 })
+
+
+local hangar_paste = {
+  "nullius-hangar-1", "nullius-hangar-2",
+  "nullius-hangar-4", "nullius-hangar-4",
+  "nullius-relay-1", "nullius-relay-2",
+  "nullius-relay-4", "nullius-relay-4"
+}
+
+for i=1,4 do
+  local bh = data.raw.roboport["nullius-hangar-" .. i]
+  bh.additional_pastable_entities = hangar_paste
+  local ch = util.table.deepcopy(bh)
+  ch.name = "nullius-hangar-construction-" .. i
+  ch.localised_name = { "entity-name.nullius-construction-only", ch.localised_name }
+  ch.placeable_by = {item = "nullius-hangar-" .. i, count = 1}
+  ch.logistics_radius = 0
+  ch.logistics_connection_distance = ((1 + i) * 16) + 0.5
+  ch.construction_radius = ((1 + i) * 32) + 4.5
+  local br = data.raw.roboport["nullius-relay-" .. i]
+  br.additional_pastable_entities = hangar_paste
+  local cr = util.table.deepcopy(br)
+  cr.name = "nullius-relay-construction-" .. i
+  cr.localised_name = { "entity-name.nullius-construction-only", cr.localised_name }
+  cr.placeable_by = {item = "nullius-relay-" .. i, count = 1}
+  cr.logistics_radius = 0
+  cr.logistics_connection_distance = ch.logistics_connection_distance
+  cr.construction_radius = ch.construction_radius
+  if (i < 4) then
+    ch.next_upgrade = "nullius-hangar-construction-" .. (i + 1)
+	cr.next_upgrade = "nullius-relay-construction-" .. (i + 1)
+  end
+  data:extend({ ch, cr })
+end
+
+data.raw.roboport["nullius-hangar-construction-3"].next_upgrade = nil
+data.raw.roboport["nullius-hangar-construction-4"].logistics_connection_distance = 65
+data.raw.roboport["nullius-hangar-construction-4"].construction_radius = 133
+data.raw.roboport["nullius-relay-construction-4"].logistics_connection_distance = 96.5
+data.raw.roboport["nullius-relay-construction-4"].construction_radius = 200.5
+
+data.raw.roboport["nullius-hangar-construction-1"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png"
+data.raw.roboport["nullius-hangar-construction-1"].base_animation.tint = {0.9, 0.8, 0.7}
+data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.filename =
+	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-4.png"
+data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.tint = {0.9, 0.8, 0.7}
+data.raw.roboport["nullius-relay-construction-1"].base_animation.filename =
+	data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.filename
+data.raw.roboport["nullius-relay-construction-1"].base_animation.tint = {0.9, 0.8, 0.7}
+data.raw.roboport["nullius-hangar-construction-2"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
+data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.filename =
+	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png"
+data.raw.roboport["nullius-hangar-construction-2"].base_animation.tint = {0.85, 1, 0.9}
+data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.tint = {0.85, 1, 0.9}
+data.raw.roboport["nullius-relay-construction-2"].base_animation.filename =
+	data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.filename
+data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
+data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename =
+	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png"
+data.raw.roboport["nullius-relay-construction-3"].base_animation.filename =
+	data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename
+data.raw.roboport["nullius-relay-construction-3"].base_animation.tint = {1, 1, 0.75}
+data.raw.roboport["nullius-hangar-construction-4"].base_animation.filename =
+	data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename
+data.raw.roboport["nullius-hangar-construction-4"].base_animation.hr_version.filename =
+	data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename
+data.raw.roboport["nullius-relay-construction-4"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation.png"
+data.raw.roboport["nullius-relay-construction-4"].base_animation.tint = {0.7, 0.7, 0.7}

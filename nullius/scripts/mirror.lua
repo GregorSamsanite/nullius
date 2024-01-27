@@ -102,6 +102,7 @@ local function mirror_event(event)
   local offs = ((ismirror and 16) or 9)
   local suffix = string.sub(name, offs, -3)
 
+  local dir = nil
   local tier = mirror_tier(suffix)
   if (tier == 0) then
     return

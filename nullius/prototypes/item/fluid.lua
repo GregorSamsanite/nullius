@@ -5208,7 +5208,7 @@ data:extend({
     subgroup = "canisters",
     order = "nullius-f",
     fuel_category = "vehicle",
-    fuel_value = "30MJ",
+    fuel_value = "50MJ",
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.4,
     burnt_result = "nullius-canister",
@@ -5582,8 +5582,8 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=32},
-      {type="fluid", name="nullius-compressed-oxygen", amount=160}
+      {type="fluid", name="nullius-biodiesel", amount=25},
+      {type="fluid", name="nullius-compressed-oxygen", amount=120}
     },
     result = "nullius-biodiesel-canister"
   },
@@ -5600,8 +5600,8 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=160},
-      {type="fluid", name="nullius-compressed-oxygen", amount=800}
+      {type="fluid", name="nullius-biodiesel", amount=125},
+      {type="fluid", name="nullius-compressed-oxygen", amount=600}
     },
     result = "nullius-box-biodiesel-canister"
   },
@@ -7552,8 +7552,8 @@ data:extend({
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fusion-cell",
     fuel_value = "3GJ",
-    fuel_acceleration_multiplier = 1.8,
-    fuel_top_speed_multiplier = 1.4,
+    fuel_acceleration_multiplier = 2,
+    fuel_top_speed_multiplier = 1.5,
 	fuel_glow_color = {r=0.9, g=0, b=0.8, a=1},
     subgroup = "nuclear",
     order = "nullius-cb",
@@ -7576,8 +7576,8 @@ data:extend({
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-breeder-cell",
     fuel_value = "500MJ",
-    fuel_acceleration_multiplier = 1.5,
-    fuel_top_speed_multiplier = 1.25,
+    fuel_acceleration_multiplier = 1.4,
+    fuel_top_speed_multiplier = 1.2,
 	fuel_glow_color = {r=0, g=0.6, b=0.9, a=1},
     subgroup = "nuclear",
     order = "nullius-db",
@@ -7602,8 +7602,8 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-compressed-hydrogen", amount=25},
-      {type="item", name="nullius-boron", amount=4}
+      {type="fluid", name="nullius-compressed-hydrogen", amount=50},
+      {type="item", name="nullius-boron", amount=5}
     },
     result = "nullius-aneutronic-cell"
   },
@@ -7662,8 +7662,8 @@ data:extend({
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-fusion-cell", amount=1},
-      {type="item", name="nullius-lithium", amount=2},
-      {type="item", name="nullius-boron", amount=1},
+      {type="item", name="nullius-lithium", amount=3},
+      {type="item", name="nullius-boron", amount=2},
       {type="item", name="nullius-ceramic-powder", amount=3},
       {type="fluid", name="nullius-deuterium", amount=12},
       {type="fluid", name="nullius-compressed-helium", amount=10}

@@ -32,7 +32,7 @@ data:extend({
     turn_after_shooting_cooldown = 60,
     cannon_parking_frame_count = 8,
     cannon_parking_speed = 0.25,
-    manual_range_modifier = 128,
+    manual_range_modifier = 200,
     resistances = {
       { type = "fire", decrease = 20, percent = 80 },
       { type = "physical", decrease = 20, percent = 50 },
@@ -127,7 +127,7 @@ data:extend({
     turn_after_shooting_cooldown = 60,
     cannon_parking_frame_count = 8,
     cannon_parking_speed = 0.25,
-    manual_range_modifier = 256,
+    manual_range_modifier = 300,
     resistances = {
       { type = "fire", decrease = 20, percent = 80 },
       { type = "physical", decrease = 20, percent = 50 },
