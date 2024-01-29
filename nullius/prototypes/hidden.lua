@@ -259,6 +259,10 @@ end
 data.raw.recipe["pipe"].normal.result = "stone-pipe"
 data.raw.recipe["pipe"].expensive.result = "stone-pipe"
 
+data.raw.fish.fish.subgroup = "biology-fish"
+data.raw.fish.fish.order = "z"
+data.raw.item["rocket-part"].subgroup = "space"
+data.raw.item["rocket-part"].order = "z"
 
 data.raw.item["nullius-energy-barrel"] = nil
 data.raw.recipe["fill-nullius-energy-barrel"] = nil

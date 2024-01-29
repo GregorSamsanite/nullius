@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.9.1
+Date: 28.01.2024
+  Features:
+    - Fatty acid combustion recipe.
+    - Calcium chloride hydration recipe.
+  Changes:
+    - Add a calcium chloride byproduct to lithium (backward compatible).
+    - Don't allow productivity in calcium chloride dehydration.
+  Balancing:
+    - Improve algae harvesting.
+  Bugfixes:
+    - Order of reconnaissance 1 and 2 swapped.
+  Graphics:
+    - Differentiate icon for one way valve 2.
+  Info:
+    - Change description of sensor technology.
+  Modding:
+    - Support Recipe Book 4.0 with supplemental recipe information.
+---------------------------------------------------------------------------------------------------
 Version: 1.9.0
 Date: 26.01.2024
   Features:
@@ -9,7 +28,7 @@ Date: 26.01.2024
   Changes:
     - Backward compatible change to locomotive 3 recipe.
     - Add dust byproduct to worms (backward compatible).
-    - Rename limestone as calcite and crushed limestone and calcium carbonate.
+    - Rename limestone as calcite and crushed limestone as calcium carbonate.
     - Eliminate logistic bot radius from chargers.
     - Require construction only relays for robotic construction checkpoint.
     - Move portable reactor to earlier tech.

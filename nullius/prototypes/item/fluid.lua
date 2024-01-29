@@ -2579,8 +2579,9 @@ data:extend({
       {type="fluid", name="nullius-brine", amount=320}
     },
     results = {
-      {type="item", name="nullius-salt", amount=20},
+      {type="item", name="nullius-salt", amount=18},
       {type="item", name="nullius-lithium-chloride", amount=1},
+	  {type="item", name="nullius-calcium-chloride", amount=1},
       {type="fluid", name="nullius-saline", amount=120},
       {type="fluid", name="nullius-steam", amount=200}
     },
@@ -2590,6 +2591,51 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-lithium-chloride",
     enabled = false,
+    category = "nullius-water-treatment",
+    subgroup = "boxed-sodium",
+    order = "nullius-bc",
+    crafting_machine_tint = { primary = {0.95, 0.8, 1} },
+    energy_required = 160,
+    ingredients = {
+      {type="fluid", name="nullius-brine", amount=1600}
+    },
+    results = {
+      {type="item", name="nullius-box-salt", amount=18},
+      {type="item", name="nullius-box-lithium-chloride", amount=1},
+	  {type="item", name="nullius-box-calcium-chloride", amount=1},
+      {type="fluid", name="nullius-saline", amount=600},
+      {type="fluid", name="nullius-steam", amount=1000}
+    },
+    main_product = "nullius-box-lithium-chloride"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-lithium-chloride",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
+    category = "nullius-water-treatment",
+    crafting_machine_tint = { primary = {0.9, 0.75, 1} },
+    energy_required = 32,
+    ingredients = {
+      {type="fluid", name="nullius-brine", amount=320}
+    },
+    results = {
+      {type="item", name="nullius-salt", amount=20},
+      {type="item", name="nullius-lithium-chloride", amount=1},
+      {type="fluid", name="nullius-saline", amount=120},
+      {type="fluid", name="nullius-steam", amount=200}
+    },
+    main_product = "nullius-lithium-chloride"
+  },
+  {
+    type = "recipe",
+    name = "nullius-legacy-boxed-lithium-chloride",
+    enabled = false,
+	hidden = true,
+    allow_decomposition = false,
+    allow_as_intermediate = false,
     category = "nullius-water-treatment",
     subgroup = "boxed-sodium",
     order = "nullius-bc",
@@ -7189,8 +7235,8 @@ data:extend({
     },
     enabled = false,
     category = "basic-chemistry",
-    subgroup = "boxed-fluid",
-    order = "nullius-g",
+    subgroup = "boxed-biology",
+    order = "nullius-ff",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-ech"].flow_color,
       secondary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color

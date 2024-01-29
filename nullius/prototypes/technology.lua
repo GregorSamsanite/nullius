@@ -10014,7 +10014,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-reconnaissance-2",
+    name = "nullius-reconnaissance-1",
     order = "nullius-ff",
     icon = "__base__/graphics/technology/artillery-range.png",
     icon_size = 256,
@@ -10241,7 +10241,7 @@ data:extend({
       time = 45
     },
     prerequisites = {"nullius-locomotion-3", "nullius-mechanical-engineering-2",
-	    "nullius-checkpoint-automation", "nullius-reconnaissance-2"}
+	    "nullius-checkpoint-automation", "nullius-reconnaissance-1"}
   },
   {
     type = "technology",
@@ -10263,7 +10263,7 @@ data:extend({
       },
       time = 45
     },
-    prerequisites = {"nullius-flotation-3", "nullius-water-filtration-4", "nullius-reconnaissance-2"}
+    prerequisites = {"nullius-flotation-3", "nullius-water-filtration-4", "nullius-reconnaissance-1"}
   },
   {
     type = "technology",
@@ -10521,6 +10521,14 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-unbox-lithium"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-calcium-chloride-hydration"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-calcium-chloride-hydration"
       }
     },
     unit = {
@@ -12486,7 +12494,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "nullius-reconnaissance-1",
+    name = "nullius-reconnaissance-2",
     order = "nullius-fu",
     icon = "__base__/graphics/technology/artillery-range.png",
     icon_size = 256,
@@ -12663,7 +12671,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-terraforming-1", "nullius-cybernetics-5", "nullius-reconnaissance-1"}
+    prerequisites = {"nullius-terraforming-1", "nullius-cybernetics-5", "nullius-reconnaissance-2"}
   },
   {
     type = "technology",
@@ -12711,7 +12719,7 @@ data:extend({
       },
       time = 55
     },
-    prerequisites = {"nullius-reconnaissance-1", "nullius-empiricism-6"}
+    prerequisites = {"nullius-reconnaissance-2", "nullius-empiricism-6"}
   },
 
   {
@@ -13938,6 +13946,10 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-boxed-cellulose-burning"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-fatty-acid-combustion"
       }
     },
     unit = {

@@ -782,7 +782,7 @@ data:extend({
       icon_size = 64
     }},
     subgroup = "armor",
-    order = "nullius-cb",
+    order = "nullius-ab",
     stack_size = 1,
     place_result = "character"
   },
@@ -796,7 +796,7 @@ data:extend({
       icon_size = 64
     }},
     subgroup = "armor",
-    order = "nullius-cc",
+    order = "nullius-ac",
     stack_size = 1,
     place_result = "nullius-android-2"
   },

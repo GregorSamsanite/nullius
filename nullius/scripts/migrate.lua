@@ -146,6 +146,12 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if (version >= 10901) then return end
+  legacy_recipe_all("nullius-lithium-production", "lithium-chloride")
+  legacy_recipe_all("nullius-lithium-production", "boxed-lithium-chloride")
+  legacy_recipe_all("nullius-limestone-processing-3", "calcium-chloride-dehydration")
+  legacy_recipe_all("nullius-mass-production-5", "boxed-calcium-chloride-dehydration")
+
   if (version >= 10900) then return end
   legacy_recipe_all("nullius-freight-transportation-3", "locomotive-3")
   legacy_recipe_all("nullius-zoology-1", "worm-2")

@@ -590,6 +590,7 @@ data:extend({
     subgroup = "nullius-power-sink",
     hide_from_player_crafting = true,
 	hide_from_stats = true,
+	hidden = true,
     energy_required = 2.5,
     ingredients = {{type="fluid", name="nullius-energy", amount=150}},
     results = {{type="item", name="nullius-power-sink", amount=1, probability=0}}

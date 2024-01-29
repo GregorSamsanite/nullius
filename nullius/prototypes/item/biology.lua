@@ -883,7 +883,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-amino-acid-metabolism",
-    localised_name = {"recipe-name.nullius-metabolism", {"fluid-name.nullius-amino-acids"}},
+    localised_name = {"recipe-name.nullius-metabolism", {"fluid-name.nullius-amino-acid"}},
     icons = {
       data.raw.fluid["nullius-ammonia"].icons[2],
       data.raw.fluid["nullius-ammonia"].icons[3],
@@ -918,7 +918,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-nucleotide-metabolism",
-    localised_name = {"recipe-name.nullius-metabolism", {"fluid-name.nullius-nucleotides"}},
+    localised_name = {"recipe-name.nullius-metabolism", {"fluid-name.nullius-nucleotide"}},
     icons = {
       data.raw.fluid["nullius-amino-acids"].icons[2],
       data.raw.fluid["nullius-amino-acids"].icons[3],
@@ -1277,18 +1277,18 @@ data:extend({
     category = "distillation",
     crafting_machine_tint = { primary = data.raw.fluid["nullius-fatty-acids"].flow_color },
 	order = "nullius-ec",
-    energy_required = 15,
+    energy_required = 40,
     ingredients = {
-      {type="item", name="nullius-algae", amount=6},
-	  {type="fluid", name="nullius-saline", amount=30}
+      {type="item", name="nullius-algae", amount=18},
+	  {type="fluid", name="nullius-saline", amount=100}
     },
     results = {
-      {type="item", name="nullius-algae-spore", amount=11},
-      {type="fluid", name="nullius-wastewater", amount=60},
-	  {type="fluid", name="nullius-sulfur-dioxide", amount=20},
-	  {type="fluid", name="nullius-fatty-acids", amount=12},
-      {type="item", name="nullius-cellulose", amount=2},
-      {type="item", name="nullius-crushed-limestone", amount=1}
+      {type="item", name="nullius-algae-spore", amount=33},
+      {type="fluid", name="nullius-wastewater", amount=120},
+	  {type="fluid", name="nullius-sulfur-dioxide", amount=65},
+	  {type="fluid", name="nullius-fatty-acids", amount=40},
+      {type="item", name="nullius-cellulose", amount=7},
+      {type="item", name="nullius-crushed-limestone", amount=5}
     },
     main_product = "nullius-algae-spore"
   },
@@ -4824,6 +4824,40 @@ data:extend({
     allow_as_intermediate = false,
     category = "combustion",
     subgroup = "biology-oil",
+    order = "nullius-ib",
+    energy_required = 2,
+    ingredients = {
+      {type="fluid", name="nullius-oil", amount=60},
+      {type="fluid", name="nullius-compressed-oxygen", amount=110}
+    },
+    results = {
+      {type="fluid", name="nullius-compressed-carbon-monoxide", amount=100},
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=75},
+	  {type="item", name="nullius-graphite", amount=1}
+    },
+    main_product = "nullius-compressed-carbon-monoxide"
+  },
+  {
+    type = "recipe",
+    name = "nullius-oil-incineration",
+    localised_name = {"recipe-name.nullius-incineration", {"fluid-name.nullius-oil"}},
+    icon_size = 64,
+    icons = {
+      data.raw.fluid["nullius-compressed-carbon-monoxide"].icons[2],
+      data.raw.fluid["nullius-compressed-carbon-monoxide"].icons[3],
+      data.raw.fluid["nullius-compressed-carbon-monoxide"].icons[4],
+      {
+        icon = "__base__/graphics/icons/fluid/light-oil.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+        scale = 0.25,
+        shift = {-8, -8}
+      }
+    },
+    enabled = false,
+    allow_as_intermediate = false,
+    category = "combustion",
+    subgroup = "biology-oil",
     order = "nullius-i",
     energy_required = 2,
     ingredients = {
@@ -4836,6 +4870,37 @@ data:extend({
 	  {type="item", name="nullius-graphite", amount=1}
     },
     main_product = "nullius-compressed-carbon-monoxide"
+  },
+  {
+    type = "recipe",
+    name = "nullius-fatty-acid-combustion",
+    localised_name = {"recipe-name.nullius-combustion", {"fluid-name.nullius-fatty-acid"}},
+    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/fluid/steam.png",
+        icon_size = 64,
+        icon_mipmaps = 4,
+		scale = 0.6
+      },
+      data.raw.fluid["nullius-fatty-acids"].icons[2],
+      data.raw.fluid["nullius-fatty-acids"].icons[3],
+      data.raw.fluid["nullius-fatty-acids"].icons[4]
+    },
+    enabled = false,
+    allow_as_intermediate = false,
+    category = "combustion",
+    subgroup = "biology-oil",
+    order = "nullius-ic",
+    energy_required = 1,
+    ingredients = {
+      {type="fluid", name="nullius-fatty-acids", amount=25},
+      {type="fluid", name="nullius-compressed-oxygen", amount=60}
+    },
+    results = {
+	  {type="fluid", name="nullius-steam", amount=300},
+      {type="fluid", name="nullius-compressed-carbon-dioxide", amount=60}
+    }
   },
 
   {

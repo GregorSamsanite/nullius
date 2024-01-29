@@ -2,6 +2,7 @@ require("prototypes.resource_override")
 require("prototypes.override")
 require("prototypes.rock")
 require("prototypes.override_mod")
+require("prototypes.recipe_book")
 require("prototypes.hidden")
 require("prototypes.override_final")
 

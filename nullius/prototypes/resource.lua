@@ -334,7 +334,7 @@ data:extend({
 
     flags = {"placeable-neutral"},
     category = "basic-fluid",
-    subgroup = "raw-resource",
+    subgroup = "air-filtration",
     infinite = true,
     highlight = true,
     minimum = 75000,

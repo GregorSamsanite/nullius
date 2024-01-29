@@ -1,0 +1,9 @@
+{
+  "recipe":
+  [
+	["nullius-lithium-chloride", "nullius-legacy-lithium-chloride"],
+	["nullius-boxed-lithium-chloride", "nullius-legacy-boxed-lithium-chloride"],
+	["nullius-calcium-chloride-dehydration", "nullius-legacy-calcium-chloride-dehydration"],
+	["nullius-boxed-calcium-chloride-dehydration", "nullius-legacy-boxed-calcium-chloride-dehydration"]
+  ]
+}

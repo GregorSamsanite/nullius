@@ -366,6 +366,7 @@ for _,character in pairs(data.raw["character"]) do
   end
   character.flags = {"placeable-off-grid", "not-on-map", "not-flammable"}
   character.localised_description = {"entity-description.nullius-android"}
+  character.subgroup = "armor"
 end
 
 for _,tip in pairs(data.raw["tips-and-tricks-item"]) do

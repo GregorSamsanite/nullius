@@ -991,35 +991,44 @@ data:extend({
     name = "waste-management",
     group = "fluids",
   },
+
+  {
+    type = "item-group",
+    name = "void",
+    order = "iv",
+	icon = "__nullius__/graphics/icons/fluid/steam2.png",
+    icon_size = 64
+  },
   {
     type = "item-subgroup",
     order = "wb",
     name = "turbine-open",
-    group = "fluids",
+    group = "void",
   },
   {
     type = "item-subgroup",
     order = "wc",
     name = "turbine-closed",
-    group = "fluids",
+    group = "void",
   },
+
   {
     type = "item-subgroup",
     order = "xb",
     name = "nullius-liquid-void",
-    group = "fluids",
+    group = "void",
   },
   {
     type = "item-subgroup",
     order = "xc",
     name = "nullius-gas-void",
-    group = "fluids",
+    group = "void",
   },
   {
     type = "item-subgroup",
     order = "xd",
     name = "nullius-power-sink",
-    group = "fluids",
+    group = "void",
   },
 
   {

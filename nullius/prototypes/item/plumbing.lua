@@ -883,6 +883,18 @@ data:extend({
     type = "recipe",
     name = "nullius-one-way-valve-2",
     localised_name = {"", {"entity-name.nullius-one-way-valve"}, " ", 2},
+	icons = {
+	  {
+	    icon = "__angelspetrochem__/graphics/icons/valve-overflow.png",
+        icon_size = 32
+	  },
+      {
+	    icon = ICONPATH .. "rubber.png",
+        icon_size = 64,
+        scale = 0.28,
+        shift = {10, -10}
+      }
+	},
     enabled = false,
     category = "small-assembly",
     always_show_made_in = true,
