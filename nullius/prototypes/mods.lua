@@ -4072,11 +4072,9 @@ if mods["Mini_Trains"] then
       prerequisites = {"nullius-personal-transportation-1", "nullius-checkpoint-freight-transportation"}
     }
   })
-  -- Mini Trains fluid wagons are oddly aligned, so it helps to have a wider tolerance on pumps.
+
   data.raw["pump"]["nullius-pump-1"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
   data.raw["pump"]["nullius-pump-2"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
-  data.raw["pump"]["nullius-small-pump-1"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
-  data.raw["pump"]["nullius-small-pump-2"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
 end
 
 if mods["fcpu"] then
