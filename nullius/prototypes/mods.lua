@@ -4120,3 +4120,36 @@ if mods["fcpu"] then
     }
   });
 end
+
+if mods["logistic-signals"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-unfulfilled-requests-combinator",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"constant-combinator", 1},
+        {"nullius-sensor-1", 1},
+        {"programmable-speaker", 1},
+      },
+      result = "sil-unfulfilled-requests-combinator"
+    },
+    {
+      type = "recipe",
+      name = "nullius-player-requests-combinator",
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 2,
+      ingredients = {
+        {"constant-combinator", 1},
+        {"nullius-sensor-1", 1},
+        {"programmable-speaker", 1},
+      },
+      result = "sil-player-requests-combinator"
+    }
+  })
+end
