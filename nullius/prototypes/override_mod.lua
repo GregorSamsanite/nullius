@@ -2458,7 +2458,7 @@ if mods["logistic-signals"] then
   data.raw.item["sil-unfulfilled-requests-combinator"].order = "nullius-ls-urc"
   data.raw["constant-combinator"]["sil-player-requests-combinator"].minable.mining_time = 0.8
   data.raw["constant-combinator"]["sil-unfulfilled-requests-combinator"].minable.mining_time = 0.8
-  table.insert(data.raw["technology"]["nullius-distribution-1"].effects,
+  table.insert(data.raw["technology"]["nullius-logistic-robot-1"].effects,
     {type = "unlock-recipe", recipe = "nullius-player-requests-combinator"})
   table.insert(data.raw["technology"]["nullius-distribution-1"].effects,
     {type = "unlock-recipe", recipe = "nullius-unfulfilled-requests-combinator"})
