@@ -10,6 +10,7 @@ Date: 22.02.2026
     - Added missing GUI sounds for most buildings
   Modding:
     - Added support for cranes
+    - Added support for cargo drones
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 18.12.2025

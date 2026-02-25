@@ -2469,3 +2469,89 @@ if mods["cybersyn-combinator"] then
 		{type = "item", name = "decider-combinator", amount = 1 },
   }
 end
+
+if mods["cargo-drone"] then
+data:extend({
+  {
+    type = "item-subgroup",
+    name = "cargo-drone",
+    group = "drones",
+    order = "c-b"
+  }
+})
+local tech = data.raw.technology["cargo-drones"]
+tech.order = "nullius-a"
+tech.prerequisites = {"nullius-robot-cargo-1", "nullius-packaging-6"}
+tech.unit = {
+  count=900,
+  time=35,
+  ingredients = {
+    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+    {"nullius-chemical-pack", 1}
+  }
+}
+table.insert(data.raw.technology["nullius-exploration-2"].prerequisites, "cargo-drones")
+data.raw.recipe["cargo-drone"].order = "nullius-a"
+data.raw.recipe["cargo-drone"].category = "huge-crafting"
+data.raw.recipe["cargo-drone"].ingredients = {
+  {type="item", name="nullius-logistic-bot-2", amount=5},
+  {type="item", name="nullius-portable-generator-2", amount=1},
+  {type="item", name="nullius-plastic", amount=15},
+  {type="item", name="nullius-textile", amount=15},
+  {type="item", name="nullius-steel-cable", amount=5},
+  {type="item", name="nullius-large-chest-2", amount=2},
+  {type="item", name="nullius-sensor-node-2", amount=1},
+  {type="fluid", name="nullius-hydrogen", amount=20000}
+}
+data.raw.recipe["cargo-drone"].energy_required = 30
+data.raw.recipe["cargo-drone"].always_show_made_in = true
+
+data.raw.recipe["cargo-drone-mooring-constant-combinator-refueler"].order = "nullius-b"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-refueler"].category = "large-crafting"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-refueler"].ingredients = {
+  {type="item", name="nullius-pylon-2", amount=2},
+  {type="item", name="nullius-relay-2", amount=1},
+  {type="item", name="train-stop", amount=1},
+  {type="item", name="express-underground-belt", amount=1}
+}
+data.raw.recipe["cargo-drone-mooring-constant-combinator-refueler"].energy_required=5
+data.raw.recipe["cargo-drone-mooring-constant-combinator-refueler"].always_show_made_in = true
+
+data.raw.recipe["cargo-drone-mooring-constant-combinator-provider"].order = "nullius-c"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-provider"].category = "large-crafting"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-provider"].ingredients = {
+  {type="item", name="cargo-drone-mooring-constant-combinator-refueler", amount=1},
+  {type="item", name="nullius-small-supply-chest-1", amount=1}
+}
+data.raw.recipe["cargo-drone-mooring-constant-combinator-provider"].no_productivity=true
+data.raw.recipe["cargo-drone-mooring-constant-combinator-provider"].always_show_made_in = true
+
+data.raw.recipe["cargo-drone-mooring-constant-combinator-requester"].order = "nullius-d"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-requester"].category = "large-crafting"
+data.raw.recipe["cargo-drone-mooring-constant-combinator-requester"].ingredients = {
+  {type="item", name="cargo-drone-mooring-constant-combinator-refueler", amount=1},
+  {type="item", name="nullius-small-demand-chest-1", amount=1}
+}
+data.raw.recipe["cargo-drone-mooring-constant-combinator-requester"].no_productivity=true
+data.raw.recipe["cargo-drone-mooring-constant-combinator-requester"].always_show_made_in = true
+
+-- Balancing: Carrying boxed iron ingot,
+-- throughput of 1 cargo drone = 30 logistic drone 2 = 6 logistic drone 4.
+data.raw["item-with-entity-data"]["cargo-drone"].order = "nullius-a"
+data.raw["item-with-entity-data"]["cargo-drone"].subgroup = "cargo-drone"
+data.raw.car["cargo-drone"].energy_source.fuel_categories = {"vehicle"}
+data.raw.car["cargo-drone"].energy_source.effectivity = 0.5
+data.raw.car["cargo-drone"].consumption = "50kW"
+data.raw.car["cargo-drone"].friction = 0.003
+
+data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].order = "nullius-b"
+data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].stack_size = 10
+data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-mooring-constant-combinator-provider"].order = "nullius-c"
+data.raw.item["cargo-drone-mooring-constant-combinator-provider"].stack_size = 10
+data.raw.item["cargo-drone-mooring-constant-combinator-provider"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-mooring-constant-combinator-requester"].order = "nullius-d"
+data.raw.item["cargo-drone-mooring-constant-combinator-requester"].stack_size = 10
+data.raw.item["cargo-drone-mooring-constant-combinator-requester"].subgroup = "cargo-drone"
+end

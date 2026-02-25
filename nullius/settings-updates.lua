@@ -414,3 +414,21 @@ if data.raw['int-setting']['angels-pavement-stack-size'] then
    data.raw['int-setting']['angels-pavement-stack-size'].hidden = true
    data.raw['int-setting']['angels-pavement-stack-size'].allowed_values = {200}
 end
+if data.raw['int-setting']['cargo-drone-inventory-size'] then
+   data.raw['int-setting']['cargo-drone-inventory-size'].hidden = true
+   data.raw['int-setting']['cargo-drone-inventory-size'].default_value = 8
+   data.raw['int-setting']['cargo-drone-inventory-size'].allowed_values = {8}
+   data.raw['int-setting']['cargo-drone-inventory-size'].forced_value = true
+end
+if data.raw['int-setting']['cargo-drone-fuel-inventory-size'] then
+   data.raw['int-setting']['cargo-drone-fuel-inventory-size'].hidden = true
+   data.raw['int-setting']['cargo-drone-fuel-inventory-size'].default_value = 2
+   data.raw['int-setting']['cargo-drone-fuel-inventory-size'].allowed_values = {2}
+   data.raw['int-setting']['cargo-drone-fuel-inventory-size'].forced_value = true
+end
+if data.raw['int-setting']['cargo-drone-result-inventory-size'] then
+   data.raw['int-setting']['cargo-drone-result-inventory-size'].hidden = true
+   data.raw['int-setting']['cargo-drone-result-inventory-size'].default_value = 2
+   data.raw['int-setting']['cargo-drone-result-inventory-size'].allowed_values = {2}
+   data.raw['int-setting']['cargo-drone-result-inventory-size'].forced_value = true
+end
