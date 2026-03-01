@@ -6,8 +6,9 @@ data:extend({
     type = "custom-input",
     name = "nullius-prioritize",
     order = "nullius-ibb",
-    key_sequence = "PAD +",
-	include_selected_prototype = true
+    --key_sequence = "PAD +",
+    key_sequence = "CONTROL + R",
+	  include_selected_prototype = true
   },
   {
     type = "custom-input",

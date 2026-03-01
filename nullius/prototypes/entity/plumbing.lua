@@ -1332,7 +1332,7 @@ data:extend({
             max_health = 500,
             --collision_box = {{-0.29, -0.45}, {0.29, 0.45}},
             collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
-            --collision_mask = { layers = { } }, -- collide with nothing
+            collision_mask = { layers = { } }, -- collide with nothing
             selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
             fluid_box = {
                 volume = 100,
@@ -2805,26 +2805,26 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 20, percent = 50 }
     },
-    -- fluid_box = {
-    --   volume = 500,
-    --   pipe_covers = pipecoverspictures(),
-    --   pipe_connections =
-    --   {
-    --     { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-    --     { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
-    --   }
-    -- },
-    fluid_box =
-        {
-          volume = 500,
-          pipe_covers = pipecoverspictures(),
-          pipe_connections =
-          {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
-          },
-          hide_connection_info = true,
-        },
+    fluid_box = {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
+        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+      }
+    },
+    -- fluid_box =
+    --     {
+    --       volume = 500,
+    --       pipe_covers = pipecoverspictures(),
+    --       pipe_connections =
+    --       {
+    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+    --       },
+    --       hide_connection_info = true,
+    --     },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -2994,15 +2994,381 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 20, percent = 50 }
     },
-    -- fluid_box = {
-    --   volume = 500,
-    --   pipe_covers = pipecoverspictures(),
-    --   pipe_connections =
-    --   {
-    --     { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-    --     { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
-    --   }
-    -- },
+    fluid_box = {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
+        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+      }
+    },
+    -- fluid_box =
+    --     {
+    --       volume = 500,
+    --       pipe_covers = pipecoverspictures(),
+    --       pipe_connections =
+    --       {
+    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+    --       },
+    --       hide_connection_info = true,
+    --     },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    energy_usage = "20kW",
+    pumping_speed = 100,
+    impact_category = data.raw.pump["pump"].impact_category,
+    open_sound = data.raw.pump["pump"].open_sound,
+    close_sound = data.raw.pump["pump"].close_sound,
+    fluid_wagon_connector_frame_count = 35,
+    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
+    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+    fluid_animation = data.raw.pump["pump"].fluid_animation,
+    glass_pictures = data.raw.pump["pump"].glass_pictures,
+    circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+
+    animations = {
+      north = {
+        layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.46}
+          },
+          {
+            filename = BASEENTITY .. "pump/pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          }
+        }
+      },
+      east = {
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+        }
+      },
+      south = {
+        layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.5}
+          },
+          {
+            filename = BASEENTITY .. "pump/pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+        }
+      },
+      west = {
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+          {
+            filename = ENTITYPATH .. "pump/blue-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+        }
+      }
+    }
+  },
+  
+  {
+    type = "pump",
+    name = "nullius-togglable-pump-1",
+    hidden = true,
+    icon = ENTICONPATH .. "pump-yellow.png",
+    icon_size = 64,
+    flags = {"placeable-neutral", "player-creation"},
+    localised_name = {"entity-name.nullius-pump-1"},
+    localised_description = {"",
+          {"entity-description.nullius-pump-1"},
+          {"entity-description.nullius-configurable-pump"},
+          " ",
+          {"configurable-valves.more-in-factoriopedia"},
+        },
+    factoriopedia_description = {"",
+          {"entity-description.nullius-pump-1"},
+          {"entity-description.nullius-configurable-pump"},
+          {"configurable-valves.valve-examples"},
+          {"configurable-valves.valve-shortcuts"},
+        },
+    minable = {mining_time = 0.6, result = "nullius-pump-1"},
+    max_health = 150,
+    fast_replaceable_group = "pump",
+    next_upgrade = "nullius-pump-2",
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    collision_box = {{-0.29, -0.9}, {0.29, 0.9}},
+    selection_box = {{-0.5, -1}, {0.5, 1}},
+    working_sound = data.raw.pump["pump"].working_sound,
+    damaged_trigger_effect = data.raw.pump["pump"].damaged_trigger_effect,
+    placeable_by = {item = "nullius-pump-1", count = 1},
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
+  
+    fluid_box =
+        {
+          volume = 500,
+          pipe_covers = pipecoverspictures(),
+          pipe_connections =
+          {
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+          },
+          hide_connection_info = true,
+        },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    energy_usage = "15kW",
+    pumping_speed = 50,
+    impact_category = data.raw.pump["pump"].impact_category,
+    open_sound = data.raw.pump["pump"].open_sound,
+    close_sound = data.raw.pump["pump"].close_sound,
+    fluid_wagon_connector_frame_count = 35,
+    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
+    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+    fluid_animation = data.raw.pump["pump"].fluid_animation,
+    glass_pictures = data.raw.pump["pump"].glass_pictures,
+    circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+
+    animations = {
+      north = {
+        layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.46}
+          },
+          {
+            filename = BASEENTITY .. "pump/pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-north.png",
+            width = 103,
+            height = 164,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(8, 3.5) -- {0.515625, 0.21875}
+          }
+        }
+      },
+      east = {
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-east.png",
+            width = 130,
+            height = 109,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.5, 1.75) --{-0.03125, 0.109375}
+          },
+        }
+      },
+      south = {
+        layers = {
+	      {
+            filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
+            width = 128,
+            height = 128,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+			shift = {0, -1.5}
+          },
+          {
+            filename = BASEENTITY .. "pump/pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-south.png",
+            width = 114,
+            height = 160,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(12.5, -8) -- {0.75, -0.5}
+          },
+        }
+      },
+      west = {
+        layers = {
+          {
+            filename = BASEENTITY .. "pump/pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            line_length = 8,
+            frame_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+          {
+            filename = ENTITYPATH .. "pump/yellow-pump-west.png",
+            width = 131,
+            height = 111,
+            scale = 0.5,
+            frame_count = 1,
+            repeat_count = 32,
+            animation_speed = 0.5,
+            shift = util.by_pixel(-0.25, 1.25) -- {-0.015625, 0.078125}
+          },
+        }
+      }
+    }
+  },
+  {
+    type = "pump",
+    name = "nullius-togglable-pump-2",
+    hidden = true,
+    icon = ENTICONPATH .. "pump-blue.png",
+    icon_size = 64,
+    flags = {"placeable-neutral", "player-creation"},
+    localised_name = {"entity-name.nullius-pump-2"},
+    localised_description = {"",
+          {"entity-description.nullius-pump-2"},
+          {"entity-description.nullius-configurable-pump"},
+          " ",
+          {"configurable-valves.more-in-factoriopedia"},
+        },
+    factoriopedia_description = {"",
+          {"entity-description.nullius-pump-2"},
+          {"entity-description.nullius-configurable-pump"},
+          {"configurable-valves.valve-examples"},
+          {"configurable-valves.valve-shortcuts"},
+        },
+    minable = {mining_time = 0.8, result = "nullius-pump-2"},
+    max_health = 200,
+    fast_replaceable_group = "pump",
+    next_upgrade = "pump",
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    collision_box = {{-0.29, -0.9}, {0.29, 0.9}},
+    selection_box = {{-0.5, -1}, {0.5, 1}},
+    working_sound = data.raw.pump["pump"].working_sound,
+    damaged_trigger_effect = data.raw.pump["pump"].damaged_trigger_effect,
+    placeable_by = {item = "nullius-pump-2", count = 1},
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
     fluid_box =
         {
           volume = 500,
@@ -3149,6 +3515,72 @@ data:extend({
         }
       }
     }
+  },
+  
+  {
+    type = "pump",
+    name = "nullius-togglable-pump-3",
+    icon = data.raw["pump"]["pump"].icon,
+    flags = {"placeable-neutral", "player-creation"},
+    hidden = true,
+    localised_name = {"entity-name.nullius-pump-3"},
+    localised_description = {"",
+          {"entity-description.nullius-pump-3"},
+          {"entity-description.nullius-configurable-pump"},
+          " ",
+          {"configurable-valves.more-in-factoriopedia"},
+        },
+    factoriopedia_description = {"",
+          {"entity-description.nullius-pump-3"},
+          {"entity-description.nullius-configurable-pump"},
+          {"configurable-valves.valve-examples"},
+          {"configurable-valves.valve-shortcuts"},
+        },
+    subgroup = "pumping",
+    order = "nullius-bd",
+    energy_usage = "30kW",
+    max_health = 250,
+    minable = {mining_time = 1, result = "pump"},
+    fast_replaceable_group = "pump",
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    collision_box = {{-0.29, -0.9}, {0.29, 0.9}},
+    selection_box = {{-0.5, -1}, {0.5, 1}},
+    working_sound = data.raw.pump["pump"].working_sound,
+    damaged_trigger_effect = data.raw.pump["pump"].damaged_trigger_effect,
+    placeable_by = {item = "pump", count = 1},
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
+    fluid_box =
+    {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+      },
+      hide_connection_info = true,
+    },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    pumping_speed = 100,
+    impact_category = data.raw.pump["pump"].impact_category,
+    open_sound = data.raw.pump["pump"].open_sound,
+    close_sound = data.raw.pump["pump"].close_sound,
+    fluid_wagon_connector_frame_count = 35,
+    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
+    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+    fluid_animation = data.raw.pump["pump"].fluid_animation,
+    glass_pictures = data.raw.pump["pump"].glass_pictures,
+    circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    animations = data.raw.pump["pump"].animations
+    
   },
 
   {

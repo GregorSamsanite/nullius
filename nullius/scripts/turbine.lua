@@ -197,13 +197,13 @@ local function toggle_hangar(entity, entityname, force)
 end
 
 
-local function valid_entity_name(entity)
+local function valid_entity_name(entity, no_prefix)
   if ((entity == nil) or (not entity.valid)) then return nil end
   local name = entity.name
   if (entity.type == "entity-ghost") then
     name = entity.ghost_name
   end
-  if (string.sub(name, 1, 8) ~= "nullius-") then return nil end
+  if not no_prefix and (string.sub(name, 1, 8) ~= "nullius-") then return nil end
   return name
 end
 
@@ -217,11 +217,78 @@ local function is_hangar_entity(name)
   return ((suffix == "hangar") or (suffix == "relay-"))
 end
 
+local function is_pump_entity(name)
+  local names = {"nullius-pump-1", "nullius-pump-2", "pump"}
+  for _, n in ipairs(names) do
+    if (n == name) then return true end
+  end
+  return false
+end
+
+local function is_conf_valve_entity(name)
+  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3"}
+  for _, n in ipairs(names) do
+    if (n == name) then return true end
+  end
+  return false
+end
+
+local function toggle_pump(entity, name, force)
+  local position = entity.position
+  local direction = entity.direction
+  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3"}
+  
+  entity.destroy({ raise_destroy = true })
+  local pump = game.surfaces["nauvis"].create_entity({
+      name = names[name],
+      position = position,
+      force = force,
+      direction = direction,
+      raise_built = true,
+  })
+  
+  --local control_behavior = pump.get_or_create_control_behavior()
+  --control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
+end
+
+local function toggle_conf_valve(entity, name, force)
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
+  if storage.nullius_valves[entity.unit_number] then
+    storage.nullius_valves[entity.unit_number] = nil
+    local position = entity.position
+      local direction = entity.direction
+      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump"}
+      
+      entity.destroy({ raise_destroy = true }) -- todo: maybe use destroy_if_valid
+        
+      local pump = game.surfaces["nauvis"].create_entity({
+            name = names[name],
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+      })
+      return
+  end
+  local control_behavior = entity.get_or_create_control_behavior()
+  if control_behavior.circuit_condition.comparator == '>' then
+    local signal_first = control_behavior.circuit_condition.first_signal
+    if signal_first.type == "virtual" and signal_first.name == "signal-I" then
+      local signal_second = control_behavior.circuit_condition.second_signal
+      if  signal_second.type == "virtual" and signal_second.name == "signal-O" then
+        storage.nullius_valves[entity.unit_number] = true
+      end
+    end
+  end
+end
+
 local function priority_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
   local target = player.selected
-  local name = valid_entity_name(target)
+  local name = valid_entity_name(target, true)
   if (name == nil) then return end
 
   local force = (target.force or player.force)
@@ -231,6 +298,10 @@ local function priority_event(event)
     toggle_surge(target, name, force)
   elseif (is_hangar_entity(name)) then
     toggle_hangar(target, name, force)
+  elseif (is_pump_entity(name)) then
+    toggle_pump(target, name, force)
+  elseif (is_conf_valve_entity(name)) then
+    toggle_conf_valve(target, name, force)
   end
 end
 

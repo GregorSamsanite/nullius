@@ -55,8 +55,9 @@ data.raw["map-settings"]["map-settings"].pollution.enabled = false
 
 
 local valves = data.raw["mod-data"]["mod-configurable-valves"].data.valves
-valves["nullius-pump-1"] = { name = "nullius-pump-1", gauge_name = "nullius-pump-gauge" }
-valves["nullius-pump-2"] = { name = "nullius-pump-2", gauge_name = "nullius-pump-gauge" }
-valves["pump"] = { name = "pump", gauge_name = "nullius-pump-gauge" }
+valves["nullius-togglable-pump-1"] = { name = "nullius-togglable-pump-1", gauge_name = "nullius-pump-gauge" }
+valves["nullius-togglable-pump-2"] = { name = "nullius-togglable-pump-2", gauge_name = "nullius-pump-gauge" }
+valves["nullius-togglable-pump-3"] = { name = "nullius-togglable-pump-3", gauge_name = "nullius-pump-gauge" }
+
 valves["nullius-small-pump-1"] = { name = "nullius-small-pump-1" }
 valves["nullius-small-pump-2"] = { name = "nullius-small-pump-2" }
