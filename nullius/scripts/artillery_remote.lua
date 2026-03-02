@@ -8,24 +8,31 @@ local meld = require("meld")
 --   category :: str     Sort string for row
 --   order :: str        Sort string for column
 -- }
+--
+-- GUIButtonData = table{
+--   sprite :: path          Sprite to show on GUI remote button
+--   payload :: str          Prototype name of the related item or fluid
+--   elem_tooltip :: ElemID  ID of the remote prototype
+-- }
 
 -- remotes :: list[RemoteGUIData]
--- Info about all known remotes for the remotes GUI
+-- Info about all known remotes for the remotes GUI.
+-- Initialized at startup.
 local remotes
 
--- remote_gui_buttons :: list[list[{sprite :: path, name :: str, elem_tooltip :: ElemID}]]?
--- 2D table layout of buttons to show in the remote GUI.
--- If nil, it will be calculated when GUI is opened.
-local remote_gui_buttons
-
 -- payload_to_remote :: dictionary[str -> str]
--- Mapping from payload name to remote name
+-- Mapping from payload name to remote name.
+-- Initialized at startup.
 local payload_to_remote
+
+-- storage.remote_gui_buttons :: dictionary[uint -> list[list[GUIButtonData]]]
+-- Mapping from player ID to the player's 2D table layout of
+-- buttons to show in the remote GUI.
+-- If missing, it will be calculated when GUI is opened.
+
 
 local function initialize_remotes()
   -- Initialize remotes and payload_to_remote.  Run once during initialization.
-  remote_gui_buttons = nil
-
   remotes = {}
   for i, remote_gui_data in ipairs{
     {
@@ -180,7 +187,7 @@ local function initialize_remotes()
 end
 
 local function reset_remote_gui()
-  remote_gui_buttons = nil
+  storage.remote_gui_buttons = {}
 end
 
 local function sprite_from_name(name)
@@ -197,7 +204,8 @@ end
 local function calculate_gui_buttons(player)
   -- Calculate which buttons to display based on researched technology.
   -- Result is memoized in remote_gui_buttons.
-  if remote_gui_buttons ~= nil then return end
+  local tbl = storage.remote_gui_buttons[player.index]
+  if tbl ~= nil then return tbl end
   
   -- Get the set of remotes that are enabled
   local technologies = player.force.technologies
@@ -236,11 +244,12 @@ local function calculate_gui_buttons(player)
       }
     )
   end
-  remote_gui_buttons = tbl
+  storage.remote_gui_buttons[player.index] = tbl
+  return tbl
 end
 
 local function add_remote_buttons(player, gui_element)
-  calculate_gui_buttons(player)
+  local remote_gui_buttons = calculate_gui_buttons(player)
   for _, row in ipairs(remote_gui_buttons) do
     local flow = gui_element.add{type="flow", direction="horizontal"}
     for _, button in ipairs(row) do
