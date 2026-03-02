@@ -314,6 +314,8 @@ data:extend({
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = {filename = "__base__/sound/open-close/fluid-open.ogg", volume = 0.55},
+    close_sound = {filename = "__base__/sound/open-close/fluid-close.ogg", volume = 0.54},
     fluid_boxes = {
       {
         production_type = "input",
@@ -604,6 +606,8 @@ data:extend({
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = {filename = "__base__/sound/open-close/fluid-open.ogg", volume = 0.55},
+    close_sound = {filename = "__base__/sound/open-close/fluid-close.ogg", volume = 0.54},
     fluid_boxes = {
       {
         production_type = "input",
@@ -891,6 +895,8 @@ data:extend({
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = {filename = "__base__/sound/open-close/fluid-open.ogg", volume = 0.55},
+    close_sound = {filename = "__base__/sound/open-close/fluid-close.ogg", volume = 0.54},
     fluid_boxes = {
       {
         production_type = "input",
@@ -960,6 +966,8 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 }
     },
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
+    open_sound = data.raw["assembling-machine"]["oil-refinery"].open_sound,
+    close_sound = data.raw["assembling-machine"]["oil-refinery"].close_sound,
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["oil-refinery"],
 	  fluid_boxes = {
@@ -1076,6 +1084,8 @@ data:extend({
 
     resistances = data.raw["assembling-machine"]["nullius-distillery-1"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
+    open_sound = data.raw["assembling-machine"]["oil-refinery"].open_sound,
+    close_sound = data.raw["assembling-machine"]["oil-refinery"].close_sound,
     impact_category = "metal",
     module_slots = 2,
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
@@ -1171,6 +1181,8 @@ data:extend({
 
     resistances = data.raw["assembling-machine"]["nullius-distillery-1"].resistances,
     working_sound = data.raw["assembling-machine"]["oil-refinery"].working_sound,
+    open_sound = data.raw["assembling-machine"]["oil-refinery"].open_sound,
+    close_sound = data.raw["assembling-machine"]["oil-refinery"].close_sound,
     impact_category = "metal",
     module_slots = 3,
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
@@ -1318,6 +1330,8 @@ data:extend({
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.4, audible_distance_modifier = 0.75 },
       
     },
+    open_sound = data.raw["assembling-machine"]["chemical-plant"].open_sound,
+    close_sound = data.raw["assembling-machine"]["chemical-plant"].close_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1432,7 +1446,9 @@ data:extend({
       }
     },
 	  impact_category = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].impact_category,
-    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
+    open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
+    close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound
   },
 
   {
@@ -1524,6 +1540,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
+    open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
+    close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1638,7 +1656,9 @@ data:extend({
       }
     },
     impact_category = "metal",
-    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
+    open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
+    close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound
   }
 })
 
@@ -1724,6 +1744,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
+    open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
+    close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound,
     fluid_boxes = {
       {
         production_type = "input",
@@ -1833,7 +1855,9 @@ data:extend({
       }
     },
     impact_category = "metal",
-    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
+    open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
+    close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound
   }
 })
 
@@ -2016,6 +2040,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["chemical-plant"].working_sound,
+    open_sound = data.raw["assembling-machine"]["chemical-plant"].open_sound,
+    close_sound = data.raw["assembling-machine"]["chemical-plant"].close_sound,
     crafting_speed = 1,
     energy_source = {
       type = "electric",
@@ -2116,6 +2142,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["chemical-plant"].working_sound,
+    open_sound = data.raw["assembling-machine"]["chemical-plant"].open_sound,
+    close_sound = data.raw["assembling-machine"]["chemical-plant"].close_sound,
     crafting_speed = 2,
     energy_source = {
       type = "electric",
@@ -2214,6 +2242,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["chemical-plant"].working_sound,
+    open_sound = data.raw["assembling-machine"]["chemical-plant"].open_sound,
+    close_sound = data.raw["assembling-machine"]["chemical-plant"].close_sound,
     crafting_speed = 4,
     energy_source = {
       type = "electric",
