@@ -1,4 +1,5 @@
 require ("circuit-connector-sprites")
+local sounds = require("__base__/prototypes/entity/sounds")
 
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
@@ -694,6 +695,8 @@ data:extend({
       sound = { filename = "__base__/sound/oil-refinery.ogg", volume = 0.45 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     fluid_boxes = {
       {
         production_type = "input",
@@ -788,6 +791,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-nanofabricator-1"].working_sound,
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     fluid_boxes = {
       {
         production_type = "input",
@@ -870,6 +875,8 @@ data:extend({
       },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.5 },
     },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     graphics_set = {
       animation = scale_image({
         layers = {

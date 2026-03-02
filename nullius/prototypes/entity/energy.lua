@@ -3,6 +3,8 @@ local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+local sounds = require("__base__/prototypes/entity/sounds")
+
 function accumulator_picture(tint, repeat_count)
   return
   {
@@ -279,6 +281,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw.accumulator["accumulator"].working_sound,
+    open_sound = sounds.electric_large_open,
+    close_sound = sounds.electric_large_close,
     circuit_connector = circuit_connector_definitions["accumulator"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_output_signal = {type = "virtual", name = "signal-A"}
@@ -348,6 +352,8 @@ data:extend({
     
     impact_category = "metal",
     working_sound = data.raw.accumulator["accumulator"].working_sound,
+    open_sound = sounds.electric_large_open,
+    close_sound = sounds.electric_large_close,
     circuit_connector = circuit_connector_definitions["accumulator"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_output_signal = {type = "virtual", name = "signal-A"}
@@ -416,6 +422,8 @@ data:extend({
   
     impact_category = "metal",
     working_sound = data.raw.accumulator["accumulator"].working_sound,
+    open_sound = sounds.electric_large_open,
+    close_sound = sounds.electric_large_close,
     circuit_connector = circuit_connector_definitions["accumulator"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_output_signal = {type = "virtual", name = "signal-A"}
@@ -478,6 +486,8 @@ data:extend({
       sound = { filename = "__base__/sound/boiler.ogg", volume = 0.8 },
       max_sounds_per_prototype = 3
     },
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     
     graphics_set = {
       animation = {
@@ -730,6 +740,8 @@ data:extend({
     energy_usage = "1kW",
     energy_source = { type = "void" },
     working_sound = data.raw["assembling-machine"]["nullius-combustion-chamber-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     
     graphics_set = {
       working_visualisations = data.raw["assembling-machine"]["nullius-combustion-chamber-1"].graphics_set.working_visualisations,
@@ -859,6 +871,8 @@ data:extend({
     energy_usage = "1kW",
     energy_source = { type = "void" },
     working_sound = data.raw["assembling-machine"]["nullius-combustion-chamber-2"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-combustion-chamber"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
@@ -1005,6 +1019,8 @@ data:extend({
       fade_in_ticks = 4,
       fade_out_ticks = 10
     },
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     fluid_boxes = {
@@ -1153,6 +1169,8 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-1"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1288,6 +1306,8 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     fluid_boxes = {
@@ -1436,6 +1456,8 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-compressor-2"].resistances,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-2"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1535,6 +1557,8 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1680,6 +1704,8 @@ data:extend({
     resistances = data.raw["assembling-machine"]["nullius-surge-compressor-1"].resistances,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
@@ -3793,7 +3819,9 @@ data:extend({
     },
     corpse = data.raw.boiler["heat-exchanger"].corpse,
     impact_category = data.raw.boiler["heat-exchanger"].impact_category,
-    working_sound = data.raw.boiler["heat-exchanger"].working_sound
+    working_sound = data.raw.boiler["heat-exchanger"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close
   }
 })
 

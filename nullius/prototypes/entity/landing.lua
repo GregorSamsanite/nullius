@@ -3,6 +3,8 @@ local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+local sounds = require("__base__/prototypes/entity/sounds")
+
 local wreck_flags = {
   "placeable-player",
   "player-creation",
@@ -36,6 +38,8 @@ data:extend({
         {type="item", name="nullius-large-chest-1", amount=2}
       }
     },
+    open_sound = sounds.metallic_chest_open,
+    close_sound = sounds.metallic_chest_close,
     collision_box = {{-8.7, -3.3}, {6.9, 4.5}},
     selection_box = {{-8.7, -3.3}, {6.9, 4.5}},
     dying_explosion = "nuke-explosion",
@@ -621,6 +625,8 @@ data:extend({
       mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
+    open_sound = sounds.metallic_chest_open,
+    close_sound = sounds.metallic_chest_close,
 	  placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -677,6 +683,8 @@ data:extend({
       mining_time = 0.5,
       results = { {type="item", name="nullius-large-chest-1", amount=1} }
     },
+    open_sound = sounds.metallic_chest_open,
+    close_sound = sounds.metallic_chest_close,
 	  placeable_by = {item = "nullius-probe", count = 1},
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},

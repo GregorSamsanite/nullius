@@ -2,6 +2,8 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+local sounds = require("__base__/prototypes/entity/sounds")
+
 local function scale_wire_position(wire_pos, scale)
   for _, wire_type in pairs(wire_pos) do
     if wire_type.x then
@@ -128,6 +130,8 @@ data:extend({
     corpse = "steel-furnace-remnants",
     impact_category = "metal",
     working_sound = data.raw["furnace"]["steel-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
@@ -184,6 +188,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     module_slots = 2,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     circuit_wire_max_distance = furnace_circuit_wire_max_distance,
@@ -309,6 +315,8 @@ data:extend({
     corpse = "steel-furnace-remnants",
     impact_category = "metal",
 	  working_sound = data.raw["furnace"]["steel-furnace"].working_sound,
+	  open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
@@ -494,6 +502,8 @@ data:extend({
       drain = "60kW"
     },
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     impact_category = "metal",
     module_slots = 2,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
@@ -576,6 +586,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     module_slots = 2,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     
@@ -783,6 +795,8 @@ data:extend({
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     graphics_set = data.raw["furnace"]["electric-furnace"].graphics_set,
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     impact_category = "metal",
     circuit_wire_max_distance = furnace_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["electric-furnace"],
@@ -819,6 +833,8 @@ data:extend({
     },
     impact_category = "metal",
     working_sound = data.raw["furnace"]["electric-furnace"].working_sound,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     module_slots = 3,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     
@@ -904,7 +920,9 @@ data:extend({
       },
     },
 	  impact_category = data.raw["furnace"]["stone-furnace"].impact_category,
-    working_sound = data.raw["furnace"]["stone-furnace"].working_sound
+    working_sound = data.raw["furnace"]["stone-furnace"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close
   }
 })
 
@@ -959,7 +977,9 @@ data:extend({
       },
     },
 	  impact_category = data.raw["assembling-machine"]["nullius-foundry-1"].impact_category,
-    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close
   },
 
   {
@@ -1011,7 +1031,9 @@ data:extend({
       },
     },
 	  impact_category = data.raw["assembling-machine"]["nullius-foundry-1"].impact_category,
-    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound
+    working_sound = data.raw["assembling-machine"]["nullius-foundry-1"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close
   },
 
   {
@@ -1092,7 +1114,9 @@ data:extend({
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-crusher.ogg", volume = 0.6 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-    }
+    },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close
   },
 
   {
@@ -1128,6 +1152,8 @@ data:extend({
       sound = { filename = "__angelsrefininggraphics__/sound/ore-crusher.ogg", volume = 0.6 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     circuit_connector = circuit_connector_definitions["nullius-crusher"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     fluid_boxes = {
@@ -1207,6 +1233,8 @@ data:extend({
       sound = { filename = "__angelsrefininggraphics__/sound/ore-crusher.ogg", volume = 0.6 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
     circuit_connector = circuit_connector_definitions["nullius-crusher"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     fluid_boxes = {
@@ -1475,6 +1503,8 @@ data:extend({
         sound = { filename = "__angelsrefininggraphics__/sound/ore-floatation-cell.ogg", volume = 1 },
         idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
       },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close
   },
 
   {
@@ -1685,7 +1715,9 @@ data:extend({
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-floatation-cell.ogg", volume = 1 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-    }
+    },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close
   },
 
   {
@@ -1895,7 +1927,9 @@ data:extend({
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-floatation-cell.ogg", volume = 1 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-    }
+    },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close
   }
 })
 

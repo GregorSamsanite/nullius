@@ -3,6 +3,8 @@ local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+local sounds = require("__base__/prototypes/entity/sounds")
+
 data:extend({
   {
     type = "radar",
@@ -764,6 +766,8 @@ data:extend({
     folding_speed = 0.05,
     preparing_sound = data.raw["electric-turret"]["laser-turret"].preparing_sound,
     folding_sound = data.raw["electric-turret"]["laser-turret"].folding_sound,
+    open_sound = sounds.turret_open,
+    close_sound = sounds.turret_close,
     corpse = "laser-turret-remnants",
     dying_explosion = "laser-turret-explosion",
     energy_source = {

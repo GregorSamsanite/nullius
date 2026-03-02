@@ -7,6 +7,7 @@ Date: 22.02.2026
     - Added menu simulations
   Bugfixes:
     - Fixed multiplayer desync involving the targeting remote GUI
+    - Added missing GUI sounds for most buildings
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 18.12.2025

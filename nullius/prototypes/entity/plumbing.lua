@@ -5,6 +5,7 @@ local BASEENTITY = "__base__/graphics/entity/"
 
 require("pipe_graphics")
 collision_mask_util = require("collision-mask-util")
+local sounds = require("__base__/prototypes/entity/sounds")
 
 local op = table.deepcopy(data.raw["offshore-pump"]["offshore-pump"])
 local si1 = {
@@ -559,6 +560,8 @@ data:extend({
       { type = "fire", decrease = 100, percent = 90 }
     },
     working_sound = data.raw["offshore-pump"]["offshore-pump"].working_sound,
+    open_sound = {filename = "__base__/sound/open-close/pumpjack-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/open-close/pumpjack-close.ogg", volume = 0.5},
     impact_category = data.raw["offshore-pump"]["offshore-pump"].impact_category,
     fluid_boxes = {
       {
@@ -813,6 +816,8 @@ data:extend({
       { type = "fire", decrease = 100, percent = 90 }
     },
     working_sound = data.raw["offshore-pump"]["offshore-pump"].working_sound,
+    open_sound = {filename = "__base__/sound/open-close/pumpjack-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/open-close/pumpjack-close.ogg", volume = 0.5},
     impact_category = data.raw["offshore-pump"]["offshore-pump"].impact_category,
     fluid_boxes = {
       {
@@ -1153,6 +1158,8 @@ data:extend({
       sound = { filename = "__base__/sound/idle1.ogg", volume = 1 },
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
     },
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     impact_category = "metal",
     fluid_boxes = {
       {
@@ -1243,6 +1250,8 @@ data:extend({
     module_slots = 1,
     allowed_effects = {"speed", "consumption", "pollution"},
     working_sound = data.raw["assembling-machine"]["nullius-air-filter-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     impact_category = "metal",
     fluid_boxes = {
       {
@@ -1298,6 +1307,8 @@ data:extend({
     module_slots = 2,
     allowed_effects = {"speed", "consumption", "pollution"},
     working_sound = data.raw["assembling-machine"]["nullius-air-filter-1"].working_sound,
+    open_sound = sounds.steam_open,
+    close_sound = sounds.steam_close,
     impact_category = "metal",
     fluid_boxes = {
       {
@@ -1808,6 +1819,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["storage-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     water_reflection = data.raw["storage-tank"]["storage-tank"].water_reflection,
@@ -1876,6 +1889,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["storage-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
@@ -2111,6 +2126,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["nullius-small-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance
   }
@@ -2149,6 +2166,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["nullius-small-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance
   }
@@ -2201,6 +2220,8 @@ data:extend({
       match_volume_to_activity = true,
       max_sounds_per_prototype = 3,
     },
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["storage-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     pictures = {
@@ -2290,6 +2311,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["nullius-large-tank-1"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["storage-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     pictures = table.deepcopy(data.raw["storage-tank"]["nullius-large-tank-1"].pictures)
@@ -2323,6 +2346,8 @@ data:extend({
     flow_length_in_ticks = 360,
     impact_category = "metal",
     working_sound = data.raw["storage-tank"]["nullius-large-tank-1"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
     circuit_connector = circuit_connector_definitions["storage-tank"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     pictures = table.deepcopy(data.raw["storage-tank"]["nullius-large-tank-1"].pictures)
@@ -2592,6 +2617,8 @@ data:extend({
         idle_sound = {filename = "__base__/sound/idle1.ogg", volume = 0.6},
         --apparent_volume = 2.5
     },
+    open_sound = {filename = "__base__/sound/open-close/pumpjack-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/open-close/pumpjack-close.ogg", volume = 0.5},
     impact_category = "metal",
     circuit_connector = circuit_connector_definitions["nullius-barreling-pump"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -2702,6 +2729,8 @@ data:extend({
       idle_sound = {filename = "__base__/sound/idle1.ogg", volume = 0.6},
       --apparent_volume = 2.5
     },
+    open_sound = {filename = "__base__/sound/open-close/pumpjack-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/open-close/pumpjack-close.ogg", volume = 0.5},
     impact_category = "metal",
     fluid_boxes = {
       {

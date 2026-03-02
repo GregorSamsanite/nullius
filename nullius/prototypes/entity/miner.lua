@@ -253,6 +253,8 @@ data:extend({
     },
     energy_usage = "75kW",
     working_sound = data.raw["mining-drill"]["burner-mining-drill"].working_sound,
+    open_sound = data.raw["mining-drill"]["burner-mining-drill"].open_sound,
+    close_sound = data.raw["mining-drill"]["burner-mining-drill"].close_sound,
     graphics_set = data.raw["mining-drill"]["burner-mining-drill"].graphics_set, 
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -306,6 +308,8 @@ data:extend({
         volume = 1.2
       }
     },
+    open_sound = data.raw["mining-drill"]["burner-mining-drill"].open_sound,
+    close_sound = data.raw["mining-drill"]["burner-mining-drill"].close_sound,
     graphics_set = {
       animation = {
         north = {
