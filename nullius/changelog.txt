@@ -1,15 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.3
-Date: 25.02.2026
-  Bugfixes:
-    - Fixed multiplayer desync involving the targeting remote GUI
----------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 22.02.2026
   Changes:
     - Reworked the fluid system : changed the max pipeline extents of pipes and storage tanks, added dependency to the configurable valves mod, valves are now replaced by togglable configurable pumps
   Features:
     - Added menu simulations
+  Bugfixes:
+    - Fixed multiplayer desync involving the targeting remote GUI
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 18.12.2025
