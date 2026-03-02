@@ -233,13 +233,17 @@ local function is_conf_valve_entity(name)
   return false
 end
 
-local function toggle_pump(entity, name, force)
+local function is_togglable_pump_entity(name)
+  return is_pump_entity(name) or is_conf_valve_entity(name)
+end
+
+local function toggle_pump(entity, name, force, circuit_condition)
   local position = entity.position
   local direction = entity.direction
   local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3"}
   
   entity.destroy({ raise_destroy = true })
-  local pump = game.surfaces["nauvis"].create_entity({
+  local conf_valve = game.surfaces["nauvis"].create_entity({
       name = names[name],
       position = position,
       force = force,
@@ -247,15 +251,19 @@ local function toggle_pump(entity, name, force)
       raise_built = true,
   })
   
+  if circuit_condition ~= nil then
+    local control_behavior = conf_valve.get_or_create_control_behavior()
+    control_behavior.circuit_condition = table.deepcopy(circuit_condition)
+  end
   --local control_behavior = pump.get_or_create_control_behavior()
   --control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
 end
 
-local function toggle_conf_valve(entity, name, force)
+local function toggle_conf_valve(entity, name, force, force_toggle)
   if storage.nullius_valves == nil then
     storage.nullius_valves = { }
   end
-  if storage.nullius_valves[entity.unit_number] then
+  if storage.nullius_valves[entity.unit_number] or force_toggle then
     storage.nullius_valves[entity.unit_number] = nil
     local position = entity.position
       local direction = entity.direction
@@ -309,15 +317,27 @@ script.on_event("nullius-prioritize", function(event)
   priority_event(event)
 end)
 
+local function handle_togglable_pump_paste(target, tname, sname, source, force)
+  local t_is_pump = is_pump_entity(tname)
+  local s_is_pump = is_pump_entity(sname)
+  
+  if t_is_pump and not s_is_pump then
+    toggle_pump(target, tname, force, source.get_or_create_control_behavior().circuit_condition)
+  elseif not t_is_pump and s_is_pump then
+    toggle_conf_valve(target, tname, force, true)
+  elseif not t_is_pump and not s_is_pump then
+    target.get_or_create_control_behavior().circuit_condition = table.deepcopy(source.get_or_create_control_behavior().circuit_condition)
+  end
+end
 
 function entity_paste_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
   local source = event.source
-  local sname = valid_entity_name(source)
+  local sname = valid_entity_name(source, true)
   if (sname == nil) then return end
   local target = event.destination
-  local tname = valid_entity_name(target)
+  local tname = valid_entity_name(target, true)
   if (tname == nil) then return end
   local force = (target.force or player.force)
 
@@ -347,6 +367,8 @@ function entity_paste_event(event)
 	  local shang = scan_hangar_name(sname)
 	  if (thang.iscon == shang.iscon) then return end
 	  toggle_hangar(target, tname, force)
+	elseif (is_togglable_pump_entity(tname) and is_togglable_pump_entity(sname)) then
+    handle_togglable_pump_paste(target, tname, sname, source, force)
   end
 end
 
