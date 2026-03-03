@@ -2812,7 +2812,8 @@ data:extend({
           {"entity-description.nullius-pump-1"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-pump-1"},
@@ -3001,7 +3002,8 @@ data:extend({
           {"entity-description.nullius-pump-2"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-pump-2"},
@@ -3192,7 +3194,8 @@ data:extend({
           {"entity-description.nullius-pump-1"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-pump-1"},
@@ -3375,7 +3378,8 @@ data:extend({
           {"entity-description.nullius-pump-2"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-pump-2"},
@@ -3557,7 +3561,8 @@ data:extend({
           {"entity-description.nullius-pump-3"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-pump-3"},
@@ -3621,7 +3626,8 @@ data:extend({
           {"entity-description.nullius-small-pump-1"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-small-pump-1"},
@@ -3633,6 +3639,277 @@ data:extend({
     max_health = 100,
     fast_replaceable_group = "pipe",
     next_upgrade = "nullius-small-pump-2",
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    collision_box = {{-0.25, -0.4}, {0.25, 0.4}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    working_sound = data.raw["pump"]["pump"].working_sound,
+    damaged_trigger_effect = data.raw["pump"]["pump"].damaged_trigger_effect,
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
+    fluid_box = {
+      volume = 500,
+      pipe_connections = {
+        { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
+        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
+      },
+	  pipe_covers = pipecoverspictures()
+    },
+    -- fluid_box =
+    --     {
+    --       volume = 500,
+    --       pipe_covers = pipecoverspictures(),
+    --       pipe_connections =
+    --       {
+    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+    --       },
+    --       hide_connection_info = true,
+    --     },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    energy_usage = "10kW",
+    pumping_speed = 40,
+    impact_category = data.raw["pump"]["pump"].impact_category,
+    open_sound = data.raw["pump"]["pump"].open_sound,
+    close_sound = data.raw["pump"]["pump"].close_sound,
+    circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = data.raw["pump"]["pump"].circuit_wire_max_distance,
+
+    animations = {
+      north = {
+		    layers = {
+		      {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/pipe-straight-vertical.png",
+            repeat_count = 16,
+            width = 128,
+            height = 64,
+		        scale = 0.5,
+			      animation_speed = 0.5,
+			      shift = {0, -0.5}
+		      },
+		      {
+            filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-north.png",
+            priority = "extra-high",
+            frame_count = 16,
+			      line_length = 4,
+            width = 64,
+            height = 64,
+			      animation_speed = 0.5,
+            tint = {0.75, 0.85, 0.95},
+            shift = {0, -0.05}
+		      }
+		    }
+      },
+      east = {
+        filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-east.png",
+        priority = "extra-high",
+		    frame_count = 16,
+		    line_length = 4,
+        width = 64,
+        height = 64,
+		    animation_speed = 0.5,
+        tint = {0.75, 0.85, 0.95}
+      },
+      south = {
+		    layers = {
+		      {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/pipe-straight-vertical.png",
+            repeat_count = 16,
+            width = 128,
+            height = 64,
+		        scale = 0.5,
+			      animation_speed = 0.5,
+			      shift = {0, -0.5}
+		      },
+		      {
+            filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-south.png",
+            priority = "extra-high",
+			      frame_count = 16,
+			      line_length = 4,
+            width = 64,
+            height = 64,
+			      animation_speed = 0.5,
+            tint = {0.75, 0.85, 0.95},
+            shift = {0, -0.05}
+		      }
+		    }
+      },
+      west = {
+        filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-west.png",
+        priority = "extra-high",
+		    frame_count = 16,
+		    line_length = 4,
+        width = 64,
+        height = 64,
+		    animation_speed = 0.5,
+        tint = {0.75, 0.85, 0.95}
+      }
+    }
+  },
+
+  {
+    type = "pump",
+    name = "nullius-small-pump-2",
+    icons = data.raw.item["nullius-small-pump-2"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    localised_description = {"",
+          {"entity-description.nullius-small-pump-2"},
+          {"entity-description.nullius-configurable-pump"},
+          " ",
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
+        },
+    factoriopedia_description = {"",
+          {"entity-description.nullius-small-pump-2"},
+          {"entity-description.nullius-configurable-pump"},
+          {"configurable-valves.valve-examples"},
+          {"configurable-valves.valve-shortcuts"},
+        },
+    minable = {mining_time = 0.7, result = "nullius-small-pump-2"},
+    max_health = 150,
+    fast_replaceable_group = "pipe",
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    collision_box = {{-0.25, -0.4}, {0.25, 0.4}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    working_sound = data.raw["pump"]["pump"].working_sound,
+    damaged_trigger_effect = data.raw["pump"]["pump"].damaged_trigger_effect,
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
+    fluid_box = {
+      volume = 500,
+      pipe_connections = {
+        { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
+        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
+      },
+    pipe_covers = pipecoverspictures()
+    },
+      -- fluid_box =
+      --   {
+      --     volume = 500,
+      --     pipe_covers = pipecoverspictures(),
+      --     pipe_connections =
+      --     {
+      --       {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+      --       {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+      --     },
+      --     hide_connection_info = true,
+      --   },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    energy_usage = "15kW",
+    pumping_speed = 80,
+    impact_category = data.raw["pump"]["pump"].impact_category,
+    open_sound = data.raw["pump"]["pump"].open_sound,
+    close_sound = data.raw["pump"]["pump"].close_sound,
+    circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = data.raw["pump"]["pump"].circuit_wire_max_distance,
+
+    animations = {
+      north = {
+		    layers = {
+		      {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/pipe-straight-vertical.png",
+            repeat_count = 16,
+            width = 128,
+            height = 64,
+		        scale = 0.5,
+			      animation_speed = 0.667,
+			      shift = {0, -0.5}
+		      },
+		      {
+            filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-north.png",
+            priority = "extra-high",
+            frame_count = 16,
+			      line_length = 4,
+            width = 64,
+            height = 64,
+			      animation_speed = 0.667,
+            tint = {1, 1, 0.85},
+            shift = {0, -0.05}
+		      }
+		    }
+      },
+      east = {
+        filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-east.png",
+        priority = "extra-high",
+		    frame_count = 16,
+		    line_length = 4,
+        width = 64,
+        height = 64,
+		    animation_speed = 0.667,
+        tint = {1, 1, 0.85}
+      },
+      south = {
+		    layers = {
+		      {
+            filename = "__boblogistics__/graphics/entity/pipe/steel/pipe-straight-vertical.png",
+            repeat_count = 16,
+            width = 128,
+            height = 64,
+		        scale = 0.5,
+			      animation_speed = 0.667,
+			      shift = {0, -0.5}
+		      },
+		      {
+            filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-south.png",
+            priority = "extra-high",
+			      frame_count = 16,
+			      line_length = 4,
+            width = 64,
+            height = 64,
+			      animation_speed = 0.667,
+            tint = {1, 1, 0.85},
+            shift = {0, -0.05}
+		      }
+		    }
+      },
+      west = {
+        filename = "__angelsrefininggraphics__/graphics/entity/water-pump/pump-west.png",
+        priority = "extra-high",
+		    frame_count = 16,
+		    line_length = 4,
+        width = 64,
+        height = 64,
+		    animation_speed = 0.667,
+        tint = {1, 1, 0.85}
+      }
+    }
+  },
+  {
+    type = "pump",
+    name = "nullius-togglable-small-pump-1",
+    icons = data.raw.item["nullius-small-pump-1"].icons,
+    flags = {"placeable-neutral", "player-creation"},
+    hidden_in_factoriopedia = true,
+    localised_name = {"entity-name.nullius-small-pump-1"},
+    localised_description = {"",
+          {"entity-description.nullius-small-pump-1"},
+          {"entity-description.nullius-configurable-pump"},
+          " ",
+          {"configurable-valves.more-in-factoriopedia"},"\n",
+          {"entity-description.nullius-togglable-pump"}
+        },
+    factoriopedia_description = {"",
+          {"entity-description.nullius-small-pump-1"},
+          {"entity-description.nullius-configurable-pump"},
+          {"configurable-valves.valve-examples"},
+          {"configurable-valves.valve-shortcuts"},
+        },
+    minable = {mining_time = 0.5, result = "nullius-small-pump-1"},
+    placeable_by = {item = "nullius-small-pump-1", count = 1},
+    max_health = 100,
+    fast_replaceable_group = "pipe",
+    next_upgrade = "nullius-togglable-small-pump-2",
     corpse = "pump-remnants",
     dying_explosion = "pump-explosion",
     collision_box = {{-0.25, -0.4}, {0.25, 0.4}},
@@ -3748,14 +4025,17 @@ data:extend({
 
   {
     type = "pump",
-    name = "nullius-small-pump-2",
+    name = "nullius-togglable-small-pump-2",
     icons = data.raw.item["nullius-small-pump-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
+    hidden_in_factoriopedia = true,
+    localised_name = {"entity-name.nullius-small-pump-2"},
     localised_description = {"",
           {"entity-description.nullius-small-pump-2"},
           {"entity-description.nullius-configurable-pump"},
           " ",
-          {"configurable-valves.more-in-factoriopedia"},
+          {"configurable-valves.more-in-factoriopedia"}, "\n",
+          {"entity-description.nullius-togglable-pump"}
         },
     factoriopedia_description = {"",
           {"entity-description.nullius-small-pump-2"},
@@ -3764,6 +4044,7 @@ data:extend({
           {"configurable-valves.valve-shortcuts"},
         },
     minable = {mining_time = 0.7, result = "nullius-small-pump-2"},
+    placeable_by = {item = "nullius-small-pump-2", count = 1},
     max_health = 150,
     fast_replaceable_group = "pipe",
     corpse = "pump-remnants",

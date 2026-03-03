@@ -72,9 +72,9 @@ function build_turbine(entity)
   end
 end
 
-local function destroy_if_valid(entity)
+local function destroy_if_valid(entity, raise_destroy)
   if ((entity ~= nil) and entity.valid) then
-    entity.destroy()
+    entity.destroy({ raise_destroy = raise_destroy })
   end
 end
 
@@ -218,7 +218,7 @@ local function is_hangar_entity(name)
 end
 
 local function is_pump_entity(name)
-  local names = {"nullius-pump-1", "nullius-pump-2", "pump"}
+  local names = {"nullius-pump-1", "nullius-pump-2", "pump", "nullius-small-pump-1", "nullius-small-pump-2"}
   for _, n in ipairs(names) do
     if (n == name) then return true end
   end
@@ -226,7 +226,7 @@ local function is_pump_entity(name)
 end
 
 local function is_conf_valve_entity(name)
-  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3"}
+  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3", "nullius-togglable-small-pump-1", "nullius-togglable-small-pump-2"}
   for _, n in ipairs(names) do
     if (n == name) then return true end
   end
@@ -240,9 +240,11 @@ end
 local function toggle_pump(entity, name, force, circuit_condition)
   local position = entity.position
   local direction = entity.direction
-  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3"}
+  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
   
-  entity.destroy({ raise_destroy = true })
+  --entity.destroy({ raise_destroy = true })
+  destroy_if_valid(entity, true)
+  
   local conf_valve = game.surfaces["nauvis"].create_entity({
       name = names[name],
       position = position,
@@ -267,9 +269,10 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
     storage.nullius_valves[entity.unit_number] = nil
     local position = entity.position
       local direction = entity.direction
-      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump"}
+      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
       
-      entity.destroy({ raise_destroy = true }) -- todo: maybe use destroy_if_valid
+      --entity.destroy({ raise_destroy = true }) -- todo: maybe use destroy_if_valid
+      destroy_if_valid(entity, true)
         
       local pump = game.surfaces["nauvis"].create_entity({
             name = names[name],

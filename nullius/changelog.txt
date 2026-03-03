@@ -2,7 +2,7 @@
 Version: 2.0.2
 Date: 22.02.2026
   Changes:
-    - Reworked the fluid system : changed the max pipeline extents of pipes and storage tanks, added dependency to the configurable valves mod, valves are now replaced by togglable configurable pumps
+    - Reworked the fluid system : changed the max pipeline extents of pipes and storage tanks, added dependency to the configurable valves mod, valves are now replaced by togglable configurable pumps. Pumps consume more electricity than before.
   Features:
     - Added menu simulations
   Bugfixes:
