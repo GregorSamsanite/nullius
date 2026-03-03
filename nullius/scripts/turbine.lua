@@ -242,7 +242,7 @@ local function toggle_pump(entity, name, force, circuit_condition)
   local direction = entity.direction
   local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
   
-  --entity.destroy({ raise_destroy = true })
+  --local fluid_contents = save_fluid_contents(entity)
   destroy_if_valid(entity, true)
   
   local conf_valve = game.surfaces["nauvis"].create_entity({
@@ -257,8 +257,8 @@ local function toggle_pump(entity, name, force, circuit_condition)
     local control_behavior = conf_valve.get_or_create_control_behavior()
     control_behavior.circuit_condition = table.deepcopy(circuit_condition)
   end
-  --local control_behavior = pump.get_or_create_control_behavior()
-  --control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
+  
+  --restore_fluid_contents(conf_valve, fluid_contents)
 end
 
 local function toggle_conf_valve(entity, name, force, force_toggle)
@@ -271,7 +271,7 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
       local direction = entity.direction
       local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
       
-      --entity.destroy({ raise_destroy = true }) -- todo: maybe use destroy_if_valid
+      --local fluid_contents = save_fluid_contents(entity) -- todo: use the fluidbox api to get the linked entity(internal gauge) and save fluid contents this way
       destroy_if_valid(entity, true)
         
       local pump = game.surfaces["nauvis"].create_entity({
@@ -281,6 +281,8 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
             direction = direction,
             raise_built = true,
       })
+      
+      --restore_fluid_contents(pump, fluid_contents)
       return
   end
   local control_behavior = entity.get_or_create_control_behavior()
