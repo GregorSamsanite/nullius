@@ -218,7 +218,7 @@ local function is_hangar_entity(name)
 end
 
 local function is_pump_entity(name)
-  local names = {"nullius-pump-1", "nullius-pump-2", "pump", "nullius-small-pump-1", "nullius-small-pump-2"}
+  local names = {"nullius-pump-1", "nullius-pump-2", "pump", "nullius-small-pump-1", "nullius-small-pump-2", "underground-mini-pump"}
   for _, n in ipairs(names) do
     if (n == name) then return true end
   end
@@ -226,7 +226,7 @@ local function is_pump_entity(name)
 end
 
 local function is_conf_valve_entity(name)
-  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3", "nullius-togglable-small-pump-1", "nullius-togglable-small-pump-2"}
+  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3", "nullius-togglable-small-pump-1", "nullius-togglable-small-pump-2", "nullius-togglable-underground-mini-pump"}
   for _, n in ipairs(names) do
     if (n == name) then return true end
   end
@@ -240,7 +240,7 @@ end
 local function toggle_pump(entity, name, force, circuit_condition)
   local position = entity.position
   local direction = entity.direction
-  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
+  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2", ["underground-mini-pump"] = "nullius-togglable-underground-mini-pump"}
   
   --local fluid_contents = save_fluid_contents(entity)
   destroy_if_valid(entity, true)
@@ -269,10 +269,10 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
     storage.nullius_valves[entity.unit_number] = nil
     local position = entity.position
       local direction = entity.direction
-      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
+      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2", ["nullius-togglable-underground-mini-pump"] = "underground-mini-pump"}
       
       --local fluid_contents = save_fluid_contents(entity) -- todo: use the fluidbox api to get the linked entity(internal gauge) and save fluid contents this way
-      destroy_if_valid(entity, true)
+      destroy_if_valid(entity, true) --maybe don't destroy the entity but change it in place ? for underground pump ...
         
       local pump = game.surfaces["nauvis"].create_entity({
             name = names[name],

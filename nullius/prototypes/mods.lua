@@ -1441,8 +1441,186 @@ data:extend({
     results = {
       {type = "item", name = "underground-mini-pump", amount = 1}
     }
+  },
+  {
+    type = "pump",
+    name = "nullius-togglable-underground-mini-pump",
+    icon = data.raw.pump["underground-mini-pump"].icon,
+    icon_size = data.raw.pump["underground-mini-pump"].icon_size,
+    flags = {"placeable-neutral", "player-creation"},
+    hidden_in_factoriopedia = true,
+    -- localised_name = {"entity-name.nullius-small-pump-1"},
+    -- localised_description = {"",
+    --       {"entity-description.nullius-small-pump-1"},
+    --       {"entity-description.nullius-configurable-pump"},
+    --       " ",
+    --       {"configurable-valves.more-in-factoriopedia"},"\n",
+    --       {"entity-description.nullius-togglable-pump"}
+    --     },
+    -- factoriopedia_description = {"",
+    --       {"entity-description.nullius-small-pump-1"},
+    --       {"entity-description.nullius-configurable-pump"},
+    --       {"configurable-valves.valve-examples"},
+    --       {"configurable-valves.valve-shortcuts"},
+    --     },
+    minable = {mining_time = 0.5, result = "underground-mini-pump"},
+    placeable_by = {item = "underground-mini-pump", count = 1},
+    max_health = 100,
+    fast_replaceable_group = "pipe",
+    
+    collision_mask = data.raw.pump["underground-mini-pump"].collision_mask,
+    base_render_layer = data.raw.pump["underground-mini-pump"].base_render_layer,
+    selection_priority = data.raw.pump["underground-mini-pump"].selection_priority,
+    energy_usage = data.raw.pump["underground-mini-pump"].energy_usage,
+    --pumping_speed = data.raw.pump["underground-mini-pump"].pumping_speed,--20
+    npt_compat = data.raw.pump["underground-mini-pump"].npt_compat,
+    collision_box = data.raw.pump["underground-mini-pump"].collision_box,-- = {{-0.29, -0.29}, {0.29, 0.2}} --old:collision_box = {{-0.25, -0.4}, {0.25, 0.4}},
+    selection_box = data.raw.pump["underground-mini-pump"].selection_box,
+    circuit_connector = data.raw.pump["underground-mini-pump"].circuit_connector,
+    
+    corpse = "pump-remnants",
+    dying_explosion = "pump-explosion",
+    working_sound = data.raw["pump"]["pump"].working_sound,
+    damaged_trigger_effect = data.raw["pump"]["pump"].damaged_trigger_effect,
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", decrease = 20, percent = 50 }
+    },
+    -- fluid_box = {
+    --   volume = 500,
+    --   pipe_connections = {
+    --     { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
+    --     { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
+    --   },
+	  -- pipe_covers = pipecoverspictures()
+    -- },
+    fluid_box =
+        {
+          volume = 500,
+          pipe_covers = pipecoverspictures(),
+          pipe_connections =
+          {
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+          },
+          hide_connection_info = true,
+        },
+    energy_source = {
+      type = "electric",
+      usage_priority = "primary-input"
+    },
+    --energy_usage = "10kW",
+    pumping_speed = 40,
+    impact_category = data.raw["pump"]["pump"].impact_category,
+    open_sound = data.raw["pump"]["pump"].open_sound,
+    close_sound = data.raw["pump"]["pump"].close_sound,
+    --circuit_connector = circuit_connector_definitions["pump"],
+    circuit_wire_max_distance = data.raw["pump"]["pump"].circuit_wire_max_distance,
+
+    animations = data.raw.pump["underground-mini-pump"].animations
+  },
+  {
+    type = "storage-tank",
+    name = "nullius-underground-pump-gauge-input",
+    localised_name = {"", {"entity-name.configurable-valve"}, " input gauge"},
+    icon = "__base__/graphics/icons/storage-tank.png",
+    flags = {
+        "not-repairable",
+        "not-on-map",
+        "not-deconstructable",
+        "not-blueprintable",
+        "not-flammable",
+        "not-upgradable",
+        "not-in-kill-statistics",
+        "placeable-off-grid", -- To be directly above pump position
+        "hide-alt-info",
+    },
+    selectable_in_game = false,
+    selection_priority = 1,
+    hidden = true,
+    max_health = 500,
+    collision_box = {{-0.29, -0.45}, {0.29, 0.45}},
+    --collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
+    collision_mask = { layers = { } }, -- collide with nothing
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    fluid_box = {
+        volume = 100,
+        pipe_covers = pipecoverspictures(),
+        pipe_connections = {
+            --{ direction = defines.direction.south, position = {0, 0.5}, flow_direction = "input-output" },
+             {
+                underground_collision_mask = _G.mods["space-age"] and {layers={lava_tile=true, empty_space=true}} or {layers={}}, --underground_collision_mask,
+                connection_type = "underground",
+                direction = defines.direction.south,
+                position = {0, 0},
+                flow_direction = 'input-output',
+                max_underground_distance = 20--(base_ug_distance + 1) * tonumber(level)
+            },
+            { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 }
+        },
+        hide_connection_info = true,
+        max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
+    },
+    show_fluid_icon = false,
+    window_bounding_box = {{0,0}, {0,0}},
+    flow_length_in_ticks = 360,
+    circuit_connector = circuit_connector_definitions["storage-tank"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+  },
+  {
+      type = "storage-tank",
+      name = "nullius-underground-pump-gauge-output",
+      localised_name = {"", {"entity-name.configurable-valve"}, " output gauge"},
+      icon = "__base__/graphics/icons/storage-tank.png",
+      flags = {
+          "not-repairable",
+          "not-on-map",
+          "not-deconstructable",
+          "not-blueprintable",
+          "not-flammable",
+          "not-upgradable",
+          "not-in-kill-statistics",
+          "placeable-off-grid", -- To be directly above pump position
+          "hide-alt-info",
+      },
+      selectable_in_game = false,
+      selection_priority = 1,
+      hidden = true,
+      max_health = 500,
+      collision_box = {{-0.29, -0.45}, {0.29, 0.45}},
+      --collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
+      collision_mask = { layers = { } }, -- collide with nothing
+      selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+      fluid_box = {
+          volume = 100,
+          pipe_covers = pipecoverspictures(),
+          pipe_connections = {
+              { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 },
+              --{ direction = defines.direction.north, position = {0, -0.5}, flow_direction = "input-output" }
+              {
+                underground_collision_mask = _G.mods["space-age"] and {layers={lava_tile=true, empty_space=true}} or {layers={}}, --underground_collision_mask,
+                connection_type = "underground",
+                direction = defines.direction.north,
+                position = {0, 0},
+                flow_direction = 'input-output',
+                max_underground_distance = 20--(base_ug_distance + 1) * tonumber(level)
+            }
+              
+              --{ position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
+              --{ position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+          },
+          hide_connection_info = true,
+          max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
+      },
+      show_fluid_icon = false,
+      window_bounding_box = {{0,0}, {0,0}},
+      flow_length_in_ticks = 360,
+      circuit_connector = circuit_connector_definitions["storage-tank"],
+      circuit_wire_max_distance = default_circuit_wire_max_distance,
   }
 })
+local valves = data.raw["mod-data"]["mod-configurable-valves"].data.valves
+valves["nullius-togglable-underground-mini-pump"] = { name = "nullius-togglable-underground-mini-pump", gauge_name = "nullius-underground-pump-gauge" }
 end
 
 
