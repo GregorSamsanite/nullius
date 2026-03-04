@@ -3259,7 +3259,7 @@ else
 data.raw.recipe["nullius-impact-unloader"].ingredients[4] =
     {type = "item", name = "nullius-rubber", amount = 30}
 data.raw.recipe["nullius-impact-wagon"].ingredients[2] =
-    {type = "item", name = "nullius-one-way-valve", amount = 8}
+    {type = "item", name = "nullius-one-way-valve", amount = 8},
 end
 end
 
@@ -4539,4 +4539,95 @@ if mods["fcpu"] then
       order = "a-d-d"
     }
   });
+end
+
+  if mods["cranes"] then
+     data:extend({
+    {
+      type = "recipe",
+      name = "nullius-crane-1",
+      localised_name = {"entity-name.crane-short"},
+      enabled = false,
+      always_show_made_in = true,
+      energy_required = 5,
+      ingredients = {
+        {type = "item", name = "bulk-inserter", amount = 3},
+        {type = "item", name = "nullius-processor-1", amount = 5}
+      },
+      results = {
+			  {type = "item", name = "crane-short", amount = 1}
+      }    
+    },
+    {
+      type = "technology",
+      name = "nullius-short-crane",
+      localised_name = {"entity-name.crane-short"},
+      --localised_description = {"technology-description.short-cranes"},
+      icon_size = 64,
+      icon = "__cranes__/graphics/crane-short-icon.png",
+      effects =
+      {
+        {
+        type = "unlock-recipe",
+        recipe = "nullius-crane-1"
+        }
+      },
+      prerequisites =  {"nullius-actuation-3", "nullius-electronics-2"},
+      
+      unit = {
+        count = 1000,
+        ingredients = {
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+      },
+
+      time = 30
+      },
+      order = "a-d-d"
+    },
+    {
+      type = "recipe",
+      name = "nullius-crane-2",
+      localised_name = {"entity-name.crane"},
+      enabled = false,
+      always_show_made_in = true,
+      energy_required = 10,
+      ingredients = {
+        {type = "item", name = "bob-express-bulk-inserter", amount = 3},
+        {type = "item", name = "nullius-processor-2", amount = 5}
+      },
+      results = {
+			{type = "item", name = "crane", amount = 1}
+		}
+    },
+    {
+      type = "technology",
+      name = "nullius-crane",
+      ---
+      localised_name = {"entity-name.crane"},
+      --localised_description = {"technology-description.cranes"},
+      icon_size = 64,
+      icon = "__cranes__/graphics/crane-icon.png",
+      effects =
+      {
+        {
+        type = "unlock-recipe",
+        recipe = "nullius-crane-2"
+        }
+      },
+      prerequisites = {"nullius-actuation-4", "nullius-electronics-3"},
+      
+      unit = {
+      count = 2000,
+      ingredients = {
+        {"nullius-geology-pack", 1},
+        {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1},
+        {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, 
+        {"nullius-physics-pack", 1}
+      },
+      time = 45
+    }
+  },
+});
 end
