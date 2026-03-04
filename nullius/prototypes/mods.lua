@@ -1185,7 +1185,7 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 3,
     ingredients = {
-      {type = "item", name = "nullius-relief-valve", amount = 2},
+      {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves with underground pipe pack
       {type = "item", name = "nullius-red-wire", amount = 1}
     },
     results = {
@@ -1295,7 +1295,7 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 3,
     ingredients = {
-      {type = "item", name = "nullius-top-up-valve", amount = 2},
+      {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves
       {type = "item", name = "nullius-red-wire", amount = 1}
     },
     results = {
@@ -2861,7 +2861,7 @@ data:extend({
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-underground-pipe-2", amount = 1},
-	    {type = "item", name = "nullius-priority-valve", amount = 1},
+	    {type = "item", name = "nullius-one-way-valve", amount = 1},
       {type = "item", name = "nullius-steel-rod", amount = 1}
     },
     results = {
@@ -3259,7 +3259,7 @@ else
 data.raw.recipe["nullius-impact-unloader"].ingredients[4] =
     {type = "item", name = "nullius-rubber", amount = 30}
 data.raw.recipe["nullius-impact-wagon"].ingredients[2] =
-    {type = "item", name = "nullius-priority-valve", amount = 8}
+    {type = "item", name = "nullius-one-way-valve", amount = 1},
 end
 end
 
