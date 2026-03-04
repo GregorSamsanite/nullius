@@ -3259,7 +3259,7 @@ else
 data.raw.recipe["nullius-impact-unloader"].ingredients[4] =
     {type = "item", name = "nullius-rubber", amount = 30}
 data.raw.recipe["nullius-impact-wagon"].ingredients[2] =
-    {type = "item", name = "nullius-one-way-valve", amount = 1},
+    {type = "item", name = "nullius-one-way-valve", amount = 8},
 end
 end
 
