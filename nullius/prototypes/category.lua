@@ -768,6 +768,18 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "electrolyzer-mode-priority",
+    group = "chemistry",
+    order = "hcm"
+  },
+  {
+    type = "item-subgroup",
+    name = "electrolyzer-mode-surge",
+    group = "chemistry",
+    order = "hcn"
+  },
+  {
+    type = "item-subgroup",
     name = "energy-storage",
     group = "chemistry",
     order = "hd"
@@ -780,15 +792,21 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "unmirror-1",
+    name = "energy-backup-mode-backup",
     group = "chemistry",
-    order = "md"
+    order = "hea"
   },
   {
     type = "item-subgroup",
-    name = "unmirror-2",
+    name = "energy-backup-mode-standard",
     group = "chemistry",
-    order = "me"
+    order = "heb"
+  },
+  {
+    type = "item-subgroup",
+    name = "energy-backup-mode-exhaust",
+    group = "chemistry",
+    order = "hec"
   },
   {
     type = "item-subgroup",
@@ -909,6 +927,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    order = "ca",
+    name = "air-filtration-recipe",
+    group = "fluids",
+  },
+  {
+    type = "item-subgroup",
     order = "db",
     name = "carbon",
     group = "fluids",
@@ -958,13 +982,13 @@ data:extend({
   {
     type = "item-subgroup",
     order = "l",
-    name = "compression",
+    name = "decompression",
     group = "fluids",
   },
   {
     type = "item-subgroup",
     order = "m",
-    name = "decompression",
+    name = "compression",
     group = "fluids",
   },
   {
@@ -1050,7 +1074,6 @@ data:extend({
     name = "barreling",
     order = "lb",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = "__base__/graphics/icons/fluid/barreling/empty-barrel.png"
   },
   {
@@ -1058,7 +1081,6 @@ data:extend({
     name = "unbarreling",
     order = "lc",
     icon_size = 64,
-    icon_mipmaps = 4,
     icon = "__base__/graphics/icons/fluid/barreling/barrel-empty.png"
   },
   {
@@ -1089,6 +1111,12 @@ data:extend({
     type = "item-subgroup",
     order = "fc",
     name = "fill-biochemistry",
+    group = "barreling",
+  },
+  {
+    type = "item-subgroup",
+    order = "fd",
+    name = "fill-biology-bacteria",
     group = "barreling",
   },
   {
@@ -1144,6 +1172,12 @@ data:extend({
     type = "item-subgroup",
     order = "ec",
     name = "empty-biochemistry",
+    group = "unbarreling",
+  },
+  {
+    type = "item-subgroup",
+    order = "ed",
+    name = "empty-biology-bacteria",
     group = "unbarreling",
   },
   {
@@ -1903,141 +1937,12 @@ data:extend({
 
   {
     type = "ammo-category",
-    name = "nullius-conscription"
+    name = "nullius-conscription",
+    icon = "__nullius__/graphics/icons/card1.png",
+    icon_size = 128,
+    subgroup = "military-equipment",
+    order = "aaa"
   },
-  {
-    type = "ammo-category",
-    name = "nullius-scout-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-demolition-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-excavation-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-shallow-excavation-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-terraforming-drone-grey"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-terraforming-drone-tan"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-terraforming-drone-brown"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-terraforming-drone-red"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-terraforming-drone-beige"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-grey"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-white"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-red"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-blue"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-yellow"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-green"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-purple"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-brown"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-black"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-paving-drone-hazard"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-iron"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-bauxite"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-sandstone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-limestone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-copper"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-guide-drone-uranium"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-algaculture-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-horticulture-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-entomology-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-arboriculture-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-aquaculture-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-husbandry-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-sequestration-coal-drone"
-  },
-  {
-    type = "ammo-category",
-    name = "nullius-sequestration-petroleum-drone"
-  },
-
   {
     type = "fuel-category",
     name = "vehicle"
@@ -2045,5 +1950,236 @@ data:extend({
   {
     type = "fuel-category",
     name = "nullius-nuclear"
-  }
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-scout-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-demolition-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-excavation-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-shallow-excavation-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-terraforming-drone-grey",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-terraforming-drone-tan",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-terraforming-drone-brown",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-terraforming-drone-red",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-terraforming-drone-beige",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-grey",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-white",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-red",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-blue",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-yellow",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-green",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-purple",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-brown",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-black",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-paving-drone-hazard",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-iron",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-bauxite",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-sandstone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-limestone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-copper",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-guide-drone-uranium",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-algaculture-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-horticulture-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-entomology-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-arboriculture-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-aquaculture-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-husbandry-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-sequestration-coal-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
+  {
+    type = "ammo-category",
+    name = "nullius-sequestration-petroleum-drone",
+    icon = "__nullius__/graphics/icons/scout-2.png",
+    icon_size = 64,
+    subgroup = "military-equipment"
+  },
 })

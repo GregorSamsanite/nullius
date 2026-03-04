@@ -8,13 +8,14 @@ data:extend({
     to_build = "nullius-wind-build-1",
     icon = ACHIEVEMENTPATH .. "breezy.png",
     icon_size = 128,
-    until_second = 45 * 60 -- 45 minutes
+    within = 45 * 60 * 60 -- 45 minutes
   },
   {
-    type = "finish-the-game-achievement",
+    type = "complete-objective-achievement",
     name = "nullius-accelerated-timeline",
     order = "ac",
-    until_second = 60 * 60 * 24 * 6, -- 6 days
+    within = 60 * 60 * 60 * 24 * 6, -- 6 days
+    objective_condition = "game-finished",
     icon = "__base__/graphics/achievement/there-is-no-spoon.png",
     icon_size = 128
   },
@@ -23,12 +24,14 @@ data:extend({
     name = "nullius-lazier-bastard",
     order = "ad",
     amount = 0,
+    objective_condition = "game-finished",
     icon = "__base__/graphics/achievement/lazy-bastard.png",
     icon_size = 128
   },
   {
-    type = "finish-the-game-achievement",
+    type = "complete-objective-achievement",
     name = "nullius-mission-complete",
+    objective_condition = "game-finished",
     order = "ae",
     icon = "__base__/graphics/achievement/no-time-for-chitchat.png",
     icon_size = 128
@@ -70,10 +73,10 @@ data.raw["research-achievement"]["eco-unfriendly"].hidden = true
 data.raw["research-achievement"]["eco-unfriendly"].order = "b"
 data.raw["research-achievement"]["tech-maniac"].hidden = true
 data.raw["research-achievement"]["tech-maniac"].order = "b"
-data.raw["finish-the-game-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].hidden = true
-data.raw["finish-the-game-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].order = "b"
-data.raw["finish-the-game-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].until_second = 60
-data.raw["finish-the-game-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].allowed_without_fight = false
+data.raw["complete-objective-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].hidden = true
+data.raw["complete-objective-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].order = "b"
+data.raw["complete-objective-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].within = 60 * 60
+data.raw["complete-objective-achievement"]["smoke-me-a-kipper-i-will-be-back-for-breakfast"].allowed_without_fight = false
 data.raw["group-attack-achievement"]["it-stinks-and-they-dont-like-it"].hidden = true
 data.raw["construct-with-robots-achievement"]["automated-construction"].hidden = true
 data.raw["construct-with-robots-achievement"]["automated-construction"].amount = 10000
@@ -101,13 +104,13 @@ data.raw["dont-use-entity-in-energy-production-achievement"]["solaris"].hidden =
 data.raw["kill-achievement"]["steamrolled"].hidden = true
 data.raw["kill-achievement"]["pyromaniac"].hidden = true
 data.raw["kill-achievement"]["run-forrest-run"].hidden = true
-data.raw["combat-robot-count"]["minions"].hidden = true
+data.raw["combat-robot-count-achievement"]["minions"].hidden = true
 data.raw["dont-use-entity-in-energy-production-achievement"]["steam-all-the-way"].hidden = true
 data.raw["dont-use-entity-in-energy-production-achievement"]["steam-all-the-way"].excluded = {"solar-panel",
     "nullius-solar-panel-1", "nullius-solar-panel-2", "nullius-solar-panel-3", "nullius-solar-panel-4"}
 data.raw["dont-use-entity-in-energy-production-achievement"]["steam-all-the-way"].allowed_without_fight = false
-data.raw["finish-the-game-achievement"]["no-time-for-chitchat"].hidden = true
-data.raw["finish-the-game-achievement"]["there-is-no-spoon"].hidden = true
+data.raw["complete-objective-achievement"]["no-time-for-chitchat"].hidden = true
+data.raw["complete-objective-achievement"]["there-is-no-spoon"].hidden = true
 data.raw["achievement"]["so-long-and-thanks-for-all-the-fish"].hidden = true
 data.raw["dont-build-entity-achievement"]["raining-bullets"].hidden = true
 data.raw["dont-build-entity-achievement"]["logistic-network-embargo"].hidden = true

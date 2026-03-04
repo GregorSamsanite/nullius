@@ -1,3 +1,7 @@
+require("legacyAngels")
+require("legacyValves")
+pipe_extents = {64, 144, 320, 672}
+
 require("prototypes.reskin")
 require("prototypes.category")
 require("prototypes.item.fluid")
@@ -16,7 +20,8 @@ require("prototypes.item.broken")
 require("prototypes.item.void")
 require("prototypes.item.landfill")
 require("prototypes.item.boxing")
-require("prototypes.entity.furnace")
+
+require("prototypes.entity.furnace") 
 require("prototypes.entity.assembler")
 require("prototypes.entity.miner")
 require("prototypes.entity.plumbing")
@@ -47,4 +52,12 @@ require("prototypes.inputs")
 require("prototypes.achievements")
 
 data.raw["map-settings"]["map-settings"].pollution.enabled = false
-data.raw["map-settings"]["map-settings"].difficulty_settings.research_queue_setting = "always"
+
+
+local valves = data.raw["mod-data"]["mod-configurable-valves"].data.valves
+valves["nullius-togglable-pump-1"] = { name = "nullius-togglable-pump-1", gauge_name = "nullius-pump-gauge" }
+valves["nullius-togglable-pump-2"] = { name = "nullius-togglable-pump-2", gauge_name = "nullius-pump-gauge" }
+valves["nullius-togglable-pump-3"] = { name = "nullius-togglable-pump-3", gauge_name = "nullius-pump-gauge" }
+
+valves["nullius-togglable-small-pump-1"] = { name = "nullius-togglable-small-pump-1" }
+valves["nullius-togglable-small-pump-2"] = { name = "nullius-togglable-small-pump-2" }

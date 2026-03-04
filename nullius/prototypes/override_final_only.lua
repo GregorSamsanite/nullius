@@ -16,7 +16,7 @@ data.raw["container"]["steel-chest"].picture = { layers = {
     scale = 0.5
   },
   {
-    filename = BASEENTITY .. "infinity-chest/hr-infinity-chest-shadow.png",
+    filename = BASEENTITY .. "infinity-chest/infinity-chest-shadow.png",
     priority = "extra-high",
     width = 116,
     height = 48,
@@ -30,6 +30,6 @@ data.raw["container"]["steel-chest"].picture = { layers = {
 for _,character in pairs(data.raw["character"]) do
   if ((character.name ~= "character") and
       (character.name ~= "nullius-android-2")) then
-    table.insert(character.flags,"hidden")
+    character.hidden = true
   end
 end

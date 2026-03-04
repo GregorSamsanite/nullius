@@ -7,25 +7,25 @@ local multiplier = (settings.startup["nullius-wind-turbine-energy-multiplier"].v
 local base_wind_power = {1500000*multiplier, 4000000*multiplier, 12000000*multiplier}
 
 function init_wind()
-  global.nullius_wind_orientation = 4
-  global.nullius_wind_factor = 0.7
-  global.nullius_wind_speed = 0.4
-  global.nullius_wind_momentum = 0
+  storage.nullius_wind_orientation = 4
+  storage.nullius_wind_factor = 0.7
+  storage.nullius_wind_speed = 0.4
+  storage.nullius_wind_momentum = 0
 
-  global.nullius_base_power = { }
-  global.nullius_current_power = { }
-  global.nullius_animation_speed = { }
+  storage.nullius_base_power = { }
+  storage.nullius_current_power = { }
+  storage.nullius_animation_speed = { }
   for i=1,3 do
-    global.nullius_current_power[i] = global.nullius_wind_speed * base_wind_power[i]
-    global.nullius_animation_speed[i] = global.nullius_wind_speed * (0.6 + (i * 0.2))
+    storage.nullius_current_power[i] = storage.nullius_wind_speed * base_wind_power[i]
+    storage.nullius_animation_speed[i] = storage.nullius_wind_speed * (0.6 + (i * 0.2))
   end
 
-  global.nullius_turbine_buckets = {}
+  storage.nullius_turbine_buckets = {}
   for i=1,921 do
-    global.nullius_turbine_buckets[i] = {
+    storage.nullius_turbine_buckets[i] = {
       turbines = { },
-      orientation = global.nullius_wind_orientation,
-      last_speed = global.nullius_animation_speed[((i - 1) % 3) + 1],
+      orientation = storage.nullius_wind_orientation,
+      last_speed = storage.nullius_animation_speed[((i - 1) % 3) + 1],
       last_offset = ((i - 1) * 24) / 921.0
     }
   end
@@ -47,31 +47,31 @@ function recalculate_wind()
 
   local wave = discretize((wave1 * 1.2) + wave2 + wave3 + (wave4 * 0.75))
   local noise = (math.random() * 3) + (math.random() * 5)
-  local momentum = discretize((global.nullius_wind_momentum * 0.9985) +
+  local momentum = discretize((storage.nullius_wind_momentum * 0.9985) +
       (math.random() * 0.16) - 0.08)
   local target = (wave + noise + momentum - 0.1) / 6
   local delta = discretize((math.random() * 0.25) + 0.05)
-  local factor = discretize(global.nullius_wind_factor * (1 - delta) + (delta * target))
-  global.nullius_wind_factor = factor
-  global.nullius_wind_momentum = momentum
+  local factor = discretize(storage.nullius_wind_factor * (1 - delta) + (delta * target))
+  storage.nullius_wind_factor = factor
+  storage.nullius_wind_momentum = momentum
 
   if (factor <= 0) then
-    global.nullius_wind_speed = 0
+    storage.nullius_wind_speed = 0
   elseif (factor >= 1.25) then
-    global.nullius_wind_speed = 1
+    storage.nullius_wind_speed = 1
   elseif (factor >= 1) then
-    global.nullius_wind_speed = discretize((factor * 0.4) + 0.5)
+    storage.nullius_wind_speed = discretize((factor * 0.4) + 0.5)
   else
-    global.nullius_wind_speed = discretize(factor * factor * 0.9)
+    storage.nullius_wind_speed = discretize(factor * factor * 0.9)
   end
-  surface.wind_speed = (global.nullius_wind_speed / 20)
+  surface.wind_speed = (storage.nullius_wind_speed / 20)
 
   for i=1,3 do
-    global.nullius_current_power[i] = global.nullius_wind_speed * base_wind_power[i]
-    global.nullius_animation_speed[i] = discretize(global.nullius_wind_speed * (0.6 + (i * 0.2)))
+    storage.nullius_current_power[i] = storage.nullius_wind_speed * base_wind_power[i]
+    storage.nullius_animation_speed[i] = discretize(storage.nullius_wind_speed * (0.6 + (i * 0.2)))
   end
 
-  global.nullius_wind_orientation = math.floor((surface.wind_orientation * 8) % 8)
+  storage.nullius_wind_orientation = math.floor((surface.wind_orientation * 8) % 8)
 end
 
 function destroy_turbine(entry)
@@ -88,13 +88,13 @@ function destroy_turbine(entry)
     entry.collision_box4.destroy()
   end
 
-  rendering.destroy(entry.blade)
-  rendering.destroy(entry.shadow)
+  entry.blade.destroy()
+  entry.shadow.destroy()
 end
 
 function update_turbines(ind, level)
-  local bucket = global.nullius_turbine_buckets[ind]
-  local orientation = global.nullius_wind_orientation
+  local bucket = storage.nullius_turbine_buckets[ind]
+  local orientation = storage.nullius_wind_orientation
   if (bucket.orientation ~= orientation) then
     bucket.orientation = orientation
     local blade_animation = "nullius-wind-blade-"..level.."-"..orientation
@@ -102,14 +102,14 @@ function update_turbines(ind, level)
 
     for _,t in pairs(bucket.turbines) do
     if (t.base.valid) then
-        rendering.set_animation(t.blade, blade_animation)
-        rendering.set_animation(t.shadow, shadow_animation)
+        t.blade.animation = blade_animation
+        t.shadow.animation = shadow_animation
     end
     end
   end
 
-  local power = global.nullius_current_power[level]
-  local aspeed = global.nullius_animation_speed[level]
+  local power = storage.nullius_current_power[level]
+  local aspeed = storage.nullius_animation_speed[level]
   local tick = game.tick
   local frame = (tick * aspeed)
   local expected = ((tick * bucket.last_speed) + bucket.last_offset)
@@ -122,10 +122,11 @@ function update_turbines(ind, level)
   for i,t in pairs(bucket.turbines) do
     if (t.base.valid) then
       t.base.power_production = power
-      rendering.set_animation_speed(t.blade, aspeed)
-      rendering.set_animation_speed(t.shadow, aspeed)
-      rendering.set_animation_offset(t.blade, offs)
-      rendering.set_animation_offset(t.shadow, offs)
+      
+      t.blade.animation_speed = aspeed
+      t.shadow.animation_speed = aspeed
+      t.blade.animation_offset = offs
+      t.shadow.animation_offset = offs
   else
     destroy_turbine(t)
     bucket.turbines[i] = nil
@@ -162,8 +163,8 @@ function build_wind_turbine(entity, level)
   local newentity = surface.create_entity{
     name = "nullius-wind-base-"..level,
     position = position, force = force}
-  newentity.power_production = global.nullius_current_power[level]
-  script.register_on_entity_destroyed(newentity)
+  newentity.power_production = storage.nullius_current_power[level]
+  script.register_on_object_destroyed(newentity)
 
   local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5, 17, 16, 13.5)
   local collision2 = create_wind_collision(surface, position, force, "vertical", 17, -14.5, 13.5, 16)
@@ -171,7 +172,7 @@ function build_wind_turbine(entity, level)
   local collision4 = create_wind_collision(surface, position, force, "vertical", -17, 14.5, 13.5, 16)
 
   local ind = level + ((newentity.unit_number % 307) * 3)
-  local bucket = global.nullius_turbine_buckets[ind]
+  local bucket = storage.nullius_turbine_buckets[ind]
   local scale = 0.4 + (level * 0.2)
 
   bucket.turbines[newentity.unit_number] = {
@@ -199,7 +200,7 @@ end
 
 function remove_wind_unit(unit, died, level)
   local ind = level + ((unit % 307) * 3)
-  local bucket = global.nullius_turbine_buckets[ind]
+  local bucket = storage.nullius_turbine_buckets[ind]
   local entry = bucket.turbines[unit]
   if entry == nil then return end
 
@@ -229,7 +230,7 @@ end
 function destroyed_wind_turbine(unit)
   local offset = ((unit % 307) * 3)
   for lvl=1,3 do
-    local entry = global.nullius_turbine_buckets[lvl + offset].turbines[unit]
+    local entry = storage.nullius_turbine_buckets[lvl + offset].turbines[unit]
   if (entry ~= nil) then
     remove_wind_unit(unit, false, lvl)
     return true

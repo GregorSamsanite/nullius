@@ -2,6 +2,24 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 
+if mods["elevated-rails"] then
+  data.raw["item"]["rail-support"].subgroup = "railway"
+  data.raw["item"]["rail-support"].order = "nullius-dm"
+  data.raw["item"]["rail-support"].localised_name = {"entity-name.nullius-rail-pylon"}
+  data.raw["rail-support"]["rail-support"].subgroup = "railway"
+  data.raw["rail-support"]["rail-support"].order = "nullius-dm"
+  data.raw["rail-support"]["rail-support"].localised_name = {"entity-name.nullius-rail-pylon"}
+  data.raw["rail-planner"]["rail-ramp"].subgroup = "railway"
+  data.raw["rail-planner"]["rail-ramp"].order = "nullius-dn"
+  data.raw["rail-ramp"]["rail-ramp"].subgroup = "railway"
+  data.raw["rail-ramp"]["rail-ramp"].order = "nullius-dn"
+table.insert(
+  data.raw.technology["nullius-freight-transportation-2"].prerequisites,
+  "nullius-elevated-rails"
+)
+end
+
+
 if mods["LogisticTrainNetwork"] then
 data.raw["train-stop"]["logistic-train-stop"].subgroup = "railway"
 data.raw["train-stop"]["logistic-train-stop"].order = "nullius-ecb"
@@ -156,17 +174,6 @@ data.raw.technology["factory-interior-upgrade-display"].unit = {
 }
 table.insert(data.raw.technology["nullius-packaging-5"].prerequisites,"factory-interior-upgrade-display")
 
-data.raw.technology["factory-preview"].order = "nullius-e"
-data.raw.technology["factory-preview"].prerequisites = {
-    "factory-interior-upgrade-display", "nullius-checkpoint-large-beacon"}
-data.raw.technology["factory-preview"].unit = {
-    count = 8*factory_mult, time = 35,
-    ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}}
-}
-
 if mods["factorissimo-2-notnotmelon"] then
 data.raw.technology["factory-recursion-t1"].prerequisites = {
     "factory-architecture-t2", "nullius-packaging-4"}
@@ -208,48 +215,51 @@ data.raw.technology["factory-recursion-t2"].unit = {
 }
 table.insert(data.raw.technology["nullius-logistics-4"].prerequisites,"factory-recursion-t2")
 
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.south].fluid_box.height = 5
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.north].fluid_box.height = 5
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.east].fluid_box.height = 5
-data.raw.pipe["factory-fluid-dummy-connector-"..defines.direction.west].fluid_box.height = 5
-
 data.raw["storage-tank"]["factory-1"].minable.mining_time = 4
 data.raw["storage-tank"]["factory-2"].minable.mining_time = 6
 data.raw["storage-tank"]["factory-3"].minable.mining_time = 8
 
-data.raw.technology["factory-architecture-t1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 1}
-data.raw.technology["factory-architecture-t2"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 2}
-data.raw.technology["nullius-architecture-1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 3}
-data.raw.technology["factory-architecture-t3"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", 4}
+data.raw.technology["factory-architecture-t1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", tostring(1)}
+data.raw.technology["factory-architecture-t2"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", tostring(2)}
+data.raw.technology["nullius-architecture-1"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", tostring(3)}
+data.raw.technology["factory-architecture-t3"].localised_name = {"", {"technology-name.nullius-architecture"}, " ", tostring(4)}
+
+for _, item in pairs({"factory-1", "factory-2"}) do
+  for i, flag in pairs(data.raw.item[item].flags) do
+    if flag == "not-stackable" then
+      table.remove(data.raw.item[item].flags, i)
+    end
+  end
+end
 end
 
 
-if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
-data.raw.technology["long-inserters-1"].order = "nullius-ce"
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-automation"}
-data.raw.technology["long-inserters-1"].unit = { count = 3,
+if (mods["bobinserters"] or mods["quick-adjustable-inserters"] )and (settings.startup["bobmods-inserters-long2"].value == true) then
+data.raw.technology["bob-long-inserters-1"].order = "nullius-ce"
+data.raw.technology["bob-long-inserters-1"].prerequisites = {"nullius-automation"}
+data.raw.technology["bob-long-inserters-1"].unit = { count = 3,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"long-inserters-2")
+table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"bob-long-inserters-2")
 
-data.raw.technology["long-inserters-2"].order = "nullius-dd"
-data.raw.technology["long-inserters-2"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["long-inserters-2"].unit = { count = 20,
+data.raw.technology["bob-long-inserters-2"].order = "nullius-dd"
+data.raw.technology["bob-long-inserters-2"].prerequisites = {"nullius-maintenance"}
+data.raw.technology["bob-long-inserters-2"].unit = { count = 20,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 20
 }
 else
-data.raw.technology["long-inserters-1"].order = "nullius-dd"
-data.raw.technology["long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
-data.raw.technology["long-inserters-1"].prerequisites = {"nullius-lubrication", "nullius-mass-production-1"}
-data.raw.technology["long-inserters-1"].unit = { count = 8,
+data.raw.technology["bob-long-inserters-1"].order = "nullius-dd"
+data.raw.technology["bob-long-inserters-1"].localised_name = {"technology-name.nullius-long-inserters"}
+data.raw.technology["bob-long-inserters-1"].localised_description = {"technology-description.nullius-long-inserters"}
+data.raw.technology["bob-long-inserters-1"].prerequisites = {"nullius-lubrication", "nullius-mass-production-1"}
+data.raw.technology["bob-long-inserters-1"].unit = { count = 8,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 6
 }
 end
-data.raw.technology["long-inserters-1"].ignore_tech_cost_multiplier = true
+data.raw.technology["bob-long-inserters-1"].ignore_tech_cost_multiplier = true
 
 
 if mods["miniloader"] then
@@ -342,8 +352,8 @@ end
 
 data.raw.technology["nullius-mass-production-1"].prerequisites = {
     "nullius-miniloader-1", "nullius-checkpoint-mineral-dust"}
-if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
-table.insert(data.raw.technology["long-inserters-2"].prerequisites,"nullius-miniloader-2")
+if (mods["bobinserters"] or mods["quick-adjustable-inserters"]) and (settings.startup["bobmods-inserters-long2"].value == true) then
+table.insert(data.raw.technology["bob-long-inserters-2"].prerequisites,"nullius-miniloader-2")
 else
 table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"nullius-miniloader-2")
 end
@@ -369,7 +379,7 @@ AAILoaders.make_tier{
       ingredients = {{"automation-science-pack", 1}}
     }
   },
-  recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
+  recipe = { ingredients = {{type = "item", name = "transport-belt", amount = 1}}, energy_required = 2 }
 }
 
 AAILoaders.make_tier{
@@ -387,14 +397,14 @@ AAILoaders.make_tier{
 	      {"logistic-science-pack", 1}, {"chemical-science-pack", 1}}
     }
   },
-  recipe = { ingredients = {{"transport-belt", 1}}, energy_required = 2 }
+  recipe = { ingredients = {{type = "item", name ="transport-belt", amount = 1}}, energy_required = 2 }
 }
 
-data.raw["loader-1x1"]["aai-basic-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 1}
-data.raw["loader-1x1"]["aai-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 2}
-data.raw["loader-1x1"]["aai-fast-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 3}
-data.raw["loader-1x1"]["aai-express-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 4}
-data.raw["loader-1x1"]["aai-ultimate-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", 5}
+data.raw["loader-1x1"]["aai-basic-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", "1"}
+data.raw["loader-1x1"]["aai-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", "2"}
+data.raw["loader-1x1"]["aai-fast-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", "3"}
+data.raw["loader-1x1"]["aai-express-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", "4"}
+data.raw["loader-1x1"]["aai-ultimate-loader"].localised_name = {"", {"entity-name.aai-loader"}, " ", "5"}
 data.raw["loader-1x1"]["aai-basic-loader"].localised_description = {"entity-description.nullius-loader"}
 data.raw["loader-1x1"]["aai-loader"].localised_description = {"entity-description.nullius-loader"}
 data.raw["loader-1x1"]["aai-fast-loader"].localised_description = {"entity-description.nullius-loader"}
@@ -456,12 +466,13 @@ data.raw.technology["nullius-loader-5"].icons = data.raw.technology["aai-ultimat
 
 if (data.raw["loader-1x1"]["aai-turbo-loader"] ~= nil) then
 data.raw["loader-1x1"]["aai-turbo-loader"].next_upgrade = nil
+data.raw["loader-1x1"]["aai-turbo-loader"].hidden_in_factoriopedia = true
 end
 
 table.insert(data.raw.technology["nullius-mechanical-separation"].prerequisites,"nullius-loader-1")
 table.insert(data.raw.technology["nullius-checkpoint-mass-production"].prerequisites,"nullius-loader-2")
-if mods["bobinserters"] and (settings.startup["bobmods-inserters-long2"].value == true) then
-table.insert(data.raw.technology["long-inserters-2"].prerequisites,"nullius-loader-3")
+if (mods["bobinserters"] or mods["quick-adjustable-inserters"]) and (settings.startup["bobmods-inserters-long2"].value == true) then
+table.insert(data.raw.technology["bob-long-inserters-2"].prerequisites,"nullius-loader-3")
 else
 table.insert(data.raw.technology["nullius-mineral-processing-2"].prerequisites,"nullius-loader-3")
 end
@@ -470,50 +481,51 @@ table.insert(data.raw.technology["nullius-inserter-capacity-5"].prerequisites,"n
 end
 
 
-if mods["bobinserters"] then
+if mods["bobinserters"] or mods["quick-adjustable-inserters"] then
 if (settings.startup["bobmods-inserters-long2"].value == true) then
-data.raw.technology["near-inserters"].prerequisites = {"long-inserters-1", "nullius-checkpoint-steel-ingot"}
-data.raw.technology["near-inserters"].order = "nullius-cf"
-data.raw.technology["near-inserters"].ignore_tech_cost_multiplier = true
-data.raw.technology["near-inserters"].unit = { count = 3,
+data.raw.technology["bob-near-inserters"].prerequisites = {"bob-long-inserters-1", "nullius-checkpoint-steel-ingot"}
+data.raw.technology["bob-near-inserters"].order = "nullius-cf"
+data.raw.technology["bob-near-inserters"].ignore_tech_cost_multiplier = true
+data.raw.technology["bob-near-inserters"].unit = { count = 3,
   ingredients = {{"nullius-mechanical-pack", 1}},
   time = 8
 }
-table.insert(data.raw.technology["nullius-toolmaking-2"].prerequisites,"near-inserters")
+table.insert(data.raw.technology["nullius-toolmaking-2"].prerequisites,"bob-near-inserters")
 else
-data.raw.technology["near-inserters"].prerequisites = {"nullius-maintenance"}
-data.raw.technology["near-inserters"].order = "nullius-dg"
-data.raw.technology["near-inserters"].unit = { count = 20,
+data.raw.technology["bob-near-inserters"].prerequisites = {"nullius-maintenance"}
+data.raw.technology["bob-near-inserters"].order = "nullius-dg"
+data.raw.technology["bob-near-inserters"].unit = { count = 20,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 25
 }
-table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"near-inserters")
+table.insert(data.raw.technology["nullius-aesthetics-1"].prerequisites,"bob-near-inserters")
 end
 
-data.raw.technology["more-inserters-1"].order = "nullius-df"
-data.raw.technology["more-inserters-1"].unit = { count = 70,
+data.raw.technology["bob-more-inserters-1"].order = "nullius-df"
+data.raw.technology["bob-more-inserters-1"].unit = { count = 70,
   ingredients = {{"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}},
   time = 30
 }
-data.raw.technology["more-inserters-1"].prerequisites = {
+data.raw.technology["bob-more-inserters-1"].prerequisites = {
   "nullius-metalworking-2", "nullius-locomotion-1"}
-table.insert(data.raw.technology["nullius-cybernetics-2"].prerequisites,"more-inserters-1")
+table.insert(data.raw.technology["nullius-cybernetics-2"].prerequisites,"bob-more-inserters-1")
 
 if settings.startup["bobmods-inserters-more2"].value == true then
-data.raw.technology["more-inserters-2"].order = "nullius-ek"
-data.raw.technology["more-inserters-2"].unit = { count = 300,
+data.raw.technology["bob-more-inserters-2"].order = "nullius-ek"
+data.raw.technology["bob-more-inserters-2"].unit = { count = 300,
   ingredients = {
     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
     {"nullius-chemical-pack", 1}
   },
   time = 35
 }
-data.raw.technology["more-inserters-2"].prerequisites = {"nullius-logistics-3"}
-table.insert(data.raw.technology["nullius-inserter-capacity-1"].prerequisites,"more-inserters-2")
+data.raw.technology["bob-more-inserters-2"].prerequisites = {"nullius-logistics-3"}
+table.insert(data.raw.technology["nullius-inserter-capacity-1"].prerequisites,"bob-more-inserters-2")
 end
 end
 
 if mods["train-pubsub"] then
+data.raw["item-subgroup"]["transport"].group = "logistics"
 data.raw.technology["train-manager"].order = "nullius-dl"
 data.raw.technology["train-manager"].unit = {
   count = 300,
@@ -605,145 +617,164 @@ if mods["underground-pipe-pack"] then
 data.raw.item["one-to-one-forward-t2-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-one-forward-t2-pipe"].order = "nullius-bb"
 data.raw.item["one-to-one-forward-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-two-way-junction"}, " ", 1}
+  {"", {"item-name.nullius-surface-two-way-junction"}, " ", tostring(1)}
 data.raw.item["one-to-one-forward-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-two-way-junction"},
-  {"item-description.nullius-pressure-2"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-two-way-junction-1"].localised_name = data.raw.item["one-to-one-forward-t2-pipe"].localised_name
+  
 data.raw.item["one-to-two-perpendicular-t2-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-t2-pipe"].order = "nullius-bc"
 data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-three-way-junction"}, " ", 1}
+  {"", {"item-name.nullius-surface-three-way-junction"}, " ", tostring(1)}
 data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-three-way-junction"},
-  {"item-description.nullius-pressure-2"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-three-way-junction-1"].localised_name = data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_name
+  
 data.raw.item["one-to-three-forward-t2-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-t2-pipe"].order = "nullius-bd"
 data.raw.item["one-to-three-forward-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-four-way-junction"}, " ", 1}
+  {"", {"item-name.nullius-surface-four-way-junction"}, " ", tostring(1)}
 data.raw.item["one-to-three-forward-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-four-way-junction"},
-  {"item-description.nullius-pressure-2"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-four-way-junction-1"].localised_name = data.raw.item["one-to-three-forward-t2-pipe"].localised_name
+  
 data.raw.item["underground-i-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-t2-pipe"].order = "nullius-bb"
 data.raw.item["underground-i-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-straight-junction"}, " ", 1}
+  {"", {"item-name.nullius-underground-straight-junction"}, " ", tostring(1)}
 data.raw.item["underground-i-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-straight-junction"},
-  {"item-description.nullius-pressure-2"}}
+  {"", {"item-description.nullius-underground-straight-junction"}}
+data.raw.recipe["nullius-underground-straight-junction-1"].localised_name = data.raw.item["underground-i-t2-pipe"].localised_name
+  
 data.raw.item["underground-L-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-t2-pipe"].order = "nullius-bc"
 data.raw.item["underground-L-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-elbow-junction"}, " ", 1}
+  {"", {"item-name.nullius-underground-elbow-junction"}, " ", tostring(1)}
 data.raw.item["underground-L-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-elbow-junction"},
-  {"item-description.nullius-pressure-2"}}
+  {"", {"item-description.nullius-underground-elbow-junction"}}
+data.raw.recipe["nullius-underground-elbow-junction-1"].localised_name = data.raw.item["underground-L-t2-pipe"].localised_name
+  
 data.raw.item["underground-t-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-t2-pipe"].order = "nullius-bd"
 data.raw.item["underground-t-t2-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-three-way-junction"}, " ", 1}
+  {"", {"item-name.nullius-underground-three-way-junction"}, " ", tostring(1)}
 data.raw.item["underground-t-t2-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-three-way-junction"},
-  {"item-description.nullius-pressure-2"}}
+  {"", {"item-description.nullius-underground-three-way-junction"}}
+data.raw.recipe["nullius-underground-three-way-junction-1"].localised_name = data.raw.item["underground-t-t2-pipe"].localised_name
 
 data.raw.item["one-to-one-forward-t3-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-one-forward-t3-pipe"].order = "nullius-cb"
 data.raw.item["one-to-one-forward-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-two-way-junction"}, " ", 2}
+  {"", {"item-name.nullius-surface-two-way-junction"}, " ", tostring(2)}
 data.raw.item["one-to-one-forward-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-two-way-junction"},
-  {"item-description.nullius-pressure-3"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-two-way-junction-2"].localised_name = data.raw.item["one-to-one-forward-t3-pipe"].localised_name
+  
 data.raw.item["one-to-two-perpendicular-t3-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-t3-pipe"].order = "nullius-cc"
 data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-three-way-junction"}, " ", 2}
+  {"", {"item-name.nullius-surface-three-way-junction"}, " ", tostring(2)}
 data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-three-way-junction"},
-  {"item-description.nullius-pressure-3"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-three-way-junction-2"].localised_name = data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_name
+  
 data.raw.item["one-to-three-forward-t3-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-t3-pipe"].order = "nullius-cd"
 data.raw.item["one-to-three-forward-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-four-way-junction"}, " ", 2}
+  {"", {"item-name.nullius-surface-four-way-junction"}, " ", tostring(2)}
 data.raw.item["one-to-three-forward-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-four-way-junction"},
-  {"item-description.nullius-pressure-3"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-four-way-junction-2"].localised_name = data.raw.item["one-to-three-forward-t3-pipe"].localised_name
+  
 data.raw.item["underground-i-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-t3-pipe"].order = "nullius-cb"
 data.raw.item["underground-i-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-straight-junction"}, " ", 2}
+  {"", {"item-name.nullius-underground-straight-junction"}, " ", tostring(2)}
 data.raw.item["underground-i-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-straight-junction"},
-  {"item-description.nullius-pressure-3"}}
+  {"", {"item-description.nullius-underground-straight-junction"}}
+data.raw.recipe["nullius-underground-straight-junction-2"].localised_name = data.raw.item["underground-i-t3-pipe"].localised_name
+  
 data.raw.item["underground-L-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-t3-pipe"].order = "nullius-cc"
 data.raw.item["underground-L-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-elbow-junction"}, " ", 2}
+  {"", {"item-name.nullius-underground-elbow-junction"}, " ", tostring(2)}
 data.raw.item["underground-L-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-elbow-junction"},
-  {"item-description.nullius-pressure-3"}}
+  {"", {"item-description.nullius-underground-elbow-junction"}}
+data.raw.recipe["nullius-underground-elbow-junction-2"].localised_name = data.raw.item["underground-L-t3-pipe"].localised_name
+  
 data.raw.item["underground-t-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-t3-pipe"].order = "nullius-cd"
 data.raw.item["underground-t-t3-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-three-way-junction"}, " ", 2}
+  {"", {"item-name.nullius-underground-three-way-junction"}, " ", tostring(2)}
 data.raw.item["underground-t-t3-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-three-way-junction"},
-  {"item-description.nullius-pressure-3"}}
+  {"", {"item-description.nullius-underground-three-way-junction"}}
+data.raw.recipe["nullius-underground-three-way-junction-2"].localised_name = data.raw.item["underground-t-t3-pipe"].localised_name
+  
 
 data.raw.item["one-to-one-forward-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-one-forward-pipe"].order = "nullius-db"
 data.raw.item["one-to-one-forward-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-two-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-surface-two-way-junction"}, " ", tostring(3)}
 data.raw.item["one-to-one-forward-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-two-way-junction"},
-  {"item-description.nullius-pressure-4"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-two-way-junction-3"].localised_name = data.raw.item["one-to-one-forward-pipe"].localised_name
+  
 data.raw.item["one-to-two-perpendicular-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-pipe"].order = "nullius-dc"
 data.raw.item["one-to-two-perpendicular-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-three-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-surface-three-way-junction"}, " ", tostring(3)}
 data.raw.item["one-to-two-perpendicular-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-three-way-junction"},
-  {"item-description.nullius-pressure-4"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-three-way-junction-3"].localised_name = data.raw.item["one-to-two-perpendicular-pipe"].localised_name
+  
 data.raw.item["one-to-three-forward-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-pipe"].order = "nullius-dd"
 data.raw.item["one-to-three-forward-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-four-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-surface-four-way-junction"}, " ", tostring(3)}
 data.raw.item["one-to-three-forward-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-four-way-junction"},
-  {"item-description.nullius-pressure-4"}, {"item-description.nullius-underground-ctrl-r"}}
+  {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
+data.raw.recipe["nullius-surface-four-way-junction-3"].localised_name = data.raw.item["one-to-three-forward-pipe"].localised_name
+  
 data.raw.item["one-to-four-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-four-pipe"].order = "nullius-de"
 data.raw.item["one-to-four-pipe"].localised_name =
-  {"", {"item-name.nullius-surface-five-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-surface-five-way-junction"}, " ", tostring(3)}
 data.raw.item["one-to-four-pipe"].localised_description =
-  {"", {"item-description.nullius-surface-five-way-junction"},
-  {"item-description.nullius-pressure-4"}}
+  {"", {"item-description.nullius-surface-five-way-junction"}}
+data.raw.recipe["nullius-surface-five-way-junction-3"].localised_name = data.raw.item["one-to-four-pipe"].localised_name
+  
 data.raw.item["underground-i-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-pipe"].order = "nullius-db"
 data.raw.item["underground-i-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-straight-junction"}, " ", 3}
+  {"", {"item-name.nullius-underground-straight-junction"}, " ", tostring(3)}
 data.raw.item["underground-i-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-straight-junction"},
-  {"item-description.nullius-pressure-4"}}
+  {"", {"item-description.nullius-underground-straight-junction"}}
+data.raw.recipe["nullius-underground-straight-junction-3"].localised_name = data.raw.item["underground-i-pipe"].localised_name
+  
 data.raw.item["underground-L-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-pipe"].order = "nullius-dc"
 data.raw.item["underground-L-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-elbow-junction"}, " ", 3}
+  {"", {"item-name.nullius-underground-elbow-junction"}, " ", tostring(3)}
 data.raw.item["underground-L-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-elbow-junction"},
-  {"item-description.nullius-pressure-4"}}
+  {"", {"item-description.nullius-underground-elbow-junction"}}
+data.raw.recipe["nullius-underground-elbow-junction-3"].localised_name = data.raw.item["underground-L-pipe"].localised_name
+  
 data.raw.item["underground-t-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-pipe"].order = "nullius-dd"
 data.raw.item["underground-t-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-three-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-underground-three-way-junction"}, " ", tostring(3)}
 data.raw.item["underground-t-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-three-way-junction"},
-  {"item-description.nullius-pressure-4"}}
+  {"", {"item-description.nullius-underground-three-way-junction"}}
+data.raw.recipe["nullius-underground-three-way-junction-3"].localised_name = data.raw.item["underground-t-pipe"].localised_name
+  
 data.raw.item["underground-cross-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-cross-pipe"].order = "nullius-de"
 data.raw.item["underground-cross-pipe"].localised_name =
-  {"", {"item-name.nullius-underground-four-way-junction"}, " ", 3}
+  {"", {"item-name.nullius-underground-four-way-junction"}, " ", tostring(3)}
 data.raw.item["underground-cross-pipe"].localised_description =
-  {"", {"item-description.nullius-underground-four-way-junction"},
-  {"item-description.nullius-pressure-4"}}
+  {"", {"item-description.nullius-underground-four-way-junction"}}
+data.raw.recipe["nullius-underground-four-way-junction-3"].localised_name = data.raw.item["underground-cross-pipe"].localised_name
+  
 
 data.raw.item["80-overflow-valve"].subgroup = "valves"
 data.raw.item["80-overflow-valve"].order = "nullius-dmb"
@@ -766,7 +797,7 @@ data.raw.item["underground-mini-pump"].localised_description =
   {"item-description.nullius-underground-pump"}
 
 data.raw.technology["advanced-underground-piping"].localised_name = {"",
-  {"technology-name.advanced-underground-piping"}, " ", 1}
+  {"technology-name.advanced-underground-piping"}, " ", tostring(1)}
 data.raw.technology["advanced-underground-piping"].icon =
   "__underground-pipe-pack__/graphics/technology/advanced-underground-piping-t2.png"
 data.raw.technology["advanced-underground-piping"].prerequisites = {"nullius-checkpoint-freshwater"}
@@ -815,7 +846,7 @@ data.raw.technology["advanced-underground-piping"].effects = {
 }
 
 data.raw.technology["advanced-underground-piping-t2"].localised_name = {"",
-  {"technology-name.advanced-underground-piping"}, " ", 2}
+  {"technology-name.advanced-underground-piping"}, " ", tostring(2)}
 data.raw.technology["advanced-underground-piping-t2"].localised_description =
   {"technology-description.advanced-underground-piping"}
 data.raw.technology["advanced-underground-piping-t2"].icon =
@@ -858,7 +889,7 @@ data.raw.technology["advanced-underground-piping-t2"].effects = {
 }
 
 data.raw.technology["advanced-underground-piping-t3"].localised_name = {"",
-  {"technology-name.advanced-underground-piping"}, " ", 3}
+  {"technology-name.advanced-underground-piping"}, " ", tostring(3)}
 data.raw.technology["advanced-underground-piping-t3"].localised_description =
   {"technology-description.advanced-underground-piping"}
 data.raw.technology["advanced-underground-piping-t3"].icon =
@@ -916,7 +947,7 @@ data.raw.pump["underground-mini-pump"].localised_name =
   {"item-name.nullius-underground-pump"}
 data.raw.pump["underground-mini-pump"].localised_description =
   {"item-description.nullius-underground-pump"}
-data.raw.pump["underground-mini-pump"].fluid_box.height = 8
+data.raw.pump["underground-mini-pump"].fluid_box.volume = 500
 data.raw.pump["underground-mini-pump"].fluid_box.pipe_connections[1].max_underground_distance=24
 data.raw.pump["underground-mini-pump"].fluid_box.pipe_connections[2].max_underground_distance=24
 data.raw.pump["underground-mini-pump"].energy_usage = '20kW'
@@ -941,24 +972,22 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
     else
       for _,pic in pairs(junction.pictures) do
         pic.tint = tint
-        pic.hr_version.tint = tint
       end
       for _,cover in pairs(junction.fluid_box.pipe_covers) do
         cover.layers[1].tint = tint
-        cover.layers[1].hr_version.tint = tint
       end
 
-	  local subdir = string.sub(junction.pictures.up.filename, 1, 50)
-      junction.pictures.up = { layers = {
+	  local subdir = string.sub(junction.pictures.north.filename, 1, 50)
+      junction.pictures.north = { layers = {
 	    {
           filename = subdir .. "pipe-covers/hr-pipe-cover-north.png",
           priority = "extra-high",
           width = 128, height = 128,
-		  shift = {0, -1},
-		  tint = tint,
+		      shift = {0, -1},
+		      tint = tint,
           scale = 0.5
-		},
-		junction.pictures.up.hr_version
+		  },
+		  junction.pictures.north
       }}
     end
 
@@ -966,14 +995,14 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
     if (lvl < 4) then
       basename = string.sub(junction.name, 1, -8).."pipe"
     end
-    junction.localised_name = {"", {"entity-name."..basename}, " ", (lvl - 1)}
+    junction.localised_name = {"", {"entity-name."..basename}, " ", tostring(lvl - 1)}
     junction.localised_description =
       data.raw.item[junction.minable.result].localised_description
 
     local archetype = data.raw["pipe-to-ground"]["nullius-underground-pipe-"..lvl]
-    junction.fluid_box.height = archetype.fluid_box.height
-    junction.fluid_box.base_area = archetype.fluid_box.base_area
-	junction.minable.mining_time = (lvl * 0.5)
+    junction.fluid_box.volume = archetype.fluid_box.volume
+	  junction.minable.mining_time = (lvl * 0.5)
+	  junction.hidden_in_factoriopedia = true
 
     for _,connection in pairs(junction.fluid_box.pipe_connections) do
       if ((connection.max_underground_distance ~= nil) and
@@ -985,55 +1014,24 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
 end
 
 local northpipe = {
-    filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
+    filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
     width = 128,
     height = 128,
     scale = 0.5,
-	shift = {0, -1}
+	  shift = {0, -1}
 }
 
 for i=1,9 do
-  local topup = data.raw["storage-tank"][i.."0-top-up-valve"]
-  local relief = data.raw["storage-tank"][i.."0-overflow-valve"]
-  topup.localised_name = {"", (i*10), "% ", {"entity-name.nullius-top-up-valve"}}
-  relief.localised_name = {"", (i*10), "% ", {"entity-name.nullius-relief-valve"}}
+  local topup = data.raw["valve"][i.."0-top-up-valve"]
+  local relief = data.raw["valve"][i.."0-overflow-valve"]
+  topup.localised_name = {"", tostring(i*10), "% ", {"entity-name.nullius-top-up-valve"}}
+  relief.localised_name = {"", tostring(i*10), "% ", {"entity-name.nullius-relief-valve"}}
   topup.localised_description = {"item-description.nullius-adjustable-top-up-valve"}
   relief.localised_description = {"item-description.nullius-adjustable-relief-valve"}
-  local theight = (i * 0.5)
-  topup.fluid_box.height = theight
-  topup.fluid_box.base_level = 0
-  topup.fluid_box.base_area = 5 / theight
-  local rheight = 6 - theight
-  relief.fluid_box.height = rheight
-  relief.fluid_box.base_level = theight
-  relief.fluid_box.base_area = 5 / rheight
+  topup.hidden_in_factoriopedia = true
+  relief.hidden_in_factoriopedia = true
   topup.minable.mining_time = 0.8
   relief.minable.mining_time = 0.8
-
-  topup.pictures.picture.north.layers = {
-    northpipe,
-    topup.pictures.picture.north.layers[1],
-	topup.pictures.picture.north.layers[2],
-	topup.pictures.picture.north.layers[3]
-  }
-  topup.pictures.picture.south.layers = {
-    northpipe,
-    topup.pictures.picture.south.layers[1],
-	topup.pictures.picture.south.layers[2],
-	topup.pictures.picture.south.layers[3]
-  }
-  relief.pictures.picture.north.layers = {
-    northpipe,
-    relief.pictures.picture.north.layers[1],
-	relief.pictures.picture.north.layers[2],
-	relief.pictures.picture.north.layers[3]
-  }
-  relief.pictures.picture.south.layers = {
-    northpipe,
-    relief.pictures.picture.south.layers[1],
-	relief.pictures.picture.south.layers[2],
-	relief.pictures.picture.south.layers[3]
-  }
 end
 end
 
@@ -1087,10 +1085,10 @@ data.raw.recipe["induction-coil"].energy_required = 5
 data.raw.recipe["induction-coil"].categories = nil
 data.raw.recipe["induction-coil"].category = "small-crafting"
 data.raw.recipe["induction-coil"].ingredients = {
-  {"nullius-capacitor", 5},
-  {"decider-combinator", 3},
-  {"copper-cable", 12},
-  {"nullius-aluminum-rod", 8}
+  {type = "item", name = "nullius-capacitor", amount = 5},
+  {type = "item", name = "decider-combinator", amount = 3},
+  {type = "item", name = "copper-cable", amount = 12},
+  {type = "item", name = "nullius-aluminum-rod", amount = 8}
 }
 
 data.raw.technology["induction-technology1"].order = "nullius-cm"
@@ -1307,11 +1305,11 @@ data.raw.recipe["road"].show_amount_in_title = false
 data.raw.recipe["road"].always_show_products = true
 data.raw.recipe["road"].category = "hand-casting"
 data.raw.recipe["road"].energy_required = 3
-data.raw.recipe["road"].result_count = 4
+data.raw.recipe["road"].results[1].amount = 4
 data.raw.recipe["road"].ingredients = {
-  {"nullius-rubber", 1},
-  {"nullius-land-fill-sand", 1},
-  {"nullius-gravel", 3}
+  {type = "item", name = "nullius-rubber", amount = 1},
+  {type = "item", name = "nullius-land-fill-sand", amount = 1},
+  {type = "item", name = "nullius-gravel", amount = 3}
 }
 data.raw.item["transport-drone"].order = "nullius-c"
 data.raw.item["transport-drone"].stack_size = 20
@@ -1321,12 +1319,12 @@ data.raw.recipe["transport-drone"].show_amount_in_title = false
 data.raw.recipe["transport-drone"].always_show_products = true
 data.raw.recipe["transport-drone"].category = "medium-crafting"
 data.raw.recipe["transport-drone"].energy_required = 10
-data.raw.recipe["transport-drone"].result_count = 3
+data.raw.recipe["transport-drone"].results[1].amount = 3
 data.raw.recipe["transport-drone"].ingredients = {
-  {"nullius-car-1", 1},
-  {"arithmetic-combinator", 5},
-  {"programmable-speaker", 2},
-  {"turbo-filter-inserter", 3}
+  {type = "item", name = "nullius-car-1", amount = 1},
+  {type = "item", name = "arithmetic-combinator", amount = 5},
+  {type = "item", name = "programmable-speaker", amount = 2},
+  {type = "item", name = "turbo-filter-inserter", amount = 3}
 }
 
 data.raw.item["supply-depot"].order = "nullius-d"
@@ -1336,10 +1334,10 @@ data.raw.recipe["supply-depot"].always_show_made_in = true
 data.raw.recipe["supply-depot"].category = "large-crafting"
 data.raw.recipe["supply-depot"].energy_required = 12
 data.raw.recipe["supply-depot"].ingredients = {
-  {"nullius-large-chest-1", 1},
-  {"nullius-steel-beam", 4},
-  {"nullius-glass", 2},
-  {"train-stop", 1}
+  {type = "item", name = "nullius-large-chest-1", amount = 1},
+  {type = "item", name = "nullius-steel-beam", amount = 4},
+  {type = "item", name = "nullius-glass", amount = 2},
+  {type = "item", name = "train-stop", amount = 1}
 }
 data.raw.item["request-depot"].order = "nullius-e"
 data.raw.item["request-depot"].stack_size = 20
@@ -1348,8 +1346,8 @@ data.raw.recipe["request-depot"].always_show_made_in = true
 data.raw.recipe["request-depot"].category = "large-crafting"
 data.raw.recipe["request-depot"].energy_required = 6
 data.raw.recipe["request-depot"].ingredients = {
-  {"fluid-depot", 1},
-  {"nullius-hangar-1", 1}
+  {type = "item", name = "fluid-depot", amount = 1},
+  {type = "item", name = "nullius-hangar-1", amount = 1}
 }
 data.raw.item["buffer-depot"].order = "nullius-f"
 data.raw.item["buffer-depot"].stack_size = 20
@@ -1359,8 +1357,8 @@ data.raw.recipe["buffer-depot"].no_productivity = true
 data.raw.recipe["buffer-depot"].category = "large-crafting"
 data.raw.recipe["buffer-depot"].energy_required = 4
 data.raw.recipe["buffer-depot"].ingredients = {
-  {"request-depot", 1},
-  {"train-stop", 1}
+  {type = "item", name = "request-depot", amount = 1},
+  {type = "item", name = "train-stop", amount = 1}
 }
 data.raw.item["fluid-depot"].order = "nullius-g"
 data.raw.item["fluid-depot"].stack_size = 20
@@ -1369,9 +1367,9 @@ data.raw.recipe["fluid-depot"].always_show_made_in = true
 data.raw.recipe["fluid-depot"].category = "large-crafting"
 data.raw.recipe["fluid-depot"].energy_required = 4
 data.raw.recipe["fluid-depot"].ingredients = {
-  {"supply-depot", 1},
-  {"nullius-medium-tank-2", 1},
-  {"nullius-barrel-pump-1", 1}
+  {type = "item", name = "supply-depot", amount = 1},
+  {type = "item", name = "nullius-medium-tank-2", amount = 1},
+  {type = "item", name = "nullius-barrel-pump-1", amount = 1}
 }
 data.raw.item["fuel-depot"].order = "nullius-h"
 data.raw.item["fuel-depot"].stack_size = 20
@@ -1380,8 +1378,8 @@ data.raw.recipe["fuel-depot"].always_show_made_in = true
 data.raw.recipe["fuel-depot"].category = "large-crafting"
 data.raw.recipe["fuel-depot"].energy_required = 4
 data.raw.recipe["fuel-depot"].ingredients = {
-  {"buffer-depot", 1},
-  {"nullius-pump-2", 2}
+  {type = "item", name = "buffer-depot", amount = 1},
+  {type = "item", name = "nullius-pump-2", amount = 2}
 }
 
 data.raw.item["road-network-reader"].order = "nullius-i"
@@ -1391,9 +1389,9 @@ data.raw.recipe["road-network-reader"].always_show_made_in = true
 data.raw.recipe["road-network-reader"].category = "small-crafting"
 data.raw.recipe["road-network-reader"].energy_required = 5
 data.raw.recipe["road-network-reader"].ingredients = {
-  {"rail-chain-signal", 1},
-  {"nullius-sensor-1", 1},
-  {"programmable-speaker", 1}
+  {type = "item", name = "rail-chain-signal", amount = 1},
+  {type = "item", name = "nullius-sensor-1", amount = 1},
+  {type = "item", name = "programmable-speaker", amount = 1}
 }
 data.raw.item["transport-depot-reader"].order = "nullius-j"
 data.raw.item["transport-depot-reader"].stack_size = 50
@@ -1402,8 +1400,8 @@ data.raw.recipe["transport-depot-reader"].always_show_made_in = true
 data.raw.recipe["transport-depot-reader"].category = "small-crafting"
 data.raw.recipe["transport-depot-reader"].energy_required = 2
 data.raw.recipe["transport-depot-reader"].ingredients = {
-  {"road-network-reader", 1},
-  {"red-wire", 2}
+  {type = "item", name = "road-network-reader", amount = 1},
+  {type = "item", name = "nullius-red-wire", amount = 2}
 }
 data.raw.item["transport-depot-writer"].order = "nullius-k"
 data.raw.item["transport-depot-writer"].stack_size = 50
@@ -1412,8 +1410,8 @@ data.raw.recipe["transport-depot-writer"].always_show_made_in = true
 data.raw.recipe["transport-depot-writer"].category = "small-crafting"
 data.raw.recipe["transport-depot-writer"].energy_required = 3
 data.raw.recipe["transport-depot-writer"].ingredients = {
-  {"road-network-reader", 1},
-  {"green-wire", 3}
+  {type = "item", name = "road-network-reader", amount = 1},
+  {type = "item", name = "nullius-green-wire", amount = 3}
 }
 
 data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 6
@@ -1442,11 +1440,11 @@ data.raw.recipe["fast-road"].show_amount_in_title = false
 data.raw.recipe["fast-road"].always_show_products = true
 data.raw.recipe["fast-road"].category = "large-crafting"
 data.raw.recipe["fast-road"].energy_required = 30
-data.raw.recipe["fast-road"].result_count = 8
+data.raw.recipe["fast-road"].results[1].amount = 8
 data.raw.recipe["fast-road"].ingredients = {
-  {"road", 50},
-  {"nullius-box-black-concrete", 6},
-  {"road-network-reader", 1}
+  {type = "item", name = "road", amount = 50},
+  {type = "item", name = "nullius-box-black-concrete", amount = 6},
+  {type = "item", name = "road-network-reader", amount = 1}
 }
 end
 
@@ -1477,10 +1475,10 @@ for _, recipe in pairs(data.raw.recipe) do
       local order = "nullius-"..newmaterial.order
       local sz = string.sub(recipe.name, 11, 15)
       if (sz == "large") then
-        recipe.ingredients = {{"textplate-small-"..material, 4}}
+        recipe.ingredients = {{type = "item", name = "textplate-small-"..material, amount = 4}}
         order = order.."c"
       else
-        recipe.ingredients = {{newmaterial.material, 1}}
+        recipe.ingredients = {{type = "item", name = newmaterial.material, amount = 1}}
         order = order.."b"
       end
 
@@ -1544,28 +1542,28 @@ end
 
 if mods["railway-motor-car"] then
   data.raw["battery-equipment"]["railway-motor-car-base"].localised_name =
-      {"", {"equipment-name.railway-motor-car-base"}, " ", 1}
+      {"", {"equipment-name.railway-motor-car-base"}, " ", tostring(1)}
   data.raw["item"]["railway-motor-car-base"].localised_name =
-      {"", {"equipment-name.railway-motor-car-base"}, " ", 1}
+      {"", {"equipment-name.railway-motor-car-base"}, " ", tostring(1)}
   data.raw["item"]["railway-motor-car-base"].subgroup = "jetpack"
   data.raw["item"]["railway-motor-car-base"].order = "nullius-mb"
   data.raw["battery-equipment"]["railway-motor-car-base"].categories = {"cybernetic"}
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_name =
-      {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
+      {"", {"equipment-name.railway-motor-car-base"}, " ", tostring(2)}
   data.raw["item"]["railway-motor-car-nuclear"].localised_name =
-      {"", {"equipment-name.railway-motor-car-base"}, " ", 2}
+      {"", {"equipment-name.railway-motor-car-base"}, " ", tostring(2)}
   data.raw["item"]["railway-motor-car-nuclear"].subgroup = "jetpack"
   data.raw["item"]["railway-motor-car-nuclear"].order = "nullius-mc"
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].localised_description =
       {"item-description.railway-motor-car-base"}
   data.raw["battery-equipment"]["railway-motor-car-nuclear"].categories = {"cybernetic"}
   data.raw["locomotive"]["railway-motor-car-base"].localised_name =
-      {"", {"entity-name.railway-motor-car-base"}, " ", 1}
+      {"", {"entity-name.railway-motor-car-base"}, " ", tostring(1)}
   data.raw["locomotive"]["railway-motor-car-base"].weight = 250
   data.raw["locomotive"]["railway-motor-car-base"].max_power = "600kW"
   data.raw["locomotive"]["railway-motor-car-base"].max_speed = 1.11111111
   data.raw["locomotive"]["railway-motor-car-nuclear"].localised_name =
-      {"", {"entity-name.railway-motor-car-base"}, " ", 2}
+      {"", {"entity-name.railway-motor-car-base"}, " ", tostring(2)}
   data.raw["locomotive"]["railway-motor-car-nuclear"].weight = 325
   data.raw["locomotive"]["railway-motor-car-nuclear"].max_power = "1.2MW"
   data.raw["locomotive"]["railway-motor-car-nuclear"].max_speed = 2.5
@@ -1614,10 +1612,12 @@ if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
       category = "small-crafting",
       energy_required = 3,
       ingredients = {
-        {"programmable-speaker", 1},
-        {"arithmetic-combinator", 1}
+        {type = "item", name = "programmable-speaker", amount = 1},
+        {type = "item", name = "arithmetic-combinator", amount = 1}
       },
-      result = "car-key"
+      results = {
+			{type = "item", name = "car-key", amount = 1}
+		}
     }
   })
   data.raw.item["car-key"].subgroup = "vehicle"
@@ -1628,20 +1628,24 @@ end
 
 
 if mods["UPSFriendlyNixieTubeDisplay"] then
-  data.raw.item["SNTD-old-nixie-tube"].order = "nullius-sh"
-  data.raw.item["SNTD-nixie-tube"].order = "nullius-sh"
-  data.raw.item["SNTD-nixie-tube-small"].order = "nullius-sh"
+  data.raw.item["classic-nixie-tube"].order = "nullius-sh"
+  data.raw.item["reinforced-nixie-tube"].order = "nullius-sh"
+  data.raw.item["small-reinforced-nixie-tube"].order = "nullius-sh"
 
-  data.raw.item["SNTD-old-nixie-tube"].stack_size = 50
-  data.raw.item["SNTD-nixie-tube"].stack_size = 50
-  data.raw.item["SNTD-nixie-tube-small"].stack_size = 50
+  data.raw.item["classic-nixie-tube"].stack_size = 50
+  data.raw.item["reinforced-nixie-tube"].stack_size = 50
+  data.raw.item["small-reinforced-nixie-tube"].stack_size = 50
+  
+  data.raw["arithmetic-combinator"]["classic-nixie-tube-sprite"].hidden_in_factoriopedia = true
+  data.raw["arithmetic-combinator"]["reinforced-nixie-tube-sprite"].hidden_in_factoriopedia = true
+  data.raw["arithmetic-combinator"]["small-reinforced-nixie-tube-sprite"].hidden_in_factoriopedia = true
 
-  table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-SNTD-nixie-tubes-reinforced")
-if mods["DisplayPlates"] then
-  data.raw.item["SNTD-old-nixie-tube"].subgroup = "display-plates"
-  data.raw.item["SNTD-nixie-tube-small"].subgroup = "display-plates"
-  data.raw.item["SNTD-nixie-tube"].subgroup = "display-plates"
-end
+  table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-reinforced-nixie-tubes-reinforced")
+  if mods["DisplayPlates"] then
+    data.raw.item["classic-nixie-tube"].subgroup = "display-plates"
+    data.raw.item["small-reinforced-nixie-tube"].subgroup = "display-plates"
+    data.raw.item["reinforced-nixie-tube"].subgroup = "display-plates"
+  end
 end
 
 
@@ -1669,26 +1673,28 @@ end
 
 
 if mods["FluidMustFlow"] then
+  if not settings.startup["fmf-enable-duct-auto-join"].value then
+    data.raw.item["duct"].subgroup = "nullius-ducts"
+    data.raw.item["duct"].order = "nullius-c"
+    data.raw.item["duct-long"].subgroup = "nullius-ducts"
+    data.raw.item["duct-long"].order = "nullius-d"
+  end
   data.raw.item["duct-small"].subgroup = "nullius-ducts"
-  data.raw.item["duct"].subgroup = "nullius-ducts"
-  data.raw.item["duct-long"].subgroup = "nullius-ducts"
   data.raw.item["duct-underground"].subgroup = "nullius-ducts"
   data.raw.item["duct-curve"].subgroup = "nullius-ducts"
   data.raw.item["duct-t-junction"].subgroup = "nullius-ducts"
   data.raw.item["duct-cross"].subgroup = "nullius-ducts"
-  data.raw.item["duct-end-point-outtake"].subgroup = "nullius-ducts"
-  data.raw.item["duct-end-point-intake"].subgroup = "nullius-ducts"
+  data.raw.item["duct-exhaust"].subgroup = "nullius-ducts"
+  data.raw.item["duct-intake"].subgroup = "nullius-ducts"
   data.raw.item["non-return-duct"].subgroup = "nullius-ducts"
 
   data.raw.item["duct-small"].order = "nullius-b"
-  data.raw.item["duct"].order = "nullius-c"
-  data.raw.item["duct-long"].order = "nullius-d"
   data.raw.item["duct-underground"].order = "nullius-e"
   data.raw.item["duct-curve"].order = "nullius-f"
   data.raw.item["duct-t-junction"].order = "nullius-g"
   data.raw.item["duct-cross"].order = "nullius-h"
-  data.raw.item["duct-end-point-outtake"].order = "nullius-i"
-  data.raw.item["duct-end-point-intake"].order = "nullius-j"
+  data.raw.item["duct-exhaust"].order = "nullius-i"
+  data.raw.item["duct-intake"].order = "nullius-j"
   data.raw.item["non-return-duct"].order = "nullius-k"
 
   data.raw["storage-tank"]["duct-small"].minable.mining_time = 0.8
@@ -1699,11 +1705,9 @@ if mods["FluidMustFlow"] then
   data.raw["storage-tank"]["duct-cross"].minable.mining_time = 2.5
   data.raw["pipe-to-ground"]["duct-underground"].minable.mining_time = 2.5
   data.raw["pump"]["non-return-duct"].minable.mining_time = 2
-  data.raw["pump"]["duct-end-point-intake"].minable.mining_time = 3
-  data.raw["pump"]["duct-end-point-outtake"].minable.mining_time = 3
+  data.raw["pump"]["duct-intake"].minable.mining_time = 3
+  data.raw["pump"]["duct-exhaust"].minable.mining_time = 3
 
-  local duct_box = data.raw["pipe-to-ground"]["duct-underground"].fluid_box
-  duct_box.pipe_connections[2].max_underground_distance = duct_box.pipe_connections[2].max_underground_distance - 2
   table.insert(data.raw.technology["nullius-barreling-3"].prerequisites,"nullius-ducts")
 end
 
@@ -1745,36 +1749,36 @@ if settings.startup["RTThrowersSetting"].value then
   table.insert(data.raw.technology["nullius-locomotion-3"].prerequisites,
     "nullius-logistic-ballistics-8")
 
-  if (mods["bobinserters"] and
+  if ((mods["bobinserters"] or mods["quick-adjustable-inserters"]) and
       (settings.startup["bobmods-inserters-more2"].value == true)) then
-    table.insert(data.raw.technology["more-inserters-2"].prerequisites,
-	    "nullius-logistic-ballistics-7")
+     table.insert(data.raw.technology["bob-more-inserters-2"].prerequisites,
+	     "nullius-logistic-ballistics-7")
   else
     table.insert(data.raw.technology["nullius-inserter-capacity-1"].prerequisites,
 	    "nullius-logistic-ballistics-7")
   end
 
-  data.raw.item["PlayerLauncherItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["PlayerLauncherItem"].order = "nullius-b"
-  data.raw.item["HatchRTItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["HatchRTItem"].order = "nullius-cb"
-  data.raw.item["HatchRTItem"].stack_size = 100
-  data.raw.item["RTThrower-EjectorHatchRTItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["RTThrower-EjectorHatchRTItem"].order = "nullius-cc"
+  data.raw.item["PlayerLauncher"].subgroup = "nullius-renai-bounce"
+  data.raw.item["PlayerLauncher"].order = "nullius-b"
+  data.raw.item["HatchRT"].subgroup = "nullius-renai-bounce"
+  data.raw.item["HatchRT"].order = "nullius-cb"
+  data.raw.item["HatchRT"].stack_size = 100
+  data.raw.item["RTThrower-EjectorHatchRT"].subgroup = "nullius-renai-bounce"
+  data.raw.item["RTThrower-EjectorHatchRT"].order = "nullius-cc"
   data.raw.inserter["RTThrower-EjectorHatchRT"].order = "nullius-ucc"
-  data.raw.item["RTThrower-EjectorHatchRTItem"].stack_size = 100
-  data.raw.item["OpenContainerItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["OpenContainerItem"].order = "nullius-db"
-  data.raw.item["OpenContainerItem"].stack_size = 100
+  data.raw.item["RTThrower-EjectorHatchRT"].stack_size = 100
+  data.raw.item["OpenContainer"].subgroup = "nullius-renai-bounce"
+  data.raw.item["OpenContainer"].order = "nullius-db"
+  data.raw.item["OpenContainer"].stack_size = 100
   data.raw["container"]["OpenContainer"].inventory_size = 10
-  data.raw.item["BouncePlateItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["BouncePlateItem"].order = "nullius-eb"
-  data.raw.item["DirectedBouncePlateItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["DirectedBouncePlateItem"].order = "nullius-ec"
-  data.raw.item["SignalBouncePlateItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["SignalBouncePlateItem"].order = "nullius-ed"
-  data.raw.item["DirectorBouncePlateItem"].subgroup = "nullius-renai-bounce"
-  data.raw.item["DirectorBouncePlateItem"].order = "nullius-ee"
+  data.raw.item["RTBouncePlate"].subgroup = "nullius-renai-bounce"
+  data.raw.item["RTBouncePlate"].order = "nullius-eb"
+  data.raw.item["DirectedBouncePlate"].subgroup = "nullius-renai-bounce"
+  data.raw.item["DirectedBouncePlate"].order = "nullius-ec"
+  -- data.raw.item["SignalBouncePlate"].subgroup = "nullius-renai-bounce" -- removed by renai transportation
+  -- data.raw.item["SignalBouncePlate"].order = "nullius-ed"
+  data.raw.item["DirectorBouncePlate"].subgroup = "nullius-renai-bounce"
+  data.raw.item["DirectorBouncePlate"].order = "nullius-ee"
 end
 
 if settings.startup["RTZiplineSetting"].value then
@@ -1787,24 +1791,24 @@ if settings.startup["RTZiplineSetting"].value then
   data.raw.technology["nullius-robot-speed-5"].prerequisites =
       {"nullius-copper-production", "nullius-ziplining-5"}
 
-  data.raw.item["RTZiplineTerminalItem"].subgroup = "nullius-renai-zipline"
-  data.raw.item["RTZiplineTerminalItem"].order = "nullius-bb"
-  data.raw.gun["RTZiplineItem"].subgroup = "nullius-renai-zipline"
-  data.raw.gun["RTZiplineItem"].order = "nullius-cb"
-  data.raw.gun["RTZiplineItem2"].subgroup = "nullius-renai-zipline"
-  data.raw.gun["RTZiplineItem2"].order = "nullius-cc"
-  data.raw.gun["RTZiplineItem3"].subgroup = "nullius-renai-zipline"
-  data.raw.gun["RTZiplineItem3"].order = "nullius-cd"
-  data.raw.gun["RTZiplineItem4"].subgroup = "nullius-renai-zipline"
-  data.raw.gun["RTZiplineItem4"].order = "nullius-ce"
-  data.raw.gun["RTZiplineItem5"].subgroup = "nullius-renai-zipline"
-  data.raw.gun["RTZiplineItem5"].order = "nullius-cf"
-  data.raw.ammo["RTZiplineControlsItem"].subgroup = "nullius-renai-zipline"
-  data.raw.ammo["RTZiplineControlsItem"].order = "nullius-db"
-  data.raw.ammo["RTZiplineCrankControlsItem"].subgroup = "nullius-renai-zipline"
-  data.raw.ammo["RTZiplineCrankControlsItem"].order = "nullius-dc"
-  data.raw.ammo["RTProgrammableZiplineControlsItem"].subgroup = "nullius-renai-zipline"
-  data.raw.ammo["RTProgrammableZiplineControlsItem"].order = "nullius-dd"
+  data.raw.item["RTZiplineTerminal"].subgroup = "nullius-renai-zipline"
+  data.raw.item["RTZiplineTerminal"].order = "nullius-bb"
+  data.raw.gun["RTZiplineTrolley"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineTrolley"].order = "nullius-cb"
+  data.raw.gun["RTZiplineTrolley2"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineTrolley2"].order = "nullius-cc"
+  data.raw.gun["RTZiplineTrolley3"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineTrolley3"].order = "nullius-cd"
+  data.raw.gun["RTZiplineTrolley4"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineTrolley4"].order = "nullius-ce"
+  data.raw.gun["RTZiplineTrolley5"].subgroup = "nullius-renai-zipline"
+  data.raw.gun["RTZiplineTrolley5"].order = "nullius-cf"
+  data.raw.ammo["RTZiplineControls"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTZiplineControls"].order = "nullius-db"
+  data.raw.ammo["RTZiplineCrankControls"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTZiplineCrankControls"].order = "nullius-dc"
+  data.raw.ammo["RTProgrammableZiplineControls"].subgroup = "nullius-renai-zipline"
+  data.raw.ammo["RTProgrammableZiplineControls"].order = "nullius-dd"
   data.raw["electric-pole"]["RTZiplineTerminal"].minable.mining_time = 1
 end
 
@@ -1829,20 +1833,20 @@ if settings.startup["RTTrainRampSetting"].value then
 	end
   elseif settings.startup["RTThrowersSetting"].value then
     table.insert(data.raw.technology["nullius-freight-ballistics-2"].prerequisites,
-      "nullius-freight-ballistics-1")  
+      "nullius-freight-ballistics-1")
   end
 
-  data.raw.item["RTTrainRampItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainRampItem"].order = "nullius-bb"
-  data.raw.item["RTMagnetTrainRampItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTMagnetTrainRampItem"].order = "nullius-bc"
-  data.raw.item["RTImpactUnloaderItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTImpactUnloaderItem"].order = "nullius-db"
-  data.raw.item["RTImpactWagonItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTImpactWagonItem"].order = "nullius-dc"
-  data.raw["simple-entity-with-owner"]["RTTrainRamp"].minable.mining_time = 0.8
-  data.raw["simple-entity-with-owner"]["RTMagnetTrainRamp"].minable.mining_time = 1.2
-  data.raw["simple-entity-with-owner"]["RTImpactUnloader"].minable.mining_time = 1
+  data.raw.item["RTTrainRamp"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainRamp"].order = "nullius-bb"
+  data.raw.item["RTMagnetTrainRamp"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTMagnetTrainRamp"].order = "nullius-bc"
+  data.raw.item["RTImpactUnloader"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactUnloader"].order = "nullius-db"
+  data.raw.item["RTImpactWagon"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTImpactWagon"].order = "nullius-dc"
+  data.raw["rail-signal"]["RTTrainRamp"].minable.mining_time = 0.8
+  data.raw["rail-signal"]["RTMagnetTrainRamp"].minable.mining_time = 1.2
+  data.raw["rail-signal"]["RTImpactUnloader"].minable.mining_time = 1
 
   data.raw["cargo-wagon"]["RTImpactWagon"].inventory_size = 50
   data.raw["cargo-wagon"]["RTImpactWagon"].max_health = 800
@@ -1861,14 +1865,14 @@ if settings.startup["RTTrainRampSetting"].value then
   }
 
 if settings.startup["RTThrowersSetting"].value then
-  data.raw.item["RTTrainBouncePlateItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainBouncePlateItem"].order = "nullius-cb"
-  data.raw.item["RTTrainBouncePlateItem"].stack_size = 20
-  data.raw.item["RTTrainDirectedBouncePlateItem"].subgroup = "nullius-renai-ramp"
-  data.raw.item["RTTrainDirectedBouncePlateItem"].order = "nullius-cc"
-  data.raw.item["RTTrainDirectedBouncePlateItem"].stack_size = 20
+  data.raw.item["RTTrainBouncePlate"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainBouncePlate"].order = "nullius-cb"
+  data.raw.item["RTTrainBouncePlate"].stack_size = 20
+  data.raw.item["RTTrainDirectedBouncePlate"].subgroup = "nullius-renai-ramp"
+  data.raw.item["RTTrainDirectedBouncePlate"].order = "nullius-cc"
+  data.raw.item["RTTrainDirectedBouncePlate"].stack_size = 20
   data.raw["simple-entity-with-owner"]["RTTrainBouncePlate"].minable.mining_time = 0.6
-  data.raw["constant-combinator"]["RTTrainDirectedBouncePlate"].minable.mining_time = 0.8
+  data.raw["simple-entity-with-owner"]["RTTrainDirectedBouncePlate"].minable.mining_time = 0.8
 end
 end
 end
@@ -1993,18 +1997,18 @@ if mods["cargo-ships"] then
   end
 
   data.raw["electric-pole"]["floating-electric-pole"].maximum_wire_distance = 32.5
-  data.raw["car"]["indep-boat"].burner.fuel_category = "vehicle"
-  data.raw["car"]["indep-boat"].burner.fuel_inventory_size = 1
-  data.raw["car"]["indep-boat"].burner.burnt_inventory_size = 1
-  data.raw["car"]["indep-boat"].burner.effectivity = 1.5
-  data.raw["locomotive"]["boat_engine"].burner.fuel_category = "vehicle"
-  data.raw["locomotive"]["boat_engine"].burner.fuel_inventory_size = 1
-  data.raw["locomotive"]["boat_engine"].burner.burnt_inventory_size = 1
-  data.raw["locomotive"]["boat_engine"].burner.effectivity = 1.5
-  data.raw["locomotive"]["cargo_ship_engine"].burner.fuel_category = "vehicle"
-  data.raw["locomotive"]["cargo_ship_engine"].burner.fuel_inventory_size = 3
-  data.raw["locomotive"]["cargo_ship_engine"].burner.burnt_inventory_size = 3
-  data.raw["locomotive"]["cargo_ship_engine"].burner.effectivity = 2
+  data.raw["car"]["indep-boat"].energy_source.fuel_categories = {"vehicle"}
+  data.raw["car"]["indep-boat"].energy_source.fuel_inventory_size = 1
+  data.raw["car"]["indep-boat"].energy_source.burnt_inventory_size = 1
+  data.raw["car"]["indep-boat"].energy_source.effectivity = 1.5
+  data.raw["locomotive"]["boat_engine"].energy_source.fuel_categories = {"vehicle"}
+  data.raw["locomotive"]["boat_engine"].energy_source.fuel_inventory_size = 1
+  data.raw["locomotive"]["boat_engine"].energy_source.burnt_inventory_size = 1
+  data.raw["locomotive"]["boat_engine"].energy_source.effectivity = 1.5
+  data.raw["locomotive"]["cargo_ship_engine"].energy_source.fuel_categories = {"vehicle"}
+  data.raw["locomotive"]["cargo_ship_engine"].energy_source.fuel_inventory_size = 3
+  data.raw["locomotive"]["cargo_ship_engine"].energy_source.burnt_inventory_size = 3
+  data.raw["locomotive"]["cargo_ship_engine"].energy_source.effectivity = 2
 
 
   data.raw.technology["water_transport"].order = "nullius-cn"
@@ -2032,7 +2036,7 @@ if mods["cargo-ships"] then
 
   data.raw.technology["automated_water_transport"].order = "nullius-di"
   data.raw.technology["automated_water_transport"].prerequisites =
-      {"cargo_ships", "nullius-concrete-1", "nullius-weaving-1"}
+      {"cargo_ships", "nullius-concrete-1", "nullius-weaving-1","nullius-checkpoint-sensor"}
   data.raw.technology["automated_water_transport"].unit = {
     count = 100, time = 30,
     ingredients = {
@@ -2052,20 +2056,20 @@ if mods["cargo-ships"] then
     }
   }
 
-  data.raw.technology["water_transport_signals"].order = "nullius-dj"
-  data.raw.technology["water_transport_signals"].prerequisites =
-      {"automated_water_transport", "nullius-checkpoint-sensor"}
-  data.raw.technology["water_transport_signals"].unit = {
-    count = 80, time = 30,
-    ingredients = {
-      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
-    }
-  }
+  -- data.raw.technology["water_transport_signals"].order = "nullius-dj"
+  -- data.raw.technology["water_transport_signals"].prerequisites =
+  --     {"automated_water_transport", "nullius-checkpoint-sensor"}
+  -- data.raw.technology["water_transport_signals"].unit = {
+  --   count = 80, time = 30,
+  --   ingredients = {
+  --     {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+  --     {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 2}
+  --   }
+  -- }
 
   data.raw.technology["oversea-energy-distribution"].order = "nullius-dk"
   data.raw.technology["oversea-energy-distribution"].prerequisites =
-      {"water_transport_signals", "tank_ship", "nullius-energy-distribution-3"}
+      {"water_transport", "tank_ship", "nullius-energy-distribution-3"}
   data.raw.technology["oversea-energy-distribution"].unit = {
     count = 150, time = 30,
     ingredients = {
@@ -2092,7 +2096,7 @@ if mods["cargo-ships"] then
   data.raw["rail-planner"]["waterway"].order = "nullius-b"
   data.raw["item-with-entity-data"]["boat_engine"].order = "nullius-l"
   data.raw["item-with-entity-data"]["cargo_ship_engine"].order = "nullius-m"
-  data.raw["item-with-entity-data"]["indep-boat"].order = "nullius-i"
+  --data.raw["item-with-entity-data"]["indep-boat"].order = "nullius-i"
 
   data.raw["item-with-entity-data"]["boat"].order = "nullius-h"
   data.raw.recipe["boat"].order = "nullius-h"
@@ -2150,7 +2154,7 @@ if mods["cargo-ships"] then
   data.raw.recipe["buoy"].energy_required = 5
   data.raw.recipe["buoy"].ingredients = {
     {type="item", name="rail-signal", amount=1},
-    {type="item", name="empty-barrel", amount=1},
+    {type="item", name="barrel", amount=1},
     {type="item", name="nullius-steel-cable", amount=5},
     {type="item", name="concrete", amount=5},
 	{type="fluid", name="nullius-nitrogen", amount=250, fluidbox_index=1}
@@ -2192,7 +2196,7 @@ if mods["cargo-ships"] then
   }
 
 
-  if settings.startup["deep_oil"].value then
+  if settings.startup["offshore_oil_enabled"].value then
     data.raw.technology["deep_sea_oil_extraction"].order = "nullius-dk"
     data.raw.technology["deep_sea_oil_extraction"].prerequisites =
         {"oversea-energy-distribution", "nullius-plumbing-4"}
@@ -2207,7 +2211,7 @@ if mods["cargo-ships"] then
 
     data.raw.item["oil_rig"].subgroup = "water-intake"
     data.raw.item["oil_rig"].order = "nullius-dr"
-	data.raw.recipe["oil_rig"].order = "nullius-dr"
+	  data.raw.recipe["oil_rig"].order = "nullius-dr"
     data.raw.recipe["oil_rig"].category = "huge-crafting"
     data.raw.recipe["oil_rig"].always_show_made_in = true
     data.raw.recipe["oil_rig"].energy_required = 60
@@ -2275,14 +2279,15 @@ if mods["Mini_Trains"] then
   mtl1.icon_size = nil
   mtl1.minable.result = "nullius-small-locomotive-1"
   mtl1.resistances = data.raw.locomotive["nullius-locomotive-1"].resistances
-  mtl1.burner = {
-    fuel_category = "vehicle",
+  mtl1.energy_source = {
+    type = "burner",
+    fuel_categories = {"vehicle"},
     effectivity = 0.9,
     fuel_inventory_size = 1,
     burnt_inventory_size = 2,
-    smoke = data.raw.locomotive["mini-locomotive"].burner.smoke
+    smoke = data.raw.locomotive["mini-locomotive"].energy_source.smoke
   }
-  mtl1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtl1.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
   mtl1.color = {r = 0.9, g = 0.85, b = 0}
   mtl1.weight = 500
   mtl1.max_speed = 0.50925925925925926
@@ -2298,9 +2303,9 @@ if mods["Mini_Trains"] then
   mtl2.localised_description = {"entity-description.nullius-locomotive-2"}
   mtl2.icons = data.raw.item["nullius-small-locomotive-2"].icons
   mtl2.minable.result = "nullius-small-locomotive-2"
-  mtl2.burner.effectivity = 0.95
-  mtl2.burner.fuel_inventory_size = 2
-  mtl2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtl2.energy_source.effectivity = 0.95
+  mtl2.energy_source.fuel_inventory_size = 2
+  mtl2.pictures.rotated.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
   mtl2.color = {r = 0.95, g = 0.1, b = 0}
   mtl2.weight = 800
   mtl2.max_speed = 1.0416666666666667
@@ -2316,8 +2321,8 @@ if mods["Mini_Trains"] then
   mtl3.localised_description = {"entity-description.nullius-locomotive-3"}
   mtl3.icons = data.raw.item["nullius-small-locomotive-3"].icons
   mtl3.minable.result = "nullius-small-locomotive-3"
-  mtl3.burner.effectivity = 1
-  mtl3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtl3.energy_source.effectivity = 1
+  mtl3.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
   mtl3.color = {r = 0.2, g = 0.3, b = 0.8}
   mtl3.weight = 1200
   mtl3.max_speed = 1.75925925925926
@@ -2334,8 +2339,7 @@ if mods["Mini_Trains"] then
   mtls.icons = data.raw.item["nullius-small-solar-locomotive"].icons
   mtls.minable.result = "nullius-small-solar-locomotive"
   mtls.energy_source = {type = "void"}
-  mtls.burner = nil
-  mtls.pictures.layers[1].tint = {r = 0.8, g = 1, b = 0.8}
+  mtls.pictures.rotated.layers[1].tint = {r = 0.8, g = 1, b = 0.8}
   mtls.color = {r = 0.2, g = 0.8, b = 0.3}
   mtls.max_speed = 1.0416666666666667
   mtls.max_power = "280kW"
@@ -2351,7 +2355,7 @@ if mods["Mini_Trains"] then
   mtc1.minable.result = "nullius-small-cargo-wagon-1"
   mtc1.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-1"].resistances
   mtc1.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-1"].max_speed * 0.95)
-  mtc1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtc1.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
   mtc1.color = {r = 0.9, g = 0.85, b = 0}
   mtc1.inventory_size = 12
   mtc1.weight = 250
@@ -2366,7 +2370,7 @@ if mods["Mini_Trains"] then
   mtc2.minable.result = "nullius-small-cargo-wagon-2"
   mtc2.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-2"].resistances
   mtc2.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-2"].max_speed * 0.95)
-  mtc2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtc2.pictures.rotated.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
   mtc2.color = {r = 0.95, g = 0.1, b = 0}
   mtc2.inventory_size = 25
   mtc2.weight = 500
@@ -2381,7 +2385,7 @@ if mods["Mini_Trains"] then
   mtc3.minable.result = "nullius-small-cargo-wagon-3"
   mtc3.resistances = data.raw["cargo-wagon"]["nullius-cargo-wagon-3"].resistances
   mtc3.max_speed = (data.raw["cargo-wagon"]["nullius-cargo-wagon-3"].max_speed * 0.95)
-  mtc3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtc3.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
   mtc3.color = {r = 0.2, g = 0.3, b = 0.8}
   mtc3.inventory_size = 50
   mtc3.weight = 750
@@ -2399,7 +2403,7 @@ if mods["Mini_Trains"] then
   mtf1.minable.result = "nullius-small-fluid-wagon-1"
   mtf1.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].resistances
   mtf1.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].max_speed * 0.95)
-  mtf1.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
+  mtf1.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 0.6}
   mtf1.color = {r = 0.9, g = 0.85, b = 0}
   mtf1.capacity = 12000
   mtf1.weight = 300
@@ -2414,7 +2418,7 @@ if mods["Mini_Trains"] then
   mtf2.minable.result = "nullius-small-fluid-wagon-2"
   mtf2.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-2"].resistances
   mtf2.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-2"].max_speed * 0.95)
-  mtf2.pictures.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
+  mtf2.pictures.rotated.layers[1].tint = {r = 0.9, g = 0.7, b = 0.7}
   mtf2.color = {r = 0.95, g = 0.1, b = 0}
   mtf2.capacity = 40000
   mtf2.weight = 600
@@ -2429,7 +2433,7 @@ if mods["Mini_Trains"] then
   mtf3.minable.result = "nullius-small-fluid-wagon-3"
   mtf3.resistances = data.raw["fluid-wagon"]["nullius-fluid-wagon-3"].resistances
   mtf3.max_speed = (data.raw["fluid-wagon"]["nullius-fluid-wagon-3"].max_speed * 0.95)
-  mtf3.pictures.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
+  mtf3.pictures.rotated.layers[1].tint = {r = 0.8, g = 0.8, b = 1}
   mtf3.color = {r = 0.2, g = 0.3, b = 0.8}
   mtf3.capacity = 125000
   mtf3.weight = 900
@@ -2452,5 +2456,16 @@ if mods["Mini_Trains"] then
   data.raw.item["nullius-small-fluid-wagon-3"].place_result = "nullius-small-fluid-wagon-3"
 end
 
+if mods["cybersyn"] then
+  data.raw.recipe["cybersyn-combinator"].ingredients = {
+    {type = "item", name = "arithmetic-combinator", amount = 2 },
+		{type = "item", name = "copper-cable", amount = 10 },
+  }
+end
 
-
+if mods["cybersyn-combinator"] then
+  data.raw.recipe["cybersyn-constant-combinator"].ingredients = {
+    {type = "item", name = "constant-combinator", amount = 1 },
+		{type = "item", name = "decider-combinator", amount = 1 },
+  }
+end

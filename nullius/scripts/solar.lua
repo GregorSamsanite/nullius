@@ -1,8 +1,8 @@
 function init_solar()
-  if (global.nullius_solar_buckets == nil) then
-    global.nullius_solar_buckets = {}
+  if (storage.nullius_solar_buckets == nil) then
+    storage.nullius_solar_buckets = {}
     for i=0,540 do
-      global.nullius_solar_buckets[i] = {}
+      storage.nullius_solar_buckets[i] = {}
     end
   end
 end
@@ -14,10 +14,10 @@ local solar_values = {
 }
 
 function update_solar()
-  if (global.nullius_solar_buckets == nil) then return end
+  if (storage.nullius_solar_buckets == nil) then return end
   local tick = game.tick * 382
   for j=0,1 do
-    local bucket = global.nullius_solar_buckets[(tick + j) % 541]
+    local bucket = storage.nullius_solar_buckets[(tick + j) % 541]
     for i,t in pairs(bucket) do
       if (t.collector.valid) then
         local surface = t.collector.surface
@@ -57,7 +57,7 @@ end
 function build_solar_collector(entity, level)
   if ((level < 1) or (level > 3)) then return end
   init_solar()
-  local bucket = global.nullius_solar_buckets[entity.unit_number % 541]
+  local bucket = storage.nullius_solar_buckets[entity.unit_number % 541]
   bucket[entity.unit_number] = {
     collector = entity,
   level = level
@@ -65,7 +65,7 @@ function build_solar_collector(entity, level)
 end
 
 function remove_solar_collector(entity, died, level)
-  if (global.nullius_solar_buckets == nil) then return end
-  local bucket = global.nullius_solar_buckets[entity.unit_number % 541]
+  if (storage.nullius_solar_buckets == nil) then return end
+  local bucket = storage.nullius_solar_buckets[entity.unit_number % 541]
   bucket[entity.unit_number] = nil
 end

@@ -2,14 +2,15 @@ function add_chart_tag(player, character)
   if ((player == nil) or (character == nil)) then
     return
   end
-  local icon = "nullius-android-1"
+  --local icon = "nullius-android-1"
+  local icon = "character"
   if (character.name == "nullius-android-2") then
     icon = "nullius-android-2"
   end
 
   local name = nil
-  if (global.nullius_android_name ~= nil) then
-    name = global.nullius_android_name[character.unit_number]
+  if (storage.nullius_android_name ~= nil) then
+    name = storage.nullius_android_name[character.unit_number]
   end
   if (name == nil) then
     name = player.name
@@ -19,12 +20,12 @@ function add_chart_tag(player, character)
       {position=character.position, icon={type="item", name=icon},
       text=name, last_user=player})
   if (ctag ~= nil) then
-    if (global.nullius_tag_android == nil) then
-      global.nullius_tag_android = {}
-      global.nullius_android_tag = {}
+    if (storage.nullius_tag_android == nil) then
+      storage.nullius_tag_android = {}
+      storage.nullius_android_tag = {}
     end
-    global.nullius_tag_android[ctag.tag_number] = character
-    global.nullius_android_tag[character.unit_number] = ctag
+    storage.nullius_tag_android[ctag.tag_number] = character
+    storage.nullius_android_tag[character.unit_number] = ctag
   end
 end
 
@@ -45,16 +46,16 @@ function switch_body(player, target)
     target_vehicle = target.vehicle
   end
 
-  if (global.nullius_android_tag ~= nil) then
-    local tag = global.nullius_android_tag[target.unit_number]
+  if (storage.nullius_android_tag ~= nil) then
+    local tag = storage.nullius_android_tag[target.unit_number]
     if (tag ~= nil) then
-      global.nullius_android_tag[target.unit_number] = nil
+      storage.nullius_android_tag[target.unit_number] = nil
       if (tag.valid) then
-        if (global.nullius_android_name == nil) then
-          global.nullius_android_name = {}
+        if (storage.nullius_android_name == nil) then
+          storage.nullius_android_name = {}
         end
-        global.nullius_android_name[target.unit_number] = tag.text
-        global.nullius_tag_android[tag.tag_number] = nil
+        storage.nullius_android_name[target.unit_number] = tag.text
+        storage.nullius_tag_android[tag.tag_number] = nil
         tag.destroy()
       end
     end
@@ -71,13 +72,13 @@ function switch_body(player, target)
   end
 
   if ((player.force ~= nil) and player.force.valid) then
-    if (global.nullius_switch_body_count == nil) then
-	  global.nullius_switch_body_count = { }
+    if (storage.nullius_switch_body_count == nil) then
+	  storage.nullius_switch_body_count = { }
 	end
-    local count = global.nullius_switch_body_count[player.force.name]
+    local count = storage.nullius_switch_body_count[player.force.name]
 	if (count == nil) then count = 0 end
 	count = count + 1
-	global.nullius_switch_body_count[player.force.name] = count
+	storage.nullius_switch_body_count[player.force.name] = count
   end
 
   player.set_controller{type=defines.controllers.character, character=target}
@@ -106,8 +107,8 @@ function switch_body(player, target)
     add_chart_tag(player, oldchar)
   end
 
-  if (global.nullius_body_queue ~= nil) then
-    local queue = global.nullius_body_queue[player.index]
+  if (storage.nullius_body_queue ~= nil) then
+    local queue = storage.nullius_body_queue[player.index]
     if (queue ~= nil) then
       queue.last_index = target.unit_number
     end
@@ -130,14 +131,14 @@ function update_queue(player, oldchar)
     return
   end
 
-  if (global.nullius_body_queue == nil) then
-    global.nullius_body_queue = {}
+  if (storage.nullius_body_queue == nil) then
+    storage.nullius_body_queue = {}
   end
-  local queue = global.nullius_body_queue[player.index]
+  local queue = storage.nullius_body_queue[player.index]
   if (queue == nil) then
     queue = {}
     queue.nodes = {}
-    global.nullius_body_queue[player.index] = queue
+    storage.nullius_body_queue[player.index] = queue
   end
   local node1 = queue.nodes[oldchar.unit_number]
   if ((node1 == nil) or (node1.next == nil) or (node1.next.prev ~= node1)) then
@@ -188,8 +189,8 @@ function upload_mind(player, target)
 end
 
 function cycle_body(player, rev)
-  if (global.nullius_body_queue == nil) then return end
-  local queue = global.nullius_body_queue[player.index]
+  if (storage.nullius_body_queue == nil) then return end
+  local queue = storage.nullius_body_queue[player.index]
   if (queue == nil) then return end
 
   if (player.character == nil) then return end
@@ -206,7 +207,7 @@ function cycle_body(player, rev)
     node = node.next
   end
   if (node == nil) then
-    global.nullius_body_queue[player.index] = nil
+    storage.nullius_body_queue[player.index] = nil
     return
   end
 
@@ -217,7 +218,7 @@ function cycle_body(player, rev)
     local nn = node.next
     if ((nn == nil) or (np == nil) or (nn.prev == nil) or
         (np.next == nil) or (nn == node) or (np == node)) then
-      global.nullius_body_queue[player.index] = nil
+      storage.nullius_body_queue[player.index] = nil
       return
     end
     if ((body == nil) or (not body.valid) or (body.type ~= "character")) then
@@ -254,13 +255,13 @@ script.on_event("nullius-next-body", function(event)
 end)
 
 script.on_event(defines.events.on_chart_tag_removed, function(event)
-  if ((global.nullius_tag_android ~= nil) and
+  if ((storage.nullius_tag_android ~= nil) and
       (event.tag ~= nil) and event.tag.valid) then
-    local android = global.nullius_tag_android[event.tag.tag_number]
+    local android = storage.nullius_tag_android[event.tag.tag_number]
   if (android ~= nil) then
-    global.nullius_tag_android[event.tag.tag_number] = nil
+    storage.nullius_tag_android[event.tag.tag_number] = nil
     if (android.valid) then
-    global.nullius_android_tag[android.unit_number] = nil
+    storage.nullius_android_tag[android.unit_number] = nil
     if (event.player_index ~= nil) then
       local player = game.players[event.player_index]
       if (player ~= nil) then
@@ -276,26 +277,26 @@ function change_character_entity(oldunit, newchar)
   local newunit = newchar.unit_number
   if ((oldunit == nil) or (newunit == oldunit)) then return end
 
-  if ((global.nullius_android_tag ~= nil) and
-      (global.nullius_tag_android ~= nil)) then
-    local tag = global.nullius_android_tag[oldunit]
+  if ((storage.nullius_android_tag ~= nil) and
+      (storage.nullius_tag_android ~= nil)) then
+    local tag = storage.nullius_android_tag[oldunit]
     if ((tag ~= nil) and tag.valid and (tag.tag_number ~= nil)) then
-      global.nullius_android_tag[oldunit] = nil
-      global.nullius_android_tag[newunit] = tag
-      global.nullius_tag_android[tag.tag_number] = newchar
+      storage.nullius_android_tag[oldunit] = nil
+      storage.nullius_android_tag[newunit] = tag
+      storage.nullius_tag_android[tag.tag_number] = newchar
     end
 
-    if (global.nullius_android_name ~= nil) then
-	  local name = global.nullius_android_name[oldunit]
+    if (storage.nullius_android_name ~= nil) then
+	  local name = storage.nullius_android_name[oldunit]
       if (name ~= nil) then
-        global.nullius_android_name[oldunit] = nil
-        global.nullius_android_name[newunit] = name
+        storage.nullius_android_name[oldunit] = nil
+        storage.nullius_android_name[newunit] = name
       end
 	end
   end
 
-  if (global.nullius_body_queue ~= nil) then
-    for _,queue in pairs(global.nullius_body_queue) do
+  if (storage.nullius_body_queue ~= nil) then
+    for _,queue in pairs(storage.nullius_body_queue) do
       local node = queue.nodes[oldunit]
       if (node ~= nil) then
         node.body = newchar
@@ -316,8 +317,8 @@ script.on_event(defines.events.on_player_respawned, function(event)
   local newchar = player.character
   if ((newchar == nil) or (not newchar.valid)) then return end
 
-  if (global.nullius_body_queue == nil) then return end
-  local queue = global.nullius_body_queue[player.index]
+  if (storage.nullius_body_queue == nil) then return end
+  local queue = storage.nullius_body_queue[player.index]
   if (queue == nil) then return end
   if (queue.nodes[newchar.unit_number] ~= nil) then return end
 
@@ -332,8 +333,8 @@ end)
 function rematerialize_body(event)
   local player = game.players[event.player_index]
   update_player_upgrades(player)
-  if (global.nullius_body_queue == nil) then return end
-  local queue = global.nullius_body_queue[player.index]
+  if (storage.nullius_body_queue == nil) then return end
+  local queue = storage.nullius_body_queue[player.index]
   if (queue == nil) then return end
 
   local newchar = player.character

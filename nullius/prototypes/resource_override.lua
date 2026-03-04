@@ -1,18 +1,5 @@
 local resource_autoplace = require("resource-autoplace")
 
-for r, subdir in pairs(angelsmods.functions.store) do
-  for r, input in pairs(subdir) do
-    if (not input.inactive) then
-	  if ((input.name == "coal") or (input.name == "crude-oil")) then
-	    input.inactive = true
-	  else
-        angelsmods.functions.remove_resource(input.name)
-	  end
-    end
-  end
-end
-
-
 function remove_autoplace(resource)
   if data.raw.resource[resource] then
     data.raw["autoplace-control"][resource] = nil
@@ -24,6 +11,27 @@ function remove_autoplace(resource)
       preset.basic_settings.autoplace_controls[resource] = nil
     end
   end
+  data.raw.planet["nauvis"].map_gen_settings.autoplace_controls[resource] = nil
+  data.raw.planet["nauvis"].map_gen_settings.autoplace_settings["entity"]["settings"][resource] = nil
+end
+
+
+if mods["angelsrefining"] then
+  for r, subdir in pairs(angelsmods.functions.store) do 
+    for r, input in pairs(subdir) do
+      if (not input.inactive) then
+  	  if ((input.name == "coal") or (input.name == "crude-oil")) then
+  	    input.inactive = true
+  	  else
+          angelsmods.functions.remove_resource(input.name)
+  	  end
+      end
+    end
+  end
+  
+  if data.raw["simple-entity"]["angels-crystal-rock"] then
+    data.raw["simple-entity"]["angels-crystal-rock"].autoplace = nil
+  end
 end
 
 remove_autoplace("copper-ore")
@@ -31,8 +39,8 @@ remove_autoplace("uranium-ore")
 remove_autoplace("coal")
 remove_autoplace("crude-oil")
 
-angelsmods.functions.remove_resource("stone")
-angelsmods.functions.remove_resource("trees")
+angelsLegacy.functions.remove_resource("stone")
+angelsLegacy.functions.remove_resource("trees")
 
 
 data.raw["autoplace-control"]["iron-ore"].localised_name = nil
@@ -101,10 +109,12 @@ data.raw["map-gen-presets"]["default"]["rail-world"].basic_settings = {
         ["nullius-geothermal"] = {
             frequency = 0.33333333333,
             size = 3
-        }
+        },
+        water = {
+            frequency = 0.5,
+            size = 1.5
+          }
     },
-    terrain_segmentation = "very-low",
-    water = "high",
 }
 
 data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings = {
@@ -133,21 +143,27 @@ data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings = {
             frequency = 3,
             size = 0.5,
             richness = 2
-      }
+      },
+      water = {
+            frequency = 4,
+            size = 0.25
+      },
     },
-    terrain_segmentation = 4,
-    water = 0.25,
     starting_area = 3,
+    property_expression_names = {
+          elevation = "elevation_lakes",
+          trees_forest_path_cutout = 1
+    },
     height = 128
 }
 
 
-if (mods["cargo-ships"] and settings.startup["deep_oil"].value) then
-resource_autoplace.initialize_patch_set("deep_oil", false)
+if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
+resource_autoplace.initialize_patch_set("offshore-oil", false)
 
-data.raw.resource["deep_oil"].autoplace =
+data.raw.resource["offshore-oil"].autoplace =
     resource_autoplace.resource_autoplace_settings {
-      name = "deep_oil",
+      name = "offshore-oil",
       order = "a-c-c",
       base_density = 8.2,
       base_spots_per_km2 = 1.8,
@@ -159,7 +175,7 @@ data.raw.resource["deep_oil"].autoplace =
       has_starting_area_placement = false
     }
 
-data.raw.resource["deep_oil"].minable = {
+data.raw.resource["offshore-oil"].minable = {
   mining_time = 1,
   results = {{
     type = "fluid",
@@ -171,15 +187,15 @@ data.raw.resource["deep_oil"].minable = {
   }}
 }
 
-data.raw.resource["deep_oil"].map_color = {r=0.7, g=0.5, b=0.3}
-data.raw.resource["deep_oil"].mining_visualisation_tint = {r = 1.0, g = 0.7, b = 0.4, a = 1.0}
-data.raw.resource["deep_oil"].localised_name = {"entity-name.nullius-hydrothermal-vent"}
-data.raw.resource["deep_oil"].localised_description = {"entity-description.nullius-hydrothermal-vent"}
+data.raw.resource["offshore-oil"].map_color = {r=0.7, g=0.5, b=0.3}
+data.raw.resource["offshore-oil"].mining_visualisation_tint = {r = 1.0, g = 0.7, b = 0.4, a = 1.0}
+data.raw.resource["offshore-oil"].localised_name = {"entity-name.nullius-hydrothermal-vent"}
+data.raw.resource["offshore-oil"].localised_description = {"entity-description.nullius-hydrothermal-vent"}
 
-table.insert(data.raw.resource["deep_oil"].collision_mask, 'ground-tile')
+table.insert(data.raw.resource["offshore-oil"].collision_mask, 'ground-tile')
 
-data.raw.resource["deep_oil"].stages = { sheet = {
-  filename = "__angelsrefining__/graphics/entity/patches/gas.png",
+data.raw.resource["offshore-oil"].stages = { sheet = {
+  filename = "__angelsrefininggraphics__/graphics/entity/patches/gas.png",
   tint = {0.4, 0.2, 0, 0.4},
   priority = "extra-high",
   width = 64,
@@ -189,11 +205,11 @@ data.raw.resource["deep_oil"].stages = { sheet = {
 }}
 
 data.raw["map-gen-presets"]["default"]["rich-resources"].basic_settings.
-    autoplace_controls["deep_oil"] = { richness = "very-good"}
+    autoplace_controls["offshore-oil"] = { richness = "very-good"}
 data.raw["map-gen-presets"]["default"]["rail-world"].basic_settings.
-    autoplace_controls["deep_oil"] = { frequency = 0.33333333333, size = 3 }
+    autoplace_controls["offshore-oil"] = { frequency = 0.33333333333, size = 3 }
 data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings.
-    autoplace_controls["deep_oil"] = { frequency = 3, size = 0.5, richness = 2 }
+    autoplace_controls["offshore-oil"] = { frequency = 3, size = 0.5, richness = 2 }
 
 if (not settings.startup["no_oil_for_oil_rig"].value) then
   data.raw.resource["nullius-fumarole"].infinite = false
@@ -202,3 +218,14 @@ if (not settings.startup["no_oil_for_oil_rig"].value) then
     {"entity-description.nullius-fumarole-finite"}
 end
 end
+
+-- Alien Biomes Patch (alien biomes 0.7.4 crashes when the disable all vegetation setting is enabled)
+local block_decorative_words = {"grass", "asterisk", "fluff", "garballo", "bush", "croton", "pita", "cane"}
+for _, prototype in pairs(data.raw['optimized-decorative']) do
+  for _, word in pairs(block_decorative_words) do
+    if string.find(prototype.name, word) then
+      data.raw.planet["nauvis"].map_gen_settings.autoplace_settings["decorative"]["settings"][prototype.name] = nil
+    end
+  end
+end
+data.raw.planet["nauvis"].map_gen_settings.autoplace_settings["entity"]["settings"]["fish"] = nil

@@ -3,6 +3,15 @@ local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local BASEENTITY = "__base__/graphics/entity/"
 
+-- Conditional evaluation.
+-- e_rails(f) = f() if elevated rails is loaded, nil otherwise.
+local e_rails
+if mods["elevated-rails"] ~= nil then
+  e_rails = function(thunk) return thunk() end
+else
+  e_rails = function(thunk) end
+end
+
 data:extend({
   {
     type = "locomotive",
@@ -18,7 +27,6 @@ data:extend({
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
     damaged_trigger_effect = data.raw.locomotive["locomotive"].damaged_trigger_effect,
-    drawing_box = {{-1, -4}, {1, 3}},
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 1200,
     max_speed = 0.5555556,
@@ -38,14 +46,16 @@ data:extend({
       { type = "physical", decrease = 20, percent = 30 },
       { type = "explosion", decrease = 20, percent = 30 }
     },
-    burner = {
-      fuel_category = "vehicle",
+    energy_source = {
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 0.9,
       fuel_inventory_size = 1,
       burnt_inventory_size = 2,
-      smoke = data.raw.locomotive["locomotive"].burner.smoke
+      smoke = data.raw.locomotive["locomotive"].energy_source.smoke
     },
     front_light = data.raw.locomotive["locomotive"].front_light,
+    front_light_pictures = data.raw.locomotive["locomotive"].front_light_pictures,
     back_light = data.raw.locomotive["locomotive"].back_light,
     stand_by_light = data.raw.locomotive["locomotive"].stand_by_light,
     color = {r = 0.9, g = 0.85, b = 0, a = 0.5},
@@ -55,149 +65,66 @@ data:extend({
     wheels = data.raw.locomotive["locomotive"].wheels,
     stop_trigger = data.raw.locomotive["locomotive"].stop_trigger,
     drive_over_tie_trigger = data.raw.locomotive["locomotive"].drive_over_tie_trigger,
-    vehicle_impact_sound = data.raw.locomotive["locomotive"].vehicle_impact_sound,
+    drive_over_elevated_tie_trigger = data.raw.locomotive["locomotive"].drive_over_elevated_die_trigger,
+    impact_category = data.raw.locomotive["locomotive"].impact_category,
     working_sound = data.raw.locomotive["locomotive"].working_sound,
     open_sound = data.raw.locomotive["locomotive"].open_sound,
     close_sound = data.raw.locomotive["locomotive"].close_sound,
+    elevated_rail_sound = data.raw.locomotive["locomotive"].elevated_rail_sound,
     water_reflection = data.raw.locomotive["locomotive"].water_reflection,
     tie_distance = 50,
-    sound_minimum_speed = 0.5,
-    sound_scaling_ratio = 0.35,
+    elevated_selection_priority = data.raw.locomotive["locomotive"].elevated_selection_priority,
+    --sound_minimum_speed = 0.5,
+    --sound_scaling_ratio = 0.35,
 
     pictures = {
-      layers = {
-        {
-          slice = 4,
-          priority = "very-low",
-          width = 238,
-          height = 230,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames = {
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-01.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-02.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-03.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-04.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-05.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-06.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-07.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          tint = {0.7, 0.7, 0.6},
-          hr_version = {
-            priority = "very-low",
-            slice = 4,
-            width = 474,
-            height = 458,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            filenames = {
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-1.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-2.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-3.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-4.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-5.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-6.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-7.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-8.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-9.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-10.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-11.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-12.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-13.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-14.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-15.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-16.png"
-            },
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0.0, -0.5},
-            tint = {0.62, 0.6, 0.5},
-            scale = 0.5
-          }
-        },
-        {
-          priority = "very-low",
-          flags = { "mask" },
-          slice = 4,
-          width = 236,
-          height = 228,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames = {
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-01.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-02.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-03.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-04.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-05.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-06.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-07.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-mask-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          apply_runtime_tint = true,
-          hr_version = {
-            priority = "very-low",
-            flags = { "mask" },
-            slice = 4,
-            width = 472,
-            height = 456,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            filenames = {
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-1.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-2.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-3.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-4.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-5.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-6.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-7.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-8.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-9.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-10.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-11.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-12.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-13.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-14.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-15.png",
-              BASEENTITY .. "diesel-locomotive/hr-diesel-locomotive-mask-16.png"
-            },
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0.0, -0.5},
-            apply_runtime_tint = true,
-            scale = 0.5
-          }
-        },
-        {
-          priority = "very-low",
-          slice = 4,
-          flags = { "shadow" },
-          width = 253,
-          height = 212,
-          direction_count = 256,
-          draw_as_shadow = true,
-          allow_low_quality_rotation = true,
-          filenames = {
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-01.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-02.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-03.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-04.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-05.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-06.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-07.png",
-            BASEENTITY .. "diesel-locomotive/diesel-locomotive-shadow-08.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {1, 0.3}
+      slope_angle_between_frames = data.raw.locomotive["locomotive"].pictures.slope_angle_between_frames,
+      slope_back_equals_front = data.raw.locomotive["locomotive"].pictures.slope_back_equals_front,
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = {0.62, 0.6, 0.5},
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive-mask",
+            {
+              dice = 4,
+              priority = "very-low",
+              flags = { "mask" },
+              apply_runtime_tint = true,
+              tint_as_overlay = true,
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive-shadow",
+            {
+              dice = 4,
+              priority = "very-low",
+              flags = { "shadow" },
+              draw_as_shadow = true,
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+            }
+          )
         }
-      }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["locomotive"]["locomotive"].pictures.sloped)
+        sprites.layers[1].tint = {0.62, 0.6, 0.5}
+        return sprites
+      end)
     }
   }
 })
@@ -217,7 +144,6 @@ data:extend({
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
     damaged_trigger_effect = data.raw.locomotive["locomotive"].damaged_trigger_effect,
-    drawing_box = {{-1, -4}, {1, 3}},
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 2000,
     max_speed = 1.11111111,
@@ -231,14 +157,16 @@ data:extend({
     joint_distance = 4,
     energy_per_hit_point = 5,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
-    burner = {
-      fuel_category = "vehicle",
+    energy_source = {
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 0.95,
       fuel_inventory_size = 2,
       burnt_inventory_size = 2,
-      smoke = data.raw.locomotive["locomotive"].burner.smoke
+      smoke = data.raw.locomotive["locomotive"].energy_source.smoke
     },
     front_light = data.raw.locomotive["locomotive"].front_light,
+    front_light_pictures = data.raw.locomotive["locomotive"].front_light_pictures,
     back_light = data.raw.locomotive["locomotive"].back_light,
     stand_by_light = data.raw.locomotive["locomotive"].stand_by_light,
     color = {r = 0.95, g = 0.1, b = 0, a = 0.5},
@@ -248,47 +176,41 @@ data:extend({
     wheels = data.raw.locomotive["locomotive"].wheels,
     stop_trigger = data.raw.locomotive["locomotive"].stop_trigger,
     drive_over_tie_trigger = data.raw.locomotive["locomotive"].drive_over_tie_trigger,
-    vehicle_impact_sound = data.raw.locomotive["locomotive"].vehicle_impact_sound,
+    drive_over_elevated_tie_trigger = data.raw.locomotive["locomotive"].drive_over_elevated_die_trigger,
+    impact_category = data.raw.locomotive["locomotive"].impact_category,
     working_sound = data.raw.locomotive["locomotive"].working_sound,
     open_sound = data.raw.locomotive["locomotive"].open_sound,
     close_sound = data.raw.locomotive["locomotive"].close_sound,
+    elevated_rail_sound = data.raw.locomotive["locomotive"].elevated_rail_sound,
     water_reflection = data.raw.locomotive["locomotive"].water_reflection,
     tie_distance = 50,
-    sound_minimum_speed = 0.5,
-    sound_scaling_ratio = 0.35,
+    elevated_selection_priority = data.raw.locomotive["locomotive"].elevated_selection_priority,
+    --sound_minimum_speed = 0.5,
+    --sound_scaling_ratio = 0.35,
 
     pictures = {
-      layers = {
-        {
-          slice = 4,
-          priority = "very-low",
-          width = 238,
-          height = 230,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].filenames,
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          tint = {1, 0.9, 0.8},
-          hr_version = {
-            priority = "very-low",
-            slice = 4,
-            width = 474,
-            height = 458,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].hr_version.filenames,
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0.0, -0.5},
-            tint = {1, 0.9, 0.8},
-            scale = 0.5
-          }
-        },
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[2],
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[3]
-      }
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = {1, 0.9, 0.8},
+            }
+          ),
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[2],
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[3]
+        }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["locomotive"]["locomotive"].pictures.sloped)
+        sprites.layers[1].tint = {1, 0.9, 0.8}
+        return sprites
+      end)
     }
   },
 
@@ -306,7 +228,6 @@ data:extend({
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
     damaged_trigger_effect = data.raw.locomotive["locomotive"].damaged_trigger_effect,
-    drawing_box = {{-1, -4}, {1, 3}},
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 3000,
     max_speed = 1.85185185,
@@ -320,14 +241,16 @@ data:extend({
     joint_distance = 4,
     energy_per_hit_point = 5,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
-    burner = {
-	  fuel_categories = {"nullius-nuclear", "vehicle"},
+    energy_source = {
+      type = "burner",
+	    fuel_categories = {"nullius-nuclear", "vehicle"},
       effectivity = 1,
       fuel_inventory_size = 2,
       burnt_inventory_size = 2,
-      smoke = data.raw.locomotive["locomotive"].burner.smoke
+      smoke = data.raw.locomotive["locomotive"].energy_source.smoke
     },
     front_light = data.raw.locomotive["locomotive"].front_light,
+    front_light_pictures = data.raw.locomotive["locomotive"].front_light_pictures,
     back_light = data.raw.locomotive["locomotive"].back_light,
     stand_by_light = data.raw.locomotive["locomotive"].stand_by_light,
     color = {r = 0.2, g = 0.3, b = 0.8, a = 0.5},
@@ -337,47 +260,41 @@ data:extend({
     wheels = data.raw.locomotive["locomotive"].wheels,
     stop_trigger = data.raw.locomotive["locomotive"].stop_trigger,
     drive_over_tie_trigger = data.raw.locomotive["locomotive"].drive_over_tie_trigger,
-    vehicle_impact_sound = data.raw.locomotive["locomotive"].vehicle_impact_sound,
+    drive_over_elevated_tie_trigger = data.raw.locomotive["locomotive"].drive_over_elevated_die_trigger,
+    impact_category = data.raw.locomotive["locomotive"].impact_category,
     working_sound = data.raw.locomotive["locomotive"].working_sound,
     open_sound = data.raw.locomotive["locomotive"].open_sound,
     close_sound = data.raw.locomotive["locomotive"].close_sound,
+    elevated_rail_sound = data.raw.locomotive["locomotive"].elevated_rail_sound,
     water_reflection = data.raw.locomotive["locomotive"].water_reflection,
     tie_distance = 50,
-    sound_minimum_speed = 0.5,
-    sound_scaling_ratio = 0.35,
+    elevated_selection_priority = data.raw.locomotive["locomotive"].elevated_selection_priority,
+    --sound_minimum_speed = 0.5,
+    --sound_scaling_ratio = 0.35,
 
     pictures = {
-      layers = {
-        {
-          slice = 4,
-          priority = "very-low",
-          width = 238,
-          height = 230,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].filenames,
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          tint = {0.9, 0.95, 1},
-          hr_version = {
-            priority = "very-low",
-            slice = 4,
-            width = 474,
-            height = 458,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].hr_version.filenames,
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0.0, -0.5},
-            scale = 0.5,
-            tint = {0.9, 0.95, 1}
-          }
-        },
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[2],
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[3]
-      }
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = {0.9, 0.95, 1}
+            }
+          ),
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[2],
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[3]
+        }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["locomotive"]["locomotive"].pictures.sloped)
+        sprites.layers[1].tint = {0.9, 0.95, 1}
+        return sprites
+      end)
     }
   },
 
@@ -395,7 +312,6 @@ data:extend({
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
     damaged_trigger_effect = data.raw.locomotive["locomotive"].damaged_trigger_effect,
-    drawing_box = {{-1, -4}, {1, 3}},
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 3000,
     max_speed = 1.11111111,
@@ -411,6 +327,7 @@ data:extend({
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
     energy_source = {type = "void"},
     front_light = data.raw.locomotive["locomotive"].front_light,
+    front_light_pictures = data.raw.locomotive["locomotive"].front_light_pictures,
     back_light = data.raw.locomotive["locomotive"].back_light,
     stand_by_light = data.raw.locomotive["locomotive"].stand_by_light,
     color = {r = 0.2, g = 0.8, b = 0.3, a = 0.5},
@@ -420,47 +337,41 @@ data:extend({
     wheels = data.raw.locomotive["locomotive"].wheels,
     stop_trigger = data.raw.locomotive["locomotive"].stop_trigger,
     drive_over_tie_trigger = data.raw.locomotive["locomotive"].drive_over_tie_trigger,
-    vehicle_impact_sound = data.raw.locomotive["locomotive"].vehicle_impact_sound,
+    drive_over_elevated_tie_trigger = data.raw.locomotive["locomotive"].drive_over_elevated_die_trigger,
+    impact_category = data.raw.locomotive["locomotive"].impact_category,
     working_sound = data.raw.locomotive["locomotive"].working_sound,
     open_sound = data.raw.locomotive["locomotive"].open_sound,
     close_sound = data.raw.locomotive["locomotive"].close_sound,
+    elevated_rail_sound = data.raw.locomotive["locomotive"].elevated_rail_sound,
     water_reflection = data.raw.locomotive["locomotive"].water_reflection,
     tie_distance = 50,
-    sound_minimum_speed = 0.5,
-    sound_scaling_ratio = 0.35,
+    elevated_selection_priority = data.raw.locomotive["locomotive"].elevated_selection_priority,
+    --sound_minimum_speed = 0.5,
+    --sound_scaling_ratio = 0.35,
 
     pictures = {
-      layers = {
-        {
-          slice = 4,
-          priority = "very-low",
-          width = 238,
-          height = 230,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].filenames,
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.0, -0.5},
-          tint = {0.9, 1, 0.95},
-          hr_version = {
-            priority = "very-low",
-            slice = 4,
-            width = 474,
-            height = 458,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            filenames = data.raw.locomotive["nullius-locomotive-1"].pictures.layers[1].hr_version.filenames,
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0.0, -0.5},
-            scale = 0.5,
-            tint = {0.9, 1, 0.95}
-          }
-        },
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[2],
-        data.raw.locomotive["nullius-locomotive-1"].pictures.layers[3]
-      }
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/locomotive/locomotive",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = {0.9, 1, 0.95}
+            }
+          ),
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[2],
+          data.raw.locomotive["nullius-locomotive-1"].pictures.rotated.layers[3]
+        }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["locomotive"]["locomotive"].pictures.sloped)
+        sprites.layers[1].tint = {0.9, 1, 0.95}
+        return sprites
+      end)
     }
   },
 
@@ -507,9 +418,9 @@ data:extend({
     crash_trigger = data.raw["cargo-wagon"]["cargo-wagon"].crash_trigger,
     open_sound = data.raw["cargo-wagon"]["cargo-wagon"].open_sound,
     close_sound = data.raw["cargo-wagon"]["cargo-wagon"].close_sound,
-    vehicle_impact_sound = data.raw["cargo-wagon"]["cargo-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["cargo-wagon"]["cargo-wagon"].impact_category,
     water_reflection = data.raw["cargo-wagon"]["cargo-wagon"].water_reflection,
-    sound_minimum_speed = 1,
+    --sound_minimum_speed = 1,
     pictures = data.raw["cargo-wagon"]["cargo-wagon"].pictures,
     horizontal_doors = data.raw["cargo-wagon"]["cargo-wagon"].horizontal_doors,
     vertical_doors = data.raw["cargo-wagon"]["cargo-wagon"].vertical_doors
@@ -558,9 +469,9 @@ data:extend({
     crash_trigger = data.raw["cargo-wagon"]["cargo-wagon"].crash_trigger,
     open_sound = data.raw["cargo-wagon"]["cargo-wagon"].open_sound,
     close_sound = data.raw["cargo-wagon"]["cargo-wagon"].close_sound,
-    vehicle_impact_sound = data.raw["cargo-wagon"]["cargo-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["cargo-wagon"]["cargo-wagon"].impact_category,
     water_reflection = data.raw["cargo-wagon"]["cargo-wagon"].water_reflection,
-    sound_minimum_speed = 1,
+    --sound_minimum_speed = 1,
     pictures = data.raw["cargo-wagon"]["cargo-wagon"].pictures,
     horizontal_doors = data.raw["cargo-wagon"]["cargo-wagon"].horizontal_doors,
     vertical_doors = data.raw["cargo-wagon"]["cargo-wagon"].vertical_doors
@@ -609,9 +520,9 @@ data:extend({
     crash_trigger = data.raw["cargo-wagon"]["cargo-wagon"].crash_trigger,
     open_sound = data.raw["cargo-wagon"]["cargo-wagon"].open_sound,
     close_sound = data.raw["cargo-wagon"]["cargo-wagon"].close_sound,
-    vehicle_impact_sound = data.raw["cargo-wagon"]["cargo-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["cargo-wagon"]["cargo-wagon"].impact_category,
     water_reflection = data.raw["cargo-wagon"]["cargo-wagon"].water_reflection,
-    sound_minimum_speed = 1,
+    --sound_minimum_speed = 1,
     pictures = data.raw["cargo-wagon"]["cargo-wagon"].pictures,
     horizontal_doors = data.raw["cargo-wagon"]["cargo-wagon"].horizontal_doors,
     vertical_doors = data.raw["cargo-wagon"]["cargo-wagon"].vertical_doors
@@ -634,7 +545,7 @@ data:extend({
     damaged_trigger_effect = data.raw["fluid-wagon"]["fluid-wagon"].damaged_trigger_effect,
     vertical_selection_shift = -0.796875,
     weight = 750,
-	max_speed = 1.48148148,
+	  max_speed = 1.48148148,
     braking_force = 1,
     friction_force = 0.25,
     air_resistance = 0.006,
@@ -657,100 +568,46 @@ data:extend({
     tie_distance = 50,
     working_sound = data.raw["fluid-wagon"]["fluid-wagon"].working_sound,
     crash_trigger = data.raw["fluid-wagon"]["fluid-wagon"].crash_trigger,
-    vehicle_impact_sound = data.raw["fluid-wagon"]["fluid-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["fluid-wagon"]["fluid-wagon"].impact_category,
     water_reflection = data.raw["fluid-wagon"]["fluid-wagon"].water_reflection,
-    sound_minimum_speed = 0.1,
-
+    --sound_minimum_speed = 0.1,
+  
     pictures = {
-      layers = {
-        {
-          priority = "very-low",
-          slice = 4,
-          width = 208,
-          height = 210,
-          back_equals_front = true,
-          direction_count = 128,
-          allow_low_quality_rotation = true,
-          filenames = {
-            BASEENTITY .. "fluid-wagon/fluid-wagon-1.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-2.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-3.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-4.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0 + 0.013, -1 + 0.077},
-          apply_runtime_tint = true,
-          hr_version = {
-            priority = "very-low",
-            slice = 4,
-            width = 416,
-            height = 419,
-            back_equals_front = true,
-            direction_count = 128,
-            allow_low_quality_rotation = true,
-            filenames = {
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-1.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-2.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-3.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-4.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-5.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-6.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-7.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-8.png"
-            },
-            line_length = 4,
-            lines_per_file = 4,
-            shift = {0 + 0.013, -1 + 0.077},
-            apply_runtime_tint = true,
-            scale = 0.5
-          }
-        },
-        {
-          flags = { "shadow" },
-          priority = "very-low",
-          slice = 4,
-          width = 251,
-          height = 188,
-          back_equals_front = true,
-          draw_as_shadow = true,
-          direction_count = 128,
-          allow_low_quality_rotation = true,
-          filenames = {
-            BASEENTITY .. "fluid-wagon/fluid-wagon-shadow-1.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-shadow-2.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-shadow-3.png",
-            BASEENTITY .. "fluid-wagon/fluid-wagon-shadow-4.png"
-          },
-          line_length = 4,
-          lines_per_file = 8,
-          shift = {0.875 + 0.013, 0.3125 + 0.077},
-          hr_version = {
-            flags = { "shadow" },
-            priority = "very-low",
-            slice = 4,
-            width = 501,
-            height = 375,
-            back_equals_front = true,
-            draw_as_shadow = true,
-            direction_count = 128,
-            allow_low_quality_rotation = true,
-            filenames = {
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-1.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-2.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-3.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-4.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-5.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-6.png",
-              BASEENTITY .. "fluid-wagon/hr-fluid-wagon-shadow-7.png"
-            },
-            line_length = 4,
-            lines_per_file = 5,
-            shift = {0.875 + 0.013, 0.3125 + 0.077},
-            scale = 0.5
-          }
+      slope_angle_between_frames = data.raw["fluid-wagon"]["fluid-wagon"].pictures.slope_angle_between_frames,
+      slope_back_equals_front = data.raw["fluid-wagon"]["fluid-wagon"].pictures.slope_back_equals_front,
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/fluid-wagon/fluid-wagon",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              back_equals_front = true,
+              direction_count = 128,
+              scale = 0.5,
+              usage = "train",
+              apply_runtime_tint = true,
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/fluid-wagon/fluid-wagon-shadow",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              back_equals_front = true,
+              draw_as_shadow = true,
+              direction_count = 128,
+              scale = 0.5,
+              usage = "train",
+            }
+          )
         }
-      }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["fluid-wagon"]["fluid-wagon"].pictures.sloped)
+        sprites.layers[1].apply_runtime_tint = true
+        return sprites
+      end)
     }
   }
 })
@@ -797,9 +654,9 @@ data:extend({
     tie_distance = 50,
     working_sound = data.raw["fluid-wagon"]["fluid-wagon"].working_sound,
     crash_trigger = data.raw["fluid-wagon"]["fluid-wagon"].crash_trigger,
-    vehicle_impact_sound = data.raw["fluid-wagon"]["fluid-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["fluid-wagon"]["fluid-wagon"].impact_category,
     water_reflection = data.raw["fluid-wagon"]["fluid-wagon"].water_reflection,
-    sound_minimum_speed = 0.1,
+    --sound_minimum_speed = 0.1,
     pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures
   },
 
@@ -844,9 +701,9 @@ data:extend({
     tie_distance = 50,
     working_sound = data.raw["fluid-wagon"]["fluid-wagon"].working_sound,
     crash_trigger = data.raw["fluid-wagon"]["fluid-wagon"].crash_trigger,
-    vehicle_impact_sound = data.raw["fluid-wagon"]["fluid-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["fluid-wagon"]["fluid-wagon"].impact_category,
     water_reflection = data.raw["fluid-wagon"]["fluid-wagon"].water_reflection,
-    sound_minimum_speed = 0.1,
+    --sound_minimum_speed = 0.1,
     pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures
   },
 
@@ -890,11 +747,14 @@ data:extend({
     back_light = data.raw["artillery-wagon"]["artillery-wagon"].back_light,
     stand_by_light = data.raw["artillery-wagon"]["artillery-wagon"].stand_by_light,
     color = {r = 0.43, g = 0.23, b = 0, a = 0.5},
+    
     cannon_barrel_pictures = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_pictures,
     cannon_base_pictures = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_pictures,
-    cannon_base_shiftings = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shiftings,
     cannon_barrel_recoil_shiftings = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_recoil_shiftings,
-    cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_recoil_shiftings_load_correction_matrix,
+    cannon_base_height = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_height,
+    cannon_base_shift_when_vertical = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shift_when_vertical,
+    cannon_base_shift_when_horizontal = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shift_when_horizontal,
+    
     minimap_representation = data.raw["artillery-wagon"]["artillery-wagon"].minimap_representation,
     selected_minimap_representation = data.raw["artillery-wagon"]["artillery-wagon"].selected_minimap_representation,
     wheels = data.raw["artillery-wagon"]["artillery-wagon"].wheels,
@@ -905,43 +765,47 @@ data:extend({
     crash_trigger = data.raw["artillery-wagon"]["artillery-wagon"].crash_trigger,
     open_sound = data.raw["artillery-wagon"]["artillery-wagon"].open_sound,
     close_sound = data.raw["artillery-wagon"]["artillery-wagon"].close_sound,
-    vehicle_impact_sound = data.raw["artillery-wagon"]["artillery-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["artillery-wagon"]["artillery-wagon"].impact_category,
     water_reflection = data.raw["artillery-wagon"]["artillery-wagon"].water_reflection,
-    rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.2 }},
-    rotating_stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" },
-    sound_minimum_speed = 0.1,
+    rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.2}, stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" }},
+    --sound_minimum_speed = 0.1,
 
     pictures = {
-      layers = {
-        {
-          priority = "very-low",
-          width = 238,
-          height = 206,
-          direction_count = 256,
-          allow_low_quality_rotation = true,
-          line_length = 4,
-          lines_per_file = 4,
-          shift = util.by_pixel(0, -27),
-          dice = 4,
-          filenames = data.raw["artillery-wagon"]["artillery-wagon"].pictures.layers[1].filenames,
-          tint = { 0.7, 0.7, 0.9 },
-          hr_version = {
-            priority = "very-low",
-            width = 476,
-            height = 410,
-            direction_count = 256,
-            allow_low_quality_rotation = true,
-            line_length = 4,
-            lines_per_file = 4,
-            shift = util.by_pixel(0.5, -27.5),
-            scale = 0.5,
-            dice = 4,
-            filenames = data.raw["artillery-wagon"]["artillery-wagon"].pictures.layers[1].hr_version.filenames,
-            tint = { 0.7, 0.7, 0.9 }
-          }
-        },
-        data.raw["artillery-wagon"]["artillery-wagon"].pictures.layers[2]
-      }
+      slope_angle_between_frames = data.raw["artillery-wagon"]["artillery-wagon"].pictures.slope_angle_between_frames,
+      rotated = {
+        layers = {
+          util.sprite_load("__base__/graphics/entity/artillery-wagon/artillery-wagon-base",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = { 0.7, 0.7, 0.9 },
+            }
+          ),
+          util.sprite_load("__base__/graphics/entity/artillery-wagon/artillery-wagon-base",
+            {
+              dice = 4,
+              priority = "very-low",
+              allow_low_quality_rotation = true,
+              draw_as_shadow = true,
+              direction_count = 256,
+              scale = 0.5,
+              usage = "train",
+              tint = { 0.7, 0.7, 0.9 }
+            }
+          ),
+          data.raw["artillery-wagon"]["artillery-wagon"].pictures.rotated.layers[2]
+        }
+      },
+      sloped = e_rails(function()
+        local sprites = util.table.deepcopy(data.raw["artillery-wagon"]["artillery-wagon"].pictures.sloped)
+        sprites.layers[1].tint = {0.7, 0.7, 0.9}
+        sprites.layers[2].tint = {0.7, 0.7, 0.9}
+        return sprites
+      end)
     }
   },
 
@@ -985,12 +849,15 @@ data:extend({
     back_light = data.raw["artillery-wagon"]["artillery-wagon"].back_light,
     stand_by_light = data.raw["artillery-wagon"]["artillery-wagon"].stand_by_light,
     color = {r = 0.43, g = 0.23, b = 0, a = 0.5},
+    
     pictures = data.raw["artillery-wagon"]["artillery-wagon"].pictures,
     cannon_barrel_pictures = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_pictures,
     cannon_base_pictures = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_pictures,
-    cannon_base_shiftings = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shiftings,
     cannon_barrel_recoil_shiftings = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_recoil_shiftings,
-    cannon_barrel_recoil_shiftings_load_correction_matrix = data.raw["artillery-wagon"]["artillery-wagon"].cannon_barrel_recoil_shiftings_load_correction_matrix,
+    cannon_base_height = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_height,
+    cannon_base_shift_when_vertical = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shift_when_vertical,
+    cannon_base_shift_when_horizontal = data.raw["artillery-wagon"]["artillery-wagon"].cannon_base_shift_when_horizontal,
+    
     minimap_representation = data.raw["artillery-wagon"]["artillery-wagon"].minimap_representation,
     selected_minimap_representation = data.raw["artillery-wagon"]["artillery-wagon"].selected_minimap_representation,
     wheels = data.raw["artillery-wagon"]["artillery-wagon"].wheels,
@@ -1001,10 +868,9 @@ data:extend({
     crash_trigger = data.raw["artillery-wagon"]["artillery-wagon"].crash_trigger,
     open_sound = data.raw["artillery-wagon"]["artillery-wagon"].open_sound,
     close_sound = data.raw["artillery-wagon"]["artillery-wagon"].close_sound,
-    vehicle_impact_sound = data.raw["artillery-wagon"]["artillery-wagon"].vehicle_impact_sound,
+    impact_category = data.raw["artillery-wagon"]["artillery-wagon"].impact_category,
     water_reflection = data.raw["artillery-wagon"]["artillery-wagon"].water_reflection,
-    rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.2 }},
-    rotating_stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" },
-    sound_minimum_speed = 0.1
+    rotating_sound = { sound = { filename = "__base__/sound/fight/artillery-rotation-loop.ogg", volume = 0.2 },stopped_sound = { filename = "__base__/sound/fight/artillery-rotation-stop.ogg" }},
+    --sound_minimum_speed = 0.1
   }
 })

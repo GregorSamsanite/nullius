@@ -42,16 +42,16 @@ local checkpoint_data = {
   ["freight-transportation"] = {{ CHK_ITEM, STT_CONSUME, 2, {{"nullius-hydrogen-canister"}} },
 			{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-water-canister"}} }},
   ["lubricant"] = {{ CHK_FLUID, STT_PRODUCE, 250, {{"nullius-lubricant"}} }},
-  ["plumbing"] = {{ CHK_BUILD, STT_NET, 10, {{"nullius-pump-1"}} },
+  ["plumbing"] = {{ CHK_BUILD, STT_NET, 5, {{"nullius-pump-1"}} },
 			{ CHK_BUILD, STT_NET, 10, {{"nullius-medium-tank-2"}} },
-			{ CHK_BUILD, STT_NET, 6, {{"nullius-relief-valve"}} }},
+			{ CHK_BUILD, STT_NET, 3, {{"nullius-one-way-valve"}} }},
 
   ["volcanic-gas"] = {{ CHK_FLUID, STT_PRODUCE, 5000, {{"nullius-volcanic-gas"}} }},
   ["lab"] = {{ CHK_BUILD, STT_NET, 3, {{"nullius-lab-1"}} }},
   ["sensor"] = {{ CHK_ITEM, STT_CONSUME, 100, {{"nullius-sensor-1"}} }},
   ["freight-logistics"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-locomotive-1"}} },
 			{ CHK_BUILD, STT_NET, 2, {{"train-stop"}} },
-			{ CHK_BUILD, STT_NET, 150, {{"straight-rail"},{"curved-rail",4}} }},
+			{ CHK_BUILD, STT_NET, 150, {{"straight-rail"}}}},--,{"curved-rail-a",4}} }},
   ["limestone"] = {{ CHK_ITEM, STT_PRODUCE, 500, {{"nullius-limestone"}} }},
   ["optimization"] = {{ CHK_ITEM, STT_PRODUCE, 5, {{"nullius-haste-module-1"}} },
 			{ CHK_ITEM, STT_PRODUCE, 5, {{"nullius-efficiency-module-1"}} }},
@@ -61,14 +61,14 @@ local checkpoint_data = {
 			{ CHK_ITEM, STT_PRODUCE, 6, {{"nullius-robot-frame-1"}} }},
   ["logistic-robot"] = {{ CHK_ITEM, STT_PRODUCE, 8, {{"nullius-logistic-bot-1"}} },
 			{ CHK_BUILD, STT_NET, 2, {{"nullius-small-supply-chest-1"}} }},
-  ["logistics"] = {{ CHK_BUILD, STT_NET, 10, {{"turbo-inserter"}} },
+  ["logistics"] = {{ CHK_BUILD, STT_NET, 10, {{"bob-turbo-inserter"}} },
 			{ CHK_BUILD, STT_NET, 10, {{"fast-underground-belt"}} }},
   ["concrete"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"concrete"}} }},
   ["heat-pipe"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-heat-pipe-1"}} }},
   ["chemical-engineering"] = {{ CHK_BUILD, STT_NET, 10, {{"nullius-chemical-plant-2"}} }},
-  ["chirality"] = {{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-surge-electrolyzer-2"}} },
-			{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-flotation-cell-2"}} },
-			{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-combustion-chamber-2"}} }},
+  -- ["chirality"] = {{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-surge-electrolyzer-2"}} },
+	-- 		{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-flotation-cell-2"}} },
+	-- 		{ CHK_BUILD, STT_NET, 2, {{"nullius-mirror-combustion-chamber-2"}} }},
 
   ["propene"] = {{ CHK_FLUID, STT_CONSUME, 300000, {{"nullius-propene"}} }},
   ["titanium-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 100, {{"nullius-titanium-ingot"}} }},
@@ -87,7 +87,7 @@ local checkpoint_data = {
 			{ CHK_BUILD, STT_NET, 4, {{"nullius-relay-construction-2"}} }},
   ["large-tank"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-large-tank-2"}} }},
   ["substation"] = {{ CHK_BUILD, STT_NET, 4, {{"nullius-substation-2"}} }},
-  ["logistics-2"] = {{ CHK_BUILD, STT_NET, 40, {{"stack-inserter"}} },
+  ["logistics-2"] = {{ CHK_BUILD, STT_NET, 40, {{"bulk-inserter"}} },
 			{ CHK_BUILD, STT_NET, 40, {{"express-underground-belt"}} }},
   ["lab-2"] = {{ CHK_BUILD, STT_NET, 10, {{"nullius-lab-2"}} }},
   ["productivity-module"] = {{ CHK_ITEM, STT_PRODUCE, 50, {{"nullius-productivity-module-1"}} }},
@@ -102,8 +102,8 @@ local checkpoint_data = {
   ["large-miner"] = {{ CHK_BUILD, STT_NET, 50, {{"nullius-large-miner-1"}} }},
   ["filter"] = {{ CHK_ITEM, STT_PRODUCE, 100,
 			{{"nullius-filter-2"}, {"nullius-box-filter-2", 5}} }},
-  ["pumping"] = {{ CHK_BUILD, STT_NET, 40, {{"nullius-pump-2"}} }},
-  ["logistics-3"] = {{ CHK_BUILD, STT_NET, 10, {{"ultimate-splitter"}} }},
+  ["pumping"] = {{ CHK_BUILD, STT_NET, 15, {{"nullius-pump-2"}} }},
+  ["logistics-3"] = {{ CHK_BUILD, STT_NET, 10, {{"bob-ultimate-splitter"}} }},
   ["automation"] = {{ CHK_BUILD, STT_NET, 20, {{"nullius-large-assembler-2"}} }},
   ["mining"] = {{ CHK_ITEM, STT_CONSUME, 1200000, {{"iron-ore"},{"nullius-box-iron-ore",5}} },
 			{ CHK_ITEM, STT_CONSUME, 900000, {{"nullius-sandstone"},{"nullius-box-sandstone",5}} },
@@ -174,17 +174,17 @@ local broken_data = {
 }
 
 function init_broken()
-  if ((global.nullius_broken_status == nil) or
-      (not global.nullius_alignment)) then
-    global.nullius_broken_status = {}
+  if ((storage.nullius_broken_status == nil) or
+      (not storage.nullius_alignment)) then
+    storage.nullius_broken_status = {}
   end
-  if (global.nullius_alignment) then
+  if (storage.nullius_alignment) then
 	broken_data["align-transponder"] = 1
   end
   for suffix, count in pairs(broken_data) do
     local ind = "nullius-broken-" .. suffix
-	local cur = (global.nullius_broken_status[ind] or 0)
-    global.nullius_broken_status[ind] = (count + cur)
+	local cur = (storage.nullius_broken_status[ind] or 0)
+    storage.nullius_broken_status[ind] = (count + cur)
   end
 end
 
@@ -209,20 +209,20 @@ function reset_checkpoints(force)
 	end
   end
 
-  if ((global.nullius_broken_status ~= nil) and
-      (not global.nullius_alignment)) then
+  if ((storage.nullius_broken_status ~= nil) and
+      (not storage.nullius_alignment)) then
     for suffix, count in pairs(broken_data) do
       local broken_name = "nullius-broken-" .. suffix
-	  if (not broken_disabled(broken_name)) then
-	    checknum = checknum + 1
-		checkset[checknum] = {name=broken_name, category=CAT_BROKEN,
-		    reqs={{ CHK_ITEM, STT_CONSUME, count, {{ broken_name }} }}}
+	    if (not broken_disabled(broken_name)) then
+	      checknum = checknum + 1
+		    checkset[checknum] = {name=broken_name, category=CAT_BROKEN,
+		      reqs={{ CHK_ITEM, STT_CONSUME, count, {{ broken_name }} }}}
+	    end
 	  end
-	end
   end
 
-  global.checkpoint_list[force.index] = checkset
-  global.checkpoint_number[force.index] = checknum
+  storage.checkpoint_list[force.index] = checkset
+  storage.checkpoint_number[force.index] = checknum
 end
 
 function init_force_checkpoints(force)
@@ -241,8 +241,8 @@ function init_force_checkpoints(force)
 end
 
 function update_checkpoint_list(techname)
-  if (global.checkpoint_prereqs == nil) then return end
-  if (global.checkpoint_prereqs[techname] == true) then
+  if (storage.checkpoint_prereqs == nil) then return end
+  if (storage.checkpoint_prereqs[techname] == true) then
     for _, force in pairs(game.forces) do
 	  if (force.research_enabled) then
         reset_checkpoints(force)
@@ -255,15 +255,15 @@ function init_checkpoint_prereqs()
   local prereqs = { }
   for suffix, check in pairs(checkpoint_data) do
     local techname = "nullius-checkpoint-" .. suffix
-    local tech = game.technology_prototypes[techname]
+    local tech = prototypes.technology[techname]
     for _, prereq in pairs(tech.prerequisites) do
       prereqs[prereq.name] = true
 	end
   end
 
-  global.checkpoint_prereqs = prereqs
-  global.checkpoint_list = { }
-  global.checkpoint_number = { }
+  storage.checkpoint_prereqs = prereqs
+  storage.checkpoint_list = { }
+  storage.checkpoint_number = { }
 end
 
 
@@ -271,22 +271,22 @@ local function count_req_list(list, stats, calc)
   local count = 0
   for _,item in pairs(list) do
     local itemname = item[1]
-	local value = 0
+	  local value = 0
     if (calc == STT_PRODUCE) then
       value = stats.get_input_count(itemname)
     elseif (calc == STT_CONSUME) then
       value = stats.get_output_count(itemname)
     elseif (calc == STT_NET) then
       value = stats.get_input_count(itemname) - stats.get_output_count(itemname)
-	  if (item[3] ~= nil) then
-	    if (value < item[3]) then
-		  item[3] = value
-		else
-	      value = value - item[3]
-		end
-	  elseif (value < 0) then
-	    item[3] = value
-	  end
+	    if (item[3] ~= nil) then
+	      if (value < item[3]) then
+		    item[3] = value
+		  else
+	        value = value - item[3]
+		  end
+	    elseif (value < 0) then
+	      item[3] = value
+	    end
     end
 	if (item[2] ~= nil) then value = (value * item[2]) end
 	count = count + value
@@ -303,27 +303,27 @@ local function test_checkpoint_req(force, req)
   local list = req[4]
   local stats = nil
   if (ctyp == CHK_ITEM) then
-    stats = force.item_production_statistics
+    stats = force.get_item_production_statistics("nauvis")
   elseif (ctyp == CHK_FLUID) then
-    stats = force.fluid_production_statistics
+    stats = force.get_fluid_production_statistics("nauvis")
   elseif (ctyp == CHK_BUILD) then
-    stats = force.entity_build_count_statistics
+    stats = force.get_entity_build_count_statistics("nauvis")
   elseif (ctyp == CHK_OBJECTIVE) then
-    if (global.nullius_mission_status == nil) then return 0 end
-    if (global.nullius_mission_complete) then return 1 end
+    if (storage.nullius_mission_status == nil) then return 0 end
+    if (storage.nullius_mission_complete) then return 1 end
 	return math.min(1, math.max(0,
-	    (global.nullius_mission_status[calc] / goal)))
+	    (storage.nullius_mission_status[calc] / goal)))
   elseif (ctyp == CHK_SPECIAL) then
     if (calc == 1) then
-	  if (global.nullius_switch_body_count == nil) then return 0 end
-	  local count = global.nullius_switch_body_count[force.name]
+	  if (storage.nullius_switch_body_count == nil) then return 0 end
+	  local count = storage.nullius_switch_body_count[force.name]
 	  if (count == nil) then return 0 end
 	  return math.min(1, math.max(0, (count / goal)))
 	elseif (calc == 2) then
 	  local count = count_req_list(list[1],
-	          force.fluid_production_statistics, STT_CONSUME) +
+	          force.get_fluid_production_statistics("nauvis"), STT_CONSUME) +
 		  count_req_list(list[2],
-	          force.item_production_statistics, STT_PRODUCE)
+	          force.get_item_production_statistics("nauvis"), STT_PRODUCE)
       return math.min(math.max((count / goal), 0), 1)
     else
       return 0
@@ -337,25 +337,25 @@ local function test_checkpoint_req(force, req)
 end
 
 local function update_checkpoint_force(force, tick)
-  local num = global.checkpoint_number[force.index]
+  local num = storage.checkpoint_number[force.index]
   if ((num == nil) or (num < 1)) then return end
 
   local ind = (tick % num) + 1
-  local lst = global.checkpoint_list[force.index]
+  local lst = storage.checkpoint_list[force.index]
   local check = lst[ind]
   local tech = nil
   if (check.category == CAT_BROKEN) then
     if (broken_disabled(check.name)) then
       reset_checkpoints(force)
-	  return	
-	end
+	    return
+	  end
   else
     tech = force.technologies[check.name]
     if (tech == nil) then return end
     if ((not tech.enabled) or tech.researched) then
       reset_checkpoints(force)
-	  return
-    end
+	    return
+      end
   end
 
   local progress = 0
@@ -367,48 +367,48 @@ local function update_checkpoint_force(force, tick)
 
   if ((progress >= count) or (count < 1)) then
     if (tech ~= nil) then
-	  if ((force.current_research == nil) or
-          (force.current_research.name ~= tech.name)) then
-	    force.print({"technology-description.nullius-complete-checkpoint",
-		    "[technology="..tech.name.."]"}, {1, 0.75, 0.4})
-	  end
-	  if (force.research_queue_enabled and (force.current_research ~= nil) and
-          (force.current_research.name ~= tech.name)) then
-		-- When checkpoint is in research queue, researching item
-		-- clears anything else in queue that has it as a dependency.
-		-- Try to restore the original queue afterwards.
-		local saved_queue = { }
-		local saved_count = 1
-		local found = nil
-	    for ind,q in pairs(force.research_queue) do
-		  if (ind > 1) then
-		    if (q.name == tech.name) then
-			  found = saved_count
-			else
-			  saved_count = saved_count + 1
-			  saved_queue[saved_count] = q
-			end
-		  else
-		    saved_queue[1] = q
-		  end
-		end
-		tech.researched = true
-		if ((found ~= nil) and (found < saved_count)) then
-		  force.research_queue = saved_queue
-		end
+	    if ((force.current_research == nil) or
+            (force.current_research.name ~= tech.name)) then
+	      force.print({"technology-description.nullius-complete-checkpoint",
+		      "[technology="..tech.name.."]"}, {1, 0.75, 0.4})
+	    end
+	    if ((force.current_research ~= nil) and (force.current_research.name ~= tech.name)) then
+		    -- When checkpoint is in research queue, researching item
+		    -- clears anything else in queue that has it as a dependency.
+		    -- Try to restore the original queue afterwards.
+		    local saved_queue = { }
+		    local saved_count = 1
+		    local found = nil
+	      for ind,q in pairs(force.research_queue) do
+		      if (ind > 1) then
+		        if (q.name == tech.name) then
+		  	      found = saved_count
+		  	    else
+		  	      saved_count = saved_count + 1
+		  	      saved_queue[saved_count] = q
+		  	    end
+		      else
+		        saved_queue[1] = q
+		      end
+		    end
+		    tech.researched = true
+		    if ((found ~= nil) and (found < saved_count)) then
+		      force.research_queue = saved_queue
+		    end
+	    else
+          tech.researched = true
+	    end
 	  else
-        tech.researched = true
+	    broken_finished_delayed(check.name)
 	  end
-	else
-	  broken_finished(check.name)
-	end
   elseif (tech ~= nil) then
     progress = (progress / count)
     if ((force.current_research ~= nil) and
         (force.current_research.name == tech.name)) then
-	  force.research_progress = progress
+	    force.research_progress = progress
     else
-      force.set_saved_technology_progress(tech, progress)
+      -- force.set_saved_technology_progress(tech, progress)
+      force.technologies[tech.name].saved_progress = progress
     end
   end
 end

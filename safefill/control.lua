@@ -4,7 +4,7 @@ function entity_built_tile(event, entity)
     return
   end
   local tilename = string.sub(event.tile.order, 18)
-  local tile = game.tile_prototypes[tilename]
+  local tile = prototypes.tile[tilename]
   if (tile == nil) then
     return
   end
@@ -27,8 +27,8 @@ function entity_built_tile(event, entity)
 	  if (t.old_tile.mineable_properties.minable) then
 	    newtilename = "dirt-1"
 		if (curt.hidden_tile ~= nil) then
-		  local ht = game.tile_prototypes[curt.hidden_tile]
-		  if ((ht ~= nil) and (not ht.collision_mask["water-tile"])) then
+		  local ht = prototypes.tile[curt.hidden_tile]
+		  if ((ht ~= nil) and (not ht.collision_mask["water_tile"])) then
 		    newtilename = ht.name
 		  end
 		end
@@ -42,7 +42,7 @@ function entity_built_tile(event, entity)
   end
 
   s.set_tiles(newtiles2, true, false)
-  local item = game.item_prototypes[event.tile.name]
+  local item = prototypes.item[event.tile.name]
   if (item == nil) then
     return
   end
@@ -76,11 +76,11 @@ function script_built_tile(event)
   local new_count = 0
   for _,t in pairs(event.tiles) do
     if (string.sub(t.name, 1, 9) == "safefill-") then
-	  local tile = game.tile_prototypes[t.name]
+	  local tile = prototypes.tile[t.name]
 	  if ((tile ~= nil) and
           (string.sub(tile.order, 1, 17) == "c[watersafefill]-")) then
 	    local tilename = string.sub(tile.order, 18)
-        if (game.tile_prototypes[tilename] ~= nil) then
+        if (prototypes.tile[tilename] ~= nil) then
           new_count = new_count + 1
 		  newtiles1[new_count] = {name = tilename, position = t.position}
 	    end
@@ -118,7 +118,7 @@ local fillname = {
 }
 
 function entity_built(event)
-  local entity = event.created_entity
+  local entity = event.entity
   if (entity.name == "tile-ghost") then
 	local tilename = entity.ghost_name
 	local safetile = fillname[tilename]

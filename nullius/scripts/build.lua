@@ -1,14 +1,14 @@
 function entity_added(entity, handbuilt)
   if (entity.type == "spider-vehicle") then
-	mecha_added(entity)
+	  mecha_added(entity)
     return
   end
   if (string.sub(entity.name, 1, 8) ~= "nullius-") then
     if (entity.name == "entity-ghost") then
       local result = check_pipette(handbuilt)
       if (result ~= nil) then entity = result end
-      check_mirror(entity)
-	end
+      --check_mirror(entity)
+	  end
     return
   end
 
@@ -64,10 +64,10 @@ end
 
 
 function entity_hand_built(event)
-  entity_added(event.created_entity, event)
+  entity_added(event.entity, event)
 end
 function entity_bot_built(event)
-  entity_added(event.created_entity, nil)
+  entity_added(event.entity, nil)
 end
 function entity_raised(event)
   entity_added(event.entity, nil)
@@ -80,12 +80,13 @@ function entity_died(event)
   entity_removed(event.entity, true)
 end
 function entity_destroyed(event)
-  if (script_kill or (event.unit_number == nil)) then return end
-  if (destroyed_stirling_engine(event.unit_number)) then return end
-  if (destroyed_wind_turbine(event.unit_number)) then return end
-  if (remove_beacon(event.unit_number)) then return end
-  if (remove_turbine(event.unit_number)) then return end
-  if (remove_transmitter(event.unit_number)) then return end
+  if (script_kill or (event.type ~= defines.target_type.entity)) then return end
+  local unit_number = event.useful_id
+  if (destroyed_stirling_engine(unit_number)) then return end
+  if (destroyed_wind_turbine(unit_number)) then return end
+  if (remove_beacon(unit_number)) then return end
+  if (remove_turbine(unit_number)) then return end
+  if (remove_transmitter(unit_number)) then return end
 end
 
 
@@ -96,7 +97,7 @@ script.on_event(defines.events.script_raised_revive, entity_raised)
 script.on_event(defines.events.on_player_mined_entity, entity_mined)
 script.on_event(defines.events.on_robot_mined_entity, entity_mined)
 script.on_event(defines.events.on_entity_died, entity_died)
-script.on_event(defines.events.on_entity_destroyed, entity_destroyed)
+script.on_event(defines.events.on_object_destroyed, entity_destroyed)
 
 
 function update_tick()
@@ -113,6 +114,8 @@ function update_tick()
     update_grass()
   elseif (tickmod1 == 9) then
     update_align()
+  elseif (tickmod1 == 10) then
+    check_fixing_machines()
   elseif (tickmod1 == 11) then
     local tickmod2 = (game.tick % 15)
     if (tickmod2 == 2) then

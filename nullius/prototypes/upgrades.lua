@@ -453,7 +453,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/research-speed.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "laboratory-speed",
@@ -481,7 +481,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/braking-force.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "train-braking-force-bonus",
@@ -509,10 +509,10 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/inserter-capacity.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
-        type = "stack-inserter-capacity-bonus",
+        type = "bulk-inserter-capacity-bonus",
         modifier = 1
       }
     },
@@ -537,7 +537,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/steel-axe.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "character-mining-speed",
@@ -573,7 +573,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/worker-robots-speed.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "worker-robot-speed",
@@ -601,7 +601,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/worker-robots-storage.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "worker-robot-storage",
@@ -630,7 +630,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/technology/worker-robots-storage.png",
       icon_size = 256,
-      icon_mipmaps = 4,
+      
       tint = {0.6, 0.9, 1}
     }},
     effects = {
@@ -658,9 +658,9 @@ data:extend({
     type = "technology",
     name = "nullius-extermination-1",
     order = "nullius-xc",
-    icon = "__base__/graphics/technology/energy-weapons-damage.png",
+    icon = "__base__/graphics/technology/laser-weapons-damage.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "gun-speed",
@@ -704,7 +704,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/artillery-range.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "artillery-range",
@@ -730,9 +730,9 @@ data:extend({
     type = "technology",
     name = "nullius-artificial-intuition-1",
     order = "nullius-xc",
-    icon = "__base__/graphics/technology/optics.png",
+    icon = "__base__/graphics/technology/lamp.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "laboratory-productivity",
@@ -760,7 +760,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/toolbelt.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "character-inventory-slots-bonus",
@@ -788,7 +788,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/discharge-defense-equipment.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "character-reach-distance",
@@ -827,7 +827,7 @@ data:extend({
     order = "nullius-xc",
     icon = "__base__/graphics/technology/exoskeleton-equipment.png",
     icon_size = 256,
-    icon_mipmaps = 4,
+    
     effects = {
       {
         type = "character-running-speed",

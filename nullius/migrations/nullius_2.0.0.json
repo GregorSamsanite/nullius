@@ -1,0 +1,46 @@
+{
+  "recipe":
+  [
+	  ["nullius-empty-canister", "nullius-canister"],
+	  ["nullius-duct-end-point-outtake", "nullius-duct-exhaust"],
+	  ["nullius-duct-end-point-intake", "nullius-duct-intake"],
+	  ["nullius-SNTD-old-nixie-tube", "nullius-classic-nixie-tube"],
+	  ["nullius-SNTD-nixie-tube", "nullius-reinforced-nixie-tube"],
+	  ["nullius-SNTD-nixie-tube-small", "nullius-small-reinforced-nixie-tube"],
+	  
+	  ["nullius-box-filter-inserter-2", "nullius-box-inserter-2"],
+	  ["nullius-unbox-filter-inserter-2", "nullius-unbox-inserter-2"],
+	  ["nullius-box-filter-inserter-3", "nullius-box-inserter-3"],
+	  ["nullius-unbox-filter-inserter-3", "nullius-unbox-inserter-3"],
+	  ["nullius-box-filter-inserter-4", "nullius-box-inserter-4"],
+	  ["nullius-unbox-filter-inserter-4", "nullius-unbox-inserter-4"],
+	  ["nullius-filter-inserter-2", "nullius-inserter-2"],
+	  ["nullius-filter-inserter-3", "nullius-inserter-3"],
+	  ["nullius-filter-inserter-4", "nullius-inserter-4"],
+	  ["nullius-boxed-filter-inserter-2", "nullius-boxed-inserter-2"],
+	  ["nullius-boxed-filter-inserter-3", "nullius-boxed-inserter-3"],
+	  ["nullius-boxed-filter-inserter-4", "nullius-boxed-inserter-4"]
+  ],
+  "item": [
+    ["nullius-box-filter-inserter-2", "nullius-box-inserter-2"],
+    ["nullius-box-filter-inserter-3", "nullius-box-inserter-3"],
+    ["nullius-box-filter-inserter-4", "nullius-box-inserter-4"],
+    ["red-wire", "nullius-red-wire"],
+    ["green-wire", "nullius-green-wire"]
+  ],
+  "tile":[
+    ["angels-tile-clay-brick", "nullius-tile-clay-brick"]
+  ],
+  "entity": [
+    ["angels-crystal-rock", "nullius-crystal-rock"],
+    ["nullius-priority-valve","nullius-legacy-priority-valve"],
+    ["nullius-one-way-valve","nullius-legacy-one-way-valve"],
+    ["nullius-top-up-valve","nullius-legacy-top-up-valve"],
+    ["nullius-relief-valve","nullius-legacy-relief-valve"],
+    ["nullius-lamp-1", "small-lamp"]
+  ],
+  "technology": [
+    ["nullius-SNTD-nixie-tubes-basic", "nullius-reinforced-nixie-tubes-basic"],
+    ["nullius-SNTD-nixie-tubes-reinforced", "nullius-reinforced-nixie-tubes-reinforced"]
+  ]
+}

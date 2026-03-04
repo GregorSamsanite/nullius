@@ -274,18 +274,18 @@ data:extend({
 if mods["reskins-bobs"] then
   data.raw["solar-panel-equipment"]["nullius-solar-panel-1"].sprite = { layers = {
     {
-      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/hr-solar-panel-small.png",
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/base/solar-panel-small.png",
       size = 150,
       priority = "medium"
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-mask.png",
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/solar-panel-small-mask.png",
       size = 150,
       priority = "medium",
       tint = tiercolor("yellow")
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/hr-solar-panel-small-highlights.png",
+      filename = "__reskins-bobs__/graphics/entity/power/solar-panel-small/solar-panel-small-highlights.png",
       size = 150,
       priority = "medium",
       blend_mode = "additive"
@@ -312,7 +312,7 @@ data:extend({
     order = "gb",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 4}},
+		{"entity-description.nullius-megajoule", tostring(4)}},
     sprite = {
       filename = EQUIPPATH .. "hangar1.png",
       width = 128,
@@ -364,9 +364,9 @@ data:extend({
     order = "gc",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 10}},
+		{"entity-description.nullius-megajoule", tostring(10)}},
     sprite = {
-      filename = "__base__/graphics/equipment/hr-personal-roboport-mk2-equipment.png",
+      filename = "__base__/graphics/equipment/personal-roboport-mk2-equipment.png",
       width = 128,
       height = 128,
       priority = "medium",
@@ -416,7 +416,7 @@ data:extend({
     order = "gd",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 30}},
+		{"entity-description.nullius-megajoule", tostring(30)}},
     sprite = {
       filename = EQUIPPATH .. "hangar3.png",
       width = 128,
@@ -468,7 +468,7 @@ data:extend({
     order = "ge",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 20}},
+		{"entity-description.nullius-megajoule", tostring(20)}},
     sprite = {
       filename = EQUIPPATH .. "hangar3.png", --hangar 4 is just a smaller version of h3
       width = 128,
@@ -519,7 +519,7 @@ data:extend({
     name = "nullius-charger-1",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 4}},
+		{"entity-description.nullius-megajoule", tostring(4)}},
     order = "hb",
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad.png",
@@ -570,7 +570,7 @@ data:extend({
     name = "nullius-charger-2",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 10}},
+		{"entity-description.nullius-megajoule", tostring(10)}},
     order = "hc",
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-2.png",
@@ -621,7 +621,7 @@ data:extend({
     name = "nullius-charger-3",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 30}},
+		{"entity-description.nullius-megajoule", tostring(30)}},
     order = "hd",
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
@@ -672,7 +672,7 @@ data:extend({
     name = "nullius-charger-4",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 20}},
+		{"entity-description.nullius-megajoule", tostring(20)}},
     order = "he",
     sprite = {
       filename = "__boblogistics__/graphics/icons/roboport-chargepad-4.png",
@@ -723,7 +723,7 @@ data:extend({
     name = "nullius-relay-1",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-kilojoule", 200}},
+		{"entity-description.nullius-kilojoule", tostring(200)}},
     order = "ib",
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander.png",
@@ -777,7 +777,7 @@ data:extend({
     name = "nullius-relay-2",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-kilojoule", 400}},
+		{"entity-description.nullius-kilojoule", tostring(400)}},
     order = "ic",
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-2.png",
@@ -831,7 +831,7 @@ data:extend({
     name = "nullius-relay-3",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 1}},
+		{"entity-description.nullius-megajoule", tostring(1)}},
     order = "id",
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-4.png",
@@ -885,7 +885,7 @@ data:extend({
     name = "nullius-relay-4",
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 2}},
+		{"entity-description.nullius-megajoule", tostring(2)}},
     order = "ie",
     sprite = {
       filename = "__boblogistics__/graphics/entity/roboport/logistic-zone-expander-3.png",
@@ -942,8 +942,8 @@ data:extend({
     order = "eb",
     sprite = {
       filename = "__base__/graphics/equipment/night-vision-equipment.png",
-      width = 64,
-      height = 64,
+      width = 128,
+      height = 128,
       priority = "medium",
       scale = 1.2
     },
@@ -1031,11 +1031,10 @@ data:extend({
   {
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-1",
-    localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 1},
     localised_description = data.raw.item["nullius-levitation-field-1"].localised_description,
     order = "fb",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
       width = 64,
       height = 64,
       priority = "medium",
@@ -1058,11 +1057,10 @@ data:extend({
   {
     type = "belt-immunity-equipment",
     name = "nullius-levitation-field-2",
-    localised_name = {"", {"equipment-name.nullius-levitation-field"}, " ", 2},
     localised_description = data.raw.item["nullius-levitation-field-2"].localised_description,
     order = "fc",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-belt-immunity-equipment.png",
+      filename = "__base__/graphics/equipment/belt-immunity-equipment.png",
       width = 64,
       height = 64,
       priority = "medium",
@@ -1086,7 +1084,7 @@ data:extend({
   {
     type = "movement-bonus-equipment",
     name = "nullius-upgrade-jump-boots",
-    localised_description = data.raw.item["nullius-jump-boots"].localised_description,
+    localised_description = data.raw.item["nullius-jump-boots"].localised_description, 
     take_result = "nullius-jump-boots",
     order = "daj",
     sprite = {
@@ -1117,7 +1115,7 @@ data:extend({
     localised_description = data.raw.item["nullius-leg-augmentation-1"].localised_description,
     order = "dbb",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
       width = 128,
       height = 256,
       priority = "medium",
@@ -1145,7 +1143,7 @@ data:extend({
     localised_description = data.raw.item["nullius-leg-augmentation-2"].localised_description,
     order = "dbc",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
       width = 128,
       height = 256,
       priority = "medium",
@@ -1173,7 +1171,7 @@ data:extend({
     localised_description = data.raw.item["nullius-leg-augmentation-3"].localised_description,
     order = "dbd",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
       width = 128,
       height = 256,
       priority = "medium",
@@ -1200,7 +1198,7 @@ data:extend({
     localised_description = data.raw.item["nullius-leg-augmentation-4"].localised_description,
     order = "dbe",
     sprite = {
-      filename = "__base__/graphics/equipment/hr-exoskeleton-equipment.png",
+      filename = "__base__/graphics/equipment/exoskeleton-equipment.png",
       width = 128,
       height = 256,
       priority = "medium",
@@ -1341,6 +1339,7 @@ data:extend({
     type = "projectile",
     name = "nullius-missile-1",
     flags = {"not-on-map"},
+    hidden_in_factoriopedia = true,
     acceleration = 0.005,
     light = {intensity = 0.5, size = 4},
     animation = data.raw["projectile"]["explosive-rocket"].animation,
@@ -1376,7 +1375,7 @@ data:extend({
           {
             type = "destroy-cliffs",
             radius = 5.5,
-            explosion = "explosion"
+            explosion_at_cliff = "explosion" --todo
           },
           {
             type = "nested-result",
@@ -1423,6 +1422,7 @@ data:extend({
     type = "projectile",
     name = "nullius-missile-2",
     flags = {"not-on-map"},
+    hidden_in_factoriopedia = true,
     acceleration = 0.004,
     light = {intensity = 0.5, size = 4},
     animation = data.raw["projectile"]["atomic-rocket"].animation,
@@ -1436,7 +1436,7 @@ data:extend({
           {
             type = "destroy-cliffs",
             radius = 21,
-            explosion = "explosion"
+            explosion_at_cliff = "explosion"
           },
           data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[3],
           data.raw.projectile["atomic-rocket"].action.action_delivery.target_effects[4],
@@ -1525,13 +1525,13 @@ data:extend({
             type = "set-tile",
             tile_name = "nuclear-ground",
             radius = 20,
-            tile_collision_mask = { "water-tile" }
+            tile_collision_mask = { layers = { water_tile = true }}
           },
           {
             type = "set-tile",
             tile_name = "water-shallow",
             radius = 18,
-            tile_collision_mask = { "water-tile" }
+            tile_collision_mask = { layers = { water_tile = true }}
           },
           {
             type = "set-tile",
@@ -1549,17 +1549,11 @@ data:extend({
 	order = "s",
     localised_description = data.raw.item["nullius-shield"].localised_description,
     sprite = {
-      filename = "__base__/graphics/equipment/energy-shield-equipment.png",
-      width = 64,
-      height = 64,
-      priority = "medium",
-      hr_version = {
-        filename = "__base__/graphics/equipment/hr-energy-shield-equipment.png",
+        filename = "__base__/graphics/equipment/energy-shield-equipment.png",
         width = 128,
         height = 128,
         priority = "medium",
         scale = 0.5
-      }
     },
     shape = {
       width = 2,
@@ -1582,8 +1576,8 @@ data:extend({
     name = "nullius-upgrade-armor-plate",
     take_result = "nullius-armor-plate",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-armor", 100}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 1}},
+	    {"equipment-description.nullius-bonus-armor", tostring(100)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(1)}},
     order = "k",
     sprite = {
       filename = EQUIPPATH.."armor-plate.png",
@@ -1608,8 +1602,8 @@ data:extend({
     name = "nullius-upgrade-small-cargo-pod-1",
     take_result = "nullius-small-cargo-pod-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 2}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 0.3}},
+	    {"equipment-description.nullius-bonus-cargo", tostring(2)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(0.3)}},
     order = "jbb",
     sprite = {
       filename = EQUIPPATH.."small-pod-1.png",
@@ -1634,8 +1628,8 @@ data:extend({
     name = "nullius-upgrade-small-cargo-pod-2",
     take_result = "nullius-small-cargo-pod-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 3}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 0.4}},
+	    {"equipment-description.nullius-bonus-cargo", tostring(3)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(0.4)}},
     order = "jbc",
     sprite = {
       filename = EQUIPPATH.."small-pod-2.png",
@@ -1660,8 +1654,8 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-1",
     take_result = "nullius-large-cargo-pod-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 10}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 1.5}},
+	    {"equipment-description.nullius-bonus-cargo", tostring(10)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(1.5)}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-1.png",
@@ -1686,8 +1680,8 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-2",
     take_result = "nullius-large-cargo-pod-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 12}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 1.6}},
+	    {"equipment-description.nullius-bonus-cargo", tostring(12)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(1.6)}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-2.png",
@@ -1712,8 +1706,8 @@ data:extend({
     name = "nullius-upgrade-large-cargo-pod-3",
     take_result = "nullius-large-cargo-pod-3",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-cargo", 15}, "\n",
-	    {"equipment-description.nullius-penalty-speed", 2}},
+	    {"equipment-description.nullius-bonus-cargo", tostring(15)}, "\n",
+	    {"equipment-description.nullius-penalty-speed", tostring(2)}},
     order = "jcb",
     sprite = {
       filename = EQUIPPATH.."large-pod-3.png",
@@ -1736,12 +1730,12 @@ data:extend({
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-trash-compactor",
-	localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", 1},
+	  localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", tostring(1)},
     take_result = "nullius-trash-compactor",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-trash", 10}, "\n",
+	    {"equipment-description.nullius-bonus-trash", tostring(10)}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 5}}},
+		    {"entity-description.nullius-kilowatt", tostring(5)}}},
     order = "jdb",
     sprite = {
       filename = EQUIPPATH.."trash-compactor-1.png",
@@ -1759,31 +1753,31 @@ data:extend({
       type = "electric",
       buffer_capacity = "300kJ",
       input_flow_limit = "30kW",
-	  drain = "5kW",
+	    drain = "5kW",
       usage_priority = "primary-input"
     },
     categories = {"android"},
-	automatic = false,
+	  automatic = false,
     attack_parameters = {
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "5kJ"
+		    energy_consumption = "5kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-trash-compactor-2",
-	localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", 2},
+	  localised_name = {"", {"equipment-name.nullius-upgrade-trash-compactor"}, " ", tostring(2)},
     take_result = "nullius-trash-compactor-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-trash", 20}, "\n",
+	    {"equipment-description.nullius-bonus-trash", tostring(20)}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 12}}},
+		    {"entity-description.nullius-kilowatt", tostring(12)}}},
     order = "jdc",
     sprite = {
       filename = EQUIPPATH.."trash-compactor-2.png",
@@ -1801,19 +1795,19 @@ data:extend({
       type = "electric",
       buffer_capacity = "800kJ",
       input_flow_limit = "80kW",
-	  drain = "12kW",
+	    drain = "12kW",
       usage_priority = "primary-input"
     },
     categories = {"android"},
-	automatic = false,
+	  automatic = false,
     attack_parameters = {
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "12kJ"
+        energy_consumption = "12kJ"
       }
     }
   },
@@ -1822,9 +1816,9 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-1",
     take_result = "nullius-fabrication-tool-1",
-	localised_description = {"equipment-description.nullius-buffer",
-	    {"equipment-description.nullius-bonus-craft", 25, 12},
-		{"entity-description.nullius-megajoule", 2}},
+	  localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-bonus-craft", tostring(25), tostring(12)},
+		{"entity-description.nullius-megajoule", tostring(2)}},
     order = "lbb",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-1.png",
@@ -1850,10 +1844,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "12kJ"
+        energy_consumption = "12kJ"
       }
     }
   },
@@ -1861,9 +1855,9 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-2",
     take_result = "nullius-fabrication-tool-2",
-	localised_description = {"equipment-description.nullius-buffer",
-	    {"equipment-description.nullius-bonus-craft", 40, 16},
-		{"entity-description.nullius-megajoule", 5}},
+	  localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-bonus-craft", tostring(40), tostring(16)},
+		{"entity-description.nullius-megajoule", tostring(5)}},
     order = "lbc",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-2.png",
@@ -1889,10 +1883,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "16kJ"
+        energy_consumption = "16kJ"
       }
     }
   },
@@ -1900,9 +1894,9 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-fabrication-tool-3",
     take_result = "nullius-fabrication-tool-3",
-	localised_description = {"equipment-description.nullius-buffer",
-	    {"equipment-description.nullius-bonus-craft", 120, 40},
-		{"entity-description.nullius-megajoule", 25}},
+	  localised_description = {"equipment-description.nullius-buffer",
+	    {"equipment-description.nullius-bonus-craft", tostring(120), tostring(40)},
+		{"entity-description.nullius-megajoule", tostring(25)}},
     order = "lbd",
     sprite = {
       filename = EQUIPPATH.."fabrication-tool-3.png",
@@ -1928,10 +1922,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "40kJ"
+        energy_consumption = "40kJ"
       }
     }
   },
@@ -1940,9 +1934,9 @@ data:extend({
     name = "nullius-upgrade-mining-tool-1",
     take_result = "nullius-mining-tool-1",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-mining", 80}, "\n",
+	    {"equipment-description.nullius-bonus-mining", tostring(80)}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 3}}},
+		    {"entity-description.nullius-kilowatt", tostring(3)}}},
     order = "lcb",
     sprite = {
       filename = EQUIPPATH.."mining-tool-1.png",
@@ -1969,10 +1963,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "4kJ"
+        energy_consumption = "4kJ"
       }
     }
   },
@@ -1981,9 +1975,9 @@ data:extend({
     name = "nullius-upgrade-mining-tool-2",
     take_result = "nullius-mining-tool-2",
     localised_description = {"",
-	    {"equipment-description.nullius-bonus-mining", 150}, "\n",
+	    {"equipment-description.nullius-bonus-mining", tostring(150)}, "\n",
 	    {"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 5}}},
+		    {"entity-description.nullius-kilowatt", tostring(5)}}},
     order = "lcc",
     sprite = {
       filename = EQUIPPATH.."mining-tool-2.png",
@@ -2010,10 +2004,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "6kJ"
+        energy_consumption = "6kJ"
       }
     }
   },
@@ -2021,12 +2015,12 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-1",
     take_result = "nullius-multi-tool-1",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 50, 20}, "\n",
-			{"equipment-description.nullius-bonus-mining", 50}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-craft", tostring(50), tostring(20)}, "\n",
+			{"equipment-description.nullius-bonus-mining", tostring(50)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 5}}},
-		{"entity-description.nullius-megajoule", 5}},
+				{"entity-description.nullius-kilowatt", tostring(5)}}},
+		{"entity-description.nullius-megajoule", tostring(5)}},
     order = "lcb",
     sprite = {
       filename = EQUIPPATH.."multi-tool-1.png",
@@ -2053,10 +2047,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "25kJ"
+        energy_consumption = "25kJ"
       }
     }
   },
@@ -2064,12 +2058,12 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-2",
     take_result = "nullius-multi-tool-2",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 70, 25}, "\n",
-			{"equipment-description.nullius-bonus-mining", 100}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-craft", tostring(70), tostring(25)}, "\n",
+			{"equipment-description.nullius-bonus-mining", tostring(100)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 10}}},
-		{"entity-description.nullius-megajoule", 12}},
+				{"entity-description.nullius-kilowatt", tostring(10)}}},
+		{"entity-description.nullius-megajoule", tostring(12)}},
     order = "lcc",
     sprite = {
       filename = EQUIPPATH.."multi-tool-2.png",
@@ -2096,10 +2090,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "30kJ"
+        energy_consumption = "30kJ"
       }
     }
   },
@@ -2107,13 +2101,13 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-multi-tool-3",
     take_result = "nullius-multi-tool-3",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-craft", 80, 25}, "\n",
-			{"equipment-description.nullius-bonus-mining", 125}, "\n",
-			{"equipment-description.nullius-bonus-reach", 2}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-craft", tostring(80), tostring(25)}, "\n",
+			{"equipment-description.nullius-bonus-mining", tostring(125)}, "\n",
+			{"equipment-description.nullius-bonus-reach", tostring(2)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 15}}},
-		{"entity-description.nullius-megajoule", 20}},
+				{"entity-description.nullius-kilowatt", tostring(15)}}},
+		{"entity-description.nullius-megajoule", tostring(20)}},
     order = "lcd",
     sprite = {
       filename = EQUIPPATH.."multi-tool-3.png",
@@ -2140,10 +2134,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 2,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "30kJ"
+        energy_consumption = "30kJ"
       }
     }
   },
@@ -2152,11 +2146,11 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-1",
     take_result = "nullius-telekinesis-field-1",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-reach", 8}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-reach", tostring(8)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 15}}},
-		{"entity-description.nullius-kilojoule", 400}},
+				{"entity-description.nullius-kilowatt", tostring(15)}}},
+		{"entity-description.nullius-kilojoule", tostring(400)}},
     order = "mb",
     sprite = {
       filename = EQUIPPATH.."telekinesis-1.png",
@@ -2183,10 +2177,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 8,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "15kJ"
+        energy_consumption = "15kJ"
       }
     }
   },
@@ -2194,13 +2188,13 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-2",
     take_result = "nullius-telekinesis-field-2",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-reach", 12}, "\n",
-			{"equipment-description.nullius-bonus-mining", 50}, "\n",
-			{"equipment-description.nullius-bonus-craft", 20, 12}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-reach", tostring(12)}, "\n",
+			{"equipment-description.nullius-bonus-mining", tostring(50)}, "\n",
+			{"equipment-description.nullius-bonus-craft", tostring(20), tostring(12)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 25}}},
-		{"entity-description.nullius-megajoule", 3}},
+				{"entity-description.nullius-kilowatt", tostring(25)}}},
+		{"entity-description.nullius-megajoule", tostring(3)}},
     order = "mc",
     sprite = {
       filename = EQUIPPATH.."telekinesis-2.png",
@@ -2227,10 +2221,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 12,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "25kJ"
+        energy_consumption = "25kJ"
       }
     }
   },
@@ -2238,13 +2232,13 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-telekinesis-field-3",
     take_result = "nullius-telekinesis-field-3",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-reach", 16}, "\n",
-			{"equipment-description.nullius-bonus-mining", 100}, "\n",
-			{"equipment-description.nullius-bonus-craft", 40, 20}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-reach", tostring(16)}, "\n",
+			{"equipment-description.nullius-bonus-mining", tostring(100)}, "\n",
+			{"equipment-description.nullius-bonus-craft", tostring(40), tostring(20)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 30}}},
-		{"entity-description.nullius-megajoule", 8}},
+				{"entity-description.nullius-kilowatt", tostring(30)}}},
+		{"entity-description.nullius-megajoule", tostring(8)}},
     order = "md",
     sprite = {
       filename = EQUIPPATH.."telekinesis-3.png",
@@ -2271,10 +2265,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 16,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "30kJ"
+        energy_consumption = "30kJ"
       }
     }
   },
@@ -2282,12 +2276,12 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-stabilizer-1",
     take_result = "nullius-stabilizer-1",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-speed", 7}, "\n",
-			{"equipment-description.nullius-bonus-cargo", 2}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-speed", tostring(7)}, "\n",
+			{"equipment-description.nullius-bonus-cargo", tostring(2)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 30}}},
-		{"entity-description.nullius-kilojoule", 700}},
+				{"entity-description.nullius-kilowatt", tostring(30)}}},
+		{"entity-description.nullius-kilojoule", tostring(700)}},
     order = "nb",
     sprite = {
       filename = EQUIPPATH.."stabilizer-1.png",
@@ -2314,10 +2308,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "30kJ"
+        energy_consumption = "30kJ"
       }
     }
   },
@@ -2325,12 +2319,12 @@ data:extend({
     type = "active-defense-equipment",
     name = "nullius-upgrade-stabilizer-2",
     take_result = "nullius-stabilizer-2",
-	localised_description = {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-bonus-speed", 10}, "\n",
-			{"equipment-description.nullius-bonus-cargo", 3}, "\n",
+	  localised_description = {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-bonus-speed", tostring(10)}, "\n",
+			{"equipment-description.nullius-bonus-cargo", tostring(3)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 40}}},
-		{"entity-description.nullius-megajoule", 1}},
+				{"entity-description.nullius-kilowatt", tostring(40)}}},
+		{"entity-description.nullius-megajoule", tostring(1)}},
     order = "nc",
     sprite = {
       filename = EQUIPPATH.."stabilizer-2.png",
@@ -2357,10 +2351,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "40kJ"
+        energy_consumption = "40kJ"
       }
     }
   },
@@ -2368,7 +2362,7 @@ data:extend({
     type = "battery-equipment",
     name = "nullius-upgrade-shackle",
     take_result = "nullius-shackle",
-    localised_description = {"equipment-description.nullius-penalty-speed", 25},
+    localised_description = {"equipment-description.nullius-penalty-speed", tostring(25)},
     order = "ns",
     sprite = {
       filename = EQUIPPATH.."shackle.png",
@@ -2417,17 +2411,17 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "1kJ"
+        energy_consumption = "1kJ"
       }
     }
   },
   {
     type = "generator-equipment",
     name = "nullius-portable-generator-1",
-    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 1},
+    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", tostring(1)},
     localised_description = {"equipment-description.nullius-portable-generator"},
     order = "obb",
     sprite = {
@@ -2441,13 +2435,14 @@ data:extend({
       height = 2,
       type = "full"
     },
-	power = "400kW",
+	  power = "400kW",
     energy_source = {
-      type = "burner",
+      type = "electric",
       usage_priority = "secondary-output"
     },
     burner = {
-      fuel_category = "vehicle",
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 2,
       burnt_inventory_size = 2
@@ -2457,7 +2452,7 @@ data:extend({
   {
     type = "generator-equipment",
     name = "nullius-portable-generator-2",
-    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", 2},
+    localised_name = {"", {"equipment-name.nullius-portable-generator"}, " ", tostring(2)},
     localised_description = {"equipment-description.nullius-portable-generator"},
     order = "obc",
     sprite = {
@@ -2472,13 +2467,14 @@ data:extend({
       height = 3,
       type = "full"
     },
-	power = "1.5MW",
+	  power = "1.5MW",
     energy_source = {
-      type = "burner",
+      type = "electric",
       usage_priority = "secondary-output"
     },
     burner = {
-      fuel_category = "vehicle",
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 5,
       burnt_inventory_size = 5
@@ -2501,13 +2497,14 @@ data:extend({
       height = 3,
       type = "full"
     },
-	power = "1.5MW",
+	  power = "1.5MW",
     energy_source = {
-      type = "burner",
+      type = "electric",
       usage_priority = "tertiary"
     },
     burner = {
-      fuel_category = "vehicle",
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 5,
       burnt_inventory_size = 5
@@ -2529,13 +2526,14 @@ data:extend({
       height = 4,
       type = "full"
     },
-	power = "6MW",
+	  power = "6MW",
     energy_source = {
-      type = "burner",
+      type = "electric",
       usage_priority = "secondary-output"
     },
     burner = {
-      fuel_category = "nullius-nuclear",
+      type = "burner",
+      fuel_categories = {"nullius-nuclear"},
       effectivity = 1,
       fuel_inventory_size = 3,
       burnt_inventory_size = 3
@@ -2546,15 +2544,15 @@ data:extend({
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-speed-1",
-	take_result = "nullius-coprocessor-speed-1",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 1},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 20, 10, 5}, "\n",
-			{"equipment-description.nullius-bonus-speed", 8}, "\n",
+	  take_result = "nullius-coprocessor-speed-1",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", tostring(1)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-speed", tostring(20), tostring(10), tostring(5)}, "\n",
+			{"equipment-description.nullius-bonus-speed", tostring(8)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 30}}},
-		{"entity-description.nullius-megajoule", 3}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(30)}}},
+		{"entity-description.nullius-megajoule", tostring(3)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-1"}},
     order = "lpbb",
     sprite = {
@@ -2571,36 +2569,36 @@ data:extend({
     },
     energy_source = {
       type = "electric",
-	  buffer_capacity = "3MJ",
+	    buffer_capacity = "3MJ",
       input_flow_limit = "1MW",
-	  drain = "30kW",
+	    drain = "30kW",
       usage_priority = "secondary-input"
     },
     categories = {"android"},
-	automatic = false,
+	  automatic = false,
     attack_parameters = {
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-speed-2",
-	take_result = "nullius-coprocessor-speed-2",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 2},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 30, 15, 10}, "\n",
-			{"equipment-description.nullius-bonus-speed", 12}, "\n",
+	  take_result = "nullius-coprocessor-speed-2",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", tostring(2)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-speed", tostring(30), tostring(15), tostring(10)}, "\n",
+			{"equipment-description.nullius-bonus-speed", tostring(12)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 50}}},
-		{"entity-description.nullius-megajoule", 10}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(50)}}},
+		{"entity-description.nullius-megajoule", tostring(10)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-2"}},
     order = "lpbc",
     sprite = {
@@ -2628,25 +2626,25 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-speed-3",
-	take_result = "nullius-coprocessor-speed-3",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", 3},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-speed", 50, 25, 20}, "\n",
-			{"equipment-description.nullius-bonus-speed", 20}, "\n",
+	  take_result = "nullius-coprocessor-speed-3",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, " ", tostring(3)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-speed", tostring(50), tostring(25), tostring(20)}, "\n",
+			{"equipment-description.nullius-bonus-speed", tostring(20)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 80}}},
-		{"entity-description.nullius-megajoule", 20}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(80)}}},
+		{"entity-description.nullius-megajoule", tostring(20)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-3"}},
     order = "lpbd",
     sprite = {
@@ -2674,21 +2672,21 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "generator-equipment",
     name = "nullius-upgrade-coprocessor-efficiency-1",
-	take_result = "nullius-coprocessor-efficiency-1",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 1},
+	  take_result = "nullius-coprocessor-efficiency-1",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", tostring(1)},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 100, 20}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", tostring(100), tostring(20)}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-1"}},
     order = "lpcb",
     sprite = {
@@ -2713,11 +2711,11 @@ data:extend({
   {
     type = "generator-equipment",
     name = "nullius-upgrade-coprocessor-efficiency-2",
-	take_result = "nullius-coprocessor-efficiency-2",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 2},
+	  take_result = "nullius-coprocessor-efficiency-2",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", tostring(2)},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 200, 30}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", tostring(200), tostring(30)}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-2"}},
     order = "lpcc",
     sprite = {
@@ -2742,11 +2740,11 @@ data:extend({
   {
     type = "generator-equipment",
     name = "nullius-upgrade-coprocessor-efficiency-3",
-	take_result = "nullius-coprocessor-efficiency-3",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", 3},
+	  take_result = "nullius-coprocessor-efficiency-3",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, " ", tostring(3)},
     localised_description = {"",
-	    {"equipment-description.nullius-coprocessor-efficiency", 300, 40}, "\n",
+	    {"equipment-description.nullius-coprocessor-efficiency", tostring(300), tostring(40)}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-3"}},
     order = "lpcd",
     sprite = {
@@ -2771,14 +2769,14 @@ data:extend({
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-productivity-1",
-	take_result = "nullius-coprocessor-productivity-1",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 1},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 6, 10, 25, 20}, "\n",
+	  take_result = "nullius-coprocessor-productivity-1",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", tostring(1)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-productivity", tostring(6), tostring(10), tostring(25), tostring(20)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 20}}},
-		{"entity-description.nullius-megajoule", 3}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(20)}}},
+		{"entity-description.nullius-megajoule", tostring(3)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-1"}},
     order = "lpdb",
     sprite = {
@@ -2806,24 +2804,24 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-productivity-2",
-	take_result = "nullius-coprocessor-productivity-2",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 2},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 8, 15, 30, 30}, "\n",
+	  take_result = "nullius-coprocessor-productivity-2",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", tostring(2)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-productivity", tostring(8), tostring(15), tostring(30), tostring(30)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 40}}},
-		{"entity-description.nullius-megajoule", 10}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(40)}}},
+		{"entity-description.nullius-megajoule", tostring(10)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-2"}},
     order = "lpdc",
     sprite = {
@@ -2851,24 +2849,24 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-productivity-3",
-	take_result = "nullius-coprocessor-productivity-3",
-	localised_name = {"",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", 3},
-	localised_description = {"", {"equipment-description.nullius-buffer", {"",
-			{"equipment-description.nullius-coprocessor-productivity", 10, 15, 40, 50}, "\n",
+	  take_result = "nullius-coprocessor-productivity-3",
+	  localised_name = {"",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, " ", tostring(3)},
+	  localised_description = {"", {"equipment-description.nullius-buffer", {"",
+			{"equipment-description.nullius-coprocessor-productivity", tostring(10), tostring(15), tostring(40), tostring(50)}, "\n",
 			{"equipment-description.nullius-energy",
-				{"entity-description.nullius-kilowatt", 60}}},
-		{"entity-description.nullius-megajoule", 20}}, "\n",
+				{"entity-description.nullius-kilowatt", tostring(60)}}},
+		{"entity-description.nullius-megajoule", tostring(20)}}, "\n",
 		{"equipment-description.nullius-coprocessor-tier-3"}},
     order = "lpdd",
     sprite = {
@@ -2896,21 +2894,21 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-upgrade-coprocessor-quantum",
-	take_result = "nullius-coprocessor-quantum",
+	  take_result = "nullius-coprocessor-quantum",
     localised_description = {"",
 	    {"equipment-description.nullius-coprocessor-quantum"}, "\n",
-		{"equipment-description.nullius-energy",
-		    {"entity-description.nullius-kilowatt", 25}}},
+		  {"equipment-description.nullius-energy",
+		  {"entity-description.nullius-kilowatt", tostring(25)}}},
     order = "lpe",
     sprite = {
       filename = EQUIPPATH.."coprocessor/quantum.png",
@@ -2937,10 +2935,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "10kJ"
+        energy_consumption = "10kJ"
       }
     }
   },
@@ -2948,10 +2946,10 @@ data:extend({
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-speed-1",
-	take_result = "nullius-coprocessor-speed-1",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, 1},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 1},
+	  take_result = "nullius-coprocessor-speed-1",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, tostring(1)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(1)},
     order = "lqbb",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -2978,20 +2976,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "1kJ"
+        energy_consumption = "1kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-speed-2",
-	take_result = "nullius-coprocessor-speed-2",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, 2},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 2},
+	  take_result = "nullius-coprocessor-speed-2",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, tostring(2)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(2)},
     order = "lqbc",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3013,25 +3011,25 @@ data:extend({
       usage_priority = "secondary-input"
     },
     categories = {"android"},
-	automatic = false,
+	  automatic = false,
     attack_parameters = {
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "2kJ"
+        energy_consumption = "2kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-speed-3",
-	take_result = "nullius-coprocessor-speed-3",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, 3},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 3},
+	  take_result = "nullius-coprocessor-speed-3",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-speed"}, tostring(3)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(3)},
     order = "lqbd",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3058,20 +3056,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "3kJ"
+        energy_consumption = "3kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-efficiency-1",
-	take_result = "nullius-coprocessor-efficiency-1",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, 1},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 1},
+	  take_result = "nullius-coprocessor-efficiency-1",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, tostring(1)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(1)},
     order = "lqcb",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3098,20 +3096,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "1kJ"
+        energy_consumption = "1kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-efficiency-2",
-	take_result = "nullius-coprocessor-efficiency-2",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, 2},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 2},
+	  take_result = "nullius-coprocessor-efficiency-2",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, tostring(2)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(2)},
     order = "lqcc",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3138,20 +3136,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "2kJ"
+        energy_consumption = "2kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-efficiency-3",
-	take_result = "nullius-coprocessor-efficiency-3",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, 3},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 3},
+	  take_result = "nullius-coprocessor-efficiency-3",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-efficiency"}, tostring(3)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(3)},
     order = "lqcd",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3178,20 +3176,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "3kJ"
+        energy_consumption = "3kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-productivity-1",
-	take_result = "nullius-coprocessor-productivity-1",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, 1},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 1},
+	  take_result = "nullius-coprocessor-productivity-1",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, tostring(1)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(1)},
     order = "lqdb",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3218,20 +3216,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "1kJ"
+        energy_consumption = "1kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-productivity-2",
-	take_result = "nullius-coprocessor-productivity-2",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, 2},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 2},
+	  take_result = "nullius-coprocessor-productivity-2",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, tostring(2)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(2)},
     order = "lqdc",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3258,20 +3256,20 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "2kJ"
+        energy_consumption = "2kJ"
       }
     }
   },
   {
     type = "active-defense-equipment",
     name = "nullius-deactivated-coprocessor-productivity-3",
-	take_result = "nullius-coprocessor-productivity-3",
-	localised_name = {"equipment-name.nullius-deactivated-coprocessor",
-	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, 3},
-    localised_description = {"equipment-description.nullius-deactivated-coprocessor", 3},
+	  take_result = "nullius-coprocessor-productivity-3",
+	  localised_name = {"equipment-name.nullius-deactivated-coprocessor",
+	    {"equipment-name.nullius-upgrade-coprocessor-productivity"}, tostring(3)},
+    localised_description = {"equipment-description.nullius-deactivated-coprocessor", tostring(3)},
     order = "lqdd",
     sprite = {
       filename = EQUIPPATH.."coprocessor/disabled.png",
@@ -3298,10 +3296,10 @@ data:extend({
       type = "projectile",
       cooldown = 60,
       range = 1,
+      ammo_category = "electric",
       ammo_type = {
         type = "projectile",
-        category = "electric",
-		energy_consumption = "3kJ"
+        energy_consumption = "3kJ"
       }
     }
   },

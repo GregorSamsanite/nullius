@@ -14,13 +14,13 @@ data:extend({
         recipe = "tu-receiver"
       }
     },
-    prerequisites = {"rail-signals", "construction-robotics"},
+    prerequisites = {"automated-rail-transportation", "construction-robotics"},
     unit = {
       count = 100,
       ingredients = {
         {"automation-science-pack", 1},
         {"logistic-science-pack", 1},
-		{"chemical-science-pack", 1}
+		    {"chemical-science-pack", 1}
       },
       time = 30
     },

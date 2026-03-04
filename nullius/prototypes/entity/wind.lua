@@ -8,6 +8,8 @@ local TURBINEP = ENTITYPATH .. "windturbine/"
 -- no longer expected to be updated for 1.1+ compatibility, after Nullius was designed
 -- to rely on it, so the graphics are replicated here.
 
+data:extend({{ type = "collision-layer", name = "layer_43" }})
+
 for i=0,7 do
   for j=1,3 do
     local k = i + 1
@@ -16,15 +18,6 @@ for i=0,7 do
       {
         type = "animation",
         name = "nullius-wind-shadow-"..j.."-"..i,
-        filename = TURBINEP .. "lds/angle"..k..".png",
-        width = 400,
-        height = 200,
-        frame_count = 24,
-        line_length = 5,
-        shift = {3.5*scale, -2.6*scale},
-        scale = 4*scale,
-        draw_as_shadow = true,
-        hr_version = {
           filename = TURBINEP .. "hds/angle"..k..".png",
           width = 800,
           height = 400,
@@ -33,19 +26,10 @@ for i=0,7 do
           shift = {3.5*scale,-2.6*scale},
           scale = 2*scale,
           draw_as_shadow = true,
-        }
       },
       {
         type = "animation",
         name = "nullius-wind-blade-"..j.."-"..i,
-        filename = TURBINEP .. "ld"..j.."/angle"..k..".png",
-        width = 300,
-        height = 400,
-        frame_count = 24,
-        line_length = 6,
-        shift = {0.15*scale, -1*scale},
-        scale = 2*scale,
-        hr_version = {
           filename = TURBINEP .. "hd"..j.."/angle"..k..".png",
           width = 600,
           height = 800,
@@ -53,7 +37,6 @@ for i=0,7 do
           line_length = 6,
           scale = scale,
           shift = {0.15*scale, -1*scale}
-        }
       }
     })
   end
@@ -70,7 +53,8 @@ for i=1,3 do
       type = "electric-energy-interface",
       name = "nullius-wind-build-"..i,
       icons = data.raw.item["nullius-wind-turbine-"..i].icons,
-      flags = {"placeable-neutral", "player-creation", "hidden", "not-upgradable", "not-deconstructable"},
+      flags = {"placeable-neutral", "player-creation", "not-upgradable", "not-deconstructable"},
+      hidden = true,
       minable = {mining_time = (i + 1), result = "nullius-wind-turbine-"..i},
       max_health = 800*scale,
       corpse = "medium-remnants",
@@ -79,7 +63,7 @@ for i=1,3 do
       },
       collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
       selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
-      collision_mask = {"layer-43", "item-layer", "object-layer", "player-layer", "water-tile"},
+      collision_mask = { layers = {layer_43 = true, item = true, object = true, player = true, water_tile = true, elevated_rail = true}},
       energy_source = {
         type = "electric",
         usage_priority = "primary-output",
@@ -94,15 +78,6 @@ for i=1,3 do
       animations = {
         layers = {
           {
-            filename = TURBINEP .. "ld"..i.."/build.png",
-            width = 300,
-            height = 400,
-            frame_count = 1,
-            line_length = 1,
-            shift = {0.15*scale, -11*scale},
-            animation_speed = 0.2,
-            scale = 2*scale,
-            hr_version = {
               filename = TURBINEP .. "hd"..i.."/build.png",
               width = 600,
               height = 800,
@@ -111,19 +86,8 @@ for i=1,3 do
               scale = scale,
               shift = {0.15*scale, -11*scale},
               animation_speed = 0.2
-            }
           },
           {
-            filename = TURBINEP .. "lds/build.png",
-            width = 400,
-            height = 200,
-            frame_count = 1,
-            line_length = 1,
-            shift = {9.5*scale,-3.6*scale},
-            animation_speed = 0.2,
-            draw_as_shadow = true,
-            scale = 4*scale,
-            hr_version = {
               filename = TURBINEP .. "hds/build.png",
               width = 800,
               height = 400,
@@ -133,16 +97,15 @@ for i=1,3 do
               shift = {9.5*scale,-3.6*scale},
               animation_speed = 0.2,
               draw_as_shadow = true
-            }
           }
         }
       },
       working_sound = {
         sound = {
           filename = "__base__/sound/train-wheels.ogg",
-          volume = scale
+          volume = scale * settings.startup["nullius-wind-turbine-volume"].value
         },
-        match_speed_to_activity = true
+        match_speed_to_activity = settings.startup["nullius-match-wind-turbine-activity-sound"].value
       }
     },
 
@@ -156,12 +119,13 @@ for i=1,3 do
       placeable_by = {item = "nullius-wind-turbine-"..i, count = 1},
       max_health = 800*scale,
       corpse = "big-remnants",
+      hidden_in_factoriopedia = true,
       resistances = {
         { type = "impact", decrease = 100, percent = 90 }
       },
       collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
       selection_box = {{-1.4, -1.4}, {1.4, 1.4}},
-      collision_mask = {"layer-43", "item-layer", "object-layer", "player-layer", "water-tile"},
+      collision_mask = { layers = {layer_43 = true, item = true, object = true, player = true, water_tile = true, elevated_rail = true}},
       energy_source = {
         type = "electric",
         usage_priority = "primary-output",
@@ -174,31 +138,20 @@ for i=1,3 do
       energy_usage = "0kW",
       fast_replaceable_group = "wind-turbine",
       picture = {
-        filename = TURBINEP .. "ld"..i.."/base.png",
-        width = 300,
-        height = 400,
-        frame_count = 1,
-        line_length = 1,
-        shift = {0.15*scale, -11*scale},
-        animation_speed = 0.2,
-        scale = 2*scale,
-        hr_version = {
           filename = TURBINEP .. "hd"..i.."/base.png",
           width = 600,
           height = 800,
-          frame_count = 1,
           line_length = 1,
           shift = {0.15*scale, -11*scale},
           scale = scale,
-          animation_speed = 0.2
-        }
+          --animation_speed = 0.2
       },
       working_sound = {
         sound = {
           filename = "__base__/sound/train-wheels.ogg",
-          volume = scale
+          volume = scale * settings.startup["nullius-wind-turbine-volume"].value
         },
-        match_speed_to_activity = true,
+        match_speed_to_activity = settings.startup["nullius-match-wind-turbine-activity-sound"].value
       }
     }
   })
@@ -208,13 +161,14 @@ data:extend({
   {
     type = "simple-entity-with-force",
     name = "nullius-wind-collision",
-    render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
+    --render_layer = "object",
+    icon = ICONPATH .. "blank.png",
     icon_size = 64,
     order = "bb",
     flags = {"placeable-neutral", "player-creation", "not-on-map"},
+    hidden = true,
     collision_box = {{-30.5, -30.5}, {30.5, 30.5}},
-    collision_mask = {"layer-43"},
+    collision_mask = { layers = {layer_43 = true}},
     selection_box = {{-0.9, -0.9}, {0.9, 0.9}},
     selectable_in_game = false,
     render_layer = "wires-above",
@@ -230,12 +184,13 @@ data:extend({
     name = "nullius-wind-collision-horizontal",
     localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon = ICONPATH .. "blank.png",
     icon_size = 64,
     order = "bc",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
+    flags = {"placeable-neutral", "player-creation", "not-on-map"},
+    hidden = true,
     collision_box = {{-16, -13.5}, {16, 13.5}},
-    collision_mask = {"layer-43"},
+    collision_mask = { layers = {layer_43 = true}},
     render_layer = "wires-above",
     selectable_in_game = false,
     random_animation_offset = false,
@@ -250,12 +205,13 @@ data:extend({
     name = "nullius-wind-collision-vertical",
     localised_name = {"entity-name.nullius-wind-collision"},
     render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon = ICONPATH .. "blank.png",
     icon_size = 64,
     order = "bd",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
+    flags = {"placeable-neutral", "player-creation", "not-on-map"},
+    hidden = true,
     collision_box = {{-13.5, -16}, {13.5, 16}},
-    collision_mask = {"layer-43"},
+    collision_mask = { layers = {layer_43 = true}},
     render_layer = "wires-above",
     selectable_in_game = false,
     random_animation_offset = false,

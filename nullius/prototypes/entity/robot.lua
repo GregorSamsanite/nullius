@@ -1,23 +1,22 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
-circuit_connector_definitions["nullius-hangar-4"] =
-    circuit_connector_definitions.create(
+circuit_connector_definitions["nullius-hangar-4"] = circuit_connector_definitions.create_single(
   universal_connector_template,
-  {{
+  {
     variation = 26,
-	main_offset = util.by_pixel(6, 20),
-	shadow_offset = util.by_pixel(7, 36)
-  }}
+	  main_offset = util.by_pixel(6, 20),
+	  shadow_offset = util.by_pixel(7, 36)
+  }
 )
 circuit_connector_definitions["nullius-relay"] =
-    circuit_connector_definitions.create(
+    circuit_connector_definitions.create_single(
   universal_connector_template,
-  {{
+  {
 	variation = 26,
 	main_offset = util.by_pixel(-1, 1),
 	shadow_offset = util.by_pixel(0, 6)
-  }}
+  }
 )
 
 
@@ -25,11 +24,12 @@ data:extend({
   {
     type = "construction-robot",
     name = "nullius-construction-bot-1",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.construction-robot"},
-		{"entity-description.nullius-kilojoule", 800}},
+		  {"entity-description.nullius-kilojoule", tostring(800)}},
     icons = data.raw.item["nullius-construction-bot-1"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.3}, scale = 0.4, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-construction-bot-1"},
     max_health = 100,
     collision_box = {{0, 0}, {0, 0}},
@@ -51,7 +51,7 @@ data:extend({
     repairing_sound = data.raw["construction-robot"]["construction-robot"].repairing_sound,
     working_sound = data.raw["construction-robot"]["construction-robot"].working_sound,
     water_reflection = data.raw["construction-robot"]["construction-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     construction_vector = {0.30, 0.22},
     idle = data.raw["construction-robot"]["construction-robot"].idle,
     idle_with_cargo = data.raw["construction-robot"]["construction-robot"].idle_with_cargo,
@@ -68,11 +68,12 @@ data:extend({
   {
     type = "construction-robot",
     name = "nullius-construction-bot-2",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.construction-robot"},
-		{"entity-description.nullius-megajoule", 3}},
+		  {"entity-description.nullius-megajoule", tostring(3)}},
     icons = data.raw.item["nullius-construction-bot-2"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.3}, scale = 0.4, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-construction-bot-2"},
     max_health = 200,
     collision_box = {{0, 0}, {0, 0}},
@@ -94,7 +95,7 @@ data:extend({
     repairing_sound = data.raw["construction-robot"]["construction-robot"].repairing_sound,
     working_sound = data.raw["construction-robot"]["construction-robot"].working_sound,
     water_reflection = data.raw["construction-robot"]["construction-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     construction_vector = {0.30, 0.22},
     idle = data.raw["construction-robot"]["bob-construction-robot-2"].idle,
     idle_with_cargo = data.raw["construction-robot"]["bob-construction-robot-2"].idle_with_cargo,
@@ -111,11 +112,12 @@ data:extend({
   {
     type = "construction-robot",
     name = "nullius-construction-bot-3",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.construction-robot"},
-		{"entity-description.nullius-megajoule", 8}},
+		  {"entity-description.nullius-megajoule", tostring(8)}},
     icons = data.raw.item["nullius-construction-bot-3"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.3}, scale = 0.4, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-construction-bot-3"},
     max_health = 300,
     collision_box = {{0, 0}, {0, 0}},
@@ -124,7 +126,7 @@ data:extend({
     damaged_trigger_effect = data.raw["construction-robot"]["construction-robot"].damaged_trigger_effect,
     dying_explosion = "construction-robot-explosion",
     max_payload_size = 3,
-	speed = 0.2777777778,
+	  speed = 0.2777777778,
     energy_per_tick = "0.25kJ",
     energy_per_move = "2.4kJ",
     max_energy = "8MJ",
@@ -137,7 +139,7 @@ data:extend({
     repairing_sound = data.raw["construction-robot"]["construction-robot"].repairing_sound,
     working_sound = data.raw["construction-robot"]["construction-robot"].working_sound,
     water_reflection = data.raw["construction-robot"]["construction-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     construction_vector = {0.30, 0.22},
     idle = data.raw["construction-robot"]["bob-construction-robot-3"].idle,
     idle_with_cargo = data.raw["construction-robot"]["bob-construction-robot-3"].idle_with_cargo,
@@ -154,11 +156,12 @@ data:extend({
   {
     type = "construction-robot",
     name = "nullius-construction-bot-4",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.construction-robot"},
-		{"entity-description.nullius-megajoule", 15}},
+		  {"entity-description.nullius-megajoule", tostring(15)}},
     icons = data.raw.item["nullius-construction-bot-4"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.3}, scale = 0.4, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-construction-bot-4"},
     max_health = 400,
     collision_box = {{0, 0}, {0, 0}},
@@ -167,7 +170,7 @@ data:extend({
     damaged_trigger_effect = data.raw["construction-robot"]["construction-robot"].damaged_trigger_effect,
     dying_explosion = "construction-robot-explosion",
     max_payload_size = 4,
-	speed = 0.34722222222222,
+	  speed = 0.34722222222222,
     energy_per_tick = "0.333333333333kJ",
     energy_per_move = "2.16kJ",
     max_energy = "15MJ",
@@ -180,7 +183,7 @@ data:extend({
     repairing_sound = data.raw["construction-robot"]["construction-robot"].repairing_sound,
     working_sound = data.raw["construction-robot"]["construction-robot"].working_sound,
     water_reflection = data.raw["construction-robot"]["construction-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     construction_vector = {0.30, 0.22},
     idle = data.raw["construction-robot"]["bob-construction-robot-5"].idle,
     idle_with_cargo = data.raw["construction-robot"]["bob-construction-robot-5"].idle_with_cargo,
@@ -197,11 +200,12 @@ data:extend({
   {
     type = "logistic-robot",
     name = "nullius-logistic-bot-1",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.logistic-robot"},
-		{"entity-description.nullius-megajoule", 1.2}},
+		  {"entity-description.nullius-megajoule", tostring(1.2)}},
     icons = data.raw.item["nullius-logistic-bot-1"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.2}, scale = 0.3, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-logistic-bot-1"},
     max_health = 100,
     collision_box = {{0, 0}, {0, 0}},
@@ -219,7 +223,7 @@ data:extend({
     max_to_charge = 0.9,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     idle = data.raw["logistic-robot"]["logistic-robot"].idle,
     idle_with_cargo = data.raw["logistic-robot"]["logistic-robot"].idle_with_cargo,
     in_motion = data.raw["logistic-robot"]["logistic-robot"].in_motion,
@@ -233,11 +237,12 @@ data:extend({
   {
     type = "logistic-robot",
     name = "nullius-logistic-bot-2",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.logistic-robot"},
-		{"entity-description.nullius-megajoule", 2.5}},
+		  {"entity-description.nullius-megajoule", tostring(2.5)}},
     icons = data.raw.item["nullius-logistic-bot-2"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.2}, scale = 0.3, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-logistic-bot-2"},
     max_health = 150,
     collision_box = {{0, 0}, {0, 0}},
@@ -255,7 +260,7 @@ data:extend({
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     idle = data.raw["logistic-robot"]["bob-logistic-robot-2"].idle,
     idle_with_cargo = data.raw["logistic-robot"]["bob-logistic-robot-2"].idle_with_cargo,
     in_motion = data.raw["logistic-robot"]["bob-logistic-robot-2"].in_motion,
@@ -269,11 +274,12 @@ data:extend({
   {
     type = "logistic-robot",
     name = "nullius-logistic-bot-3",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.logistic-robot"},
-		{"entity-description.nullius-megajoule", 6}},
+		  {"entity-description.nullius-megajoule", tostring(6)}},
     icons = data.raw.item["nullius-logistic-bot-3"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.2}, scale = 0.3, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-logistic-bot-3"},
     max_health = 200,
     collision_box = {{0, 0}, {0, 0}},
@@ -291,7 +297,7 @@ data:extend({
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     idle = data.raw["logistic-robot"]["bob-logistic-robot-3"].idle,
     idle_with_cargo = data.raw["logistic-robot"]["bob-logistic-robot-3"].idle_with_cargo,
     in_motion = data.raw["logistic-robot"]["bob-logistic-robot-3"].in_motion,
@@ -305,11 +311,12 @@ data:extend({
   {
     type = "logistic-robot",
     name = "nullius-logistic-bot-4",
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"entity-description.logistic-robot"},
-		{"entity-description.nullius-megajoule", 12}},
+		  {"entity-description.nullius-megajoule", tostring(12)}},
     icons = data.raw.item["nullius-logistic-bot-4"].icons,
     flags = {"placeable-player", "player-creation", "placeable-off-grid", "not-on-map"},
+    icon_draw_specification = {shift = {0, -0.2}, scale = 0.3, render_layer = "air-entity-info-icon"},
     minable = {mining_time = 0.1, result = "nullius-logistic-bot-4"},
     max_health = 250,
     collision_box = {{0, 0}, {0, 0}},
@@ -327,7 +334,7 @@ data:extend({
     max_to_charge = 0.95,
     working_sound = data.raw["logistic-robot"]["logistic-robot"].working_sound,
     water_reflection = data.raw["logistic-robot"]["logistic-robot"].water_reflection,
-    cargo_centered = {0.0, 0.2},
+    --cargo_centered = {0.0, 0.2},
     idle = data.raw["logistic-robot"]["bob-logistic-robot-5"].idle,
     idle_with_cargo = data.raw["logistic-robot"]["bob-logistic-robot-5"].idle_with_cargo,
     in_motion = data.raw["logistic-robot"]["bob-logistic-robot-5"].in_motion,
@@ -344,10 +351,11 @@ data:extend({
     localised_name = {"equipment-name.nullius-hangar-1"},
     localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 20}},
+		{"entity-description.nullius-megajoule", tostring(20)}},
     icons = data.raw.item["nullius-hangar-1"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-hangar-1"},
+    collision_mask = {layers={item=true, meltable=true, object=true, player=true, water_tile=true, is_object=true, is_lower_object=true}},
     fast_replaceable_group = "nullius-hangar",
     next_upgrade = "nullius-hangar-2",
     max_health = 400,
@@ -378,7 +386,7 @@ data:extend({
     },
 
     recharging_animation = data.raw["roboport"]["roboport"].recharging_animation,
-    vehicle_impact_sound = data.raw["roboport"]["roboport"].vehicle_impact_sound,
+    impact_category = data.raw["roboport"]["roboport"].impact_category,
     open_sound = data.raw["roboport"]["roboport"].open_sound,
     close_sound = data.raw["roboport"]["roboport"].close_sound,
     working_sound = data.raw["roboport"]["roboport"].working_sound,
@@ -390,8 +398,7 @@ data:extend({
     open_door_trigger_effect = data.raw["roboport"]["roboport"].open_door_trigger_effect,
     close_door_trigger_effect = data.raw["roboport"]["roboport"].close_door_trigger_effect,
     water_reflection = data.raw["roboport"]["roboport"].water_reflection,
-    circuit_wire_connection_point = circuit_connector_definitions["roboport"].points,
-    circuit_connector_sprites = circuit_connector_definitions["roboport"].sprites,
+    circuit_connector = circuit_connector_definitions["roboport"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_available_logistic_output_signal = {type = "virtual", name = "signal-X"},
     default_total_logistic_output_signal = {type = "virtual", name = "signal-Y"},
@@ -401,59 +408,32 @@ data:extend({
     base = {
       layers = {
         {
-          filename = "__boblogistics__/graphics/entity/roboport/roboport-base-1.png",
-          width = 143,
-          height = 135,
-          shift = {0.5*0.75, 0.25*0.75},
-          scale = 0.75,
-          hr_version = {
-            filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-1.png",
+            filename = "__boblogistics__/graphics/entity/roboport/roboport-base-1.png",
             width = 228,
             height = 277,
             shift = util.by_pixel(2*0.75, 7.75*0.75),
             scale = 0.5*0.75
-          }
         },
         {
-          filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-shadow.png",
+          filename = "__boblogistics__/graphics/entity/roboport/roboport-shadow.png",
           width = 294,
           height = 201,
           draw_as_shadow = true,
-          force_hr_shadow = true,
           shift = util.by_pixel(28.5*0.75, 19.25*0.75),
           scale = 0.5*0.75
         }
       }
     },
     base_patch = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-1.png",
-      priority = "medium",
-      width = 69,
-      height = 50,
-      frame_count = 1,
-      shift = {0.03125*0.75, 0.203125*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-patch-1.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-1.png",
         priority = "medium",
         width = 138,
         height = 100,
-        frame_count = 1,
         shift = util.by_pixel(1.5*0.75, 5*0.75),
         scale = 0.5*0.75
-      }
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation.png",
-      priority = "medium",
-      width = 42,
-      height = 31,
-      frame_count = 8,
-      animation_speed = 0.5,
-      shift = {-0.5315*0.75, -1.9375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation.png",
         priority = "medium",
         width = 83,
         height = 59,
@@ -461,43 +441,24 @@ data:extend({
         animation_speed = 0.5,
         shift = util.by_pixel(-17.75*0.75, -61.25*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_up = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up.png",
-      priority = "medium",
-      width = 52,
-      height = 20,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.890625*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-up.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up.png",
         priority = "medium",
         width = 97,
         height = 38,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75, -29.5*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_down = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down.png",
-      priority = "medium",
-      width = 52,
-      height = 22,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.234375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-down.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down.png",
         priority = "medium",
         width = 97,
         height = 41,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75,-9.75*0.75),
         scale = 0.5*0.75
-      }
     }
   },
 
@@ -505,12 +466,13 @@ data:extend({
     type = "roboport",
     name = "nullius-hangar-2",
     localised_name = {"equipment-name.nullius-hangar-2"},
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 50}},
+		  {"entity-description.nullius-megajoule", tostring(50)}},
     icons = data.raw.item["nullius-hangar-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1.2, result = "nullius-hangar-2"},
+    collision_mask = {layers={item=true, meltable=true, object=true, player=true, water_tile=true, is_object=true, is_lower_object=true}},
     fast_replaceable_group = "nullius-hangar",
     next_upgrade = "nullius-hangar-3",
     max_health = 500,
@@ -541,7 +503,7 @@ data:extend({
     },
 
     recharging_animation = data.raw["roboport"]["roboport"].recharging_animation,
-    vehicle_impact_sound = data.raw["roboport"]["roboport"].vehicle_impact_sound,
+    impact_category = data.raw["roboport"]["roboport"].impact_category,
     open_sound = data.raw["roboport"]["roboport"].open_sound,
     close_sound = data.raw["roboport"]["roboport"].close_sound,
     working_sound = data.raw["roboport"]["roboport"].working_sound,
@@ -553,8 +515,7 @@ data:extend({
     open_door_trigger_effect = data.raw["roboport"]["roboport"].open_door_trigger_effect,
     close_door_trigger_effect = data.raw["roboport"]["roboport"].close_door_trigger_effect,
     water_reflection = data.raw["roboport"]["roboport"].water_reflection,
-    circuit_wire_connection_point = circuit_connector_definitions["roboport"].points,
-    circuit_connector_sprites = circuit_connector_definitions["roboport"].sprites,
+    circuit_connector = circuit_connector_definitions["roboport"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_available_logistic_output_signal = {type = "virtual", name = "signal-X"},
     default_total_logistic_output_signal = {type = "virtual", name = "signal-Y"},
@@ -564,59 +525,32 @@ data:extend({
     base = {
       layers = {
         {
-          filename = "__boblogistics__/graphics/entity/roboport/roboport-base-2.png",
-          width = 143,
-          height = 135,
-          shift = {0.5*0.75, 0.25*0.75},
-          scale = 0.75,
-          hr_version = {
-            filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-2.png",
+            filename = "__boblogistics__/graphics/entity/roboport/roboport-base-2.png",
             width = 228,
             height = 277,
             shift = util.by_pixel(2*0.75, 7.75*0.75),
             scale = 0.5*0.75
-          }
         },
         {
-          filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-shadow.png",
+          filename = "__boblogistics__/graphics/entity/roboport/roboport-shadow.png",
           width = 294,
           height = 201,
           draw_as_shadow = true,
-          force_hr_shadow = true,
           shift = util.by_pixel(28.5*0.75, 19.25*0.75),
           scale = 0.5*0.75
         }
       }
     },
     base_patch = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-2.png",
-      priority = "medium",
-      width = 69,
-      height = 50,
-      frame_count = 1,
-      shift = {0.03125*0.75, 0.203125*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-patch-2.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-2.png",
         priority = "medium",
         width = 138,
         height = 100,
-        frame_count = 1,
         shift = util.by_pixel(1.5*0.75, 5*0.75),
         scale = 0.5*0.75
-      }
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-2.png",
-      priority = "medium",
-      width = 42,
-      height = 31,
-      frame_count = 8,
-      animation_speed = 0.5,
-      shift = {-0.5315*0.75, -1.9375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-2.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-2.png",
         priority = "medium",
         width = 83,
         height = 59,
@@ -624,43 +558,24 @@ data:extend({
         animation_speed = 0.5,
         shift = util.by_pixel(-17.75*0.75, -61.25*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_up = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-2.png",
-      priority = "medium",
-      width = 52,
-      height = 20,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.890625*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-up-2.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-2.png",
         priority = "medium",
         width = 97,
         height = 38,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75, -29.5*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_down = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-2.png",
-      priority = "medium",
-      width = 52,
-      height = 22,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.234375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-down-2.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-2.png",
         priority = "medium",
         width = 97,
         height = 41,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75,-9.75*0.75),
         scale = 0.5*0.75
-      }
     }
   },
 
@@ -668,12 +583,13 @@ data:extend({
     type = "roboport",
     name = "nullius-hangar-3",
     localised_name = {"equipment-name.nullius-hangar-3"},
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 150}},
+		  {"entity-description.nullius-megajoule", tostring(150)}},
     icons = data.raw.item["nullius-hangar-3"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1.6, result = "nullius-hangar-3"},
+    collision_mask = {layers={item=true, meltable=true, object=true, player=true, water_tile=true, is_object=true, is_lower_object=true}},
     fast_replaceable_group = "nullius-hangar",
     max_health = 600,
     corpse = "roboport-remnants",
@@ -703,7 +619,7 @@ data:extend({
     },
 
     recharging_animation = data.raw["roboport"]["roboport"].recharging_animation,
-    vehicle_impact_sound = data.raw["roboport"]["roboport"].vehicle_impact_sound,
+    impact_category = data.raw["roboport"]["roboport"].impact_category,
     open_sound = data.raw["roboport"]["roboport"].open_sound,
     close_sound = data.raw["roboport"]["roboport"].close_sound,
     working_sound = data.raw["roboport"]["roboport"].working_sound,
@@ -715,8 +631,7 @@ data:extend({
     open_door_trigger_effect = data.raw["roboport"]["roboport"].open_door_trigger_effect,
     close_door_trigger_effect = data.raw["roboport"]["roboport"].close_door_trigger_effect,
     water_reflection = data.raw["roboport"]["roboport"].water_reflection,
-    circuit_wire_connection_point = circuit_connector_definitions["roboport"].points,
-    circuit_connector_sprites = circuit_connector_definitions["roboport"].sprites,
+    circuit_connector = circuit_connector_definitions["roboport"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_available_logistic_output_signal = {type = "virtual", name = "signal-X"},
     default_total_logistic_output_signal = {type = "virtual", name = "signal-Y"},
@@ -726,59 +641,32 @@ data:extend({
     base = {
       layers = {
         {
-          filename = "__boblogistics__/graphics/entity/roboport/roboport-base-4.png",
-          width = 143,
-          height = 135,
-          shift = {0.5*0.75, 0.25*0.75},
-          scale = 0.75,
-          hr_version = {
-            filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-4.png",
+            filename = "__boblogistics__/graphics/entity/roboport/roboport-base-4.png",
             width = 228,
             height = 277,
             shift = util.by_pixel(2*0.75, 7.75*0.75),
             scale = 0.5*0.75
-          }
         },
         {
-          filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-shadow.png",
+          filename = "__boblogistics__/graphics/entity/roboport/roboport-shadow.png",
           width = 294,
           height = 201,
           draw_as_shadow = true,
-          force_hr_shadow = true,
           shift = util.by_pixel(28.5*0.75, 19.25*0.75),
           scale = 0.5*0.75
         }
       }
     },
     base_patch = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-4.png",
-      priority = "medium",
-      width = 69,
-      height = 50,
-      frame_count = 1,
-      shift = {0.03125*0.75, 0.203125*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-patch-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-4.png",
         priority = "medium",
         width = 138,
         height = 100,
-        frame_count = 1,
         shift = util.by_pixel(1.5*0.75, 5*0.75),
         scale = 0.5*0.75
-      }
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png",
-      priority = "medium",
-      width = 42,
-      height = 31,
-      frame_count = 8,
-      animation_speed = 0.5,
-      shift = {-0.5315*0.75, -1.9375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png",
         priority = "medium",
         width = 83,
         height = 59,
@@ -786,43 +674,24 @@ data:extend({
         animation_speed = 0.5,
         shift = util.by_pixel(-17.75*0.75, -61.25*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_up = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-4.png",
-      priority = "medium",
-      width = 52,
-      height = 20,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.890625*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-up-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-4.png",
         priority = "medium",
         width = 97,
         height = 38,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75, -29.5*0.75),
         scale = 0.5*0.75
-      }
     },
     door_animation_down = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-4.png",
-      priority = "medium",
-      width = 52,
-      height = 22,
-      frame_count = 16,
-      shift = {0.015625*0.75, -0.234375*0.75},
-      scale = 0.75,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-down-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-4.png",
         priority = "medium",
         width = 97,
         height = 41,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.75,-9.75*0.75),
         scale = 0.5*0.75
-      }
     }
   },
 
@@ -830,12 +699,13 @@ data:extend({
     type = "roboport",
     name = "nullius-hangar-4",
     localised_name = {"equipment-name.nullius-hangar-4"},
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-hangar"},
-		{"entity-description.nullius-megajoule", 150}},
+		{"entity-description.nullius-megajoule", tostring(150)}},
     icons = data.raw.item["nullius-hangar-4"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1.5, result = "nullius-hangar-4"},
+    collision_mask = {layers={item=true, meltable=true, object=true, player=true, water_tile=true, is_object=true, is_lower_object=true}},
     fast_replaceable_group = "nullius-charger",
     max_health = 600,
     corpse = "roboport-remnants",
@@ -865,7 +735,7 @@ data:extend({
     },
 
     recharging_animation = data.raw["roboport"]["roboport"].recharging_animation,
-    vehicle_impact_sound = data.raw["roboport"]["roboport"].vehicle_impact_sound,
+    impact_category = data.raw["roboport"]["roboport"].impact_category,
     open_sound = data.raw["roboport"]["roboport"].open_sound,
     close_sound = data.raw["roboport"]["roboport"].close_sound,
     working_sound = data.raw["roboport"]["roboport"].working_sound,
@@ -877,8 +747,7 @@ data:extend({
     open_door_trigger_effect = data.raw["roboport"]["roboport"].open_door_trigger_effect,
     close_door_trigger_effect = data.raw["roboport"]["roboport"].close_door_trigger_effect,
     water_reflection = data.raw["roboport"]["roboport"].water_reflection,
-    circuit_wire_connection_point = circuit_connector_definitions["nullius-hangar-4"].points,
-    circuit_connector_sprites = circuit_connector_definitions["nullius-hangar-4"].sprites,
+    circuit_connector = circuit_connector_definitions["nullius-hangar-4"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     default_available_logistic_output_signal = {type = "virtual", name = "signal-X"},
     default_total_logistic_output_signal = {type = "virtual", name = "signal-Y"},
@@ -888,59 +757,32 @@ data:extend({
     base = {
       layers = {
         {
-          filename = "__boblogistics__/graphics/entity/roboport/roboport-base-4.png",
-          width = 143,
-          height = 135,
-          shift = {0.5*0.5, 0.25*0.5},
-          scale = 0.5,
-          hr_version = {
-            filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-4.png",
+            filename = "__boblogistics__/graphics/entity/roboport/roboport-base-4.png",
             width = 228,
             height = 277,
             shift = util.by_pixel(2*0.5, 7.75*0.5),
             scale = 0.5*0.5
-          }
         },
         {
-          filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-shadow.png",
+          filename = "__boblogistics__/graphics/entity/roboport/roboport-shadow.png",
           width = 294,
           height = 201,
           draw_as_shadow = true,
-          force_hr_shadow = true,
           shift = util.by_pixel(28.5*0.5, 19.25*0.5),
           scale = 0.5*0.5
         }
       }
     },
     base_patch = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-4.png",
-      priority = "medium",
-      width = 69,
-      height = 50,
-      frame_count = 1,
-      shift = {0.03125*0.5, 0.203125*0.5},
-      scale = 0.5,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-patch-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-patch-4.png",
         priority = "medium",
         width = 138,
         height = 100,
-        frame_count = 1,
         shift = util.by_pixel(1.5*0.5, 5*0.5),
         scale = 0.5*0.5
-      }
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png",
-      priority = "medium",
-      width = 42,
-      height = 31,
-      frame_count = 8,
-      animation_speed = 0.5,
-      shift = {-0.5315*0.5, -1.9375*0.5},
-      scale = 0.5,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png",
         priority = "medium",
         width = 83,
         height = 59,
@@ -948,43 +790,24 @@ data:extend({
         animation_speed = 0.5,
         shift = util.by_pixel(-17.75*0.5, -61.25*0.5),
         scale = 0.5*0.5
-      }
     },
     door_animation_up = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-4.png",
-      priority = "medium",
-      width = 52,
-      height = 20,
-      frame_count = 16,
-      shift = {0.015625*0.5, -0.890625*0.5},
-      scale = 0.5,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-up-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-up-4.png",
         priority = "medium",
         width = 97,
         height = 38,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.5, -29.5*0.5),
         scale = 0.5*0.5
-      }
     },
     door_animation_down = {
-      filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-4.png",
-      priority = "medium",
-      width = 52,
-      height = 22,
-      frame_count = 16,
-      shift = {0.015625*0.5, -0.234375*0.5},
-      scale = 0.5,
-      hr_version = {
-        filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-door-down-4.png",
+        filename = "__boblogistics__/graphics/entity/roboport/roboport-door-down-4.png",
         priority = "medium",
         width = 97,
         height = 41,
         frame_count = 16,
         shift = util.by_pixel(-0.25*0.5,-9.75*0.5),
         scale = 0.5*0.5
-      }
     }
   },
 
@@ -992,9 +815,9 @@ data:extend({
     type = "roboport",
     name = "nullius-relay-1",
     localised_name = {"equipment-name.nullius-relay-1"},
-	localised_description = {"equipment-description.nullius-buffer",
+	  localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 6}},
+		{"entity-description.nullius-megajoule", tostring(6)}},
     icons = data.raw.item["nullius-relay-1"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.4, result = "nullius-relay-1"},
@@ -1031,8 +854,7 @@ data:extend({
     base_patch = data.raw["roboport"]["bob-logistic-zone-expander"].base_patch,
     door_animation_up = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_up,
     door_animation_down = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_down,
-	circuit_wire_connection_point = circuit_connector_definitions["nullius-relay"].points,
-    circuit_connector_sprites = circuit_connector_definitions["nullius-relay"].sprites,
+    circuit_connector = circuit_connector_definitions["nullius-relay"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     base = {
@@ -1043,7 +865,7 @@ data:extend({
       scale = 0.6
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation.png",
+      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation.png",
       priority = "medium",
       width = 83,
       height = 59,
@@ -1060,7 +882,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-relay-2"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 15}},
+		{"entity-description.nullius-megajoule", tostring(15)}},
     icons = data.raw.item["nullius-relay-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.6, result = "nullius-relay-2"},
@@ -1097,8 +919,7 @@ data:extend({
     base_patch = data.raw["roboport"]["bob-logistic-zone-expander"].base_patch,
     door_animation_up = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_up,
     door_animation_down = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_down,
-	circuit_wire_connection_point = circuit_connector_definitions["nullius-relay"].points,
-    circuit_connector_sprites = circuit_connector_definitions["nullius-relay"].sprites,
+    circuit_connector = circuit_connector_definitions["nullius-relay"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     base = {
@@ -1109,7 +930,7 @@ data:extend({
       scale = 0.6
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-2.png",
+      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-2.png",
       priority = "medium",
       width = 83,
       height = 59,
@@ -1126,7 +947,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-relay-3"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 40}},
+		{"entity-description.nullius-megajoule", tostring(40)}},
     icons = data.raw.item["nullius-relay-3"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-relay-3"},
@@ -1163,8 +984,7 @@ data:extend({
     base_patch = data.raw["roboport"]["bob-logistic-zone-expander"].base_patch,
     door_animation_up = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_up,
     door_animation_down = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_down,
-	circuit_wire_connection_point = circuit_connector_definitions["nullius-relay"].points,
-    circuit_connector_sprites = circuit_connector_definitions["nullius-relay"].sprites,
+	  circuit_connector = circuit_connector_definitions["nullius-relay"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     base = {
@@ -1175,7 +995,7 @@ data:extend({
       scale = 0.6
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-4.png",
+      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png",
       priority = "medium",
       width = 83,
       height = 59,
@@ -1192,7 +1012,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-relay-4"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-relay"},
-		{"entity-description.nullius-megajoule", 100}},
+		{"entity-description.nullius-megajoule", tostring(100)}},
     icons = data.raw.item["nullius-relay-4"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1, result = "nullius-relay-4"},
@@ -1228,8 +1048,7 @@ data:extend({
     base_patch = data.raw["roboport"]["bob-logistic-zone-expander"].base_patch,
     door_animation_up = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_up,
     door_animation_down = data.raw["roboport"]["bob-logistic-zone-expander"].door_animation_down,
-	circuit_wire_connection_point = circuit_connector_definitions["nullius-relay"].points,
-    circuit_connector_sprites = circuit_connector_definitions["nullius-relay"].sprites,
+	  circuit_connector = circuit_connector_definitions["nullius-relay"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     base = {
@@ -1241,7 +1060,7 @@ data:extend({
       tint = {0.85, 1, 0.9}
     },
     base_animation = {
-      filename = "__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png",
+      filename = "__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png",
       priority = "medium",
       width = 83,
       height = 59,
@@ -1259,7 +1078,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-charger-1"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 15}},
+		{"entity-description.nullius-megajoule", tostring(15)}},
     icons = data.raw.item["nullius-charger-1"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.6, result = "nullius-charger-1"},
@@ -1342,7 +1161,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-charger-2"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 40}},
+		{"entity-description.nullius-megajoule", tostring(40)}},
     icons = data.raw.item["nullius-charger-2"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-charger-2"},
@@ -1425,7 +1244,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-charger-3"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 100}},
+		{"entity-description.nullius-megajoule", tostring(100)}},
     icons = data.raw.item["nullius-charger-3"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1, result = "nullius-charger-3"},
@@ -1507,7 +1326,7 @@ data:extend({
     localised_name = {"equipment-name.nullius-charger-4"},
 	localised_description = {"equipment-description.nullius-buffer",
 	    {"equipment-description.nullius-charger"},
-		{"entity-description.nullius-megajoule", 100}},
+		{"entity-description.nullius-megajoule", tostring(100)}},
     icons = data.raw.item["nullius-charger-4"].icons,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 1, result = "nullius-charger-4"},
@@ -1591,7 +1410,8 @@ local android1 = data.raw.character["character"]
 android1.order = "nullius-akb"
 local android2 = util.table.deepcopy(android1)
 android2.name = "nullius-android-2"
-android2.localised_name = {"", {"item-name.nullius-android"}, " ", 2}
+android2.localised_name = {"", {"item-name.nullius-android"}, " ", tostring(2)}
+android2.icon = nil
 android2.icons = data.raw.item["nullius-android-2"].icons
 android2.order = "nullius-akc"
 android2.selection_box = {{-0.4, -1.55}, {0.4, 0.2}}
@@ -1656,31 +1476,29 @@ data.raw.roboport["nullius-relay-construction-4"].construction_radius = 200.5
 data.raw.roboport["nullius-hangar-construction-1"].base_animation.filename =
 	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png"
 data.raw.roboport["nullius-hangar-construction-1"].base_animation.tint = {0.9, 0.8, 0.7}
-data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.filename =
-	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-4.png"
-data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.tint = {0.9, 0.8, 0.7}
+data.raw.roboport["nullius-hangar-construction-1"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-4.png"
 data.raw.roboport["nullius-relay-construction-1"].base_animation.filename =
-	data.raw.roboport["nullius-hangar-construction-1"].base_animation.hr_version.filename
+	data.raw.roboport["nullius-hangar-construction-1"].base_animation.filename
 data.raw.roboport["nullius-relay-construction-1"].base_animation.tint = {0.9, 0.8, 0.7}
 data.raw.roboport["nullius-hangar-construction-2"].base_animation.filename =
 	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
-data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.filename =
-	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png"
+data.raw.roboport["nullius-hangar-construction-2"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
 data.raw.roboport["nullius-hangar-construction-2"].base_animation.tint = {0.85, 1, 0.9}
-data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.tint = {0.85, 1, 0.9}
 data.raw.roboport["nullius-relay-construction-2"].base_animation.filename =
-	data.raw.roboport["nullius-hangar-construction-2"].base_animation.hr_version.filename
+	data.raw.roboport["nullius-hangar-construction-2"].base_animation.filename
 data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename =
 	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
-data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename =
-	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation-3.png"
+data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename =
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation-3.png"
 data.raw.roboport["nullius-relay-construction-3"].base_animation.filename =
-	data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename
+	data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename
 data.raw.roboport["nullius-relay-construction-3"].base_animation.tint = {1, 1, 0.75}
 data.raw.roboport["nullius-hangar-construction-4"].base_animation.filename =
 	data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename
-data.raw.roboport["nullius-hangar-construction-4"].base_animation.hr_version.filename =
-	data.raw.roboport["nullius-hangar-construction-3"].base_animation.hr_version.filename
+data.raw.roboport["nullius-hangar-construction-4"].base_animation.filename =
+	data.raw.roboport["nullius-hangar-construction-3"].base_animation.filename
 data.raw.roboport["nullius-relay-construction-4"].base_animation.filename =
-	"__boblogistics__/graphics/entity/roboport/hr-roboport-base-animation.png"
+	"__boblogistics__/graphics/entity/roboport/roboport-base-animation.png"
 data.raw.roboport["nullius-relay-construction-4"].base_animation.tint = {0.7, 0.7, 0.7}

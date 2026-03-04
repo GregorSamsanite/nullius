@@ -19,13 +19,13 @@ recipe_receiver.order = item_receiver.order
 recipe_supplier.always_show_made_in = true
 recipe_receiver.always_show_made_in = true
 recipe_supplier.ingredients = {
-  {"nullius-large-supply-chest-1", 1},
-  {"nullius-relay-2", 1},
-  {"nullius-construction-bot-2", 1}
+  {type = "item", name = "nullius-large-supply-chest-1", amount = 1},
+  {type = "item", name = "nullius-relay-2", amount = 1},
+  {type = "item", name = "nullius-construction-bot-2", amount = 1}
 }
 recipe_receiver.ingredients = {
-  {"nullius-large-demand-chest-1", 1},
-  {"rail-chain-signal", 1}
+  {type = "item", name = "nullius-large-demand-chest-1", amount = 1},
+  {type = "item", name = "rail-chain-signal", amount = 1}
 }
 
 local tech = data.raw.technology["tu-rail-modernization"]

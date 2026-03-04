@@ -31,16 +31,18 @@ data:extend({
     braking_power = "80kW",
     friction = .0006,
     rotation_speed = 0.01,
+    rotation_snap_angle = 0.01,
     inventory_size = 80,
     effectivity = 0.6,
     consumption = "15kW",
 
-    burner = {
-      fuel_category = "vehicle",
+    energy_source = {
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 1,
       burnt_inventory_size = 1,
-      smoke = data.raw["car"]["car"].smoke
+      smoke = data.raw["car"]["car"].energy_source.smoke
     },
     light = data.raw["car"]["car"].light,
     render_layer = "object",
@@ -48,9 +50,9 @@ data:extend({
     sound_no_fuel = data.raw["car"]["car"].sound_no_fuel,
     stop_trigger_speed = 0.15,
     stop_trigger = data.raw["car"]["car"].stop_trigger,
-    sound_minimum_speed = 0.25,
-    sound_scaling_ratio = 0.8,
-    vehicle_impact_sound = data.raw["car"]["car"].vehicle_impact_sound,
+    -- sound_minimum_speed = 0.25,
+    -- sound_scaling_ratio = 0.8,
+    impact_category = data.raw["car"]["car"].impact_category,
     working_sound = data.raw["car"]["car"].working_sound,
     open_sound = data.raw["car"]["car"].open_sound,
     close_sound = data.raw["car"]["car"].close_sound,
@@ -70,9 +72,9 @@ data:extend({
           animation_speed = 8,
           max_advance = 0.2,
           tint = {0.65, 0.65, 0.5},
-          stripes = data.raw["car"]["car"].animation.layers[1].hr_version.stripes
+          stripes = data.raw["car"]["car"].animation.layers[1].stripes
         },
-        data.raw["car"]["car"].animation.layers[2].hr_version,
+        data.raw["car"]["car"].animation.layers[2],
         data.raw["car"]["car"].animation.layers[3]
       }
     }
@@ -107,16 +109,18 @@ data:extend({
     braking_power = "200kW",
     friction = .0005,
     rotation_speed = 0.015,
+    rotation_snap_angle = 0.015,
     inventory_size = 120,
     effectivity = 0.8,
     consumption = "50kW",
 
-    burner = {
-      fuel_category = "vehicle",
+    energy_source = {
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 1,
       burnt_inventory_size = 1,
-      smoke = data.raw["car"]["car"].smoke
+      smoke = data.raw["car"]["car"].energy_source.smoke
     },
     light = data.raw["car"]["car"].light,
     render_layer = "object",
@@ -124,9 +128,9 @@ data:extend({
     sound_no_fuel = data.raw["car"]["car"].sound_no_fuel,
     stop_trigger_speed = 0.15,
     stop_trigger = data.raw["car"]["car"].stop_trigger,
-    sound_minimum_speed = 0.25,
-    sound_scaling_ratio = 0.8,
-    vehicle_impact_sound = data.raw["car"]["car"].vehicle_impact_sound,
+    -- sound_minimum_speed = 0.25,
+    -- sound_scaling_ratio = 0.8,
+    impact_category = data.raw["car"]["car"].impact_category,
     working_sound = data.raw["car"]["car"].working_sound,
     open_sound = data.raw["car"]["car"].open_sound,
     close_sound = data.raw["car"]["car"].close_sound,
@@ -146,9 +150,9 @@ data:extend({
           animation_speed = 8,
           max_advance = 0.2,
           tint = {0.5, 0.35, 0.35},
-          stripes = data.raw["car"]["car"].animation.layers[1].hr_version.stripes
+          stripes = data.raw["car"]["car"].animation.layers[1].stripes
         },
-        data.raw["car"]["car"].animation.layers[2].hr_version,
+        data.raw["car"]["car"].animation.layers[2],
         data.raw["car"]["car"].animation.layers[3]
       }
     }
@@ -183,6 +187,7 @@ data:extend({
     braking_power = "1.5MW",
     friction = .0004,
     rotation_speed = 0.02,
+    rotation_snap_angle = 0.02,
     inventory_size = 160,
     effectivity = 1,
     consumption = "200kW",
@@ -193,9 +198,9 @@ data:extend({
     sound_no_fuel = data.raw["car"]["car"].sound_no_fuel,
     stop_trigger_speed = 0.15,
     stop_trigger = data.raw["car"]["car"].stop_trigger,
-    sound_minimum_speed = 0.25,
-    sound_scaling_ratio = 0.8,
-    vehicle_impact_sound = data.raw["car"]["car"].vehicle_impact_sound,
+    -- sound_minimum_speed = 0.25,
+    -- sound_scaling_ratio = 0.8,
+    impact_category = data.raw["car"]["car"].impact_category,
     working_sound = data.raw["car"]["car"].working_sound,
     open_sound = data.raw["car"]["car"].open_sound,
     close_sound = data.raw["car"]["car"].close_sound,
@@ -215,9 +220,9 @@ data:extend({
           animation_speed = 8,
           max_advance = 0.2,
           tint = {0.55, 0.55, 0.7},
-          stripes = data.raw["car"]["car"].animation.layers[1].hr_version.stripes
+          stripes = data.raw["car"]["car"].animation.layers[1].stripes
         },
-        data.raw["car"]["car"].animation.layers[2].hr_version,
+        data.raw["car"]["car"].animation.layers[2],
         data.raw["car"]["car"].animation.layers[3]
       }
     }
@@ -236,7 +241,7 @@ data:extend({
     collision_box = {{-0.9, -1.3}, {0.9, 1.3}},
     selection_box = {{-0.9, -1.3}, {0.9, 1.3}},
     damaged_trigger_effect = data.raw["car"]["tank"].damaged_trigger_effect,
-    drawing_box = {{-1.8, -1.8}, {1.8, 1.5}},
+    
     immune_to_tree_impacts = true,
     immune_to_rock_impacts = true,
     resistances = {
@@ -259,23 +264,25 @@ data:extend({
     friction = 0.002,
     terrain_friction_modifier = 0.4,
     rotation_speed = 0.0025,
+    rotation_snap_angle = 0.0025,
     inventory_size = 200,
     effectivity = 0.8,
     consumption = "500kW",
 
-    burner = {
-      fuel_category = "vehicle",
+    energy_source = {
+      type = "burner",
+      fuel_categories = {"vehicle"},
       effectivity = 1,
       fuel_inventory_size = 2,
       burnt_inventory_size = 2,
-      smoke = data.raw["car"]["tank"].smoke
+      smoke = data.raw["car"]["tank"].energy_source.smoke
     },
     light = data.raw["car"]["tank"].light,
     turret_animation = data.raw["car"]["tank"].turret_animation,
     sound_no_fuel = data.raw["car"]["tank"].sound_no_fuel,
-    sound_minimum_speed = 0.2,
-    sound_scaling_ratio = 0.8,
-    vehicle_impact_sound = data.raw["car"]["tank"].vehicle_impact_sound,
+    -- sound_minimum_speed = 0.2,
+    -- sound_scaling_ratio = 0.8,
+    impact_category = data.raw["car"]["tank"].impact_category,
     working_sound = data.raw["car"]["tank"].working_sound,
     stop_trigger_speed = 0.1,
     stop_trigger = data.raw["car"]["tank"].stop_trigger,
@@ -300,7 +307,7 @@ data:extend({
     collision_box = {{-0.9, -1.3}, {0.9, 1.3}},
     selection_box = {{-0.9, -1.3}, {0.9, 1.3}},
     damaged_trigger_effect = data.raw["car"]["tank"].damaged_trigger_effect,
-    drawing_box = {{-1.8, -1.8}, {1.8, 1.5}},
+    
     immune_to_tree_impacts = true,
     immune_to_rock_impacts = true,
     resistances = {
@@ -323,23 +330,25 @@ data:extend({
     friction = 0.0015,
     terrain_friction_modifier = 0.3,
     rotation_speed = 0.005,
+    rotation_snap_angle = 0.005,
     inventory_size = 300,
     effectivity = 1,
     consumption = "1MW",
 
-    burner = {
+    energy_source = {
+      type = "burner",
       fuel_categories = {"nullius-nuclear", "vehicle"},
       effectivity = 1,
       fuel_inventory_size = 1,
       burnt_inventory_size = 1,
-      smoke = data.raw["car"]["tank"].smoke
+      smoke = data.raw["car"]["tank"].energy_source.smoke
     },
     light = data.raw["car"]["tank"].light,
     turret_animation = data.raw["car"]["tank"].turret_animation,
     sound_no_fuel = data.raw["car"]["tank"].sound_no_fuel,
-    sound_minimum_speed = 0.2,
-    sound_scaling_ratio = 0.8,
-    vehicle_impact_sound = data.raw["car"]["tank"].vehicle_impact_sound,
+    -- sound_minimum_speed = 0.2,
+    -- sound_scaling_ratio = 0.8,
+    impact_category = data.raw["car"]["tank"].impact_category,
     working_sound = data.raw["car"]["tank"].working_sound,
     stop_trigger_speed = 0.1,
     stop_trigger = data.raw["car"]["tank"].stop_trigger,
@@ -362,9 +371,9 @@ data:extend({
           max_advance = 1,
           scale = 0.5,
           tint = {0.45, 0.5, 0.55},
-          stripes = data.raw["car"]["tank"].animation.layers[1].hr_version.stripes
+          stripes = data.raw["car"]["tank"].animation.layers[1].stripes
         },
-        data.raw["car"]["tank"].animation.layers[2].hr_version,
+        data.raw["car"]["tank"].animation.layers[2],
         data.raw["car"]["tank"].animation.layers[3]
       }
     }
@@ -373,20 +382,20 @@ data:extend({
   {
     type = "spider-vehicle",
     name = "nullius-mecha",
-    localised_name = {"", {"entity-name.nullius-mecha"}, " ", 1},
+    localised_name = {"", {"entity-name.nullius-mecha"}, " ", tostring(1)},
     icons = data.raw["item-with-entity-data"]["nullius-mecha"].icons,
     minable = {mining_time = 1.5, result = "nullius-mecha"},
     collision_box = {{-1 * 1, -1 * 1}, {1 * 1, 1 * 1}},
     sticker_box = {{-1.5 * 1, -1.5 * 1}, {1.5 * 1, 1.5 * 1}},
     selection_box = {{-1 * 1, -1 * 1}, {1 * 1, 1 * 1}},
-    drawing_box = {{-3 * 1, -4 * 1}, {3 * 1, 2 * 1}},
-    sound_minimum_speed = 0.1,
-    sound_scaling_ratio = 0.6,
+    
+    -- sound_minimum_speed = 0.1,
+    -- sound_scaling_ratio = 0.6,
     weight = 5000,
     braking_force = 1,
     friction_force = 1,
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
-    collision_mask = {},
+    collision_mask = { layers = {}},
     max_health = 2000,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
@@ -426,20 +435,20 @@ data:extend({
   {
     type = "spider-vehicle",
     name = "nullius-mecha-2",
-    localised_name = {"", {"entity-name.nullius-mecha"}, " ", 2},
+    localised_name = {"", {"entity-name.nullius-mecha"}, " ", tostring(2)},
     icons = data.raw["item-with-entity-data"]["nullius-mecha-2"].icons,
     minable = {mining_time = 2, result = "nullius-mecha-2"},
     collision_box = {{-1 * 1, -1 * 1}, {1 * 1, 1 * 1}},
     sticker_box = {{-1.5 * 1, -1.5 * 1}, {1.5 * 1, 1.5 * 1}},
     selection_box = {{-1 * 1, -1 * 1}, {1 * 1, 1 * 1}},
-    drawing_box = {{-3 * 1, -4 * 1}, {3 * 1, 2 * 1}},
-    sound_minimum_speed = 0.1,
-    sound_scaling_ratio = 0.6,
+    
+    --sound_minimum_speed = 0.1,
+    --sound_scaling_ratio = 0.6,
     weight = 5000,
     braking_force = 1,
     friction_force = 1,
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
-    collision_mask = {},
+    collision_mask = { layers = {}},
     max_health = 3000,
     resistances = {
       { type = "impact", decrease = 200, percent = 90 },
@@ -481,18 +490,18 @@ data:extend({
     name = "nullius-silo",
     icon = "__base__/graphics/icons/rocket-silo.png",
     icon_size = 64,
-    icon_mipmaps = 4,
     flags = {"placeable-player", "player-creation"},
     crafting_categories = {"rocketry"},
     rocket_parts_required = 1,
     crafting_speed = 1,
-    rocket_result_inventory_size = 12,
-    module_specification = {
-      module_slots = 4,
-      module_info_icon_shift = {0, 3.3}
-    },
+    module_slots = 4,
     fixed_recipe = "nullius-rocket",
     show_recipe_icon = false,
+    icon_draw_specification = {shift = {0, 2}},
+    icons_positioning =
+    {
+      {inventory_index = defines.inventory.crafter_modules, shift = {0, 3.3}}
+    },
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     minable = {mining_time = 8, result = "nullius-silo"},
     max_health = 5000,
@@ -508,20 +517,24 @@ data:extend({
       { type = "physical", decrease = 20, percent = 50 }
     },
     damaged_trigger_effect = data.raw["rocket-silo"]["rocket-silo"].damaged_trigger_effect,
-    vehicle_impact_sound = data.raw["rocket-silo"]["rocket-silo"].vehicle_impact_sound,
+    impact_category = data.raw["rocket-silo"]["rocket-silo"].impact_category,
     energy_source = {
       type = "electric",
       usage_priority = "primary-input",
       drain = "200kW"
     },
     energy_usage = "800kW",
-    idle_energy_usage = "200KW",
-    lamp_energy_usage = "200KW",
-    active_energy_usage = "2600KW",
+    --idle_energy_usage = "200kW",
+    lamp_energy_usage = "200kW",
+    active_energy_usage = "2600kW",
     rocket_entity = "rocket-silo-rocket",
     times_to_blink = 3,
     light_blinking_speed = 1 / (3 * 60),
     door_opening_speed = 1 / (4.25 * 60),
+    can_launch_without_landing_pads = true,
+    to_be_inserted_to_rocket_inventory_size = 1,
+    circuit_connector = circuit_connector_definitions["rocket-silo"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     base_engine_light = data.raw["rocket-silo"]["rocket-silo"].base_engine_light,
     shadow_sprite = data.raw["rocket-silo"]["rocket-silo"].shadow_sprite,
@@ -551,6 +564,9 @@ data:extend({
     open_sound = data.raw["rocket-silo"]["rocket-silo"].open_sound,
     close_sound = data.raw["rocket-silo"]["rocket-silo"].close_sound,
     working_sound = data.raw["rocket-silo"]["rocket-silo"].working_sound,
-    flying_sound = data.raw["rocket-silo"]["rocket-silo"].flying_sound
+    flying_sound = data.raw["rocket-silo"]["rocket-silo"].flying_sound,
+    
+    rocket_quick_relaunch_start_offset = data.raw["rocket-silo"]["rocket-silo"].rocket_quick_relaunch_start_offset,
+    cargo_station_parameters = data.raw["rocket-silo"]["rocket-silo"].cargo_station_parameters
   }
 })

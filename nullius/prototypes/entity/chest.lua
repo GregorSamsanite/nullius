@@ -20,13 +20,13 @@ data:extend({
     collision_box = {{-0.75, -0.75}, {0.75, 0.75}},
     selection_box = {{-1, -1}, {1, 1}},
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-chest-2",
+	  next_upgrade = "nullius-large-chest-2",
     inventory_size = 100,
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 1 },
+    impact_category = "metal",
     picture = {
       layers = {
         {
-          filename = BASEENTITY .. "steel-chest/hr-steel-chest.png",
+          filename = BASEENTITY .. "steel-chest/steel-chest.png",
           priority = "extra-high",
           width = 64,
           height = 80,
@@ -34,7 +34,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "steel-chest/hr-steel-chest-shadow.png",
+          filename = BASEENTITY .. "steel-chest/steel-chest-shadow.png",
           priority = "extra-high",
           width = 110,
           height = 46,
@@ -44,8 +44,7 @@ data:extend({
         }
       }
     },
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance
   },
   {
@@ -66,9 +65,8 @@ data:extend({
     selection_box = {{-1, -1}, {1, 1}},
     fast_replaceable_group = "container",
     inventory_size = 150,
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 1 },
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    impact_category = "metal",
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     picture = {
@@ -82,7 +80,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "infinity-chest/hr-infinity-chest-shadow.png",
+          filename = BASEENTITY .. "infinity-chest/infinity-chest-shadow.png",
           priority = "extra-high",
           width = 116,
           height = 48,
@@ -107,22 +105,21 @@ data:extend({
     dying_explosion = "storage-chest-explosion",
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["logistic-container"]["logistic-chest-storage"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["logistic-container"]["storage-chest"].damaged_trigger_effect,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "logistic-chest-storage",
+	  next_upgrade = "storage-chest",
     inventory_size = 20,
     logistic_mode = "storage",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -136,7 +133,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -195,13 +192,12 @@ data:extend({
 	next_upgrade = "nullius-large-storage-chest-2",
     inventory_size = 100,
     logistic_mode = "storage",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -215,7 +211,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -275,18 +271,17 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "storage",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     animation = {
       layers = {
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-storage.png",
+          filename = BASEENTITY .. "logistic-chest/storage-chest.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -295,7 +290,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -320,22 +315,21 @@ data:extend({
     dying_explosion = "passive-provider-chest-explosion",
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["logistic-container"]["logistic-chest-storage"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["logistic-container"]["storage-chest"].damaged_trigger_effect,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "logistic-chest-passive-provider",
+	next_upgrade = "passive-provider-chest",
     inventory_size = 20,
     logistic_mode = "passive-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -349,7 +343,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -407,13 +401,12 @@ data:extend({
 	next_upgrade = "nullius-large-supply-chest-2",
     inventory_size = 100,
     logistic_mode = "passive-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -427,7 +420,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -486,18 +479,17 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "passive-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     animation = {
       layers = {
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-passive-provider.png",
+          filename = BASEENTITY .. "logistic-chest/passive-provider-chest.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -506,7 +498,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -524,7 +516,7 @@ data:extend({
     name = "nullius-small-demand-chest-1",
     icons = data.raw.item["nullius-small-demand-chest-1"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-demand-chest"}, 6},
+	    {"entity-description.nullius-demand-chest"}, tostring(6)},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-small-demand-chest-1"},
     max_health = 300,
@@ -533,22 +525,21 @@ data:extend({
     dying_explosion = "requester-chest-explosion",
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["logistic-container"]["logistic-chest-storage"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["logistic-container"]["storage-chest"].damaged_trigger_effect,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "logistic-chest-requester",
+	  next_upgrade = "requester-chest",
     inventory_size = 20,
     logistic_mode = "requester",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -562,7 +553,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -605,7 +596,7 @@ data:extend({
     name = "nullius-large-demand-chest-1",
     icons = data.raw.item["nullius-large-demand-chest-1"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-demand-chest"}, 8},
+	    {"entity-description.nullius-demand-chest"}, tostring(8)},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 1.2, result = "nullius-large-demand-chest-1" },
     max_health = 500,
@@ -622,13 +613,12 @@ data:extend({
 	next_upgrade = "nullius-large-demand-chest-2",
     inventory_size = 100,
     logistic_mode = "requester",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -642,7 +632,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -687,7 +677,7 @@ data:extend({
     name = "nullius-large-demand-chest-2",
     icons = data.raw.item["nullius-large-demand-chest-2"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-demand-chest"}, 20},
+	    {"entity-description.nullius-demand-chest"}, tostring(20)},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 1.5, result = "nullius-large-demand-chest-2" },
     max_health = 800,
@@ -703,18 +693,17 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "requester",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     animation = {
       layers = {
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-requester.png",
+          filename = BASEENTITY .. "logistic-chest/requester-chest.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -723,7 +712,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -741,7 +730,7 @@ data:extend({
     name = "nullius-small-buffer-chest-1",
     icons = data.raw.item["nullius-small-buffer-chest-1"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-buffer-chest"}, 4},
+	    {"entity-description.nullius-buffer-chest"}, tostring(4)},
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.8, result = "nullius-small-buffer-chest-1"},
     max_health = 300,
@@ -750,22 +739,21 @@ data:extend({
     dying_explosion = "buffer-chest-explosion",
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["logistic-container"]["logistic-chest-storage"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["logistic-container"]["storage-chest"].damaged_trigger_effect,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "logistic-chest-buffer",
+	  next_upgrade = "buffer-chest",
     inventory_size = 20,
     logistic_mode = "buffer",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -779,7 +767,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -822,7 +810,7 @@ data:extend({
     name = "nullius-large-buffer-chest-1",
     icons = data.raw.item["nullius-large-buffer-chest-1"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-buffer-chest"}, 5},
+	    {"entity-description.nullius-buffer-chest"}, tostring(5)},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 1.2, result = "nullius-large-buffer-chest-1" },
     max_health = 500,
@@ -839,13 +827,12 @@ data:extend({
 	next_upgrade = "nullius-large-buffer-chest-2",
     inventory_size = 100,
     logistic_mode = "buffer",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -859,7 +846,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -904,7 +891,7 @@ data:extend({
     name = "nullius-large-buffer-chest-2",
     icons = data.raw.item["nullius-large-buffer-chest-2"].icons,
     localised_description = {"entity-description.nullius-request-slots",
-	    {"entity-description.nullius-buffer-chest"}, 8},
+	    {"entity-description.nullius-buffer-chest"}, tostring(8)},
     flags = {"placeable-neutral", "player-creation"},
     minable = { mining_time = 1.5, result = "nullius-large-buffer-chest-2" },
     max_health = 800,
@@ -920,18 +907,17 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "buffer",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     animation = {
       layers = {
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-buffer.png",
+          filename = BASEENTITY .. "logistic-chest/buffer-chest.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -940,7 +926,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,
@@ -965,22 +951,21 @@ data:extend({
     dying_explosion = "active-provider-chest-explosion",
     collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    damaged_trigger_effect = data.raw["logistic-container"]["logistic-chest-storage"].damaged_trigger_effect,
+    damaged_trigger_effect = data.raw["logistic-container"]["storage-chest"].damaged_trigger_effect,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "logistic-chest-active-provider",
+	  next_upgrade = "active-provider-chest",
     inventory_size = 20,
     logistic_mode = "active-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -994,7 +979,7 @@ data:extend({
           scale = 0.5
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1052,13 +1037,12 @@ data:extend({
 	next_upgrade = "nullius-large-dispatch-chest-2",	
     inventory_size = 100,
     logistic_mode = "active-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     animation = {
@@ -1072,7 +1056,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 86,
           height = 44,
@@ -1131,18 +1115,17 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "active-provider",
-    open_sound = data.raw["logistic-container"]["logistic-chest-storage"].open_sound,
-    close_sound = data.raw["logistic-container"]["logistic-chest-storage"].close_sound,
-    animation_sound = data.raw["logistic-container"]["logistic-chest-storage"].animation_sound,
-    vehicle_impact_sound = data.raw["logistic-container"]["logistic-chest-storage"].vehicle_impact_sound,
-    opened_duration = data.raw["logistic-container"]["logistic-chest-storage"].opened_duration,
-    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
+    close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
+    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
+    impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
+    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
+    circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     animation = {
       layers = {
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-active-provider.png",
+          filename = BASEENTITY .. "logistic-chest/active-provider-chest.png",
           priority = "extra-high",
           width = 66,
           height = 74,
@@ -1151,7 +1134,7 @@ data:extend({
           scale = 0.9
         },
         {
-          filename = BASEENTITY .. "logistic-chest/hr-logistic-chest-shadow.png",
+          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
           priority = "extra-high",
           width = 96,
           height = 44,

@@ -1,7 +1,7 @@
 {
   "name": "safefill",
-  "version": "1.0.11",
-  "factorio_version": "1.1",
+  "version": "2.0.0",
+  "factorio_version": "2.0",
   "title": "Safe Waterfill",
   "author": "Anachrony",
   "description": "Create water like landfill, without destroying things on land. \n\nUnlike most waterfill mods, this will not destroy any land-based entities, like structures, vehicles, resources, trees, or yourself. Only land with nothing on it will be replaced. Offers a choice of 6 different types of water.",

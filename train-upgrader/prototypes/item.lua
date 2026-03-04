@@ -6,7 +6,7 @@ data:extend({
       icon = "__train-upgrader__/graphics/icon/supplier.png",
       icon_size = 64
     }},
-	subgroup = "train-transport",
+	  subgroup = "train-transport",
     order = "a[train-system]-tub[tu-supplier]",
     place_result = "tu-supplier",
     stack_size = 20
@@ -18,7 +18,7 @@ data:extend({
       icon = "__train-upgrader__/graphics/icon/receiver.png",
       icon_size = 64
     }},
-	subgroup = "train-transport",
+	  subgroup = "train-transport",
     order = "a[train-system]-tuc[tu-receiver]",
     place_result = "tu-receiver",
     stack_size = 20

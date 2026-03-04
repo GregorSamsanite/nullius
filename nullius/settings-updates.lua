@@ -74,6 +74,7 @@ if data.raw['int-setting']['bobmods-logistics-pipeperlevel'] then
 end
 if data.raw['int-setting']['bobmods-logistics-fluidwagonbase'] then
    data.raw['int-setting']['bobmods-logistics-fluidwagonbase'].hidden = true
+   data.raw['int-setting']['bobmods-logistics-fluidwagonbase'].default_value = 25
    data.raw['int-setting']['bobmods-logistics-fluidwagonbase'].allowed_values = {25}
 end
 if data.raw['int-setting']['bobmods-logistics-storagetankbase'] then
@@ -81,6 +82,9 @@ if data.raw['int-setting']['bobmods-logistics-storagetankbase'] then
    data.raw['int-setting']['bobmods-logistics-storagetankbase'].allowed_values = {25}
 end
 
+if not data.raw['string-setting'] then
+   data.raw['string-setting'] = {}
+end
 
 if data.raw['string-setting']['alien-biomes-disable-vegetation'] then
    data.raw['string-setting']['alien-biomes-disable-vegetation'].hidden = true
@@ -135,47 +139,6 @@ for _, setting in pairs(biome_grass_color) do
   end
 end
 
-
-if data.raw['string-setting']['angels-enable-auto-barreling'] then
-   data.raw['string-setting']['angels-enable-auto-barreling'].hidden = true
-   data.raw['string-setting']['angels-enable-auto-barreling'].default_value = "Disabled"
-   data.raw['string-setting']['angels-enable-auto-barreling'].allowed_values = {"Disabled"}
-end
-
-if data.raw['bool-setting']['angels-enable-converter'] then
-   data.raw['bool-setting']['angels-enable-converter'].hidden = true
-   data.raw['bool-setting']['angels-enable-converter'].forced_value = true
-end
-if data.raw['bool-setting']['angels-hide-converter'] then
-   data.raw['bool-setting']['angels-hide-converter'].hidden = true
-   data.raw['bool-setting']['angels-hide-converter'].forced_value = true
-end
-if data.raw['bool-setting']['angels-enable-acids'] then
-   data.raw['bool-setting']['angels-enable-acids'].hidden = true
-   data.raw['bool-setting']['angels-enable-acids'].forced_value = true
-end
-
-if data.raw['bool-setting']['angels-disable-bobs-electrolysers'] then
-   data.raw['bool-setting']['angels-disable-bobs-electrolysers'].hidden = true
-   data.raw['bool-setting']['angels-disable-bobs-electrolysers'].forced_value = true
-end
-if data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'] then
-   data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'].hidden = true
-   data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'].forced_value = true
-end
-if data.raw['bool-setting']['angels-disable-bobs-chemical-plants'] then
-   data.raw['bool-setting']['angels-disable-bobs-chemical-plants'].hidden = true
-   data.raw['bool-setting']['angels-disable-bobs-chemical-plants'].forced_value = true
-end
-if data.raw['bool-setting']['angels-disable-bobs-distilleries'] then
-   data.raw['bool-setting']['angels-disable-bobs-distilleries'].hidden = true
-   data.raw['bool-setting']['angels-disable-bobs-distilleries'].forced_value = true
-end
-if data.raw['bool-setting']['angels-show-chemical-formula'] then
-   data.raw['bool-setting']['angels-show-chemical-formula'].hidden = true
-   data.raw['bool-setting']['angels-show-chemical-formula'].forced_value = true
-end
-
 if data.raw['bool-setting']['bobmods-plates-cheapersteel'] then
    data.raw['bool-setting']['bobmods-plates-cheapersteel'].hidden = true
    data.raw['bool-setting']['bobmods-plates-cheapersteel'].forced_value = true
@@ -227,69 +190,6 @@ end
 if data.raw['int-setting']['bobmods-plates-inventorysize'] then
    data.raw['int-setting']['bobmods-plates-inventorysize'].hidden = true
    data.raw['int-setting']['bobmods-plates-inventorysize'].allowed_values = {80}
-end
-
-if data.raw['bool-setting']['angels-enable-hide-void'] then
-   data.raw['bool-setting']['angels-enable-hide-void'].hidden = true
-   data.raw['bool-setting']['angels-enable-hide-void'].forced_value = true
-end
-if data.raw['bool-setting']['angels-enable-auto-barreling'] then
-   data.raw['bool-setting']['angels-enable-auto-barreling'].hidden = true
-   data.raw['bool-setting']['angels-enable-auto-barreling'].forced_value = false
-end
-if data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'] then
-   data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'].hidden = true
-   data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'].forced_value = false
-end
-if data.raw['bool-setting']['angels-starting-resource-ore1'] then
-   data.raw['bool-setting']['angels-starting-resource-ore1'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore1'].forced_value = true
-end
-if data.raw['bool-setting']['angels-starting-resource-ore3'] then
-   data.raw['bool-setting']['angels-starting-resource-ore3'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore3'].forced_value = true
-end
-if data.raw['bool-setting']['angels-starting-resource-ore5'] then
-   data.raw['bool-setting']['angels-starting-resource-ore5'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore5'].forced_value = true
-end
-if data.raw['bool-setting']['angels-starting-resource-ore6'] then
-   data.raw['bool-setting']['angels-starting-resource-ore6'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore6'].forced_value = true
-end
-if data.raw['bool-setting']['angels-starting-resource-ore2'] then
-   data.raw['bool-setting']['angels-starting-resource-ore2'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore2'].forced_value = false
-end
-if data.raw['bool-setting']['angels-starting-resource-ore4'] then
-   data.raw['bool-setting']['angels-starting-resource-ore4'].hidden = true
-   data.raw['bool-setting']['angels-starting-resource-ore4'].forced_value = false
-end
-
-if data.raw['double-setting']['angels-marathon-buildingmulti'] then
-   data.raw['double-setting']['angels-marathon-buildingmulti'].hidden = true
-   data.raw['double-setting']['angels-marathon-buildingmulti'].allowed_values = {2}
-end
-if data.raw['double-setting']['angels-marathon-buildingtime'] then
-   data.raw['double-setting']['angels-marathon-buildingtime'].hidden = true
-   data.raw['double-setting']['angels-marathon-buildingtime'].allowed_values = {2}
-end
-if data.raw['double-setting']['angels-marathon-rawmulti'] then
-   data.raw['double-setting']['angels-marathon-rawmulti'].hidden = true
-   data.raw['double-setting']['angels-marathon-rawmulti'].allowed_values = {1}
-end
-
-if data.raw['double-setting']['angels-marathon-intermediatemulti'] then
-   data.raw['double-setting']['angels-marathon-intermediatemulti'].hidden = true
-   data.raw['double-setting']['angels-marathon-intermediatemulti'].allowed_values = {1}
-end
-if data.raw['double-setting']['angels-starting-resource-base'] then
-   data.raw['double-setting']['angels-starting-resource-base'].hidden = true
-   data.raw['double-setting']['angels-starting-resource-base'].allowed_values = {40000}
-end
-if data.raw['int-setting']['angels-pavement-stack-size'] then
-   data.raw['int-setting']['angels-pavement-stack-size'].hidden = true
-   data.raw['int-setting']['angels-pavement-stack-size'].allowed_values = {200}
 end
 
 if data.raw['string-setting']['fuel-fluid'] then
@@ -409,4 +309,108 @@ end
 if data.raw['bool-setting']['aai-loaders-fit-assemblers'] then
    data.raw['bool-setting']['aai-loaders-fit-assemblers'].hidden = true
    data.raw['bool-setting']['aai-loaders-fit-assemblers'].forced_value = false
+end
+
+
+------- angels compatibility settings ------------------
+if data.raw['string-setting']['angels-enable-auto-barreling'] then
+   data.raw['string-setting']['angels-enable-auto-barreling'].hidden = true
+   data.raw['string-setting']['angels-enable-auto-barreling'].default_value = "Disabled"
+   data.raw['string-setting']['angels-enable-auto-barreling'].allowed_values = {"Disabled"}
+end
+
+if data.raw['bool-setting']['angels-enable-converter'] then
+   data.raw['bool-setting']['angels-enable-converter'].hidden = true
+   data.raw['bool-setting']['angels-enable-converter'].forced_value = true
+end
+if data.raw['bool-setting']['angels-hide-converter'] then
+   data.raw['bool-setting']['angels-hide-converter'].hidden = true
+   data.raw['bool-setting']['angels-hide-converter'].forced_value = true
+end
+if data.raw['bool-setting']['angels-enable-acids'] then
+   data.raw['bool-setting']['angels-enable-acids'].hidden = true
+   data.raw['bool-setting']['angels-enable-acids'].forced_value = true
+end
+
+if data.raw['bool-setting']['angels-disable-bobs-electrolysers'] then
+   data.raw['bool-setting']['angels-disable-bobs-electrolysers'].hidden = true
+   data.raw['bool-setting']['angels-disable-bobs-electrolysers'].forced_value = true
+end
+if data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'] then
+   data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'].hidden = true
+   data.raw['bool-setting']['angels-disable-vanilla-chemical-plants'].forced_value = true
+end
+if data.raw['bool-setting']['angels-disable-bobs-chemical-plants'] then
+   data.raw['bool-setting']['angels-disable-bobs-chemical-plants'].hidden = true
+   data.raw['bool-setting']['angels-disable-bobs-chemical-plants'].forced_value = true
+end
+if data.raw['bool-setting']['angels-disable-bobs-distilleries'] then
+   data.raw['bool-setting']['angels-disable-bobs-distilleries'].hidden = true
+   data.raw['bool-setting']['angels-disable-bobs-distilleries'].forced_value = true
+end
+if data.raw['bool-setting']['angels-show-chemical-formula'] then
+   data.raw['bool-setting']['angels-show-chemical-formula'].hidden = true
+   data.raw['bool-setting']['angels-show-chemical-formula'].forced_value = true
+end
+if data.raw['bool-setting']['angels-enable-hide-void'] then
+   data.raw['bool-setting']['angels-enable-hide-void'].hidden = true
+   data.raw['bool-setting']['angels-enable-hide-void'].forced_value = true
+end
+if data.raw['bool-setting']['angels-enable-auto-barreling'] then
+   data.raw['bool-setting']['angels-enable-auto-barreling'].hidden = true
+   data.raw['bool-setting']['angels-enable-auto-barreling'].forced_value = false
+end
+if data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'] then
+   data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'].hidden = true
+   data.raw['bool-setting']['angels-tryptophobia-friendly-stiratite'].forced_value = false
+end
+if data.raw['bool-setting']['angels-starting-resource-ore1'] then
+   data.raw['bool-setting']['angels-starting-resource-ore1'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore1'].forced_value = true
+end
+if data.raw['bool-setting']['angels-starting-resource-ore3'] then
+   data.raw['bool-setting']['angels-starting-resource-ore3'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore3'].forced_value = true
+end
+if data.raw['bool-setting']['angels-starting-resource-ore5'] then
+   data.raw['bool-setting']['angels-starting-resource-ore5'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore5'].forced_value = true
+end
+if data.raw['bool-setting']['angels-starting-resource-ore6'] then
+   data.raw['bool-setting']['angels-starting-resource-ore6'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore6'].forced_value = true
+end
+if data.raw['bool-setting']['angels-starting-resource-ore2'] then
+   data.raw['bool-setting']['angels-starting-resource-ore2'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore2'].forced_value = false
+end
+if data.raw['bool-setting']['angels-starting-resource-ore4'] then
+   data.raw['bool-setting']['angels-starting-resource-ore4'].hidden = true
+   data.raw['bool-setting']['angels-starting-resource-ore4'].forced_value = false
+end
+
+if data.raw['double-setting']['angels-marathon-buildingmulti'] then
+   data.raw['double-setting']['angels-marathon-buildingmulti'].hidden = true
+   data.raw['double-setting']['angels-marathon-buildingmulti'].allowed_values = {2}
+end
+if data.raw['double-setting']['angels-marathon-buildingtime'] then
+   data.raw['double-setting']['angels-marathon-buildingtime'].hidden = true
+   data.raw['double-setting']['angels-marathon-buildingtime'].allowed_values = {2}
+end
+if data.raw['double-setting']['angels-marathon-rawmulti'] then
+   data.raw['double-setting']['angels-marathon-rawmulti'].hidden = true
+   data.raw['double-setting']['angels-marathon-rawmulti'].allowed_values = {1}
+end
+
+if data.raw['double-setting']['angels-marathon-intermediatemulti'] then
+   data.raw['double-setting']['angels-marathon-intermediatemulti'].hidden = true
+   data.raw['double-setting']['angels-marathon-intermediatemulti'].allowed_values = {1}
+end
+if data.raw['double-setting']['angels-starting-resource-base'] then
+   data.raw['double-setting']['angels-starting-resource-base'].hidden = true
+   data.raw['double-setting']['angels-starting-resource-base'].allowed_values = {40000}
+end
+if data.raw['int-setting']['angels-pavement-stack-size'] then
+   data.raw['int-setting']['angels-pavement-stack-size'].hidden = true
+   data.raw['int-setting']['angels-pavement-stack-size'].allowed_values = {200}
 end
