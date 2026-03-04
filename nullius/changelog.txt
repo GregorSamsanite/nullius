@@ -8,6 +8,8 @@ Date: 22.02.2026
   Bugfixes:
     - Fixed multiplayer desync involving the targeting remote GUI
     - Added missing GUI sounds for most buildings
+  Modding:
+    - Added support for cranes
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 18.12.2025

@@ -46,6 +46,7 @@
 	"(?) fcpu >= 0.4.33",
 	"(?) reskins-bobs >= 2.3.5",
 	"(?) quick-adjustable-inserters >= 2.0.11",
+	"(?) cranes >= 2.0.0",
 	  
 	"! space-age",
 	"! quality",
