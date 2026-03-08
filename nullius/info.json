@@ -68,6 +68,7 @@
 	"(?) beautiful_bridge_railway >= 1.1.1",
 	"(?) Induction Charging >= 2.0.0",
 	"(?) stack-combinator >= 1.6.2",
-	"(?) GCKI >= 0.16.0"
+	"(?) GCKI >= 0.16.0",
+        "(?) cargo-drone >= 1.6.0"
   ]
 }
