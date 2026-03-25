@@ -399,7 +399,7 @@ local function update_checkpoint_force(force, tick)
           tech.researched = true
 	    end
 	  else
-	    broken_finished_delayed(check.name)
+	    broken_finished(check.name)
 	  end
   elseif (tech ~= nil) then
     progress = (progress / count)

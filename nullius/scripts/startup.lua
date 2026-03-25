@@ -20,71 +20,70 @@ function broken_disabled(name)
   return false
 end
 
-function check_fixing_machines()
-  if storage.fixing_machines == nil then return end
-  for i,entry in pairs(storage.fixing_machines) do
-    if entry.machine.valid then
-      local machine_recipe = entry.machine.get_recipe()
-      if machine_recipe and machine_recipe.name == entry.recipe then
-        if entry.machine.products_finished > entry.finished then
-          broken_finished(machine_recipe.name)
-          table.remove(storage.fixing_machines,i)
-        end
-      else -- recipe changed before product finished
-        table.remove(storage.fixing_machines,i)
-      end
-    else
-      table.remove(storage.fixing_machines,i)
-    end
-  end
-  if #storage.fixing_machines == 0 then
-    storage.fixing_machines = nil
-  end
-end
+-- function check_fixing_machines()
+--   if storage.fixing_machines == nil then return end
+--   for i,entry in pairs(storage.fixing_machines) do
+--     if entry.machine.valid then
+--       local machine_recipe = entry.machine.get_recipe()
+--       if machine_recipe and machine_recipe.name == entry.recipe then
+--         if entry.machine.products_finished > entry.finished then
+--           broken_finished(machine_recipe.name)
+--           table.remove(storage.fixing_machines,i)
+--         end
+--       else -- recipe changed before product finished
+--         table.remove(storage.fixing_machines,i)
+--       end
+--     else
+--       table.remove(storage.fixing_machines,i)
+--     end
+--   end
+--   if #storage.fixing_machines == 0 then
+--     storage.fixing_machines = nil
+--   end
+-- end
 
 function broken_finished_delayed(name)
-  local machines = game.surfaces["nauvis"].find_entities_filtered{type = "assembling-machine"} -- check only appropriate machines ?
-  for _,machine in pairs(machines) do
-    local recipe = machine.get_recipe()
-    if recipe ~= nil then
-      if string.sub(recipe.name, 1, 15) == "nullius-broken-" then
-        if storage.fixing_machines == nil then storage.fixing_machines = {} end
-        for i,entry in pairs(storage.fixing_machines) do -- prevent duplicates
-          if entry.machine == machine then 
-            if entry.machine.get_recipe().name == entry.recipe then return 
-            else 
-              table.remove(storage.fixing_machines,i) 
-            end
-          end
-        end
-        table.insert(storage.fixing_machines, {machine = machine, recipe = table.deepcopy(recipe.name), finished = machine.products_finished})
-        return
-      end
-    else
-      for i,entry in pairs(storage.fixing_machines or {}) do
-        if entry.machine == machine then
-          table.remove(storage.fixing_machines,i)
-          return
-        end
-      end
-    end
-  end
+  -- local machines = game.surfaces["nauvis"].find_entities_filtered{type = "assembling-machine"} -- check only appropriate machines ?
+  -- for _,machine in pairs(machines) do
+  --   local recipe = machine.get_recipe()
+  --   if recipe ~= nil then
+  --     if string.sub(recipe.name, 1, 15) == "nullius-broken-" then
+  --       if storage.fixing_machines == nil then storage.fixing_machines = {} end
+  --       for i,entry in pairs(storage.fixing_machines) do -- prevent duplicates
+  --         if entry.machine == machine then 
+  --           if entry.machine.get_recipe().name == entry.recipe then return 
+  --           else 
+  --             table.remove(storage.fixing_machines,i) 
+  --           end
+  --         end
+  --       end
+  --       table.insert(storage.fixing_machines, {machine = machine, recipe = table.deepcopy(recipe.name), finished = machine.products_finished})
+  --       return
+  --     end
+  --   else
+  --     for i,entry in pairs(storage.fixing_machines or {}) do
+  --       if entry.machine == machine then
+  --         table.remove(storage.fixing_machines,i)
+  --         return
+  --       end
+  --     end
+  --   end
+  -- end
 end
 
-function broken_finished(name, notHandCrafted)
-  -- if notHandCrafted then
-    
-  -- end
+function broken_finished(name)
   storage.nullius_broken_status[name] = nil
-  for _, force in pairs(game.forces) do
-    force.recipes[name].enabled = false
-  end
+   -- function disabled for now
+  
+  -- for _, force in pairs(game.forces) do
+  --   force.recipes[name].enabled = false
+  -- end
 
-  if (script.active_mods["Companion_Drones"] and
-      (storage.nullius_companion_fix == nil)) then
-    fuel_companion_drones(game.surfaces[1])
-	storage.nullius_companion_fix = true
-  end
+  -- if (script.active_mods["Companion_Drones"] and
+  --     (storage.nullius_companion_fix == nil)) then
+  --   fuel_companion_drones(game.surfaces[1])
+	-- storage.nullius_companion_fix = true
+  -- end
 end
 
 function broken_crafted(name)

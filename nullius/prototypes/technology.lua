@@ -4066,6 +4066,11 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-chemical-pack"
+      },
+      {
+        type = "nothing",
+        icon = ICONPATH.."broken.png",
+        effect_description = {"technology-description.nullius-remove_broken-recipes"}
       }
     },
     unit = {

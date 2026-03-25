@@ -1,9 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 25.03.2026
+  Changes:
+    - Removed auto disabling of repairing recipes for broken entities
+    - Changed description of the "Experimental Chemistry" technology to clarify that researching this will remove the repairing recipes
+  Bugfixes:
+    - Removed auto disabling of repairing recipes for broken entities
+---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 22.02.2026
   Changes:
     - Reworked the fluid system : changed the max pipeline extents of pipes and storage tanks, added dependency to the configurable valves mod, valves are now replaced by togglable configurable pumps. Pumps consume more electricity than before.
     - Changed miner tier 3 to have resource drain bonus instead of productivity bonus
+    - Changed the priority shortcut from + to Ctrl R
   Features:
     - Added menu simulations
   Bugfixes:
