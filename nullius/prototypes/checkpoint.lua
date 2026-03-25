@@ -26,13 +26,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -56,12 +50,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -85,12 +74,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -114,12 +98,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -142,13 +121,7 @@ data:extend({
         icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -171,13 +144,7 @@ data:extend({
         icon = "__angelspetrochemgraphics__/graphics/icons/molecules/carbon-dioxide.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -204,7 +171,7 @@ data:extend({
       {
         icon = BASEICON .. "stone-furnace.png",
         icon_size = 64,
-        
+        scale = 1.5
       }
     },
     unit = {
@@ -281,12 +248,7 @@ data:extend({
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-sandstone"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -306,13 +268,7 @@ data:extend({
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-bauxite"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -339,7 +295,7 @@ data:extend({
 	  {
 	    icon = "__nullius__/graphics/technology/tech_windturbine1.png",
 	    icon_size = 254,
-		scale = 0.2519
+		scale = 0.5
       }
     },
     unit = {
@@ -374,7 +330,7 @@ data:extend({
         icon = BASEICON .. "fluid/steam.png",
         icon_size = 64,
         
-		scale = 0.9,
+		scale = 1.8,
 		tint = {0.75, 0.75, 0.75, 0.75}
       }
     },
@@ -429,12 +385,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -454,13 +405,7 @@ data:extend({
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-glass"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -511,12 +456,7 @@ data:extend({
         icon = ICONPATH .. "rubber.png",
         icon_size = 64
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -540,12 +480,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -566,13 +501,7 @@ data:extend({
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-polycrystalline-silicon"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.125)
     },
     unit = {
       count = 1,
@@ -631,7 +560,7 @@ data:extend({
         icon = "__base__/graphics/technology/automation-1.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -665,7 +594,7 @@ data:extend({
         icon = "__base__/graphics/technology/fluid-handling.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -692,12 +621,7 @@ data:extend({
 		icon = ICONPATH .. "canister-water.png",
         icon_size = 64
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -721,12 +645,7 @@ data:extend({
         icon_size = 64,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -751,13 +670,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -842,7 +755,7 @@ data:extend({
         icon = "__base__/graphics/technology/automated-rail-transportation.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.42
       }
     },
     unit = {
@@ -863,12 +776,7 @@ data:extend({
     order = "nullius-yd",
     icons = {
 	  data.raw.item["nullius-limestone"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -895,13 +803,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -929,7 +831,7 @@ data:extend({
       {
         icon = "__angelspetrochemgraphics__/graphics/icons/molecules/nitrogen.png",
         icon_size = 64,
-		scale = 0.64,
+		scale = 1.28,
 		tint = {0.85, 0.85, 0.85, 0.85}
       }
     },
@@ -985,13 +887,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1022,7 +918,7 @@ data:extend({
         icon = "__base__/graphics/technology/logistic-robotics.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1054,7 +950,7 @@ data:extend({
         icon = "__base__/graphics/technology/logistics-2.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1079,12 +975,7 @@ data:extend({
         icon_size = 64,
 		
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1104,12 +995,7 @@ data:extend({
     order = "nullius-yd",
     icons = {
 	  data.raw.item["nullius-heat-pipe-1"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1136,7 +1022,7 @@ data:extend({
 	  {
         icon = "__angelspetrochemgraphics__/graphics/technology/chemical-plant-tech.png",
 	    icon_size = 128,
-		scale = 0.5
+		scale = 1
       }
     },
     unit = {
@@ -1226,12 +1112,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1254,13 +1135,7 @@ data:extend({
         icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1281,12 +1156,7 @@ data:extend({
     order = "nullius-ye",
     icons = {
 	  data.raw.item["nullius-monocrystalline-silicon"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1365,13 +1235,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1395,12 +1259,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1489,7 +1348,7 @@ data:extend({
         icon = "__base__/graphics/technology/logistic-robotics.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1523,7 +1382,7 @@ data:extend({
         icon = "__base__/graphics/technology/construction-robotics.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1614,7 +1473,7 @@ data:extend({
         icon = "__base__/graphics/technology/logistics-3.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1664,13 +1523,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1699,7 +1552,7 @@ data:extend({
         icon = "__base__/graphics/technology/tank.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -1721,12 +1574,7 @@ data:extend({
     order = "nullius-ye",
     icons = {
 	  data.raw.item["nullius-stirling-engine-2"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1778,12 +1626,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.125)
     },
     unit = {
       count = 1,
@@ -1861,13 +1704,7 @@ data:extend({
     order = "nullius-yf",
     icons = {
 	  data.raw.item["nullius-filter-2"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1922,7 +1759,7 @@ data:extend({
       {
         icon = "__nullius__/graphics/technology/logistics-4.png",
 	    icon_size = 254,
-		scale = 0.2519
+		scale = 0.5
       }
     },
     unit = {
@@ -1982,13 +1819,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6},
-		scale = 4
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2039,12 +1870,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2068,12 +1894,7 @@ data:extend({
 	    icon = ICONPATH .. "calcium.png",
         icon_size = 64
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2098,12 +1919,7 @@ data:extend({
         icon_size = 64,
         tint = {224, 200, 255}
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2127,12 +1943,7 @@ data:extend({
         icon = "__nullius__/graphics/icons/entity/thermaltank3.png",
 	    icon_size = 64
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2155,13 +1966,7 @@ data:extend({
         icon = "__angelspetrochemgraphics__/graphics/icons/molecules/semiheavy-water.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2327,13 +2132,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2358,12 +2157,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
 	effects = {
 	  {
@@ -2394,12 +2188,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
 	effects = {
 	  {
@@ -2474,12 +2263,7 @@ data:extend({
     order = "nullius-yg",
     icons = {
 	  data.raw.item["nullius-enriched-uranium"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2534,7 +2318,8 @@ data:extend({
 	  {
 	    icon = ICONPATH .. "fluid/steam2.png",
         icon_size = 64,
-		tint = {0.8, 0.8, 0.8, 0.8}
+        tint = {0.8, 0.8, 0.8, 0.8},
+        scale = 1.8
       }
     },
     unit = {
@@ -2560,12 +2345,7 @@ data:extend({
         icon_size = 64,
         
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2647,13 +2427,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2762,8 +2536,8 @@ data:extend({
       {
         icon = "__base__/graphics/technology/solar-energy.png",
         icon_size = 256,
-        
-		scale = 0.25
+        scale = 0.5,
+        shift = {-1, 0}
       }
     },
     unit = {
@@ -2792,7 +2566,7 @@ data:extend({
         icon = "__base__/graphics/technology/electric-energy-acumulators.png",
         icon_size = 256,
         
-		scale = 0.25
+		scale = 0.5
       }
     },
     unit = {
@@ -2817,13 +2591,7 @@ data:extend({
         icon_size = 256,
         
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2878,7 +2646,7 @@ data:extend({
 	    icon = ICONPATH .. "algae.png",
         icon_size = 64
       },
-	  checkmark(1.125)
+	  checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2902,7 +2670,7 @@ data:extend({
         icon_size = 64,
         
       },
-	  checkmark(1.125)
+	  checkmark(2)
     },
     unit = {
       count = 1,
@@ -2926,7 +2694,7 @@ data:extend({
         icon_size = 64,
         
       },
-	  checkmark(1.125)
+	  checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2950,7 +2718,7 @@ data:extend({
         icon_size = 64,
         
       },
-	  checkmark(1.125)
+	  checkmark(2)
     },
     unit = {
       count = 1,
@@ -3054,7 +2822,7 @@ if mods["lambent-nil"] then
           icon_size = 64,
           
         },
-		checkmark(1)
+		checkmark(2)
       },
       unit = {
         count = 1,
