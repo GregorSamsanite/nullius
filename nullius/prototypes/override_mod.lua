@@ -1008,6 +1008,7 @@ for _,junction in pairs(data.raw["pipe-to-ground"]) do
     junction.fluid_box.volume = archetype.fluid_box.volume
 	  junction.minable.mining_time = (lvl * 0.5)
 	  junction.hidden_in_factoriopedia = true
+	  junction.fluid_box.max_pipeline_extent = pipe_extents[lvl]
 
     for _,connection in pairs(junction.fluid_box.pipe_connections) do
       if ((connection.max_underground_distance ~= nil) and
