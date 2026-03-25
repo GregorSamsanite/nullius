@@ -237,25 +237,56 @@ local function is_togglable_pump_entity(name)
   return is_pump_entity(name) or is_conf_valve_entity(name)
 end
 
+local function conf_valve_check_one_way(circuit_condition, unit_number)
+  if circuit_condition == nil then return false end
+  if circuit_condition.comparator == nil then return false end
+  if circuit_condition.comparator == '>' then
+    local signal_first = circuit_condition.first_signal
+    if signal_first == nil then return false end
+    if signal_first.type == "virtual" and signal_first.name == "signal-I" then
+      local signal_second = circuit_condition.second_signal
+      if signal_second == nil then return false end
+      if  signal_second.type == "virtual" and signal_second.name == "signal-O" then
+        storage.nullius_valves[unit_number] = true
+      end
+    end
+  end
+end
+
 local function toggle_pump(entity, name, force, circuit_condition)
   local position = entity.position
   local direction = entity.direction
   local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
   
   --local fluid_contents = save_fluid_contents(entity)
-  destroy_if_valid(entity, true)
-  
-  local conf_valve = game.surfaces["nauvis"].create_entity({
-      name = names[name],
-      position = position,
-      force = force,
-      direction = direction,
-      raise_built = true,
-  })
+  storage.nullius_valves[entity.unit_number] = nil
+  local conf_valve = nil
+  if (entity.type == "entity-ghost") then
+    destroy_if_valid(entity, true)
+    conf_valve = game.surfaces["nauvis"].create_entity({
+        name = "entity-ghost",
+        inner_name = names[name],
+        position = position,
+        force = force,
+        direction = direction,
+        raise_built = true,
+        create_build_effect_smoke = false
+    })
+  else
+    destroy_if_valid(entity, true)
+    conf_valve = game.surfaces["nauvis"].create_entity({
+        name = names[name],
+        position = position,
+        force = force,
+        direction = direction,
+        raise_built = true,
+    })
+  end
   
   if circuit_condition ~= nil then
     local control_behavior = conf_valve.get_or_create_control_behavior()
     control_behavior.circuit_condition = table.deepcopy(circuit_condition)
+    conf_valve_check_one_way(control_behavior.circuit_condition, conf_valve.unit_number)
   end
   
   --restore_fluid_contents(conf_valve, fluid_contents)
@@ -268,33 +299,38 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
   if storage.nullius_valves[entity.unit_number] or force_toggle then
     storage.nullius_valves[entity.unit_number] = nil
     local position = entity.position
-      local direction = entity.direction
-      local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
-      
-      --local fluid_contents = save_fluid_contents(entity) -- todo: use the fluidbox api to get the linked entity(internal gauge) and save fluid contents this way
+    local direction = entity.direction
+    local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
+    
+    --local fluid_contents = save_fluid_contents(entity) -- todo: use the fluidbox api to get the linked entity(internal gauge) and save fluid contents this way
+    local pump = nil
+    if (entity.type == "entity-ghost") then
       destroy_if_valid(entity, true)
-        
-      local pump = game.surfaces["nauvis"].create_entity({
+      pump = game.surfaces["nauvis"].create_entity({
+            name = "entity-ghost",
+            inner_name = names[name],
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+            create_build_effect_smoke = false
+      })
+    else
+      destroy_if_valid(entity, true)
+      pump = game.surfaces["nauvis"].create_entity({
             name = names[name],
             position = position,
             force = force,
             direction = direction,
             raise_built = true,
       })
-      
-      --restore_fluid_contents(pump, fluid_contents)
-      return
+    end
+    
+    --restore_fluid_contents(pump, fluid_contents)
+    return
   end
   local control_behavior = entity.get_or_create_control_behavior()
-  if control_behavior.circuit_condition.comparator == '>' then
-    local signal_first = control_behavior.circuit_condition.first_signal
-    if signal_first.type == "virtual" and signal_first.name == "signal-I" then
-      local signal_second = control_behavior.circuit_condition.second_signal
-      if  signal_second.type == "virtual" and signal_second.name == "signal-O" then
-        storage.nullius_valves[entity.unit_number] = true
-      end
-    end
-  end
+  conf_valve_check_one_way(control_behavior.circuit_condition, entity.unit_number)
 end
 
 local function priority_event(event)
@@ -326,12 +362,15 @@ local function handle_togglable_pump_paste(target, tname, sname, source, force)
   local t_is_pump = is_pump_entity(tname)
   local s_is_pump = is_pump_entity(sname)
   
+  storage.nullius_valves[target.unit_number] = nil
   if t_is_pump and not s_is_pump then
     toggle_pump(target, tname, force, source.get_or_create_control_behavior().circuit_condition)
   elseif not t_is_pump and s_is_pump then
     toggle_conf_valve(target, tname, force, true)
   elseif not t_is_pump and not s_is_pump then
-    target.get_or_create_control_behavior().circuit_condition = table.deepcopy(source.get_or_create_control_behavior().circuit_condition)
+    local control_behavior = target.get_or_create_control_behavior()
+    control_behavior.circuit_condition = table.deepcopy(source.get_or_create_control_behavior().circuit_condition)
+    conf_valve_check_one_way(control_behavior.circuit_condition, target.unit_number)
   end
 end
 

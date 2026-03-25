@@ -6,6 +6,8 @@ Date: 25.03.2026
     - Changed description of the "Experimental Chemistry" technology to clarify that researching this will remove the repairing recipes
   Bugfixes:
     - Removed auto disabling of repairing recipes for broken entities
+    - Switching ghost valve/pump mode doesn't spawn the entity anymore
+    - Pasting one way valve on pump doesn't cause a crash anymore
   Modding:
     - Added support for cargo drones
 ---------------------------------------------------------------------------------------------------
