@@ -18,6 +18,7 @@ data:extend({
     selection_box = {{-0.7, -1}, {0.7, 1}},
     immune_to_rock_impacts = true,
     immune_to_tree_impacts = true,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 }
@@ -96,6 +97,7 @@ data:extend({
     selection_box = {{-0.7, -1}, {0.7, 1}},
     immune_to_rock_impacts = true,
     immune_to_tree_impacts = true,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 }
@@ -174,6 +176,7 @@ data:extend({
     selection_box = {{-0.7, -1}, {0.7, 1}},
     immune_to_rock_impacts = true,
     immune_to_tree_impacts = true,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 }
@@ -244,6 +247,7 @@ data:extend({
     
     immune_to_tree_impacts = true,
     immune_to_rock_impacts = true,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 200, percent = 95 },
       { type = "poison", decrease = 100, percent = 90 },
@@ -310,6 +314,7 @@ data:extend({
     
     immune_to_tree_impacts = true,
     immune_to_rock_impacts = true,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 200, percent = 95 },
       { type = "poison", decrease = 100, percent = 90 },
@@ -397,6 +402,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     collision_mask = { layers = {}},
     max_health = 2000,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "explosion", decrease = 50, percent = 50 },
@@ -450,6 +456,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "placeable-off-grid"},
     collision_mask = { layers = {}},
     max_health = 3000,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 200, percent = 90 },
       { type = "explosion", decrease = 100, percent = 50 },
