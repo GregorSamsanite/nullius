@@ -146,6 +146,11 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if(version >= 20003) then return end
+  if storage.fixing_machines ~= nil then
+    storage.fixing_machines = nil
+  end
+  
   if(version >= 20002) then return end
   for _, surface in pairs(game.surfaces) do
       for _, entity in pairs(surface.find_entities_filtered({ name = {"nullius-pump-1","nullius-pump-2","pump","nullius-small-pump-1","nullius-small-pump-2" }})) do

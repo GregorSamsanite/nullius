@@ -4066,6 +4066,11 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-chemical-pack"
+      },
+      {
+        type = "nothing",
+        icon = ICONPATH.."broken.png",
+        effect_description = {"technology-description.nullius-remove_broken-recipes"}
       }
     },
     unit = {
@@ -14558,8 +14563,8 @@ data:extend({
         icon = "__base__/graphics/icons/tree-08.png",
         icon_size = 64,
         
-        scale = 0.6,
-        shift = {-8, -8}
+        scale = 1.1,
+        shift = {-8, -12}
       }
     },
     effects = {
@@ -15089,8 +15094,8 @@ data:extend({
         icon = "__base__/graphics/icons/fluid/light-oil.png",
         icon_size = 64,
         
-        scale = 0.4,
-        shift = {-12, -10}
+        scale = 0.9,
+        shift = {-22, -16}
       }
     },
     effects = {

@@ -789,6 +789,11 @@ data.raw.item["80-top-up-valve"].localised_name =
 data.raw.item["80-top-up-valve"].localised_description =
   {"item-description.nullius-adjustable-top-up-valve"}
 data.raw.item["80-top-up-valve"].place_result = "60-top-up-valve"
+data.raw.item["80-overflow-valve"].hidden = true
+data.raw.item["80-top-up-valve"].hidden = true
+data.raw.valve["80-overflow-valve"].hidden = true
+data.raw.valve["80-top-up-valve"].hidden = true
+
 data.raw.item["underground-mini-pump"].subgroup = "pumping"
 data.raw.item["underground-mini-pump"].order = "nullius-cm"
 data.raw.item["underground-mini-pump"].localised_name =
@@ -834,15 +839,15 @@ data.raw.technology["advanced-underground-piping"].effects = {
   {
     type = "unlock-recipe",
     recipe = "nullius-underground-three-way-junction-1"
-  },
-  {
-    type = "unlock-recipe",
-    recipe = "nullius-adjustable-relief-valve"
-  },
-  {
-    type = "unlock-recipe",
-    recipe = "nullius-adjustable-top-up-valve"
   }
+  -- {
+  --   type = "unlock-recipe",
+  --   recipe = "nullius-adjustable-relief-valve"
+  -- },
+  -- {
+  --   type = "unlock-recipe",
+  --   recipe = "nullius-adjustable-top-up-valve"
+  -- }
 }
 
 data.raw.technology["advanced-underground-piping-t2"].localised_name = {"",
@@ -1033,6 +1038,18 @@ for i=1,9 do
   topup.minable.mining_time = 0.8
   relief.minable.mining_time = 0.8
 end
+
+local pipe_types = {"underground-i-","underground-L-","underground-t-","underground-cross-",
+                    "one-to-one-forward-","one-to-one-left-","one-to-one-reverse-","one-to-one-right-",
+                    "one-to-two-perpendicular-","one-to-two-parallel-","one-to-two-perpendicular-secondary-",
+                    "one-to-two-L-FL-","one-to-two-L-FR-","one-to-two-L-RR-","one-to-two-L-RL-",
+                    "one-to-three-forward-","one-to-three-left-","one-to-three-reverse-","one-to-three-right-",
+                    "one-to-four-"}
+for _, pipe_type in pairs(pipe_types) do
+  data.raw["pipe-to-ground"][pipe_type.."pipe"].next_upgrade = nil
+  data.raw["pipe-to-ground"][pipe_type.."t3-pipe"].next_upgrade = pipe_type.."pipe"
+end
+
 end
 
 

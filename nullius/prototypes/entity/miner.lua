@@ -915,9 +915,7 @@ data:extend({
     energy_usage = "400kW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "small-miner",
-    effect_receiver = {
-      base_effect = {productivity = 0.05}
-    },
+    resource_drain_rate_percent = 95,
 
     damaged_trigger_effect = data.raw["mining-drill"]["electric-mining-drill"].damaged_trigger_effect,
     working_sound = data.raw["mining-drill"]["electric-mining-drill"].working_sound,
@@ -1458,9 +1456,7 @@ data:extend({
     energy_usage = "750kW",
     module_slots = 2,
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
-    effect_receiver = {
-      base_effect = {productivity = 0.05}
-    },
+    resource_drain_rate_percent = 95,
 
     radius_visualisation_picture = data.raw["mining-drill"]["electric-mining-drill"].radius_visualisation_picture,
     monitor_visualization_tint = {r=78, g=173, b=255},
@@ -2139,9 +2135,7 @@ data:extend({
     energy_usage = "1.2MW",
     monitor_visualization_tint = {r=78, g=173, b=255},
     fast_replaceable_group = "large-miner",
-    effect_receiver = {
-      base_effect = {productivity = 0.05}
-    },
+    resource_drain_rate_percent = 95,
 
     damaged_trigger_effect = data.raw["mining-drill"]["electric-mining-drill"].damaged_trigger_effect,
     working_sound = data.raw["mining-drill"]["electric-mining-drill"].working_sound,

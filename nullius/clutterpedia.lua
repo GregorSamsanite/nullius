@@ -154,8 +154,8 @@ if mods["underground-pipe-pack"] then
     clutterpedia["nullius-underground-straight-junction-1"] =   {name = "underground-i-t2-pipe",            tech = "advanced-underground-piping"}
     clutterpedia["nullius-underground-elbow-junction-1"] =      {name = "underground-L-t2-pipe",            tech = "advanced-underground-piping"}
     clutterpedia["nullius-underground-three-way-junction-1"] =  {name = "underground-t-t2-pipe",            tech = "advanced-underground-piping"}
-    clutterpedia["nullius-adjustable-relief-valve"] =           {name = "80-overflow-valve",                tech = "advanced-underground-piping"}
-    clutterpedia["nullius-adjustable-top-up-valve"] =           {name = "80-top-up-valve",                  tech = "advanced-underground-piping"}
+    -- clutterpedia["nullius-adjustable-relief-valve"] =           {name = "80-overflow-valve",                tech = "advanced-underground-piping"}
+    -- clutterpedia["nullius-adjustable-top-up-valve"] =           {name = "80-top-up-valve",                  tech = "advanced-underground-piping"}
     clutterpedia["nullius-surface-two-way-junction-2"] =        {name = "one-to-one-forward-t3-pipe",       tech = "advanced-underground-piping-t2"}
     clutterpedia["nullius-surface-three-way-junction-2"] =      {name = "one-to-two-perpendicular-t3-pipe", tech = "advanced-underground-piping-t2"}
     clutterpedia["nullius-surface-four-way-junction-2"] =       {name = "one-to-three-forward-t3-pipe",     tech = "advanced-underground-piping-t2"}
