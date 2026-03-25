@@ -39,6 +39,7 @@ data:extend({
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 4,
+    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 },
@@ -156,6 +157,7 @@ data:extend({
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 5,
+    allow_remote_driving = true,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
     energy_source = {
       type = "burner",
@@ -240,6 +242,7 @@ data:extend({
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 5,
+    allow_remote_driving = true,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
     energy_source = {
       type = "burner",
@@ -324,6 +327,7 @@ data:extend({
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 5,
+    allow_remote_driving = true,
     resistances = data.raw.locomotive["nullius-locomotive-1"].resistances,
     energy_source = {type = "void"},
     front_light = data.raw.locomotive["locomotive"].front_light,
