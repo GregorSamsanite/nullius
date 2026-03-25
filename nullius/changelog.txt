@@ -6,6 +6,8 @@ Date: 25.03.2026
     - Changed description of the "Experimental Chemistry" technology to clarify that researching this will remove the repairing recipes
   Bugfixes:
     - Removed auto disabling of repairing recipes for broken entities
+  Modding:
+    - Added support for cargo drones
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 22.02.2026
