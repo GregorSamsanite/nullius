@@ -1176,22 +1176,22 @@ data:extend({
       {type = "item", name = "underground-t-t2-pipe", amount = 1}
     }
   },
-  {
-    type = "recipe",
-    name = "nullius-adjustable-relief-valve",
-    localised_name = {"item-name.nullius-adjustable-relief-valve"},
-    enabled = false,
-    always_show_made_in = true,
-    category = "tiny-crafting",
-    energy_required = 3,
-    ingredients = {
-      {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves with underground pipe pack
-      {type = "item", name = "nullius-red-wire", amount = 1}
-    },
-    results = {
-      {type = "item", name = "80-overflow-valve", amount = 1}
-    }
-  },
+  -- {
+  --   type = "recipe",
+  --   name = "nullius-adjustable-relief-valve",
+  --   localised_name = {"item-name.nullius-adjustable-relief-valve"},
+  --   enabled = false,
+  --   always_show_made_in = true,
+  --   category = "tiny-crafting",
+  --   energy_required = 3,
+  --   ingredients = {
+  --     {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves with underground pipe pack
+  --     {type = "item", name = "nullius-red-wire", amount = 1}
+  --   },
+  --   results = {
+  --     {type = "item", name = "80-overflow-valve", amount = 1}
+  --   }
+  -- },
 
   {
     type = "recipe",
@@ -1286,22 +1286,22 @@ data:extend({
       {type = "item", name = "underground-t-t3-pipe", amount = 1}
     }
   },
-  {
-    type = "recipe",
-    name = "nullius-adjustable-top-up-valve",
-    localised_name = {"item-name.nullius-adjustable-top-up-valve"},
-    enabled = false,
-    always_show_made_in = true,
-    category = "tiny-crafting",
-    energy_required = 3,
-    ingredients = {
-      {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves
-      {type = "item", name = "nullius-red-wire", amount = 1}
-    },
-    results = {
-      {type = "item", name = "80-top-up-valve", amount = 1}
-    }
-  },
+  -- {
+  --   type = "recipe",
+  --   name = "nullius-adjustable-top-up-valve",
+  --   localised_name = {"item-name.nullius-adjustable-top-up-valve"},
+  --   enabled = false,
+  --   always_show_made_in = true,
+  --   category = "tiny-crafting",
+  --   energy_required = 3,
+  --   ingredients = {
+  --     {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves
+  --     {type = "item", name = "nullius-red-wire", amount = 1}
+  --   },
+  --   results = {
+  --     {type = "item", name = "80-top-up-valve", amount = 1}
+  --   }
+  -- },
 
   {
     type = "recipe",

@@ -8,8 +8,10 @@ Date: 22.02.2026
   Bugfixes:
     - Fixed multiplayer desync involving the targeting remote GUI
     - Added missing GUI sounds for most buildings
+    - Fixed update planner for underground-pipe-pack
   Modding:
     - Added support for cranes
+    - Removed adjustable valves from undergroud-pipe-pack
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 18.12.2025

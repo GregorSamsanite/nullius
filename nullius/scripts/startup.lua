@@ -273,23 +273,23 @@ script.on_event(defines.events.on_player_created,
 
     local intro = {"nullius-intro"}
     if (not storage.init_landing) then
-	  init_alignment()
+	    init_alignment()
       storage.init_landing = true
-	  local surface = player.surface
+	    local surface = player.surface
       surface.daytime = 0.7
-	  if (storage.nullius_alignment) then
-	    intro = align_first_player_created(player)
-	  else
+	    if (storage.nullius_alignment) then
+	      intro = align_first_player_created(player)
+	    else
         init_broken()
-	    reset_checkpoints(player.force)
-	  	chart_starting_area()
-	    landing_site(surface, {x=-5, y=-6}, player.force)
+	      reset_checkpoints(player.force)
+	  	  chart_starting_area()
+	      landing_site(surface, {x=-5, y=-6}, player.force)
+	      equip_player(player)
+	    end
+	  elseif (storage.nullius_alignment) then
+	    intro = align_player_created(player)
+	  else
 	    equip_player(player)
-	  end
-	elseif (storage.nullius_alignment) then
-	  intro = align_player_created(player)
-	else
-	  equip_player(player)
     end
 
     if game.is_multiplayer() then
@@ -297,9 +297,9 @@ script.on_event(defines.events.on_player_created,
     else
       game.show_message_dialog{text = intro}
     end
-	init_tech(player.force)
+	  init_tech(player.force)
     update_mission_player(player)
-	update_player_upgrades(player)
+	  update_player_upgrades(player)
   end
 )
 
