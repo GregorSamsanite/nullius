@@ -39,7 +39,6 @@ data:extend({
     connection_distance = 3,
     joint_distance = 4,
     energy_per_hit_point = 4,
-    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 },

@@ -18,7 +18,6 @@ data:extend({
     selection_box = {{-0.7, -1}, {0.7, 1}},
     immune_to_rock_impacts = true,
     immune_to_tree_impacts = true,
-    allow_remote_driving = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "poison", decrease = 50, percent = 80 }
