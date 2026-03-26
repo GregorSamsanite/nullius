@@ -254,6 +254,9 @@ local function conf_valve_check_one_way(circuit_condition, unit_number)
 end
 
 local function toggle_pump(entity, name, force, circuit_condition)
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
   local position = entity.position
   local direction = entity.direction
   local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
@@ -362,6 +365,9 @@ local function handle_togglable_pump_paste(target, tname, sname, source, force)
   local t_is_pump = is_pump_entity(tname)
   local s_is_pump = is_pump_entity(sname)
   
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
   storage.nullius_valves[target.unit_number] = nil
   if t_is_pump and not s_is_pump then
     toggle_pump(target, tname, force, source.get_or_create_control_behavior().circuit_condition)
