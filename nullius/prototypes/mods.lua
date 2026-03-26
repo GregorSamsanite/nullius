@@ -4072,6 +4072,9 @@ if mods["Mini_Trains"] then
       prerequisites = {"nullius-personal-transportation-1", "nullius-checkpoint-freight-transportation"}
     }
   })
+
+  data.raw["pump"]["nullius-pump-1"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
+  data.raw["pump"]["nullius-pump-2"].fluid_wagon_connector_alignment_tolerance = 20.0 / 32.0;
 end
 
 if mods["fcpu"] then
