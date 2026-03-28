@@ -208,6 +208,14 @@ data:extend({
     prerequisites = {"nullius-checkpoint-sensor", "nullius-mass-production-3"}
   }
 })
+data.raw.roboport["aai-signal-sender"].energy_source.input_flow_limit = "5MW"
+data.raw.roboport["aai-signal-sender"].energy_source.buffer_capacity = "1.2MJ"
+data.raw.roboport["aai-signal-sender"].energy_usage = "2.5MW"
+data.raw.roboport["aai-signal-sender"].recharge_minimum = "1MJ"
+data.raw.roboport["aai-signal-receiver"].energy_source.input_flow_limit = "1.2MW"
+data.raw.roboport["aai-signal-receiver"].energy_source.buffer_capacity = "330kJ"
+data.raw.roboport["aai-signal-receiver"].energy_usage = "600kW"
+data.raw.roboport["aai-signal-receiver"].recharge_minimum = "300kJ"
 end
 
 
