@@ -4964,12 +4964,16 @@ end
         recipe = "nullius-aai-strongbox-requester"
         },
       },
-      --prerequisites =  {"nullius-actuation-3", "nullius-electronics-2"},
+      prerequisites = {"nullius-storage-2"},
       
       unit = {
-        count = 1000,
+        count = 500,
         ingredients = {
-          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+          {"nullius-geology-pack", 1},
+          {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1},
+          {"nullius-electrical-pack", 1},
+        },
       },
 
       time = 30
@@ -5015,12 +5019,16 @@ end
         recipe = "nullius-aai-storehouse-requester"
         },
       },
-      --prerequisites =  {"nullius-actuation-3", "nullius-electronics-2"},
+      prerequisites = {"nullius-aai-strongbox-containers"},
       
       unit = {
-        count = 1000,
+        count = 750,
         ingredients = {
-          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+          {"nullius-geology-pack", 1},
+          {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1},
+          {"nullius-electrical-pack", 1},
+        },
       },
 
       time = 30
@@ -5066,13 +5074,16 @@ end
         recipe = "nullius-aai-warehouse-requester"
         },
       },
-      --prerequisites =  {"nullius-actuation-3", "nullius-electronics-2"},
+      prerequisites = {"nullius-aai-storehouse-containers"},
       
       unit = {
         count = 1000,
         ingredients = {
-          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
-      },
+          {"nullius-geology-pack", 1},
+          {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1},
+          {"nullius-electrical-pack", 1},
+        },
 
       time = 30
       },
