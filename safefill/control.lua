@@ -21,21 +21,21 @@ function entity_built_tile(event, entity)
   newtiles2 = { }
   local refund = 0
   for _,t in pairs(event.tiles) do
-	local curt = s.get_tile(t.position)
-	if (curt.name == event.tile.name) then
-	  local newtilename = t.old_tile.name
-	  if (t.old_tile.mineable_properties.minable) then
-	    newtilename = "dirt-1"
-		if (curt.hidden_tile ~= nil) then
-		  local ht = prototypes.tile[curt.hidden_tile]
-		  if ((ht ~= nil) and (not ht.collision_mask["water_tile"])) then
-		    newtilename = ht.name
-		  end
-		end
-	  end
-	  refund = refund + 1
+	  local curt = s.get_tile(t.position)
+	  if (curt.name == event.tile.name) then
+	    local newtilename = t.old_tile.name
+	    if (t.old_tile.mineable_properties.minable) then
+	      newtilename = "dirt-1"
+	  	  if (curt.hidden_tile ~= nil) then
+	  	    local ht = prototypes.tile[curt.hidden_tile]
+	  	    if ((ht ~= nil) and (not ht.collision_mask["water_tile"])) then
+	  	      newtilename = ht.name
+	  	    end
+	  	  end
+	    end
+	    refund = refund + 1
       newtiles2[refund] = {name = newtilename, position = t.position}
-	end
+	  end
   end
   if (refund < 1) then
     return
