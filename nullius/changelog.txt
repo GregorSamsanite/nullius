@@ -10,6 +10,7 @@ Date: 25.03.2026
     - Pasting one way valve on pump doesn't cause a crash anymore
   Modding:
     - Added support for cargo drones
+    - Reduced energy consumption of AAI signal transmission entities
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 22.02.2026
