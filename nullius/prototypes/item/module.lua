@@ -6,15 +6,15 @@ data:extend({
   {
     type = "module",
     name = "nullius-efficiency-module-1",
-    icon = "__base__/graphics/icons/effectivity-module.png",
+    icon = "__base__/graphics/icons/efficiency-module.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "efficiency",
     tier = 1,
     order = "nullius-bb",
     stack_size = 50,
-    effect = { consumption = {bonus = -0.5} },
+    effect = { consumption = -0.5 },
     beacon_tint = {
       primary = {r = 0, g = 1, b = 0, a = 1.000},
       secondary = {r = 0.370, g = 1.000, b = 0.370, a = 1.000}
@@ -25,15 +25,15 @@ data:extend({
   {
     type = "module",
     name = "nullius-efficiency-module-2",
-    icon = "__base__/graphics/icons/effectivity-module-2.png",
+    icon = "__base__/graphics/icons/efficiency-module-2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "efficiency",
     tier = 2,
     order = "nullius-bc",
     stack_size = 50,
-    effect = { consumption = {bonus = -0.8} },
+    effect = { consumption = -0.8 },
     beacon_tint = {
       primary = {r = 0, g = 1, b = 0, a = 1.000},
       secondary = {r = 0.370, g = 1.000, b = 0.370, a = 1.000}
@@ -44,15 +44,15 @@ data:extend({
   {
     type = "module",
     name = "nullius-efficiency-module-3",
-    icon = "__base__/graphics/icons/effectivity-module-3.png",
+    icon = "__base__/graphics/icons/efficiency-module-3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "efficiency",
     tier = 3,
     order = "nullius-bd",
     stack_size = 50,
-    effect = { consumption = {bonus = -1.2} },
+    effect = { consumption = -1.2 },
     beacon_tint = {
       primary = {r = 0, g = 1, b = 0, a = 1.000},
       secondary = {r = 0.370, g = 1.000, b = 0.370, a = 1.000}
@@ -70,7 +70,7 @@ data:extend({
     tier = 0,
     order = "nullius-db",
     stack_size = 50,
-    effect = { speed = {bonus = 0.2}, consumption = {bonus = 0.25} },
+    effect = { speed = 0.2, consumption = 0.25 },
     beacon_tint = {
       primary = {r = 0.45, g = 0.3, b = 0.75, a = 1.000},
       secondary = {r = 0.56, g = 0.42, b = 0.7, a = 1.000}
@@ -88,7 +88,7 @@ data:extend({
     tier = 1,
     order = "nullius-dc",
     stack_size = 50,
-    effect = { speed = {bonus = 0.3}, consumption = {bonus = 0.4} },
+    effect = { speed = 0.3, consumption = 0.4 },
     beacon_tint = {
       primary = {r = 0.45, g = 0.3, b = 0.75, a = 1.000},
       secondary = {r = 0.8, g = 0.6, b = 1, a = 1.000}
@@ -106,7 +106,7 @@ data:extend({
     tier = 2,
     order = "nullius-dd",
     stack_size = 50,
-    effect = { speed = {bonus = 0.4}, consumption = {bonus = 0.6} },
+    effect = { speed = 0.4, consumption = 0.6 },
     beacon_tint = {
       primary = {r = 0.45, g = 0.3, b = 0.75, a = 1.000},
       secondary = {r = 0.8, g = 0.6, b = 1, a = 1.000}
@@ -124,7 +124,7 @@ data:extend({
     tier = 3,
     order = "nullius-de",
     stack_size = 50,
-    effect = { speed = {bonus = 0.5}, consumption = {bonus = 0.8} },
+    effect = { speed = 0.5, consumption = 0.8 },
     beacon_tint = {
       primary = {r = 0.45, g = 0.3, b = 0.75, a = 1.000},
       secondary = {r = 0.8, g = 0.6, b = 1, a = 1.000}
@@ -142,7 +142,7 @@ data:extend({
     tier = 0,
     order = "nullius-eb",
     stack_size = 50,
-    effect = { speed = {bonus = 0.15} },
+    effect = { speed = 0.15 },
     beacon_tint = {
       primary = {r = 0.441, g = 0.714, b = 1.000, a = 1.000},
       secondary = {r = 0.272, g = 0.683, b = 0.7, a = 1.000}
@@ -155,13 +155,13 @@ data:extend({
     name = "nullius-speed-module-2",
     icon = "__base__/graphics/icons/speed-module.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-1",
     category = "speed",
     tier = 1,
     order = "nullius-ec",
     stack_size = 50,
-    effect = { speed = {bonus = 0.2}},
+    effect = { speed = 0.2 },
     beacon_tint = {
       primary = {r = 0.441, g = 0.714, b = 1.000, a = 1.000},
       secondary = {r = 0.388, g = 0.976, b = 1.000, a = 1.000}
@@ -174,13 +174,13 @@ data:extend({
     name = "nullius-speed-module-3",
     icon = "__base__/graphics/icons/speed-module-2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-1",
     category = "speed",
     tier = 2,
     order = "nullius-ed",
     stack_size = 50,
-    effect = { speed = {bonus = 0.3}, consumption = {bonus = 0.05} },
+    effect = { speed = 0.3, consumption = 0.05 },
     beacon_tint = {
       primary = {r = 0.441, g = 0.714, b = 1.000, a = 1.000},
       secondary = {r = 0.388, g = 0.976, b = 1.000, a = 1.000}
@@ -193,13 +193,13 @@ data:extend({
     name = "nullius-speed-module-4",
     icon = "__base__/graphics/icons/speed-module-3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-1",
     category = "speed",
     tier = 3,
     order = "nullius-ee",
     stack_size = 50,
-    effect = { speed = {bonus = 0.4}, consumption = {bonus = 0.1} },
+    effect = { speed = 0.4, consumption = 0.1 },
     beacon_tint = {
       primary = {r = 0.441, g = 0.714, b = 1.000, a = 1.000},
       secondary = {r = 0.388, g = 0.976, b = 1.000, a = 1.000}
@@ -217,9 +217,7 @@ data:extend({
     tier = 0,
     order = "nullius-cb",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.03}, speed = {bonus = -0.05}, consumption = {bonus = 0.1} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.03, speed = -0.05, consumption = 0.1 }
   },
   {
     type = "module",
@@ -231,9 +229,7 @@ data:extend({
     tier = 1,
     order = "nullius-cc",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.05}, speed = {bonus = -0.15}, consumption = {bonus = 0.4} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.05, speed = -0.15, consumption = 0.4 }
   },
   {
     type = "module",
@@ -245,9 +241,7 @@ data:extend({
     tier = 2,
     order = "nullius-cd",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.07}, speed = {bonus = -0.25}, consumption = {bonus = 0.7} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.07, speed = -0.25, consumption = 0.7 }
   },
   {
     type = "module",
@@ -259,54 +253,46 @@ data:extend({
     tier = 3,
     order = "nullius-ce",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.08}, speed = {bonus = -0.4}, consumption = {bonus = 1} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.08, speed = -0.4, consumption = 1 }
   },
   {
     type = "module",
     name = "nullius-productivity-module-1",
     icon = "__base__/graphics/icons/productivity-module.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "productivity",
     tier = 1,
     order = "nullius-db",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.04} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.04 }
   },
   {
     type = "module",
     name = "nullius-productivity-module-2",
     icon = "__base__/graphics/icons/productivity-module-2.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "productivity",
     tier = 2,
     order = "nullius-dc",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.06}, consumption = {bonus = 0.05} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.06, consumption = 0.05 }
   },
   {
     type = "module",
     name = "nullius-productivity-module-3",
     icon = "__base__/graphics/icons/productivity-module-3.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "module-2",
     category = "productivity",
     tier = 3,
     order = "nullius-dd",
     stack_size = 50,
-    effect = { productivity = {bonus = 0.07}, consumption = {bonus = 0.1} },
-    limitation = {},
-    limitation_message_key = "production-module-not-usable"
+    effect = { productivity = 0.07, consumption = 0.1 }
   },
 
   {
@@ -320,9 +306,11 @@ data:extend({
     ingredients = {
       {type="item", name="decider-combinator", amount=2},
       {type="item", name="constant-combinator", amount=2},
-      {type="item", name="green-wire", amount=3}
+      {type="item", name="nullius-green-wire", amount=3}
     },
-    result = "nullius-efficiency-module-1"
+    results = {
+			{type="item", name="nullius-efficiency-module-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -338,7 +326,9 @@ data:extend({
       {type="item", name="nullius-box-memory-circuit", amount=2},
       {type="item", name="nullius-box-green-wire", amount=3}
     },
-    result = "nullius-box-efficiency-module-1"
+    results = {
+			{type="item", name="nullius-box-efficiency-module-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -351,9 +341,11 @@ data:extend({
     ingredients = {
       {type="item", name="arithmetic-combinator", amount=2},
       {type="item", name="decider-combinator", amount=1},
-      {type="item", name="green-wire", amount=3}
+      {type="item", name="nullius-green-wire", amount=3}
     },
-    result = "nullius-haste-module-1"
+    results = {
+			{type="item", name="nullius-haste-module-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -369,7 +361,9 @@ data:extend({
       {type="item", name="nullius-box-logic-circuit", amount=1},
       {type="item", name="nullius-box-green-wire", amount=3}
     },
-    result = "nullius-box-haste-module-1"
+    results = {
+			{type="item", name="nullius-box-haste-module-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -383,8 +377,9 @@ data:extend({
       {type="item", name="nullius-haste-module-1", amount=2},
       {type="item", name="nullius-efficiency-module-1", amount=1}
     },
-    result = "nullius-speed-module-1",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-speed-module-1", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -399,8 +394,9 @@ data:extend({
       {type="item", name="nullius-box-haste-module-1", amount=2},
       {type="item", name="nullius-box-efficiency-module-1", amount=1}
     },
-    result = "nullius-box-speed-module-1",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-box-speed-module-1", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -414,8 +410,9 @@ data:extend({
       {type="item", name="nullius-efficiency-module-1", amount=2},
       {type="item", name="nullius-haste-module-1", amount=1}
     },
-    result = "nullius-yield-module-1",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-yield-module-1", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -430,8 +427,9 @@ data:extend({
       {type="item", name="nullius-box-efficiency-module-1", amount=2},
       {type="item", name="nullius-box-haste-module-1", amount=1}
     },
-    result = "nullius-box-yield-module-1",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-box-yield-module-1", amount = 2}
+		}
   },
 
   {
@@ -446,7 +444,9 @@ data:extend({
       {type="item", name="nullius-sensor-1", amount=2},
       {type="item", name="nullius-battery-1", amount=1}
     },
-    result = "nullius-efficiency-module-2"
+    results = {
+			{type="item", name="nullius-efficiency-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -463,7 +463,9 @@ data:extend({
       {type="item", name="nullius-box-sensor-1", amount=2},
       {type="item", name="nullius-box-battery-1", amount=1}
     },
-    result = "nullius-box-efficiency-module-2"
+    results = {
+			{type="item", name="nullius-box-efficiency-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -479,7 +481,9 @@ data:extend({
       {type="item", name="nullius-sensor-1", amount=1},
       {type="item", name="nullius-optical-cable", amount=1}
     },
-    result = "nullius-haste-module-2"
+    results = {
+			{type="item", name="nullius-haste-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -496,7 +500,9 @@ data:extend({
       {type="item", name="nullius-box-sensor-1", amount=1},
       {type="item", name="nullius-box-optical-cable", amount=1}
     },
-    result = "nullius-box-haste-module-2"
+    results = {
+			{type="item", name="nullius-box-haste-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -510,7 +516,9 @@ data:extend({
       {type="item", name="nullius-yield-module-1", amount=1},
       {type="item", name="nullius-efficiency-module-2", amount=1}
     },
-    result = "nullius-yield-module-2"
+    results = {
+			{type="item", name="nullius-yield-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -525,7 +533,9 @@ data:extend({
       {type="item", name="nullius-box-yield-module-1", amount=1},
       {type="item", name="nullius-box-efficiency-module-2", amount=1}
     },
-    result = "nullius-box-yield-module-2"
+    results = {
+			{type="item", name="nullius-box-yield-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -539,7 +549,9 @@ data:extend({
       {type="item", name="nullius-speed-module-1", amount=1},
       {type="item", name="nullius-haste-module-2", amount=1}
     },
-    result = "nullius-speed-module-2"
+    results = {
+			{type="item", name="nullius-speed-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -554,7 +566,9 @@ data:extend({
       {type="item", name="nullius-box-speed-module-1", amount=1},
       {type="item", name="nullius-box-haste-module-2", amount=1}
     },
-    result = "nullius-box-speed-module-2"
+    results = {
+			{type="item", name="nullius-box-speed-module-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -568,8 +582,9 @@ data:extend({
       {type="item", name="nullius-yield-module-2", amount=2},
       {type="item", name="nullius-speed-module-2", amount=1}
     },
-    result = "nullius-productivity-module-1",
-    result_count = 3
+    results = {
+			{type="item", name="nullius-productivity-module-1", amount = 3}
+		}
   },
   {
     type = "recipe",
@@ -584,8 +599,9 @@ data:extend({
       {type="item", name="nullius-box-yield-module-2", amount=2},
       {type="item", name="nullius-box-speed-module-2", amount=1}
     },
-    result = "nullius-box-productivity-module-1",
-    result_count = 3
+    results = {
+			{type="item", name="nullius-box-productivity-module-1", amount = 3}
+		}
   },
 
   {
@@ -604,8 +620,9 @@ data:extend({
       {type="item", name="nullius-transformer", amount=1},
       {type="item", name="power-switch", amount=1}
     },
-    result = "nullius-efficiency-module-3",
-	result_count = 2
+    results = {
+			{type="item", name="nullius-efficiency-module-3", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -624,8 +641,9 @@ data:extend({
       {type="item", name="nullius-box-transformer", amount=1},
       {type="item", name="nullius-box-power-switch", amount=1}
     },
-    result = "nullius-box-efficiency-module-3",
-	result_count = 2
+    results = {
+			{type="item", name="nullius-box-efficiency-module-3", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -642,7 +660,9 @@ data:extend({
       {type="item", name="nullius-sensor-2", amount=1},
       {type="item", name="nullius-heat-pipe-3", amount=1}
     },
-    result = "nullius-haste-module-3"
+    results = {
+			{type="item", name="nullius-haste-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -660,7 +680,9 @@ data:extend({
       {type="item", name="nullius-box-sensor-2", amount=1},
       {type="item", name="nullius-box-heat-pipe-3", amount=1}
     },
-    result = "nullius-box-haste-module-3"
+    results = {
+			{type="item", name="nullius-box-haste-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -675,7 +697,9 @@ data:extend({
       {type="item", name="nullius-yield-module-2", amount=1},
       {type="item", name="nullius-productivity-module-1", amount=1}
     },
-    result = "nullius-yield-module-3"
+    results = {
+			{type="item", name="nullius-yield-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -691,7 +715,9 @@ data:extend({
       {type="item", name="nullius-box-yield-module-2", amount=1},
       {type="item", name="nullius-box-productivity-module-1", amount=1}
     },
-    result = "nullius-box-yield-module-3"
+    results = {
+			{type="item", name="nullius-box-yield-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -706,7 +732,9 @@ data:extend({
       {type="item", name="nullius-speed-module-2", amount=1},
       {type="item", name="nullius-efficiency-module-2", amount=1}
     },
-    result = "nullius-speed-module-3"
+    results = {
+			{type="item", name="nullius-speed-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -722,7 +750,9 @@ data:extend({
       {type="item", name="nullius-box-speed-module-2", amount=1},
       {type="item", name="nullius-box-efficiency-module-2", amount=1}
     },
-    result = "nullius-box-speed-module-3"
+    results = {
+			{type="item", name="nullius-box-speed-module-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -737,8 +767,9 @@ data:extend({
       {type="item", name="nullius-yield-module-3", amount=2},
       {type="item", name="nullius-speed-module-3", amount=1}
     },
-    result = "nullius-productivity-module-2",
-    result_count = 4
+    results = {
+			{type="item", name="nullius-productivity-module-2", amount = 4}
+		}
   },
   {
     type = "recipe",
@@ -754,8 +785,9 @@ data:extend({
       {type="item", name="nullius-box-yield-module-3", amount=2},
       {type="item", name="nullius-box-speed-module-3", amount=1}
     },
-    result = "nullius-box-productivity-module-2",
-    result_count = 4
+    results = {
+			{type="item", name="nullius-box-productivity-module-2", amount = 4}
+		}
   },
 
   {
@@ -773,7 +805,9 @@ data:extend({
       {type="item", name="nullius-copper-wire", amount=8},
       {type="item", name="nullius-electrical-pack", amount=3}
     },
-    result = "nullius-haste-module-4"
+    results = {
+			{type="item", name="nullius-haste-module-4", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -791,7 +825,9 @@ data:extend({
       {type="item", name="nullius-box-copper-wire", amount=8},
       {type="item", name="nullius-box-electrical-pack", amount=3}
     },
-    result = "nullius-box-haste-module-4"
+    results = {
+			{type="item", name="nullius-box-haste-module-4", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -806,7 +842,9 @@ data:extend({
       {type="item", name="nullius-haste-module-4", amount=1},
       {type="item", name="nullius-efficiency-module-3", amount=1}
     },
-    result = "nullius-speed-module-4"
+    results = {
+			{type="item", name="nullius-speed-module-4", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -822,7 +860,9 @@ data:extend({
       {type="item", name="nullius-box-haste-module-4", amount=1},
       {type="item", name="nullius-box-efficiency-module-3", amount=1}
     },
-    result = "nullius-box-speed-module-4"
+    results = {
+			{type="item", name="nullius-box-speed-module-4", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -837,8 +877,9 @@ data:extend({
       {type="item", name="nullius-speed-module-4", amount=2},
       {type="item", name="nullius-yield-module-3", amount=1}
     },
-    result = "nullius-productivity-module-3",
-	result_count = 3
+    results = {
+			{type="item", name="nullius-productivity-module-3", amount = 3}
+		}
   },
   {
     type = "recipe",
@@ -854,8 +895,9 @@ data:extend({
       {type="item", name="nullius-box-speed-module-4", amount=2},
       {type="item", name="nullius-box-yield-module-3", amount=1}
     },
-    result = "nullius-box-productivity-module-3",
-	result_count = 3
+    results = {
+			{type="item", name="nullius-box-productivity-module-3", amount = 3}
+		}
   },
   {
     type = "recipe",
@@ -869,8 +911,9 @@ data:extend({
       {type="item", name="nullius-productivity-module-3", amount=3},
       {type="item", name="nullius-electrical-pack", amount=5}
     },
-    result = "nullius-yield-module-4",
-	result_count = 2
+    results = {
+			{type="item", name="nullius-yield-module-4", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -885,18 +928,19 @@ data:extend({
       {type="item", name="nullius-box-productivity-module-3", amount=3},
       {type="item", name="nullius-box-electrical-pack", amount=5}
     },
-    result = "nullius-box-yield-module-4",
-	result_count = 2
+    results = {
+			{type="item", name="nullius-box-yield-module-4", amount = 2}
+		}
   },
 
   {
     type = "item",
     name = "nullius-coprocessor-speed-1",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/speed1.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-1",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/speed1.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-speed-1",
     subgroup = "coprocessors",
     order = "nullius-bb",
     stack_size = 10
@@ -904,11 +948,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-speed-2",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/speed2.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-2",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/speed2.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-speed-2",
     subgroup = "coprocessors",
     order = "nullius-bc",
     stack_size = 10
@@ -916,11 +960,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-speed-3",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/speed3.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-speed-3",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/speed3.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-speed-3",
     subgroup = "coprocessors",
     order = "nullius-bd",
     stack_size = 10
@@ -928,11 +972,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-efficiency-1",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/efficiency1.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-1",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/efficiency1.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-1",
     subgroup = "coprocessors",
     order = "nullius-cb",
     stack_size = 10
@@ -940,11 +984,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-efficiency-2",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/efficiency2.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-2",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/efficiency2.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-2",
     subgroup = "coprocessors",
     order = "nullius-cc",
     stack_size = 10
@@ -952,11 +996,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-efficiency-3",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/efficiency3.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-3",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/efficiency3.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-efficiency-3",
     subgroup = "coprocessors",
     order = "nullius-cd",
     stack_size = 10
@@ -964,11 +1008,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-productivity-1",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/productivity1.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-1",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/productivity1.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-productivity-1",
     subgroup = "coprocessors",
     order = "nullius-db",
     stack_size = 10
@@ -976,11 +1020,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-productivity-2",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/productivity2.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-2",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/productivity2.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-productivity-2",
     subgroup = "coprocessors",
     order = "nullius-dc",
     stack_size = 10
@@ -988,11 +1032,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-productivity-3",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/productivity3.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-productivity-3",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/productivity3.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-productivity-3",
     subgroup = "coprocessors",
     order = "nullius-dd",
     stack_size = 10
@@ -1000,11 +1044,11 @@ data:extend({
   {
     type = "item",
     name = "nullius-coprocessor-quantum",
-	icons = {{
-	  icon = EQUIPPATH.."coprocessor/quantum.png",
-      icon_size = 64
-	}},
-	placed_as_equipment_result = "nullius-upgrade-coprocessor-quantum",
+	  icons = {{
+	    icon = EQUIPPATH.."coprocessor/quantum.png",
+        icon_size = 64
+	  }},
+	  place_as_equipment_result = "nullius-upgrade-coprocessor-quantum",
     subgroup = "coprocessors",
     order = "nullius-e",
     stack_size = 10
@@ -1021,7 +1065,9 @@ data:extend({
       {type="item", name="nullius-capacitor", amount=1},
 	  {type="item", name="nullius-aluminum-sheet", amount=1}
     },
-    result = "nullius-coprocessor-speed-1"
+    results = {
+			{type="item", name="nullius-coprocessor-speed-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1034,7 +1080,9 @@ data:extend({
       {type="item", name="nullius-capacitor", amount=2},
 	  {type="item", name="nullius-aluminum-sheet", amount=1}
     },
-    result = "nullius-coprocessor-efficiency-1"
+    results = {
+			{type="item", name="nullius-coprocessor-efficiency-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1047,7 +1095,9 @@ data:extend({
       {type="item", name="nullius-capacitor", amount=1},
 	  {type="item", name="nullius-aluminum-sheet", amount=2}
     },
-    result = "nullius-coprocessor-productivity-1"
+    results = {
+			{type="item", name="nullius-coprocessor-productivity-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1061,7 +1111,9 @@ data:extend({
       {type="item", name="nullius-insulation", amount=1},
 	  {type="item", name="nullius-titanium-sheet", amount=1}
     },
-    result = "nullius-coprocessor-speed-2"
+    results = {
+			{type="item", name="nullius-coprocessor-speed-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1075,7 +1127,9 @@ data:extend({
       {type="item", name="nullius-insulation", amount=2},
 	  {type="item", name="nullius-titanium-sheet", amount=1}
     },
-    result = "nullius-coprocessor-efficiency-2"
+    results = {
+			{type="item", name="nullius-coprocessor-efficiency-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1089,7 +1143,9 @@ data:extend({
       {type="item", name="nullius-insulation", amount=1},
 	  {type="item", name="nullius-titanium-sheet", amount=2}
     },
-    result = "nullius-coprocessor-productivity-2"
+    results = {
+			{type="item", name="nullius-coprocessor-productivity-2", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1103,7 +1159,9 @@ data:extend({
       {type="item", name="nullius-battery-2", amount=1},
 	  {type="item", name="nullius-small-cargo-pod-2", amount=1}
     },
-    result = "nullius-coprocessor-speed-3"
+    results = {
+			{type="item", name="nullius-coprocessor-speed-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1117,7 +1175,9 @@ data:extend({
       {type="item", name="nullius-battery-2", amount=2},
 	  {type="item", name="nullius-small-cargo-pod-2", amount=1}
     },
-    result = "nullius-coprocessor-efficiency-3"
+    results = {
+			{type="item", name="nullius-coprocessor-efficiency-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1131,7 +1191,9 @@ data:extend({
       {type="item", name="nullius-battery-2", amount=1},
 	  {type="item", name="nullius-small-cargo-pod-2", amount=2}
     },
-    result = "nullius-coprocessor-productivity-3"
+    results = {
+			{type="item", name="nullius-coprocessor-productivity-3", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -1147,6 +1209,8 @@ data:extend({
       {type="item", name="nullius-beacon-3", amount=1},
       {type="item", name="nullius-antimatter-trap", amount=1}
     },
-    result = "nullius-coprocessor-quantum"
+    results = {
+			{type="item", name="nullius-coprocessor-quantum", amount = 1}
+		}
   }
 })

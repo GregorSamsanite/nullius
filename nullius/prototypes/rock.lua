@@ -1,52 +1,62 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
+-- stolen from https://stackoverflow.com/questions/1426954/split-string-in-lua
+local function split(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t = {}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
 for _,rock in pairs(data.raw["simple-entity"]) do
   local primary = nil
   local secondary = "stone"
   local tertiary = "nullius-mineral-dust"
   local locale_name = nil
-  if (string.sub(rock.name, 1, 5) == "rock-") then
-    if (string.sub(rock.name, -6, -1) == "-brown") or
-	    (string.sub(rock.name, -4, -1) == "-red") or
-        (string.sub(rock.name, -10, -1) == "-dustyrose") then
+  
+  local tmp = split(rock.name, "-")
+  if #tmp == 3 then -- regular rock
+    rockColor = tmp[3]
+    if rockColor ~= "rock" then
+    if (rockColor == "brown") or (rockColor == "red") or (rockColor == "dustyrose") then
       primary = "nullius-bauxite"
       tertiary = "nullius-sand"
-	  locale_name = "bauxite"
-    elseif (string.sub(rock.name, -6, -1) == "-white") then
+	    locale_name = "bauxite"
+    elseif (rockColor == "white") then
       primary = "nullius-limestone"
-	  locale_name = "limestone"
-    elseif (string.sub(rock.name, -6, -1) == "-cream") or
-	    (string.sub(rock.name, -6, -1) == "-beige") then
+	    locale_name = "limestone"
+    elseif (rockColor == "cream") or (rockColor == "beige") then
       primary = "nullius-limestone"
       secondary = "nullius-gypsum"
-	  locale_name = "limestone"
-    elseif (string.sub(rock.name, -4, -1) == "-tan") then
+	    locale_name = "limestone"
+    elseif (rockColor == "tan") then
       primary = "nullius-gypsum"
       secondary = "nullius-limestone"
-    elseif (string.sub(rock.name, -5, -1) == "-grey") then
+    elseif (rockColor == "grey") then
       primary = "stone"
       secondary = "nullius-sandstone"
       tertiary = "nullius-gravel"
     else
       primary = "iron-ore"
       tertiary = "nullius-gravel"
-	  locale_name = "ironstone"
+	    locale_name = "ironstone"
     end
-  elseif (string.sub(rock.name, 1, 10) == "sand-rock-") then
+    end
+  elseif #tmp == 4 then -- sand rock
+    rockColor = tmp[4]
     primary = "nullius-sandstone"
     tertiary = "nullius-sand"
-	locale_name = "sandstone"
-    if (string.sub(rock.name, -4, -1) == "-tan") or
-	    (string.sub(rock.name, -6, -1) == "-brown") or
-        (string.sub(rock.name, -10, -1) == "-dustyrose") or
-		(string.sub(rock.name, -4, -1) == "-red") then
+	  locale_name = "sandstone"
+    if (rockColor == "tan") or (rockColor == "brown") or (rockColor == "dustyrose") or (rockColor == "red") then
       secondary = "nullius-bauxite"
-    elseif (string.sub(rock.name, -5, -1) == "-grey") or
-	    (string.sub(rock.name, -6, -1) == "-white") or
-        (string.sub(rock.name, -6, -1) == "-beige") then
+    elseif (rockColor == "grey") or (rockColor == "white") or (rockColor == "beige") then
       secondary = "nullius-limestone"
-    elseif (string.sub(rock.name, -6, -1) == "-cream") then
+    elseif (rockColor == "cream") then
       secondary = "nullius-bauxite"
     else
       secondary = "iron-ore"
@@ -81,7 +91,7 @@ for _,rock in pairs(data.raw["simple-entity"]) do
           end
         end
         if ((amount > 2) and not foundcoal) then
-          table.insert(rock.minable.results, {name=secondary, amount_min=1, amount_max=amount-1})
+          table.insert(rock.minable.results, {type = "item", name=secondary, amount_min=1, amount_max=amount-1})
         end
         rock.loot = {}
         for _,minres in pairs(rock.minable.results) do
@@ -112,23 +122,9 @@ for _,rock in pairs(data.raw["simple-entity"]) do
   end
 end
 
-
-if (data.raw["simple-entity"]["angels-crystal-rock"] ~= nil) then
-  data.raw["simple-entity"]["angels-crystal-rock"].minable = {
-    mining_particle = "stone-particle",
-    mining_time = 8,
-    results = {
-      {type="item", name="nullius-silica", amount=16},
-      {type="item", name="nullius-alumina", amount=8}
-    }
-  }
-  data.raw["simple-entity"]["angels-crystal-rock"].loot = {
-    {item = "nullius-silica", probability = 1, count_min = 4, count_max = 12},
-    {item = "nullius-alumina", probability = 1, count_min = 2, count_max = 6}
-  }
-end
-if (data.raw["simple-entity"]["sand-rock-big-white"] ~= nil) then
-  table.insert(data.raw["simple-entity"]["sand-rock-big-white"].minable.results,
+-- From Alien Biomes
+if (data.raw["simple-entity"]["sand-big-rock-white"] ~= nil) then
+  table.insert(data.raw["simple-entity"]["sand-big-rock-white"].minable.results,
     {type="item", name="nullius-soda-ash", probability=0.1, amount_min=1, amount_max=2}
   )
 end

@@ -136,7 +136,7 @@ local function landfill_map(fillname, goalname)
   end
 
   if ((variation == nil) or (variation < 1) or (variation > 9)) then
-    local proto = game.tile_prototypes[goalname]
+    local proto = prototypes.tile[goalname]
 	if (proto ~= nil) then
 	  variation = (proto.layer % 9) + 1
 	else
@@ -190,7 +190,7 @@ local function landfill_map(fillname, goalname)
     end
   end
 
-  if ((newname == nil) or (game.tile_prototypes[newname] == nil)) then
+  if ((newname == nil) or (prototypes.tile[newname] == nil)) then
     newname = fillname
   end
   return newname
@@ -221,13 +221,16 @@ function blank_surface(surface, newname)
     richness = 0
   }
 
-  for tn, _ in pairs(game.tile_prototypes) do
+  for tn, _ in pairs(prototypes.tile) do
     if tn:find("water") then
       mapgen.property_expression_names["tile:"..tn..":probability"] = -200
     end
   end
 
   game.create_surface(newname, mapgen)
+  for _, force in pairs(game.forces) do
+    force.set_surface_hidden(newname, true)
+  end
   return game.surfaces[newname]
 end
 
@@ -527,13 +530,13 @@ function built_tiles(event, entity)
 
   for _,t in pairs(event.tiles) do
     local row = grid[t.position.x]
-	if (row ~= nil) then
-	  local cell = row[t.position.y]
-	  if (cell ~= nil) then
-	    cell.change = true
-		cell.oldname = t.old_tile.name
+	  if (row ~= nil) then
+	    local cell = row[t.position.y]
+	    if (cell ~= nil) then
+	      cell.change = true
+		    cell.oldname = t.old_tile.name
+	    end
 	  end
-	end
   end
 
   local newtiles = { }
@@ -541,50 +544,50 @@ function built_tiles(event, entity)
   for _,t in pairs(filltiles) do
     local tx = t.position.x
     local row = grid[tx]
-	if (row ~= nil) then
-	  local ty = t.position.y
-	  local cell = row[ty]
-	  if ((cell ~= nil) and (cell.change or (cell.coast ~= nil))) then
-	    local water = false
-		local adjacent = false
-		for i=-1,1 do
-		  if (not water) then
-		    local r = grid[tx+i]
-			if (r == nil) then
-			  water = true
-			else
-		      for j=-1,1 do
-			    local c = r[ty+j]
-			    if (c == nil) then
-				  water = true
-				elseif (c.change) then
-				  adjacent = true				
-				elseif (c.oldname:find("water")) then
-				  water = true
-				end
+	  if (row ~= nil) then
+	    local ty = t.position.y
+	    local cell = row[ty]
+	    if ((cell ~= nil) and (cell.change or (cell.coast ~= nil))) then
+	      local water = false
+		    local adjacent = false
+		    for i=-1,1 do
+		      if (not water) then
+		        local r = grid[tx+i]
+			      if (r == nil) then
+			        water = true
+			      else
+		          for j=-1,1 do
+			          local c = r[ty+j]
+			            if (c == nil) then
+				            water = true
+				          elseif (c.change) then
+				            adjacent = true				
+				          elseif (c.oldname:find("water")) then
+				            water = true
+				          end
+		          end
+			      end
 		      end
-			end
-		  end
-		end
+		    end
 
         local newname = nil
         if (water) then
-		  if (cell.change) then
-		    newname = coastname
-		  end
-		elseif (cell.change or adjacent) then
-		  if (cell.coast ~= nil) then
-		    newname = landfill_map(cell.coast, t.name)
-		  else
-		    newname = landfill_map(tilename, t.name)
-		  end
-		end
-		if (newname ~= nil) then
-		  newind = newind + 1
-	      newtiles[newind] = { name = newname, position = t.position }
-		end
+		      if (cell.change) then
+		        newname = coastname
+		      end
+		    elseif (cell.change or adjacent) then
+		      if (cell.coast ~= nil) then
+		        newname = landfill_map(cell.coast, t.name)
+		      else
+		        newname = landfill_map(tilename, t.name)
+		      end
+		    end
+		    if (newname ~= nil) then
+		      newind = newind + 1
+	        newtiles[newind] = { name = newname, position = t.position }
+		    end
+	    end
 	  end
-	end
   end
 
   for tx,row in pairs(grid) do
@@ -599,56 +602,55 @@ function built_tiles(event, entity)
 	      depth = 3
 	    elseif (oname == "water-green") then
 	      depth = 2
-		  green = true
+		    green = true
 	    elseif (oname == "deepwater-green") then
 	      depth = 3
-		  green = true
+		    green = true
 	    end
 
-        if (depth > 1) then
+      if (depth > 1) then
 	      local proximity = 3
-          if (depth > 2) then
-		    for i=-2,2 do
-		      local r = grid[tx+i]
-			  if (r ~= nil) then
-		        for j=-2,2 do
-		          local c = r[ty+j]
-				  if ((c ~= nil) and c.change) then
-				    if ((i > -2) and (i < 2) and (j > -2) and (j < 2)) then
-				      proximity = 1
-				    elseif (proximity > 2) then
-				      proximity = 2
-				    end
-				  end
-			    end
+        if (depth > 2) then
+		      for i=-2,2 do
+		        local r = grid[tx+i]
+			      if (r ~= nil) then
+		          for j=-2,2 do
+		            local c = r[ty+j]
+			          if ((c ~= nil) and c.change) then
+			            if ((i > -2) and (i < 2) and (j > -2) and (j < 2)) then
+			              proximity = 1
+			            elseif (proximity > 2) then
+			              proximity = 2
+			            end
+			          end
+			        end
+		        end
 		      end
-		    end
-		  else
-		    for i=-1,1 do
-		      local r = grid[tx+i]
-			  if (r ~= nil) then
-		        for j=-1,1 do
-		          local c = r[ty+j]
-				  if ((c ~= nil) and c.change) then
-			        proximity = 1
-				  end
-			    end
-		      end
-		    end
-		  end
-
-		  if (proximity < 3) then
-		    local newname = nil
-		    if (proximity > 1) then
-		      newname = ((green and "water-green") or "water")
 		    else
-		      newname = ((green and "water-mud") or "water-shallow")
+		      for i=-1,1 do
+		        local r = grid[tx+i]
+			      if (r ~= nil) then
+		          for j=-1,1 do
+		            local c = r[ty+j]
+			          if ((c ~= nil) and c.change) then
+			            proximity = 1
+			          end
+			        end
+		        end
+		      end
 		    end
-		    newind = newind + 1
+		    if (proximity < 3) then
+		      local newname = nil
+		      if (proximity > 1) then
+		        newname = ((green and "water-green") or "water")
+		      else
+		        newname = ((green and "water-mud") or "water-shallow")
+		      end
+		      newind = newind + 1
 	        newtiles[newind] = { name = newname, position = cell.position }
+		    end
 		  end
-		end
-      end
+    end
     end
   end
 
@@ -685,7 +687,7 @@ function beach_tile(oldtile)
 	local variation = tonumber(string.sub(oldtile, -1, -1))
 	local newvar = math.floor((variation + 1) / 2)
 	local sandname = (string.sub(oldtile, 1, -7) .. "sand-" .. newvar)
-	if (game.tile_prototypes[sandname] ~= nil) then
+	if (prototypes.tile[sandname] ~= nil) then
 	  return sandname
 	end
   end
@@ -1105,7 +1107,7 @@ function grass_area(surface, center, fillsurface)
 
   local grass_matrix = init_grass_matrix()
   local land_tiles = surface.find_tiles_filtered{
-      area=a128, collision_mask="ground-tile"}
+      area=a128, collision_mask="ground_tile"}
   local candidates = { }
   local candtiles = { }
   local candnum = 0
@@ -1258,9 +1260,9 @@ end
 
 
 function update_grass()
-  if (global.nullius_grass_queue == nil) then return end
+  if (storage.nullius_grass_queue == nil) then return end
   if ((game.tick % 3) ~= 1) then return end
-  local q = global.nullius_grass_queue[global.nullius_grass_head]
+  local q = storage.nullius_grass_queue[storage.nullius_grass_head]
   local qx = q.center.x / 32
   local qy = q.center.y / 32
   local fs = q.fillsurface
@@ -1271,10 +1273,10 @@ function update_grass()
 	  local chunkbound = {x=(qx+i), y=(qy+j)}
 	  if (not (fs.is_chunk_generated(chunkbound) and
           qs.is_chunk_generated(chunkbound))) then
-	    if (global.nullius_grass_timer < 20) then
-		  global.nullius_grass_timer = global.nullius_grass_timer + 1
+	    if (storage.nullius_grass_timer < 20) then
+		  storage.nullius_grass_timer = storage.nullius_grass_timer + 1
 		else
-		  global.nullius_grass_timer = 0
+		  storage.nullius_grass_timer = 0
 		  fs.force_generate_chunk_requests()
 		end
 		return
@@ -1290,10 +1292,10 @@ function update_grass()
     bump_mission_goal(4, score, q.force)
   end
 
-  global.nullius_grass_queue[global.nullius_grass_head] = nil
-  global.nullius_grass_head = global.nullius_grass_head + 1
-  global.nullius_grass_timer = 0
-  if (global.nullius_grass_head > global.nullius_grass_tail) then
-    global.nullius_grass_queue = nil
+  storage.nullius_grass_queue[storage.nullius_grass_head] = nil
+  storage.nullius_grass_head = storage.nullius_grass_head + 1
+  storage.nullius_grass_timer = 0
+  if (storage.nullius_grass_head > storage.nullius_grass_tail) then
+    storage.nullius_grass_queue = nil
   end
 end

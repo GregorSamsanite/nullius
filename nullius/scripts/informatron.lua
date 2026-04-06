@@ -57,8 +57,6 @@ function nullius_info_page_content(page_name, player_index, element)
     element.add{type="label", name="header_1",
     caption={"nullius.page_fluids_header_1"}, style="heading_1_label"}
     element.add{type="label", name="text_2", caption={"nullius.page_fluids_text_2"}}
-    element.add{type="label", name="text_3", caption={"nullius.page_fluids_text_3"}}
-    element.add{type="label", name="text_4", caption={"nullius.page_fluids_text_4"}}
     element.add{type="label", name="header_2",
     caption={"nullius.page_fluids_header_2"}, style="heading_1_label"}
     element.add{type="label", name="text_5", caption={"nullius.page_fluids_text_5"}}

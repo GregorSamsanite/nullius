@@ -7,7 +7,7 @@ data:extend({
     type = "item",
     name = "nullius-bauxite",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/ore-bauxite.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/ore-bauxite.png",
       icon_size = 32
     }},
     subgroup = "aluminum-ingot",
@@ -18,7 +18,7 @@ data:extend({
     type = "item",
     name = "nullius-sandstone",
     icons = {{
-        icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-2.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/angels-ore6/angels-ore6-2.png",
         icon_size = 64,
         tint = {184, 125, 73}
     }},
@@ -30,7 +30,7 @@ data:extend({
     type = "item",
     name = "nullius-limestone",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/angels-ore6/angels-ore6-3.png",
+      icon = "__angelsrefininggraphics__/graphics/icons/angels-ore6/angels-ore6-3.png",
       icon_size = 64,
       tint = {0.898, 0.773, 0.688}
     }},
@@ -43,7 +43,7 @@ data:extend({
     name = "nullius-gypsum",
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8}
       }
@@ -57,7 +57,7 @@ data:extend({
     name = "nullius-graphite",
     icon = "__base__/graphics/icons/coal-dark-background.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "organic-material-1",
     order = "nullius-b",
     stack_size = 100
@@ -71,10 +71,10 @@ data:extend({
       {
         icon = ICONPATH .. "checkpoint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
-	flags = {"hidden"},
+    hidden = true,
     subgroup = "other",
     stack_size = 1,
     durability = 1,
@@ -89,10 +89,10 @@ data:extend({
       {
         icon = "__base__/graphics/icons/construction-robot.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
-	flags = {"hidden"},
+	  hidden = true,
     subgroup = "other",
     stack_size = 1,
     durability = 1,
@@ -109,7 +109,7 @@ data:extend({
         icon_size = 64
       }
     },
-	flags = {"hidden"},
+	  hidden = true,
     subgroup = "other",
     stack_size = 1,
     durability = 1,
@@ -125,12 +125,12 @@ data:extend({
       {
         icon = "__base__/graphics/icons/utility-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/stone.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {0, 7},
         tint = {r=0.6, g=0.4, b=0.2, a=0.75}
@@ -144,8 +144,8 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-geology-pack-1",
-	localised_name = {"", {"item-name.nullius-geology-pack"}, " ", 1},
+    name = "nullius-geology-pack",
+	  localised_name = {"", {"item-name.nullius-geology-pack"}, " ", tostring(1)},
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -153,24 +153,27 @@ data:extend({
     category = "small-crafting",
     energy_required = 30,
     ingredients = {
-      {"nullius-bauxite", 4},
-      {"nullius-sandstone", 4},
-      {"iron-ore", 4}
+      {type = "item", name = "nullius-bauxite", amount = 4},
+      {type = "item", name = "nullius-sandstone", amount = 4},
+      {type = "item", name = "iron-ore", amount = 4}
     },
-    result = "nullius-geology-pack"
+    results = {
+      {type = "item", name = "nullius-geology-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-geology-pack-2",
-	localised_name = {"", {"item-name.nullius-geology-pack"}, " ", 2},
+	  localised_name = {"", {"item-name.nullius-geology-pack"}, " ", tostring(2)},
+	  hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/utility-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-		icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+		icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
 		icon_size = 32,
         scale = 0.55,
         shift = {0, 6},
@@ -185,13 +188,15 @@ data:extend({
     subgroup = "research-pack-2",
     energy_required = 8,
     ingredients = {
-      {"nullius-crushed-iron-ore", 1},
-      {"nullius-crushed-bauxite", 1},
-      {"nullius-crushed-limestone", 1},
-      {"nullius-sand", 1},
-      {"nullius-mineral-dust", 4}
+      {type = "item", name = "nullius-crushed-iron-ore", amount = 1},
+      {type = "item", name = "nullius-crushed-bauxite", amount = 1},
+      {type = "item", name = "nullius-crushed-limestone", amount = 1},
+      {type = "item", name = "nullius-sand", amount = 1},
+      {type = "item", name = "nullius-mineral-dust", amount = 4}
     },
-    result = "nullius-geology-pack"
+    results = {
+      {type = "item", name = "nullius-geology-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -199,18 +204,21 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
+    hide_from_signal_gui = false,
     enabled = false,
     category = "large-assembly",
     subgroup = "boxed-science",
     energy_required = 40,
     ingredients = {
-      {"nullius-box-crushed-iron-ore", 1},
-      {"nullius-box-crushed-bauxite", 1},
-      {"nullius-box-crushed-limestone", 1},
-      {"nullius-box-sand", 1},
-      {"nullius-box-mineral-dust", 4}
+      {type = "item", name = "nullius-box-crushed-iron-ore", amount = 1},
+      {type = "item", name = "nullius-box-crushed-bauxite", amount = 1},
+      {type = "item", name = "nullius-box-crushed-limestone", amount = 1},
+      {type = "item", name = "nullius-box-sand", amount = 1},
+      {type = "item", name = "nullius-box-mineral-dust", amount = 4}
     },
-    result = "nullius-box-geology-pack"
+    results = {
+      {type = "item", name = "nullius-box-geology-pack", amount = 1}
+    }
   },
 
   {
@@ -221,12 +229,12 @@ data:extend({
       {
         icon = "__base__/graphics/icons/automation-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/iron-gear-wheel.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.22,
         shift = {1, 6},
         tint = {r=0.9, g=1, b=1, a=0.8}
@@ -240,8 +248,8 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-mechanical-pack-1",
-    localised_name = {"", {"item-name.nullius-mechanical-pack"}, " ", 1},
+    name = "nullius-mechanical-pack",
+    localised_name = {"", {"item-name.nullius-mechanical-pack"}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -250,41 +258,47 @@ data:extend({
     order = "nullius-db",
     energy_required = 15,
     ingredients = {
-      {"nullius-motor-1", 1},
-      {"nullius-iron-gear", 3}
+      {type = "item", name = "nullius-motor-1", amount = 1},
+      {type = "item", name = "nullius-iron-gear", amount = 3}
     },
-    result = "nullius-mechanical-pack"
+    results = {
+      {type = "item", name = "nullius-mechanical-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-mechanical-pack-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     category = "large-assembly",
     subgroup = "boxed-science",
     order = "nullius-db",
     energy_required = 75,
     ingredients = {
-      {"nullius-box-motor-1", 1},
-      {"nullius-box-iron-gear", 3}
+      {type = "item", name = "nullius-box-motor-1", amount = 1},
+      {type = "item", name = "nullius-box-iron-gear", amount = 3}
     },
-    result = "nullius-box-mechanical-pack"
+    results = {
+      {type = "item", name = "nullius-box-mechanical-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-mechanical-pack-2",
-    localised_name = {"", {"item-name.nullius-mechanical-pack"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-mechanical-pack"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/automation-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/wire-silver.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
         icon_size = 32,
         scale = 0.48,
         shift = {0, 6},
@@ -300,16 +314,18 @@ data:extend({
     order = "nullius-dc",
     energy_required = 60,
     ingredients = {
-      {"pump", 1},
-      {"nullius-steel-cable", 3}
+      {type = "item", name = "pump", amount = 1},
+      {type = "item", name = "nullius-steel-cable", amount = 3}
     },
-    result = "nullius-mechanical-pack",
-    result_count = 25
+    results = {
+      {type = "item", name = "nullius-mechanical-pack", amount = 25}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-mechanical-pack-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -318,11 +334,11 @@ data:extend({
       {
         icon = "__base__/graphics/icons/automation-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/wire-silver.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
         icon_size = 32,
         scale = 0.44,
         shift = {0, 5.4},
@@ -338,11 +354,12 @@ data:extend({
     order = "nullius-dc",
     energy_required = 300,
     ingredients = {
-      {"nullius-box-pump-3", 1},
-      {"nullius-box-steel-cable", 3}
+      {type = "item", name = "nullius-box-pump-3", amount = 1},
+      {type = "item", name = "nullius-box-steel-cable", amount = 3}
     },
-    result = "nullius-box-mechanical-pack",
-    result_count = 25
+    results = {
+      {type = "item", name = "nullius-box-mechanical-pack", amount = 25}
+    }
   },
 
   {
@@ -353,12 +370,12 @@ data:extend({
       {
         icon = "__base__/graphics/icons/production-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/processing-unit.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.18,
         shift = {0, 6},
         tint = {r=1, g=1, b=1, a=0.5}
@@ -373,7 +390,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-electrical-pack",
-    localised_name = {"", {"item-name.nullius-electrical-pack"}, " ", 1},
+    localised_name = {"", {"item-name.nullius-electrical-pack"}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -381,46 +398,52 @@ data:extend({
     category = "small-crafting",
     energy_required = 12,
     ingredients = {
-      {"decider-combinator", 1},
-      {"small-lamp", 1},
-      {"copper-cable", 2},
-      {"nullius-capacitor", 1}
+      {type = "item", name = "decider-combinator", amount = 1},
+      {type = "item", name = "small-lamp", amount = 1},
+      {type = "item", name = "copper-cable", amount = 2},
+      {type = "item", name = "nullius-capacitor", amount = 1}
     },
-    result = "nullius-electrical-pack"
+    results = {
+      {type = "item", name = "nullius-electrical-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-electrical-pack",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     category = "large-assembly",
     subgroup = "boxed-science",
     energy_required = 60,
     ingredients = {
-      {"nullius-box-logic-circuit", 1},
-      {"nullius-box-lamp-1", 1},
-      {"nullius-box-insulated-wire", 2},
-      {"nullius-box-capacitor", 1}
+      {type = "item", name = "nullius-box-logic-circuit", amount = 1},
+      {type = "item", name = "nullius-box-lamp-1", amount = 1},
+      {type = "item", name = "nullius-box-insulated-wire", amount = 2},
+      {type = "item", name = "nullius-box-capacitor", amount = 1}
     },
-    result = "nullius-box-electrical-pack"
+    results = {
+      {type = "item", name = "nullius-box-electrical-pack", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-electrical-pack-2",
-    localised_name = {"", {"item-name.nullius-electrical-pack"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-electrical-pack"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/production-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/advanced-circuit.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.18,
         shift = {0, 6},
         tint = {r=1, g=1, b=1, a=0.8}
@@ -435,17 +458,19 @@ data:extend({
     order = "nullius-ed",
     energy_required = 160,
     ingredients = {
-      {"nullius-processor-2", 1},
-      {"nullius-sensor-2", 1},
-      {"nullius-battery-2", 1}
+      {type = "item", name = "nullius-processor-2", amount = 1},
+      {type = "item", name = "nullius-sensor-2", amount = 1},
+      {type = "item", name = "nullius-battery-2", amount = 1}
     },
-    result = "nullius-electrical-pack",
-	result_count = 50
+	  results = {
+      {type = "item", name = "nullius-electrical-pack", amount = 50}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-electrical-pack-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -454,13 +479,13 @@ data:extend({
       {
         icon = "__base__/graphics/icons/production-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.45
       },
       {
         icon = "__base__/graphics/icons/advanced-circuit.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.162,
         shift = {0, 5.4},
         tint = {r=1, g=1, b=1, a=0.8}
@@ -475,12 +500,13 @@ data:extend({
     order = "nullius-ed",
     energy_required = 800,
     ingredients = {
-      {"nullius-box-processor-2", 1},
-      {"nullius-box-sensor-2", 1},
-      {"nullius-box-battery-2", 1}
+      {type = "item", name = "nullius-box-processor-2", amount = 1},
+      {type = "item", name = "nullius-box-sensor-2", amount = 1},
+      {type = "item", name = "nullius-box-battery-2", amount = 1}
     },
-    result = "nullius-box-electrical-pack",
-	result_count = 50
+	  results = {
+      {type = "item", name = "nullius-box-electrical-pack", amount = 50}
+    }
   },
 
   {
@@ -490,7 +516,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/space-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/tooltips/tooltip-category-nuclear.png",
@@ -510,6 +536,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-physics-pack",
+    localised_name = {"item-name.nullius-physics-pack"},
     enabled = false,
     category = "huge-assembly",
     subgroup = "research-pack",
@@ -519,17 +546,18 @@ data:extend({
     always_show_products = true,
     energy_required = 900,
     ingredients = {
-      {"nullius-stirling-engine-2", 1},
-      {"nullius-nanofabricator-1", 1},
-      {"nullius-box-underground-belt-3", 1},
-      {"nullius-lab-2", 1},
-      {"nullius-combustion-chamber-3", 1},
-      {"nullius-substation-2", 1},
-      {"nullius-drone-launcher-1", 1},
-      {"nullius-box-missile-1", 3}
+      {type = "item", name = "nullius-stirling-engine-2", amount = 1},
+      {type = "item", name = "nullius-nanofabricator-1", amount = 1},
+      {type = "item", name = "nullius-box-underground-belt-3", amount = 1},
+      {type = "item", name = "nullius-lab-2", amount = 1},
+      {type = "item", name = "nullius-combustion-chamber-3", amount = 1},
+      {type = "item", name = "nullius-substation-2", amount = 1},
+      {type = "item", name = "nullius-drone-launcher-1", amount = 1},
+      {type = "item", name = "nullius-box-missile-1", amount = 3}
     },
-    result = "nullius-box-physics-pack",
-    result_count = 25
+    results = {
+      {type = "item", name = "nullius-box-physics-pack", amount = 25}
+    }
   },
 
   {
@@ -539,7 +567,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/military-science-pack.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {0.75, 0.72, 0.78}
       }
     },
@@ -554,7 +582,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-crushed-copper-ore",
-    icon = "__angelsrefining__/graphics/icons/copper-pebbles.png",
+    icon = "__angelsrefininggraphics__/graphics/icons/copper-pebbles.png",
     icon_size = 32,
     subgroup = "copper",
     order = "nullius-c",
@@ -566,7 +594,7 @@ data:extend({
     enabled = false,
     category = "ore-crushing",
     energy_required = 4,
-    ingredients = {{"copper-ore", 4}},
+    ingredients = {{type = "item", name = "copper-ore", amount = 4}},
     results = {
       {type="item", name="nullius-crushed-copper-ore", amount=3},
       {type="item", name="stone", amount=1}
@@ -577,10 +605,11 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-crushed-copper-ore",
     enabled = false,
+    hide_from_signal_gui = false,
     category = "ore-crushing",
     subgroup = "boxed-copper",
     energy_required = 20,
-    ingredients = {{"nullius-box-copper-ore", 4}},
+    ingredients = {{type = "item", name = "nullius-box-copper-ore", amount = 4}},
     results = {
       {type="item", name="nullius-box-crushed-copper-ore", amount=3},
       {type="item", name="nullius-box-stone", amount=1}
@@ -680,8 +709,9 @@ data:extend({
       {type="item", name="nullius-copper-ingot", amount=1},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-copper-wire",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-copper-wire", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -696,8 +726,9 @@ data:extend({
       {type="item", name="nullius-box-copper-ingot", amount=1},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-copper-wire",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-copper-wire", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -711,7 +742,9 @@ data:extend({
       {type="item", name="nullius-copper-ingot", amount=1},
       {type="fluid", name="nullius-acid-sulfuric", amount=1}
     },
-    result = "nullius-copper-sheet"
+    results = {
+      {type = "item", name = "nullius-copper-sheet", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -726,13 +759,15 @@ data:extend({
       {type="item", name="nullius-box-copper-ingot", amount=1},
       {type="fluid", name="nullius-acid-sulfuric", amount=5}
     },
-    result = "nullius-box-copper-sheet"
+    results = {
+      {type = "item", name = "nullius-box-copper-sheet", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-crushed-iron-ore",
-    icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+    icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
     icon_size = 32,
     subgroup = "iron-ingot",
     order = "nullius-c",
@@ -744,7 +779,7 @@ data:extend({
     enabled = false,
     category = "ore-crushing",
     energy_required = 5,
-    ingredients = {{"iron-ore", 6}},
+    ingredients = {{type="item", name="iron-ore", amount = 6}},
     results = {
       {type="item", name="nullius-crushed-iron-ore", amount=5},
       {type="item", name="stone", amount=1}
@@ -758,7 +793,7 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-iron",
     energy_required = 25,
-    ingredients = {{"nullius-box-iron-ore", 6}},
+    ingredients = {{type="item", name="nullius-box-iron-ore", amount = 6}},
     results = {
       {type="item", name="nullius-box-crushed-iron-ore", amount=5},
       {type="item", name="nullius-box-stone", amount=1}
@@ -769,7 +804,7 @@ data:extend({
     type = "item",
     name = "nullius-iron-oxide",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/solid-iron-hydroxide.png",
       icon_size = 32,
       tint = {0.77, 0.54, 0.48}
     }},
@@ -813,81 +848,82 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-iron-oxidation",
-	localised_name = {"recipe-name.nullius-oxidation", {"item-name.nullius-iron"}},
-	icons = {
+	  localised_name = {"recipe-name.nullius-oxidation", {"item-name.nullius-iron"}},
+	  icons = {
       {
-	    icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+	      icon = "__angelssmeltinggraphics__/graphics/icons/solid-iron-hydroxide.png",
         icon_size = 32,
         tint = {0.77, 0.54, 0.48}
       },
       {
-	    icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+	      icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.3,
+		    scale = 0.3,
         shift = {-7, -7}
 	  }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
+	  no_productivity = true,
+	  show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     category = "ore-flotation",
-	order = "nullius-o",
+	  order = "nullius-o",
     energy_required = 3,
     ingredients = {
       {type="item", name="nullius-iron-wire", amount=11},
       {type="fluid", name="nullius-water", amount=20},
       {type="fluid", name="nullius-oxygen", amount=40}
     },
-	result = "nullius-iron-oxide",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-iron-oxide", amount = 2}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-iron-oxidation",
-	localised_name = {"recipe-name.nullius-boxed",
+	  localised_name = {"recipe-name.nullius-boxed",
 	    {"recipe-name.nullius-oxidation", {"item-name.nullius-iron"}}},
-	icons = {
+	  icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-	    icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+	      icon = "__angelssmeltinggraphics__/graphics/icons/solid-iron-hydroxide.png",
         icon_size = 32,
         tint = {0.77, 0.54, 0.48},
-		scale = 0.9
+		    scale = 0.9
       },
       {
-	    icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.27,
+	      icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
+        icon_size = 64, 
+		    scale = 0.27,
         shift = {-6, -6}
 	  }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
+	  no_productivity = true,
+	  show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-	subgroup = "boxed-iron",
-	order = "nullius-o",
+	  subgroup = "boxed-iron",
+	  order = "nullius-o",
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-box-iron-wire", amount=11},
       {type="fluid", name="nullius-water", amount=100},
       {type="fluid", name="nullius-oxygen", amount=200}
     },
-	result = "nullius-box-iron-oxide",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-iron-oxide", amount = 2}
+    }
   },
 
   {
     type = "item",
     name = "nullius-crushed-limestone",
-    icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+    icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
     icon_size = 32,
     subgroup = "calcium-product",
     order = "nullius-d",
@@ -895,14 +931,14 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-crushed-limestone-1",
-    localised_name = {"", {"item-name.nullius-crushed-limestone"}, " ", 1},
+    name = "nullius-crushed-limestone",
+    localised_name = {"", {"item-name.nullius-crushed-limestone"}, " ", tostring(1)},
     enabled = false,
     icon_size = 32,
     category = "ore-crushing",
     order = "nullius-db",
     energy_required = 4,
-    ingredients = {{"nullius-limestone", 8}},
+    ingredients = {{type="item", name="nullius-limestone", amount = 8}},
     results = {
       {type="item", name="nullius-crushed-limestone", amount=5},
       {type="item", name="stone", amount=3}
@@ -912,14 +948,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-crushed-limestone-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-crushed-limestone"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-crushed-limestone"}}, " ", tostring(1)},
     enabled = false,
     icon_size = 32,
     category = "ore-crushing",
     subgroup = "boxed-calcium",
     order = "nullius-cb",
     energy_required = 20,
-    ingredients = {{"nullius-box-limestone", 8}},
+    ingredients = {{type="item", name="nullius-box-limestone", amount = 8}},
     results = {
       {type="item", name="nullius-box-crushed-limestone", amount=5},
       {type="item", name="nullius-box-stone", amount=3}
@@ -929,14 +965,15 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-crushed-limestone-2",
-    localised_name = {"", {"item-name.nullius-crushed-limestone"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-crushed-limestone"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8},
         scale = 0.2,
@@ -948,7 +985,7 @@ data:extend({
     category = "ore-crushing",
     order = "nullius-dc",
     energy_required = 7,
-    ingredients = {{"nullius-limestone", 15}},
+    ingredients = {{type="item", name="nullius-limestone", amount = 15}},
     results = {
       {type="item", name="nullius-crushed-limestone", amount=10},
       {type="item", name="nullius-gypsum", amount=1},
@@ -959,19 +996,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-crushed-limestone-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-crushed-limestone"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-crushed-limestone"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8},
         scale = 0.18,
@@ -984,7 +1021,7 @@ data:extend({
     subgroup = "boxed-calcium",
     order = "nullius-cc",
     energy_required = 35,
-    ingredients = {{"nullius-box-limestone", 15}},
+    ingredients = {{type="item", name="nullius-box-limestone", amount = 15}},
     results = {
       {type="item", name="nullius-box-crushed-limestone", amount=10},
       {type="item", name="nullius-box-gypsum", amount=1},
@@ -999,7 +1036,7 @@ data:extend({
     icons = {
       {
         icon_size = 64,
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-6.png",
         tint = {0.867, 0.820, 0.609}
       }
     },
@@ -1012,9 +1049,9 @@ data:extend({
     name = "nullius-crushed-bauxite",
     enabled = false,
     category = "ore-crushing",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     energy_required = 5,
-    ingredients = {{"nullius-bauxite", 7}},
+    ingredients = {{type="item", name="nullius-bauxite", amount = 7}},
     results = {
       {type="item", name="nullius-crushed-bauxite", amount=5},
       {type="item", name="nullius-crushed-iron-ore", amount=1},
@@ -1030,7 +1067,7 @@ data:extend({
     subgroup = "boxed-aluminum-1",
     order = "nullius-b",
     energy_required = 25,
-    ingredients = {{"nullius-box-bauxite", 7}},
+    ingredients = {{type="item", name="nullius-box-bauxite", amount = 7}},
     results = {
       {type="item", name="nullius-box-crushed-bauxite", amount=5},
       {type="item", name="nullius-box-crushed-iron-ore", amount=1},
@@ -1050,13 +1087,15 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-crushed-sandstone",
+    name = "nullius-sand",
+    localised_name = {"item-name.nullius-sand"},
     enabled = false,
     category = "hand-crushing",
     always_show_made_in = true,
     allow_decomposition = false,
+    hide_from_signal_gui = false,
     energy_required = 4,
-    ingredients = {{"nullius-sandstone", 5}},
+    ingredients = {{type="item", name="nullius-sandstone", amount = 5}},
     results = {
       {type="item", name="nullius-sand", amount=4},
       {type="item", name="stone", amount=1}
@@ -1072,7 +1111,7 @@ data:extend({
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 20,
-    ingredients = {{"nullius-box-sandstone", 5}},
+    ingredients = {{type="item", name="nullius-box-sandstone", amount = 5}},
     results = {
       {type="item", name="nullius-box-sand", amount=4},
       {type="item", name="nullius-box-stone", amount=1}
@@ -1082,7 +1121,8 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-crushed-stone",
+    name = "nullius-gravel",
+    localised_name = {"item-name.nullius-gravel"},
     enabled = false,
     icon_size = 32,
     category = "hand-crushing",
@@ -1090,9 +1130,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     allow_decomposition = false,
+    hide_from_signal_gui = false,
     energy_required = 0.5,
-    ingredients = {{"stone", 1}},
-    result = "nullius-gravel"
+    ingredients = {{type="item", name="stone", amount = 1}},
+    results = {
+      {type = "item", name = "nullius-gravel", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -1106,34 +1149,38 @@ data:extend({
     always_show_products = true,
     allow_decomposition = false,
     energy_required = 2.5,
-    ingredients = {{"nullius-box-stone", 1}},
-    result = "nullius-box-gravel"
+    ingredients = {{type="item", name="nullius-box-stone", amount = 1}},
+    results = {
+      {type = "item", name = "nullius-box-gravel", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-mineral-dust",
-    icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "masonry-material",
     order = "nullius-m",
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-gravel-disposal",
+    name = "nullius-mineral-dust",
     localised_name = {"recipe-name.nullius-gravel-disposal"},
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     enabled = false,
     icon_size = 32,
     category = "ore-crushing",
     order = "nullius-nb",
     energy_required = 3,
-    ingredients = {{"nullius-gravel", 6}},
-    result = "nullius-mineral-dust",
-    result_count = 5
+    ingredients = {{type="item", name="nullius-gravel", amount = 6}},
+    results = {
+      {type = "item", name = "nullius-mineral-dust", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -1146,9 +1193,10 @@ data:extend({
     subgroup = "boxed-silicon",
     order = "nullius-nb",
     energy_required = 15,
-    ingredients = {{"nullius-box-gravel", 6}},
-    result = "nullius-box-mineral-dust",
-    result_count = 5
+    ingredients = {{type="item", name="nullius-box-gravel", amount = 6}},
+    results = {
+      {type = "item", name = "nullius-box-mineral-dust", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -1156,9 +1204,9 @@ data:extend({
     localised_name = {"recipe-name.nullius-slag-reprocessing"},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "sand.png",
@@ -1169,13 +1217,14 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     enabled = false,
     icon_size = 32,
     category = "ore-crushing",
     subgroup = "masonry-material",
     order = "nullius-nc",
     energy_required = 6,
-    ingredients = {{"nullius-gravel", 8}},
+    ingredients = {{type="item", name="nullius-gravel", amount = 8}},
     results = {
       {type="item", name="nullius-sand", amount=3},
       {type="item", name="nullius-mineral-dust", amount=6}
@@ -1192,9 +1241,9 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
@@ -1212,7 +1261,7 @@ data:extend({
     subgroup = "boxed-silicon",
     order = "nullius-nc",
     energy_required = 30,
-    ingredients = {{"nullius-box-gravel", 8}},
+    ingredients = {{type="item", name="nullius-box-gravel", amount = 8}},
     results = {
       {type="item", name="nullius-box-sand", amount=3},
       {type="item", name="nullius-box-mineral-dust", amount=6}
@@ -1226,12 +1275,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-iron-disposal"},
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/stone-crushed.png",
 		icon_size = 32,
         tint = {r=0.95, g=0.85, b=0.75}
       },
       {
-        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
 		icon_size = 32,
         scale = 0.5,
         shift = {10, -9}
@@ -1245,9 +1294,10 @@ data:extend({
     order = "nullius-n",
     no_productivity = true,
     energy_required = 2,
-    ingredients = {{"nullius-crushed-iron-ore", 4}},
-    result = "nullius-gravel",
-    result_count = 3
+    ingredients = {{type="item", name="nullius-crushed-iron-ore", amount = 4}},
+    results = {
+      {type = "item", name = "nullius-gravel", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -1259,13 +1309,13 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/stone-crushed.png",
 		icon_size = 32,
 		scale = 0.9,
         tint = {r=0.95, g=0.85, b=0.75}
       },
       {
-        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
 		icon_size = 32,
         scale = 0.45,
         shift = {9, -8}
@@ -1274,14 +1324,15 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     enabled = false,
-	no_productivity = true,
+	  no_productivity = true,
     category = "ore-crushing",
-	subgroup = "boxed-aluminum-1",
+	  subgroup = "boxed-aluminum-1",
     order = "nullius-n",
     energy_required = 10,
-    ingredients = {{"nullius-box-crushed-iron-ore", 4}},
-    result = "nullius-box-gravel",
-    result_count = 3
+    ingredients = {{type="item", name="nullius-box-crushed-iron-ore", amount = 4}},
+    results = {
+      {type = "item", name = "nullius-box-gravel", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -1289,12 +1340,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-bauxite-disposal"},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-6.png",
         icon_size = 64,
         tint = {0.867, 0.820, 0.609},
         scale = 0.25,
@@ -1303,14 +1354,16 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     enabled = false,
     category = "ore-crushing",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     order = "nullius-n",
     energy_required = 2,
-    ingredients = {{"nullius-crushed-bauxite", 5}},
-    result = "nullius-mineral-dust",
-    result_count = 4
+    ingredients = {{type="item", name="nullius-crushed-bauxite", amount = 5}},
+    results = {
+      {type = "item", name = "nullius-mineral-dust", amount = 4}
+    }
   },
   {
     type = "recipe",
@@ -1323,13 +1376,12 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
+		    scale = 0.45
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-6.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-6.png",
         icon_size = 64,
         tint = {0.867, 0.820, 0.609},
         scale = 0.22,
@@ -1340,12 +1392,13 @@ data:extend({
     always_show_products = true,
     enabled = false,
     category = "ore-crushing",
-	subgroup = "boxed-aluminum-1",
+	  subgroup = "boxed-aluminum-1",
     order = "nullius-l",
     energy_required = 10,
-    ingredients = {{"nullius-box-crushed-bauxite", 5}},
-    result = "nullius-box-mineral-dust",
-    result_count = 4
+    ingredients = {{type="item", name="nullius-box-crushed-bauxite", amount = 5}},
+    results = {
+      {type = "item", name = "nullius-box-mineral-dust", amount = 4}
+    }
   },
   {
     type = "recipe",
@@ -1353,14 +1406,14 @@ data:extend({
     localised_name = {"recipe-name.nullius-disposal", {"item-name.nullius-rutile"}},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {10, -9}
       }
@@ -1368,14 +1421,16 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     no_productivity = true,
+    hide_from_signal_gui = false,
     enabled = false,
     category = "ore-crushing",
     subgroup = "titanium-product",
     order = "nullius-xr",
     energy_required = 5,
-    ingredients = {{"nullius-rutile", 8}},
-    result = "nullius-mineral-dust",
-    result_count = 7
+    ingredients = {{type="item", name="nullius-rutile", amount = 8}},
+    results = {
+      {type = "item", name = "nullius-mineral-dust", amount = 7}
+    }
   },
   {
     type = "recipe",
@@ -1388,15 +1443,13 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
+		    scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
         scale = 0.22,
         shift = {9, -8}
       }
@@ -1409,9 +1462,10 @@ data:extend({
     subgroup = "boxed-titanium",
     order = "nullius-xr",
     energy_required = 25,
-    ingredients = {{"nullius-box-rutile", 8}},
-    result = "nullius-box-mineral-dust",
-    result_count = 7
+    ingredients = {{type="item", name="nullius-box-rutile", amount = 8}},
+    results = {
+      {type = "item", name = "nullius-box-mineral-dust", amount = 7}
+    }
   },
   {
     type = "recipe",
@@ -1419,12 +1473,12 @@ data:extend({
     localised_name = {"recipe-name.nullius-limestone-disposal"},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32,
         scale = 0.5,
         shift = {10, -9}
@@ -1432,14 +1486,16 @@ data:extend({
     },
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     enabled = false,
     category = "ore-crushing",
     subgroup = "calcium-product",
     order = "nullius-m",
     energy_required = 2,
-    ingredients = {{"nullius-crushed-limestone", 3}},
-    result = "nullius-mineral-dust",
-    result_count = 3
+    ingredients = {{type="item", name="nullius-crushed-limestone", amount = 3}},
+    results = {
+      {type = "item", name = "nullius-mineral-dust", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -1451,13 +1507,13 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32,
         scale = 0.45,
         shift = {9, -8}
@@ -1470,31 +1526,32 @@ data:extend({
     subgroup = "boxed-calcium",
     order = "nullius-y",
     energy_required = 10,
-    ingredients = {{"nullius-box-crushed-limestone", 3}},
-    result = "nullius-box-mineral-dust",
-    result_count = 3
+    ingredients = {{type="item", name="nullius-box-crushed-limestone", amount = 3}},
+    results = {
+      {type = "item", name = "nullius-box-mineral-dust", amount = 3}
+    }
   },
 
   {
     type = "item",
     name = "nullius-iron-ingot",
-    icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "iron-ingot",
     order = "nullius-e",
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-iron-ingot-1",
+    name = "nullius-iron-ingot",
     localised_name = {"recipe-name.nullius-iron-ingot-1"},
     enabled = false,
     category = "dry-smelting",
     order = "nullius-eb",
     energy_required = 8,
     ingredients = {
-      {"iron-ore", 5}
+      {type="item", name="iron-ore", amount = 5}
     },
     results = {
       {type="item", name="nullius-iron-ingot", amount=2},
@@ -1506,16 +1563,17 @@ data:extend({
     type = "recipe",
     name = "nullius-iron-ingot-2",
     localised_name = {"recipe-name.nullius-iron-ingot-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/coal.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {10, -10}
       }
@@ -1525,8 +1583,8 @@ data:extend({
     order = "nullius-ec",
     energy_required = 18,
     ingredients = {
-      {"nullius-crushed-iron-ore", 11},
-      {"nullius-graphite", 1}
+      {type="item", name="nullius-crushed-iron-ore", amount = 11},
+      {type="item", name="nullius-graphite", amount = 1}
     },
     results = {
       {type="item", name="nullius-iron-ingot", amount=8},
@@ -1538,14 +1596,15 @@ data:extend({
     type = "recipe",
     name = "nullius-iron-ingot-3",
     localised_name = {"recipe-name.nullius-iron-ingot-3"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-iron-hydroxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-iron-hydroxide.png",
         icon_size = 32,
         tint = {0.77, 0.54, 0.48},
         scale = 0.5,
@@ -1557,9 +1616,9 @@ data:extend({
     order = "nullius-ed",
     energy_required = 20,
     ingredients = {
-      {"nullius-iron-oxide", 8},
-      {"nullius-crushed-limestone", 2},
-      {"nullius-graphite", 1}
+      {type="item", name="nullius-iron-oxide", amount = 8},
+      {type="item", name="nullius-crushed-limestone", amount = 2},
+      {type="item", name="nullius-graphite", amount = 1}
     },
     results = {
       {type="item", name="nullius-iron-ingot", amount=10},
@@ -1578,9 +1637,9 @@ data:extend({
     order = "nullius-ed",
     energy_required = 20,
     ingredients = {
-      {"nullius-box-iron-oxide", 8},
-      {"nullius-box-crushed-limestone", 2},
-      {"nullius-box-graphite", 1}
+      {type="item", name="nullius-box-iron-oxide", amount = 8},
+      {type="item", name="nullius-box-crushed-limestone", amount = 2},
+      {type="item", name="nullius-box-graphite", amount = 1}
     },
     results = {
       {type="item", name="nullius-box-iron-ingot", amount=10},
@@ -1594,17 +1653,18 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-thermite",
-	localised_name = {"recipe-name.nullius-aluminothermic", {"item-name.nullius-iron-ingot"}},
+	  localised_name = {"recipe-name.nullius-aluminothermic", {"item-name.nullius-iron-ingot"}},
+	  hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {10, -10}
       }
@@ -1614,9 +1674,9 @@ data:extend({
     order = "nullius-ee",
     energy_required = 6,
     ingredients = {
-      {"nullius-iron-oxide", 17},
-      {"nullius-aluminum-ingot", 12},
-      {"nullius-graphite", 1}
+      {type="item", name="nullius-iron-oxide", amount = 17},
+      {type="item", name="nullius-aluminum-ingot", amount = 12},
+      {type="item", name="nullius-graphite", amount = 1}
     },
     results = {
       {type="item", name="nullius-iron-ingot", amount=21},
@@ -1628,7 +1688,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-thermite",
-	localised_name = {"recipe-name.nullius-aluminothermic",
+	  localised_name = {"recipe-name.nullius-aluminothermic",
 	    {"item-name.nullius-box", {"item-name.nullius-iron-ingot"}}},
     icons = {
       {
@@ -1636,15 +1696,15 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-iron.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.22,
         shift = {9, -9}
       }
@@ -1655,9 +1715,9 @@ data:extend({
     order = "nullius-ee",
     energy_required = 25,
     ingredients = {
-      {"nullius-box-iron-oxide", 13},
-      {"nullius-box-aluminum-ingot", 10},
-      {"nullius-box-graphite", 1}
+      {type="item", name="nullius-box-iron-oxide", amount = 13},
+      {type="item", name="nullius-box-aluminum-ingot", amount = 10},
+      {type="item", name="nullius-box-graphite", amount = 1}
     },
     results = {
       {type="item", name="nullius-box-iron-ingot", amount=16},
@@ -1670,16 +1730,16 @@ data:extend({
   {
     type = "item",
     name = "nullius-steel-ingot",
-    icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "iron-ingot",
     order = "nullius-f",
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-steel-ingot-1",
+    name = "nullius-steel-ingot",
     localised_name = {"recipe-name.nullius-steel-ingot-1"},
     enabled = false,
     category = "machine-casting",
@@ -1699,14 +1759,15 @@ data:extend({
     type = "recipe",
     name = "nullius-steel-ingot-2",
     localised_name = {"recipe-name.nullius-steel-ingot-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.5,
         shift = {10, -10}
@@ -1730,7 +1791,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-steel-ingot-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", tostring(1)},
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-steel",
@@ -1751,12 +1812,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-steel-ingot-3",
-    localised_name = {"", {"item-name.nullius-steel-ingot"}, " ", 3},
+    localised_name = {"", {"item-name.nullius-steel-ingot"}, " ", tostring(3)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "calcium.png",
@@ -1784,16 +1846,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-steel-ingot-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
@@ -1825,19 +1887,20 @@ data:extend({
     type = "recipe",
     name = "nullius-steel-ingot-hydrogen",
     localised_name = {"recipe-name.nullius-hydrogen", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png",
         icon_size = 72,
         scale = 0.18,
         shift = {8, -10}
@@ -1864,9 +1927,9 @@ data:extend({
     type = "item",
     name = "nullius-silicon-ingot",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/ingot-silicon.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/ingot-silicon.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {1, 0.925, 0.85}
     }},
     subgroup = "silicon-product",
@@ -1876,9 +1939,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-copper-ingot",
-    icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/ingot-copper.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "copper",
     order = "nullius-e",
     stack_size = 100
@@ -1886,9 +1949,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-aluminum-ingot",
-    icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "aluminum-ingot",
     order = "nullius-g",
     stack_size = 100
@@ -1896,7 +1959,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-aluminum-hydroxide",
-    icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-hydroxide.png",
     icon_size = 32,
     subgroup = "aluminum-ingot",
     order = "nullius-d",
@@ -1915,7 +1978,7 @@ data:extend({
     type = "item",
     name = "nullius-calcium-chloride",
     icons = {{
-      icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
+      icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
       icon_size = 32
     }},
     subgroup = "calcium-product",
@@ -1935,7 +1998,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-lime",
-    icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
     icon_size = 32,
     subgroup = "masonry-material",
     order = "nullius-b",
@@ -1944,10 +2007,23 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-lime",
+    icons = {
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
+        icon_size = 32
+      },
+      {
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
+        icon_size = 32,
+        scale = 0.4,
+        shift = {-11, -11}
+      }
+    },
     enabled = false,
     category = "vent-smelting",
+    hide_from_signal_gui = false,
     energy_required = 5,
-    ingredients = {{"nullius-crushed-limestone", 3}},
+    ingredients = {{type="item", name="nullius-crushed-limestone", amount = 3}},
     results = {
       {type="item", name="nullius-lime", amount=2},
       {type="fluid", name="nullius-carbon-dioxide", amount=40}
@@ -1961,7 +2037,7 @@ data:extend({
     category = "bulk-smelting",
     subgroup = "boxed-calcium",
     energy_required = 5,
-    ingredients = {{"nullius-box-crushed-limestone", 3}},
+    ingredients = {{type="item", name="nullius-box-crushed-limestone", amount = 3}},
     results = {
       {type="item", name="nullius-box-lime", amount=2},
       {type="fluid", name="nullius-carbon-dioxide", amount=200}
@@ -1972,13 +2048,14 @@ data:extend({
     type = "recipe",
     name = "nullius-limestone-precipitation",
     localised_name = {"recipe-name.nullius-limestone-precipitation"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.4,
         shift = {-11, -11}
@@ -2010,12 +2087,12 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/solid-limestone.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-limestone.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.36,
         shift = {-10, -10}
@@ -2043,13 +2120,14 @@ data:extend({
     type = "recipe",
     name = "nullius-gypsum-decomposition",
     localised_name = {"recipe-name.nullius-gypsum-decomposition"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfur-dioxide.png",
         icon_size = 72,
         scale = 0.16,
         shift = {12, 13}
@@ -2060,7 +2138,7 @@ data:extend({
     category = "vent-smelting",
     order = "nullius-bc",
     energy_required = 3,
-    ingredients = {{"nullius-gypsum", 2}},
+    ingredients = {{type="item", name="nullius-gypsum", amount = 2}},
     results = {
       {type="item", name="nullius-lime", amount=1},
       {type="fluid", name="nullius-sulfur-dioxide", amount=10}
@@ -2078,12 +2156,12 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfur-dioxide.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfur-dioxide.png",
         icon_size = 72,
         scale = 0.14,
         shift = {11, 12}
@@ -2094,7 +2172,7 @@ data:extend({
     subgroup = "boxed-calcium",
     order = "nullius-dc",
     energy_required = 3,
-    ingredients = {{"nullius-box-gypsum", 2}},
+    ingredients = {{type="item", name="nullius-box-gypsum", amount = 2}},
     results = {
       {type="item", name="nullius-box-lime", amount=1},
       {type="fluid", name="nullius-sulfur-dioxide", amount=60}
@@ -2104,16 +2182,16 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-gypsum-1",
+    name = "nullius-gypsum",
     localised_name = {"recipe-name.nullius-gypsum-1"},
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.22,
         shift = {-9, -11}
@@ -2140,20 +2218,20 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-gypsum-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", tostring(1)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8},
         scale = 0.45
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.2,
         shift = {-8, -10}
@@ -2183,14 +2261,15 @@ data:extend({
     type = "recipe",
     name = "nullius-gypsum-2",
     localised_name = {"recipe-name.nullius-gypsum-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32,
         scale = 0.55,
         shift = {-9, -9}
@@ -2217,20 +2296,20 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-gypsum-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/crushed/crushed-4.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
         icon_size = 64,
         tint = {1, 1, 0.8},
         scale = 0.45
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-sulfate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-sulfate.png",
         icon_size = 32,
         scale = 0.5,
         shift = {-8, -8}
@@ -2260,7 +2339,8 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-calcium-chloride-1",
-    localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", 1},
+    localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(1)},
+    hide_from_signal_gui = false,
     category = "basic-chemistry",
     subgroup = "chlorine-chemistry",
     order = "nullius-fb",
@@ -2284,7 +2364,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-calcium-chloride-1",
-    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 1}},
+    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(1)}},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -2317,13 +2397,14 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-calcium-chloride-2",
-    localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.4,
         shift = {-11, -12}
@@ -2352,7 +2433,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-calcium-chloride-2",
-    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", 2}},
+    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(2)}},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
@@ -2362,7 +2443,7 @@ data:extend({
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.36,
         shift = {-10, -11}
@@ -2390,10 +2471,10 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-calcium-chloride-dehydration",
+    name = "nullius-calcium-chloride",
     localised_name = {"recipe-name.nullius-dehydration", {"item-name.nullius-calcium-chloride"}},
     enabled = false,
-	no_productivity = true,
+	  no_productivity = true,
     category = "distillation",
     order = "nullius-ic",
     crafting_machine_tint = {
@@ -2416,7 +2497,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-dehydration",
       {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
     enabled = false,
-	no_productivity = true,
+	  no_productivity = true,
     category = "distillation",
     subgroup = "boxed-calcium",
     order = "nullius-fc",
@@ -2439,7 +2520,7 @@ data:extend({
     name = "nullius-legacy-calcium-chloride-dehydration",
     localised_name = {"recipe-name.nullius-dehydration", {"item-name.nullius-calcium-chloride"}},
     enabled = false,
-	hidden = true,
+	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "distillation",
@@ -2464,7 +2545,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-dehydration",
       {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
     enabled = false,
-	hidden = true,
+	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     category = "distillation",
@@ -2493,7 +2574,7 @@ data:extend({
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
-		icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
+		icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
         icon_size = 32,
         scale = 0.4,
         shift = {-11, -12}
@@ -2520,7 +2601,7 @@ data:extend({
     name = "nullius-boxed-calcium-chloride-hydration",
     localised_name = {"recipe-name.nullius-hydration",
       {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
-	icons = {
+	  icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
@@ -2529,18 +2610,18 @@ data:extend({
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
-	    icon = "__angelspetrochem__/graphics/icons/solid-calcium-chloride.png",
+	    icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
         icon_size = 32,
         scale = 0.36,
         shift = {-10, -11}
       }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
+	  no_productivity = true,
+	  show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-	subgroup = "boxed-fluid",
+	  subgroup = "boxed-fluid",
     order = "nullius-cd",
     energy_required = 5,
     ingredients = {
@@ -2555,13 +2636,14 @@ data:extend({
     type = "recipe",
     name = "nullius-calcium-chloride-decomposition",
     localised_name = {"recipe-name.nullius-calcium-chloride-decomposition"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen-chloride.png",
         icon_size = 72,
         scale = 0.15,
         shift = {12, 12}
@@ -2593,12 +2675,12 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-lime.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen-chloride.png",
         icon_size = 72,
         scale = 0.13,
         shift = {11, 11}
@@ -2658,9 +2740,9 @@ data:extend({
     subgroup = "silicon-product",
     order = "nullius-d",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/powder-silica.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/powder-silica.png",
       icon_size = 64,
-      icon_mipmaps = 4
+      
     }},
     stack_size = 100
   },
@@ -2669,14 +2751,14 @@ data:extend({
     name = "nullius-rutile",
     subgroup = "titanium-product",
     order = "nullius-b",
-    icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-silica-1",
+    name = "nullius-silica",
     localised_name = {"recipe-name.nullius-silica-1"},
     enabled = false,
     category = "ore-flotation",
@@ -2695,16 +2777,17 @@ data:extend({
     type = "recipe",
     name = "nullius-silica-2",
     localised_name = {"recipe-name.nullius-silica-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-silica.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-silica.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {9, 9}
       }
@@ -2727,7 +2810,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-silica-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(1)},
     enabled = false,
     category = "ore-flotation",
     subgroup = "boxed-silicon",
@@ -2745,22 +2828,22 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-silica-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-silica.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-silica.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.23,
         shift = {8, 8}
       }
@@ -2822,7 +2905,7 @@ data:extend({
     type = "item",
     name = "nullius-glass",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/plate-glass.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/plate-glass.png",
       icon_size = 32,
       tint = {0.8, 0.8, 0.9}
     }},
@@ -2832,7 +2915,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-silica-glass",
+    name = "nullius-glass",
     localised_name = {"recipe-name.nullius-silica-glass"},
     show_amount_in_title = false,
     always_show_products = true,
@@ -2840,21 +2923,24 @@ data:extend({
     category = "machine-casting",
     order = "nullius-bb",
     energy_required = 30,
-    ingredients = {{"nullius-silica", 3}},
-    result = "nullius-glass"
+    ingredients = {{type="item", name="nullius-silica", amount = 3}},
+    results = {
+      {type = "item", name = "nullius-glass", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-soda-lime-glass-1",
     localised_name = {"recipe-name.nullius-soda-lime-glass-1"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/plate-glass.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/plate-glass.png",
         icon_size = 32,
         tint = {0.8, 0.8, 0.9}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32,
         scale = 0.4,
         shift = {10, -11}
@@ -2867,9 +2953,9 @@ data:extend({
     order = "nullius-bc",
     energy_required = 36,
     ingredients = {
-      {"nullius-silica", 9},
-      {"nullius-soda-ash", 2},
-      {"nullius-lime", 1}
+      {type="item", name="nullius-silica", amount = 9},
+      {type="item", name="nullius-soda-ash", amount = 2},
+      {type="item", name="nullius-lime", amount = 1}
     },
     results = {
       {type="item", name="nullius-glass", amount=6},
@@ -2881,14 +2967,15 @@ data:extend({
     type = "recipe",
     name = "nullius-soda-lime-glass-2",
     localised_name = {"recipe-name.nullius-soda-lime-glass-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/plate-glass.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/plate-glass.png",
         icon_size = 32,
         tint = {0.8, 0.8, 0.9}
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-oxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-oxide.png",
         icon_size = 32,
         scale = 0.4,
         shift = {10, -11}
@@ -2901,11 +2988,11 @@ data:extend({
     order = "nullius-bd",
     energy_required = 45,
     ingredients = {
-      {"nullius-silica", 12},
-      {"nullius-alumina", 3},
-      {"nullius-lime", 3},
-      {"nullius-soda-ash", 3},
-      {"nullius-sodium-sulfate", 1}
+      {type="item", name="nullius-silica", amount = 12},
+      {type="item", name="nullius-alumina", amount = 3},
+      {type="item", name="nullius-lime", amount = 3},
+      {type="item", name="nullius-soda-ash", amount = 3},
+      {type="item", name="nullius-sodium-sulfate", amount = 1}
     },
     results = {
       {type="item", name="nullius-glass", amount=16},
@@ -2923,11 +3010,11 @@ data:extend({
     subgroup = "boxed-glass",
     energy_required = 225,
     ingredients = {
-      {"nullius-box-silica", 12},
-      {"nullius-box-alumina", 3},
-      {"nullius-box-lime", 3},
-      {"nullius-box-soda-ash", 3},
-      {"nullius-box-sodium-sulfate", 1}
+      {type="item", name="nullius-box-silica", amount = 12},
+      {type="item", name="nullius-box-alumina", amount = 3},
+      {type="item", name="nullius-box-lime", amount = 3},
+      {type="item", name="nullius-box-soda-ash", amount = 3},
+      {type="item", name="nullius-box-sodium-sulfate", amount = 1}
     },
     results = {
       {type="item", name="nullius-box-glass", amount=16},
@@ -2940,7 +3027,7 @@ data:extend({
     type = "item",
     name = "nullius-hard-glass",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/plate-glass.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/plate-glass.png",
       icon_size = 32,
       tint = {1, 1, 1, 0.5}
     }},
@@ -2957,13 +3044,14 @@ data:extend({
     category = "dry-smelting",
     energy_required = 50,
     ingredients = {
-      {"nullius-silica", 5},
-      {"nullius-alumina", 3},
-      {"nullius-lime", 2},
-      {"nullius-acid-boric", 1}
+      {type="item", name="nullius-silica", amount = 5},
+      {type="item", name="nullius-alumina", amount = 3},
+      {type="item", name="nullius-lime", amount = 2},
+      {type="item", name="nullius-acid-boric", amount = 1}
     },
-    result = "nullius-hard-glass",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-hard-glass", amount = 4}
+    }
   },
   {
     type = "recipe",
@@ -2975,21 +3063,22 @@ data:extend({
     subgroup = "boxed-glass",
     energy_required = 50,
     ingredients = {
-      {"nullius-box-silica", 5},
-      {"nullius-box-alumina", 3},
-      {"nullius-box-lime", 2},
-      {"nullius-box-acid-boric", 1}
+      {type="item", name="nullius-box-silica", amount = 5},
+      {type="item", name="nullius-box-alumina", amount = 3},
+      {type="item", name="nullius-box-lime", amount = 2},
+      {type="item", name="nullius-box-acid-boric", amount = 1}
     },
-    result = "nullius-box-hard-glass",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-box-hard-glass", amount = 4}
+    }
   },
 
   {
     type = "item",
     name = "nullius-glass-fiber",
-    icon = "__angelssmelting__/graphics/icons/wire-coil-glass.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-glass.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "glass-product",
     order = "nullius-d",
     stack_size = 100
@@ -3098,7 +3187,7 @@ data:extend({
     subgroup = "masonry-material",
     order = "nullius-l",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/stone-crushed.png",
+      icon = "__angelsrefininggraphics__/graphics/icons/stone-crushed.png",
       icon_size = 32,
       tint = {r=0.95, g=0.85, b=0.75}
     }},
@@ -3111,7 +3200,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/icons/iron-plate.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {r=0.75, g=0.85, b=0.95}
     }},
     subgroup = "iron-product",
@@ -3124,7 +3213,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/icons/iron-stick.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {r=0.65, g=0.75, b=0.8}
     }},
     subgroup = "iron-product",
@@ -3134,7 +3223,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-steel-rod",
-    icon = "__angelssmelting__/graphics/icons/rod-steel.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/rod-steel.png",
     icon_size = 32,
     subgroup = "steel-product",
     order = "nullius-e",
@@ -3143,7 +3232,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-aluminum-rod",
-    icon = "__angelssmelting__/graphics/icons/rod-aluminium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/rod-aluminium.png",
     icon_size = 32,
     subgroup = "aluminum-product",
     order = "nullius-g",
@@ -3151,31 +3240,34 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-iron-rod-1",
+    name = "nullius-iron-rod",
+    localised_name = {"item-name.nullius-iron-rod"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 4,
     ingredients = {
-      {"nullius-iron-ingot", 4}
+      {type = "item", name = "nullius-iron-ingot", amount = 4}
     },
-    result = "nullius-iron-rod",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-iron-rod", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-iron-rod-2",
     localised_name = {"recipe-name.nullius-iron-rod-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/iron-stick.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {r=0.65, g=0.75, b=0.8}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen-chloride.png",
         icon_size = 72,
         scale = 0.16,
         shift = {11, -12}
@@ -3214,29 +3306,32 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-steel-rod-1",
+    name = "nullius-steel-rod",
+    localised_name = {"item-name.nullius-steel-rod"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 5,
     ingredients = {
-      {"nullius-steel-ingot", 4}
+      {type = "item", name = "nullius-steel-ingot", amount = 4}
     },
-    result = "nullius-steel-rod",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-steel-rod", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-steel-rod-2",
     localised_name = {"recipe-name.nullius-steel-rod-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/rod-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/rod-steel.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.18,
         shift = {-10, -11}
@@ -3275,25 +3370,28 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-aluminum-rod-1",
+    name = "nullius-aluminum-rod",
+    localised_name = {"item-name.nullius-aluminum-rod"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 4,
     ingredients = {
-      {"nullius-aluminum-ingot", 4}
+      {type = "item", name = "nullius-aluminum-ingot", amount = 4}
     },
-    result = "nullius-aluminum-rod",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-aluminum-rod", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-aluminum-rod-2",
     localised_name = {"recipe-name.nullius-aluminum-rod-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/rod-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/rod-aluminium.png",
         icon_size = 32
       },
       {
@@ -3339,7 +3437,7 @@ data:extend({
     name = "nullius-steel-beam",
     icon = "__base__/graphics/icons/steel-plate.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "steel-product",
     order = "nullius-l",
     stack_size = 100
@@ -3353,10 +3451,11 @@ data:extend({
     category = "machine-casting",
     energy_required = 2,
     ingredients = {
-      {"nullius-steel-ingot", 3}
+      {type = "item", name = "nullius-steel-ingot", amount = 3}
     },
-    result = "nullius-steel-beam",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-steel-beam", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -3368,16 +3467,17 @@ data:extend({
     subgroup = "boxed-steel",
     energy_required = 10,
     ingredients = {
-      {"nullius-box-steel-ingot", 3}
+      {type = "item", name = "nullius-box-steel-ingot", amount = 3}
     },
-    result = "nullius-box-steel-beam",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-steel-beam", amount = 2}
+    }
   },
 
   {
     type = "item",
     name = "nullius-aluminum-plate",
-    icon = "__angelssmelting__/graphics/icons/plate-aluminium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/plate-aluminium.png",
     icon_size = 32,
     subgroup = "aluminum-product",
     order = "nullius-f",
@@ -3386,7 +3486,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-steel-plate",
-    icon = "__angelssmelting__/graphics/icons/plate-steel.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/plate-steel.png",
     icon_size = 32,
     subgroup = "steel-product",
     order = "nullius-c",
@@ -3394,25 +3494,28 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-aluminum-plate-1",
+    name = "nullius-aluminum-plate",
+    localised_name = {"item-name.nullius-aluminum-plate"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 4,
     ingredients = {
-      {"nullius-aluminum-ingot", 4}
+      {type = "item", name = "nullius-aluminum-ingot", amount = 4}
     },
-    result = "nullius-aluminum-plate",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-aluminum-plate", amount = 3}
+    }
   },
   {
     type = "recipe",
     name = "nullius-aluminum-plate-2",
     localised_name = {"recipe-name.nullius-aluminum-plate-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/plate-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/plate-aluminium.png",
         icon_size = 32
       },
       {
@@ -3455,31 +3558,34 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-iron-plate-1",
+    name = "nullius-iron-plate",
+    localised_name = {"item-name.nullius-iron-plate"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 3,
     ingredients = {
-      {"nullius-iron-ingot", 4}
+      {type = "item", name = "nullius-iron-ingot", amount = 4}
     },
-    result = "nullius-iron-plate",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-iron-plate", amount = 3}
+    },
   },
   {
     type = "recipe",
     name = "nullius-iron-plate-2",
     localised_name = {"recipe-name.nullius-iron-plate-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/iron-plate.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {r=0.75, g=0.85, b=0.95}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen-chloride.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen-chloride.png",
         icon_size = 72,
         scale = 0.16,
         shift = {11, -12}
@@ -3518,29 +3624,32 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-steel-plate-1",
+    name = "nullius-steel-plate",
+    localised_name = {"item-name.nullius-steel-plate"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
     category = "machine-casting",
     energy_required = 4,
     ingredients = {
-      {"nullius-steel-ingot", 4}
+      {type = "item", name = "nullius-steel-ingot", amount = 4}
     },
-    result = "nullius-steel-plate",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-steel-plate", amount = 3}
+    }
   },
   {
     type = "recipe",
     name = "nullius-steel-plate-2",
     localised_name = {"recipe-name.nullius-steel-plate-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/plate-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/plate-steel.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.18,
         shift = {10, -11}
@@ -3580,9 +3689,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-iron-sheet",
-    icon = "__angelssmelting__/graphics/icons/roll-iron.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-iron.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "iron-product",
     order = "nullius-d",
     stack_size = 100
@@ -3591,9 +3700,9 @@ data:extend({
     type = "item",
     name = "nullius-steel-sheet",
     order = "nullius-f",
-    icon = "__angelssmelting__/graphics/icons/roll-steel.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-steel.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "steel-product",
     stack_size = 100
   },
@@ -3601,9 +3710,9 @@ data:extend({
     type = "item",
     name = "nullius-aluminum-sheet",
     order = "nullius-e",
-    icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-aluminium.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "aluminum-product",
     order = "nullius-h",
     stack_size = 100
@@ -3611,16 +3720,17 @@ data:extend({
   {
     type = "item",
     name = "nullius-copper-sheet",
-    icon = "__angelssmelting__/graphics/icons/roll-copper.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-copper.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "copper",
     order = "nullius-f",
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-iron-sheet-1",
+    name = "nullius-iron-sheet",
+    localised_name = {"item-name.nullius-iron-sheet"},
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -3628,25 +3738,27 @@ data:extend({
     always_show_products = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-iron-plate", 5}
+      {type = "item", name = "nullius-iron-plate", amount = 5}
     },
-    result = "nullius-iron-sheet",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-iron-sheet", amount = 6}
+    }
   },
   {
     type = "recipe",
     name = "nullius-iron-sheet-2",
     localised_name = {"recipe-name.nullius-iron-sheet-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/roll-iron.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-iron.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -3662,8 +3774,9 @@ data:extend({
       {type="item", name="nullius-iron-plate", amount=6},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-iron-sheet",
-    result_count = 8
+    results = {
+      {type = "item", name = "nullius-iron-sheet", amount = 8}
+    }
   },
   {
     type = "recipe",
@@ -3680,13 +3793,15 @@ data:extend({
       {type="item", name="nullius-box-iron-plate", amount=6},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-iron-sheet",
-    result_count = 8
+    results = {
+      {type = "item", name = "nullius-box-iron-sheet", amount = 8}
+    }
   },
 
   {
     type = "recipe",
-    name = "nullius-steel-sheet-1",
+    name = "nullius-steel-sheet",
+    localised_name = {"item-name.nullius-steel-sheet"},
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -3694,25 +3809,27 @@ data:extend({
     always_show_products = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-steel-plate", 5}
+      {type = "item", name = "nullius-steel-plate", amount = 5}
     },
-    result = "nullius-steel-sheet",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-steel-sheet", amount = 6}
+    }
   },
   {
     type = "recipe",
     name = "nullius-steel-sheet-2",
     localised_name = {"recipe-name.nullius-steel-sheet-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/roll-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -3728,8 +3845,9 @@ data:extend({
       {type="item", name="nullius-steel-plate", amount=5},
       {type="fluid", name="nullius-lubricant", amount=2}
     },
-    result = "nullius-steel-sheet",
-    result_count = 7
+    results = {
+      {type = "item", name = "nullius-steel-sheet", amount = 7}
+    }
   },
   {
     type = "recipe",
@@ -3746,13 +3864,15 @@ data:extend({
       {type="item", name="nullius-box-steel-plate", amount=5},
       {type="fluid", name="nullius-lubricant", amount=10}
     },
-    result = "nullius-box-steel-sheet",
-    result_count = 7
+    results = {
+      {type = "item", name = "nullius-box-steel-sheet", amount = 7}
+    }
   },
 
   {
     type = "recipe",
-    name = "nullius-aluminum-sheet-1",
+    name = "nullius-aluminum-sheet",
+    localised_name = {"item-name.nullius-aluminum-sheet"},
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -3760,25 +3880,27 @@ data:extend({
     always_show_products = true,
     energy_required = 4,
     ingredients = {
-      {"nullius-aluminum-plate", 4}
+      {type = "item", name = "nullius-aluminum-plate", amount = 4}
     },
-    result = "nullius-aluminum-sheet",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-aluminum-sheet", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-aluminum-sheet-2",
     localised_name = {"recipe-name.nullius-aluminum-sheet-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -3794,8 +3916,9 @@ data:extend({
       {type="item", name="nullius-aluminum-plate", amount=5},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-aluminum-sheet",
-    result_count = 7
+    results = {
+      {type = "item", name = "nullius-aluminum-sheet", amount = 7}
+    }
   },
   {
     type = "recipe",
@@ -3812,8 +3935,9 @@ data:extend({
       {type="item", name="nullius-box-aluminum-plate", amount=5},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-aluminum-sheet",
-    result_count = 7
+    results = {
+      {type = "item", name = "nullius-box-aluminum-sheet", amount = 7}
+    }
   },
 
   {
@@ -3822,7 +3946,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/icons/iron-gear-wheel.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {r=0.8, g=0.9, b=1}
     }},
     subgroup = "iron-product",
@@ -3839,11 +3963,12 @@ data:extend({
     always_show_products = true,
     energy_required = 4,
     ingredients = {
-      {"nullius-iron-plate", 2},
-      {"nullius-iron-rod", 1}
+      {type = "item", name = "nullius-iron-plate", amount = 2},
+      {type = "item", name = "nullius-iron-rod", amount = 1}
     },
-    result = "nullius-iron-gear",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-iron-gear", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -3856,11 +3981,12 @@ data:extend({
     always_show_products = true,
     energy_required = 20,
     ingredients = {
-      {"nullius-box-iron-plate", 2},
-      {"nullius-box-iron-rod", 1}
+      {type = "item", name = "nullius-box-iron-plate", amount = 2},
+      {type = "item", name = "nullius-box-iron-rod", amount = 1}
     },
-    result = "nullius-box-iron-gear",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-iron-gear", amount = 2}
+    }
   },
 
   {
@@ -3882,11 +4008,12 @@ data:extend({
     always_show_products = true,
     energy_required = 6,
     ingredients = {
-      {"nullius-steel-plate", 2},
-      {"nullius-steel-rod", 1}
+      {type = "item", name = "nullius-steel-plate", amount = 2},
+      {type = "item", name = "nullius-steel-rod", amount = 1}
     },
-    result = "nullius-steel-gear",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-steel-gear", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -3899,11 +4026,12 @@ data:extend({
     always_show_products = true,
     energy_required = 30,
     ingredients = {
-      {"nullius-box-steel-plate", 2},
-      {"nullius-box-steel-rod", 1}
+      {type = "item", name = "nullius-box-steel-plate", amount = 2},
+      {type = "item", name = "nullius-box-steel-rod", amount = 1}
     },
-    result = "nullius-box-steel-gear",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-steel-gear", amount = 2}
+    }
   },
 
   {
@@ -3911,9 +4039,9 @@ data:extend({
     name = "nullius-iron-wire",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-silver.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-silver.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {0.8, 0.825, 0.85}
       }
     },
@@ -3925,9 +4053,9 @@ data:extend({
     type = "item",
     name = "nullius-copper-wire",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/wire-coil-copper.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-copper.png",
       icon_size = 64,
-      icon_mipmaps = 4
+      
     }},
     subgroup = "copper",
     order = "nullius-g",
@@ -3938,9 +4066,9 @@ data:extend({
     name = "nullius-aluminum-wire",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-gold.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {r=0.8, g=0.9, b=1}
       }
     },
@@ -3953,9 +4081,9 @@ data:extend({
     name = "nullius-aluminum-powder",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
     subgroup = "aluminum-product",
@@ -3967,9 +4095,9 @@ data:extend({
     name = "nullius-steel-wire",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-platinum.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-platinum.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {r=0.75, g=0.875, b=1}
       }
     },
@@ -3980,7 +4108,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-steel-cable",
-    icon = "__angelssmelting__/graphics/icons/wire-silver.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
     icon_size = 32,
     subgroup = "steel-product",
     order = "nullius-i",
@@ -3988,7 +4116,8 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-iron-wire-1",
+    name = "nullius-iron-wire",
+    localised_name = {"item-name.nullius-iron-wire"},
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -3996,26 +4125,28 @@ data:extend({
     always_show_products = true,
     energy_required = 4,
     ingredients = {
-      {"nullius-iron-rod", 3}
+      {type = "item", name = "nullius-iron-rod", amount = 3}
     },
-    result = "nullius-iron-wire",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-iron-wire", amount = 4}
+    }
   },
   {
     type = "recipe",
     name = "nullius-iron-wire-2",
     localised_name = {"recipe-name.nullius-iron-wire-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-silver.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-silver.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {0.8, 0.825, 0.85}
       },
       {
         icon = "__base__/graphics/icons/fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -4031,8 +4162,9 @@ data:extend({
       {type="item", name="nullius-iron-rod", amount=5},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-iron-wire",
-    result_count = 8
+    results = {
+      {type = "item", name = "nullius-iron-wire", amount = 8}
+    }
   },
   {
     type = "recipe",
@@ -4049,13 +4181,15 @@ data:extend({
       {type="item", name="nullius-box-iron-rod", amount=5},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-iron-wire",
-    result_count = 8
+    results = {
+      {type = "item", name = "nullius-box-iron-wire", amount = 8}
+    }
   },
 
   {
     type = "recipe",
-    name = "nullius-aluminum-wire-1",
+    name = "nullius-aluminum-wire",
+    localised_name = {"item-name.nullius-aluminum-wire"},
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -4063,26 +4197,28 @@ data:extend({
     always_show_products = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-aluminum-rod", 5}
+      {type = "item", name = "nullius-aluminum-rod", amount = 5}
     },
-    result = "nullius-aluminum-wire",
-    result_count = 7
+    results = {
+      {type = "item", name = "nullius-aluminum-wire", amount = 7}
+    }
   },
   {
     type = "recipe",
     name = "nullius-aluminum-wire-2",
     localised_name = {"recipe-name.nullius-aluminum-wire-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-gold.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {r=0.8, g=0.9, b=1}
       },
       {
         icon = "__base__/graphics/icons/fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -4098,8 +4234,9 @@ data:extend({
       {type="item", name="nullius-aluminum-rod", amount=6},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-aluminum-wire",
-    result_count = 10
+    results = {
+      {type = "item", name = "nullius-aluminum-wire", amount = 10}
+    }
   },
   {
     type = "recipe",
@@ -4116,8 +4253,9 @@ data:extend({
       {type="item", name="nullius-box-aluminum-rod", amount=6},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-aluminum-wire",
-    result_count = 10
+    results = {
+      {type = "item", name = "nullius-box-aluminum-wire", amount = 10}
+    }
   },
   {
     type = "recipe",
@@ -4132,8 +4270,9 @@ data:extend({
 	  {type="item", name="nullius-aluminum-wire", amount=2},
       {type="fluid", name="nullius-nitrogen", amount=12}
     },
-    result = "nullius-aluminum-powder",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-aluminum-powder", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -4150,8 +4289,9 @@ data:extend({
       {type="item", name="nullius-box-aluminum-wire", amount=2},
       {type="fluid", name="nullius-nitrogen", amount=60}
     },
-    result = "nullius-box-aluminum-powder",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-box-aluminum-powder", amount = 3}
+    }
   },
 
   {
@@ -4166,8 +4306,9 @@ data:extend({
       {type="item", name="nullius-steel-rod", amount=2},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-steel-wire",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-steel-wire", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -4182,8 +4323,9 @@ data:extend({
       {type="item", name="nullius-box-steel-rod", amount=2},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-steel-wire",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-box-steel-wire", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -4197,8 +4339,9 @@ data:extend({
       {type="item", name="nullius-steel-wire", amount=7},
       {type="fluid", name="nullius-lubricant", amount=2, fluidbox_index=1}
     },
-    result = "nullius-steel-cable",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-steel-cable", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -4213,13 +4356,14 @@ data:extend({
       {type="item", name="nullius-box-steel-wire", amount=7},
       {type="fluid", name="nullius-lubricant", amount=10, fluidbox_index=1}
     },
-    result = "nullius-box-steel-cable",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-steel-cable", amount = 2}
+    }
   },
   {
     type = "recipe",
     name = "nullius-insulated-wire-1",
-    localised_name = {"", {"item-name.nullius-insulated-wire"}, " ", 1},
+    localised_name = {"", {"item-name.nullius-insulated-wire"}, " ", tostring(1)},
     enabled = false,
     category = "small-crafting",
     always_show_made_in = true,
@@ -4227,16 +4371,17 @@ data:extend({
     always_show_products = true,
     energy_required = 6,
     ingredients = {
-      {"nullius-aluminum-wire", 3},
-      {"nullius-rubber", 2}
+      {type = "item", name = "nullius-aluminum-wire", amount = 3},
+      {type = "item", name = "nullius-rubber", amount = 2}
     },
-    result = "copper-cable",
-    result_count = 4
+    results = {
+      {type = "item", name = "copper-cable", amount = 4}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-insulated-wire-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-insulated-wire"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-insulated-wire"}}, " ", tostring(1)},
     enabled = false,
     category = "large-assembly",
     subgroup = "boxed-electrical",
@@ -4245,26 +4390,28 @@ data:extend({
     always_show_products = true,
     energy_required = 30,
     ingredients = {
-      {"nullius-box-aluminum-wire", 3},
-      {"nullius-box-rubber", 2}
+      {type = "item", name = "nullius-box-aluminum-wire", amount = 3},
+      {type = "item", name = "nullius-box-rubber", amount = 2}
     },
-    result = "nullius-box-insulated-wire",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-box-insulated-wire", amount = 4}
+    }
   },
   {
     type = "recipe",
     name = "nullius-insulated-wire-2",
-    localised_name = {"", {"item-name.nullius-insulated-wire"}, " ", 2},
-	icons = {
+    localised_name = {"", {"item-name.nullius-insulated-wire"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
+	  icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-tin.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-		icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+		icon = "__angelssmeltinggraphics__/graphics/icons/ingot-copper.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {12, -10}
       }
@@ -4276,31 +4423,32 @@ data:extend({
     category = "small-crafting",
     energy_required = 4,
     ingredients = {
-      {"nullius-copper-wire", 1},
-      {"nullius-rubber", 2}
+      {type = "item", name = "nullius-copper-wire", amount = 1},
+      {type = "item", name = "nullius-rubber", amount = 2}
     },
-    result = "copper-cable",
-    result_count = 6
+    results = {
+      {type = "item", name = "copper-cable", amount = 6}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-insulated-wire-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-insulated-wire"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-insulated-wire"}}, " ", tostring(2)},
 	icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/wire-coil-tin.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-tin.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.45
       },
       {
-		icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+		icon = "__angelssmeltinggraphics__/graphics/icons/ingot-copper.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.22,
         shift = {11, -9}
       }
@@ -4313,20 +4461,21 @@ data:extend({
     subgroup = "boxed-electrical",
     energy_required = 20,
     ingredients = {
-      {"nullius-box-copper-wire", 1},
-      {"nullius-box-rubber", 2}
+      {type = "item", name = "nullius-box-copper-wire", amount = 1},
+      {type = "item", name = "nullius-box-rubber", amount = 2}
     },
-    result = "nullius-box-insulated-wire",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-insulated-wire", amount = 6}
+    }
   },
 
   {
     type = "item",
     name = "nullius-optical-cable",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/wire-coil-gold.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/wire-coil-gold.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {1, 0.6, 1}
     }},
     subgroup = "electronic-intermediate",
@@ -4340,13 +4489,15 @@ data:extend({
     category = "small-fluid-assembly",
     energy_required = 3,
     ingredients = {
-      {type="item", name="red-wire", amount=2},
+      {type="item", name="nullius-red-wire", amount=2},
       {type="item", name="nullius-glass-fiber", amount=1},
       {type="item", name="nullius-plastic", amount=1},
       {type="fluid", name="nullius-epoxy", amount=1},
       {type="fluid", name="nullius-argon", amount=1}
     },
-    result = "nullius-optical-cable"
+    results = {
+      {type = "item", name = "nullius-optical-cable", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4362,7 +4513,9 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=5},
       {type="fluid", name="nullius-argon", amount=5}
     },
-    result = "nullius-box-optical-cable"
+    results = {
+      {type = "item", name = "nullius-box-optical-cable", amount = 1}
+    }
   },
 
   {
@@ -4379,7 +4532,7 @@ data:extend({
     name = "nullius-motor-2",
     icon = "__base__/graphics/icons/electric-engine-unit.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "mechanical-intermediate",
     order = "nullius-dc",
     stack_size = 50
@@ -4401,12 +4554,14 @@ data:extend({
     always_show_made_in = true,
     energy_required = 8,
     ingredients = {
-      {"nullius-iron-wire", 2},
-      {"nullius-iron-plate", 1},
-      {"nullius-plastic", 1},
-      {"nullius-iron-rod", 1}
+      {type = "item", name = "nullius-iron-wire", amount = 2},
+      {type = "item", name = "nullius-iron-plate", amount = 1},
+      {type = "item", name = "nullius-plastic", amount = 1},
+      {type = "item", name = "nullius-iron-rod", amount = 1}
     },
-    result = "nullius-motor-1"
+    results = {
+      {type = "item", name = "nullius-motor-1", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4418,11 +4573,13 @@ data:extend({
     always_show_made_in = true,
     energy_required = 30,
     ingredients = {
-      {"nullius-box-insulated-wire", 1},
-      {"nullius-box-iron-plate", 1},
-      {"nullius-box-iron-rod", 1}
+      {type = "item", name = "nullius-box-insulated-wire", amount = 1},
+      {type = "item", name = "nullius-box-iron-plate", amount = 1},
+      {type = "item", name = "nullius-box-iron-rod", amount = 1}
     },
-    result = "nullius-box-motor-1"
+    results = {
+      {type = "item", name = "nullius-box-motor-1", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4437,7 +4594,9 @@ data:extend({
       {type="item", name="nullius-steel-rod", amount=1},
       {type="fluid", name="nullius-lubricant", amount=5, fluidbox_index=1}
     },
-    result = "nullius-motor-2"
+    results = {
+      {type = "item", name = "nullius-motor-2", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4454,7 +4613,9 @@ data:extend({
       {type="item", name="nullius-box-steel-rod", amount=1},
       {type="fluid", name="nullius-lubricant", amount=30, fluidbox_index=1}
     },
-    result = "nullius-box-motor-2"
+    results = {
+      {type = "item", name = "nullius-box-motor-2", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4471,7 +4632,9 @@ data:extend({
       {type="item", name="nullius-bearing", amount=1},
       {type="fluid", name="nullius-epoxy", amount=5, fluidbox_index=1}
     },
-    result = "nullius-motor-3"
+    results = {
+      {type = "item", name = "nullius-motor-3", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -4490,27 +4653,29 @@ data:extend({
       {type="item", name="nullius-box-bearing", amount=1},
       {type="fluid", name="nullius-epoxy", amount=25, fluidbox_index=1}
     },
-    result = "nullius-box-motor-3"
+    results = {
+      {type = "item", name = "nullius-box-motor-3", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-refractory-brick",
-    icon = "__angelssmelting__/graphics/icons/brick-clay.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/brick-clay.png",
     icon_size = 32,
     subgroup = "masonry",
     order = "nullius-c",
     stack_size = 500,
     place_as_tile = {
-      result = "clay-bricks",
+      result = "nullius-tile-clay-brick",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
     type = "recipe",
-    name = "nullius-refractory-brick-1",
-    localised_name = {"", {"item-name.nullius-refractory-brick"}, " ", 1},
+    name = "nullius-refractory-brick",
+    localised_name = {"", {"item-name.nullius-refractory-brick"}, " ", tostring(1)},
     order = "nullius-cb",
     enabled = false,
     show_amount_in_title = false,
@@ -4518,24 +4683,26 @@ data:extend({
     category = "dry-smelting",
     energy_required = 15,
     ingredients = {
-      {"nullius-silica", 3}
+      {type = "item", name = "nullius-silica", amount = 3}
     },
-    result = "nullius-refractory-brick",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-refractory-brick", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-refractory-brick-2",
-    localised_name = {"", {"item-name.nullius-refractory-brick"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-refractory-brick"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/brick-clay.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/brick-clay.png",
         icon_size = 32
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-platinum.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-10, -12}
       }
@@ -4547,10 +4714,11 @@ data:extend({
     category = "dry-smelting",
     energy_required = 8,
     ingredients = {
-      {"nullius-ceramic-powder", 2}
+      {type = "item", name = "nullius-ceramic-powder", amount = 2}
     },
-    result = "nullius-refractory-brick",
-    result_count = 12
+    results = {
+      {type = "item", name = "nullius-refractory-brick", amount = 12}
+    }
   },
   {
     type = "recipe",
@@ -4562,17 +4730,18 @@ data:extend({
     subgroup = "boxed-terrain",
     energy_required = 8,
     ingredients = {
-      {"nullius-box-ceramic-powder", 2}
+      {type = "item", name = "nullius-box-ceramic-powder", amount = 2}
     },
-    result = "nullius-box-refractory-brick",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-refractory-brick", amount = 6}
+    }
   },
 
   {
     type = "item",
     name = "nullius-crucible",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/silicon-crucible.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/silicon-crucible.png",
       icon_size = 32,
       tint = {1, 1, 1, 0.6}
     }},
@@ -4583,7 +4752,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-crucible",
-	localised_name = {"", {"item-name.nullius-crucible"}, " ", 1},
+	  localised_name = {"", {"item-name.nullius-crucible"}, " ", tostring(1)},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -4591,24 +4760,27 @@ data:extend({
     category = "machine-casting",
     energy_required = 50,
     ingredients = {
-      {"nullius-silica", 12}
+      {type = "item", name = "nullius-silica", amount = 12}
     },
-    result = "nullius-crucible"
+    results = {
+      {type = "item", name = "nullius-crucible", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-crucible-2",
-    localised_name = {"", {"item-name.nullius-crucible"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-crucible"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/silicon-crucible.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/silicon-crucible.png",
         icon_size = 32,
         tint = {1, 1, 1, 0.6}
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-platinum.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-10, -12}
       }
@@ -4636,9 +4808,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-aluminum-carbide",
-    icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "aluminum-ingot",
     order = "nullius-f",
     stack_size = 100
@@ -4646,7 +4818,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-alumina",
-    icon = "__angelssmelting__/graphics/icons/solid-aluminium-oxide.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-oxide.png",
     icon_size = 32,
     subgroup = "aluminum-ingot",
     order = "nullius-e",
@@ -4655,10 +4827,10 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-bauxite-flotation-1",
-    localised_name = {"", {"item-name.nullius-aluminum-hydroxide"}, " ", 1},
+    localised_name = {"", {"item-name.nullius-aluminum-hydroxide"}, " ", tostring(1)},
     enabled = false,
     category = "ore-flotation",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     order = "nullius-db",
     energy_required = 5,
     ingredients = {
@@ -4674,7 +4846,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-bauxite-flotation-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", tostring(1)},
     enabled = false,
     category = "ore-flotation",
     subgroup = "boxed-aluminum-1",
@@ -4693,14 +4865,15 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-bauxite-flotation-2",
-    localised_name = {"", {"item-name.nullius-aluminum-hydroxide"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-aluminum-hydroxide"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-hydroxide.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.19,
         shift = {10, -11}
@@ -4708,7 +4881,7 @@ data:extend({
     },
     enabled = false,
     category = "ore-flotation",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     order = "nullius-dc",
     energy_required = 7,
     ingredients = {
@@ -4726,19 +4899,19 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-bauxite-flotation-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-hydroxide.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/sulfuric-acid.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/sulfuric-acid.png",
         icon_size = 72,
         scale = 0.17,
         shift = {9, -10}
@@ -4770,22 +4943,24 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "dry-smelting",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     order = "nullius-eb",
     energy_required = 2,
     ingredients = {
-      {"nullius-aluminum-hydroxide", 4}
+      {type = "item", name = "nullius-aluminum-hydroxide", amount = 4}
     },
-    result = "nullius-alumina",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-alumina", amount = 3}
+    }
   },
   {
     type = "recipe",
     name = "nullius-alumina-2",
     localised_name = {"recipe-name.nullius-alumina-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-oxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-oxide.png",
         icon_size = 32
       },
       {
@@ -4797,7 +4972,7 @@ data:extend({
     },
     enabled = false,
     category = "wet-smelting",
-	subgroup = "alumina",
+	  subgroup = "alumina",
     order = "nullius-ec",
     energy_required = 2,
     ingredients = {
@@ -4835,13 +5010,13 @@ data:extend({
     localised_name = {"recipe-name.nullius-aluminum-carbide-reprocessing"},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-hydroxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-hydroxide.png",
         icon_size = 32
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {10, -10}
       }
@@ -4867,15 +5042,15 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-aluminum-ingot-1",
+    name = "nullius-aluminum-ingot",
     localised_name = {"recipe-name.nullius-aluminum-ingot-1"},
     enabled = false,
     category = "dry-smelting",
     order = "nullius-gb",
     energy_required = 10,
     ingredients = {
-      {"nullius-alumina", 9},
-      {"nullius-graphite", 5}
+      {type = "item", name = "nullius-alumina", amount = 9},
+      {type = "item", name = "nullius-graphite", amount = 5}
     },
     results = {
       {type="item", name="nullius-aluminum-ingot", amount=3},
@@ -4887,16 +5062,17 @@ data:extend({
     type = "recipe",
     name = "nullius-aluminum-ingot-2",
     localised_name = {"recipe-name.nullius-aluminum-ingot-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {9, -9}
       }
@@ -4906,8 +5082,8 @@ data:extend({
     order = "nullius-gc",
     energy_required = 25,
     ingredients = {
-      {"nullius-aluminum-carbide", 5},
-      {"nullius-alumina", 4}
+      {type = "item", name = "nullius-aluminum-carbide", amount = 5},
+      {type = "item", name = "nullius-alumina", amount = 4}
     },
     results = {
       {type="item", name="nullius-aluminum-ingot", amount=9},
@@ -4918,22 +5094,21 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-aluminum-carbide",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", 1},
-	icons = {
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", tostring(1)},
+	  icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
-		icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
+		    icon_size = 64,
+		    scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/solid-aluminium-oxide.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-aluminium-oxide.png",
         icon_size = 32,
-		scale = 0.5,
+		    scale = 0.5,
         shift = {-6, -6}
       }
     },
@@ -4943,8 +5118,8 @@ data:extend({
     order = "nullius-gbb",
     energy_required = 10,
     ingredients = {
-      {"nullius-box-alumina", 9},
-      {"nullius-box-graphite", 5}
+      {type = "item", name = "nullius-box-alumina", amount = 9},
+      {type = "item", name = "nullius-box-graphite", amount = 5}
     },
     results = {
       {type="item", name="nullius-box-aluminum-ingot", amount=3},
@@ -4955,15 +5130,15 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-aluminum-ingot-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", tostring(1)},
     enabled = false,
     category = "bulk-smelting",
     subgroup = "boxed-aluminum-2",
     order = "nullius-gc",
     energy_required = 25,
     ingredients = {
-      {"nullius-box-aluminum-carbide", 5},
-      {"nullius-box-alumina", 4}
+      {type = "item", name = "nullius-box-aluminum-carbide", amount = 5},
+      {type = "item", name = "nullius-box-alumina", amount = 4}
     },
     results = {
       {type="item", name="nullius-box-aluminum-ingot", amount=9},
@@ -4974,15 +5149,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-aluminum-ingot-3",
-    localised_name = {"", {"item-name.nullius-aluminum-ingot"}, " ", 3},
+    localised_name = {"", {"item-name.nullius-aluminum-ingot"}, " ", tostring(3)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32,
         scale = 0.5,
         shift = {9, -9}
@@ -5009,20 +5185,20 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-aluminum-ingot-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32,
         scale = 0.4,
         shift = {8, -8}
@@ -5052,18 +5228,19 @@ data:extend({
     name = "nullius-aluminum-ingot-electrolytic",
     localised_name = {"recipe-name.nullius-electrolytic",
 	    {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}},
+	  hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.5
       },
 	  {
         icon = ICONPATH .. "salt.png",
         icon_size = 64,
         tint = {0.4, 0.6, 0.8},
-		scale = 0.23,
+		    scale = 0.23,
         shift = {9, -10}
       }
     },
@@ -5086,61 +5263,62 @@ data:extend({
     type = "recipe",
     name = "nullius-aluminum-carbide",
     enabled = false,
-	show_amount_in_title = false,
+	  show_amount_in_title = false,
     always_show_products = true,
-	no_productivity = true,
+	  no_productivity = true,
+	  hide_from_signal_gui = false,
     category = "dry-smelting",
     order = "nullius-hb",
     energy_required = 2,
     ingredients = {
-      {"nullius-aluminum-powder", 20},
-      {"nullius-graphite", 2}
+      {type = "item", name = "nullius-aluminum-powder", amount = 20},
+      {type = "item", name = "nullius-graphite", amount = 2}
     },
-	result = "nullius-aluminum-carbide",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-aluminum-carbide", amount = 3}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-aluminum-carbide-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", 2},
-	icons = {
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", tostring(2)},
+	  icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
-		icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.45
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
+		    icon_size = 64,
+		    scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.27,
+		    scale = 0.27,
         shift = {-6, -6}
       }
     },
     enabled = false,
-	show_amount_in_title = false,
+	  show_amount_in_title = false,
     always_show_products = true,
-	no_productivity = true,
+	  no_productivity = true,
     category = "bulk-smelting",
-	subgroup = "boxed-aluminum-2",
+	  subgroup = "boxed-aluminum-2",
     order = "nullius-gbc",
     energy_required = 2,
     ingredients = {
-      {"nullius-box-aluminum-powder", 20},
-      {"nullius-box-graphite", 2}
+      {type = "item", name = "nullius-box-aluminum-powder", amount = 20},
+      {type = "item", name = "nullius-box-graphite", amount = 2}
     },
-	result = "nullius-box-aluminum-carbide",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-box-aluminum-carbide", amount = 3}
+    }
   },
 
   {
     type = "recipe",
-    name = "nullius-silicon-ingot-1",
+    name = "nullius-silicon-ingot",
     localised_name = {"recipe-name.nullius-silicon-ingot-1"},
     enabled = false,
     show_amount_in_title = false,
@@ -5148,25 +5326,27 @@ data:extend({
     category = "dry-smelting",
     energy_required = 10,
     ingredients = {
-      {"nullius-silica", 5},
-      {"nullius-graphite", 2}
+      {type = "item", name = "nullius-silica", amount = 5},
+      {type = "item", name = "nullius-graphite", amount = 2}
     },
-    result = "nullius-silicon-ingot",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-silicon-ingot", amount = 3}
+    }
   },
   {
     type = "recipe",
     name = "nullius-silicon-ingot-2",
     localised_name = {"recipe-name.nullius-silicon-ingot-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-silicon.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-silicon.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         tint = {1, 0.925, 0.85}
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/oxygen.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/oxygen.png",
         icon_size = 72,
         scale = 0.22,
         shift = {9, -12}
@@ -5209,7 +5389,7 @@ data:extend({
     type = "item",
     name = "nullius-polycrystalline-silicon",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/silicon-mono.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/silicon-mono.png",
       icon_size = 32,
       tint = {0.8, 0.75, 0.7, 0.9}
     }},
@@ -5232,7 +5412,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-polycrystalline-silicon",
-    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", 1},
+    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", tostring(1)},
     enabled = false,
     category = "basic-chemistry",
     order = "nullius-fb",
@@ -5256,7 +5436,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-polycrystalline-silicon",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", tostring(1)},
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-silicon",
@@ -5281,10 +5461,11 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-polycrystalline-silicon-2",
-    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-polycrystalline-silicon"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
 	  {
-        icon = "__angelssmelting__/graphics/icons/silicon-mono.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/silicon-mono.png",
         icon_size = 32,
         tint = {0.8, 0.75, 0.7, 0.9}
       },
@@ -5293,7 +5474,7 @@ data:extend({
         icon_size = 64,
         scale = 0.2,
         shift = {-11, -11},
-	    tint = {164, 140, 204}
+	      tint = {164, 140, 204}
       }
     },
     enabled = false,
@@ -5319,24 +5500,24 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-polycrystalline-silicon-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
 	  {
-        icon = "__angelssmelting__/graphics/icons/silicon-mono.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/silicon-mono.png",
         icon_size = 32,
         tint = {0.8, 0.75, 0.7, 0.9},
-		scale = 0.9
+		    scale = 0.9
       },
       {
         icon = FLUIDPATH .. "atom.png",
         icon_size = 64,
         scale = 0.18,
         shift = {-10, -10},
-	    tint = {164, 140, 204}
+	      tint = {164, 140, 204}
       }
     },
     enabled = false,
@@ -5372,8 +5553,9 @@ data:extend({
       {type="item", name="nullius-polycrystalline-silicon", amount=5},
       {type="fluid", name="nullius-argon", amount=10, fluidbox_index=1}
     },
-    result = "nullius-monocrystalline-silicon",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-monocrystalline-silicon", amount = 3}
+    }
   },
   {
     type = "recipe",
@@ -5388,8 +5570,9 @@ data:extend({
       {type="item", name="nullius-box-polycrystalline-silicon", amount=5},
       {type="fluid", name="nullius-argon", amount=50, fluidbox_index=1}
     },
-    result = "nullius-box-monocrystalline-silicon",
-    result_count = 3
+    results = {
+      {type = "item", name = "nullius-box-monocrystalline-silicon", amount = 3}
+    }
   },
 
   {
@@ -5403,7 +5586,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-empty-canister",
+    name = "nullius-canister",
     enabled = false,
     category = "hand-casting",
     always_show_made_in = true,
@@ -5411,12 +5594,13 @@ data:extend({
     always_show_products = true,
     energy_required = 8,
     ingredients = {
-      {type="item", name="empty-barrel", amount=1},
+      {type="item", name="barrel", amount=1},
       {type="item", name="nullius-aluminum-sheet", amount=2},
-      {type="item", name="nullius-top-up-valve", amount=1}
+      {type="item", name="nullius-one-way-valve", amount=1}
     },
-    result = "nullius-canister",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-canister", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -5431,10 +5615,11 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-barrel", amount=1},
       {type="item", name="nullius-box-aluminum-sheet", amount=2},
-      {type="item", name="nullius-box-top-up-valve", amount=1}
+      {type="item", name="nullius-box-one-way-valve", amount=1}
     },
-    result = "nullius-box-canister",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-canister", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -5444,17 +5629,18 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-	hidden = true,
+	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     energy_required = 7,
     ingredients = {
-      {type="item", name="empty-barrel", amount=1},
+      {type="item", name="barrel", amount=1},
       {type="item", name="nullius-aluminum-sheet", amount=2},
-      {type="item", name="nullius-top-up-valve", amount=1}
+      {type="item", name="nullius-one-way-valve", amount=1}
     },
-    result = "nullius-canister",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-canister", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -5465,24 +5651,25 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-	hidden = true,
+	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
     energy_required = 35,
     ingredients = {
       {type="item", name="nullius-box-barrel", amount=1},
       {type="item", name="nullius-box-aluminum-sheet", amount=2},
-      {type="item", name="nullius-box-top-up-valve", amount=1}
+      {type="item", name="nullius-box-one-way-valve", amount=1}
     },
-    result = "nullius-box-canister",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-canister", amount = 5}
+    }
   },
 
   {
     type = "item",
     name = "nullius-filter-1",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/filter-coal.png",
+      icon = "__angelsrefininggraphics__/graphics/icons/filter-coal.png",
       icon_size = 32
     }},
     subgroup = "mechanical-intermediate",
@@ -5508,7 +5695,9 @@ data:extend({
       {type="item", name="nullius-iron-sheet", amount=1},
       {type="fluid", name="nullius-carbon-dioxide", amount=10, fluidbox_index=3}
     },
-    result = "nullius-filter-1"
+    results = {
+      {type = "item", name = "nullius-filter-1", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -5530,21 +5719,24 @@ data:extend({
       {type="item", name="nullius-box-iron-sheet", amount=1},
       {type="fluid", name="nullius-carbon-dioxide", amount=50, fluidbox_index=3}
     },
-    result = "nullius-box-filter-1"
+    results = {
+      {type = "item", name = "nullius-box-filter-1", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-pressure-filter-1",
     localised_name = {"recipe-name.nullius-pressure", {"item-name.nullius-filter-1"}},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelsrefining__/graphics/icons/filter-coal.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/filter-coal.png",
         icon_size = 32
       },
       {
-        icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.3,
         shift = {11, -10}
       }
@@ -5565,8 +5757,9 @@ data:extend({
       {type="item", name="nullius-aluminum-sheet", amount=1},
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=4, fluidbox_index=3}
     },
-    result = "nullius-filter-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-filter-1", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -5578,14 +5771,14 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/filter-coal.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/filter-coal.png",
         icon_size = 32,
         scale = 0.9
       },
       {
-        icon = "__angelssmelting__/graphics/icons/roll-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.25,
         shift = {10, -9}
       }
@@ -5607,15 +5800,16 @@ data:extend({
       {type="item", name="nullius-box-aluminum-sheet", amount=1},
       {type="fluid", name="nullius-compressed-carbon-dioxide", amount=20, fluidbox_index=3}
     },
-    result = "nullius-box-filter-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-filter-1", amount = 2}
+    }
   },
 
   {
     type = "item",
     name = "nullius-filter-2",
     icons = {{
-      icon = "__angelsrefining__/graphics/icons/filter-ceramic.png",
+      icon = "__angelsrefininggraphics__/graphics/icons/filter-ceramic.png",
       icon_size = 32
     }},
     subgroup = "mechanical-intermediate",
@@ -5638,7 +5832,9 @@ data:extend({
       {type="item", name="nullius-textile", amount=2},
       {type="item", name="nullius-alumina", amount=3}
     },
-    result = "nullius-filter-2"
+    results = {
+      {type = "item", name = "nullius-filter-2", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -5658,13 +5854,15 @@ data:extend({
       {type="item", name="nullius-box-textile", amount=2},
       {type="item", name="nullius-box-alumina", amount=3}
     },
-    result = "nullius-box-filter-2"
+    results = {
+      {type = "item", name = "nullius-box-filter-2", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-cement",
-    icon = "__angelssmelting__/graphics/icons/solid-cement.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/solid-cement.png",
     icon_size = 32,
     subgroup = "masonry-material",
     order = "nullius-cb",
@@ -5673,7 +5871,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-mortar",
-    icon = "__angelsrefining__/graphics/icons/solid-sand.png",
+    icon = "__angelsrefininggraphics__/graphics/icons/solid-sand.png",
     icon_size = 32,
     subgroup = "masonry-material",
     order = "nullius-cd",
@@ -5681,7 +5879,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-cement-1",
+    name = "nullius-cement",
     localised_name = {"recipe-name.nullius-cement-1"},
     enabled = false,
     show_amount_in_title = false,
@@ -5693,20 +5891,22 @@ data:extend({
       {type="item", name="nullius-silica", amount=4},
       {type="item", name="nullius-aluminum-hydroxide", amount=1}
     },
-    result = "nullius-cement",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-cement", amount = 4}
+    }
   },
   {
     type = "recipe",
     name = "nullius-cement-2",
     localised_name = {"recipe-name.nullius-cement-2"},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/solid-cement.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/solid-cement.png",
         icon_size = 32
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32,
         scale = 0.45,
         shift = {-10, -10}
@@ -5726,8 +5926,9 @@ data:extend({
       {type="item", name="nullius-iron-oxide", amount=2},
       {type="item", name="nullius-soda-ash", amount=1}
     },
-    result = "nullius-cement",
-    result_count = 16
+    results = {
+      {type = "item", name = "nullius-cement", amount = 16}
+    }
   },
   {
     type = "recipe",
@@ -5746,8 +5947,9 @@ data:extend({
       {type="item", name="nullius-box-iron-oxide", amount=2},
       {type="item", name="nullius-box-soda-ash", amount=1}
     },
-    result = "nullius-box-cement",
-    result_count = 16
+    results = {
+      {type = "item", name = "nullius-box-cement", amount = 16}
+    }
   },
 
   {
@@ -5764,8 +5966,9 @@ data:extend({
       {type="item", name="nullius-sand", amount=5},
       {type="fluid", name="nullius-water", amount=8, fluidbox_index=1}
     },
-    result = "nullius-mortar",
-    result_count = 4
+    results = {
+      {type = "item", name = "nullius-mortar", amount = 4}
+    }
   },
   {
     type = "recipe",
@@ -5777,7 +5980,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelsrefining__/graphics/icons/solid-sand.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/solid-sand.png",
         icon_size = 32,
         scale = 0.9
       }
@@ -5795,14 +5998,15 @@ data:extend({
       {type="item", name="nullius-box-sand", amount=5},
       {type="fluid", name="nullius-water", amount=40, fluidbox_index=1}
     },
-    result = "nullius-mortar",
-    result_count = 20
+    results = {
+      {type = "item", name = "nullius-mortar", amount = 20}
+    }
   },
 
   {
     type = "recipe",
     name = "nullius-concrete-1",
-    localised_name = {"", {"item-name.concrete"}, " ", 1},
+    localised_name = {"", {"item-name.concrete"}, " ", tostring(1)},
     order = "nullius-bb",
     enabled = false,
     show_amount_in_title = false,
@@ -5815,18 +6019,20 @@ data:extend({
       {type="item", name="nullius-gravel", amount=4},
       {type="fluid", name="nullius-water", amount=6, fluidbox_index=1}
     },
-    result = "concrete",
-    result_count = 5
+    results = {
+      {type = "item", name = "concrete", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-concrete-2",
-    localised_name = {"", {"item-name.concrete"}, " ", 2},
+    localised_name = {"", {"item-name.concrete"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "fluid/calcium-chloride.png",
@@ -5848,8 +6054,9 @@ data:extend({
       {type="fluid", name="nullius-calcium-chloride-solution", amount=5},
       {type="fluid", name="nullius-water", amount=15}
     },
-    result = "concrete",
-    result_count = 20
+    results = {
+      {type = "item", name = "concrete", amount = 20}
+    }
   },
   {
     type = "recipe",
@@ -5868,13 +6075,15 @@ data:extend({
       {type="fluid", name="nullius-calcium-chloride-solution", amount=25},
       {type="fluid", name="nullius-water", amount=75}
     },
-    result = "nullius-box-concrete",
-    result_count = 10
+    results = {
+      {type = "item", name = "nullius-box-concrete", amount = 10}
+    }
   },
 
   {
     type = "recipe",
     name = "nullius-reinforced-concrete",
+    localised_name = {"item-name.nullius-reinforced-concrete"},
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -5889,8 +6098,9 @@ data:extend({
       {type="item", name="nullius-steel-wire", amount=2},
       {type="item", name="nullius-steel-rod", amount=2}
     },
-    result = "refined-concrete",
-    result_count = 10
+    results = {
+      {type = "item", name = "refined-concrete", amount = 10}
+    }
   },
   {
     type = "recipe",
@@ -5911,8 +6121,9 @@ data:extend({
       {type="item", name="nullius-box-steel-wire", amount=2},
       {type="item", name="nullius-box-steel-rod", amount=2}
     },
-    result = "nullius-box-reinforced-concrete",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-reinforced-concrete", amount = 5}
+    }
   },
 
   {
@@ -5920,7 +6131,7 @@ data:extend({
     name = "nullius-red-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 1.000, g = 0.266, b = 0.241 }
     }},
     subgroup = "colored-concrete",
@@ -5929,7 +6140,7 @@ data:extend({
     place_as_tile = {
       result = "red-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -5940,7 +6151,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     category = "basic-chemistry",
-	crafting_machine_tint = {
+	  crafting_machine_tint = {
       primary = {r=1, g=0, b=0},
       secondary = {r=1, g=0, b=0}
     },
@@ -5951,8 +6162,9 @@ data:extend({
       {type="fluid", name="nullius-water", amount=4},
       {type="fluid", name="nullius-epoxy", amount=3}
     },
-    result = "nullius-red-concrete",
-    result_count = 60
+    results = {
+      {type = "item", name = "nullius-red-concrete", amount = 60}
+    }
   },
   {
     type = "recipe",
@@ -5974,8 +6186,9 @@ data:extend({
       {type="fluid", name="nullius-water", amount=20},
       {type="fluid", name="nullius-epoxy", amount=15}
     },
-    result = "nullius-box-red-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-box-red-concrete", amount = 30}
+    }
   },
 
   {
@@ -5983,7 +6196,7 @@ data:extend({
     name = "nullius-blue-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.343, g = 0.683, b = 1.000 }
     }},
     subgroup = "colored-concrete",
@@ -5992,7 +6205,7 @@ data:extend({
     place_as_tile = {
       result = "blue-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6017,8 +6230,9 @@ data:extend({
       {type="fluid", name="nullius-water", amount=3},
       {type="fluid", name="nullius-epoxy", amount=3}
     },
-    result = "nullius-blue-concrete",
-    result_count = 60
+    results = {
+      {type = "item", name = "nullius-blue-concrete", amount = 60}
+    }
   },
   {
     type = "recipe",
@@ -6043,8 +6257,9 @@ data:extend({
       {type="fluid", name="nullius-water", amount=15},
       {type="fluid", name="nullius-epoxy", amount=15}
     },
-    result = "nullius-box-blue-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-box-blue-concrete", amount = 30}
+    }
   },
 
   {
@@ -6052,7 +6267,7 @@ data:extend({
     name = "nullius-yellow-concrete",
     icons = {{
       icon = ICONPATH.."entity/white-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.9, g = 0.8, b = 0.2 }
     }},
     subgroup = "colored-concrete",
@@ -6061,7 +6276,7 @@ data:extend({
     place_as_tile = {
       result = "yellow-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6084,8 +6299,9 @@ data:extend({
       {type="fluid", name="nullius-acid-hydrochloric", amount=5},
       {type="fluid", name="nullius-epoxy", amount=3}
     },
-    result = "nullius-yellow-concrete",
-    result_count = 60
+    results = {
+      {type = "item", name = "nullius-yellow-concrete", amount = 60}
+    }
   },
   {
     type = "recipe",
@@ -6108,8 +6324,9 @@ data:extend({
       {type="fluid", name="nullius-acid-hydrochloric", amount=25},
       {type="fluid", name="nullius-epoxy", amount=15}
     },
-    result = "nullius-box-yellow-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-box-yellow-concrete", amount = 30}
+    }
   },
 
   {
@@ -6117,7 +6334,7 @@ data:extend({
     name = "nullius-green-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.173, g = 0.824, b = 0.250 }
     }},
     subgroup = "colored-concrete",
@@ -6126,7 +6343,7 @@ data:extend({
     place_as_tile = {
       result = "green-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6143,8 +6360,9 @@ data:extend({
       {type="item", name="nullius-yellow-concrete", amount=15},
       {type="item", name="nullius-blue-concrete", amount=15}
     },
-    result = "nullius-green-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-green-concrete", amount = 30}
+    }
   },
   {
     type = "recipe",
@@ -6161,8 +6379,9 @@ data:extend({
       {type="item", name="nullius-box-yellow-concrete", amount=3},
       {type="item", name="nullius-box-blue-concrete", amount=3}
     },
-    result = "nullius-box-green-concrete",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-green-concrete", amount = 6}
+    }
   },
 
   {
@@ -6170,7 +6389,7 @@ data:extend({
     name = "nullius-purple-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.821, g = 0.440, b = 0.998 }
     }},
     subgroup = "colored-concrete",
@@ -6179,7 +6398,7 @@ data:extend({
     place_as_tile = {
       result = "purple-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6196,8 +6415,9 @@ data:extend({
       {type="item", name="nullius-red-concrete", amount=15},
       {type="item", name="nullius-blue-concrete", amount=15}
     },
-    result = "nullius-purple-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-purple-concrete", amount = 30}
+    }
   },
   {
     type = "recipe",
@@ -6214,8 +6434,9 @@ data:extend({
       {type="item", name="nullius-box-red-concrete", amount=3},
       {type="item", name="nullius-box-blue-concrete", amount=3}
     },
-    result = "nullius-box-purple-concrete",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-purple-concrete", amount = 6}
+    }
   },
 
   {
@@ -6223,7 +6444,7 @@ data:extend({
     name = "nullius-brown-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.757, g = 0.522, b = 0.371 }
     }},
     subgroup = "colored-concrete",
@@ -6232,7 +6453,7 @@ data:extend({
     place_as_tile = {
       result = "brown-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6249,8 +6470,9 @@ data:extend({
       {type="item", name="nullius-yellow-concrete", amount=15},
       {type="item", name="nullius-red-concrete", amount=15}
     },
-    result = "nullius-brown-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-brown-concrete", amount = 30}
+    }
   },
   {
     type = "recipe",
@@ -6267,8 +6489,9 @@ data:extend({
       {type="item", name="nullius-box-yellow-concrete", amount=3},
       {type="item", name="nullius-box-red-concrete", amount=3}
     },
-    result = "nullius-box-brown-concrete",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-brown-concrete", amount = 6}
+    }
   },
 
   {
@@ -6276,7 +6499,7 @@ data:extend({
     name = "nullius-black-concrete",
     icons = {{
       icon = "__base__/graphics/icons/refined-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.5, g = 0.5, b = 0.5 }
     }},
     subgroup = "colored-concrete",
@@ -6285,7 +6508,7 @@ data:extend({
     place_as_tile = {
       result = "black-refined-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6304,8 +6527,9 @@ data:extend({
       {type="item", name="nullius-yellow-concrete", amount=20},
       {type="item", name="nullius-graphite", amount=1}
     },
-    result = "nullius-black-concrete",
-    result_count = 60
+    results = {
+      {type = "item", name = "nullius-black-concrete", amount = 60}
+    }
   },
   {
     type = "recipe",
@@ -6324,8 +6548,9 @@ data:extend({
       {type="item", name="nullius-box-yellow-concrete", amount=10},
       {type="item", name="nullius-box-graphite", amount=1}
     },
-    result = "nullius-box-black-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-box-black-concrete", amount = 30}
+    }
   },
   
   {
@@ -6333,7 +6558,7 @@ data:extend({
     name = "nullius-white-concrete",
     icons = {{
       icon = ICONPATH.."entity/white-concrete.png",
-      icon_size = 64, icon_mipmaps = 4
+      icon_size = 64, 
     }},
     subgroup = "colored-concrete",
     order = "nullius-ad",
@@ -6341,7 +6566,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-white-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6360,8 +6585,9 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=3},
       {type="fluid", name="nullius-solvent", amount=4}
     },
-    result = "nullius-white-concrete",
-    result_count = 60
+    results = {
+      {type = "item", name = "nullius-white-concrete", amount = 60}
+    }
   },
   {
     type = "recipe",
@@ -6380,8 +6606,9 @@ data:extend({
       {type="fluid", name="nullius-epoxy", amount=15},
       {type="fluid", name="nullius-solvent", amount=20}
     },
-    result = "nullius-box-white-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-box-white-concrete", amount = 30}
+    }
   },
 
   {
@@ -6389,7 +6616,7 @@ data:extend({
     name = "nullius-orange-concrete",
     icons = {{
       icon = ICONPATH.."entity/white-concrete.png",
-      icon_size = 64, icon_mipmaps = 4,
+      icon_size = 64, 
       tint = { r = 0.9, g = 0.5, b = 0.1 }
     }},
     subgroup = "colored-concrete",
@@ -6398,7 +6625,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-orange-concrete",
       condition_size = 1,
-      condition = { "water-tile" }
+      condition = { layers = {water_tile=true} }
     }
   },
   {
@@ -6416,8 +6643,9 @@ data:extend({
       {type="item", name="nullius-red-concrete", amount=10},
       {type="item", name="nullius-white-concrete", amount=5}
     },
-    result = "nullius-orange-concrete",
-    result_count = 30
+    results = {
+      {type = "item", name = "nullius-orange-concrete", amount = 30}
+    }
   },
   {
     type = "recipe",
@@ -6435,13 +6663,15 @@ data:extend({
       {type="item", name="nullius-box-red-concrete", amount=2},
       {type="item", name="nullius-box-white-concrete", amount=1}
     },
-    result = "nullius-box-orange-concrete",
-    result_count = 6
+    results = {
+      {type = "item", name = "nullius-box-orange-concrete", amount = 6}
+    }
   },
 
   {
     type = "recipe",
     name = "nullius-hazard-concrete",
+    localised_name = {"item-name.nullius-hazard-concrete"},
     enabled = false,
     category = "large-crafting",
     always_show_made_in = true,
@@ -6453,8 +6683,9 @@ data:extend({
       {type="item", name="nullius-yellow-concrete", amount=24},
       {type="item", name="nullius-black-concrete", amount=16}
     },
-    result = "refined-hazard-concrete",
-    result_count = 40
+    results = {
+      {type = "item", name = "refined-hazard-concrete", amount = 40}
+    }
   },
   {
     type = "recipe",
@@ -6471,8 +6702,9 @@ data:extend({
       {type="item", name="nullius-box-yellow-concrete", amount=12},
       {type="item", name="nullius-box-black-concrete", amount=8}
     },
-    result = "nullius-box-hazard-concrete",
-    result_count = 20
+    results = {
+      {type = "item", name = "nullius-box-hazard-concrete", amount = 20}
+    }
   },
 
   {
@@ -6480,7 +6712,7 @@ data:extend({
     name = "nullius-sensor-1",
     icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "robotic-intermediate",
     order = "nullius-bb",
     stack_size = 100
@@ -6495,15 +6727,16 @@ data:extend({
     always_show_products = true,
     energy_required = 5,
     ingredients = {
-      {"arithmetic-combinator", 1},
-      {"nullius-glass", 1},
-      {"small-lamp", 1},
-      {"nullius-capacitor", 1},
-      {"nullius-polycrystalline-silicon", 1},
-      {"red-wire", 2}
+      {type = "item", name = "arithmetic-combinator", amount = 1},
+      {type = "item", name = "nullius-glass", amount = 1},
+      {type = "item", name = "small-lamp", amount = 1},
+      {type = "item", name = "nullius-capacitor", amount = 1},
+      {type = "item", name = "nullius-polycrystalline-silicon", amount = 1},
+      {type = "item", name = "nullius-red-wire", amount = 2}
     },
-    result = "nullius-sensor-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-sensor-1", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -6517,15 +6750,16 @@ data:extend({
     always_show_products = true,
     energy_required = 25,
     ingredients = {
-      {"nullius-box-arithmetic-circuit", 1},
-      {"nullius-box-glass", 1},
-      {"nullius-box-lamp-1", 1},
-      {"nullius-box-capacitor", 1},
-      {"nullius-box-polycrystalline-silicon", 1},
-      {"nullius-box-red-wire", 2}
+      {type = "item", name = "nullius-box-arithmetic-circuit", amount = 1},
+      {type = "item", name = "nullius-box-glass", amount = 1},
+      {type = "item", name = "nullius-box-lamp-1", amount = 1},
+      {type = "item", name = "nullius-box-capacitor", amount = 1},
+      {type = "item", name = "nullius-box-polycrystalline-silicon", amount = 1},
+      {type = "item", name = "nullius-box-red-wire", amount = 2}
     },
-    result = "nullius-box-sensor-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-sensor-1", amount = 2}
+    }
   },
 
   {
@@ -6587,9 +6821,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-ceramic-powder",
-    icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/powder-platinum.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "glass-product",
     order = "nullius-l",
     stack_size = 100
@@ -6654,7 +6888,9 @@ data:extend({
       {type="item", name="nullius-ceramic-powder", amount=1},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-bearing"
+    results = {
+      {type = "item", name = "nullius-bearing", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -6668,14 +6904,16 @@ data:extend({
       {type="item", name="nullius-box-ceramic-powder", amount=1},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-bearing"
+    results = {
+      {type = "item", name = "nullius-box-bearing", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-acrylic-fiber",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/wire-platinum.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/wire-platinum.png",
       icon_size = 32,
       tint = { 0.4, 0.8, 0.8 }
     }},
@@ -6696,7 +6934,9 @@ data:extend({
       {type="fluid", name="nullius-acrylonitrile", amount=4},
       {type="fluid", name="nullius-water", amount=3}
     },
-    result = "nullius-acrylic-fiber"
+    results = {
+      {type = "item", name = "nullius-acrylic-fiber", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -6713,7 +6953,9 @@ data:extend({
       {type="fluid", name="nullius-acrylonitrile", amount=20},
       {type="fluid", name="nullius-water", amount=15}
     },
-    result = "nullius-box-acrylic-fiber"
+    results = {
+      {type = "item", name = "nullius-box-acrylic-fiber", amount = 1}
+    }
   },
 
   {
@@ -6779,8 +7021,8 @@ data:extend({
         scale = 0.4,
         shift = {5, -8}
       }
-	},
-	enabled = false,
+	  },
+	  enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
@@ -6804,10 +7046,10 @@ data:extend({
         icon = ICONPATH .. "boxing.png",
         icon_size = 64
       },
-	  {
-	    icon = ICONPATH .. "carbon-fiber.png",
+	    {
+	      icon = ICONPATH .. "carbon-fiber.png",
         icon_size = 128,
-		scale = 0.225
+		    scale = 0.225
       },
       {
         icon = ICONPATH .. "plate.png",
@@ -6817,7 +7059,7 @@ data:extend({
         shift = {4, -7}
       }
 	},
-	enabled = false,
+	  enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
@@ -6837,17 +7079,17 @@ data:extend({
   {
     type = "item",
     name = "nullius-textile",
-    icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-zinc.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "organic-material-2",
     order = "nullius-d",
     stack_size = 100
   },
   {
     type = "recipe",
-    name = "nullius-textile-1",
-    localised_name = {"", {"item-name.nullius-textile"}, " ", 1},
+    name = "nullius-textile",
+    localised_name = {"", {"item-name.nullius-textile"}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -6859,13 +7101,14 @@ data:extend({
       {type="item", name="nullius-acrylic-fiber", amount=10},
       {type="item", name="nullius-sodium-sulfate", amount=1}
     },
-    result = "nullius-textile",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-textile", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-textile-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-textile"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-textile"}}, " ", tostring(1)},
     enabled = false,
     always_show_made_in = true,
     show_amount_in_title = false,
@@ -6878,21 +7121,23 @@ data:extend({
       {type="item", name="nullius-box-acrylic-fiber", amount=10},
       {type="item", name="nullius-box-sodium-sulfate", amount=1}
     },
-    result = "nullius-box-textile",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-textile", amount = 5}
+    }
   },
   {
     type = "recipe",
     name = "nullius-textile-2",
-    localised_name = {"", {"item-name.nullius-textile"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-textile"}, " ", tostring(2)},
+    hide_from_signal_gui = false,
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-zinc.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
         icon_size = 54,
         scale = 0.35,
         shift = {7, -10}
@@ -6910,26 +7155,27 @@ data:extend({
       {type="item", name="nullius-cellulose", amount=6},
       {type="item", name="nullius-sodium-sulfate", amount=1}
     },
-    result = "nullius-textile",
-    result_count = 12
+    results = {
+      {type = "item", name = "nullius-textile", amount = 12}
+    }
   },
   {
     type = "recipe",
     name = "nullius-boxed-textile-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-textile"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-textile"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/roll-zinc.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/roll-zinc.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
         icon_size = 54,
         scale = 0.32,
         shift = {6, -9}
@@ -6948,16 +7194,17 @@ data:extend({
       {type="item", name="nullius-box-cellulose", amount=6},
       {type="item", name="nullius-box-sodium-sulfate", amount=1}
     },
-    result = "nullius-box-textile",
-    result_count = 12
+    results = {
+      {type = "item", name = "nullius-box-textile", amount = 12}
+    }
   },
 
   {
     type = "item",
     name = "nullius-titanium-ingot",
-    icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/ingot-titanium.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "titanium-product",
     order = "nullius-d",
     stack_size = 100
@@ -7013,8 +7260,8 @@ data:extend({
 
   {
     type = "recipe",
-    name = "nullius-titanium-ingot-1",
-	localised_name = {"", {"item-name.nullius-titanium-ingot"}, " ", 1},
+    name = "nullius-titanium-ingot",
+	  localised_name = {"", {"item-name.nullius-titanium-ingot"}, " ", tostring(1)},
     enabled = false,
     category = "ore-flotation",
     order = "nullius-db",
@@ -7033,7 +7280,7 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-titanium-ingot-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", 1},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", tostring(1)},
     enabled = false,
     category = "ore-flotation",
     subgroup = "boxed-titanium",
@@ -7053,12 +7300,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-titanium-ingot-2",
-    localised_name = {"", {"item-name.nullius-titanium-ingot"}, " ", 2},
+    localised_name = {"", {"item-name.nullius-titanium-ingot"}, " ", tostring(2)},
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "calcium.png",
@@ -7086,16 +7333,16 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-titanium-ingot-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", 2},
+    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", tostring(2)},
     icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
@@ -7126,7 +7373,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-titanium-plate",
-    icon = "__angelssmelting__/graphics/icons/plate-titanium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/plate-titanium.png",
     icon_size = 32,
     subgroup = "titanium-product",
     order = "nullius-e",
@@ -7170,7 +7417,7 @@ data:extend({
     type = "item",
     name = "nullius-titanium-rod",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/rod-steel.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/rod-steel.png",
       icon_size = 32,
       tint = {0.8, 0.6, 0.8}
     }},
@@ -7215,9 +7462,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-titanium-sheet",
-    icon = "__angelssmelting__/graphics/icons/roll-titanium.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-titanium.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "titanium-product",
     order = "nullius-g",
     stack_size = 100
@@ -7235,8 +7482,9 @@ data:extend({
       {type="item", name="nullius-titanium-plate", amount=4},
       {type="fluid", name="nullius-lubricant", amount=1}
     },
-    result = "nullius-titanium-sheet",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-titanium-sheet", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -7252,8 +7500,9 @@ data:extend({
       {type="item", name="nullius-box-titanium-plate", amount=4},
       {type="fluid", name="nullius-lubricant", amount=5}
     },
-    result = "nullius-box-titanium-sheet",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-titanium-sheet", amount = 5}
+    }
   },
 
   {
@@ -7302,16 +7551,17 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 15,
     ingredients = {
-      {"nullius-turbine-open-2", 1},
-      {"nullius-capacitor", 4},
-      {"turbo-filter-inserter", 3},
-      {"constant-combinator", 3},
-      {"programmable-speaker", 2},
-      {"nullius-sensor-1", 2},
-      {"nullius-aluminum-plate", 3}
+      {type = "item", name = "nullius-turbine-open-2", amount = 1},
+      {type = "item", name = "nullius-capacitor", amount = 4},
+      {type = "item", name = "bob-turbo-inserter", amount = 3},
+      {type = "item", name = "constant-combinator", amount = 3},
+      {type = "item", name = "programmable-speaker", amount = 2},
+      {type = "item", name = "nullius-sensor-1", amount = 2},
+      {type = "item", name = "nullius-aluminum-plate", amount = 3}
     },
-    result = "nullius-robot-frame-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-robot-frame-1", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7325,22 +7575,23 @@ data:extend({
     order = "nullius-gb",
     energy_required = 75,
     ingredients = {
-      {"nullius-box-turbine-open-2", 1},
-      {"nullius-box-capacitor", 4},
-      {"nullius-box-filter-inserter-2", 3},
-      {"nullius-box-memory-circuit", 3},
-      {"nullius-box-antenna", 2},
-      {"nullius-box-sensor-1", 2},
-      {"nullius-box-aluminum-plate", 3}
+      {type = "item", name = "nullius-box-turbine-open-2", amount = 1},
+      {type = "item", name = "nullius-box-capacitor", amount = 4},
+      {type = "item", name = "nullius-box-inserter-2", amount = 3},
+      {type = "item", name = "nullius-box-memory-circuit", amount = 3},
+      {type = "item", name = "nullius-box-antenna", amount = 2},
+      {type = "item", name = "nullius-box-sensor-1", amount = 2},
+      {type = "item", name = "nullius-box-aluminum-plate", amount = 3}
     },
-    result = "nullius-box-robot-frame-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-1", amount = 2}
+    }
   },
   {
     type = "recipe",
     name = "nullius-legacy-robot-frame-1",
     enabled = false,
-	hidden = true,
+	  hidden = true,
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -7350,21 +7601,22 @@ data:extend({
     order = "nullius-cbl",
     energy_required = 12,
     ingredients = {
-      {"nullius-turbine-open-1", 1},
-      {"nullius-capacitor", 2},
-      {"turbo-filter-inserter", 2},
-      {"constant-combinator", 2},
-      {"programmable-speaker", 1},
-      {"nullius-aluminum-sheet", 3}
+      {type = "item", name = "nullius-turbine-open-1", amount = 1},
+      {type = "item", name = "nullius-capacitor", amount = 2},
+      {type = "item", name = "bob-turbo-inserter", amount = 2},
+      {type = "item", name = "constant-combinator", amount = 2},
+      {type = "item", name = "programmable-speaker", amount = 1},
+      {type = "item", name = "nullius-aluminum-sheet", amount = 3}
     },
-    result = "nullius-robot-frame-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-robot-frame-1", amount = 2}
+    }
   },
   {
     type = "recipe",
     name = "nullius-legacy-boxed-robot-frame-1",
     enabled = false,
-	hidden = true,
+	  hidden = true,
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -7375,15 +7627,16 @@ data:extend({
     order = "nullius-gbl",
     energy_required = 60,
     ingredients = {
-      {"nullius-box-turbine-open-1", 1},
-      {"nullius-box-capacitor", 2},
-      {"nullius-box-filter-inserter-2", 2},
-      {"nullius-box-memory-circuit", 2},
-      {"nullius-box-antenna", 1},
-      {"nullius-box-aluminum-sheet", 3}
+      {type = "item", name = "nullius-box-turbine-open-1", amount = 1},
+      {type = "item", name = "nullius-box-capacitor", amount = 2},
+      {type = "item", name = "nullius-box-inserter-2", amount = 2},
+      {type = "item", name = "nullius-box-memory-circuit", amount = 2},
+      {type = "item", name = "nullius-box-antenna", amount = 1},
+      {type = "item", name = "nullius-box-aluminum-sheet", amount = 3}
     },
-    result = "nullius-box-robot-frame-1",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-1", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7395,13 +7648,15 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 10,
     ingredients = {
-      {"nullius-robot-frame-1", 1},
-      {"nullius-levitation-field-1", 1},
-      {"nullius-battery-1", 2},
-      {"nullius-night-vision-1", 1},
-      {"nullius-fiberglass", 3}
+      {type = "item", name = "nullius-robot-frame-1", amount = 1},
+      {type = "item", name = "nullius-levitation-field-1", amount = 1},
+      {type = "item", name = "nullius-battery-1", amount = 2},
+      {type = "item", name = "nullius-night-vision-1", amount = 1},
+      {type = "item", name = "nullius-fiberglass", amount = 3}
     },
-    result = "nullius-robot-frame-2"
+    results = {
+      {type = "item", name = "nullius-robot-frame-2", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7415,19 +7670,21 @@ data:extend({
     order = "nullius-gc",
     energy_required = 50,
     ingredients = {
-      {"nullius-box-robot-frame-1", 1},
-      {"nullius-box-levitation-field-1", 1},
-      {"nullius-box-battery-1", 2},
-      {"nullius-box-night-vision-1", 1},
-      {"nullius-box-fiberglass", 3}
+      {type = "item", name = "nullius-box-robot-frame-1", amount = 1},
+      {type = "item", name = "nullius-box-levitation-field-1",amount =  1},
+      {type = "item", name = "nullius-box-battery-1", amount = 2},
+      {type = "item", name = "nullius-box-night-vision-1", amount = 1},
+      {type = "item", name = "nullius-box-fiberglass", amount = 3}
     },
-    result = "nullius-box-robot-frame-2"
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-2", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-legacy-robot-frame-2",
     enabled = false,
-	hidden = true,
+	  hidden = true,
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -7437,20 +7694,21 @@ data:extend({
     order = "nullius-ccl",
     energy_required = 15,
     ingredients = {
-      {"nullius-robot-frame-1", 1},
-      {"nullius-turbine-open-2", 1},
-      {"nullius-battery-1", 3},
-      {"nullius-sensor-1", 2},
-      {"nullius-fiberglass", 5}
+      {type = "item", name = "nullius-robot-frame-1", amount = 1},
+      {type = "item", name = "nullius-turbine-open-2", amount = 1},
+      {type = "item", name = "nullius-battery-1", amount = 3},
+      {type = "item", name = "nullius-sensor-1", amount = 2},
+      {type = "item", name = "nullius-fiberglass", amount = 5}
     },
-    result = "nullius-robot-frame-2",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-robot-frame-2", amount = 2}
+    }
   },
   {
     type = "recipe",
     name = "nullius-legacy-boxed-robot-frame-2",
     enabled = false,
-	hidden = true,
+	  hidden = true,
     show_amount_in_title = false,
     always_show_products = true,
     always_show_made_in = true,
@@ -7461,14 +7719,15 @@ data:extend({
     order = "nullius-gcl",
     energy_required = 75,
     ingredients = {
-      {"nullius-box-robot-frame-1", 1},
-      {"nullius-box-turbine-open-2", 1},
-      {"nullius-box-battery-1", 3},
-      {"nullius-box-sensor-1", 2},
-      {"nullius-box-fiberglass", 5}
+      {type = "item", name = "nullius-box-robot-frame-1", amount = 1},
+      {type = "item", name = "nullius-box-turbine-open-2", amount = 1},
+      {type = "item", name = "nullius-box-battery-1", amount = 3},
+      {type = "item", name = "nullius-box-sensor-1", amount = 2},
+      {type = "item", name = "nullius-box-fiberglass", amount = 5}
     },
-    result = "nullius-box-robot-frame-2",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-2", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7480,15 +7739,16 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 25,
     ingredients = {
-      {"nullius-robot-frame-2", 2},
-      {"nullius-turbine-open-3", 1},
-      {"nullius-battery-2", 2},
-      {"nullius-carbon-composite", 5},
-      {"nullius-relay-3", 1},
-      {"express-stack-filter-inserter", 3}
+      {type = "item", name = "nullius-robot-frame-2", amount = 2},
+      {type = "item", name = "nullius-turbine-open-3", amount = 1},
+      {type = "item", name = "nullius-battery-2", amount = 2},
+      {type = "item", name = "nullius-carbon-composite", amount = 5},
+      {type = "item", name = "nullius-relay-3", amount = 1},
+      {type = "item", name = "bob-express-bulk-inserter", amount = 3}
     },
-    result = "nullius-robot-frame-3",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-robot-frame-3", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7502,15 +7762,16 @@ data:extend({
     order = "nullius-gd",
     energy_required = 125,
     ingredients = {
-      {"nullius-box-robot-frame-2", 2},
-      {"nullius-box-turbine-open-3", 1},
-      {"nullius-box-battery-2", 2},
-      {"nullius-box-carbon-composite", 5},
-      {"nullius-box-relay-3", 1},
-      {"nullius-box-filter-inserter-4", 3}
+      {type = "item", name = "nullius-box-robot-frame-2", amount = 2},
+      {type = "item", name = "nullius-box-turbine-open-3", amount = 1},
+      {type = "item", name = "nullius-box-battery-2", amount = 2},
+      {type = "item", name = "nullius-box-carbon-composite", amount = 5},
+      {type = "item", name = "nullius-box-relay-3", amount = 1},
+      {type = "item", name = "nullius-box-inserter-4", amount = 3}
     },
-    result = "nullius-box-robot-frame-3",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-3", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7522,14 +7783,16 @@ data:extend({
     category = "tiny-crafting",
     energy_required = 30,
     ingredients = {
-      {"nullius-robot-frame-3", 1},
-      {"nullius-titanium-sheet", 6},
-      {"nullius-copper-wire", 4},
-      {"nullius-night-vision-3", 1},
-      {"nullius-levitation-field-2", 1},
-      {"nullius-processor-3", 2}
+      {type = "item", name = "nullius-robot-frame-3", amount = 1},
+      {type = "item", name = "nullius-titanium-sheet", amount = 6},
+      {type = "item", name = "nullius-copper-wire", amount = 4},
+      {type = "item", name = "nullius-night-vision-3", amount = 1},
+      {type = "item", name = "nullius-levitation-field-2", amount = 1},
+      {type = "item", name = "nullius-processor-3", amount = 2}
     },
-    result = "nullius-robot-frame-4"
+    results = {
+      {type = "item", name = "nullius-robot-frame-4", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7543,21 +7806,23 @@ data:extend({
     order = "nullius-ge",
     energy_required = 150,
     ingredients = {
-      {"nullius-box-robot-frame-3", 1},
-      {"nullius-box-titanium-sheet", 6},
-      {"nullius-box-copper-wire", 4},
-      {"nullius-night-vision-3", 5},
-      {"nullius-levitation-field-2", 5},
-      {"nullius-box-processor-3", 2}
+      {type = "item", name = "nullius-box-robot-frame-3", amount = 1},
+      {type = "item", name = "nullius-box-titanium-sheet", amount = 6},
+      {type = "item", name = "nullius-box-copper-wire", amount = 4},
+      {type = "item", name = "nullius-night-vision-3", amount = 5},
+      {type = "item", name = "nullius-levitation-field-2", amount = 5},
+      {type = "item", name = "nullius-box-processor-3", amount = 2}
     },
-    result = "nullius-box-robot-frame-4"
+    results = {
+      {type = "item", name = "nullius-box-robot-frame-4", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-fiberglass",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/plate-nickel.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/plate-nickel.png",
       icon_size = 32,
       tint = {0.5, 0.7, 1}
     }},
@@ -7577,8 +7842,9 @@ data:extend({
       {type="item", name="nullius-glass-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=15, fluidbox_index=1}
     },
-    result = "nullius-fiberglass",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-fiberglass", amount = 5}
+    }
   },
   {
     type = "recipe",
@@ -7593,8 +7859,9 @@ data:extend({
       {type="item", name="nullius-box-glass-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=75, fluidbox_index=1}
     },
-    result = "nullius-box-fiberglass",
-    result_count = 5
+    results = {
+      {type = "item", name = "nullius-box-fiberglass", amount = 5}
+    }
   },
 
   {
@@ -7621,7 +7888,9 @@ data:extend({
       {type="item", name="nullius-carbon-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=8}
     },
-    result = "nullius-carbon-composite"
+    results = {
+      {type = "item", name = "nullius-carbon-composite", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7637,7 +7906,9 @@ data:extend({
       {type="item", name="nullius-box-carbon-fiber", amount=2},
       {type="fluid", name="nullius-epoxy", amount=40}
     },
-    result = "nullius-box-carbon-composite"
+    results = {
+      {type = "item", name = "nullius-box-carbon-composite", amount = 1}
+    }
   },
 
   {
@@ -7696,9 +7967,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-insulation",
-    icon = "__angelssmelting__/graphics/icons/roll-manganese.png",
+    icon = "__angelssmeltinggraphics__/graphics/icons/roll-manganese.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "glass-product",
     order = "nullius-f",
     stack_size = 100
@@ -7712,13 +7983,14 @@ data:extend({
     category = "medium-assembly",
     energy_required = 6,
     ingredients = {
-      {"nullius-gypsum", 3},
-      {"nullius-glass-fiber", 2},
-      {"nullius-plastic", 2},
-      {"nullius-textile", 1}
+      {type = "item", name = "nullius-gypsum", amount = 3},
+      {type = "item", name = "nullius-glass-fiber", amount = 2},
+      {type = "item", name = "nullius-plastic", amount = 2},
+      {type = "item", name = "nullius-textile", amount = 1}
     },
-    result = "nullius-insulation",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-insulation", amount = 2}
+    }
   },
   {
     type = "recipe",
@@ -7730,13 +8002,14 @@ data:extend({
     subgroup = "boxed-glass",
     energy_required = 30,
     ingredients = {
-      {"nullius-box-gypsum", 3},
-      {"nullius-box-glass-fiber", 2},
-      {"nullius-box-plastic", 2},
-      {"nullius-box-textile", 1}
+      {type = "item", name = "nullius-box-gypsum", amount = 3},
+      {type = "item", name = "nullius-box-glass-fiber", amount = 2},
+      {type = "item", name = "nullius-box-plastic", amount = 2},
+      {type = "item", name = "nullius-box-textile", amount = 1}
     },
-    result = "nullius-box-insulation",
-    result_count = 2
+    results = {
+      {type = "item", name = "nullius-box-insulation", amount = 2}
+    }
   },
 
   {
@@ -7744,7 +8017,7 @@ data:extend({
     name = "nullius-processor-1",
     icon = "__base__/graphics/icons/electronic-circuit.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "electronic-intermediate",
     order = "nullius-fb",
     stack_size = 50
@@ -7760,11 +8033,13 @@ data:extend({
       {type="item", name="nullius-monocrystalline-silicon", amount=2},
       {type="item", name="nullius-ceramic-powder", amount=1},
       {type="item", name="constant-combinator", amount=2},
-      {type="item", name="green-wire", amount=2},
+      {type="item", name="nullius-green-wire", amount=2},
       {type="fluid", name="nullius-acid-nitric", amount=3, fluidbox_index=2},
       {type="fluid", name="nullius-argon", amount=2, fluidbox_index=3}
     },
-    result = "nullius-processor-1"
+    results = {
+      {type = "item", name = "nullius-processor-1", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7782,14 +8057,16 @@ data:extend({
       {type="fluid", name="nullius-acid-nitric", amount=15, fluidbox_index=2},
       {type="fluid", name="nullius-argon", amount=10, fluidbox_index=3}
     },
-    result = "nullius-box-processor-1"
+    results = {
+      {type = "item", name = "nullius-box-processor-1", amount = 1}
+    }
   },
   {
     type = "item",
     name = "nullius-processor-2",
     icon = "__base__/graphics/icons/advanced-circuit.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "electronic-intermediate",
     order = "nullius-fc",
     stack_size = 50
@@ -7809,7 +8086,9 @@ data:extend({
       {type="fluid", name="nullius-acid-sulfuric", amount=4, fluidbox_index=2},
       {type="fluid", name="nullius-helium", amount=8, fluidbox_index=3}
     },
-    result = "nullius-processor-2"
+    results = {
+      {type = "item", name = "nullius-processor-2", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7827,14 +8106,16 @@ data:extend({
       {type="fluid", name="nullius-acid-sulfuric", amount=20, fluidbox_index=2},
       {type="fluid", name="nullius-helium", amount=40, fluidbox_index=3}
     },
-    result = "nullius-box-processor-2"
+    results = {
+      {type = "item", name = "nullius-box-processor-2", amount = 1}
+    }
   },
   {
     type = "item",
     name = "nullius-processor-3",
     icon = "__base__/graphics/icons/processing-unit.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "electronic-intermediate",
     order = "nullius-fc",
     stack_size = 50
@@ -7855,7 +8136,9 @@ data:extend({
       {type="fluid", name="nullius-helium", amount=8, fluidbox_index=2},
       {type="fluid", name="nullius-compressed-oxygen", amount=10, fluidbox_index=3}
     },
-    result = "nullius-processor-3"
+    results = {
+      {type = "item", name = "nullius-processor-3", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7874,7 +8157,9 @@ data:extend({
       {type="fluid", name="nullius-helium", amount=40, fluidbox_index=2},
       {type="fluid", name="nullius-compressed-oxygen", amount=50, fluidbox_index=3}
     },
-    result = "nullius-box-processor-3"
+    results = {
+      {type = "item", name = "nullius-box-processor-3", amount = 1}
+    }
   },
 
   {
@@ -7899,7 +8184,9 @@ data:extend({
       {type="item", name="copper-cable", amount=2},
       {type="item", name="nullius-plastic", amount=1}
     },
-    result = "nullius-transformer"
+    results = {
+      {type = "item", name = "nullius-transformer", amount = 1}
+    }
   },
   {
     type = "recipe",
@@ -7915,16 +8202,18 @@ data:extend({
       {type="item", name="nullius-box-insulated-wire", amount=2},
       {type="item", name="nullius-box-plastic", amount=1}
     },
-    result = "nullius-box-transformer"
+    results = {
+      {type = "item", name = "nullius-box-transformer", amount = 1}
+    }
   },
 
   {
     type = "item",
     name = "nullius-crushed-uranium-ore",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/processed-tin.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/processed-tin.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {0.8, 1, 0.8}
     }},
     subgroup = "uranium",
@@ -7937,7 +8226,7 @@ data:extend({
     enabled = false,
     category = "ore-crushing",
     energy_required = 12,
-    ingredients = {{"uranium-ore", 5}},
+    ingredients = {{type="item", name="uranium-ore", amount = 5}},
     results = {
       {type="item", name="nullius-crushed-uranium-ore", amount=2},
       {type="item", name="nullius-mineral-dust", amount=3}
@@ -7948,9 +8237,9 @@ data:extend({
     type = "item",
     name = "nullius-yellowcake",
     icons = {{
-      icon = "__angelssmelting__/graphics/icons/pellet-gold.png",
+      icon = "__angelssmeltinggraphics__/graphics/icons/pellet-gold.png",
       icon_size = 64,
-      icon_mipmaps = 4,
+      
       tint = {0.7, 1, 0.7}
     }},
     subgroup = "uranium",
@@ -7981,7 +8270,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/icons/uranium-238.png",
       icon_size = 64,
-      icon_mipmaps = 4
+      
     }},
     subgroup = "uranium",
     order = "nullius-e",
@@ -7994,8 +8283,8 @@ data:extend({
     category = "vent-smelting",
     energy_required = 16,
     ingredients = {
-      {"nullius-yellowcake", 5},
-      {"nullius-soda-ash", 2}
+      {type="item", name="nullius-yellowcake", amount = 5},
+      {type="item", name="nullius-soda-ash", amount = 2}
     },
     results = {
       {type="item", name="nullius-uranium", amount=3},
@@ -8011,7 +8300,7 @@ data:extend({
     icons = {{
       icon = "__base__/graphics/icons/uranium-235.png",
       icon_size = 64,
-      icon_mipmaps = 4
+      
     }},
     subgroup = "uranium",
     order = "nullius-f",
@@ -8040,13 +8329,13 @@ data:extend({
     name = "nullius-fission-cell",
     icon = "__base__/graphics/icons/uranium-fuel-cell.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-spent-fission-cell",
     fuel_value = "4GJ",
     fuel_acceleration_multiplier = 2.2,
     fuel_top_speed_multiplier = 1.6,
-	fuel_glow_color = {r=0, g=1, b=0, a=1},
+	  fuel_glow_color = {r=0, g=1, b=0, a=1},
     subgroup = "nuclear",
     order = "nullius-eb",
     stack_size = 20
@@ -8054,9 +8343,9 @@ data:extend({
   {
     type = "item",
     name = "nullius-spent-fission-cell",
-    icon = "__base__/graphics/icons/used-up-uranium-fuel-cell.png",
+    icon = "__base__/graphics/icons/depleted-uranium-fuel-cell.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "nuclear",
     order = "nullius-ec",
     stack_size = 20
@@ -8074,17 +8363,23 @@ data:extend({
       {type="item", name="nullius-uranium", amount=5},
       {type="item", name="nullius-enriched-uranium", amount=1}
     },
-    result = "nullius-fission-cell"
+    results = {
+      {type = "item", name = "nullius-fission-cell", amount = 1}
+    }
   },
   {
     type = "recipe",
     name = "nullius-fission-recycling",
-    icon = "__base__/graphics/icons/used-up-uranium-fuel-cell.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
+    icons = add_recipe_gear_icon({
+      {
+        icon = "__base__/graphics/icons/depleted-uranium-fuel-cell.png",
+        icon_size = 64
+      },
+    }),
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
+    hide_from_signal_gui = false,
     category = "ore-flotation",
     subgroup = "nuclear",
     order = "nullius-ec",
@@ -8109,7 +8404,7 @@ data:extend({
     fuel_category = "nullius-nuclear",
     burnt_result = "nullius-antimatter",
     fuel_value = "1GJ",
-	fuel_glow_color = {r=0.9, g=0.6, b=0, a=1},
+	  fuel_glow_color = {r=0.9, g=0.6, b=0, a=1},
     subgroup = "nuclear",
     order = "nullius-fb",
     stack_size = 20
@@ -8142,7 +8437,37 @@ data:extend({
       {type="item", name="nullius-sensor-2", amount=1},
       {type="item", name="nullius-battery-2", amount=2}
     },
-    result = "nullius-antimatter-trap"
+    results = {
+      {type = "item", name = "nullius-antimatter-trap", amount = 1}
+    }
+  },
+    {
+    type = "item",
+    name = "nullius-red-wire",
+    icon = ICONPATH.."red-wire.png",
+    icon_size = 64,
+    flags = {},
+    auto_recycle = false,
+    subgroup = "electronic-intermediate",
+    color_hint = { text = "R" },
+    inventory_move_sound = data.raw["item"]["red-wire"].inventory_move_sound,
+    pick_sound = data.raw["item"]["red-wire"].pick_sound,
+    drop_sound = data.raw["item"]["red-wire"].drop_sound,
+    stack_size = 200
+  },
+  {
+    type = "item",
+    name = "nullius-green-wire",
+    icon = ICONPATH.."green-wire.png",
+    icon_size = 64,
+    flags = {},
+    auto_recycle = false,
+    subgroup = "electronic-intermediate",
+    color_hint = { text = "G" },
+    inventory_move_sound = data.raw["item"]["green-wire"].inventory_move_sound,
+    pick_sound = data.raw["item"]["green-wire"].pick_sound,
+    drop_sound = data.raw["item"]["green-wire"].drop_sound,
+    stack_size = 200
   },
 
 })

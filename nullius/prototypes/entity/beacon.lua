@@ -3,6 +3,8 @@ local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+data:extend({{ type = "collision-layer", name = "layer_42" }})
+
 data:extend({
   {
     type = "beacon",
@@ -16,7 +18,7 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
-    drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
+    
     allowed_effects = {"consumption", "speed", "pollution"},
     resistances = {
       { type = "impact", decrease = 50, percent = 80 }
@@ -26,28 +28,23 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.29,
+    supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
-    vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
+    impact_category = data.raw.beacon["beacon"].impact_category,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
     energy_usage = "80kW",
     distribution_effectivity = 0.5,
-    module_specification = {
-      module_slots = 1,
-      module_info_icon_shift = {0, 0.5},
-      module_info_multi_row_initial_height_modifier = -0.3
-    },
+    module_slots = 1,
 
     graphics_set = {
       module_icons_suppressed = true,
       animation_progress = 1,
-      min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
       apply_module_tint = "secondary",
-      apply_module_tint_to_light = "none",
+      --apply_module_tint_to_light = "none",
 
       animation_list = {
         {
@@ -56,7 +53,7 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.4,
@@ -64,7 +61,7 @@ data:extend({
                 tint = {0.8, 0.9, 0.7}
               },
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.4,
@@ -78,7 +75,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.4,
@@ -90,11 +87,10 @@ data:extend({
         {
           render_layer = "object",
           apply_tint = true,
-          draw_as_sprite = true,
-          draw_as_light = true,
+          --draw_as_sprite = true,
           always_draw = false,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -102,6 +98,7 @@ data:extend({
             animation_speed = 0.5,
             scale = 0.4,
             shift = util.by_pixel(0.5*0.8, -18*0.8),
+            draw_as_light = true,
             blend_mode = "additive"
           }
         }
@@ -119,7 +116,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -132,7 +129,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -145,7 +142,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -156,15 +153,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
                   variation_count = 3,
                   shift = util.by_pixel(-18*0.8, 13*0.8),
+                  draw_as_light = true,
                   scale = 0.4
                 }
               }
@@ -187,7 +184,7 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
-    drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
+    
     allowed_effects = {"consumption", "speed", "pollution"},
     resistances = {
       { type = "impact", decrease = 50, percent = 80 }
@@ -197,28 +194,23 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.29,
+    supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
-    vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
+    impact_category = data.raw.beacon["beacon"].impact_category,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
     energy_usage = "150kW",
     distribution_effectivity = 0.4,
-    module_specification = {
-      module_slots = 2,
-      module_info_icon_shift = {0, 0.5},
-      module_info_multi_row_initial_height_modifier = -0.3
-    },
+    module_slots = 2,
 
     graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
-      min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
       apply_module_tint = "secondary",
-      apply_module_tint_to_light = "none",
+      --apply_module_tint_to_light = "none",
 
       animation_list = {
         {
@@ -227,7 +219,7 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.45,
@@ -235,7 +227,7 @@ data:extend({
                 tint = {0.9, 0.8, 1}
               },
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.45,
@@ -249,7 +241,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.45,
@@ -261,11 +253,10 @@ data:extend({
         {
           render_layer = "object",
           apply_tint = true,
-          draw_as_sprite = true,
-          draw_as_light = true,
+          --draw_as_sprite = true,
           always_draw = false,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -274,6 +265,7 @@ data:extend({
             scale = 0.45,
             shift = util.by_pixel(0.5*0.9, -18*0.9),
             blend_mode = "additive",
+            draw_as_light = true,
           }
         }
       },
@@ -290,7 +282,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -303,7 +295,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -316,7 +308,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -327,15 +319,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
                   variation_count = 3,
                   shift = util.by_pixel(-18*0.9, 13*0.9),
+                  draw_as_light = true,
                   scale = 0.45
                 }
               }
@@ -346,7 +338,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-2.png",
                   line_length = 4,
                   width = 46,
                   height = 44,
@@ -359,7 +351,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-2.png",
                   line_length = 3,
                   width = 36,
                   height = 26,
@@ -372,7 +364,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-2.png",
                   line_length = 3,
                   width = 24,
                   height = 14,
@@ -383,15 +375,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-2.png",
                   line_length = 3,
                   width = 66,
                   height = 46,
                   variation_count = 3,
                   shift = util.by_pixel(22*0.9, -16*0.9),
+                  draw_as_light = true,
                   scale = 0.45
                 }
               }
@@ -414,7 +406,7 @@ data:extend({
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
-    drawing_box = {{-1.5, -2.2}, {1.5, 1.3}},
+    
     allowed_effects = {"consumption", "speed", "pollution"},
     resistances = {
       { type = "impact", decrease = 50, percent = 80 }
@@ -423,28 +415,23 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 3.29,
+    supply_area_distance = 3,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
-    vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
+    impact_category = data.raw.beacon["beacon"].impact_category,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
     energy_usage = "250kW",
     distribution_effectivity = 0.5,
-    module_specification = {
-      module_slots = 2,
-      module_info_icon_shift = {0, 0.5},
-      module_info_multi_row_initial_height_modifier = -0.3
-    },
+    module_slots = 2,
 
     graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
-      min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
       apply_module_tint = "secondary",
-      apply_module_tint_to_light = "none",
+      --apply_module_tint_to_light = "none",
 
       animation_list = {
         {
@@ -453,14 +440,14 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.5,
                 shift = util.by_pixel(0.5, 1),
               },
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.5,
@@ -474,7 +461,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.5,
@@ -486,11 +473,10 @@ data:extend({
         {
           render_layer = "object",
           apply_tint = true,
-          draw_as_sprite = true,
-          draw_as_light = true,
+          --draw_as_sprite = true,
           always_draw = false,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -499,6 +485,7 @@ data:extend({
             scale = 0.5,
             shift = util.by_pixel(0.5, -18),
             blend_mode = "additive",
+            draw_as_light = true,
           }
         }
       },
@@ -515,7 +502,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -528,7 +515,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -541,7 +528,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -552,15 +539,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
                   variation_count = 3,
                   shift = util.by_pixel(-18, 13),
+                  draw_as_light = true,
                   scale = 0.5
                 }
               }
@@ -571,7 +558,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-2.png",
                   line_length = 4,
                   width = 46,
                   height = 44,
@@ -584,7 +571,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-2.png",
                   line_length = 3,
                   width = 36,
                   height = 26,
@@ -597,7 +584,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-2.png",
                   line_length = 3,
                   width = 24,
                   height = 14,
@@ -608,15 +595,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-2.png",
                   line_length = 3,
                   width = 66,
                   height = 46,
                   variation_count = 3,
                   shift = util.by_pixel(22, -16),
+                  draw_as_light = true,
                   scale = 0.5
                 }
               }
@@ -638,9 +625,9 @@ data:extend({
     dying_explosion = "beacon-explosion",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2, -2}, {2, 2}},
-    collision_mask = {"layer-42", "item-layer", "object-layer", "player-layer", "water-tile"},
+    collision_mask = { layers = {layer_42 = true, item = true, object = true, player = true, water_tile = true}},
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
-    drawing_box = {{-2, -3}, {2, 1.8}},
+    
     allowed_effects = {"consumption", "speed", "pollution"},
     resistances = {{ type = "impact", decrease = 40, percent = 75 }},
     fast_replaceable_group = "large-beacon",
@@ -648,27 +635,23 @@ data:extend({
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 12.29,
+    supply_area_distance = 12,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
-    vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
+    impact_category = data.raw.beacon["beacon"].impact_category,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
     energy_usage = "600kW",
     distribution_effectivity = 1,
-    module_specification = {
-      module_slots = 1,
-      module_info_icon_shift = {0, 0.65}
-    },
+    module_slots = 1,
 
     graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
-      min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
       apply_module_tint = "secondary",
-      apply_module_tint_to_light = "none",
+      --apply_module_tint_to_light = "none",
 
       animation_list = {
         {
@@ -677,7 +660,7 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.6,
@@ -685,7 +668,7 @@ data:extend({
                 tint = {0.9, 0.8, 1}
               },
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.6,
@@ -699,7 +682,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.6,
@@ -711,11 +694,10 @@ data:extend({
         {
           render_layer = "object",
           apply_tint = true,
-          draw_as_sprite = true,
-          draw_as_light = true,
+          --draw_as_sprite = true,
           always_draw = false,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -724,6 +706,7 @@ data:extend({
             scale = 0.6,
             shift = util.by_pixel(0.5*1.2, -18*1.2),
             blend_mode = "additive",
+            draw_as_light = true,
           }
         }
       },
@@ -740,7 +723,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -753,7 +736,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -766,7 +749,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -777,15 +760,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
                   variation_count = 3,
                   shift = util.by_pixel(-18*1.2, 13*1.2),
+                  draw_as_light = true,
                   scale = 0.6
                 }
               }
@@ -807,36 +790,32 @@ data:extend({
     dying_explosion = "beacon-explosion",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2, -2}, {2, 2}},
-    collision_mask = {"layer-42", "item-layer", "object-layer", "player-layer", "water-tile"},
+    collision_mask = { layers = {layer_42 = true, item = true, object = true, player = true, water_tile = true}},
     damaged_trigger_effect = data.raw.beacon["beacon"].damaged_trigger_effect,
-    drawing_box = {{-2, -3}, {2, 1.8}},
+    
     allowed_effects = {"consumption", "speed", "pollution"},
     resistances = {{ type = "impact", decrease = 40, percent = 75 }},
     fast_replaceable_group = "large-beacon",
 
     water_reflection = data.raw.beacon["beacon"].water_reflection,
     radius_visualisation_picture = data.raw.beacon["beacon"].radius_visualisation_picture,
-    supply_area_distance = 12.29,
+    supply_area_distance = 12,
     energy_source = { type = "electric", usage_priority = "secondary-input" },
-    vehicle_impact_sound = data.raw.beacon["beacon"].vehicle_impact_sound,
+    impact_category = data.raw.beacon["beacon"].impact_category,
     open_sound = data.raw.beacon["beacon"].open_sound,
     close_sound = data.raw.beacon["beacon"].close_sound,
     energy_usage = "1.5MW",
     distribution_effectivity = 1,
-    module_specification = {
-      module_slots = 2,
-      module_info_icon_shift = {0, 0.65}
-    },
+    module_slots = 2,
 
     graphics_set =  {
       module_icons_suppressed = true,
       animation_progress = 1,
-      min_animation_progress = 0,
       module_tint_mode = "mix",
       no_modules_tint = {1, 0, 0},
       random_animation_offset = true,
       apply_module_tint = "secondary",
-      apply_module_tint_to_light = "none",
+      --apply_module_tint_to_light = "none",
 
       animation_list = {
         {
@@ -845,14 +824,14 @@ data:extend({
           animation = {
             layers = {
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-bottom.png",
+                filename = BASEENTITY .. "beacon/beacon-bottom.png",
                 width = 212,
                 height = 192,
                 scale = 0.665,
                 shift = util.by_pixel(0.5*1.33, 1*1.33)
               },
               {
-                filename = BASEENTITY .. "beacon/hr-beacon-shadow.png",
+                filename = BASEENTITY .. "beacon/beacon-shadow.png",
                 width = 244,
                 height = 176,
                 scale = 0.665,
@@ -866,7 +845,7 @@ data:extend({
           render_layer = "object",
           always_draw = true,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-top.png",
+            filename = BASEENTITY .. "beacon/beacon-top.png",
             width = 96,
             height = 140,
             scale = 0.665,
@@ -878,11 +857,10 @@ data:extend({
         {
           render_layer = "object",
           apply_tint = true,
-          draw_as_sprite = true,
-          draw_as_light = true,
+          --draw_as_sprite = true,
           always_draw = false,
           animation = {
-            filename = BASEENTITY .. "beacon/hr-beacon-light.png",
+            filename = BASEENTITY .. "beacon/beacon-light.png",
             line_length = 9,
             width = 110,
             height = 186,
@@ -891,6 +869,7 @@ data:extend({
             scale = 0.665,
             shift = util.by_pixel(0.5*1.33, -18*1.33),
             blend_mode = "additive",
+            draw_as_light = true,
           }
         }
       },
@@ -907,7 +886,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-1.png",
                   line_length = 4,
                   width = 50,
                   height = 66,
@@ -920,7 +899,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-1.png",
                   line_length = 3,
                   width = 36,
                   height = 32,
@@ -933,7 +912,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-1.png",
                   line_length = 3,
                   width = 26,
                   height = 12,
@@ -944,15 +923,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-1.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-1.png",
                   line_length = 3,
                   width = 56,
                   height = 42,
                   variation_count = 3,
                   shift = util.by_pixel(-18*1.33, 13*1.33),
+                  draw_as_light = true,
                   scale = 0.665
                 }
               }
@@ -963,7 +942,7 @@ data:extend({
                 has_empty_slot = true,
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-slot-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-slot-2.png",
                   line_length = 4,
                   width = 46,
                   height = 44,
@@ -976,7 +955,7 @@ data:extend({
                 apply_module_tint = "primary",
                 render_layer = "lower-object",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-box-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-box-2.png",
                   line_length = 3,
                   width = 36,
                   height = 26,
@@ -989,7 +968,7 @@ data:extend({
                 apply_module_tint = "secondary",
                 render_layer = "lower-object-above-shadow",
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-mask-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-mask-lights-2.png",
                   line_length = 3,
                   width = 24,
                   height = 14,
@@ -1000,15 +979,15 @@ data:extend({
               },
               {
                 apply_module_tint = "secondary",
-                draw_as_light = true,
-                draw_as_sprite = false,
+                --draw_as_sprite = false,
                 pictures = {
-                  filename = BASEENTITY .. "beacon/hr-beacon-module-lights-2.png",
+                  filename = BASEENTITY .. "beacon/beacon-module-lights-2.png",
                   line_length = 3,
                   width = 66,
                   height = 46,
                   variation_count = 3,
                   shift = util.by_pixel(22*1.33, -16*1.33),
+                  draw_as_light = true,
                   scale = 0.665
                 }
               }
@@ -1024,14 +1003,14 @@ data:extend({
 if mods["reskins-bobs"] then
 data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.8, 1*0.8),
     scale = 0.5*0.8
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom-mask.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.8, 1*0.8),
@@ -1039,7 +1018,7 @@ data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.lay
     scale = 0.5*0.8
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom-highlights.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.8, 1*0.8),
@@ -1049,7 +1028,7 @@ data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.lay
   data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[1].animation.layers[2]
 }
 data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[2].animation = {
-  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-top.png",
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-top.png",
   width = 96,
   height = 140,
   repeat_count = 45,
@@ -1060,14 +1039,14 @@ data.raw.beacon["nullius-beacon-1"].graphics_set.animation_list[2].animation = {
 
 data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-2-bottom.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.9, 1*0.9),
     scale = 0.5*0.9
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-2-bottom-mask.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.9, 1*0.9),
@@ -1075,7 +1054,7 @@ data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.lay
     scale = 0.5*0.9
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-2-bottom-highlights.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.9, 1*0.9),
@@ -1085,7 +1064,7 @@ data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.lay
   data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[1].animation.layers[2]
 }
 data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list[2].animation = {
-  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-top.png",
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-2-top.png",
   width = 96,
   height = 140,
   repeat_count = 45,
@@ -1097,7 +1076,7 @@ table.insert(data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list, {
   render_layer = "transport-belt-circuit-connector",
   always_draw = true,
   animation = {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-2-bottom-slot-overlay.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-2-bottom-slot-overlay.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*0.9, 1*0.9),
@@ -1107,14 +1086,14 @@ table.insert(data.raw.beacon["nullius-beacon-2"].graphics_set.animation_list, {
 
 data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5, 1),
     scale = 0.5
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-mask.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5, 1),
@@ -1122,7 +1101,7 @@ data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.lay
     scale = 0.5
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-highlights.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5, 1),
@@ -1132,7 +1111,7 @@ data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.lay
   data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[1].animation.layers[2]
 }
 data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list[2].animation = {
-  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-top.png",
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-top.png",
   width = 96,
   height = 140,
   repeat_count = 45,
@@ -1145,14 +1124,14 @@ table.insert(data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list, {
   always_draw = true,
   animation = { layers = {
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5, 1),
       scale = 0.5
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-mask.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay-mask.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5, 1),
@@ -1160,7 +1139,7 @@ table.insert(data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list, {
       scale = 0.5
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-highlights.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay-highlights.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5, 1),
@@ -1172,14 +1151,14 @@ table.insert(data.raw.beacon["nullius-beacon-3"].graphics_set.animation_list, {
 
 data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[1].animation.layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.2, 1*1.2),
     scale = 0.5*1.2
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom-mask.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.2, 1*1.2),
@@ -1187,7 +1166,7 @@ data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[1].animati
     scale = 0.5*1.2
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-bottom-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-bottom-highlights.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.2, 1*1.2),
@@ -1197,7 +1176,7 @@ data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[1].animati
   data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[1].animation.layers[2]
 }
 data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[2].animation = {
-  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-1-top.png",
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-1-top.png",
   width = 96,
   height = 140,
   repeat_count = 45,
@@ -1208,14 +1187,14 @@ data.raw.beacon["nullius-large-beacon-1"].graphics_set.animation_list[2].animati
 
 data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_list[1].animation.layers = {
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.33, 1*1.33),
     scale = 0.5*1.33
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-mask.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-mask.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.33, 1*1.33),
@@ -1223,7 +1202,7 @@ data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_list[1].animati
     scale = 0.5*1.33
   },
   {
-    filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-highlights.png",
+    filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-highlights.png",
     width = 212,
     height = 192,
     shift = util.by_pixel(0.5*1.33, 1*1.33),
@@ -1233,7 +1212,7 @@ data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_list[1].animati
   data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_list[1].animation.layers[2]
 }
 data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_list[2].animation = {
-  filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-top.png",
+  filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-top.png",
   width = 96,
   height = 140,
   repeat_count = 45,
@@ -1246,14 +1225,14 @@ table.insert(data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_li
   always_draw = true,
   animation = { layers = {
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5*1.33, 1*1.33),
       scale = 0.5*1.33
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-mask.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay-mask.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5*1.33, 1*1.33),
@@ -1261,7 +1240,7 @@ table.insert(data.raw.beacon["nullius-large-beacon-2"].graphics_set.animation_li
       scale = 0.5*1.33
     },
     {
-      filename = "__reskins-bobs__/graphics/entity/modules/beacon/hr-beacon-3-bottom-slot-overlay-highlights.png",
+      filename = "__reskins-bobs__/graphics/entity/modules/beacon/beacon-3-bottom-slot-overlay-highlights.png",
       width = 212,
       height = 192,
       shift = util.by_pixel(0.5*1.33, 1*1.33),
@@ -1323,12 +1302,13 @@ data:extend({
     name = "nullius-beacon-interference-horizontal",
     localised_name = {"entity-name.nullius-beacon-interference"},
     render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon = ICONPATH .. "blank.png",
     icon_size = 64,
     order = "cb",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
+    flags = {"placeable-neutral", "player-creation", "not-on-map"},
+    hidden = true,
     collision_box = {{-8, -6}, {8, 6}},
-    collision_mask = {"layer-42"},
+    collision_mask = { layers = {layer_42 = true}},
     render_layer = "wires-above",
     selectable_in_game = false,
     random_animation_offset = false,
@@ -1343,12 +1323,13 @@ data:extend({
     name = "nullius-beacon-interference-vertical",
     localised_name = {"entity-name.nullius-beacon-interference"},
     render_layer = "object",
-    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon = ICONPATH .. "blank.png",
     icon_size = 64,
     order = "cc",
-    flags = {"placeable-neutral", "player-creation", "not-on-map", "hidden"},
+    flags = {"placeable-neutral", "player-creation", "not-on-map"},
+    hidden = true,
     collision_box = {{-6, -8}, {6, 8}},
-    collision_mask = {"layer-42"},
+    collision_mask = { layers = {layer_42 = true}},
     render_layer = "wires-above",
     selectable_in_game = false,
     random_animation_offset = false,

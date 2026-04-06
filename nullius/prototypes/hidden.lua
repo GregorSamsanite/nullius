@@ -45,7 +45,8 @@ building_types_list = {
   "heat-pipe",
   "artillery-turret",
   "electric-turret",
-  "fluid-turret"
+  "fluid-turret",
+  "valve"
 }
 
 hide_entity_list = {
@@ -72,7 +73,6 @@ item_types_list = {
   "tool",
   "armor",
   "item-with-entity-data",
-  "mining-tool",
   "repair-tool",
   "item-with-inventory",
   "spidertron-remote"
@@ -105,11 +105,11 @@ local function remove_table(lst, target)
 end
 
 for _,type in pairs(item_types_list) do
-  for _,item in pairs(data.raw[type]) do
+  for _,item in pairs(data.raw[type] or {}) do
     if ((string.sub(item.name, 1, 8) ~= "nullius-") and
 		((item.order == nil) or
 		    (string.sub(item.order, 1, 8) ~= "nullius-"))) then
-	  if (table_contains(item.flags, "hidden")) then
+	  if item.hidden then
 	    item.subgroup = "hidden"
 	  else
         if (item.flags == nil) then
@@ -130,14 +130,6 @@ for _, recipe in pairs(data.raw.recipe) do
 	  (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
     recipe.hidden = true
     recipe.enabled = false
-    if (recipe.normal ~= nil) then
-      recipe.normal.enabled = true
-      recipe.normal.hidden = true
-    end
-    if (recipe.expensive ~= nil) then
-      recipe.expensive.enabled = true
-      recipe.expensive.hidden = true
-    end
   else
     if (recipe.results) then
       for _, product in pairs(recipe.results) do
@@ -151,23 +143,15 @@ for _, recipe in pairs(data.raw.recipe) do
         end
       end
     end
-    if (recipe.result ~= nil) then
-      for _,type in pairs(item_types_list) do
-        local item = data.raw[type][recipe.result]
-        if (item ~= nil) then
-          remove_table(item.flags, "temphidden")
-        end
-      end
-    end
   end
 end
 
 for _,type in pairs(item_types_list) do
-  for _,item in pairs(data.raw[type]) do
+  for _,item in pairs(data.raw[type] or {}) do
     if remove_table(item.flags, "temphidden") then
       item.flags["temphidden"] = nil
-      table.insert(item.flags,"hidden")
-	  item.subgroup = "hidden"
+      item.hidden = true
+	    item.subgroup = "hidden"
     end
   end
 end
@@ -186,20 +170,16 @@ for _,type in pairs(building_types_list) do
       local next_entity = data.raw[type][entity.next_upgrade]
       if (next_entity ~= nil) and next_entity.minable ~= nil then
         local item = data.raw.item[next_entity.minable.result]
-        if (item ~= nil) and table_contains(item.flags, "hidden") then
+        if (item ~= nil) and item.hidden then
           entity.next_upgrade = nil
         end
       end
     end
     if entity.minable ~= nil then
       local item = data.raw.item[entity.minable.result]
-      if (item ~= nil) and table_contains(item.flags, "hidden") then
+      if (item ~= nil) and item.hidden then
         entity.next_upgrade = nil
-        if (entity.flags == nil) then
-          entity.flags = {"hidden"}
-        elseif (not table_contains(entity.flags, "hidden")) then
-          table.insert(entity.flags, "hidden")
-        end
+        entity.hidden = true
       end
     end
   end
@@ -213,17 +193,17 @@ for _,type in pairs(hide_entity_list) do
       if (entity.flags == nil) then
         entity.flags = {}
       end
-      table.insert(entity.flags,"hidden")
+      entity.hidden = true
     end
   end
 end
 
-remove_table(data.raw.item["iron-ore"].flags, "hidden")
-remove_table(data.raw.item["copper-ore"].flags, "hidden")
-remove_table(data.raw.item["uranium-ore"].flags, "hidden")
+data.raw.item["iron-ore"].hidden = false
+data.raw.item["copper-ore"].hidden = false
+data.raw.item["uranium-ore"].hidden = false
 
 if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
-remove_table(data.raw.item["construction-robot"].flags, "hidden")
+data.raw.item["construction-robot"].hidden = false
 end
 
 data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters =
@@ -241,7 +221,7 @@ end
 
 for _, recipe in pairs(data.raw.recipe) do
   if (string.sub(recipe.name, 1, 8) ~= "nullius-") then
-    if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or
+    if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or 
         (string.sub(recipe.name, 1, 14) == "empty-nullius-")) then
 	  recipe.GCKI_ignore = true
 	elseif (((recipe.order == nil) or
@@ -256,8 +236,7 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
-data.raw.recipe["pipe"].normal.result = "stone-pipe"
-data.raw.recipe["pipe"].expensive.result = "stone-pipe"
+data.raw.recipe["pipe"].results[1].name = "bob-stone-pipe"
 
 data.raw.fish.fish.subgroup = "biology-fish"
 data.raw.fish.fish.order = "z"
@@ -265,6 +244,10 @@ data.raw.item["rocket-part"].subgroup = "space"
 data.raw.item["rocket-part"].order = "z"
 
 data.raw.item["nullius-energy-barrel"] = nil
-data.raw.recipe["fill-nullius-energy-barrel"] = nil
+data.raw.recipe["nullius-energy-barrel"] = nil
 data.raw.recipe["empty-nullius-energy-barrel"] = nil
 data.raw.technology["fluid-handling"].effects = { }
+
+data.raw["spider-vehicle"]["spidertron"].hidden_in_factoriopedia = true
+data.raw["car"]["car"].hidden_in_factoriopedia = true
+data.raw["car"]["tank"].hidden_in_factoriopedia = true

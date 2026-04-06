@@ -16,7 +16,7 @@ data:extend({
     place_as_tile = {
       result = "landfill",
       condition_size = 1,
-      condition = { "ground-tile" }
+      condition = { layers = {ground_tile = true}}
     }
   },
   {
@@ -30,7 +30,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-land-fill-sand",
       condition_size = 1,
-      condition = { "ground-tile" }
+      condition = { layers = {ground_tile = true}}
     }
   },
   {
@@ -44,7 +44,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-land-fill-bauxite",
       condition_size = 1,
-      condition = { "ground-tile" }
+      condition = { layers = {ground_tile = true}}
     }
   },
   {
@@ -58,7 +58,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-land-fill-iron",
       condition_size = 1,
-      condition = { "ground-tile" }
+      condition = { layers = {ground_tile = true}}
     }
   },
   {
@@ -72,7 +72,7 @@ data:extend({
     place_as_tile = {
       result = "nullius-land-fill-limestone",
       condition_size = 1,
-      condition = { "ground-tile" }
+      condition = { layers = {ground_tile = true}}
     }
   },
 
@@ -88,11 +88,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-gravel", 5},
-      {"nullius-sand", 1}
+      {type = "item", name = "nullius-gravel", amount = 5},
+      {type = "item", name = "nullius-sand", amount = 1}
     },
-    result = "nullius-land-fill-gravel",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-land-fill-gravel", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -107,10 +108,12 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-land-fill",
     ingredients = {
-      {"nullius-box-gravel", 5},
-      {"nullius-box-sand", 1}
+      {type = "item", name = "nullius-box-gravel", amount = 5},
+      {type = "item", name = "nullius-box-sand", amount = 1}
     },
-    result = "nullius-box-land-fill-gravel"
+    results = {
+			{type="item", name="nullius-box-land-fill-gravel", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -124,11 +127,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-sand", 10},
-      {"nullius-gravel", 2}
+      {type = "item", name = "nullius-sand", amount = 10},
+      {type = "item", name = "nullius-gravel", amount = 2}
     },
-    result = "nullius-land-fill-sand",
-    result_count = 4
+    results = {
+			{type="item", name="nullius-land-fill-sand", amount = 4}
+		}
   },
   {
     type = "recipe",
@@ -143,10 +147,12 @@ data:extend({
     category = "ore-crushing",
     subgroup = "boxed-land-fill",
     ingredients = {
-      {"nullius-box-sand", 5},
-      {"nullius-box-gravel", 1}
+      {type = "item", name = "nullius-box-sand", amount = 5},
+      {type = "item", name = "nullius-box-gravel", amount = 1}
     },
-    result = "nullius-box-land-fill-sand"
+    results = {
+			{type="item", name="nullius-box-land-fill-sand", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -160,11 +166,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-crushed-bauxite", 15},
-      {"nullius-gravel", 5}
+      {type = "item", name = "nullius-crushed-bauxite", amount = 15},
+      {type = "item", name = "nullius-gravel", amount = 5}
     },
-    result = "nullius-land-fill-bauxite",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-bauxite", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -177,11 +184,12 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     ingredients = {
-      {"nullius-crushed-iron-ore", 4},
-      {"nullius-sand", 1}
+      {type = "item", name = "nullius-crushed-iron-ore", amount = 4},
+      {type = "item", name = "nullius-sand", amount = 1}
     },
-    result = "nullius-land-fill-iron",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-land-fill-iron", amount = 2}
+		}
   },
   {
     type = "recipe",
@@ -194,10 +202,11 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     ingredients = {
-      {"nullius-crushed-limestone", 25}
+      {type = "item", name = "nullius-crushed-limestone", amount = 25}
     },
-    result = "nullius-land-fill-limestone",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-limestone", amount = 10}
+		}
   },
 
   {
@@ -212,7 +221,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-12, -12}
       }
@@ -225,11 +234,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-gravel", 10},
-      {"concrete", 15}
+      {type = "item", name = "nullius-gravel", amount = 10},
+      {type = "item", name = "concrete", amount = 15}
     },
-    result = "nullius-land-fill-gravel",
-    result_count = 20
+    results = {
+			{type="item", name="nullius-land-fill-gravel", amount = 20}
+		}
   },
   {
     type = "recipe",
@@ -249,7 +259,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.18,
         shift = {-11, -11}
       }
@@ -262,11 +272,12 @@ data:extend({
     subgroup = "boxed-land-fill",
     energy_required = 16,
     ingredients = {
-      {"nullius-box-gravel", 4},
-      {"nullius-box-concrete", 3}
+      {type = "item", name = "nullius-box-gravel", amount = 4},
+      {type = "item", name = "nullius-box-concrete", amount = 3}
     },
-    result = "nullius-box-land-fill-gravel",
-    result_count = 4
+    results = {
+			{type="item", name="nullius-box-land-fill-gravel", amount = 4}
+		}
   },
 
   {
@@ -281,7 +292,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-12, -12}
       }
@@ -294,11 +305,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-sand", 10},
-      {"nullius-yellow-concrete", 10}
+      {type = "item", name = "nullius-sand", amount = 10},
+      {type = "item", name = "nullius-yellow-concrete", amount = 10}
     },
-    result = "nullius-land-fill-sand",
-    result_count = 20
+    results = {
+			{type="item", name="nullius-land-fill-sand", amount = 20}
+		}
   },
   {
     type = "recipe",
@@ -318,7 +330,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.18,
         shift = {-11, -11}
       }
@@ -331,11 +343,12 @@ data:extend({
     subgroup = "boxed-land-fill",
     energy_required = 6,
     ingredients = {
-      {"nullius-box-sand", 2},
-      {"nullius-box-yellow-concrete", 1}
+      {type = "item", name = "nullius-box-sand", amount = 2},
+      {type = "item", name = "nullius-box-yellow-concrete", amount = 1}
     },
-    result = "nullius-box-land-fill-sand",
-    result_count = 2
+    results = {
+			{type="item", name="nullius-box-land-fill-sand", amount = 2}
+		}
   },
 
   {
@@ -350,7 +363,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-12, -12}
       }
@@ -363,11 +376,12 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
     ingredients = {
-      {"nullius-crushed-bauxite", 3},
-      {"nullius-brown-concrete", 5}
+      {type = "item", name = "nullius-crushed-bauxite", amount = 3},
+      {type = "item", name = "nullius-brown-concrete", amount = 5}
     },
-    result = "nullius-land-fill-bauxite",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-bauxite", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -381,11 +395,12 @@ data:extend({
     order = "nullius-db",
     energy_required = 40,
     ingredients = {
-      {"nullius-box-crushed-bauxite", 6},
-      {"nullius-box-brown-concrete", 5}
+      {type = "item", name = "nullius-box-crushed-bauxite", amount = 6},
+      {type = "item", name = "nullius-box-brown-concrete", amount = 5}
     },
-    result = "nullius-box-land-fill-bauxite",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-box-land-fill-bauxite", amount = 10}
+		}
   },
 
   {
@@ -400,7 +415,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-12, -12}
       }
@@ -412,11 +427,12 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     ingredients = {
-      {"nullius-crushed-iron-ore", 4},
-      {"nullius-red-concrete", 5}
+      {type = "item", name = "nullius-crushed-iron-ore", amount = 4},
+      {type = "item", name = "nullius-red-concrete", amount = 5}
     },
-    result = "nullius-land-fill-iron",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-iron", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -429,11 +445,12 @@ data:extend({
     order = "nullius-eb",
     energy_required = 40,
     ingredients = {
-      {"nullius-box-crushed-iron-ore", 8},
-      {"nullius-box-red-concrete", 5}
+      {type = "item", name = "nullius-box-crushed-iron-ore", amount = 8},
+      {type = "item", name = "nullius-box-red-concrete", amount = 5}
     },
-    result = "nullius-box-land-fill-iron",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-box-land-fill-iron", amount = 10}
+		}
   },
 
   {
@@ -448,7 +465,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/concrete.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-12, -12}
       }
@@ -460,11 +477,12 @@ data:extend({
     always_show_products = true,
     category = "ore-crushing",
     ingredients = {
-      {"nullius-crushed-limestone", 5},
-      {"refined-concrete", 4}
+      {type = "item", name = "nullius-crushed-limestone", amount = 5},
+      {type = "item", name = "refined-concrete", amount = 4}
     },
-    result = "nullius-land-fill-limestone",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-limestone", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -477,11 +495,12 @@ data:extend({
     order = "nullius-fb",
     energy_required = 20,
     ingredients = {
-      {"nullius-box-crushed-limestone", 5},
-      {"nullius-box-reinforced-concrete", 2}
+      {type = "item", name = "nullius-box-crushed-limestone", amount = 5},
+      {type = "item", name = "nullius-box-reinforced-concrete", amount = 2}
     },
-    result = "nullius-box-land-fill-limestone",
-    result_count = 5
+    results = {
+			{type="item", name="nullius-box-land-fill-limestone", amount = 5}
+		}
   },
 
   {
@@ -513,8 +532,9 @@ data:extend({
       {type="item", name="nullius-land-fill-sand", amount=2},
       {type="fluid", name="nullius-sludge", amount=30}
     },
-    result = "nullius-land-fill-bauxite",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-land-fill-bauxite", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -550,8 +570,9 @@ data:extend({
       {type="item", name="nullius-box-land-fill-sand", amount=2},
       {type="fluid", name="nullius-sludge", amount=300}
     },
-    result = "nullius-box-land-fill-bauxite",
-    result_count = 10
+    results = {
+			{type="item", name="nullius-box-land-fill-bauxite", amount = 10}
+		}
   },
   {
     type = "recipe",
@@ -568,9 +589,9 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.225,
         shift = {-9, -10}
       }
@@ -589,8 +610,9 @@ data:extend({
       {type="item", name="nullius-box-mineral-dust", amount=15},
       {type="fluid", name="nullius-freshwater", amount=400}
     },
-    result = "nullius-box-land-fill-bauxite",
-    result_count = 8
+    results = {
+			{type="item", name="nullius-box-land-fill-bauxite", amount = 8}
+		}
   },
   {
     type = "recipe",
@@ -609,7 +631,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/coal-dark-background.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.2,
         shift = {-9, -9}
       }
@@ -628,8 +650,9 @@ data:extend({
       {type="item", name="nullius-box-rubber", amount=1},
       {type="item", name="nullius-box-graphite", amount=30}
     },
-    result = "nullius-box-land-fill-gravel",
-    result_count = 12
+    results = {
+			{type="item", name="nullius-box-land-fill-gravel", amount = 12}
+		}
   },
   {
     type = "recipe",
@@ -641,7 +664,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
         icon_size = 54,
         scale = 0.41,
         shift = {-7, -7}
@@ -682,7 +705,7 @@ data:extend({
 		scale = 0.45
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/hr-brown-asterisk-11.png",
+        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
         icon_size = 54,
         scale = 0.37,
         shift = {-6, -6}
@@ -802,7 +825,7 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/chlorine.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/chlorine.png",
         icon_size = 72,
         scale = 0.2,
         shift = {-9, -10}
@@ -812,7 +835,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-	no_productivity = true,
+	  no_productivity = true,
     category = "bulk-smelting",
     subgroup = "boxed-dumping",
     order = "nullius-fc",
@@ -823,8 +846,9 @@ data:extend({
       {type="item", name="nullius-box-plastic", amount=1},
       {type="fluid", name="nullius-chlorine", amount=5000}
     },
-    result = "nullius-box-land-fill-sand",
-    result_count = 8
+    results = {
+			{type="item", name="nullius-box-land-fill-sand", amount = 8}
+		}
   },
   {
     type = "recipe",
@@ -852,7 +876,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-	no_productivity = true,
+	  no_productivity = true,
     category = "ore-crushing",
     subgroup = "boxed-dumping",
     order = "nullius-h",
@@ -862,8 +886,9 @@ data:extend({
       {type="item", name="nullius-box-soda-ash", amount=2},
       {type="item", name="nullius-box-acid-boric", amount=40}
     },
-    result = "nullius-box-land-fill-iron",
-    result_count = 6
+    results = {
+			{type="item", name="nullius-box-land-fill-iron", amount = 6}
+		}
   },
 
   {
@@ -969,7 +994,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-terraforming-drone-tan", amount=5},
       {type="item", name="nullius-box-land-fill-sand", amount=2500},
-	  {type="item", name="nullius-box-rocket-fuel", amount=4}
+	    {type="item", name="nullius-box-rocket-fuel", amount=4}
     },
     results = {
       {type="item", name="nullius-shallow-excavation-drone", amount=3},
@@ -981,15 +1006,20 @@ data:extend({
   {
     type = "tile",
     name = "nullius-land-fill-sand",
-    collision_mask = {"ground-tile"},
+    collision_mask = { layers = {ground_tile = true}},
     layer = 40,
     map_color={r=158, g=129, b=81},
+    is_foundation = true,
     vehicle_friction_modifier = 1.4,
     walking_speed_modifier = 1,
     transitions = transitions.cliff_transitions(),
     transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
     walking_sound = data.raw.tile["landfill"].walking_sound,
-    pollution_absorption_per_second = 0,
+    absorptions_per_second = {pollution = 0},
+    minable = {
+      mining_time = 1,
+      result = "nullius-land-fill-sand"
+    },
     variants = {
       material_background = {
         picture = ENTITYPATH .. "landfill/sand.png",
@@ -999,7 +1029,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-sand-2.png",
           size = 1,
           weights = {
             0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045
@@ -1009,7 +1039,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-sand-2.png",
           probability = 1,
           size = 2,
           weights = {
@@ -1020,7 +1050,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-sand-2.png",
           probability = 0.1,
           size = 4,
           weights = {
@@ -1029,25 +1059,34 @@ data:extend({
           y = 160
         }
       },
-      inner_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
-      o_transition_mask = { count = 1, line_length = 2, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
-      outer_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
-      side_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
-      u_transition_mask = { count = 1, line_length = 1, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+      transition = {
+        mask_layout = {
+          inner_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
+          o_transition = { count = 1, line_length = 2, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
+          outer_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
+          side = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
+          u_transition = { count = 1, line_length = 1, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+        }
+      },
     }
   },
   {
     type = "tile",
     name = "nullius-land-fill-bauxite",
-    collision_mask = {"ground-tile"},
+    collision_mask = { layers = {ground_tile = true}},
     layer = 39,
     map_color={r=121, g=103, b=65},
+    is_foundation = true,
     vehicle_friction_modifier = 1.2,
     walking_speed_modifier = 1,
     transitions = transitions.cliff_transitions(),
     transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
     walking_sound = data.raw.tile["landfill"].walking_sound,
-    pollution_absorption_per_second = 0,
+    absorptions_per_second = {pollution = 0},
+    minable = {
+      mining_time = 1,
+      result = "nullius-land-fill-bauxite"
+    },
     variants = {
       material_background = {
         picture = ENTITYPATH .. "landfill/dirt.png",
@@ -1057,7 +1096,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-dirt-5.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-dirt-5.png",
           size = 1,
           weights = {
             0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045
@@ -1067,7 +1106,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-dirt-5.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-dirt-5.png",
           probability = 1,
           size = 2,
           weights = {
@@ -1078,7 +1117,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-tan-dirt-5.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-tan-dirt-5.png",
           probability = 0.1,
           size = 4,
           weights = {
@@ -1087,25 +1126,35 @@ data:extend({
           y = 160
         }
       },
-      inner_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
-      o_transition_mask = { count = 1, line_length = 2, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
-      outer_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
-      side_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
-      u_transition_mask = { count = 1, line_length = 1, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+      transition = {
+        mask_layout = {
+          inner_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
+          o_transition = { count = 1, line_length = 2, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
+          outer_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
+          side = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
+          u_transition = { count = 1, line_length = 1, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+        }
+      }
+      
     }
   },
   {
     type = "tile",
     name = "nullius-land-fill-iron",
-    collision_mask = {"ground-tile"},
+    collision_mask = { layers = {ground_tile = true}},
     layer = 36,
     map_color={r=119, g=73, b=68},
+    is_foundation = true,
     vehicle_friction_modifier = 1.1,
     walking_speed_modifier = 1,
     transitions = transitions.cliff_transitions(),
     transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
     walking_sound = data.raw.tile["landfill"].walking_sound,
-    pollution_absorption_per_second = 0,
+    absorptions_per_second = {pollution = 0},
+    minable = {
+      mining_time = 1,
+      result = "nullius-land-fill-iron"
+    },
     variants = {
       material_background = {
         picture = ENTITYPATH .. "landfill/iron.png",
@@ -1115,7 +1164,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-red-dirt-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-red-dirt-2.png",
           size = 1,
           weights = {
             0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045
@@ -1125,7 +1174,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-red-dirt-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-red-dirt-2.png",
           probability = 1,
           size = 2,
           weights = {
@@ -1136,7 +1185,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-red-dirt-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-red-dirt-2.png",
           probability = 0.1,
           size = 4,
           weights = {
@@ -1145,25 +1194,34 @@ data:extend({
           y = 160
         }
       },
-      inner_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
-      o_transition_mask = { count = 1, line_length = 2, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
-      outer_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
-      side_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
-      u_transition_mask = { count = 1, line_length = 1, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+      transition = {
+        mask_layout = {
+          inner_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
+          o_transition = { count = 1, line_length = 2, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
+          outer_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
+          side = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
+          u_transition = { count = 1, line_length = 1, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+        }
+      }
     }
   },
   {
     type = "tile",
     name = "nullius-land-fill-limestone",
-    collision_mask = {"ground-tile"},
+    collision_mask = { layers = {ground_tile = true}},
     layer = 38,
     map_color={r=161, g=140, b=119},
+    is_foundation = true,
     vehicle_friction_modifier = 1,
     walking_speed_modifier = 1,
     transitions = transitions.cliff_transitions(),
     transitions_between_transitions = transitions.cliff_transitions_between_transitions(),
     walking_sound = data.raw.tile["landfill"].walking_sound,
-    pollution_absorption_per_second = 0,
+    absorptions_per_second = {pollution = 0},
+    minable = {
+      mining_time = 1,
+      result = "nullius-land-fill-limestone"
+    },
     variants = {
       material_background = {
         picture = ENTITYPATH .. "landfill/limestone.png",
@@ -1173,7 +1231,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-beige-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-beige-sand-2.png",
           size = 1,
           weights = {
             0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045
@@ -1183,7 +1241,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-beige-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-beige-sand-2.png",
           probability = 1,
           size = 2,
           weights = {
@@ -1194,7 +1252,7 @@ data:extend({
         {
           count = 16,
           line_length = 16,
-          picture = "__alien-biomes__/graphics/terrain/sr/mineral-beige-sand-2.png",
+          picture = "__alien-biomes-graphics__/graphics/terrain/mineral-beige-sand-2.png",
           probability = 0.1,
           size = 4,
           weights = {
@@ -1203,75 +1261,83 @@ data:extend({
           y = 160
         }
       },
-      inner_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
-      o_transition_mask = { count = 1, line_length = 2, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
-      outer_corner_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
-      side_mask = { count = 8, line_length = 8, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
-      u_transition_mask = { count = 1, line_length = 1, picture = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+      transition = {
+        mask_layout = {
+          inner_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 0 },
+          o_transition = { count = 1, line_length = 2, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 1152 },
+          outer_corner = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 288 },
+          side = { count = 8, line_length = 8, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 576 },
+          u_transition = { count = 1, line_length = 1, spritesheet = "__base__/graphics/terrain/masks/transition-3.png", x = 864 }
+        }
+      }
     }
   },
 
   {
     type = "tile",
     name = "nullius-white-concrete",
-	localised_name = {"item-name.nullius-white-concrete"},
+	  localised_name = {"item-name.nullius-white-concrete"},
     order = "nullius-ccw",
     minable = {mining_time = 0.1, result = "nullius-white-concrete"},
-    collision_mask = {"ground-tile"},
+    collision_mask = { layers = {ground_tile = true}},
     walking_speed_modifier = 1.6,
     vehicle_friction_modifier = 0.5,
-    layer = 66,
+    layer = 40,
+    layer_group = "ground-artificial",
     map_color={r=0.85, g=0.85, b=0.85},
     needs_correction = false,
 
     transition_overlay_layer_offset = data.raw.tile["refined-concrete"].transition_overlay_layer_offset,
     decorative_removal_probability = data.raw.tile["refined-concrete"].decorative_removal_probability,
     transitions = data.raw.tile["refined-concrete"].transitions,
-	transitions_between_transitions = data.raw.tile["refined-concrete"].transitions_between_transitions,
+	  transitions_between_transitions = data.raw.tile["refined-concrete"].transitions_between_transitions,
     mined_sound = data.raw.tile["refined-concrete"].mined_sound,
-	walking_sound = data.raw.tile["refined-concrete"].walking_sound,
-	build_sound = data.raw.tile["refined-concrete"].build_sound,
-	scorch_mark_color = data.raw.tile["refined-concrete"].scorch_mark_color,
-	pollution_absorption_per_second = data.raw.tile["refined-concrete"].pollution_absorption_per_second,
-	trigger_effect = data.raw.tile["refined-concrete"].trigger_effect,
-	
+	  walking_sound = data.raw.tile["refined-concrete"].walking_sound,
+	  build_sound = data.raw.tile["refined-concrete"].build_sound,
+	  scorch_mark_color = data.raw.tile["refined-concrete"].scorch_mark_color,
+	  absorptions_per_second = data.raw.tile["refined-concrete"].absorptions_per_second,
+	  trigger_effect = data.raw.tile["refined-concrete"].trigger_effect,
+	  driving_sound = data.raw.tile["refined-concrete"].driving_sound,
+	  
     variants = {
       material_background = {
-	    picture = ENTITYPATH.."concrete/white-concrete.png",
+	      picture = ENTITYPATH.."concrete/white-concrete.png",
         count = 8,
         scale = 0.5
       },
-      inner_corner = {
-        picture = ENTITYPATH.."concrete/white-concrete-inner-corner.png",
-        count = 16,
-        scale = 0.5
+      
+      transition = {
+        overlay_layout = {
+          inner_corner = {
+            spritesheet = ENTITYPATH.."concrete/white-concrete-inner-corner.png",
+            count = 16,
+            scale = 0.5
+          },
+          outer_corner = {
+            spritesheet = ENTITYPATH.."concrete/white-concrete-outer-corner.png",
+            count = 8,
+            scale = 0.5
+          },
+          side = {
+            spritesheet = ENTITYPATH.."concrete/white-concrete-side.png",
+		        count = 16,
+            scale = 0.5
+          },
+          u_transition = {
+            spritesheet = ENTITYPATH.."concrete/white-concrete-u.png",
+            count = 8,
+            scale = 0.5
+          },
+          o_transition = {
+            spritesheet = ENTITYPATH.."concrete/white-concrete-o.png",
+            count = 4,
+            scale = 0.5
+          },
+        },
+        mask_layout = data.raw.tile["refined-concrete"].variants.transition.mask_layout
       },
-      outer_corner = {
-        picture = ENTITYPATH.."concrete/white-concrete-outer-corner.png",
-        count = 8,
-        scale = 0.5
-      },
-      side = {
-        picture = ENTITYPATH.."concrete/white-concrete-side.png",
-		count = 16,
-        scale = 0.5
-      },
-      u_transition = {
-        picture = ENTITYPATH.."concrete/white-concrete-u.png",
-        count = 8,
-        scale = 0.5
-      },
-      o_transition = {
-        picture = ENTITYPATH.."concrete/white-concrete-o.png",
-        count = 4,
-        scale = 0.5
-      },
+      
       main = data.raw.tile["refined-concrete"].variants.main,
-      inner_corner_mask = data.raw.tile["refined-concrete"].variants.inner_corner_mask,
-	  outer_corner_mask = data.raw.tile["refined-concrete"].variants.outer_corner_mask,
-	  side_mask = data.raw.tile["refined-concrete"].variants.side_mask,
-	  u_transition_mask = data.raw.tile["refined-concrete"].variants.u_transition_mask,
-	  o_transition_mask = data.raw.tile["refined-concrete"].variants.o_transition_mask
     }
   }
 })

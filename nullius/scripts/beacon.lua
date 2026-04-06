@@ -14,7 +14,7 @@ function update_small_beacon(entity)
   local count = 0
   for _,field in pairs(fields) do
     if (field.valid) then
-      local unit = global.nullius_interference_fields[field.unit_number]
+      local unit = storage.nullius_interference_fields[field.unit_number]
 	  if ((unit ~= nil) and (unique[unit] == nil)) then
 	    unique[unit] = true
 		count = count + 1
@@ -32,20 +32,20 @@ function update_small_beacon(entity)
   local proxies = entity.surface.find_entities_filtered{area=bound,
       type = "item-request-proxy"}
   for _,proxy in pairs(proxies) do
-	if (proxy.valid and (proxy.proxy_target == entity) and
-	     (proxy.item_requests ~= nil)) then
-	  local found = false
-	  modrequest = { }
-	  for modind, modval in pairs(proxy.item_requests) do
-	    modrequest[modind] = modval
-		found = true
+	  if (proxy.valid and (proxy.proxy_target == entity) and
+	       (proxy.item_requests ~= nil)) then
+	    local found = false
+	    modrequest = {}
+	    for _, req in pairs(proxy.insert_plan) do
+	      table.insert(modrequest, {id = table.deepcopy(req.id), items = table.deepcopy(req.items)})
+        found = true
+      end
+	    if (not found) then
+	      modrequest = nil
+	    end
+	    proxy.destroy()
+	    break
 	  end
-	  if (not found) then
-	    modrequest = nil
-	  end
-	  proxy.destroy()
-	  break
-	end
   end
 
   local newname = "nullius-beacon-"..tier
@@ -60,11 +60,11 @@ function update_small_beacon(entity)
     was_upgrade = entity.get_upgrade_target()
   end
 
-  global.nullius_in_beacon_replace = true
+  storage.nullius_in_beacon_replace = true
   local newentity = entity.surface.create_entity{name = newname,
       force = oldforce, position = entity.position, spill = false,
 	  fast_replace = true, create_build_effect_smoke = false}
-  global.nullius_in_beacon_replace = nil
+  storage.nullius_in_beacon_replace = nil
 
   if (newentity == nil) then return end
   if (was_deconstruct and (oldforce ~= nil)) then
@@ -105,15 +105,15 @@ function create_interference(entity, dir, xoffs, yoffs, xsz, ysz)
   local ret = create_collision_box(entity.surface, entity.position,
       entity.force, "nullius-beacon-interference-"..dir,
 	  xoffs, yoffs, xsz, ysz, "layer-42")
-  global.nullius_interference_fields[ret.unit_number] = entity.unit_number
+  storage.nullius_interference_fields[ret.unit_number] = entity.unit_number
   return ret
 end
 
 
 function build_large_beacon(entity)
-  if (global.nullius_beacons == nil) then
-    global.nullius_beacons = { }
-	global.nullius_interference_fields = { }
+  if (storage.nullius_beacons == nil) then
+    storage.nullius_beacons = { }
+	storage.nullius_interference_fields = { }
   end
 
   local entry = {
@@ -126,28 +126,28 @@ function build_large_beacon(entity)
   entry.interference[3] = create_interference(entity, "vertical", 8, 6, 6, 8)
   entry.interference[4] = create_interference(entity, "vertical", -8, -6, 6, 8)
 
-  global.nullius_beacons[entity.unit_number] = entry
-  script.register_on_entity_destroyed(entity)
+  storage.nullius_beacons[entity.unit_number] = entry
+  script.register_on_object_destroyed(entity)
   update_small_beacons(entity.position, entity.surface)
 end
 
 function build_beacon(entity)
-  if (global.nullius_in_beacon_replace ~= nil) then return end
+  if (storage.nullius_in_beacon_replace ~= nil) then return end
   if (string.sub(entity.name, 9, 21) == "large-beacon-") then
     build_large_beacon(entity)
-  elseif (global.nullius_interference_fields ~= nil) then
+  elseif (storage.nullius_interference_fields ~= nil) then
     update_small_beacon(entity)
   end
 end
 
 function remove_beacon(unit)
-  if (global.nullius_beacons == nil) then return false end
-  local entry = global.nullius_beacons[unit]
+  if (storage.nullius_beacons == nil) then return false end
+  local entry = storage.nullius_beacons[unit]
   if (entry == nil) then return false end
-  global.nullius_beacons[unit] = nil
+  storage.nullius_beacons[unit] = nil
   for _,field in pairs(entry.interference) do
     if (field.valid) then
-	  global.nullius_interference_fields[field.unit_number] = nil
+	  storage.nullius_interference_fields[field.unit_number] = nil
 	  field.destroy()
 	end
   end
