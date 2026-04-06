@@ -166,10 +166,10 @@ function build_wind_turbine(entity, level)
   newentity.power_production = storage.nullius_current_power[level]
   script.register_on_object_destroyed(newentity)
 
-  local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5, 17, 16, 13.5)
-  local collision2 = create_wind_collision(surface, position, force, "vertical", 17, -14.5, 13.5, 16)
-  local collision3 = create_wind_collision(surface, position, force, "horizontal", -14.5, -17, 16, 13.5)
-  local collision4 = create_wind_collision(surface, position, force, "vertical", -17, 14.5, 13.5, 16)
+  local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5, 16, 16, 14.5)
+  local collision2 = create_wind_collision(surface, position, force, "vertical", 16, -14.5, 14.5, 16)
+  local collision3 = create_wind_collision(surface, position, force, "horizontal", -14.5, -16, 16, 14.5)
+  local collision4 = create_wind_collision(surface, position, force, "vertical", -16, 14.5, 14.5, 16)
 
   local ind = level + ((newentity.unit_number % 307) * 3)
   local bucket = storage.nullius_turbine_buckets[ind]
