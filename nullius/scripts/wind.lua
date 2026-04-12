@@ -6,6 +6,13 @@
 local multiplier = (settings.startup["nullius-wind-turbine-energy-multiplier"].value / 60)
 local base_wind_power = {1500000*multiplier, 4000000*multiplier, 12000000*multiplier}
 
+-- wind_mod_offsets :: dictionary(str -> {int, int, int, int})
+-- Adjustment {top, bottom, left, right} to bounding box of modded entities.
+-- Adjustment is relative to the bounding box of a wind turbine.
+local wind_mod_offsets = {
+  ["cargo-drone-depot-constant-combinator"] = {0, -1, 0, -1}
+}
+
 function init_wind()
   storage.nullius_wind_orientation = 4
   storage.nullius_wind_factor = 0.7
@@ -29,6 +36,8 @@ function init_wind()
       last_offset = ((i - 1) * 24) / 921.0
     }
   end
+
+  storage.nullius_wind_mod_entities = {}
 end
 
 
@@ -237,4 +246,47 @@ function destroyed_wind_turbine(unit)
   end
   end
   return false
+end
+
+function build_wind_mod_entity(entity)
+  -- Entity is managed by another mod.  Only build collision boxes.
+  local surface = entity.surface
+  local position = entity.position
+  local force = entity.force
+
+  toff, boff, loff, roff = unpack(wind_mod_offsets[entity.name] or {0, 0, 0, 0})
+
+  local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5 + roff, 16 + boff, 16, 14.5)
+  local collision2 = create_wind_collision(surface, position, force, "vertical", 16 + roff, -14.5 + toff, 14.5, 16)
+  local collision3 = create_wind_collision(surface, position, force, "horizontal", -14.5 + loff, -16 + toff, 16, 14.5)
+  local collision4 = create_wind_collision(surface, position, force, "vertical", -16 + loff, 14.5 + boff, 14.5, 16)
+
+  storage.nullius_wind_mod_entities[entity.unit_number] = {
+    collision_box = collision1,
+    collision_box2 = collision2,
+    collision_box3 = collision3,
+    collision_box4 = collision4,
+    surface = surface.name
+  }
+end
+
+function destroy_wind_mod_entity(unit)
+  -- Entity is managed by another mod.  Only destroy collision boxes.
+  local entry = storage.nullius_wind_mod_entities[unit]
+  if entry == nil then return end
+
+  for _, cb in ipairs{entry.collision_box, entry.collision_box2, entry.collision_box3, entry.collision_box4} do
+    if cb ~= nil and cb.valid then
+      cb.destroy()
+    end
+  end
+  storage.nullius_wind_mod_entities[unit] = nil
+end
+
+function remove_wind_mod_entity(entity)
+  destroy_wind_mod_entity(entity.unit_number)
+end
+
+function destroyed_wind_mod_entity(unit)
+  destroy_wind_mod_entity(unit)
 end
