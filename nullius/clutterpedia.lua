@@ -273,6 +273,10 @@ if mods["cranes"] then
     clutterpedia["nullius-crane-2"] =                           {name = "crane",                            tech = "nullius-crane"}
 end
 
+if mods["stack-inserters"] then
+    clutterpedia["nullius-stack-inserter"] =                    {name = "stack-inserter",                   tech = "nullius-stack-inserters"}
+end
+
 function generate_migrations()
     local contents = "\n---- Generated migrations ----\n"
     for ogRecipe, entry in pairs(clutterpedia) do
