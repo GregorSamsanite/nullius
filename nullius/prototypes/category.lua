@@ -720,12 +720,6 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "valves",
-    order = "cc",
-    group = "chemistry",
-  },
-  {
-    type = "item-subgroup",
     name = "pumping",
     order = "d",
     group = "chemistry"

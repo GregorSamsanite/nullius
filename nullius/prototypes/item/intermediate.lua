@@ -6152,8 +6152,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	  crafting_machine_tint = {
-      primary = {r=1, g=0, b=0},
-      secondary = {r=1, g=0, b=0}
+      primary = {r=0.98, g=0.08, b=0.05},
+      secondary = {r=0.98, g=0.08, b=0.05}
     },
     energy_required = 60,
     ingredients = {
@@ -6175,8 +6175,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	crafting_machine_tint = {
-      primary = {r=1, g=0, b=0},
-      secondary = {r=1, g=0, b=0}
+      primary = {r=0.98, g=0.08, b=0.05},
+      secondary = {r=0.98, g=0.08, b=0.05}
     },
     subgroup = "boxed-concrete",
     energy_required = 300,
@@ -6217,8 +6217,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	crafting_machine_tint = {
-      primary = {r=0, g=0, b=1},
-      secondary = {r=0, g=0, b=1}
+      primary = {r=0.11, g=0.26, b=1},
+      secondary = {r=0.11, g=0.26, b=1}
     },
     energy_required = 80,
     ingredients = {
@@ -6243,8 +6243,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	crafting_machine_tint = {
-      primary = {r=0, g=0, b=1},
-      secondary = {r=0, g=0, b=1}
+      primary = {r=0.11, g=0.26, b=1},
+      secondary = {r=0.11, g=0.26, b=1}
     },
     subgroup = "boxed-concrete",
     energy_required = 400,
@@ -6288,8 +6288,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	crafting_machine_tint = {
-      primary = {r=1, g=1, b=0},
-      secondary = {r=1, g=1, b=0}
+      primary = {r=0.96, g=0.94, b=0},
+      secondary = {r=0.96, g=0.94, b=0}
     },
     energy_required = 72,
     ingredients = {
@@ -6312,8 +6312,8 @@ data:extend({
     always_show_products = true,
     category = "basic-chemistry",
 	crafting_machine_tint = {
-      primary = {r=1, g=1, b=0},
-      secondary = {r=1, g=1, b=0}
+      primary = {r=0.96, g=0.94, b=0},
+      secondary = {r=0.96, g=0.94, b=0}
     },
     subgroup = "boxed-concrete",
     energy_required = 360,

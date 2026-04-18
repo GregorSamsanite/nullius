@@ -873,8 +873,8 @@ data:extend({
     name = "nullius-one-way-valve",
     icon = "__angelspetrochemgraphics__/graphics/icons/valve-overflow.png",
     icon_size = 32,
-    subgroup = "valves",
-    order = "nullius-db",
+    subgroup = "pumping",
+    order = "nullius-ba",
     place_result = "nullius-one-way-valve",
     stack_size = 200
   },
@@ -887,7 +887,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    order = "nullius-dbb",
+    order = "nullius-bab",
     energy_required = 4,
     ingredients = {
       {type = "item", name = "pipe", amount = 1},
@@ -918,7 +918,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    order = "nullius-dbc",
+    order = "nullius-bac",
     energy_required = 6,
     ingredients = {
       {type = "item", name = "nullius-pipe-2", amount = 2},

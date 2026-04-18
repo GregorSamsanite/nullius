@@ -776,14 +776,14 @@ data.raw.item["underground-cross-pipe"].localised_description =
 data.raw.recipe["nullius-underground-four-way-junction-3"].localised_name = data.raw.item["underground-cross-pipe"].localised_name
   
 
-data.raw.item["80-overflow-valve"].subgroup = "valves"
-data.raw.item["80-overflow-valve"].order = "nullius-dmb"
+data.raw.item["80-overflow-valve"].subgroup = "pumping"
+data.raw.item["80-overflow-valve"].order = "nullius-baf"
 data.raw.item["80-overflow-valve"].localised_name =
   {"item-name.nullius-adjustable-relief-valve"}
 data.raw.item["80-overflow-valve"].localised_description =
   {"item-description.nullius-adjustable-relief-valve"}
-data.raw.item["80-top-up-valve"].subgroup = "valves"
-data.raw.item["80-top-up-valve"].order = "nullius-dmc"
+data.raw.item["80-top-up-valve"].subgroup = "pumping"
+data.raw.item["80-top-up-valve"].order = "nullius-bag"
 data.raw.item["80-top-up-valve"].localised_name =
   {"item-name.nullius-adjustable-top-up-valve"}
 data.raw.item["80-top-up-valve"].localised_description =
