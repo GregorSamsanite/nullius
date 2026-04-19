@@ -4642,3 +4642,480 @@ end
   },
 });
 end
+if mods["aai-containers"] then
+	data:extend({
+		--***RECPIES***
+		--Strong Boxes
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox",
+			localised_name = { "entity-name.aai-strongbox" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "nullius-steel-plate", amount = 100 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox-passive-provider",
+			localised_name = { "entity-name.aai-strongbox-passive-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+				{ type = "item", name = "nullius-large-supply-chest-1", amount = 1 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox-passive-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox-active-provider",
+			localised_name = { "entity-name.aai-strongbox-active-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 1 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox-active-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox-buffer",
+			localised_name = { "entity-name.aai-strongbox-buffer" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 1 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox-buffer", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox-storage",
+			localised_name = { "entity-name.aai-strongbox-storage" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+				{ type = "item", name = "nullius-large-storage-chest-1", amount = 1 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox-storage", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-strongbox-requester",
+			localised_name = { "entity-name.aai-strongbox-requester" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-strongbox", amount = 1 },
+				{ type = "item", name = "nullius-large-demand-chest-1", amount = 1 },
+			},
+			results = {
+				{ type = "item", name = "aai-strongbox-requester", amount = 1 },
+			},
+		},
+		--Storehouse
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse",
+			localised_name = { "entity-name.aai-storehouse" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "nullius-steel-plate", amount = 100 },
+				{ type = "item", name = "nullius-steel-beam", amount = 100 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse-passive-provider",
+			localised_name = { "entity-name.aai-storehouse-passive-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-supply-chest-1", amount = 2 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse-passive-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse-active-provider",
+			localised_name = { "entity-name.aai-storehouse-active-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 2 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse-active-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse-buffer",
+			localised_name = { "entity-name.aai-storehouse-buffer" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 2 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse-buffer", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse-storage",
+			localised_name = { "entity-name.aai-storehouse-storage" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-storage-chest-1", amount = 2 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse-storage", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-storehouse-requester",
+			localised_name = { "entity-name.aai-storehouse-requester" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-storehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-demand-chest-1", amount = 2 },
+			},
+			results = {
+				{ type = "item", name = "aai-storehouse-requester", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		--Warehouse
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse",
+			localised_name = { "entity-name.aai-warehouse" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "nullius-steel-plate", amount = 100 },
+				{ type = "item", name = "nullius-steel-beam", amount = 100 },
+				{ type = "item", name = "concrete", amount = 100 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse-passive-provider",
+			localised_name = { "entity-name.aai-warehouse-passive-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-supply-chest-1", amount = 3 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse-passive-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse-active-provider",
+			localised_name = { "entity-name.aai-warehouse-active-provider" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 3 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse-active-provider", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse-buffer",
+			localised_name = { "entity-name.aai-warehouse-buffer" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 3 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse-buffer", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse-storage",
+			localised_name = { "entity-name.aai-warehouse-storage" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-storage-chest-1", amount = 3 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse-storage", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		{
+			type = "recipe",
+			name = "nullius-aai-warehouse-requester",
+			localised_name = { "entity-name.aai-warehouse-requester" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 5,
+			category = "large-crafting",
+			ingredients = {
+				{ type = "item", name = "aai-warehouse", amount = 1 },
+				{ type = "item", name = "nullius-large-demand-chest-1", amount = 3 },
+			},
+			results = {
+				{ type = "item", name = "aai-warehouse-requester", amount = 1 },
+			},
+			order = "a-d-d",
+		},
+		--***Technology***
+		{
+			type = "technology",
+			name = "nullius-aai-strongbox-containers",
+			localised_name = { "technology-name.aai-strongbox-base" },
+			localised_description = { "technology-description.aai-strongbox-base" },
+			icon_size = 128,
+			category = "large-crafting",
+			icon = "__aai-containers__/graphics/technology/container-2-base.png",
+			effects = {
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox-active-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox-passive-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox-buffer",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox-storage",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-strongbox-requester",
+				},
+			},
+			prerequisites = { "nullius-storage-2" },
+
+			unit = {
+				count = 500,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+				},
+				time = 30,
+			},
+
+			order = "a-d-d",
+		},
+		{
+			type = "technology",
+			name = "nullius-aai-storehouse-containers",
+			localised_name = { "technology-name.aai-storehouse-base" },
+			localised_description = { "technology-description.aai-storehouse-base" },
+			icon_size = 128,
+			category = "large-crafting",
+			icon = "__aai-containers__/graphics/technology/container-4-base.png",
+			effects = {
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse-active-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse-passive-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse-buffer",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse-storage",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-storehouse-requester",
+				},
+			},
+			prerequisites = { "nullius-aai-strongbox-containers" },
+
+			unit = {
+				count = 750,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+				},
+
+				time = 30,
+			},
+
+			order = "a-d-d",
+		},
+		{
+			type = "technology",
+			name = "nullius-aai-warehouse-containers",
+			localised_name = { "technology-name.aai-warehouse-base" },
+			localised_description = { "technology-description.aai-warehouse-base" },
+			icon_size = 128,
+			category = "large-crafting",
+			icon = "__aai-containers__/graphics/technology/container-6-base.png",
+			effects = {
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse-active-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse-passive-provider",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse-buffer",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse-storage",
+				},
+
+				{
+					type = "unlock-recipe",
+					recipe = "nullius-aai-warehouse-requester",
+				},
+			},
+			prerequisites = { "nullius-aai-storehouse-containers" },
+
+			unit = {
+				count = 1000,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+				},
+
+				time = 30,
+			},
+			order = "a-d-d",
+		},
+	})
+end
