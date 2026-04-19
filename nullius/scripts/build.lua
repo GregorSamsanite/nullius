@@ -8,7 +8,10 @@ function entity_added(entity, handbuilt)
       local result = check_pipette(handbuilt)
       if (result ~= nil) then entity = result end
       --check_mirror(entity)
-	  end
+    elseif (entity.type == "constant-combinator" and
+            string.sub(entity.name, 1, 12) == "cargo-drone-") then
+      build_wind_mod_entity(entity)
+    end
     return
   end
 
@@ -45,7 +48,14 @@ function entity_added(entity, handbuilt)
 end
 
 function entity_removed(entity, died)
-  if (string.sub(entity.name, 1, 8) ~= "nullius-") then return end
+  if (string.sub(entity.name, 1, 8) ~= "nullius-") then
+    if (entity.type == "constant-combinator" and
+        string.sub(entity.name, 1, 12) == "cargo-drone-") then
+      remove_wind_mod_entity(entity)
+    else
+      return
+    end
+  end
   local suffix = string.sub(entity.name, 9, -2)
   if (suffix == "wind-base-") then
     remove_wind_turbine(entity, died, (string.byte(entity.name, 19) - 48))
@@ -84,6 +94,7 @@ function entity_destroyed(event)
   local unit_number = event.useful_id
   if (destroyed_stirling_engine(unit_number)) then return end
   if (destroyed_wind_turbine(unit_number)) then return end
+  if (destroyed_wind_mod_entity(unit_number)) then return end
   if (remove_beacon(unit_number)) then return end
   if (remove_turbine(unit_number)) then return end
   if (remove_transmitter(unit_number)) then return end

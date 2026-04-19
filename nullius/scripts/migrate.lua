@@ -146,6 +146,10 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if storage.nullius_wind_mod_entities == nil then
+    storage.nullius_wind_mod_entities = {}
+  end
+
   if(version >= 20003) then return end
   if storage.fixing_machines ~= nil then
     storage.fixing_machines = nil

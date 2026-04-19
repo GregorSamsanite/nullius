@@ -2580,13 +2580,31 @@ data.raw.car["cargo-drone"].friction = 0.003
 data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].order = "nullius-b"
 data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].stack_size = 10
 data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].localised_description = {"entity-description.nullius-cargo-drone-mooring"}
 data.raw.item["cargo-drone-mooring-constant-combinator-provider"].order = "nullius-c"
 data.raw.item["cargo-drone-mooring-constant-combinator-provider"].stack_size = 10
 data.raw.item["cargo-drone-mooring-constant-combinator-provider"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-mooring-constant-combinator-provider"].localised_description = {"entity-description.nullius-cargo-drone-mooring"}
 data.raw.item["cargo-drone-mooring-constant-combinator-requester"].order = "nullius-d"
 data.raw.item["cargo-drone-mooring-constant-combinator-requester"].stack_size = 10
 data.raw.item["cargo-drone-mooring-constant-combinator-requester"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-mooring-constant-combinator-requester"].localised_description = {"entity-description.nullius-cargo-drone-mooring"}
 data.raw.item["cargo-drone-depot-constant-combinator"].order = "nullius-e"
 data.raw.item["cargo-drone-depot-constant-combinator"].stack_size = 10
 data.raw.item["cargo-drone-depot-constant-combinator"].subgroup = "cargo-drone"
+data.raw.item["cargo-drone-depot-constant-combinator"].localised_description = {"entity-description.nullius-cargo-drone-mooring"}
+
+-- Collide with wind turbines
+for _, item in pairs({
+    "cargo-drone-mooring-constant-combinator-refueler",
+    "cargo-drone-mooring-constant-combinator-provider",
+    "cargo-drone-mooring-constant-combinator-requester",
+    "cargo-drone-depot-constant-combinator"
+}) do
+  local prototype = data.raw["constant-combinator"][item]
+  local cm = prototype.collision_mask or util.table.deepcopy(data.raw["utility-constants"]["default"].default_collision_masks["constant-combinator"])
+  cm.layers["layer_43"] = true
+  prototype.collision_mask = cm
+end
+
 end
