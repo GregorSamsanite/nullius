@@ -273,7 +273,7 @@ end
 function destroy_wind_mod_entity(unit)
   -- Entity is managed by another mod.  Only destroy collision boxes.
   local entry = storage.nullius_wind_mod_entities[unit]
-  if entry == nil then return end
+  if entry == nil then return false end
 
   for _, cb in ipairs{entry.collision_box, entry.collision_box2, entry.collision_box3, entry.collision_box4} do
     if cb ~= nil and cb.valid then
@@ -281,6 +281,7 @@ function destroy_wind_mod_entity(unit)
     end
   end
   storage.nullius_wind_mod_entities[unit] = nil
+  return true
 end
 
 function remove_wind_mod_entity(entity)
@@ -288,5 +289,5 @@ function remove_wind_mod_entity(entity)
 end
 
 function destroyed_wind_mod_entity(unit)
-  destroy_wind_mod_entity(unit)
+  return destroy_wind_mod_entity(unit)
 end
