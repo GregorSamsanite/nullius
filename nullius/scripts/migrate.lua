@@ -179,7 +179,7 @@ function migrate_version(event)
         entity.destroy({ raise_destroy = true })
     
         local valve = surface.create_entity({
-            name = "nullius-small-pump-1",
+            name = "nullius-togglable-small-pump-1",
             position = position,
             force = force,
             direction = direction,
@@ -196,7 +196,7 @@ function migrate_version(event)
         entity.destroy({ raise_destroy = true })
     
         local valve = surface.create_entity({
-            name = "nullius-small-pump-1",
+            name = "nullius-togglable-small-pump-1",
             position = position,
             force = force,
             direction = direction,
@@ -212,7 +212,7 @@ function migrate_version(event)
         entity.destroy({ raise_destroy = true })
     
         local valve = surface.create_entity({
-            name = "nullius-small-pump-1",
+            name = "nullius-togglable-small-pump-1",
             position = position,
             force = force,
             direction = direction,
@@ -228,7 +228,7 @@ function migrate_version(event)
         entity.destroy({ raise_destroy = true })
     
         local valve = surface.create_entity({
-            name = "nullius-small-pump-1",
+            name = "nullius-togglable-small-pump-1",
             position = position,
             force = force,
             direction = direction,
