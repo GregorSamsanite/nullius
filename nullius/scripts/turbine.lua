@@ -350,15 +350,31 @@ local function priority_event(event)
     toggle_surge(target, name, force)
   elseif (is_hangar_entity(name)) then
     toggle_hangar(target, name, force)
-  elseif (is_pump_entity(name)) then
-    toggle_pump(target, name, force)
-  elseif (is_conf_valve_entity(name)) then
-    toggle_conf_valve(target, name, force)
+  -- elseif (is_pump_entity(name)) then
+  --   toggle_pump(target, name, force)
+  -- elseif (is_conf_valve_entity(name)) then
+  --   toggle_conf_valve(target, name, force)
   end
 end
 
 script.on_event("nullius-prioritize", function(event)
   priority_event(event)
+end)
+
+
+script.on_event("configurable-valves-switch", function(event)
+  local player = game.players[event.player_index]
+  if ((player == nil) or (not player.valid)) then return end
+  local target = player.selected
+  local name = valid_entity_name(target, true)
+  if (name == nil) then return end
+
+  local force = (target.force or player.force)
+  if (is_pump_entity(name)) then
+    toggle_pump(target, name, force)
+  elseif (is_conf_valve_entity(name)) then
+    toggle_conf_valve(target, name, force)
+  end
 end)
 
 local function handle_togglable_pump_paste(target, tname, sname, source, force)
