@@ -2,6 +2,7 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
 if mods["reskins-bobs"] then
+data.raw["pump"]["nullius-togglable-pump-3"].icons = data.raw["pump"]["pump"].icons
 if settings.startup["reskins-lib-icon-tier-labeling"].value == true then
   local icon_style = settings.startup["reskins-lib-icon-tier-labeling-style"].value
   if settings.startup["reskins-bobs-do-inserter-tier-labeling"].value == true then
