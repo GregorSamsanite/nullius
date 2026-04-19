@@ -3,9 +3,10 @@ if (settings.startup["nullius-alignment"].value) then
 
 local turret = util.table.deepcopy(data.raw["ammo-turret"]["gun-turret"])
 turret.name = "nullius-align-conscription-turret"
+turret.icon = nil
 turret.icons = data.raw.item["nullius-align-conscription-turret"].icons
 turret.minable.result = "nullius-align-conscription-turret"
-turret.minable.max_health = 1000
+--turret.minable.max_health = 1000
 turret.resistances = {
   { type = "impact", decrease = 10, percent = 50 },
   { type = "laser", decrease = 5, percent = 25 },
@@ -18,12 +19,12 @@ turret.attack_parameters.range = 32
 
 local radar = util.table.deepcopy(data.raw["radar"]["radar"])
 radar.name = "nullius-align-concordance-transmitter"
+radar.icon = nil
 radar.icons = data.raw.item["nullius-align-concordance-transmitter"].icons
 radar.integration_patch = scale_image(radar.integration_patch, 2)
 radar.pictures = scale_image(radar.pictures, 2)
 radar.water_reflection = scale_image(radar.water_reflection, 2)
 radar.pictures.layers[1].tint = {0.6, 0.7, 1}
-radar.pictures.layers[1].hr_version.tint = {0.6, 0.7, 1}
 radar.minable.mining_time = 1
 radar.minable.result = "nullius-align-concordance-transmitter"
 radar.max_health = 600
@@ -47,6 +48,7 @@ data:extend({
     type = "projectile",
     name = "nullius-align-identification-card",
     flags = {"not-on-map"},
+    hidden_in_factoriopedia = true,
     acceleration = 0.005,
     action = {
       {
@@ -78,6 +80,7 @@ data:extend({
     type = "projectile",
     name = "nullius-align-invitation-card",
     flags = {"not-on-map"},
+    hidden_in_factoriopedia = true,
     acceleration = 0.005,
     action = {
       {
@@ -108,6 +111,7 @@ data:extend({
   {
     type = "projectile",
     name = "nullius-align-conscription-charge",
+    hidden_in_factoriopedia = true,
     flags = {"not-on-map"},
     acceleration = 0.1,
     action = {
@@ -149,11 +153,11 @@ data:extend({
   {
     type = "tile",
     name = "nullius-stars",
-    collision_mask = {"ground-tile"},
+    collision_mask = {layers = {ground_tile = true}},
     layer = 234,
     map_color={r=8, g=8, b=32},
     walking_speed_modifier = 0.2,
-    pollution_absorption_per_second = 0,
+    absorptions_per_second = {pollution = 0},
     variants = {
       main = {
 	    {

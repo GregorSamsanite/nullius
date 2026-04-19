@@ -3,10 +3,10 @@ function scan_stop(ts)
       type = "container", name = {"tu-supplier", "tu-receiver"}}
   if ((chests == nil) or (chests[1] == nil)) then return end
 
-  if (global.unit_table == nil) then
-    global.unit_table = { }
+  if (storage.unit_table == nil) then
+    storage.unit_table = { }
   else
-    local entry = global.unit_table[ts.unit_number]
+    local entry = storage.unit_table[ts.unit_number]
 	if (entry ~= nil) then
 	  delete_station(entry)
 	end  
@@ -15,7 +15,7 @@ function scan_stop(ts)
   local unit_list = { }
   for _, chest in pairs(chests) do
     if (chest.valid) then
-      local entry = global.unit_table[chest.unit_number]
+      local entry = storage.unit_table[chest.unit_number]
 	  if (entry == nil) then
 	    unit_list[chest.unit_number] = chest
 	  end
@@ -37,7 +37,7 @@ function scan_stop(ts)
   end
 
   if ((supplier_number < 1) or (receiver_number < 1)) then return end
-  script.register_on_entity_destroyed(ts)
+  script.register_on_object_destroyed(ts)
   init_station(ts, unit_list, supplier_list, receiver_list)
 end
 
@@ -52,7 +52,7 @@ function entity_added(entity)
   if (entity.type == "train-stop") then
     scan_stop(entity)
   elseif (string.sub(entity.name, 1, 3) == "tu-") then
-    script.register_on_entity_destroyed(entity)
+    script.register_on_object_destroyed(entity)
     local stops = entity.surface.find_entities_filtered{type = "train-stop",
 	    area = entity_box(entity, 2.9)}
     if ((stops == nil) or (stops[2] ~= nil)) then return end
@@ -73,13 +73,13 @@ function destroy_station(station, unit)
 end
 
 function destroy_unit(unit)
-  if (global.unit_table == nil) then return end
-  destroy_station(global.unit_table[unit], unit)
+  if (storage.unit_table == nil) then return end
+  destroy_station(storage.unit_table[unit], unit)
 end
 
 
 function entity_built(event)
-  entity_added(event.created_entity)
+  entity_added(event.entity)
 end
 function entity_raised(event)
   entity_added(event.entity)
@@ -102,4 +102,4 @@ end
 script.on_event(defines.events.on_player_mined_entity, entity_removed)
 script.on_event(defines.events.on_robot_mined_entity, entity_removed)
 script.on_event(defines.events.on_entity_died, entity_removed)
-script.on_event(defines.events.on_entity_destroyed, entity_destroyed)
+script.on_event(defines.events.on_object_destroyed, entity_destroyed)

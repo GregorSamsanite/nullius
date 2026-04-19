@@ -241,7 +241,7 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
   local c = tile_center(event)
   local a = area_bound(c, (size+2))
   local threshold = size * size * 0.14063
-  tiles = s.find_tiles_filtered{area=a, position=c, radius=(size+0.5), collision_mask="ground-tile"}
+  tiles = s.find_tiles_filtered{area=a, position=c, radius=(size+0.5), collision_mask="ground_tile"}
   for i, t in pairs(tiles) do
     local dx = (t.position.x - c.x)
   local dy = (t.position.y - c.y)
@@ -265,6 +265,7 @@ function miner_effect(event, ore, size, richness, goal_ind, goal_amount)
     if (e.valid and (e.type == "mining-drill")) then
     e.active = false
       e.active = true
+      e.update_connections()
   end
   end
 
@@ -276,7 +277,7 @@ end
 
 local function count_resource(event, name, limit, objective)
   if ((event.source_entity ~= nil) and event.source_entity.valid and
-	  (global.nullius_mission_status ~= nil)) then
+	  (storage.nullius_mission_status ~= nil)) then
     local s = game.surfaces[event.surface_index]
 	local total = 0
 	local entities = s.find_entities_filtered{name=name,
@@ -308,7 +309,7 @@ function petroleum_effect(event)
       local angle = 2 * math.pi * math.random()
       local distance = (math.random() * 32) + (math.random() * 24) - 28
       local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
-      local overlap_water = s.count_tiles_filtered{area=area_bound(p, 2), limit=2, collision_mask="water-tile"}
+      local overlap_water = s.count_tiles_filtered{area=area_bound(p, 2), limit=2, collision_mask="water_tile"}
       local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 4), limit=2}
       if ((overlap_obstacle > 0) or (overlap_water > 0)) then
 	    if ((n % 3) == 0) then
@@ -347,7 +348,7 @@ function algaculture_effect(event)
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local a = area_bound(c, 80)
-  local land_count = s.count_tiles_filtered{area=a, position=c, radius=80, limit=12000, collision_mask="ground-tile"}
+  local land_count = s.count_tiles_filtered{area=a, position=c, radius=80, limit=12000, collision_mask="ground_tile"}
   local land_bonus = 1.0 + (math.min(land_count, 12000) / 6000)
   local nearby_count = count_decoratives(s, a, 120, "nullius-algae")
   local algae_count = math.floor((((500 * math.random()) + 250) * land_bonus) / (math.min(nearby_count, 120) + 30))
@@ -442,20 +443,20 @@ function horticulture_effect(event)
   local center = area_center(event)
   surface.request_to_generate_chunks(center, 6)
 
-  if (global.nullius_grass_queue == nil) then
-    global.nullius_grass_queue = { }
-	global.nullius_grass_head = 1
-	global.nullius_grass_tail = 0
-	global.nullius_grass_timer = 0
+  if (storage.nullius_grass_queue == nil) then
+    storage.nullius_grass_queue = { }
+	storage.nullius_grass_head = 1
+	storage.nullius_grass_tail = 0
+	storage.nullius_grass_timer = 0
   end
-  global.nullius_grass_tail = global.nullius_grass_tail + 1
+  storage.nullius_grass_tail = storage.nullius_grass_tail + 1
   local fillsurface = landfill_surface(surface)
   fillsurface.request_to_generate_chunks(center, 4)
   local force = nil
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
     force = event.source_entity.force
   end
-  global.nullius_grass_queue[global.nullius_grass_tail] = {
+  storage.nullius_grass_queue[storage.nullius_grass_tail] = {
     surface = surface, center = center, fillsurface = fillsurface,
 	force = force
   }
@@ -489,7 +490,7 @@ function arboriculture_effect(event)
 	      area=area_bound(p, 1.2), limit=2}
       if ((overlap_obstacle < 1) or (math.random() < 0.4)) then
 		local near_tiles = s.find_tiles_filtered{area=area_bound(p, 1.8),
-		    radius=1.6, collision_mask="ground-tile"}
+		    radius=1.6, collision_mask="ground_tile"}
 		local near_num = 0
 		for _,nt in pairs(near_tiles) do
 		  near_num = near_num + 1
@@ -550,13 +551,13 @@ end
 
 function entomology_effect(event)
   scout_effect(event, 3)
-  if (global.nullius_mission_status == nil) then return end
+  if (storage.nullius_mission_status == nil) then return end
 
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
   local attempt_count = 8 + (math.random() * 9)
-  if (global.nullius_mission_status[2] < 35) then
-    attempt_count = attempt_count - (34 - global.nullius_mission_status[2])
+  if (storage.nullius_mission_status[2] < 35) then
+    attempt_count = attempt_count - (34 - storage.nullius_mission_status[2])
   end
 
   for _ = 1, attempt_count do
@@ -576,7 +577,7 @@ function entomology_effect(event)
     if ((overlap_worm < 1) and (overlap_water < 3)) then
       local a = area_bound(p, 25)
       local grass_count = s.count_tiles_filtered{area=a, position=p, radius=24, limit=1000,
-          collision_mask="ground-tile", name={"grass-1", "grass-2", "grass-3", "grass-4"}}
+          collision_mask="ground_tile", name={"grass-1", "grass-2", "grass-3", "grass-4"}}
       local tree_count = s.count_entities_filtered{area=a, position=p, radius=24, limit=12, type="tree"}
       local worm_count = count_decoratives(s, a, 10, "worms-decal")
 	  worm_count = worm_count + s.count_entities_filtered{limit=10, area=a,
@@ -587,8 +588,8 @@ function entomology_effect(event)
       if (rv < odds) then
 	    local change_ground = false
 		local status = 0
-		if (global.nullius_mission_status ~= nil) then
-		  status = global.nullius_mission_status[6]
+		if (storage.nullius_mission_status ~= nil) then
+		  status = storage.nullius_mission_status[6]
 		  if (status == nil) then status = 0 end
 		  status = math.max(0, math.min(100, status))
 		end
@@ -615,7 +616,7 @@ function entomology_effect(event)
 
 		if (change_ground) then
 	      local near_tiles = s.find_tiles_filtered{area=o,
-		      position=p, radius=5.4, collision_mask="ground-tile"}
+		      position=p, radius=5.4, collision_mask="ground_tile"}
 		  for _,nt in pairs(near_tiles) do
 		    local dx = nt.position.x - p.x
 		    local dy = nt.position.y - p.y
@@ -672,7 +673,7 @@ end
 
 function aquaculture_effect(event)
   scout_effect(event, 3)
-  if (global.nullius_mission_status == nil) then return end
+  if (storage.nullius_mission_status == nil) then return end
 
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
@@ -680,15 +681,15 @@ function aquaculture_effect(event)
   local algae_count = count_decoratives(s, a, 40, "nullius-algae")
   local fish_count = s.count_entities_filtered{area=a, limit=40, type="fish"}
   local attempt_count = ((((math.random() * 31) + (6 * algae_count)) / (10 + fish_count)) - 3) / 2
-  if (global.nullius_mission_status[2] < 68) then
-    attempt_count = attempt_count - ((68 - global.nullius_mission_status[2]) / 2)
+  if (storage.nullius_mission_status[2] < 68) then
+    attempt_count = attempt_count - ((68 - storage.nullius_mission_status[2]) / 2)
   end
 
   for _ = 1, attempt_count do
     local angle = 2 * math.pi * math.random()
     local distance = (math.random() * 96) + (math.random() * 48) - 72
     local p = {x = c.x + (math.cos(angle) * distance), y = c.y + (math.sin(angle) * distance)}
-    local overlap_land = s.count_tiles_filtered{area=area_bound(p, 1), limit=2, collision_mask="ground-tile"}
+    local overlap_land = s.count_tiles_filtered{area=area_bound(p, 1), limit=2, collision_mask="ground_tile"}
     local overlap_obstacle = s.count_entities_filtered{area=area_bound(p, 1.5), limit=2}
     if ((overlap_obstacle < 1) and (overlap_land < 1)) then
       s.create_entity({name="fish", amount=1, position=p})
@@ -703,7 +704,7 @@ end
 
 function husbandry_effect(event)
   scout_effect(event, 4)
-  if (global.nullius_mission_status == nil) then return end
+  if (storage.nullius_mission_status == nil) then return end
 
   local s = game.surfaces[event.surface_index]
   local c = tile_center(event)
@@ -742,19 +743,18 @@ function husbandry_effect(event)
 	      position=c, radius=64, limit=4, name="nullius-fumarole"})
   local penalty = 2.5 * (8 + fumarole_count) * (3 + nest_count)
   local bonus = (math.sqrt(fish_count * tree_count) *
-	  (global.nullius_mission_status[2] - 55) / 30)
+	  (storage.nullius_mission_status[2] - 55) / 30)
   local odds = math.sqrt(math.max(0, ((bonus / penalty) - 0.1))) - 0.2
   if (math.random() > odds) then return end
 
   local nest = s.create_entity{name="biter-spawner", amount=1, position=c}
   if (nest == nil) then return end
-  local old_status = global.nullius_mission_status[8]
+  local old_status = storage.nullius_mission_status[8]
   if (old_status == nil) then old_status = 0 end
   if (old_status == 0) then
     game.forces["enemy"].reset_evolution()
-  elseif (game.forces["enemy"].evolution_factor < 0.8) then
-    game.forces["enemy"].evolution_factor =
-	    game.forces["enemy"].evolution_factor + 0.01
+  elseif (game.forces["enemy"].get_evolution_factor() < 0.8) then
+    game.forces["enemy"].set_evolution_factor(game.forces["enemy"].get_evolution_factor() + 0.01)
   end
 
   local source = event.source_entity
@@ -762,19 +762,19 @@ function husbandry_effect(event)
   local force = source.force
   if (force == nil) then return end
   local new_status = 100
-  if (not global.nullius_mission_complete) then
+  if (not storage.nullius_mission_complete) then
     local new_count = s.count_entities_filtered{name="biter-spawner", limit=500}
     set_mission_goal(8, new_count, force)
-    new_status = global.nullius_mission_status[8]
+    new_status = storage.nullius_mission_status[8]
   end
 
-  local invasions = global.nullius_invasions
+  local invasions = storage.nullius_invasions
   if (invasions == nil) then invasions = 0 end
-  local cooldown = global.nullius_invasion_cooldown
+  local cooldown = storage.nullius_invasion_cooldown
   if (cooldown ~= nil) then
-    global.nullius_invasion_cooldown = cooldown - 1
-	if (global.nullius_invasion_cooldown < 1) then
-	  global.nullius_invasion_cooldown = nil
+    storage.nullius_invasion_cooldown = cooldown - 1
+	if (storage.nullius_invasion_cooldown < 1) then
+	  storage.nullius_invasion_cooldown = nil
 	end
 	return
   end
@@ -835,7 +835,7 @@ function husbandry_effect(event)
 		    limit=2, name={"deepwater", "water", "water-shallow",
 	            "deepwater-green", "water-green", "water-mud"}}
         local overlap_entity = s.count_entities_filtered{area=box,
-		    limit=2, collision_mask = "object-layer"}
+		    limit=2, collision_mask = "object"}
 		if ((overlap_water < 1) and (overlap_entity < 1)) then
 		  local unit = s.create_entity{name=unitname, amount=1, position=p}
 		  if ((unit ~= nil) and unit.valid) then
@@ -859,8 +859,8 @@ function husbandry_effect(event)
   end
   local target = source
   local assassinate = false
-  global.nullius_invasions = invasions
-  global.nullius_invasion_cooldown = cooldown
+  storage.nullius_invasions = invasions
+  storage.nullius_invasion_cooldown = cooldown
 
   if (math.random() < player_odds) then
     local pcount = 0

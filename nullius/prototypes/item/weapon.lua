@@ -7,8 +7,8 @@ data:extend({
     name = "nullius-drone-cannon",
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xm",
     stack_size = 1,
@@ -18,7 +18,7 @@ data:extend({
         "nullius-scout-drone",
         "nullius-demolition-drone",
         "nullius-excavation-drone",
-		"nullius-shallow-excavation-drone",
+		    "nullius-shallow-excavation-drone",
         "nullius-terraforming-drone-grey",
         "nullius-terraforming-drone-tan",
         "nullius-terraforming-drone-brown",
@@ -67,8 +67,8 @@ data:extend({
     localised_description = {"item-description.nullius-gun"},
     icon = "__base__/graphics/icons/submachine-gun.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xb",
     stack_size = 1,
@@ -99,8 +99,8 @@ data:extend({
     localised_description = {"item-description.nullius-gun"},
     icon = "__base__/graphics/icons/submachine-gun.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xb",
     stack_size = 1,
@@ -132,8 +132,8 @@ data:extend({
     localised_description = {"item-description.nullius-gun"},
     icon = "__base__/graphics/icons/tank-cannon.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xd",
     stack_size = 1,
@@ -165,8 +165,8 @@ data:extend({
     localised_description = {"item-description.nullius-gun"},
     icon = "__base__/graphics/icons/tank-cannon.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xd",
     stack_size = 1,
@@ -199,8 +199,8 @@ data:extend({
     localised_description = {"item-description.nullius-gun"},
     icon = "__base__/graphics/icons/tank-cannon.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xf",
     stack_size = 1,
@@ -234,8 +234,8 @@ data:extend({
     localised_description = {"item-description.nullius-missile-launcher"},
     icon = "__base__/graphics/icons/rocket-launcher.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xc",
     stack_size = 1,
@@ -258,8 +258,8 @@ data:extend({
     localised_description = {"item-description.nullius-missile-launcher"},
     icon = "__base__/graphics/icons/rocket-launcher.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xe",
     stack_size = 1,
@@ -282,8 +282,8 @@ data:extend({
     localised_description = {"item-description.nullius-missile-launcher"},
     icon = "__base__/graphics/icons/rocket-launcher.png",
     icon_size = 64,
-    icon_mipmaps = 4,
-    flags = {"hidden"},
+    
+    hidden = true,
     subgroup = "vehicle-weapon",
     order = "nullius-xg",
     stack_size = 1,
@@ -308,9 +308,9 @@ data:extend({
     localised_name = {"item-name.nullius-mecha-drone-launcher"},
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "vehicle-weapon",
-    flags = {"hidden"},
+    hidden = true,
     order = "nullius-xmb",
     attack_parameters = {
       type = "projectile",
@@ -332,9 +332,9 @@ data:extend({
     localised_name = {"item-name.nullius-mecha-drone-launcher"},
     icon = "__base__/graphics/icons/artillery-turret.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "vehicle-weapon",
-    flags = {"hidden"},
+    hidden = true,
     order = "nullius-xmc",
     attack_parameters = {
       type = "projectile",
@@ -356,7 +356,7 @@ data:extend({
     name = "nullius-gun",
     icon = "__base__/graphics/icons/pistol.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-cb",
     stack_size = 10,
@@ -388,12 +388,14 @@ data:extend({
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
-      {"nullius-steel-plate", 6},
-      {"nullius-steel-wire", 2},
-      {"nullius-steel-gear", 1},
-      {"nullius-rubber", 1}
+      {type = "item", name = "nullius-steel-plate", amount = 6},
+      {type = "item", name = "nullius-steel-wire", amount = 2},
+      {type = "item", name = "nullius-steel-gear", amount = 1},
+      {type = "item", name = "nullius-rubber", amount = 1}
     },
-    result = "nullius-gun"
+    results = {
+				{type="item", name="nullius-gun", amount = 1}
+			}
   },
 
   {
@@ -401,7 +403,7 @@ data:extend({
     name = "nullius-rifle",
     icon = "__base__/graphics/icons/submachine-gun.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-cc",
     stack_size = 5,
@@ -433,12 +435,14 @@ data:extend({
     category = "small-crafting",
     energy_required = 30,
     ingredients = {
-      {"nullius-gun", 2},
-      {"nullius-titanium-plate", 4},
-      {"nullius-motor-3", 1},
-      {"nullius-sensor-2", 1}
+      {type = "item", name = "nullius-gun", amount = 2},
+      {type = "item", name = "nullius-titanium-plate", amount = 4},
+      {type = "item", name = "nullius-motor-3", amount = 1},
+      {type = "item", name = "nullius-sensor-2", amount = 1}
     },
-    result = "nullius-rifle"
+   results = {
+				{type="item", name="nullius-rifle", amount = 1}
+			}
   },
 
   {
@@ -446,7 +450,7 @@ data:extend({
     name = "nullius-missile-launcher",
     icon = "__base__/graphics/icons/rocket-launcher.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-d",
     stack_size = 10,
@@ -469,11 +473,13 @@ data:extend({
     always_show_made_in = true,
     energy_required = 5,
     ingredients = {
-      {"nullius-gun", 1},
-      {"nullius-pipe-2", 3},
-      {"nullius-sensor-1", 1}
+      {type = "item", name = "nullius-gun", amount = 1},
+      {type = "item", name = "nullius-pipe-2", amount = 3},
+      {type = "item", name = "nullius-sensor-1", amount = 1}
     },
-    result = "nullius-missile-launcher"
+    results = {
+				{type="item", name="nullius-missile-launcher", amount = 1}
+			}
   },
 
   {
@@ -481,12 +487,12 @@ data:extend({
     name = "nullius-missile-1",
     icon = "__base__/graphics/icons/explosive-rocket.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-fb",
     stack_size = 100,
+    ammo_category = "rocket",
     ammo_type = {
-      category = "rocket",
       target_type = "position",
       action = {
         type = "direct",
@@ -512,15 +518,16 @@ data:extend({
     always_show_made_in = true,
     energy_required = 3,
     ingredients = {
-      {"cliff-explosives", 5},
-      {"nullius-steel-sheet", 3},
-      {"processed-fuel", 1},
-      {"nullius-sensor-1", 1},
-      {"nullius-battery-1", 1},
-      {"nullius-motor-2", 1}
+      {type = "item", name = "cliff-explosives", amount = 5},
+      {type = "item", name = "nullius-steel-sheet", amount = 3},
+      {type = "item", name = "processed-fuel", amount = 1},
+      {type = "item", name = "nullius-sensor-1", amount = 1},
+      {type = "item", name = "nullius-battery-1", amount = 1},
+      {type = "item", name = "nullius-motor-2", amount = 1}
     },
-    result = "nullius-missile-1",
-    result_count = 6
+    results = {
+				{type="item", name="nullius-missile-1", amount = 6}
+			}
   },
   {
     type = "recipe",
@@ -533,15 +540,16 @@ data:extend({
     always_show_made_in = true,
     energy_required = 15,
     ingredients = {
-      {"nullius-box-explosive", 5},
-      {"nullius-box-steel-sheet", 3},
-      {"nullius-box-methanol-canister", 1},
-      {"nullius-box-sensor-1", 1},
-      {"nullius-box-battery-1", 1},
-      {"nullius-box-motor-2", 1}
+      {type = "item", name = "nullius-box-explosive", amount = 5},
+      {type = "item", name = "nullius-box-steel-sheet", amount = 3},
+      {type = "item", name = "nullius-box-methanol-canister", amount = 1},
+      {type = "item", name = "nullius-box-sensor-1", amount = 1},
+      {type = "item", name = "nullius-box-battery-1", amount = 1},
+      {type = "item", name = "nullius-box-motor-2", amount = 1}
     },
-    result = "nullius-box-missile-1",
-    result_count = 6
+   results = {
+			{type="item", name="nullius-box-missile-1", amount = 6}
+		}
   },
 
   {
@@ -549,12 +557,12 @@ data:extend({
     name = "nullius-missile-2",
     icon = "__base__/graphics/icons/atomic-bomb.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-fc",
     stack_size = 100,
+    ammo_category = "rocket",
     ammo_type = {
-      category = "rocket",
       target_type = "position",
       action = {
         type = "direct",
@@ -580,13 +588,15 @@ data:extend({
     category = "small-crafting",
     energy_required = 10,
     ingredients = {
-      {"nullius-missile-1", 3},
-      {"nullius-titanium-sheet", 5},
-      {"nullius-fusion-cell", 1},
-      {"nullius-sensor-2", 1},
-      {"nullius-yield-module-2", 1}
+      {type = "item", name = "nullius-missile-1", amount = 3},
+      {type = "item", name = "nullius-titanium-sheet", amount = 5},
+      {type = "item", name = "nullius-fusion-cell", amount = 1},
+      {type = "item", name = "nullius-sensor-2", amount = 1},
+      {type = "item", name = "nullius-yield-module-2", amount = 1}
     },
-    result = "nullius-missile-2"
+    results = {
+				{type="item", name="nullius-missile-2", amount = 1}
+			}
   },
   {
     type = "recipe",
@@ -599,28 +609,30 @@ data:extend({
     subgroup = "boxed-demolition",
     energy_required = 10,
     ingredients = {
-      {"nullius-box-missile-1", 3},
-      {"nullius-box-titanium-sheet", 5},
-      {"nullius-fusion-cell", 5},
-      {"nullius-box-sensor-2", 1},
-      {"nullius-box-yield-module-2", 1}
+      {type = "item", name = "nullius-box-missile-1", amount = 3},
+      {type = "item", name = "nullius-box-titanium-sheet", amount = 5},
+      {type = "item", name = "nullius-fusion-cell", amount = 5},
+      {type = "item", name = "nullius-box-sensor-2", amount = 1},
+      {type = "item", name = "nullius-box-yield-module-2", amount = 1}
     },
-    result = "nullius-box-missile-2"
+    results = {
+				{type="item", name="nullius-box-missile-2", amount = 1}
+			}
   },
 
   {
     type = "ammo",
     name = "nullius-magazine",
-	localised_name = {"", {"item-name.nullius-magazine"}, " ", 1},
+	  localised_name = {"", {"item-name.nullius-magazine"}, " ", tostring(1)},
     icon = "__base__/graphics/icons/piercing-rounds-magazine.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-eb",
     stack_size = 200,
     magazine_size = 10,
+    ammo_category = "bullet",
     ammo_type = {
-      category = "bullet",
       target_type = "position",
       action = {
         {
@@ -666,16 +678,16 @@ data:extend({
   {
     type = "ammo",
     name = "nullius-magazine-2",
-	localised_name = {"", {"item-name.nullius-magazine"}, " ", 2},
+	localised_name = {"", {"item-name.nullius-magazine"}, " ", tostring(2)},
     icon = "__base__/graphics/icons/uranium-rounds-magazine.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "demolitions",
     order = "nullius-ec",
     stack_size = 200,
     magazine_size = 10,
+    ammo_category = "bullet",
     ammo_type = {
-      category = "bullet",
       target_type = "position",
       action = {
         {
@@ -728,11 +740,12 @@ data:extend({
     category = "hand-casting",
     energy_required = 5,
     ingredients = {
-      {"cliff-explosives", 1},
-      {"nullius-steel-rod", 6}
+      {type = "item", name = "cliff-explosives", amount = 1},
+      {type = "item", name = "nullius-steel-rod", amount = 6}
     },
-    result = "nullius-magazine",
-    result_count = 20
+    results = {
+			{type="item", name="nullius-magazine", amount = 20}
+		}
   },
   {
     type = "recipe",
@@ -745,11 +758,12 @@ data:extend({
     subgroup = "boxed-demolition",
     energy_required = 25,
     ingredients = {
-      {"nullius-box-explosive", 1},
-      {"nullius-box-steel-rod", 6}
+      {type = "item", name = "nullius-box-explosive", amount = 1},
+      {type = "item", name = "nullius-box-steel-rod", amount = 6}
     },
-    result = "nullius-box-magazine",
-    result_count = 20
+    results = {
+			{type="item", name="nullius-box-magazine", amount = 20}
+		}
   },
   {
     type = "recipe",
@@ -761,12 +775,13 @@ data:extend({
     category = "hand-casting",
     energy_required = 8,
     ingredients = {
-      {"nullius-box-magazine", 2},
-      {"nullius-uranium", 1},
-	  {"nullius-copper-sheet", 1}
+      {type = "item", name = "nullius-box-magazine", amount = 2},
+      {type = "item", name = "nullius-uranium", amount = 1},
+	  {type = "item", name = "nullius-copper-sheet", amount = 1}
     },
-    result = "nullius-magazine-2",
-    result_count = 3
+    results = {
+			{type="item", name="nullius-magazine-2", amount = 3}
+		}
   },
 
   {
@@ -777,7 +792,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/explosives.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.5
       },
       {
@@ -797,16 +812,18 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-chlorine-barrel", amount=1},
       {type="item", name="processed-fuel", amount=5},
-      {type="item", name="red-wire", amount=1},
-      {type="item", name="green-wire", amount=1},
+      {type="item", name="nullius-red-wire", amount=1},
+      {type="item", name="nullius-green-wire", amount=1},
       {type="item", name="nullius-small-miner-1", amount=1}
     },
-    result = "cliff-explosives"
+    results = {
+				{type="item", name="cliff-explosives", amount = 1}
+			}
   },
   {
     type = "recipe",
     name = "nullius-explosive",
-	localised_name = {"", {"item-name.nullius-explosive"}, " ", 1},
+	  localised_name = {"", {"item-name.nullius-explosive"}, " ", tostring(1)},
     order = "nullius-xc",
     enabled = false,
     always_show_made_in = true,
@@ -822,7 +839,7 @@ data:extend({
       {type="fluid", name="nullius-glycerol", amount=6},
       {type="item", name="nullius-sand", amount=2},
       {type="item", name="nullius-plastic", amount=1},
-      {type="item", name="red-wire", amount=1}
+      {type="item", name="nullius-red-wire", amount=1}
     },
     results = {
       {type="item", name="cliff-explosives", amount=1},
@@ -833,12 +850,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-explosive",
-	localised_name = {"recipe-name.nullius-boxed",
-	    {"", {"item-name.nullius-explosive"}, " ", 1}},
+  	localised_name = {"recipe-name.nullius-boxed",
+	    {"", {"item-name.nullius-explosive"}, " ", tostring(1)}},
     enabled = false,
     category = "basic-chemistry",
     subgroup = "boxed-demolition",
-	order = "nullius-cb",
+	  order = "nullius-cb",
     crafting_machine_tint = {
       primary = data.raw.fluid["nullius-acid-nitric"].flow_color,
       secondary = data.raw.fluid["nullius-glycerol"].flow_color
@@ -862,22 +879,21 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-explosive-2",
-	localised_name = {"", {"item-name.nullius-explosive"}, " ", 2},
-	icons = {
+	  localised_name = {"", {"item-name.nullius-explosive"}, " ", tostring(2)},
+	  icons = {
       {
         icon = "__base__/graphics/icons/explosives.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.5
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.3,
+		    scale = 0.3,
         shift = {-7, -7}
       }
-	},
+	  },
     order = "nullius-xd",
     enabled = false,
     always_show_made_in = true,
@@ -894,8 +910,8 @@ data:extend({
       {type="item", name="nullius-cellulose", amount=5},
       {type="item", name="nullius-aluminum-powder", amount=4},
       {type="item", name="nullius-plastic", amount=2},
-      {type="item", name="red-wire", amount=1},
-      {type="item", name="green-wire", amount=1}
+      {type="item", name="nullius-red-wire", amount=1},
+      {type="item", name="nullius-green-wire", amount=1}
     },
     results = {
       {type="item", name="cliff-explosives", amount=4},
@@ -906,9 +922,9 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-boxed-explosive-2",
-	localised_name = {"recipe-name.nullius-boxed",
-	    {"", {"item-name.nullius-explosive"}, " ", 2}},
-	icons = {
+	  localised_name = {"recipe-name.nullius-boxed",
+	    {"", {"item-name.nullius-explosive"}, " ", tostring(2)}},
+	  icons = {
       {
         icon = ICONPATH .. "crate.png",
         icon_size = 64
@@ -916,17 +932,16 @@ data:extend({
       {
         icon = "__base__/graphics/icons/explosives.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
         scale = 0.45
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.27,
+		    scale = 0.27,
         shift = {-6, -6}
       }
-	},
+	  },
     enabled = false,
     always_show_made_in = true,
     category = "basic-chemistry",
@@ -959,7 +974,7 @@ data:extend({
     name = "nullius-turret",
     icon = "__base__/graphics/icons/laser-turret.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
     subgroup = "drone-launcher",
     order = "nullius-h",
     place_result = "nullius-turret",
@@ -982,7 +997,9 @@ data:extend({
       {type="item", name="nullius-transformer", amount=2},
       {type="fluid", name="nullius-compressed-helium", amount=20, fluidbox_index=1}
     },
-    result = "nullius-turret"
+    results = {
+				{type="item", name="nullius-turret", amount = 1}
+			}
   },
 
   {
@@ -996,15 +1013,20 @@ data:extend({
     subgroup = "demolitions",
     order = "nullius-r",
 	stack_size = 1,
-	selection_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
-	alt_selection_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
-	selection_mode = {"any-entity"},
-	alt_selection_mode = {"any-entity"},
-	selection_cursor_box_type = "entity",
-	alt_selection_cursor_box_type = "entity",
-	entity_type_filters = {"simple-entity",
+	
+    select = {
+      border_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
+      cursor_box_type = "entity",
+      mode = "any-entity",
+      entity_type_filters = {"simple-entity",
 	    "item-entity", "rail-remnants", "corpse"},
-	alt_entity_type_filters = {"rail-remnants", "corpse"}
+    },
+    alt_select = {
+      border_color = {r = 0.8, g = 0.4, b = 0.1, a = 0.8},
+      cursor_box_type = "entity",
+      mode = "any-entity",
+      entity_type_filters = {"rail-remnants", "corpse"},
+    }
   },
   {
     type = "recipe",
@@ -1022,6 +1044,8 @@ data:extend({
       {type="item", name="fast-splitter", amount=1},
 	  {type="item", name="nullius-hydrogen-canister", amount=8}
     },
-    result = "nullius-rock-picker"
+    results = {
+				{type="item", name="nullius-rock-picker", amount = 1}
+			}
   }
 })

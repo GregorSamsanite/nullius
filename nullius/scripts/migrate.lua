@@ -1,6 +1,6 @@
 function init_legacy_recipes(force)
-  if (global.nullius_legacy == nil) then return end
-  local legacy = global.nullius_legacy[force.index]
+  if (storage.nullius_legacy == nil) then return end
+  local legacy = storage.nullius_legacy[force.index]
   if (legacy == nil) then return end
   for recipename, techname in pairs(legacy) do
     if (force.technologies[techname].researched and
@@ -12,13 +12,13 @@ end
   
 local function legacy_recipe(force, techname, recipename)
   if (not force.technologies[techname].researched) then return end
-  if (global.nullius_legacy == nil) then
-    global.nullius_legacy = { }
+  if (storage.nullius_legacy == nil) then
+    storage.nullius_legacy = { }
   end
-  if (global.nullius_legacy[force.index] == nil) then
-    global.nullius_legacy[force.index] = { }
+  if (storage.nullius_legacy[force.index] == nil) then
+    storage.nullius_legacy[force.index] = { }
   end
-  global.nullius_legacy[force.index]["nullius-legacy-"..recipename] = techname
+  storage.nullius_legacy[force.index]["nullius-legacy-"..recipename] = techname
 end
 
 local function legacy_recipe_all(techname, recipename)
@@ -146,6 +146,129 @@ function migrate_version(event)
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
 
+  if storage.nullius_wind_mod_entities == nil then
+    storage.nullius_wind_mod_entities = {}
+  end
+
+  if(version >= 20003) then return end
+  if storage.fixing_machines ~= nil then
+    storage.fixing_machines = nil
+  end
+  
+  if(version >= 20002) then return end
+  for _, surface in pairs(game.surfaces) do
+      for _, entity in pairs(surface.find_entities_filtered({ name = {"nullius-pump-1","nullius-pump-2","pump","nullius-small-pump-1","nullius-small-pump-2" }})) do
+          local position = entity.position
+          local direction = entity.direction
+          local force = entity.force
+          local name =  entity.name
+          entity.destroy({ raise_destroy = true })
+      
+          local pump = surface.create_entity({
+              name =name,
+              position = position,
+              force = force,
+              direction = direction,
+              raise_built = true,
+          })
+          
+          
+          local control_behavior = pump.get_or_create_control_behavior()
+          control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
+      end
+      for _, entity in pairs(surface.find_entities_filtered({ name = "nullius-one-way-valve" })) do
+        local position = entity.position
+        local direction = entity.direction
+        local force = entity.force
+        entity.destroy({ raise_destroy = true })
+    
+        local valve = surface.create_entity({
+            name = "nullius-togglable-small-pump-1",
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+        })
+        
+        local control_behavior = valve.get_or_create_control_behavior()
+        control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
+    end
+    for _, entity in pairs(surface.find_entities_filtered({ name = "nullius-relief-valve" })) do
+        local position = entity.position
+        local direction = entity.direction
+        local force = entity.force
+        entity.destroy({ raise_destroy = true })
+    
+        local valve = surface.create_entity({
+            name = "nullius-togglable-small-pump-1",
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+        })
+        local control_behavior = valve.get_or_create_control_behavior()
+        control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  constant = 75, }
+    end
+    for _, entity in pairs(surface.find_entities_filtered({ name = "nullius-priority-valve" })) do
+        local position = entity.position
+        local direction = entity.direction
+        local force = entity.force
+        entity.destroy({ raise_destroy = true })
+    
+        local valve = surface.create_entity({
+            name = "nullius-togglable-small-pump-1",
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+        })
+        local control_behavior = valve.get_or_create_control_behavior()
+        control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  constant = 25, }
+    end
+    for _, entity in pairs(surface.find_entities_filtered({ name = "nullius-top-up-valve" })) do
+        local position = entity.position
+        local direction = entity.direction
+        local force = entity.force
+        entity.destroy({ raise_destroy = true })
+    
+        local valve = surface.create_entity({
+            name = "nullius-togglable-small-pump-1",
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+        })
+        local control_behavior = valve.get_or_create_control_behavior()
+        control_behavior.circuit_condition = { comparator = '<', first_signal = { type = "virtual", name = "signal-O" }, constant = 50, }
+    end
+  end
+  if(version >= 20000) then return end
+  for _,bucket in pairs(storage.nullius_turbine_buckets) do
+    for _,t in pairs(bucket.turbines) do
+      t.blade = rendering.get_object_by_id(t.blade)
+      t.shadow = rendering.get_object_by_id(t.shadow)
+    end
+  end
+  for _,engine_bucket in pairs(storage.nullius_stirling_buckets) do
+    for _,level in pairs(engine_bucket) do
+      for _,unit in pairs(level) do
+        unit.turbine = rendering.get_object_by_id(unit.turbine)
+      end
+    end
+  end
+  for _,force in pairs(game.forces) do
+    if force.technologies["nullius-geology-1"].researched then
+      force.technologies["nullius-salvage-lab-wreckage"].researched = true
+    end
+  end
+  for _,surface in pairs(game.surfaces) do
+    if string.sub(surface.name, 1, 17) == "nullius-landfill-" then
+      for _, force in pairs(game.forces) do
+        force.set_surface_hidden(surface.name, true)
+      end
+    end
+  end
+  
   if (version >= 10901) then return end
   legacy_recipe_all("nullius-lithium-production", "lithium-chloride")
   legacy_recipe_all("nullius-lithium-production", "boxed-lithium-chloride")
@@ -174,16 +297,16 @@ function migrate_version(event)
 	  "nullius-genetic-archive-1", "nullius-genetic-archive-2" })
 
   if (version >= 10700) then return end
-  global.nullius_alignment = false
+  storage.nullius_alignment = false
   init_alignment()
   added_techs({"nullius-nuclear-power-2", "nullius-evolution-1",
       "nullius-evolution-2", "nullius-evolution-3", "nullius-evolution-4"})
 
   if (version >= 10600) then return end
-  if ((global.nullius_mission_status ~= nil) and
-      (global.nullius_mission_count[13] == nil)) then
-    global.nullius_mission_count[12] = 0
-    global.nullius_mission_status[12] = 0
+  if ((storage.nullius_mission_status ~= nil) and
+      (storage.nullius_mission_count[13] == nil)) then
+    storage.nullius_mission_count[12] = 0
+    storage.nullius_mission_status[12] = 0
   end
   legacy_recipe_all("nullius-organic-chemistry-6", "plastic-pex")
   legacy_recipe_all("nullius-organic-chemistry-6", "boxed-plastic-pex")

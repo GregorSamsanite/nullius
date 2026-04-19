@@ -5,7 +5,6 @@ local connector_offset = {
   [defines.direction.west] = {x = -2.15, y = 0}
 }
 
-
 local function turbine_priority(name)
   local priority = string.sub(name, -9, -2)
   if (priority == "-backup-") then
@@ -33,9 +32,9 @@ function build_turbine(entity)
   if (not (entity.valid and entity.supports_direction)) then return end
 
   local entry = { }
-  if (global.nullius_turbines == nil) then
-    global.nullius_turbines = { }
-  elseif (global.nullius_turbines[entity.unit_number] == entry) then
+  if (storage.nullius_turbines == nil) then
+    storage.nullius_turbines = { }
+  elseif (storage.nullius_turbines[entity.unit_number] == entry) then
     return
   end
 
@@ -49,8 +48,8 @@ function build_turbine(entity)
   local priority = turbine_priority(entity.name)
   if ((typestr == nil) or (priority == nil)) then return end
 
-  script.register_on_entity_destroyed(entity)
-  global.nullius_turbines[entity.unit_number] = entry
+  script.register_on_object_destroyed(entity)
+  storage.nullius_turbines[entity.unit_number] = entry
 
   local pos = entity.position
   entry.connector = entity.surface.create_entity{
@@ -65,25 +64,25 @@ function build_turbine(entity)
 
   if (priority == "exhaust") then
     local revdir = rotate_right[rotate_right[dir]]
-	local roffs = connector_offset[revdir]
+	  local roffs = connector_offset[revdir]
     entry.vent = entity.surface.create_entity{
-        name = "nullius-turbine-vent" .. "-" .. tier,
+      name = "nullius-turbine-vent" .. "-" .. tier,
 	    force = entity.force, direction = revdir,
 	    position = {x = (pos.x + roffs.x), y = (pos.y + roffs.y)}}
   end
 end
 
-local function destroy_if_valid(entity)
+local function destroy_if_valid(entity, raise_destroy)
   if ((entity ~= nil) and entity.valid) then
-    entity.destroy()
+    entity.destroy({ raise_destroy = raise_destroy })
   end
 end
 
 function remove_turbine(unit)
-  if (global.nullius_turbines == nil) then return false end
-  local entry = global.nullius_turbines[unit]
+  if (storage.nullius_turbines == nil) then return false end
+  local entry = storage.nullius_turbines[unit]
   if (entry == nil) then return false end
-  global.nullius_turbines[unit] = nil
+  storage.nullius_turbines[unit] = nil
   destroy_if_valid(entry.connector)
   destroy_if_valid(entry.generator)
   destroy_if_valid(entry.vent)
@@ -95,11 +94,11 @@ local function replace_turbine(entity, force, newname)
   local furnace_contents = save_fluid_contents(entity)
   local connector_contents = nil
   local generator_contents = nil
-  local entry = global.nullius_turbines[entity.unit_number]
+  local entry = storage.nullius_turbines[entity.unit_number]
   if (entry ~= nil) then
     connector_contents = save_fluid_contents(entry.connector)
-	generator_contents = save_fluid_contents(entry.generator)
-	remove_turbine(entity.unit_number)
+	  generator_contents = save_fluid_contents(entry.generator)
+	  remove_turbine(entity.unit_number)
   end
 
   if (newname ~= nil) then
@@ -114,7 +113,7 @@ local function replace_turbine(entity, force, newname)
 
   build_turbine(entity)
   restore_fluid_contents(entity, furnace_contents)
-  local newentry = global.nullius_turbines[entity.unit_number]
+  local newentry = storage.nullius_turbines[entity.unit_number]
   if (newentry ~= nil) then
     restore_fluid_contents(newentry.connector, connector_contents)
 	restore_fluid_contents(newentry.generator, generator_contents)
@@ -147,9 +146,9 @@ end
 
 local function scan_surge_priority(name)
   local offs = 9
-  if (string.sub(name, 9, 15) == "mirror-") then
-    offs = 16
-  end
+  -- if (string.sub(name, 9, 15) == "mirror-") then
+  --   offs = 16
+  -- end
   local offs2 = offs + 5
   local priority = string.sub(name, offs, offs2)
   if (priority == "surge-") then
@@ -198,13 +197,13 @@ local function toggle_hangar(entity, entityname, force)
 end
 
 
-local function valid_entity_name(entity)
+local function valid_entity_name(entity, no_prefix)
   if ((entity == nil) or (not entity.valid)) then return nil end
   local name = entity.name
   if (entity.type == "entity-ghost") then
     name = entity.ghost_name
   end
-  if (string.sub(name, 1, 8) ~= "nullius-") then return nil end
+  if not no_prefix and (string.sub(name, 1, 8) ~= "nullius-") then return nil end
   return name
 end
 
@@ -218,11 +217,130 @@ local function is_hangar_entity(name)
   return ((suffix == "hangar") or (suffix == "relay-"))
 end
 
+local function is_pump_entity(name)
+  local names = {"nullius-pump-1", "nullius-pump-2", "pump", "nullius-small-pump-1", "nullius-small-pump-2"}
+  for _, n in ipairs(names) do
+    if (n == name) then return true end
+  end
+  return false
+end
+
+local function is_conf_valve_entity(name)
+  local names = {"nullius-togglable-pump-1", "nullius-togglable-pump-2", "nullius-togglable-pump-3", "nullius-togglable-small-pump-1", "nullius-togglable-small-pump-2"}
+  for _, n in ipairs(names) do
+    if (n == name) then return true end
+  end
+  return false
+end
+
+local function is_togglable_pump_entity(name)
+  return is_pump_entity(name) or is_conf_valve_entity(name)
+end
+
+local function conf_valve_check_one_way(circuit_condition, unit_number)
+  if circuit_condition == nil then return false end
+  if circuit_condition.comparator == nil then return false end
+  if circuit_condition.comparator == '>' then
+    local signal_first = circuit_condition.first_signal
+    if signal_first == nil then return false end
+    if signal_first.type == "virtual" and signal_first.name == "signal-I" then
+      local signal_second = circuit_condition.second_signal
+      if signal_second == nil then return false end
+      if  signal_second.type == "virtual" and signal_second.name == "signal-O" then
+        storage.nullius_valves[unit_number] = true
+      end
+    end
+  end
+end
+
+local function toggle_pump(entity, name, force, circuit_condition)
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
+  local position = entity.position
+  local direction = entity.direction
+  local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
+  
+  --local fluid_contents = save_fluid_contents(entity)
+  storage.nullius_valves[entity.unit_number] = nil
+  local conf_valve = nil
+  if (entity.type == "entity-ghost") then
+    destroy_if_valid(entity, true)
+    conf_valve = game.surfaces["nauvis"].create_entity({
+        name = "entity-ghost",
+        inner_name = names[name],
+        position = position,
+        force = force,
+        direction = direction,
+        raise_built = true,
+        create_build_effect_smoke = false
+    })
+  else
+    destroy_if_valid(entity, true)
+    conf_valve = game.surfaces["nauvis"].create_entity({
+        name = names[name],
+        position = position,
+        force = force,
+        direction = direction,
+        raise_built = true,
+    })
+  end
+  
+  if circuit_condition ~= nil then
+    local control_behavior = conf_valve.get_or_create_control_behavior()
+    control_behavior.circuit_condition = table.deepcopy(circuit_condition)
+    conf_valve_check_one_way(control_behavior.circuit_condition, conf_valve.unit_number)
+  end
+  
+  --restore_fluid_contents(conf_valve, fluid_contents)
+end
+
+local function toggle_conf_valve(entity, name, force, force_toggle)
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
+  if storage.nullius_valves[entity.unit_number] or force_toggle then
+    storage.nullius_valves[entity.unit_number] = nil
+    local position = entity.position
+    local direction = entity.direction
+    local names = {["nullius-togglable-pump-1"]  = "nullius-pump-1", ["nullius-togglable-pump-2"] = "nullius-pump-2", ["nullius-togglable-pump-3"] = "pump", ["nullius-togglable-small-pump-1"] = "nullius-small-pump-1", ["nullius-togglable-small-pump-2"] = "nullius-small-pump-2"}
+    
+    --local fluid_contents = save_fluid_contents(entity) -- todo: use the fluidbox api to get the linked entity(internal gauge) and save fluid contents this way
+    local pump = nil
+    if (entity.type == "entity-ghost") then
+      destroy_if_valid(entity, true)
+      pump = game.surfaces["nauvis"].create_entity({
+            name = "entity-ghost",
+            inner_name = names[name],
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+            create_build_effect_smoke = false
+      })
+    else
+      destroy_if_valid(entity, true)
+      pump = game.surfaces["nauvis"].create_entity({
+            name = names[name],
+            position = position,
+            force = force,
+            direction = direction,
+            raise_built = true,
+      })
+    end
+    
+    --restore_fluid_contents(pump, fluid_contents)
+    return
+  end
+  local control_behavior = entity.get_or_create_control_behavior()
+  conf_valve_check_one_way(control_behavior.circuit_condition, entity.unit_number)
+end
+
 local function priority_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
   local target = player.selected
-  local name = valid_entity_name(target)
+  local name = valid_entity_name(target, true)
   if (name == nil) then return end
 
   local force = (target.force or player.force)
@@ -232,6 +350,10 @@ local function priority_event(event)
     toggle_surge(target, name, force)
   elseif (is_hangar_entity(name)) then
     toggle_hangar(target, name, force)
+  -- elseif (is_pump_entity(name)) then
+  --   toggle_pump(target, name, force)
+  -- elseif (is_conf_valve_entity(name)) then
+  --   toggle_conf_valve(target, name, force)
   end
 end
 
@@ -240,23 +362,57 @@ script.on_event("nullius-prioritize", function(event)
 end)
 
 
+script.on_event("configurable-valves-switch", function(event)
+  local player = game.players[event.player_index]
+  if ((player == nil) or (not player.valid)) then return end
+  local target = player.selected
+  local name = valid_entity_name(target, true)
+  if (name == nil) then return end
+
+  local force = (target.force or player.force)
+  if (is_pump_entity(name)) then
+    toggle_pump(target, name, force)
+  elseif (is_conf_valve_entity(name)) then
+    toggle_conf_valve(target, name, force)
+  end
+end)
+
+local function handle_togglable_pump_paste(target, tname, sname, source, force)
+  local t_is_pump = is_pump_entity(tname)
+  local s_is_pump = is_pump_entity(sname)
+  
+  if storage.nullius_valves == nil then
+    storage.nullius_valves = { }
+  end
+  storage.nullius_valves[target.unit_number] = nil
+  if t_is_pump and not s_is_pump then
+    toggle_pump(target, tname, force, source.get_or_create_control_behavior().circuit_condition)
+  elseif not t_is_pump and s_is_pump then
+    toggle_conf_valve(target, tname, force, true)
+  elseif not t_is_pump and not s_is_pump then
+    local control_behavior = target.get_or_create_control_behavior()
+    control_behavior.circuit_condition = table.deepcopy(source.get_or_create_control_behavior().circuit_condition)
+    conf_valve_check_one_way(control_behavior.circuit_condition, target.unit_number)
+  end
+end
+
 function entity_paste_event(event)
   local player = game.players[event.player_index]
   if ((player == nil) or (not player.valid)) then return end
   local source = event.source
-  local sname = valid_entity_name(source)
+  local sname = valid_entity_name(source, true)
   if (sname == nil) then return end
   local target = event.destination
-  local tname = valid_entity_name(target)
+  local tname = valid_entity_name(target, true)
   if (tname == nil) then return end
   local force = (target.force or player.force)
 
   if (string.sub(tname, 9, 16) == "turbine-") then
     if (string.sub(sname, 9, 16) ~= "turbine-") then return end
-	local ttyp = turbine_type(tname)
+	  local ttyp = turbine_type(tname)
     local tpri = turbine_priority(tname)
     if ((ttyp == nil) or (tpri == nil)) then return end
-	local spri = turbine_priority(sname)
+	  local spri = turbine_priority(sname)
     if ((spri == nil) or (spri == tpri)) then return end
 
     local newname = "nullius-turbine-" .. ttyp .. "-" ..
@@ -268,36 +424,37 @@ function entity_paste_event(event)
     end
   elseif (is_surge_entity(tname) and is_surge_entity(sname)) then
     local tsurge = scan_surge_priority(tname)
-	local ssurge = scan_surge_priority(sname)
+	  local ssurge = scan_surge_priority(sname)
     if ((tsurge == nil) or (ssurge == nil)) then return end
-	if (tsurge.priority == ssurge.priority) then return end
+	  if (tsurge.priority == ssurge.priority) then return end
     toggle_surge(target, tname, force)
   elseif (is_hangar_entity(tname) and is_hangar_entity(sname)) then
     local thang = scan_hangar_name(tname)
-	local shang = scan_hangar_name(sname)
-	if (thang.iscon == shang.iscon) then return end
-	toggle_hangar(target, tname, force)
+	  local shang = scan_hangar_name(sname)
+	  if (thang.iscon == shang.iscon) then return end
+	  toggle_hangar(target, tname, force)
+	elseif (is_togglable_pump_entity(tname) and is_togglable_pump_entity(sname)) then
+    handle_togglable_pump_paste(target, tname, sname, source, force)
   end
 end
 
 script.on_event(defines.events.on_entity_settings_pasted, entity_paste_event)
 
-
 function dolly_moved_entity(event)
-  if (global.nullius_turbines == nil) then return end
+  if (storage.nullius_turbines == nil) then return end
   if (event == nil) then return end
   local entity = event.moved_entity
   if ((entity == nil) or (not entity.valid)) then return end
   if (string.sub(entity.name, 1, 16) ~= "nullius-turbine-") then return end
-  local entry = global.nullius_turbines[entity.unit_number]
+  local entry = storage.nullius_turbines[entity.unit_number]
   if (entry == nil) then return end
   replace_turbine(entity, force, nil)
 end
 
 
 function convert_all_turbines()
-  if (global.nullius_turbines == nil) then
-    global.nullius_turbines = { }
+  if (storage.nullius_turbines == nil) then
+    storage.nullius_turbines = { }
   end
   for _,surface in pairs(game.surfaces) do
     local turbines = surface.find_entities_filtered{name=

@@ -97,7 +97,7 @@ end
 function landing_site(surface, loc, frc)
   for _, entity in pairs (surface.find_entities_filtered{
       area = {{loc.x - 32, loc.y - 24}, {loc.x + 32, loc.y + 24}},
-      force = "neutral", collision_mask = "player-layer"}) do
+      force = "neutral", collision_mask = "player"}) do
     if entity.valid then
       entity.destroy()
     end
@@ -128,7 +128,7 @@ function landing_site(surface, loc, frc)
 	  local can_place = surface.can_place_entity{
           name = part.name, position = part_position,
           force = frc, forced = true,
-          build_check_type = defines.build_check_type.ghost_place }
+          build_check_type = defines.build_check_type.ghost_place }--todo: check this
       if (can_place and ((part.min_separation == nil) or
           (surface.count_entities_filtered{position = part_position,
             radius = part.min_separation, limit = 1,

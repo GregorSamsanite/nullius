@@ -17,18 +17,18 @@ local ALIGN_ABSORB_UNSHARE = 15
 
 local function lookup_force(force)
   if ((force == nil) or (not force.valid)) then return nil end
-  return global.nullius_align_factions[force.name]
+  return storage.nullius_align_factions[force.name]
 end
 
 local function init_faction(force, name)
   local entry = { name = name, has_transmitter = false, tags = { }}
-  global.nullius_align_factions[force.name] = entry
+  storage.nullius_align_factions[force.name] = entry
   init_broken()
 end
 
 local function create_faction(player)
   local name = "faction-" .. player.name
-  local faction = global.nullius_align_factions[name]
+  local faction = storage.nullius_align_factions[name]
   if (faction ~= nil) then return faction end
   faction = game.create_force(name)
   if ((faction == nil) or (not faction.valid)) then
@@ -40,26 +40,26 @@ end
 
 
 function init_alignment()
-  if (global.nullius_alignment == nil) then
-    global.nullius_alignment = (game.is_multiplayer() and
+  if (storage.nullius_alignment == nil) then
+    storage.nullius_alignment = (game.is_multiplayer() and
 	    settings.startup["nullius-alignment"].value)
   end
 
-  if (not global.nullius_alignment) then
-    global.nullius_align_factions = nil
-	global.nullius_align_queue_head = nil
-	global.nullius_align_queue_tail = nil
-	global.nullius_align_lobby = nil
-	global.nullius_align_invite_status = nil
-	global.nullius_align_satellite_winner = nil
-  elseif (global.nullius_align_factions == nil) then
-    global.nullius_align_factions = { }
-	global.nullius_align_invite_status = { }
-	global.nullius_align_landing_distance = 32
-	global.nullius_align_landing_sites = { }
-	global.nullius_align_landing_sites[1] = {x = 0, y = 0}
-	global.nullius_align_landing_count = 1
-	global.nullius_align_satellite_winner = nil
+  if (not storage.nullius_alignment) then
+    storage.nullius_align_factions = nil
+	storage.nullius_align_queue_head = nil
+	storage.nullius_align_queue_tail = nil
+	storage.nullius_align_lobby = nil
+	storage.nullius_align_invite_status = nil
+	storage.nullius_align_satellite_winner = nil
+  elseif (storage.nullius_align_factions == nil) then
+    storage.nullius_align_factions = { }
+	storage.nullius_align_invite_status = { }
+	storage.nullius_align_landing_distance = 32
+	storage.nullius_align_landing_sites = { }
+	storage.nullius_align_landing_sites[1] = {x = 0, y = 0}
+	storage.nullius_align_landing_count = 1
+	storage.nullius_align_satellite_winner = nil
   end
 end
 
@@ -67,20 +67,20 @@ function init_alignment_force(force)
   for i = 1, 7 do
     local tech = force.technologies["nullius-alignment-" .. i]
 	if ((tech ~= nil) and tech.valid) then
-	  tech.enabled = global.nullius_alignment
+	  tech.enabled = storage.nullius_alignment
 	end
   end
 end
 
 
 local function teleport_lobby(player)
-  local lobby = global.nullius_align_lobby
+  local lobby = storage.nullius_align_lobby
   if (lobby == nil) then
     lobby = blank_surface(player.surface, "orbit")
     lobby.request_to_generate_chunks({0, 0}, 4)
     lobby.force_generate_chunk_requests()
     lobby.always_day = true
-    global.nullius_align_lobby = lobby
+    storage.nullius_align_lobby = lobby
 	player.force.chart(lobby, {{-120, -120}, {120, 120}})
   end
   player.teleport(player.position, lobby, true)
@@ -99,9 +99,9 @@ local function generate_corner(surface, x, y)
 end
 
 local function chunk_generated(event)
-  if (global.nullius_alignment ~= true) then return end
+  if (storage.nullius_alignment ~= true) then return end
   local surface = event.surface
-  if (surface ~= global.nullius_align_lobby) then return end
+  if (surface ~= storage.nullius_align_lobby) then return end
   local x = event.area.left_top.x
   local y = event.area.left_top.y
   generate_corner(surface, x, y)
@@ -114,12 +114,12 @@ script.on_event(defines.events.on_chunk_generated, chunk_generated)
 
 
 local function align_add_queue(entry)
-  if (global.nullius_align_queue_tail == nil) then
-    global.nullius_align_queue_head = entry
+  if (storage.nullius_align_queue_tail == nil) then
+    storage.nullius_align_queue_head = entry
   else
-    global.nullius_align_queue_tail.next = entry
+    storage.nullius_align_queue_tail.next = entry
   end
-  global.nullius_align_queue_tail = entry
+  storage.nullius_align_queue_tail = entry
 end
 
 function align_player_created(player)
@@ -150,7 +150,7 @@ local function faction_has_tech(force, techname)
 end
 
 local function faction_has_crafted(force, itemname, amount)
-  local stats = force.item_production_statistics
+  local stats = force.get_item_production_statistics("nauvis")
   local count = stats.get_input_count("nullius-" .. itemname)
   return (count >= amount)
 end
@@ -190,7 +190,7 @@ local function convert_player_faction(player, force)
 end
 
 function align_player_join(player)
-  if (not global.nullius_alignment) then return end
+  if (not storage.nullius_alignment) then return end
   local force = player.force
   for i = 1, 200 do
     local entry = lookup_force(force)
@@ -225,13 +225,13 @@ local function schedule_absorb_faction(oldforce, newforce, target)
   })
 end
 
-function align_satellite_launch(rocket)
-  if (not global.nullius_alignment) then return end
-  if (global.nullius_align_satellite_winner ~= nil) then return end
+function align_satellite_launch(rocket) --todo: rename as pod and test if it works
+  if (not storage.nullius_alignment) then return end
+  if (storage.nullius_align_satellite_winner ~= nil) then return end
   local newforce = rocket.force
   local entry = lookup_force(newforce)
   if (entry == nil) then return end
-  global.nullius_align_satellite_winner = { force = newforce,
+  storage.nullius_align_satellite_winner = { force = newforce,
       surface = rocket.surface, position =
 	      { x = rocket.position.x, y = (rocket.position.y + 256) } }
 
@@ -309,7 +309,7 @@ local function get_tech_progress(force, tech)
       (tech.name == force.current_research.name)) then
 	progress = force.research_progress
   else
-	progress = force.get_saved_technology_progress(tech.name)
+	progress = force.technologies[tech.name].saved_progress
   end
   if ((progress ~= nil) and (progress > 0)) then return progress end
   return 0
@@ -333,7 +333,7 @@ local function merge_faction_techs(oldforce, newforce, surface, pos)
 		  if (tech.name == newforce.current_research.name) then
 		    newforce.research_progress = progress
 		  else
-		    newforce.set_saved_technology_progress(tech.name, progress)
+		    newforce.technologies[tech.name].saved_progress = progress
 		  end
 		else
 		  if (not newtech.researched) then newtech.researched = true end
@@ -365,7 +365,7 @@ local function merge_faction_techs(oldforce, newforce, surface, pos)
 	  chest_width = chest_entry[3]
 	end
   end
-  local chest_proto = game.entity_prototypes[chest_name]
+  local chest_proto = prototypes.entity[chest_name]
   if ((chest_proto == nil) or (not chest_proto.valid) or
       ((chest_proto.type ~= "container") and
 	      (chest_proto.type ~= "logistic-container"))) then
@@ -389,7 +389,7 @@ local function merge_faction_techs(oldforce, newforce, surface, pos)
 	  item_name = "nullius-box-" .. string.sub(item_name, 9, -1)
 	  amount = math.floor((amount + 3) / 5)
 	end
-	local item_proto = game.item_prototypes[item_name]
+	local item_proto = prototypes.item[item_name]
 	if ((item_proto ~= nil) and item_proto.valid and
 	    item_proto.stackable and (item_proto.stack_size >= 5)) then
 	  while (amount > 0) do
@@ -456,7 +456,7 @@ end
 
 
 local function align_update_transmitter(entry)
-  local winner = global.nullius_align_satellite_winner
+  local winner = storage.nullius_align_satellite_winner
   if (winner ~= nil) then
     local force = lookup_force(winner.force)
     if (force ~= nil) then
@@ -469,12 +469,12 @@ local function align_update_transmitter(entry)
 	end
   end
 
-  if (global.nullius_align_transmitters ~= nil) then
+  if (storage.nullius_align_transmitters ~= nil) then
     local lst = { }
 	local num = 0
-	for bi, transmitter in pairs(global.nullius_align_transmitters) do
+	for bi, transmitter in pairs(storage.nullius_align_transmitters) do
 	  if ((transmitter.entity == nil) or (not transmitter.entity.valid)) then
-	    global.nullius_align_transmitters[bi] = nil
+	    storage.nullius_align_transmitters[bi] = nil
 	  else
         num = num + 1
 	    lst[num] = transmitter
@@ -512,7 +512,7 @@ end
 
 local function evaluate_search_position(pos, surface)
   local closest_dist = nil
-  for _,site in pairs(global.nullius_align_landing_sites) do
+  for _,site in pairs(storage.nullius_align_landing_sites) do
     local dx = (pos.x - site.x)
 	local dy = (pos.y - site.y)
 	local dist = ((dx * dx) + (dy * dy))
@@ -532,8 +532,8 @@ local function evaluate_search_position(pos, surface)
 end
 
 local function align_update_search(entry)
-  local dist = global.nullius_align_landing_distance
-  global.nullius_align_landing_distance = (dist + 1)
+  local dist = storage.nullius_align_landing_distance
+  storage.nullius_align_landing_distance = (dist + 1)
   local best_score = nil
   local best_pos = nil
   for i = 1, 6 do
@@ -555,9 +555,9 @@ local function align_update_search(entry)
 	player = entry.player, surface = entry.surface,
 	cposition = best_pos, tposition = tpos, count = 0
   })
-  local ind = (global.nullius_align_landing_count + 1)
-  global.nullius_align_landing_count = ind
-  global.nullius_align_landing_sites[ind] = best_pos
+  local ind = (storage.nullius_align_landing_count + 1)
+  storage.nullius_align_landing_count = ind
+  storage.nullius_align_landing_sites[ind] = best_pos
   local fillsurface = landfill_surface(entry.surface)
   fillsurface.request_to_generate_chunks(tpos, 3)
   entry.surface.request_to_generate_chunks(tpos, 5)
@@ -774,7 +774,7 @@ local resource_table = {
       density = 85, radius = 18, depth = 8 },
   { name = "nullius-sandstone", amount = 150,
       density = 90, radius = 17, depth = 8 },
-  { name = "lambent-nil-phosphorite", mod = "lambent-nil",
+  { name = "nullius-phosphorite", mod = "lambent-nil",
       amount = 10, density = 25, radius = 4, depth = 2 }
 }
 
@@ -941,16 +941,16 @@ end
 
 
 function update_align()
-  if (not global.nullius_alignment) then return end
-  local head = global.nullius_align_queue_head
+  if (not storage.nullius_alignment) then return end
+  local head = storage.nullius_align_queue_head
   if (head == nil) then return end
 
   if ((head.delay ~= nil) and (game.tick < head.delay)) then
-    if (head == global.nullius_align_queue_tail) then return end
-	global.nullius_align_queue_head = head.next
+    if (head == storage.nullius_align_queue_tail) then return end
+	storage.nullius_align_queue_head = head.next
 	head.next = nil
 	align_add_queue(head)
-	head = global.nullius_align_queue_head
+	head = storage.nullius_align_queue_head
 	if ((head.delay ~= nil) and (game.tick < head.delay)) then return end
   end
 
@@ -988,10 +988,10 @@ function update_align()
   end
 
   if (ret) then
-    if (head == global.nullius_align_queue_tail) then
-	  global.nullius_align_queue_tail = nil
+    if (head == storage.nullius_align_queue_tail) then
+	  storage.nullius_align_queue_tail = nil
 	end
-    global.nullius_align_queue_head = head.next
+    storage.nullius_align_queue_head = head.next
   end
 end
 
@@ -1084,7 +1084,7 @@ end
 
 
 local function align_effect_transponder(source)
-  if (not global.nullius_alignment) then return end
+  if (not storage.nullius_alignment) then return end
   local source_entry = lookup_force(source.force)
   if (source_entry == nil) then return end
   if (not check_entity_player(source)) then return end
@@ -1123,7 +1123,7 @@ local function align_set_invite_status(source, target, id)
 	        {"alignment.align-no-identification"}})
     return false
   end
-  global.nullius_align_invite_status[source.player.index] = {
+  storage.nullius_align_invite_status[source.player.index] = {
     target = target.player, ident = id, tick = game.tick,
 	tforce = target.force, sforce = source.force
   }
@@ -1131,7 +1131,7 @@ local function align_set_invite_status(source, target, id)
 end
 
 local function align_get_invite_status(entity, other)
-  local invite = global.nullius_align_invite_status[entity.player.index]
+  local invite = storage.nullius_align_invite_status[entity.player.index]
   if ((invite == nil) or (invite.sforce ~= entity.force)) then return nil end
   if (game.tick > (invite.tick + 36000)) then return nil end
   if (invite.target ~= other.player) then return nil end
@@ -1148,8 +1148,8 @@ local function align_match_invite_status(target, source)
   local oldforce = target.force
   convert_player_faction(target.player, source.force)
   check_faction_empty(oldforce, source.force, target)
-  global.nullius_align_invite_status[target.player.index] = nil
-  global.nullius_align_invite_status[source.player.index] = nil
+  storage.nullius_align_invite_status[target.player.index] = nil
+  storage.nullius_align_invite_status[source.player.index] = nil
 end
 
 local function align_effect_identification(target, source)
@@ -1166,7 +1166,7 @@ end
 
 
 function align_effect(event, suffix)
-  if (not global.nullius_alignment) then return end
+  if (not storage.nullius_alignment) then return end
   local target = check_entity_force(event.target_entity)
   local source = check_entity_force(event.source_entity)
   if ((target == nil) or (source == nil)) then return end
@@ -1184,32 +1184,32 @@ end
 
 
 function build_transmitter(entity)
-  if (not global.nullius_alignment) then return end
-  if (global.nullius_align_transmitters == nil) then
-    global.nullius_align_transmitters = { }
+  if (not storage.nullius_alignment) then return end
+  if (storage.nullius_align_transmitters == nil) then
+    storage.nullius_align_transmitters = { }
   end
-  global.nullius_align_transmitters[entity.unit_number] = {
+  storage.nullius_align_transmitters[entity.unit_number] = {
     entity = entity, force = entity.force
   }
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
   local force_entry = lookup_force(entity.force)
   if (force_entry == nil) then return end
   force_entry.has_transmitter = true
 end
 
 function remove_transmitter(unit)
-  if (global.nullius_align_transmitters == nil) then return end
-  local trans_entry = global.nullius_align_transmitters[unit]
+  if (storage.nullius_align_transmitters == nil) then return end
+  local trans_entry = storage.nullius_align_transmitters[unit]
   if (trans_entry == nil) then return end
-  global.nullius_align_transmitters[unit] = nil
+  storage.nullius_align_transmitters[unit] = nil
   local force_entry = lookup_force(trans_entry.force)
   if (force_entry == nil) then return end
   force_entry.has_transmitter = false
 
-  for u, e in pairs(global.nullius_align_transmitters) do
+  for u, e in pairs(storage.nullius_align_transmitters) do
     if ((e == nil) or (e.force == nil) or (not e.force.valid) or
 	    (e.entity == nil) or (not e.entity.valid)) then
-	  global.nullius_align_transmitters[u] = nil
+	  storage.nullius_align_transmitters[u] = nil
 	elseif (f == force) then
 	  force_entry.has_transmitter = true
 	  return

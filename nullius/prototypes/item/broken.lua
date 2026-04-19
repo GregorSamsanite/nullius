@@ -14,7 +14,7 @@ data:extend({
     localised_name = {"item-name.nullius-broken", {"entity-name.nullius-air-filter-1"}},
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/air-filter.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/air-filter.png",
         icon_size = 32,
         scale = 0.8
       },
@@ -39,7 +39,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-broken-electrolyzer",
-    localised_name = {"item-name.nullius-broken", {"", {"entity-name.nullius-electrolyzer"}, " ", 1}},
+    localised_name = {"item-name.nullius-broken", {"", {"entity-name.nullius-electrolyzer"}, " ", tostring(1)}},
     icons = {
       data.raw.item["nullius-electrolyzer-1"].icons[1],
       broken_overlay
@@ -130,7 +130,7 @@ data:extend({
     icons = {
 	  {
         icon =  "__base__/graphics/icons/radar.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
         tint = {0.9, 0.9, 0.65}
       },
       broken_overlay
@@ -176,10 +176,12 @@ data:extend({
     order = "nullius-c",
     energy_required = 3,
     ingredients = {
-      {"nullius-broken-air-filter", 1},
-      {"nullius-iron-sheet", 2}
+      {type = "item", name = "nullius-broken-air-filter", amount = 1},
+      {type = "item", name = "nullius-iron-sheet", amount = 2}
     },
-    result = "nullius-air-filter-1"
+    results = {
+			{type="item", name="nullius-air-filter-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -198,10 +200,12 @@ data:extend({
     order = "nullius-e",
     energy_required = 4,
     ingredients = {
-      {"nullius-broken-hydro-plant", 1},
-      {"pipe", 4}
+      {type = "item", name = "nullius-broken-hydro-plant", amount = 1},
+      {type = "item", name = "pipe", amount = 4}
     },
-    result = "nullius-hydro-plant-1"
+    results = {
+			{type="item", name="nullius-hydro-plant-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -220,10 +224,12 @@ data:extend({
     order = "nullius-g",
     energy_required = 6,
     ingredients = {
-      {"nullius-broken-electrolyzer", 1},
-      {"nullius-iron-wire", 5}
+      {type = "item", name = "nullius-broken-electrolyzer", amount = 1},
+      {type = "item", name = "nullius-iron-wire", amount = 5}
     },
-    result = "nullius-electrolyzer-1"
+    results = {
+			{type="item", name="nullius-electrolyzer-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -242,10 +248,12 @@ data:extend({
     order = "nullius-i",
     energy_required = 5,
     ingredients = {
-      {"nullius-broken-chemical-plant", 1},
-      {"nullius-one-way-valve", 2}
+      {type = "item", name = "nullius-broken-chemical-plant", amount = 1},
+      {type = "item", name = "nullius-one-way-valve", amount = 2}
     },
-    result = "nullius-chemical-plant-1"
+    results = {
+			{type="item", name="nullius-chemical-plant-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -264,10 +272,12 @@ data:extend({
     order = "nullius-k",
     energy_required = 4,
     ingredients = {
-      {"nullius-broken-foundry", 1},
-      {"stone-brick", 5}
+      {type = "item", name = "nullius-broken-foundry", amount = 1},
+      {type = "item", name = "stone-brick", amount = 5}
     },
-    result = "nullius-foundry-1"
+    results = {
+			{type="item", name="nullius-foundry-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -286,10 +296,12 @@ data:extend({
     order = "nullius-m",
     energy_required = 3,
     ingredients = {
-      {"nullius-broken-assembler", 1},
-      {"nullius-iron-gear", 2}
+      {type = "item", name = "nullius-broken-assembler", amount = 1},
+      {type = "item", name = "nullius-iron-gear", amount = 2}
     },
-    result = "nullius-medium-assembler-1"
+    results = {
+			{type="item", name="nullius-medium-assembler-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -308,10 +320,12 @@ data:extend({
     order = "nullius-o",
     energy_required = 2,
     ingredients = {
-      {"nullius-broken-pylon", 1},
-      {"nullius-iron-rod", 3}
+      {type = "item", name = "nullius-broken-pylon", amount = 1},
+      {type = "item", name = "nullius-iron-rod", amount = 3}
     },
-    result = "big-electric-pole"
+    results = {
+			{type="item", name="big-electric-pole", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -330,10 +344,12 @@ data:extend({
     order = "nullius-q",
     energy_required = 8,
     ingredients = {
-      {"nullius-broken-solar-panel", 1},
-      {"nullius-sand", 1}
+      {type = "item", name = "nullius-broken-solar-panel", amount = 1},
+      {type = "item", name = "nullius-sand", amount = 1}
     },
-    result = "nullius-solar-panel-1"
+    results = {
+			{type="item", name="nullius-solar-panel-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -352,10 +368,12 @@ data:extend({
     order = "nullius-s",
     energy_required = 6,
     ingredients = {
-      {"nullius-broken-grid-battery", 1},
-      {"nullius-graphite", 1}
+      {type = "item", name = "nullius-broken-grid-battery", amount = 1},
+      {type = "item", name = "nullius-graphite", amount = 1}
     },
-    result = "nullius-grid-battery-1"
+    results = {
+			{type="item", name="nullius-grid-battery-1", amount = 1}
+		}
   },
   {
     type = "recipe",
@@ -374,10 +392,12 @@ data:extend({
     order = "nullius-u",
     energy_required = 10,
     ingredients = {
-      {"nullius-broken-sensor-node", 1},
-      {"nullius-glass", 2},
-      {"small-lamp", 2}
+      {type = "item", name = "nullius-broken-sensor-node", amount = 1},
+      {type = "item", name = "nullius-glass", amount = 2},
+      {type = "item", name = "small-lamp", amount = 2}
     },
-    result = "radar"
+    results = {
+			{type="item", name="radar", amount = 1}
+		}
   }
 })

@@ -73,7 +73,8 @@ function update_train_set(station)
   station.train_index = station.train_index + 1
   if (station.train_index <= station.train_count) then return false end
   if (game.tick < (station.last_refresh + 900)) then return true end
-  station.train_set = station.stop.surface.get_trains(station.stop.force)
+  --station.train_set = station.stop.surface.get_trains(station.stop.force)
+  station.train_set = game.train_manager.get_trains{force = station.stop.force, surface = station.stop.surface}
   station.train_index = 0
   station.train_count = 0
   station.last_refresh = game.tick
@@ -95,9 +96,9 @@ function update_station(station)
 end
 
 function update_tick()
-  if (global.station_head == nil) then return end
-  global.station_head = global.station_head.next
-  update_station(global.station_head)
+  if (storage.station_head == nil) then return end
+  storage.station_head = storage.station_head.next
+  update_station(storage.station_head)
 end
 
 script.on_nth_tick(23, update_tick)

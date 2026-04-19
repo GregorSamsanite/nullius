@@ -1,10 +1,10 @@
 function init_geothermal()
-  global.nullius_stirling_buckets = {}
+  storage.nullius_stirling_buckets = {}
   for i=0,442 do
-    global.nullius_stirling_buckets[i] = { }
-  global.nullius_stirling_buckets[i][1] = { }
-  global.nullius_stirling_buckets[i][2] = { }
-  global.nullius_stirling_buckets[i][3] = { }
+    storage.nullius_stirling_buckets[i] = { }
+  storage.nullius_stirling_buckets[i][1] = { }
+  storage.nullius_stirling_buckets[i][2] = { }
+  storage.nullius_stirling_buckets[i][3] = { }
   end
 end
 
@@ -12,9 +12,11 @@ function destroy_stirling_engine(entry)
   if ((entry.heat ~= nil) and (entry.heat.valid)) then
     entry.heat.destroy()
   end
-  rendering.destroy(entry.turbine)
+  
+  entry.turbine.destroy()
   if (entry.shadow ~= 0) then
-    rendering.destroy(entry.shadow)
+    rendering.get_object_by_id(entry.shadow).destroy()
+    --entry.shadow.destroy()
   end
 end
 
@@ -51,17 +53,18 @@ function update_engine(e, threshold, ratio, limit, speed)
     e.last_offset = offs
     e.last_speed = aspeed
 
-    rendering.set_animation_speed(e.turbine, aspeed)
-    rendering.set_animation_offset(e.turbine, offs)
+    e.turbine.animation_speed = aspeed
+    e.turbine.animation_offset = offs
     if (e.shadow ~= 0) then
-      rendering.destroy(e.shadow)
+      -- rendering.destroy(e.shadow)
+      rendering.get_object_by_id(e.shadow).destroy()
       e.shadow = 0
     end
   end
 end
 
 function update_geothermal()
-  local bucket = global.nullius_stirling_buckets[game.tick % 443]
+  local bucket = storage.nullius_stirling_buckets[game.tick % 443]
   for i,e in pairs(bucket[1]) do
     if (e.electric.valid) then
       update_engine(e, 120, 200000, 13333.33, 0.5)
@@ -131,14 +134,14 @@ function build_stirling_engine(entity, level)
     entity.electric_buffer_size = (bsz * 1000000)
   end
 
-  script.register_on_entity_destroyed(entity)
+  script.register_on_object_destroyed(entity)
   local turbine = rendering.draw_animation{
       animation = "nullius-stirling-"..orientation.."-turbine-"..level,
       target = position, surface = surface, animation_speed = 0,
     render_layer = "lower-object-above-shadow"}
 
   local unit = entity.unit_number
-  local bucket = global.nullius_stirling_buckets[unit % 443]
+  local bucket = storage.nullius_stirling_buckets[unit % 443]
   bucket[level][unit] = {
     electric = entity,
     heat = heat,
@@ -150,7 +153,7 @@ function build_stirling_engine(entity, level)
 end
 
 function remove_stirling_unit(unit, died, level)
-  local bucket = global.nullius_stirling_buckets[unit % 443]
+  local bucket = storage.nullius_stirling_buckets[unit % 443]
   local entry = bucket[level][unit]
   if entry == nil then return end
 
@@ -176,7 +179,7 @@ function remove_stirling_engine(entity, died, level)
 end
 
 function destroyed_stirling_engine(unit)
-  local bucket = global.nullius_stirling_buckets[unit % 443]
+  local bucket = storage.nullius_stirling_buckets[unit % 443]
   for lvl=1,3 do
   local entry = bucket[lvl][unit]
   if (entry ~= nil) then
@@ -203,5 +206,5 @@ function build_thermal_tank(entity, level)
   local surface = entity.surface
   entity.destroy()
   surface.create_entity{name = "nullius-thermal-tank-"..dirname.."-"..level,
-    position = position, force = force, direction = direction}
+    position = position, force = force, direction = direction, fast_replace = true}
 end

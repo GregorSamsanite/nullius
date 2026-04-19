@@ -21,13 +21,13 @@ function different_box(box1, box2)
 end
 
 function equal_mask(car1, car2)
-  local mask1 = car1.collision_mask
-  local mask2 = car2.collision_mask
-  for layer, _ in pairs(mask1) do
-    if (mask2[layer] ~= true) then return false end
+  local mask1 = car1.collision_mask.layers
+  local mask2 = car2.collision_mask.layers
+  for layer, value in pairs(mask1) do
+    if (mask2[layer] ~= value) then return false end
   end
-  for layer, _ in pairs(mask2) do
-    if (mask1[layer] ~= true) then return false end
+  for layer, value in pairs(mask2) do
+    if (mask1[layer] ~= value) then return false end
   end
   return true
 end
@@ -165,22 +165,31 @@ function restore_inventory(car, contents, station)
 		end
 	  end
 
-	  for itemname, amount in pairs(entry.contents) do
-	    local inserted = inv.insert({name=itemname, count=amount})
+	  for key, inv_slot in pairs(entry.contents) do
+	    itemname = inv_slot.name
+	    amount = inv_slot.count
+        quality = inv_slot.quality
+	    local inserted = inv.insert({name=itemname, count=amount, quality = quality})
 		local remaining = amount - inserted
-		if (remaining < 1) then remaining = nil end
-		entry.contents[itemname] = remaining
+		if (remaining < 1) then
+            entry.contents[key] = nil
+        else
+	      entry.contents[key].count = remaining
+        end
 	  end
 	end
 
-	for itemname, amount in pairs(entry.contents) do
-	  for _,s in pairs(station.receivers) do
-	    local receiver = s.get_inventory(defines.inventory.chest)
-	    if ((receiver ~= nil) and receiver.can_insert(itemname)) then
-		  amount = amount - receiver.insert({name=itemname, count=amount})
-		  if (amount < 1) then break end
-		end
-	  end
+	for _, inv_slot in pairs(entry.contents) do
+		itemname = inv_slot.name
+        amount = inv_slot.count
+		quality = inv_slot.quality
+	    for _,s in pairs(station.receivers) do
+	        local receiver = s.get_inventory(defines.inventory.chest)
+	        if ((receiver ~= nil) and receiver.can_insert({name=itemname, count=1, quality = quality})) then
+		        amount = amount - receiver.insert({name=itemname, count=amount, quality = quality})
+		        if (amount < 1) then break end
+			end
+	    end
 	end
   end
 end
@@ -226,7 +235,7 @@ function restore_grid(grid, contents, station, doit)
 	      local receiver = s.get_inventory(defines.inventory.chest)
 	      if ((receiver ~= nil) and receiver.can_insert(take_name) and
 		      (receiver.insert({name=take_name}) > 0)) then
-			break;
+			break
 		  end
 		end
 	  end
@@ -236,14 +245,14 @@ function restore_grid(grid, contents, station, doit)
 	    local burn = neweq.burner
 	    if ((eq.fuel ~= nil) and (burn.inventory ~= nil) and
 	        burn.inventory.valid) then
-	      for itemname, amount in pairs(eq.fuel) do
-	        burn.inventory.insert({name=itemname, count=amount})
-		  end
+	      for _, entry in pairs(eq.fuel) do
+	        burn.inventory.insert({name=entry.name, count=entry.count,quality=entry.quality})
+			end
 	    end
 	    if ((eq.burnt ~= nil) and (burn.burnt_result_inventory ~= nil) and
 	        burn.burnt_result_inventory.valid) then
-		  for itemname, amount in pairs(eq.burnt) do
-	        burn.burnt_result_inventory.insert({name=itemname, count=amount})
+		  for _, entry in pairs(eq.burnt) do
+	        burn.burnt_result_inventory.insert({name=entry.name, count=entry.count,quality=entry.quality})
 		  end
 	    end
 	  end
@@ -334,7 +343,7 @@ function replace_fuel(carriage, fuel_supply, station, doit)
   local skip = true
   for new_fuel, new_num in pairs(fuel_supply) do
     local threshold = math.max(1, math.min(20,
-	    (game.item_prototypes[new_fuel].stack_size * 0.5)))
+	    (prototypes.item[new_fuel].stack_size * 0.5)))
 	if (new_num < threshold) then
 	  fuel_supply[new_fuel] = nil
 	else
@@ -353,7 +362,7 @@ function replace_fuel(carriage, fuel_supply, station, doit)
 	for new_fuel, new_num in pairs(fuel_supply) do
 	  local insertable = burn_inv.get_insertable_count(new_fuel)
 	  local amount = math.min(insertable, new_num)
-	  local new_proto = game.item_prototypes[new_fuel]
+	  local new_proto = prototypes.item[new_fuel]
 	  local value = (amount * new_proto.fuel_value *
 		  new_proto.fuel_acceleration_multiplier *
 		  new_proto.fuel_top_speed_multiplier)
@@ -381,7 +390,7 @@ function replace_fuel(carriage, fuel_supply, station, doit)
 
   local fuel_contents = burn_inv.get_contents()
   for old_fuel, old_num in pairs(fuel_contents) do
-  	local old_proto = game.item_prototypes[old_fuel]
+  	local old_proto = prototypes.item[old_fuel]
     if ((fuel_supply[old_fuel] == nil) and (old_proto ~= nil)) then
 	  local stack = { name = old_fuel, count = old_num }
 	  local burnt_stack = nil
@@ -445,8 +454,11 @@ function try_upgrade_one_carriage(carriage, train, station, doit)
 	local supply_inv = s.get_inventory(defines.inventory.chest)
 	if (supply_inv ~= nil) then
 	  local supply_contents = supply_inv.get_contents()
-	  for supply_name,supply_count in pairs(supply_contents) do
-		local item_proto = game.item_prototypes[supply_name]
+	  for _,inv_slot in pairs(supply_contents) do
+	    supply_name = inv_slot.name
+	    supply_count = inv_slot.count
+	    -- TODO: manage quality too 
+		local item_proto = prototypes.item[supply_name]
 		if (item_proto ~= nil) then
 		  if (upgradeable and (item_proto.place_result ~= nil) and
 			  compatible_carriage(carriage, item_proto.place_result)) then

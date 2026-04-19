@@ -12,7 +12,7 @@ data:extend({
         tint = {r=0.7, g=0.7, b=0.7, a=1}
       }
     },
-    flags = {"hidden"},
+    hidden = true,
     subgroup = "other",
     stack_size = 100
   },
@@ -25,15 +25,15 @@ data:extend({
         icon_size = 64
       }
     },
-    flags = {"hidden"},
+    hidden = true,
     subgroup = "other",
     stack_size = 100
   },
   {
     type = "item",
     name = "nullius-power-sink",
-	icons = data.raw.fluid["nullius-energy"].icons,
-    flags = {"hidden"},
+	  icons = data.raw.fluid["nullius-energy"].icons,
+    hidden = true,
     subgroup = "other",
     stack_size = 100
   },
@@ -41,8 +41,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-seawater",
-    icon = data.raw.fluid["nullius-seawater"].icon,
-    icon_size = data.raw.fluid["nullius-seawater"].icon_size,
+    icons = {
+      {
+        icon = data.raw.fluid["nullius-seawater"].icon,
+        icon_size = data.raw.fluid["nullius-seawater"].icon_size,
+      }
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-seawater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
@@ -55,8 +59,9 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-freshwater",
-    icon = data.raw.fluid["nullius-freshwater"].icon,
-    icon_size = data.raw.fluid["nullius-freshwater"].icon_size,
+    icons = {
+      { icon = data.raw.fluid["nullius-freshwater"].icon, icon_size = data.raw.fluid["nullius-freshwater"].icon_size}
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-freshwater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
@@ -69,8 +74,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-wastewater",
-    icon = data.raw.fluid["nullius-wastewater"].icon,
-    icon_size = data.raw.fluid["nullius-wastewater"].icon_size,
+    icons = {
+      {
+        icon = data.raw.fluid["nullius-wastewater"].icon,
+        icon_size = data.raw.fluid["nullius-wastewater"].icon_size,
+      }
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-wastewater"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
@@ -83,8 +92,9 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-brine",
-    icon = data.raw.fluid["nullius-brine"].icon,
-    icon_size = data.raw.fluid["nullius-brine"].icon_size,
+    icons = { 
+      { icon = data.raw.fluid["nullius-brine"].icon, icon_size = data.raw.fluid["nullius-brine"].icon_size}
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-brine"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
@@ -123,9 +133,13 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-water-saline",
-    icon = data.raw.fluid["nullius-saline"].icon,
-    icon_size = data.raw.fluid["nullius-saline"].icon_size,
-    crafting_machine_tint = { primary = data.raw.fluid["water-saline"].flow_color },
+    icons = {
+      {
+        icon = data.raw.fluid["nullius-saline"].icon,
+        icon_size = data.raw.fluid["nullius-saline"].icon_size,
+      }
+    },
+    crafting_machine_tint = { primary = angelsLegacy.functions.flow_color("Ws4NaCl")}, --{r = 0.9, g = 0.9, b = 1}
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
@@ -137,8 +151,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-water",
-    icon = data.raw.fluid["nullius-water"].icon,
-    icon_size = data.raw.fluid["nullius-water"].icon_size,
+    icons = {
+      {
+        icon = data.raw.fluid["nullius-water"].icon,
+        icon_size = data.raw.fluid["nullius-water"].icon_size
+      }
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-water"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
@@ -203,13 +221,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-protocell",
-    icon = data.raw.fluid["nullius-protocell"].icon,
-    icon_size = data.raw.fluid["nullius-protocell"].icon_size,
+    icons = data.raw.fluid["nullius-protocell"].icons,
     crafting_machine_tint = { primary = data.raw.fluid["nullius-protocell"].flow_color },
     category = "nullius-liquid-void",
     subgroup = "nullius-liquid-void",
     hide_from_player_crafting = true,
-	hide_from_stats = true,
+	  hide_from_stats = true,
     energy_required = 2,
     ingredients = {{type="fluid", name="nullius-protocell", amount=200}},
     results = {{type="item", name="nullius-liquid-void", amount=1, probability=0}}
@@ -387,8 +404,12 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-void-steam",
-    icon = data.raw.fluid["nullius-steam"].icon,
-    icon_size = data.raw.fluid["nullius-steam"].icon_size,
+    icons = {
+      {
+        icon = data.raw.fluid["nullius-steam"].icon,
+        icon_size = data.raw.fluid["nullius-steam"].icon_size
+      }
+    },
     crafting_machine_tint = { primary = data.raw.fluid["nullius-steam"].flow_color },
     category = "nullius-gas-void",
     subgroup = "nullius-gas-void",
@@ -589,10 +610,42 @@ data:extend({
     category = "nullius-power-sink",
     subgroup = "nullius-power-sink",
     hide_from_player_crafting = true,
-	hide_from_stats = true,
-	hidden = true,
+	  hide_from_stats = true,
+	  hidden = true,
     energy_required = 2.5,
     ingredients = {{type="fluid", name="nullius-energy", amount=150}},
     results = {{type="item", name="nullius-power-sink", amount=1, probability=0}}
   }
 })
+
+-- Fix localised names and icons for voiding recipes
+for _, recipe in pairs(data.raw.recipe) do
+  if recipe.category == "nullius-liquid-void" then
+    recipe.localised_name = {"recipe-name.nullius-liquid-void", {"fluid-name."..recipe.ingredients[1].name}}
+    if recipe.icons ~= nil then
+      local newIcons = table.deepcopy(recipe.icons)
+      table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.6, icon_size=64, shift = {-10,10}, tint = {0.8,0.8,0.8,0.8}})
+      recipe.icons = newIcons
+    end
+  elseif recipe.category == "nullius-gas-void" then
+    recipe.localised_name = {"recipe-name.nullius-gas-void", {"fluid-name."..recipe.ingredients[1].name}}
+    if recipe.icons ~= nil then
+      local newIcons = table.deepcopy(recipe.icons)
+      table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.6, icon_size=64, shift = {-10,10}, tint = {0.8,0.8,0.8,0.8}})
+      recipe.icons = newIcons
+    end
+  elseif recipe.category == "turbine-open" then --or recipe.category == "turbine-closed" then 
+    if recipe.icons ~= nil then
+      local newIcons = table.deepcopy(recipe.icons)
+      table.insert(newIcons,{icon = ICONPATH.."fluid/energy.png", scale=0.6, icon_size=32, shift = {-5,5}})
+      table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.4, icon_size=64, shift = {10,10}})
+      recipe.icons = newIcons
+    end
+  elseif recipe.category == "turbine-closed" then 
+    if recipe.icons ~= nil then
+      local newIcons = table.deepcopy(recipe.icons)
+      table.insert(newIcons,{icon = ICONPATH.."fluid/energy.png", scale=0.6, icon_size=32, shift = {-5,5}})
+      recipe.icons = newIcons
+    end
+  end
+end

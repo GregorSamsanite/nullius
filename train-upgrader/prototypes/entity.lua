@@ -16,7 +16,7 @@ supplier.picture = { layers = {
     scale = 0.5
   },
   {
-    filename = "__base__/graphics/entity/infinity-chest/hr-infinity-chest-shadow.png",
+    filename = "__base__/graphics/entity/infinity-chest/infinity-chest-shadow.png",
     priority = "extra-high",
     width = 116,
     height = 48,

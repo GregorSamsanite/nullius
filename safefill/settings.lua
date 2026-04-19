@@ -20,13 +20,20 @@ data:extend({
     name = "safefill-green-water",
     setting_type = "startup",
     default_value = true,
-	order = "d"
+	  order = "d"
   },
   {
     type = "bool-setting",
     name = "safefill-water-on-water",
     setting_type = "startup",
     default_value = true,
-	order = "e"
+	  order = "e"
+  },
+  {
+    type = "bool-setting",
+    name = "safefill-minable-water",
+    setting_type = "startup",
+    default_value = false,
+	  order = "f"
   }
 })

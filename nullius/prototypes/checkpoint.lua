@@ -5,7 +5,7 @@ local function checkmark(scale)
   return {
     icon = ICONPATH .. "checkpoint.png",
     icon_size = 64,
-    icon_mipmaps = 4,
+    
 	tint = {0.6, 0.6, 0.6, 0.6},
 	scale = scale
   }
@@ -18,21 +18,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-iron-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 16, "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
+	    {"technology-description.nullius-item", tostring(16), "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
     order = "nullius-yb",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+        icon = "__angelssmeltinggraphics__/graphics/technology/smelting-iron-tech.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -48,20 +42,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
 	    {"item-name.stone-brick"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 40, "stone-brick", {"item-name.stone-brick"}}},
+	    {"technology-description.nullius-item", tostring(40), "stone-brick", {"item-name.stone-brick"}}},
     order = "nullius-yb",
     icons = {
       {
         icon = BASEICON .. "stone-brick.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -77,20 +66,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
 	    {"item-name.nullius-plastic"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 5, "nullius-plastic", {"item-name.nullius-plastic"}}},
+	    {"technology-description.nullius-item", tostring(5), "nullius-plastic", {"item-name.nullius-plastic"}}},
     order = "nullius-yb",
     icons = {
       {
         icon = BASEICON .. "plastic-bar.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -106,20 +90,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.iron-ore"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 400, "iron-ore", {"item-name.iron-ore"}}},
+	    {"technology-description.nullius-item", tostring(400), "iron-ore", {"item-name.iron-ore"}}},
     order = "nullius-yb",
     icons = {
       {
         icon = BASEICON .. "iron-ore.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -135,20 +114,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
 	    {"fluid-name.nullius-hydrogen"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 1000, "nullius-hydrogen", {"fluid-name.nullius-hydrogen"}}},
+	    {"technology-description.nullius-fluid", tostring(1000), "nullius-hydrogen", {"fluid-name.nullius-hydrogen"}}},
     order = "nullius-yb",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/hydrogen.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -164,20 +137,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
 	    {"fluid-name.nullius-carbon-dioxide"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 1000, "nullius-carbon-dioxide", {"fluid-name.nullius-carbon-dioxide"}}},
+	    {"technology-description.nullius-fluid", tostring(1000), "nullius-carbon-dioxide", {"fluid-name.nullius-carbon-dioxide"}}},
     order = "nullius-yb",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/carbon-dioxide.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -193,18 +160,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-small-furnace-1"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 4, "nullius-small-furnace-1", {"entity-name.nullius-small-furnace-1"}}},
+	    {"technology-description.nullius-item", tostring(4), "nullius-small-furnace-1", {"entity-name.nullius-small-furnace-1"}}},
     order = "nullius-yb",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = BASEICON .. "stone-furnace.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        scale = 1.5
       }
     },
     unit = {
@@ -222,7 +189,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-water"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 10000, "nullius-water", {"fluid-name.nullius-water"}}},
+	    {"technology-description.nullius-fluid", tostring(10000), "nullius-water", {"fluid-name.nullius-water"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -249,7 +216,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-caustic-solution"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 250, "nullius-caustic-solution",
+	    {"technology-description.nullius-fluid", tostring(250), "nullius-caustic-solution",
 		    {"fluid-name.nullius-caustic-solution"}}},
     order = "nullius-yc",
     icons = {
@@ -277,16 +244,11 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-sandstone"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 1000, "nullius-sandstone", {"item-name.nullius-sandstone"}}},
+	    {"technology-description.nullius-item", tostring(1000), "nullius-sandstone", {"item-name.nullius-sandstone"}}},
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-sandstone"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -302,17 +264,11 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-bauxite"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 2000, "nullius-bauxite", {"item-name.nullius-bauxite"}}},
+	    {"technology-description.nullius-item", tostring(2000), "nullius-bauxite", {"item-name.nullius-bauxite"}}},
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-bauxite"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -328,18 +284,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-wind-power"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 5, "nullius-wind-turbine-1", {"entity-name.nullius-wind-base-1"}}},
+	    {"technology-description.nullius-item", tostring(5), "nullius-wind-turbine-1", {"entity-name.nullius-wind-base-1"}}},
     order = "nullius-yc",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
 	    icon = "__nullius__/graphics/technology/tech_windturbine1.png",
 	    icon_size = 254,
-		scale = 0.2519
+		scale = 0.5
       }
     },
     unit = {
@@ -358,23 +314,23 @@ data:extend({
     localised_description = {"",
 	    {"technology-description.nullius-checkpoint-prioritize"}, "\n",
 	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
-		    1, "nullius-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
+		    tostring(1), "nullius-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
 	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
-		    1, "nullius-turbine-open-1", {"", {"entity-name.nullius-turbine-open-backup"}, " ", 1}}}, "\n",
+		    tostring(1), "nullius-turbine-open-1", {"", {"entity-name.nullius-turbine-open-backup"}, " ", tostring(1)}}}, "\n",
 		{"technology-description.nullius-generate", {"technology-description.nullius-fluid",
-		    1000, "nullius-steam", {"fluid-name.nullius-steam"}}}},
+		    tostring(1000), "nullius-steam", {"fluid-name.nullius-steam"}}}},
     order = "nullius-yc",
     icons = {
       {
         icon = BASEICON .. "steam-turbine.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = BASEICON .. "fluid/steam.png",
         icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.9,
+        
+		scale = 1.8,
 		tint = {0.75, 0.75, 0.75, 0.75}
       }
     },
@@ -393,7 +349,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-iron-ingot"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1500, "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
+	    {"technology-description.nullius-item", tostring(1500), "nullius-iron-ingot", {"item-name.nullius-iron-ingot"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -401,9 +357,9 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/technology/smelting-iron-tech.png",
+        icon = "__angelssmeltinggraphics__/graphics/technology/smelting-iron-tech.png",
         icon_size = 256,
-        icon_mipmaps = 4,
+        
 		scale = 0.2
       }
     },
@@ -421,20 +377,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-steel-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-steel-ingot", {"item-name.nullius-steel-ingot"}}},
+	    {"technology-description.nullius-item", tostring(20), "nullius-steel-ingot", {"item-name.nullius-steel-ingot"}}},
     order = "nullius-yc",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-steel.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-steel.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -450,17 +401,11 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
 	    {"item-name.nullius-glass"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 50, "nullius-glass", {"item-name.nullius-glass"}}},
+	    {"technology-description.nullius-item", tostring(50), "nullius-glass", {"item-name.nullius-glass"}}},
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-glass"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -476,7 +421,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-plastic"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 250, "nullius-plastic", {"item-name.nullius-plastic"}}},
+	    {"technology-description.nullius-item", tostring(250), "nullius-plastic", {"item-name.nullius-plastic"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -486,7 +431,7 @@ data:extend({
       {
         icon = BASEICON .. "plastic-bar.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -504,19 +449,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
 	    {"item-name.nullius-rubber"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-rubber", {"item-name.nullius-rubber"}}},
+	    {"technology-description.nullius-item", tostring(20), "nullius-rubber", {"item-name.nullius-rubber"}}},
     order = "nullius-yc",
     icons = {
       {
         icon = ICONPATH .. "rubber.png",
         icon_size = 64
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -532,20 +472,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-aluminum-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 50, "nullius-aluminum-ingot", {"item-name.nullius-aluminum-ingot"}}},
+	    {"technology-description.nullius-item", tostring(50), "nullius-aluminum-ingot", {"item-name.nullius-aluminum-ingot"}}},
     order = "nullius-yc",
     icons = {
       {
-        icon = "__angelssmelting__/graphics/icons/ingot-aluminium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-aluminium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -561,18 +496,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
     {"item-name.nullius-polycrystalline-silicon"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-polycrystalline-silicon",
+	    {"technology-description.nullius-item", tostring(20), "nullius-polycrystalline-silicon",
 		    {"item-name.nullius-polycrystalline-silicon"}}},
     order = "nullius-yc",
     icons = {
 	  data.raw.item["nullius-polycrystalline-silicon"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.125)
     },
     unit = {
       count = 1,
@@ -588,7 +517,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-disposal",
 	    {"item-name.nullius-gravel"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 200, "nullius-mineral-dust", {"item-name.nullius-mineral-dust"}}},
+	    {"technology-description.nullius-item", tostring(200), "nullius-mineral-dust", {"item-name.nullius-mineral-dust"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -596,9 +525,9 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelssmelting__/graphics/icons/powder-tungsten.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-tungsten.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -617,21 +546,21 @@ data:extend({
 	    {"technology-name.nullius-mass-production"}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    4, "nullius-medium-furnace-1", {"entity-name.nullius-medium-furnace-1"}}}, "\n",
+		    tostring(4),"nullius-medium-furnace-1", {"entity-name.nullius-medium-furnace-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    6, "nullius-medium-assembler-1", {"entity-name.nullius-medium-assembler-1"}}}},
+		    tostring(6),"nullius-medium-assembler-1", {"entity-name.nullius-medium-assembler-1"}}}},
     order = "nullius-yc",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/automation-1.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -649,23 +578,23 @@ data:extend({
 	    {"technology-name.nullius-plumbing"}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    10, "nullius-pump-1", {"entity-name.nullius-pump-1"}}}, "\n",
+		    tostring(5),"nullius-pump-1", {"entity-name.nullius-pump-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    10, "nullius-medium-tank-2", {"entity-name.nullius-medium-tank-2"}}}, "\n",
+		    tostring(10),"nullius-medium-tank-2", {"entity-name.nullius-medium-tank-2"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    6, "nullius-relief-valve", {"entity-name.nullius-relief-valve"}}}},
+		    tostring(3),"nullius-one-way-valve", {"entity-name.nullius-one-way-valve"}}}},
     order = "nullius-yc",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/fluid-handling.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -683,21 +612,16 @@ data:extend({
 	    {"technology-name.nullius-fueling"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    2, "nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
+		    tostring(2),"nullius-hydrogen-canister", {"item-name.nullius-hydrogen-canister"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    1, "nullius-water-canister", {"item-name.nullius-water-canister"}}}},
+		    tostring(1),"nullius-water-canister", {"item-name.nullius-water-canister"}}}},
     order = "nullius-yc",
     icons = {
       { 
 		icon = ICONPATH .. "canister-water.png",
         icon_size = 64
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -713,20 +637,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"fluid-name.nullius-lubricant"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 250, "nullius-lubricant", {"fluid-name.nullius-lubricant"}}},
+	    {"technology-description.nullius-fluid", tostring(250), "nullius-lubricant", {"fluid-name.nullius-lubricant"}}},
     order = "nullius-yc",
     icons = {
       {
         icon = BASEICON .. "fluid/lubricant.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -743,21 +662,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"fluid-name.nullius-volcanic-gas"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 5000, "nullius-volcanic-gas", {"fluid-name.nullius-volcanic-gas"}}},
+	    {"technology-description.nullius-fluid", tostring(5000), "nullius-volcanic-gas", {"fluid-name.nullius-volcanic-gas"}}},
     order = "nullius-yd",
     icons = {
       {
         icon = "__base__/graphics/technology/oil-gathering.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -773,13 +686,13 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-lab-1"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 3, "nullius-lab-1", {"entity-name.nullius-lab-1"}}},
+	    {"technology-description.nullius-item", tostring(3), "nullius-lab-1", {"entity-name.nullius-lab-1"}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  data.raw.item["nullius-lab-1"].icons[1]
     },
@@ -797,7 +710,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-sensor-1"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 100, "nullius-sensor-1", {"item-name.nullius-sensor-1"}}},
+	    {"technology-description.nullius-item", tostring(100), "nullius-sensor-1", {"item-name.nullius-sensor-1"}}},
     order = "nullius-yd",
     icons = {
       {
@@ -807,7 +720,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/discharge-defense-equipment-controller.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -826,23 +739,23 @@ data:extend({
 	    {"technology-name.nullius-freight-logistics"}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-locomotive-1", {"entity-name.nullius-locomotive-1"}}}, "\n",
+		    tostring(1),"nullius-locomotive-1", {"entity-name.nullius-locomotive-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    2, "train-stop", {"entity-name.train-stop"}}}, "\n",
+		    tostring(2),"train-stop", {"entity-name.train-stop"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    150, "rail", {"item-name.rail"}}}},
+		    tostring(150),"rail", {"technology-description.nullius-straight-rail"}}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/automated-rail-transportation.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.42
       }
     },
     unit = {
@@ -859,16 +772,11 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-limestone"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 500, "nullius-limestone", {"item-name.nullius-limestone"}}},
+	    {"technology-description.nullius-item", tostring(500), "nullius-limestone", {"item-name.nullius-limestone"}}},
     order = "nullius-yd",
     icons = {
 	  data.raw.item["nullius-limestone"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -885,23 +793,17 @@ data:extend({
 	    {"technology-name.nullius-optimization"}}},
     localised_description = {"",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    5, "nullius-haste-module-1", {"item-name.nullius-haste-module-1"}}}, "\n",
+		    tostring(5),"nullius-haste-module-1", {"item-name.nullius-haste-module-1"}}}, "\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    5, "nullius-efficiency-module-1", {"item-name.nullius-efficiency-module-1"}}}},
+		    tostring(5),"nullius-efficiency-module-1", {"item-name.nullius-efficiency-module-1"}}}},
     order = "nullius-yd",
     icons = {
       {
 		icon = "__base__/graphics/technology/module.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -917,19 +819,19 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"technology-name.nullius-energy-storage"}}},
     localised_description = {"technology-description.nullius-generate-closed",
-	    {"technology-description.nullius-fluid", 1000,
+	    {"technology-description.nullius-fluid", tostring(1000),
 		    "nullius-compressed-nitrogen", {"fluid-name.nullius-compressed-nitrogen"}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "steam-turbine.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/nitrogen.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/nitrogen.png",
         icon_size = 64,
-		scale = 0.64,
+		scale = 1.28,
 		tint = {0.85, 0.85, 0.85, 0.85}
       }
     },
@@ -947,7 +849,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-freshwater"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 2000, "nullius-freshwater", {"fluid-name.nullius-freshwater"}}},
+	    {"technology-description.nullius-fluid", tostring(2000), "nullius-freshwater", {"fluid-name.nullius-freshwater"}}},
     order = "nullius-yd",
     icons = {
       {
@@ -975,23 +877,17 @@ data:extend({
 	    {"technology-name.nullius-robotics"}}},
     localised_description = {"",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    1, "nullius-hangar-1", {"equipment-name.nullius-hangar-1"}}}, "\n",
+		    tostring(1),"nullius-hangar-1", {"equipment-name.nullius-hangar-1"}}}, "\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    6, "nullius-robot-frame-1", {"item-name.nullius-robot-frame-1"}}}},
+		    tostring(6),"nullius-robot-frame-1", {"item-name.nullius-robot-frame-1"}}}},
     order = "nullius-yd",
     icons = {
       {
         icon = "__base__/graphics/technology/robotics.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1008,21 +904,21 @@ data:extend({
 	    {"technology-name.nullius-logistic-robot"}}},
     localised_description = {"",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    8, "nullius-logistic-bot-1", {"entity-name.nullius-logistic-bot-1"}}}, "\n",
+		    tostring(8),"nullius-logistic-bot-1", {"entity-name.nullius-logistic-bot-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    2, "nullius-small-supply-chest-1", {"entity-name.nullius-small-supply-chest-1"}}}},
+		    tostring(2),"nullius-small-supply-chest-1", {"entity-name.nullius-small-supply-chest-1"}}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/logistic-robotics.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1040,21 +936,21 @@ data:extend({
 	    {"technology-name.nullius-logistics"}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    10, "turbo-inserter", {"entity-name.nullius-inserter-2"}}}, "\n",
+		    tostring(10),"bob-turbo-inserter", {"entity-name.nullius-inserter-2"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    10, "fast-underground-belt", {"entity-name.nullius-underground-belt-2"}}}},
+		    tostring(10),"fast-underground-belt", {"entity-name.nullius-underground-belt-2"}}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/logistics-2.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1071,20 +967,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"item-name.concrete"}}},
 	localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 1000, "concrete", {"item-name.concrete"}}},
+	    {"technology-description.nullius-item", tostring(1000), "concrete", {"item-name.concrete"}}},
     order = "nullius-yd",
     icons = {
 	  {
         icon = BASEICON .. "concrete.png",
         icon_size = 64,
-		icon_mipmaps = 4
+		
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1100,16 +991,11 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"entity-name.nullius-heat-pipe-1"}}},
 	localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 50, "nullius-heat-pipe-1", {"entity-name.nullius-heat-pipe-1"}}},
+	    {"technology-description.nullius-item", tostring(50), "nullius-heat-pipe-1", {"entity-name.nullius-heat-pipe-1"}}},
     order = "nullius-yd",
     icons = {
 	  data.raw.item["nullius-heat-pipe-1"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1125,18 +1011,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-chemical-engineering"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 10, "nullius-chemical-plant-2", {"entity-name.nullius-chemical-plant-2"}}},
+	    {"technology-description.nullius-item", tostring(10), "nullius-chemical-plant-2", {"entity-name.nullius-chemical-plant-2"}}},
     order = "nullius-yd",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
-        icon = "__angelspetrochem__/graphics/technology/chemical-plant-tech.png",
+        icon = "__angelspetrochemgraphics__/graphics/technology/chemical-plant-tech.png",
 	    icon_size = 128,
-		scale = 0.5
+		scale = 1
       }
     },
     unit = {
@@ -1147,43 +1033,43 @@ data:extend({
     prerequisites = {"nullius-chemical-engineering-2"},
     ignore_tech_cost_multiplier = true
   },
-  {
-    type = "technology",
-    name = "nullius-checkpoint-chirality",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
-	    {"technology-name.nullius-chirality"}}},
-    localised_description = {"",
-	    {"technology-description.nullius-checkpoint-mirror"}, "\n",
-	    {"technology-description.nullius-checkpoint-configure",
-	        {"technology-description.nullius-item", 2, "nullius-electrolyzer-2",
-			    {"entity-name.nullius-mirror-surge-electrolyzer-2"}}}, "\n",
-	    {"technology-description.nullius-checkpoint-configure",
-	        {"technology-description.nullius-item", 2, "nullius-flotation-cell-2",
-			    {"entity-name.nullius-mirror-flotation-cell-2"}}}, "\n",
-	    {"technology-description.nullius-checkpoint-configure",
-	        {"technology-description.nullius-item", 2, "nullius-combustion-chamber-2",
-			    {"entity-name.nullius-mirror-combustion-chamber-2"}}}},
-    order = "nullius-yd",
-    icons = {
-      {
-        icon = BASEICON .. "blueprint.png",
-        icon_size = 64,
-        icon_mipmaps = 4
-      },
-	  {
-        icon = "__nullius__/graphics/technology/chiral.png",
-	    icon_size = 254,
-		scale = 0.25
-      }
-    },
-    unit = {
-      count = 1,
-      ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
-      time = 1
-    },
-    prerequisites = {"nullius-chirality-2"},
-    ignore_tech_cost_multiplier = true
-  },
+  -- {
+  --   type = "technology",
+  --   name = "nullius-checkpoint-chirality",
+  --   localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
+	--     {"technology-name.nullius-chirality"}}},
+  --   localised_description = {"",
+	--     {"technology-description.nullius-checkpoint-mirror"}, "\n",
+	--     {"technology-description.nullius-checkpoint-configure",
+	--         {"technology-description.nullius-item", tostring(2), "nullius-electrolyzer-2",
+	-- 		    {"entity-name.nullius-mirror-surge-electrolyzer-2"}}}, "\n",
+	--     {"technology-description.nullius-checkpoint-configure",
+	--         {"technology-description.nullius-item", tostring(2), "nullius-flotation-cell-2",
+	-- 		    {"entity-name.nullius-mirror-flotation-cell-2"}}}, "\n",
+	--     {"technology-description.nullius-checkpoint-configure",
+	--         {"technology-description.nullius-item", tostring(2), "nullius-combustion-chamber-2",
+	-- 		    {"entity-name.nullius-mirror-combustion-chamber-2"}}}},
+  --   order = "nullius-yd",
+  --   icons = {
+  --     {
+  --       icon = BASEICON .. "blueprint.png",
+  --       icon_size = 64,
+        
+  --     },
+	--   {
+  --       icon = "__nullius__/graphics/technology/chiral.png",
+	--     icon_size = 254,
+	-- 	scale = 0.25
+  --     }
+  --   },
+  --   unit = {
+  --     count = 1,
+  --     ingredients = {{"nullius-checkpoint", 1}, {"nullius-requirement-build", 1}, {"nullius-electrical-pack", 1}},
+  --     time = 1
+  --   },
+  --   prerequisites = {"nullius-chirality-2"},
+  --   ignore_tech_cost_multiplier = true
+  -- },
 
   {
     type = "technology",
@@ -1191,7 +1077,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-propene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 300000, "nullius-propene", {"fluid-name.nullius-propene"}}},
+	    {"technology-description.nullius-fluid", tostring(300000), "nullius-propene", {"fluid-name.nullius-propene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1199,7 +1085,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/propene.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/propene.png",
         icon_size = 72,
 		scale = 0.568
       }
@@ -1218,20 +1104,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-titanium-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 100, "nullius-titanium-ingot", {"item-name.nullius-titanium-ingot"}}},
+	    {"technology-description.nullius-item", tostring(100), "nullius-titanium-ingot", {"item-name.nullius-titanium-ingot"}}},
     order = "nullius-ye",
     icons = {
 	  {
-        icon = "__angelssmelting__/graphics/icons/ingot-titanium.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-titanium.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1247,20 +1128,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"item-name.nullius-soda-ash"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 1000, "nullius-soda-ash", {"item-name.nullius-soda-ash"}}},
+	    {"technology-description.nullius-item", tostring(1000), "nullius-soda-ash", {"item-name.nullius-soda-ash"}}},
     order = "nullius-ye",
     icons = {
 	  {
-        icon = "__angelspetrochem__/graphics/icons/solid-sodium-carbonate.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-carbonate.png",
         icon_size = 32
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1276,17 +1151,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"item-name.nullius-monocrystalline-silicon"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 20, "nullius-monocrystalline-silicon",
+	    {"technology-description.nullius-item", tostring(20), "nullius-monocrystalline-silicon",
 		    {"item-name.nullius-monocrystalline-silicon"}}},
     order = "nullius-ye",
     icons = {
 	  data.raw.item["nullius-monocrystalline-silicon"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1302,7 +1172,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-crushed-iron-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 40000, "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
+	    {"technology-description.nullius-item", tostring(40000), "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1310,7 +1180,7 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__angelsrefining__/graphics/icons/iron-pebbles.png",
+        icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
         icon_size = 32,
 		scale = 1.6
       }
@@ -1329,7 +1199,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-aluminum-carbide"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 40000, "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
+	    {"technology-description.nullius-item", tostring(40000), "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1337,9 +1207,9 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__angelssmelting__/graphics/icons/powder-lead.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-lead.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -1357,21 +1227,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-exploration"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 8, "nullius-scout-drone-1", {"item-name.nullius-scout-drone-1"}}},
+	    {"technology-description.nullius-item", tostring(8), "nullius-scout-drone-1", {"item-name.nullius-scout-drone-1"}}},
     order = "nullius-ye",
     icons = {
 	  {
         icon = "__base__/graphics/technology/artillery.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1387,20 +1251,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-battery-1"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 100, "nullius-battery-1", {"item-name.nullius-battery-1"}}},
+	    {"technology-description.nullius-item", tostring(100), "nullius-battery-1", {"item-name.nullius-battery-1"}}},
     order = "nullius-ye",
     icons = {
 	  {
         icon = "__base__/graphics/icons/battery-equipment.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1416,7 +1275,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-ceramic-powder"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 100, "nullius-ceramic-powder", {"item-name.nullius-ceramic-powder"}}},
+	    {"technology-description.nullius-item", tostring(100), "nullius-ceramic-powder", {"item-name.nullius-ceramic-powder"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1424,9 +1283,9 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__angelssmelting__/graphics/icons/powder-platinum.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/powder-platinum.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -1444,7 +1303,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"item-name.nullius-explosive"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 50, "cliff-explosives", {"item-name.nullius-explosive"}}},
+	    {"technology-description.nullius-item", tostring(50), "cliff-explosives", {"item-name.nullius-explosive"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1454,7 +1313,7 @@ data:extend({
 	  {
 		icon = "__base__/graphics/technology/explosives.png",
 		icon_size = 256,
-		icon_mipmaps = 4,
+		
 		scale = 0.2
       }
     },
@@ -1473,23 +1332,23 @@ data:extend({
 	    {"technology-name.nullius-logistic-robot"}}},
     localised_description = {"",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    60, "nullius-logistic-bot-1", {"entity-name.nullius-logistic-bot-1"}}}, "\n",
+		    tostring(60),"nullius-logistic-bot-1", {"entity-name.nullius-logistic-bot-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    6, "nullius-charger-2", {"entity-name.nullius-charger-2"}}}, "\n",
+		    tostring(6),"nullius-charger-2", {"entity-name.nullius-charger-2"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    4, "nullius-small-demand-chest-1", {"entity-name.nullius-small-demand-chest-1"}}}},
+		    tostring(4),"nullius-small-demand-chest-1", {"entity-name.nullius-small-demand-chest-1"}}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/logistic-robotics.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1508,22 +1367,22 @@ data:extend({
     localised_description = {"",
 	    {"technology-description.nullius-checkpoint-construction"}, "\n",
 		{"technology-description.nullius-checkpoint-configure",
-		    {"technology-description.nullius-item", 4, "nullius-relay-2",
+		    {"technology-description.nullius-item", tostring(4), "nullius-relay-2",
 			    {"entity-name.nullius-construction-only", {"entity-name.nullius-relay-2"}}}}, "\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    25, "nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}},
+		    tostring(25),"nullius-construction-bot-1", {"entity-name.nullius-construction-bot-1"}}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/construction-robotics.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1541,19 +1400,19 @@ data:extend({
 	    {"technology-name.nullius-demonstration",
 	        {"entity-name.nullius-large-tank-2"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 4, "nullius-large-tank-2",
+	    {"technology-description.nullius-item", tostring(4), "nullius-large-tank-2",
 		    {"entity-name.nullius-large-tank-2"}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
-        icon = "__angelspetrochem__/graphics/icons/petrochem-gas-tank.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/petrochem-gas-tank.png",
         icon_size = 64,
-	    icon_mipmaps = 4
+	    
       }
     },
     unit = {
@@ -1571,18 +1430,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"entity-name.nullius-substation-2"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 4, "nullius-substation-2", {"entity-name.nullius-substation-2"}}},
+	    {"technology-description.nullius-item", tostring(4), "nullius-substation-2", {"entity-name.nullius-substation-2"}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
         icon = "__base__/graphics/icons/substation.png",
         icon_size = 64,
-	    icon_mipmaps = 4
+	    
       }
     },
     unit = {
@@ -1597,24 +1456,24 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-logistics-2",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
-	    {"", {"technology-name.nullius-logistics"}, " ", 3}}},
+	    {"", {"technology-name.nullius-logistics"}, " ", tostring(3)}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    40, "stack-inserter", {"entity-name.nullius-inserter-3"}}}, "\n",
+		    tostring(40),"bulk-inserter", {"entity-name.nullius-inserter-3"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    40, "express-underground-belt", {"entity-name.nullius-underground-belt-3"}}}},
+		    tostring(40),"express-underground-belt", {"entity-name.nullius-underground-belt-3"}}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/logistics-3.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1631,13 +1490,13 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-lab-2"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 10, "nullius-lab-2", {"entity-name.nullius-lab-2"}}},
+	    {"technology-description.nullius-item", tostring(10), "nullius-lab-2", {"entity-name.nullius-lab-2"}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  data.raw.item["nullius-lab-2"].icons[1]
     },
@@ -1655,22 +1514,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-productivity-module-1"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 50, "nullius-productivity-module-1",
+	    {"technology-description.nullius-item", tostring(50), "nullius-productivity-module-1",
 		    {"item-name.nullius-productivity-module-1"}}},
     order = "nullius-ye",
     icons = {
       {
         icon = "__base__/graphics/technology/productivity-module-2.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1686,20 +1539,20 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-truck-1"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 1, "nullius-truck-1",
+	    {"technology-description.nullius-item", tostring(1), "nullius-truck-1",
 		    {"entity-name.nullius-truck-1"}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/tank.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -1716,17 +1569,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-stirling-engine-2"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 20, "nullius-stirling-engine-2",
+	    {"technology-description.nullius-item", tostring(20), "nullius-stirling-engine-2",
 		    {"entity-name.nullius-stirling-engine-2"}}},
     order = "nullius-ye",
     icons = {
 	  data.raw.item["nullius-stirling-engine-2"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1743,15 +1591,15 @@ data:extend({
 	    {"technology-name.nullius-broadcasting"}}},
     localised_description = {"",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    8, "nullius-large-beacon-1", {"entity-name.nullius-large-beacon-1"}}}, "\n",
+		    tostring(8),"nullius-large-beacon-1", {"entity-name.nullius-large-beacon-1"}}}, "\n",
 	    {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    12, "nullius-beacon-2", {"entity-name.nullius-beacon-2"}}}},
+		    tostring(12),"nullius-beacon-2", {"entity-name.nullius-beacon-2"}}}},
     order = "nullius-ye",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  data.raw.item["nullius-large-beacon-1"].icons[1]
     },
@@ -1769,21 +1617,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"entity-name.nullius-large-furnace-1"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 10, "nullius-box-iron-ingot",
+	    {"technology-description.nullius-item", tostring(10), "nullius-box-iron-ingot",
 			{"item-name.nullius-box", {"item-name.nullius-iron-ingot"}}}},
     order = "nullius-ye",
     icons = {
 	  {
         icon = "__base__/graphics/icons/electric-furnace.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.125)
     },
     unit = {
       count = 1,
@@ -1799,7 +1642,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-benzene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 800000, "nullius-benzene", {"fluid-name.nullius-benzene"}}},
+	    {"technology-description.nullius-fluid", tostring(800000), "nullius-benzene", {"fluid-name.nullius-benzene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1807,7 +1650,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/benzene.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/benzene.png",
         icon_size = 72,
 		scale = 0.568
       }
@@ -1827,19 +1670,19 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"entity-name.nullius-large-miner-1"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 50, "nullius-large-miner-1",
+	    {"technology-description.nullius-item", tostring(50), "nullius-large-miner-1",
 		    {"entity-name.nullius-large-miner-1"}}},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
         icon = "__base__/graphics/icons/electric-mining-drill.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
     unit = {
@@ -1856,18 +1699,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-specimen",
 	    {"item-name.nullius-filter-2"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item-boxable", 100, "nullius-filter-2",
+	    {"technology-description.nullius-item-boxable", tostring(100), "nullius-filter-2",
 		    "nullius-box-filter-2", {"item-name.nullius-filter-2"}}},
     order = "nullius-yf",
     icons = {
 	  data.raw.item["nullius-filter-2"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 0.5,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -1883,18 +1720,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-pumping"}}},
     localised_description = {"technology-description.nullius-build",
-	    {"technology-description.nullius-item", 40, "nullius-pump-2", {"entity-name.nullius-pump-2"}}},
+	    {"technology-description.nullius-item", tostring(15), "nullius-pump-2", {"entity-name.nullius-pump-2"}}},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
         icon = "__base__/graphics/icons/pump.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
     unit = {
@@ -1909,20 +1746,20 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-logistics-3",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
-	    {"", {"technology-name.nullius-logistics"}, " ", 4}}},
+	    {"", {"technology-name.nullius-logistics"}, " ", tostring(4)}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    10, "ultimate-splitter", {"entity-name.nullius-splitter-4"}}},
+		    tostring(10),"bob-ultimate-splitter", {"entity-name.nullius-splitter-4"}}},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__nullius__/graphics/technology/logistics-4.png",
 	    icon_size = 254,
-		scale = 0.2519
+		scale = 0.5
       }
     },
     unit = {
@@ -1939,18 +1776,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-automation"}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    20, "nullius-large-assembler-2", {"entity-name.nullius-large-assembler-2"}}},
+		    tostring(20),"nullius-large-assembler-2", {"entity-name.nullius-large-assembler-2"}}},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/assembling-machine-3.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
     unit = {
@@ -1968,27 +1805,21 @@ data:extend({
 	    {"technology-name.nullius-mining"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    1200000, "iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
+		    tostring(1200000),"iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    900000, "nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
+		    tostring(900000),"nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    600000, "nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
+		    tostring(600000),"nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    300000, "nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},			
+		    tostring(300000),"nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},			
     order = "nullius-yf",
     icons = {
 	  {
         icon = "__base__/graphics/technology/mining-productivity.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6},
-		scale = 4
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2003,13 +1834,13 @@ data:extend({
     name = "nullius-checkpoint-android",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-android"}}},
-    localised_description = {"objective-description.nullius-switch-bodies", 3},
+    localised_description = {"objective-description.nullius-switch-bodies", tostring(3)},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "android1.png",
@@ -2030,21 +1861,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"item-name.nullius-battery-2"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item-boxable", 200, "nullius-battery-2",
+	    {"technology-description.nullius-item-boxable", tostring(200), "nullius-battery-2",
 		    "nullius-box-battery-2", {"item-name.nullius-battery-2"}}},
     order = "nullius-yf",
     icons = {
 	  {
         icon = "__base__/graphics/icons/battery-equipment.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2060,7 +1886,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-calcium"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item-boxable", 250, "nullius-calcium",
+	    {"technology-description.nullius-item-boxable", tostring(250), "nullius-calcium",
 		    "nullius-box-calcium", {"item-name.nullius-calcium"}}},
     order = "nullius-yf",
     icons = {
@@ -2068,12 +1894,7 @@ data:extend({
 	    icon = ICONPATH .. "calcium.png",
         icon_size = 64
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2089,7 +1910,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-sample",
 	    {"fluid-name.nullius-helium"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid-compressible", 2500, "nullius-helium",
+	    {"technology-description.nullius-fluid-compressible", tostring(2500), "nullius-helium",
 		    "nullius-compressed-helium", {"fluid-name.nullius-helium"}}},
     order = "nullius-yf",
     icons = {
@@ -2098,12 +1919,7 @@ data:extend({
         icon_size = 64,
         tint = {224, 200, 255}
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2119,7 +1935,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"entity-name.nullius-thermal-tank-3"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 10, "nullius-thermal-tank-3",
+	    {"technology-description.nullius-item", tostring(10), "nullius-thermal-tank-3",
 		    {"entity-name.nullius-thermal-tank-3"}}},
     order = "nullius-yf",
     icons = {
@@ -2127,12 +1943,7 @@ data:extend({
         icon = "__nullius__/graphics/icons/entity/thermaltank3.png",
 	    icon_size = 64
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2148,20 +1959,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"fluid-name.nullius-tritium"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-fluid", 40, "nullius-tritium", {"fluid-name.nullius-tritium"}}},
+	    {"technology-description.nullius-fluid", tostring(40), "nullius-tritium", {"fluid-name.nullius-tritium"}}},
     order = "nullius-yf",
     icons = {
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/semiheavy-water.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/semiheavy-water.png",
         icon_size = 72
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 1.125,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2177,7 +1982,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-processor-2"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", 1000, "nullius-processor-2",
+	    {"technology-description.nullius-item-boxable", tostring(1000), "nullius-processor-2",
 		    "nullius-box-processor-2", {"item-name.nullius-processor-2"}}},
     order = "nullius-yf",
     icons = {
@@ -2186,9 +1991,9 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__base__/graphics/technology/advanced-electronics-2.png",
+        icon = "__base__/graphics/technology/processing-unit.png",
         icon_size = 256,
-        icon_mipmaps = 4,
+        
 		scale = 0.2
       }
     },
@@ -2206,7 +2011,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-demolitions"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-missile-2", {"item-name.nullius-missile-2"}}},
+	    {"technology-description.nullius-item", tostring(1), "nullius-missile-2", {"item-name.nullius-missile-2"}}},
     order = "nullius-yf",
     icons = {
       {
@@ -2216,7 +2021,7 @@ data:extend({
 	  {
         icon = "__base__/graphics/icons/atomic-bomb.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -2234,7 +2039,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"item-name.rocket-fuel"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 5, "rocket-fuel", {"item-name.rocket-fuel"}}},
+	    {"technology-description.nullius-item", tostring(5), "rocket-fuel", {"item-name.rocket-fuel"}}},
     order = "nullius-yf",
     icons = {
       {
@@ -2244,7 +2049,7 @@ data:extend({
 	  {
         icon = "__base__/graphics/technology/rocket-fuel.png",
         icon_size = 256,
-        icon_mipmaps = 4,
+        
 		scale = 0.2
       }
     },
@@ -2262,18 +2067,18 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"entity-name.nullius-mecha"}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-mecha", {"", {"entity-name.nullius-mecha"}, " ", 1}}},
+		    tostring(1),"nullius-mecha", {"", {"entity-name.nullius-mecha"}, " ", tostring(1)}}},
     order = "nullius-yf",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/icons/spidertron.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       }
     },
     unit = {
@@ -2290,7 +2095,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"item-name.nullius-excavation-drone"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-excavation-drone",
+	    {"technology-description.nullius-item", tostring(1), "nullius-excavation-drone",
 		    {"item-name.nullius-excavation-drone"}}},
     order = "nullius-yf",
     icons = {
@@ -2319,21 +2124,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-cybernetics"}}},
     localised_description = {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    1, "nullius-chassis-4", {"item-name.nullius-chassis-4"}}},
+		    tostring(1),"nullius-chassis-4", {"item-name.nullius-chassis-4"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/technology/power-armor-mk2.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2349,21 +2148,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.uranium-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-guide-drone-uranium-1",
-		    {"", {"item-name.nullius-guide-drone-uranium"}, " ", 1}}},
+	    {"technology-description.nullius-item", tostring(1), "nullius-guide-drone-uranium-1",
+		    {"", {"item-name.nullius-guide-drone-uranium"}, " ", tostring(1)}}},
     order = "nullius-yg",
     icons = {
 	  {
         icon = BASEICON .. "uranium-ore.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
 	effects = {
 	  {
@@ -2385,21 +2179,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.copper-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-guide-drone-copper-1",
-		    {"", {"item-name.nullius-guide-drone-copper"}, " ", 1}}},
+	    {"technology-description.nullius-item", tostring(1), "nullius-guide-drone-copper-1",
+		    {"", {"item-name.nullius-guide-drone-copper"}, " ", tostring(1)}}},
     order = "nullius-yg",
     icons = {
 	  {
         icon = BASEICON .. "copper-ore.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
 	effects = {
 	  {
@@ -2441,7 +2230,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-spent-breeder-cell"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 25, "nullius-spent-breeder-cell",
+	    {"technology-description.nullius-item", tostring(25), "nullius-spent-breeder-cell",
 		    {"item-name.nullius-spent-breeder-cell"}}},
     order = "nullius-yg",
     icons = {
@@ -2469,17 +2258,12 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"item-name.nullius-enriched-uranium"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item", 250, "nullius-enriched-uranium",
+	    {"technology-description.nullius-item", tostring(250), "nullius-enriched-uranium",
 		    {"item-name.nullius-enriched-uranium"}}},
     order = "nullius-yg",
     icons = {
 	  data.raw.item["nullius-enriched-uranium"].icons[1],
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2)
     },
     unit = {
       count = 1,
@@ -2495,7 +2279,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-antimatter"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", 1, "nullius-antimatter", {"item-name.nullius-antimatter"}}},
+	    {"technology-description.nullius-item", tostring(1), "nullius-antimatter", {"item-name.nullius-antimatter"}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2522,19 +2306,20 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"fluid-name.nullius-pressure-steam"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", 5000, "nullius-pressure-steam",
+	    {"technology-description.nullius-fluid", tostring(5000), "nullius-pressure-steam",
 		    {"fluid-name.nullius-pressure-steam"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = BASEICON .. "steam-turbine.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
 	  {
 	    icon = ICONPATH .. "fluid/steam2.png",
         icon_size = 64,
-		tint = {0.8, 0.8, 0.8, 0.8}
+        tint = {0.8, 0.8, 0.8, 0.8},
+        scale = 1.8
       }
     },
     unit = {
@@ -2551,21 +2336,16 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-assay",
 	    {"item-name.nullius-copper-ingot"}}},
     localised_description = {"technology-description.nullius-produce",
-	    {"technology-description.nullius-item-boxable", 1000, "nullius-copper-ingot",
+	    {"technology-description.nullius-item-boxable", tostring(1000), "nullius-copper-ingot",
 		    "nullius-box-copper-ingot", {"item-name.nullius-copper-ingot"}}},
     order = "nullius-yg",
     icons = {
 	  {
-        icon = "__angelssmelting__/graphics/icons/ingot-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/ingot-copper.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
 	  },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+          checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2581,7 +2361,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-processor-3"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", 2000, "nullius-processor-3",
+	    {"technology-description.nullius-item-boxable", tostring(2000), "nullius-processor-3",
 		    "nullius-box-processor-3", {"item-name.nullius-processor-3"}}},
     order = "nullius-yg",
     icons = {
@@ -2590,9 +2370,9 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__base__/graphics/technology/advanced-electronics-2.png",
+        icon = "__base__/graphics/technology/processing-unit.png",
         icon_size = 256,
-        icon_mipmaps = 4,
+        
 		scale = 0.2
       }
     },
@@ -2610,7 +2390,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-wood"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", 500000, "nullius-wood",
+	    {"technology-description.nullius-item-boxable", tostring(500000), "nullius-wood",
 		    "nullius-box-wood", {"item-name.nullius-wood"}}},
     order = "nullius-yg",
     icons = {
@@ -2621,7 +2401,7 @@ data:extend({
 	  {
         icon = "__base__/graphics/icons/wood.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -2639,21 +2419,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"technology-name.nullius-logistic-robot"}}},
     localised_description = {"technology-description.nullius-produce", {"technology-description.nullius-item-boxable",
-		    1000, "nullius-logistic-bot-4", "nullius-box-logistic-bot-4", {"entity-name.nullius-logistic-bot-4"}}},
+		    tostring(1000),"nullius-logistic-bot-4", "nullius-box-logistic-bot-4", {"entity-name.nullius-logistic-bot-4"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/technology/logistic-robotics.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2669,13 +2443,13 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"item-name.nullius-android"}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1, "nullius-android-2", {"", {"item-name.nullius-android"}, " ", 2}}},
+		    tostring(1),"nullius-android-2", {"", {"item-name.nullius-android"}, " ", tostring(2)}}},
     order = "nullius-yg",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = ICONPATH .. "android2.png",
@@ -2696,7 +2470,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"technology-name.nullius-asteroid-mining"}}},
     localised_description = {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    20, "nullius-asteroid-miner-2", {"item-name.nullius-asteroid-miner-2"}}},
+		    tostring(20),"nullius-asteroid-miner-2", {"item-name.nullius-asteroid-miner-2"}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2723,7 +2497,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"item-name.nullius-probe"}}},
     localised_description = {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    1, "nullius-probe", {"item-name.nullius-probe"}}},
+		    tostring(1),"nullius-probe", {"item-name.nullius-probe"}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2733,7 +2507,7 @@ data:extend({
       {
         icon = "__base__/graphics/icons/crash-site-spaceship.png",
         icon_size = 64,
-        icon_mipmaps = 4,
+        
 		scale = 0.8
       }
     },
@@ -2751,19 +2525,19 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-solar-power"}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    1000, "nullius-solar-panel-3", {"entity-name.nullius-solar-panel-3"}}},
+		    tostring(1000),"nullius-solar-panel-3", {"entity-name.nullius-solar-panel-3"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/solar-energy.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        scale = 0.5,
+        shift = {-1, 0}
       }
     },
     unit = {
@@ -2780,19 +2554,19 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-battery-storage"}}},
     localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    500, "nullius-grid-battery-3", {"entity-name.nullius-grid-battery-3"}}},
+		    tostring(500), "nullius-grid-battery-3", {"entity-name.nullius-grid-battery-3"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
       {
         icon = "__base__/graphics/technology/electric-energy-acumulators.png",
         icon_size = 256,
-        icon_mipmaps = 4,
-		scale = 0.25
+        
+		scale = 0.5
       }
     },
     unit = {
@@ -2809,21 +2583,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-prototype",
 	    {"technology-name.nullius-cybernetics"}}},
     localised_description = {"technology-description.nullius-produce", {"technology-description.nullius-item",
-		    1, "nullius-chassis-6", {"item-name.nullius-chassis-6"}}},
+		    tostring(1),"nullius-chassis-6", {"item-name.nullius-chassis-6"}}},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/technology/power-armor-mk2.png",
         icon_size = 256,
-        icon_mipmaps = 4
+        
       },
-      {
-        icon = ICONPATH .. "checkpoint.png",
-        icon_size = 64,
-        icon_mipmaps = 4,
-		scale = 4,
-		tint = {0.6, 0.6, 0.6, 0.6}
-      }
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2841,10 +2609,10 @@ data:extend({
     localised_description = {"",
 	    {"technology-description.nullius-consume",
 		    {"technology-description.nullius-fluid-sequestration",
-		        1500000000, "nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
+		        tostring(1500000000),"nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
 			        {"fluid-name.nullius-carbon-dioxide"}}},"\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
-		    2000000000, "nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
+		    tostring(2000000000),"nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2852,7 +2620,7 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__angelspetrochem__/graphics/icons/molecules/carbon-dioxide.png",
+        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/carbon-dioxide.png",
         icon_size = 72,
 		scale = 0.568
       }
@@ -2871,14 +2639,14 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"objective-name.nullius-algae-seeding"}},
     localised_description = {"objective-description.nullius-objective",
-	    {"item-name.nullius-algae"}, 30},
+	    {"item-name.nullius-algae"}, tostring(30)},
     order = "nullius-yg",
     icons = {
       {
 	    icon = ICONPATH .. "algae.png",
         icon_size = 64
       },
-	  checkmark(1.125)
+	  checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2894,15 +2662,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"objective-name.nullius-naturalization", {"item-name.nullius-worm"}}},
     localised_description = {"objective-description.nullius-objective",
-	    {"item-name.nullius-worm"}, 30},
+	    {"item-name.nullius-worm"}, tostring(30)},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/icons/small-worm.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-	  checkmark(1.125)
+	  checkmark(2)
     },
     unit = {
       count = 1,
@@ -2918,15 +2686,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"objective-name.nullius-naturalization", {"item-name.nullius-fish"}}},
     localised_description = {"objective-description.nullius-objective",
-	    {"item-name.nullius-fish"}, 30},
+	    {"item-name.nullius-fish"}, tostring(30)},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/icons/fish.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-	  checkmark(1.125)
+	  checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -2942,15 +2710,15 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint",
 	    {"objective-name.nullius-naturalization", {"item-name.nullius-arthropod"}}},
     localised_description = {"objective-description.nullius-objective",
-	    {"item-name.nullius-arthropod"}, 20},
+	    {"item-name.nullius-arthropod"}, tostring(20)},
     order = "nullius-yg",
     icons = {
       {
         icon = "__base__/graphics/icons/small-biter.png",
         icon_size = 64,
-        icon_mipmaps = 4
+        
       },
-	  checkmark(1.125)
+	  checkmark(2)
     },
     unit = {
       count = 1,
@@ -2964,9 +2732,9 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-oxygen-partial",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 1}},
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", tostring(1)}},
     localised_description = {"objective-description.nullius-objective",
-	    {"fluid-name.nullius-oxygen"}, 25},
+	    {"fluid-name.nullius-oxygen"}, tostring(25)},
     order = "nullius-yg",
     unit = {
       count = 1,
@@ -2980,9 +2748,9 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-oxygen-partial-2",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 2}},
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", tostring(2)}},
     localised_description = {"objective-description.nullius-objective",
-	    {"fluid-name.nullius-oxygen"}, 50},
+	    {"fluid-name.nullius-oxygen"}, tostring(50)},
     order = "nullius-yg",
     unit = {
       count = 1,
@@ -2996,9 +2764,9 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-oxygen-partial-3",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 3}},
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", tostring(3)}},
     localised_description = {"objective-description.nullius-objective",
-	    {"fluid-name.nullius-oxygen"}, 75},
+	    {"fluid-name.nullius-oxygen"}, tostring(75)},
     order = "nullius-yg",
     unit = {
       count = 1,
@@ -3012,7 +2780,7 @@ data:extend({
     type = "technology",
     name = "nullius-checkpoint-oxygen",
     localised_name = {"technology-name.nullius-checkpoint",
-	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", 4}},
+	    {"", {"objective-name.nullius-atmospheric-modification"}, " ", tostring(4)}},
     localised_description = {"objective-description.nullius-atmospheric-modification"},
     order = "nullius-yg",
     unit = {
@@ -3046,15 +2814,15 @@ if mods["lambent-nil"] then
       localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	      {"item-name.nullius-chelating-agent"}}},
       localised_description = {"technology-description.nullius-produce",
-	      {"technology-description.nullius-item", 1000, "nullius-chelating-agent", {"item-name.nullius-chelating-agent"}}},
+	      {"technology-description.nullius-item", tostring(1000), "nullius-chelating-agent", {"item-name.nullius-chelating-agent"}}},
       order = "nullius-ye",
       icons = {
         {
           icon = "__lambent-nil__/graphics/icons/chelating-agent.png",
           icon_size = 64,
-          icon_mipmaps = 4
+          
         },
-		checkmark(1)
+		checkmark(2)
       },
       unit = {
         count = 1,

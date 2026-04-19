@@ -90,35 +90,37 @@ function init_station(entity, unit_list, supplier_list, receiver_list)
 	  train_count = 0, train_index = 0, last_refresh = 0,
 	  hold = false, pending = { } }
   for u, _ in pairs(unit_list) do
-    global.unit_table[u] = entry
+    storage.unit_table[u] = entry
   end 
 
-  if (global.station_head == nil) then
+  if (storage.station_head == nil) then
     entry.next = entry
-	entry.prev = entry
-	global.station_head = entry
+	  entry.prev = entry
+	  storage.station_head = entry
   else
-    entry.prev = global.station_head
-	entry.next = entry.prev.next
-	entry.prev.next = entry
-	entry.next.prev = entry
+    entry.prev = storage.station_head
+	  entry.next = entry.prev.next
+	  entry.prev.next = entry
+	  entry.next.prev = entry
   end
 
-  local stops = entity.force.get_train_stops{name = entity.backer_name}
+  --local stops = entity.force.get_train_stops{name = entity.backer_name}
+  local stops = game.train_manager.get_train_stops{force = entity.force, station_name = entity.backer_name}
+  
   if (stops[2] ~= nil) then
     entry.old_name = entity.backer_name
-	entity.backer_name = "Train_Updater_" .. entity.unit_number
+	  entity.backer_name = "Train_Updater_" .. entity.unit_number
   end
 end
 
 function delete_station(station, no_rename)
   if (station.next == station) then
-    global.station_head = nil
+    storage.station_head = nil
   else
     station.next.prev = station.prev
 	station.prev.next = station.next
-	if (global.station_head == station) then
-	  global.station_head = station.next
+	if (storage.station_head == station) then
+	  storage.station_head = station.next
 	end
   end
   station.next = nil
@@ -128,7 +130,7 @@ function delete_station(station, no_rename)
     release_train_schedule(pend.train, station)
   end
   for unit, entity in pairs(station.units) do
-    global.unit_table[unit] = nil
+    storage.unit_table[unit] = nil
   end
 
   if ((station.old_name ~= nil) and (not no_rename) and

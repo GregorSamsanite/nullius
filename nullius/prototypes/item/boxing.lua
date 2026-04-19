@@ -42,8 +42,8 @@ local function create_boxed_item(base_name, group, box_order,
     localname = item.localised_name
   elseif (item.place_result ~= nil) then
     localname = {"entity-name."..item.place_result}
-  elseif (item.placed_as_equipment_result ~= nil) then
-    localname = {"equipment-name."..item.placed_as_equipment_result}
+  elseif (item.place_as_equipment_result ~= nil) then
+    localname = {"equipment-name."..item.place_as_equipment_result}
   end
 
   data:extend({
@@ -66,14 +66,15 @@ local function create_boxed_item(base_name, group, box_order,
       always_show_products = true,
       allow_as_intermediate = false,
       no_productivity = true,
-	  hide_from_stats = true,
-	  requester_paste_multiplier = 5,
+	    hide_from_stats = true,
+	    requester_paste_multiplier = 5,
       energy_required = 1,
       ingredients = {
-        {full_name, 4*ratio}
+        {type="item", name= full_name, amount = 4*ratio}
       },
-      result = "nullius-box-"..base_name,
-      result_count = 4
+       results = {
+			  {type="item", name="nullius-box-"..base_name, amount = 4}
+		  }
     },
     {
       type = "recipe",
@@ -88,15 +89,17 @@ local function create_boxed_item(base_name, group, box_order,
       always_show_products = true,
       allow_decomposition = false,
       allow_as_intermediate = false,
+      hide_from_signal_gui = false,
       no_productivity = true,
-	  hide_from_stats = true,
-	  requester_paste_multiplier = 4,
+	    hide_from_stats = true,
+	    requester_paste_multiplier = 4,
       energy_required = 0.2,
       ingredients = {
-        {"nullius-box-"..base_name, 1}
+        {type="item", name="nullius-box-"..base_name, amount = 1}
       },
-      result = full_name,
-      result_count = ratio
+       results = {
+			  {type="item", name=full_name, amount = ratio}
+		  }
     }
   })
 end
@@ -114,15 +117,15 @@ data.raw.item["fast-transport-belt"].localised_name = {"entity-name.nullius-belt
 data.raw.item["fast-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-2"}
 data.raw.item["express-transport-belt"].localised_name = {"entity-name.nullius-belt-3"}
 data.raw.item["express-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-3"}
-data.raw.item["ultimate-transport-belt"].localised_name = {"entity-name.nullius-belt-4"}
-data.raw.item["ultimate-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-4"}
+data.raw.item["bob-ultimate-transport-belt"].localised_name = {"entity-name.nullius-belt-4"}
+data.raw.item["bob-ultimate-underground-belt"].localised_name = {"entity-name.nullius-underground-belt-4"}
 data.raw.item["inserter"].localised_name = {"entity-name.nullius-inserter-1"}
-data.raw.item["turbo-inserter"].localised_name = {"entity-name.nullius-inserter-2"}
-data.raw.item["turbo-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-2"}
-data.raw.item["stack-inserter"].localised_name = {"entity-name.nullius-inserter-3"}
-data.raw.item["stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-3"}
-data.raw.item["express-stack-inserter"].localised_name = {"entity-name.nullius-inserter-4"}
-data.raw.item["express-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-4"}
+data.raw.item["bob-turbo-inserter"].localised_name = {"entity-name.nullius-inserter-2"}
+-- data.raw.item["turbo-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-2"}
+data.raw.item["bulk-inserter"].localised_name = {"entity-name.nullius-inserter-3"}
+-- data.raw.item["stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-3"}
+data.raw.item["bob-express-bulk-inserter"].localised_name = {"entity-name.nullius-inserter-4"}
+-- data.raw.item["express-stack-filter-inserter"].localised_name = {"entity-name.nullius-filter-inserter-4"}
 data.raw.item["storage-tank"].localised_name = {"entity-name.nullius-medium-tank-1"}
 data.raw.item["small-electric-pole"].localised_name = {"entity-name.nullius-power-pole-1"}
 data.raw.item["medium-electric-pole"].localised_name = {"entity-name.nullius-power-pole-2"}
@@ -134,10 +137,13 @@ data.raw.item["refined-hazard-concrete"].stack_size = 500
 data.raw.item["copper-cable"].localised_name = {"item-name.nullius-insulated-wire"}
 data.raw.item["copper-cable"].stack_size = 200
 data.raw.item["big-electric-pole"].stack_size = 50
+data.raw.item["programmable-speaker"].stack_size = 50
+data.raw.item["power-switch"].stack_size = 50
 
 data.raw.item["constant-combinator"].localised_name = {"entity-name.nullius-memory-circuit"}
 data.raw.item["arithmetic-combinator"].localised_name = {"entity-name.nullius-arithmetic-circuit"}
 data.raw.item["decider-combinator"].localised_name = {"entity-name.nullius-logic-circuit"}
+data.raw.item["selector-combinator"].localised_name = {"entity-name.nullius-selector-circuit"}
 data.raw.item["programmable-speaker"].localised_name = {"entity-name.nullius-antenna"}
 data.raw.item["small-lamp"].localised_name = {"entity-name.nullius-lamp-1"}
 data.raw.item["big-electric-pole"].localised_name = {"entity-name.nullius-pylon-1"}
@@ -145,7 +151,7 @@ data.raw.item["pipe"].localised_name = {"entity-name.nullius-pipe-1"}
 data.raw.item["pipe-to-ground"].localised_name = {"entity-name.nullius-underground-pipe-1"}
 data.raw.item["pump"].localised_name = {"entity-name.nullius-pump-3"}
 
-data.raw.item["empty-barrel"].stack_size = 20
+data.raw.item["barrel"].stack_size = 20
 data.raw.item["iron-ore"].stack_size = 50
 data.raw.item["copper-ore"].stack_size = 50
 data.raw.item["uranium-ore"].stack_size = 50
@@ -161,16 +167,16 @@ data.raw.item["fast-transport-belt"].stack_size = 200
 data.raw.item["fast-underground-belt"].stack_size = 100
 data.raw.item["express-transport-belt"].stack_size = 200
 data.raw.item["express-underground-belt"].stack_size = 100
-data.raw.item["ultimate-transport-belt"].stack_size = 200
-data.raw.item["ultimate-underground-belt"].stack_size = 100
+data.raw.item["bob-ultimate-transport-belt"].stack_size = 200
+data.raw.item["bob-ultimate-underground-belt"].stack_size = 100
 
 data.raw.item["inserter"].stack_size = 100
-data.raw.item["turbo-inserter"].stack_size = 100
-data.raw.item["turbo-filter-inserter"].stack_size = 100
-data.raw.item["stack-inserter"].stack_size = 100
-data.raw.item["stack-filter-inserter"].stack_size = 100
-data.raw.item["express-stack-inserter"].stack_size = 100
-data.raw.item["express-stack-filter-inserter"].stack_size = 100
+data.raw.item["bob-turbo-inserter"].stack_size = 100
+-- data.raw.item["turbo-filter-inserter"].stack_size = 100
+data.raw.item["bulk-inserter"].stack_size = 100
+-- data.raw.item["stack-filter-inserter"].stack_size = 100
+data.raw.item["bob-express-bulk-inserter"].stack_size = 100
+-- data.raw.item["express-stack-filter-inserter"].stack_size = 100
 
 create_boxed_item("graphite", "organic", "b")
 create_boxed_item("iron-ore", "iron", "b", "iron-ore")
@@ -246,8 +252,10 @@ create_boxed_item("filter-1", "mechanical", "bb")
 create_boxed_item("logic-circuit", "circuit", "d", "decider-combinator")
 create_boxed_item("memory-circuit", "circuit", "f", "constant-combinator")
 create_boxed_item("arithmetic-circuit", "circuit", "e", "arithmetic-combinator")
-create_boxed_item("red-wire", "circuit", "b", "red-wire")
-create_boxed_item("green-wire", "circuit", "c", "green-wire")
+create_boxed_item("selector-circuit", "circuit", "gb", "selector-combinator")
+create_boxed_item("display-panel", "circuit", "ga", "display-panel")
+create_boxed_item("red-wire", "circuit", "b")
+create_boxed_item("green-wire", "circuit", "c")
 create_boxed_item("bpa", "organic", "c")
 create_boxed_item("acrylic-fiber", "organic", "f")
 create_boxed_item("carbon-fiber", "organic", "g")
@@ -284,7 +292,6 @@ create_boxed_item("night-vision-1", "demolition", "bc")
 create_boxed_item("levitation-field-1", "demolition", "bd")
 create_boxed_item("transformer", "electrical", "c")
 create_boxed_item("power-switch", "circuit", "g", "power-switch")
-create_boxed_item("one-way-valve", "plumbing", "b")
 
 create_boxed_item("heat-pipe-1", "heat-energy", "db")
 create_boxed_item("heat-pipe-2", "heat-energy", "dc")
@@ -298,10 +305,8 @@ create_boxed_item("purple-concrete", "concrete", "h")
 create_boxed_item("brown-concrete", "concrete", "i")
 create_boxed_item("black-concrete", "concrete", "j")
 create_boxed_item("hazard-concrete", "concrete", "k", "refined-hazard-concrete")
-create_boxed_item("priority-valve", "plumbing", "c")
-create_boxed_item("top-up-valve", "plumbing", "d")
-create_boxed_item("relief-valve", "plumbing", "e")
-create_boxed_item("barrel", "canister", "b", "empty-barrel")
+create_boxed_item("one-way-valve", "plumbing", "b")
+create_boxed_item("barrel", "canister", "b", "barrel")
 create_boxed_item("canister", "canister", "c")
 create_boxed_item("hydrogen-canister", "canister", "d")
 create_boxed_item("methanol-canister", "canister", "e", "processed-fuel")
@@ -310,10 +315,10 @@ create_boxed_item("water-canister", "canister", "g")
 create_boxed_item("chain-signal", "rail", "g", "rail-chain-signal")
 create_boxed_item("rail-signal", "rail", "f", "rail-signal")
 create_boxed_item("inserter-1", "inserter", "b", "inserter")
-create_boxed_item("inserter-2", "inserter", "c", "turbo-inserter")
-create_boxed_item("filter-inserter-2", "inserter", "d", "turbo-filter-inserter")
-create_boxed_item("inserter-3", "inserter", "e", "stack-inserter")
-create_boxed_item("filter-inserter-3", "inserter", "f", "stack-filter-inserter")
+create_boxed_item("inserter-2", "inserter", "c", "bob-turbo-inserter")
+-- create_boxed_item("filter-inserter-2", "inserter", "d", "turbo-filter-inserter")
+create_boxed_item("inserter-3", "inserter", "e", "bulk-inserter")
+-- create_boxed_item("filter-inserter-3", "inserter", "f", "stack-filter-inserter")
 create_boxed_item("belt-1", "belt", "bb", "transport-belt")
 create_boxed_item("belt-2", "belt", "bc", "fast-transport-belt")
 create_boxed_item("belt-3", "belt", "bd", "express-transport-belt")
@@ -382,10 +387,10 @@ create_boxed_item("graphene", "organic", "j")
 create_boxed_item("filter-2", "mechanical", "bc")
 create_boxed_item("pipe-4", "pipe", "h")
 create_boxed_item("underground-pipe-4", "pipe", "i")
-create_boxed_item("inserter-4", "inserter", "g", "express-stack-inserter")
-create_boxed_item("filter-inserter-4", "inserter", "h", "express-stack-filter-inserter")
-create_boxed_item("belt-4", "belt", "be", "ultimate-transport-belt")
-create_boxed_item("underground-belt-4", "belt", "ce", "ultimate-underground-belt")
+create_boxed_item("inserter-4", "inserter", "g", "bob-express-bulk-inserter")
+-- create_boxed_item("filter-inserter-4", "inserter", "h", "express-stack-filter-inserter")
+create_boxed_item("belt-4", "belt", "be", "bob-ultimate-transport-belt")
+create_boxed_item("underground-belt-4", "belt", "ce", "bob-ultimate-underground-belt")
 create_boxed_item("pump-3", "plumbing", "fd", "pump")
 create_boxed_item("small-pump-2", "plumbing", "hc")
 create_boxed_item("turbine-open-3", "fluid-energy", "ed")
