@@ -43,7 +43,6 @@ angelsLegacy.functions.remove_resource("stone")
 angelsLegacy.functions.remove_resource("trees")
 
 
-data.raw["autoplace-control"]["iron-ore"].localised_name = nil
 data.raw["autoplace-control"]["iron-ore"].order = "a-b-b"
 
 data.raw.resource["iron-ore"].order = "a-b-b"
@@ -159,8 +158,18 @@ data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings = {
 
 
 if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
-resource_autoplace.initialize_patch_set("offshore-oil", false)
 
+  resource_autoplace.initialize_patch_set("offshore-oil", false)
+
+  data.raw["autoplace-control"]["offshore-oil"].order = "a-c-c"
+  data.raw["autoplace-control"]["offshore-oil"].localised_name = {"", "[entity=offshore-oil] ", {"autoplace-control-names.nullius-hydrothermal"}}
+
+
+data.raw.resource["offshore-oil"].icons = combine_icons(
+  data.raw.fluid["nullius-volcanic-gas"].icons, 
+  {{icon = data.raw.fluid["nullius-water"].icon, icon_size = 64}},
+  0.85, 0.25, nil, {-10, -10}
+)
 data.raw.resource["offshore-oil"].autoplace =
     resource_autoplace.resource_autoplace_settings {
       name = "offshore-oil",
