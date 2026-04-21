@@ -18,6 +18,7 @@
     "? underground-pipe-pack >= 1.1.2",
     "? elevated-rails >= 2.0",
     "? reskins-bobs >= 2.3.5",
+	"? Milestones",
 	"(?) cargo-ships >= 1.0.21",
     "(?) boblibrary >= 1.1.4",
     "(?) IRobot >= 2.0.0",
