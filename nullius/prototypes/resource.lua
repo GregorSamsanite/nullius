@@ -165,6 +165,7 @@ data:extend({
   {
     type = "autoplace-control",
     name = "nullius-bauxite",
+    localised_name = {"", "[entity=nullius-bauxite] ", {"entity-name.nullius-bauxite"}},
     category = "resource",
     richness = true,
     order = "a-b-c"
@@ -172,6 +173,7 @@ data:extend({
   {
     type = "autoplace-control",
     name = "nullius-sandstone",
+    localised_name = {"", "[entity=nullius-sandstone] ", {"entity-name.nullius-sandstone"}},
     category = "resource",
     richness = true,
     order = "a-b-d"
@@ -179,6 +181,7 @@ data:extend({
   {
     type = "autoplace-control",
     name = "nullius-limestone",
+    localised_name = {"", "[entity=nullius-limestone] ", {"entity-name.nullius-limestone"}},
     category = "resource",
     richness = true,
     order = "a-b-e"
@@ -186,6 +189,7 @@ data:extend({
   {
     type = "autoplace-control",
     name = "nullius-geothermal",
+    localised_name = {"", "[entity=nullius-fumarole] ", {"autoplace-control-names.nullius-geothermal"}},
     category = "resource",
     richness = true,
     order = "a-c-b"
@@ -394,16 +398,3 @@ data:extend({
   }
 })
 
-
-if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
-data:extend({
-  {
-    type = "autoplace-control",
-    name = "offshore-oil",
-	  localised_name = {"autoplace-control-names.nullius-hydrothermal"},
-    category = "resource",
-    richness = true,
-    order = "a-c-c"
-  }
-})
-end
