@@ -1046,7 +1046,7 @@ data.raw["storage-tank"]["storage-tank"].fluid_box.max_pipeline_extent = pipe_ex
 
 
 local pump_energy_multiplier = settings.startup["nullius-pump-energy-multiplier"].value
-local pump_energy_usage = {15*pump_energy_multiplier, 20*pump_energy_multiplier, 30*pump_energy_multiplier}
+local pump_energy_usage = {7.5*pump_energy_multiplier, 20*pump_energy_multiplier, 30*pump_energy_multiplier}
 
 data.raw["pump"]["nullius-pump-1"].energy_usage = tostring(pump_energy_usage[1]) .. "kW"
 data.raw["pump"]["nullius-pump-2"].energy_usage = tostring(pump_energy_usage[2]) .. "kW"
