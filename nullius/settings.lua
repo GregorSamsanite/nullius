@@ -44,7 +44,7 @@ data:extend({
         type = "double-setting",
         name = "nullius-pump-energy-multiplier",
         setting_type = "startup",
-        default_value = 10,
+        default_value = 20,
         minimum_value = 0.1,
         maximum_value = 1000
     }
