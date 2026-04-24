@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "factorio_version": "2.0",
   "title": "Nullius",
   "author": "Anachrony",
@@ -17,6 +17,8 @@
     "? RecipeBook >= 4.0.2",
     "? underground-pipe-pack >= 1.1.2",
     "? elevated-rails >= 2.0",
+    "? reskins-bobs >= 2.3.5",
+	"? Milestones",
 	"(?) cargo-ships >= 1.0.21",
     "(?) boblibrary >= 1.1.4",
     "(?) IRobot >= 2.0.0",
@@ -44,10 +46,10 @@
 	"(?) ch-concentrated-solar >= 0.5.1",
 	"(?) Mini_Trains >= 2.0.0",
 	"(?) fcpu >= 0.4.33",
-	"(?) reskins-bobs >= 2.3.5",
 	"(?) quick-adjustable-inserters >= 2.0.11",
 	"(?) cranes >= 2.0.0",
 	"(?) cargo-drone >= 1.8.0",
+	"(?) aai-containers >= 0.3.2",
 	"(?) stack-inserters >= 1.0.1",
 	  
 	"! space-age",
