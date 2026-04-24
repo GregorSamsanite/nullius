@@ -273,6 +273,29 @@ if mods["cranes"] then
     clutterpedia["nullius-crane-2"] =                           {name = "crane",                            tech = "nullius-crane"}
 end
 
+if mods["aai-containers"] then
+    clutterpedia["nullius-aai-strongbox"] =                     {name = "aai-strongbox",                    tech = "nullius-aai-strongbox-containers"}
+    clutterpedia["nullius-aai-strongbox-active-provider"] =     {name = "aai-strongbox-active-provider",    tech = "nullius-aai-strongbox-containers"}
+    clutterpedia["nullius-aai-strongbox-passive-provider"] =    {name = "aai-strongbox-passive-provider",   tech = "nullius-aai-strongbox-containers"}
+    clutterpedia["nullius-aai-strongbox-buffer"] =              {name = "aai-strongbox-buffer",             tech = "nullius-aai-strongbox-containers"}
+    clutterpedia["nullius-aai-strongbox-requester"] =           {name = "aai-strongbox-requester",          tech = "nullius-aai-strongbox-containers"}
+    clutterpedia["nullius-aai-strongbox-storage"] =             {name = "aai-strongbox-storage",            tech = "nullius-aai-strongbox-containers"}
+    
+    clutterpedia["nullius-aai-storehouse"] =                    {name = "aai-storehouse",                   tech = "nullius-aai-storehouse-containers"}
+    clutterpedia["nullius-aai-storehouse-active-provider"] =    {name = "aai-storehouse-active-provider",   tech = "nullius-aai-storehouse-containers"}
+    clutterpedia["nullius-aai-storehouse-passive-provider"] =   {name = "aai-storehouse-passive-provider",  tech = "nullius-aai-storehouse-containers"}
+    clutterpedia["nullius-aai-storehouse-buffer"] =             {name = "aai-storehouse-buffer",            tech = "nullius-aai-storehouse-containers"}
+    clutterpedia["nullius-aai-storehouse-requester"] =          {name = "aai-storehouse-requester",         tech = "nullius-aai-storehouse-containers"}
+    clutterpedia["nullius-aai-storehouse-storage"] =            {name = "aai-storehouse-storage",           tech = "nullius-aai-storehouse-containers"}
+    
+    clutterpedia["nullius-aai-warehouse"] =                     {name = "aai-warehouse",                    tech = "nullius-aai-warehouse-containers"}
+    clutterpedia["nullius-aai-warehouse-active-provider"] =     {name = "aai-warehouse-active-provider",    tech = "nullius-aai-warehouse-containers"}
+    clutterpedia["nullius-aai-warehouse-passive-provider"] =    {name = "aai-warehouse-passive-provider",   tech = "nullius-aai-warehouse-containers"}
+    clutterpedia["nullius-aai-warehouse-buffer"] =              {name = "aai-warehouse-buffer",             tech = "nullius-aai-warehouse-containers"}
+    clutterpedia["nullius-aai-warehouse-requester"] =           {name = "aai-warehouse-requester",          tech = "nullius-aai-warehouse-containers"}
+    clutterpedia["nullius-aai-warehouse-storage"] =             {name = "aai-warehouse-storage",            tech = "nullius-aai-warehouse-containers"}
+end
+
 if mods["stack-inserters"] then
     clutterpedia["nullius-stack-inserter"] =                    {name = "stack-inserter",                   tech = "nullius-stack-inserters"}
 end
