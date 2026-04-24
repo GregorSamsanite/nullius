@@ -50,6 +50,7 @@
 	"(?) cranes >= 2.0.0",
 	"(?) cargo-drone >= 1.8.0",
 	"(?) aai-containers >= 0.3.2",
+	"(?) stack-inserters >= 1.0.1",
 	  
 	"! space-age",
 	"! quality",
