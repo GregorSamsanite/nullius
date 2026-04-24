@@ -3369,7 +3369,7 @@ data.raw.item["nullius-pipe-4"].icons = {{
 }}
 data.raw.item["nullius-underground-pipe-2"].icons = {{
   icon = ENTICONPATH .. "pipe-underground-red.png",
-  icon_size = 64,  scale = 2
+  icon_size = 64,  scale = 0.5
 }}
 data.raw.item["nullius-underground-pipe-3"].icons = {{
   icon = "__reskins-bobs__/graphics/icons/logistics/pipe-to-ground/plastic-pipe-to-ground-icon.png",
