@@ -5205,7 +5205,7 @@ if mods["stack-inserters"] then
 					{ "nullius-chemical-pack", 1 },
 				},
 				time = 60,
-e			},
+			},
 			upgrade = true,
 		},
 	})
