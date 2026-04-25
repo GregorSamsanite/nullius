@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.5
-Date: ??.??.2026
+Date: 25.04.2026
   Changes:
-    - Doubled pump energy consumption (thus making them 20x as expensive as before), except for pump 1
+    - Halved pump 1 energy consumption
     - Added resource icons in the map generation settings
     - Removed command that flips all valves
   Graphics:
