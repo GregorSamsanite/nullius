@@ -5119,3 +5119,98 @@ if mods["aai-containers"] then
 		},
 	})
 end
+
+if mods["stack-inserters"] then
+	data:extend({
+
+		{
+			type = "technology",
+			name = "nullius-stack-inserters",
+			localised_name = { "technology-name.stack-inserter" },
+			localised_description = { "technology-description.stack-inserter" },
+			icon = "__stack-inserters__/graphics/technology/stack-inserter.png",
+			icon_size = 256,
+			effects = {
+				{ type = "unlock-recipe", recipe = "nullius-stack-inserter" },
+				{ type = "belt-stack-size-bonus", modifier = 1 },
+			},
+			prerequisites = { "nullius-actuation-3" },
+			unit = {
+				count = 1000,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+					{ "nullius-chemical-pack", 1 },
+				},
+				time = 60,
+			},
+		},
+		{
+			type = "recipe",
+			name = "nullius-stack-inserter",
+			localised_name = { "entity-name.stack-inserter" },
+			enabled = false,
+			always_show_made_in = true,
+			energy_required = 10,
+			category = "small-crafting",
+			ingredients = {
+				{ type = "item", name = "bulk-inserter", amount = 3 },
+				{ type = "item", name = "nullius-processor-1", amount = 5 },
+				{ type = "item", name = "decider-combinator", amount = 5 },
+				{ type = "item", name = "arithmetic-combinator", amount = 5 },
+			},
+			order = "nullius-gb",
+			results = { { type = "item", name = "stack-inserter", amount = 1 } },
+		},
+		{
+			type = "technology",
+			name = "nullius-transport-belt-capacity-1",
+			localised_name = { "technology-name.transport-belt-capacity" },
+			icons = util.technology_icon_constant_stack_size(
+				"__stack-inserters__/graphics/technology/transport-belt-capacity.png"
+			),
+			effects = { { type = "belt-stack-size-bonus", modifier = 1 } },
+			prerequisites = { "nullius-actuation-2" },
+			unit = {
+				count = 2500,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+				},
+				time = 60,
+			},
+			upgrade = true,
+		},
+
+		{
+			type = "technology",
+			name = "nullius-transport-belt-capacity-2",
+			localised_name = { "technology-name.transport-belt-capacity" },
+			icons = util.technology_icon_constant_stack_size(
+				"__stack-inserters__/graphics/technology/transport-belt-capacity.png"
+			),
+			effects = { { type = "belt-stack-size-bonus", modifier = 1 } },
+			prerequisites = { "nullius-actuation-3" },
+			unit = {
+				count = 5000,
+				ingredients = {
+					{ "nullius-geology-pack", 1 },
+					{ "nullius-climatology-pack", 1 },
+					{ "nullius-mechanical-pack", 1 },
+					{ "nullius-electrical-pack", 1 },
+					{ "nullius-chemical-pack", 1 },
+				},
+				time = 60,
+			},
+			upgrade = true,
+		},
+	})
+	data.raw["item"]["stack-inserter"].order = "nullius-gb"
+	data.raw["inserter"]["stack-inserter"].order = "nullius-gb"
+	data.raw["inserter"]["stack-inserter"].fast_replaceable_group = "inserter"
+	data.raw["inserter"]["stack-inserter"].rotation_speed = 0.0333333
+end

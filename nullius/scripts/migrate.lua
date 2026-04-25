@@ -162,6 +162,11 @@ function migrate_version(event)
           local direction = entity.direction
           local force = entity.force
           local name =  entity.name
+          local ctrl = entity.get_or_create_control_behavior()
+          local ctrl_circuit_condition = ctrl.circuit_condition
+          local ctrl_logistic_condition = ctrl.logistic_condition
+          local ctrl_connect_to_logistic_network = ctrl.connect_to_logistic_network
+          local ctrl_circuit_enable_disable = ctrl.circuit_enable_disable
           entity.destroy({ raise_destroy = true })
       
           local pump = surface.create_entity({
@@ -172,9 +177,13 @@ function migrate_version(event)
               raise_built = true,
           })
           
-          
           local control_behavior = pump.get_or_create_control_behavior()
-          control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
+          control_behavior.circuit_condition = ctrl_circuit_condition
+          control_behavior.logistic_condition = ctrl_logistic_condition
+          control_behavior.connect_to_logistic_network = ctrl_connect_to_logistic_network
+          control_behavior.circuit_enable_disable = ctrl_circuit_enable_disable
+          -- control_behavior.set_filter = ctrl.set_filter
+          -- control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
       end
       for _, entity in pairs(surface.find_entities_filtered({ name = "nullius-one-way-valve" })) do
         local position = entity.position

@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "factorio_version": "2.0",
   "title": "Nullius",
   "author": "Anachrony",
@@ -50,6 +50,7 @@
 	"(?) cranes >= 2.0.0",
 	"(?) cargo-drone >= 1.8.0",
 	"(?) aai-containers >= 0.3.2",
+	"(?) stack-inserters >= 1.0.1",
 	  
 	"! space-age",
 	"! quality",
