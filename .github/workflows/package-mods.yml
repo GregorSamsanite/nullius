@@ -1,0 +1,40 @@
+name: Package Mods
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mod: [nullius, safefill, train-upgrader]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Read mod version
+        id: meta
+        run: |
+          VERSION=$(jq -r '.version' ${{ matrix.mod }}/info.json)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "zip_name=${{ matrix.mod }}_${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Create zip
+        run: |
+          ZIP="${{ steps.meta.outputs.zip_name }}"
+          cp -r "${{ matrix.mod }}" "$ZIP"
+          zip -r "${ZIP}.zip" "$ZIP"
+          rm -rf "$ZIP"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.meta.outputs.zip_name }}.zip
+          path: ${{ steps.meta.outputs.zip_name }}.zip
+          if-no-files-found: error
+          archive: false
