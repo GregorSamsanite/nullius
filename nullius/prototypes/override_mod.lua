@@ -1,5 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local has_transport_drones = mods["Transport_Drones_Continued"]
 
 
 if mods["elevated-rails"] then
@@ -621,7 +622,7 @@ data.raw.item["one-to-one-forward-t2-pipe"].localised_name =
 data.raw.item["one-to-one-forward-t2-pipe"].localised_description =
   {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-two-way-junction-1"].localised_name = data.raw.item["one-to-one-forward-t2-pipe"].localised_name
-  
+
 data.raw.item["one-to-two-perpendicular-t2-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-t2-pipe"].order = "nullius-bc"
 data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_name =
@@ -629,7 +630,7 @@ data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_name =
 data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_description =
   {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-three-way-junction-1"].localised_name = data.raw.item["one-to-two-perpendicular-t2-pipe"].localised_name
-  
+
 data.raw.item["one-to-three-forward-t2-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-t2-pipe"].order = "nullius-bd"
 data.raw.item["one-to-three-forward-t2-pipe"].localised_name =
@@ -637,7 +638,7 @@ data.raw.item["one-to-three-forward-t2-pipe"].localised_name =
 data.raw.item["one-to-three-forward-t2-pipe"].localised_description =
   {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-four-way-junction-1"].localised_name = data.raw.item["one-to-three-forward-t2-pipe"].localised_name
-  
+
 data.raw.item["underground-i-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-t2-pipe"].order = "nullius-bb"
 data.raw.item["underground-i-t2-pipe"].localised_name =
@@ -645,7 +646,7 @@ data.raw.item["underground-i-t2-pipe"].localised_name =
 data.raw.item["underground-i-t2-pipe"].localised_description =
   {"", {"item-description.nullius-underground-straight-junction"}}
 data.raw.recipe["nullius-underground-straight-junction-1"].localised_name = data.raw.item["underground-i-t2-pipe"].localised_name
-  
+
 data.raw.item["underground-L-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-t2-pipe"].order = "nullius-bc"
 data.raw.item["underground-L-t2-pipe"].localised_name =
@@ -653,7 +654,7 @@ data.raw.item["underground-L-t2-pipe"].localised_name =
 data.raw.item["underground-L-t2-pipe"].localised_description =
   {"", {"item-description.nullius-underground-elbow-junction"}}
 data.raw.recipe["nullius-underground-elbow-junction-1"].localised_name = data.raw.item["underground-L-t2-pipe"].localised_name
-  
+
 data.raw.item["underground-t-t2-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-t2-pipe"].order = "nullius-bd"
 data.raw.item["underground-t-t2-pipe"].localised_name =
@@ -669,7 +670,7 @@ data.raw.item["one-to-one-forward-t3-pipe"].localised_name =
 data.raw.item["one-to-one-forward-t3-pipe"].localised_description =
   {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-two-way-junction-2"].localised_name = data.raw.item["one-to-one-forward-t3-pipe"].localised_name
-  
+
 data.raw.item["one-to-two-perpendicular-t3-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-t3-pipe"].order = "nullius-cc"
 data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_name =
@@ -677,7 +678,7 @@ data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_name =
 data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_description =
   {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-three-way-junction-2"].localised_name = data.raw.item["one-to-two-perpendicular-t3-pipe"].localised_name
-  
+
 data.raw.item["one-to-three-forward-t3-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-t3-pipe"].order = "nullius-cd"
 data.raw.item["one-to-three-forward-t3-pipe"].localised_name =
@@ -685,7 +686,7 @@ data.raw.item["one-to-three-forward-t3-pipe"].localised_name =
 data.raw.item["one-to-three-forward-t3-pipe"].localised_description =
   {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-four-way-junction-2"].localised_name = data.raw.item["one-to-three-forward-t3-pipe"].localised_name
-  
+
 data.raw.item["underground-i-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-t3-pipe"].order = "nullius-cb"
 data.raw.item["underground-i-t3-pipe"].localised_name =
@@ -693,7 +694,7 @@ data.raw.item["underground-i-t3-pipe"].localised_name =
 data.raw.item["underground-i-t3-pipe"].localised_description =
   {"", {"item-description.nullius-underground-straight-junction"}}
 data.raw.recipe["nullius-underground-straight-junction-2"].localised_name = data.raw.item["underground-i-t3-pipe"].localised_name
-  
+
 data.raw.item["underground-L-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-t3-pipe"].order = "nullius-cc"
 data.raw.item["underground-L-t3-pipe"].localised_name =
@@ -701,7 +702,7 @@ data.raw.item["underground-L-t3-pipe"].localised_name =
 data.raw.item["underground-L-t3-pipe"].localised_description =
   {"", {"item-description.nullius-underground-elbow-junction"}}
 data.raw.recipe["nullius-underground-elbow-junction-2"].localised_name = data.raw.item["underground-L-t3-pipe"].localised_name
-  
+
 data.raw.item["underground-t-t3-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-t3-pipe"].order = "nullius-cd"
 data.raw.item["underground-t-t3-pipe"].localised_name =
@@ -709,7 +710,7 @@ data.raw.item["underground-t-t3-pipe"].localised_name =
 data.raw.item["underground-t-t3-pipe"].localised_description =
   {"", {"item-description.nullius-underground-three-way-junction"}}
 data.raw.recipe["nullius-underground-three-way-junction-2"].localised_name = data.raw.item["underground-t-t3-pipe"].localised_name
-  
+
 
 data.raw.item["one-to-one-forward-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-one-forward-pipe"].order = "nullius-db"
@@ -718,7 +719,7 @@ data.raw.item["one-to-one-forward-pipe"].localised_name =
 data.raw.item["one-to-one-forward-pipe"].localised_description =
   {"", {"item-description.nullius-surface-two-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-two-way-junction-3"].localised_name = data.raw.item["one-to-one-forward-pipe"].localised_name
-  
+
 data.raw.item["one-to-two-perpendicular-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-two-perpendicular-pipe"].order = "nullius-dc"
 data.raw.item["one-to-two-perpendicular-pipe"].localised_name =
@@ -726,7 +727,7 @@ data.raw.item["one-to-two-perpendicular-pipe"].localised_name =
 data.raw.item["one-to-two-perpendicular-pipe"].localised_description =
   {"", {"item-description.nullius-surface-three-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-three-way-junction-3"].localised_name = data.raw.item["one-to-two-perpendicular-pipe"].localised_name
-  
+
 data.raw.item["one-to-three-forward-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-three-forward-pipe"].order = "nullius-dd"
 data.raw.item["one-to-three-forward-pipe"].localised_name =
@@ -734,7 +735,7 @@ data.raw.item["one-to-three-forward-pipe"].localised_name =
 data.raw.item["one-to-three-forward-pipe"].localised_description =
   {"", {"item-description.nullius-surface-four-way-junction"},{"item-description.nullius-underground-ctrl-r"}}
 data.raw.recipe["nullius-surface-four-way-junction-3"].localised_name = data.raw.item["one-to-three-forward-pipe"].localised_name
-  
+
 data.raw.item["one-to-four-pipe"].subgroup = "nullius-surface-junction"
 data.raw.item["one-to-four-pipe"].order = "nullius-de"
 data.raw.item["one-to-four-pipe"].localised_name =
@@ -742,7 +743,7 @@ data.raw.item["one-to-four-pipe"].localised_name =
 data.raw.item["one-to-four-pipe"].localised_description =
   {"", {"item-description.nullius-surface-five-way-junction"}}
 data.raw.recipe["nullius-surface-five-way-junction-3"].localised_name = data.raw.item["one-to-four-pipe"].localised_name
-  
+
 data.raw.item["underground-i-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-i-pipe"].order = "nullius-db"
 data.raw.item["underground-i-pipe"].localised_name =
@@ -750,7 +751,7 @@ data.raw.item["underground-i-pipe"].localised_name =
 data.raw.item["underground-i-pipe"].localised_description =
   {"", {"item-description.nullius-underground-straight-junction"}}
 data.raw.recipe["nullius-underground-straight-junction-3"].localised_name = data.raw.item["underground-i-pipe"].localised_name
-  
+
 data.raw.item["underground-L-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-L-pipe"].order = "nullius-dc"
 data.raw.item["underground-L-pipe"].localised_name =
@@ -758,7 +759,7 @@ data.raw.item["underground-L-pipe"].localised_name =
 data.raw.item["underground-L-pipe"].localised_description =
   {"", {"item-description.nullius-underground-elbow-junction"}}
 data.raw.recipe["nullius-underground-elbow-junction-3"].localised_name = data.raw.item["underground-L-pipe"].localised_name
-  
+
 data.raw.item["underground-t-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-t-pipe"].order = "nullius-dd"
 data.raw.item["underground-t-pipe"].localised_name =
@@ -766,7 +767,7 @@ data.raw.item["underground-t-pipe"].localised_name =
 data.raw.item["underground-t-pipe"].localised_description =
   {"", {"item-description.nullius-underground-three-way-junction"}}
 data.raw.recipe["nullius-underground-three-way-junction-3"].localised_name = data.raw.item["underground-t-pipe"].localised_name
-  
+
 data.raw.item["underground-cross-pipe"].subgroup = "nullius-underground-junction"
 data.raw.item["underground-cross-pipe"].order = "nullius-de"
 data.raw.item["underground-cross-pipe"].localised_name =
@@ -774,7 +775,7 @@ data.raw.item["underground-cross-pipe"].localised_name =
 data.raw.item["underground-cross-pipe"].localised_description =
   {"", {"item-description.nullius-underground-four-way-junction"}}
 data.raw.recipe["nullius-underground-four-way-junction-3"].localised_name = data.raw.item["underground-cross-pipe"].localised_name
-  
+
 
 data.raw.item["80-overflow-valve"].subgroup = "pumping"
 data.raw.item["80-overflow-valve"].order = "nullius-baf"
@@ -1080,7 +1081,7 @@ if mods["Warehousing"] then
   data.raw["logistic-container"]["warehouse-buffer"].minable.mining_time = 3.5
   data.raw["logistic-container"]["storehouse-active-provider"].minable.mining_time = 2
   data.raw["logistic-container"]["warehouse-active-provider"].minable.mining_time = 3.5
-  
+
   table.insert(data.raw.technology["nullius-mass-production-2"].prerequisites,"nullius-warehousing-1")
   table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,"nullius-warehousing-2")
   table.insert(data.raw.technology["nullius-mass-production-6"].prerequisites,"nullius-warehousing-4")
@@ -1165,305 +1166,486 @@ data.raw.technology["induction-technology5"].unit = {
 end
 
 
-if mods["Transport_Drones"] then
-data.raw["item-subgroup"]["transport-drones"].order = "gd"
+if has_transport_drones then
+  data.raw["item-subgroup"]["transport-drones"].order = "gd"
 
-data.raw.technology["transport-system"].order = "nullius-dg"
-data.raw.technology["transport-system"].prerequisites = {
-  "nullius-robotics-1", "nullius-checkpoint-compressed-nitrogen" }
-data.raw.technology["transport-system"].unit = {
-  count = 100, time = 30,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  data.raw.technology["transport-system"].order = "nullius-dg"
+  data.raw.technology["transport-system"].prerequisites = {
+    "nullius-robotics-1", "nullius-checkpoint-compressed-nitrogen" }
+  data.raw.technology["transport-system"].unit = {
+    count = 100, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
   }
-}
-data.raw.technology["transport-depot-circuits"].order = "nullius-dk"
-data.raw.technology["transport-depot-circuits"].prerequisites = {
-  "transport-system", "nullius-broadcasting-1" }
-data.raw.technology["transport-depot-circuits"].unit = {
-  count = 80, time = 30,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+  data.raw.technology["transport-depot-circuits"].order = "nullius-dk"
+  data.raw.technology["transport-depot-circuits"].prerequisites = {
+    "transport-system", "nullius-broadcasting-1" }
+  data.raw.technology["transport-depot-circuits"].unit = {
+    count = 80, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
   }
-}
-table.insert(data.raw.technology["nullius-sensors-2"].prerequisites,"transport-depot-circuits")
+  table.insert(data.raw.technology["nullius-sensors-2"].prerequisites,"transport-depot-circuits")
 
-data.raw.technology["transport-drone-speed-1"].order = "nullius-dl"
-data.raw.technology["transport-drone-speed-1"].prerequisites = {
-  "nullius-robot-speed-1" }
-data.raw.technology["transport-drone-speed-1"].unit = {
-  count = 200, time = 30,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
-  }
-}
-data.raw.technology["transport-drone-capacity-1"].order = "nullius-dl"
-data.raw.technology["transport-drone-capacity-1"].prerequisites = {
-  "transport-drone-speed-1", "nullius-braking-1"}
-data.raw.technology["transport-drone-capacity-1"].unit = {
-  count = 250, time = 30,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
-  }
-}
-data.raw.technology["nullius-braking-2"].prerequisites =
-    {"nullius-checkpoint-ceramic-powder", "transport-drone-capacity-1"}
+  if (data.raw.technology["transport-fluids"] ~= nil) then
+    data.raw.technology["transport-fluids"].order = "nullius-dh"
+    data.raw.technology["transport-fluids"].prerequisites = {
+      "transport-system", "nullius-pumping-2" }
+    data.raw.technology["transport-fluids"].unit = {
+      count = 150, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      }
+    }
+  end
 
-data.raw.technology["transport-drone-speed-2"].order = "nullius-en"
-data.raw.technology["transport-drone-speed-2"].prerequisites = {
-  "nullius-robot-speed-2", "nullius-checkpoint-truck" }
-data.raw.technology["transport-drone-speed-2"].unit = {
-  count = 800, time = 35,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}
+  if (data.raw.technology["transport-buffering"] ~= nil) then
+    data.raw.technology["transport-buffering"].order = "nullius-di"
+    data.raw.technology["transport-buffering"].prerequisites = { "transport-system" }
+    data.raw.technology["transport-buffering"].unit = {
+      count = 300, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      }
+    }
+  end
+
+  if (data.raw.technology["transport-logistics"] ~= nil) then
+    data.raw.technology["transport-logistics"].order = "nullius-dj"
+    data.raw.technology["transport-logistics"].prerequisites = {
+      "transport-system", "nullius-logistic-robot-1" }
+    data.raw.technology["transport-logistics"].unit = {
+      count = 300, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      }
+    }
+  end
+
+  if (data.raw.technology["transport-active-supply"] ~= nil) then
+    data.raw.technology["transport-active-supply"].order = "nullius-dka"
+    data.raw.technology["transport-active-supply"].prerequisites = {
+      "transport-buffering", "transport-logistics", "nullius-distribution-2" }
+    data.raw.technology["transport-active-supply"].unit = {
+      count = 500, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      }
+    }
+  end
+
+  if (data.raw.technology["transport-multi-pipe"] ~= nil) then
+    data.raw.technology["transport-multi-pipe"].order = "nullius-dkb"
+    data.raw.technology["transport-multi-pipe"].prerequisites = {
+      "transport-fluids", "nullius-pumping-2" }
+    data.raw.technology["transport-multi-pipe"].unit = {
+      count = 300, time = 30,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}
+      }
+    }
+  end
+
+  data.raw.technology["transport-drone-speed-1"].order = "nullius-dl"
+  data.raw.technology["transport-drone-speed-1"].prerequisites = {
+    "nullius-robot-speed-1" }
+  data.raw.technology["transport-drone-speed-1"].unit = {
+    count = 200, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
   }
-}
-data.raw.technology["transport-drone-capacity-2"].order = "nullius-eo"
-data.raw.technology["transport-drone-capacity-2"].prerequisites = {
-  "transport-drone-speed-2", "nullius-robot-cargo-1" }
-data.raw.technology["transport-drone-capacity-2"].unit = {
-  count = 1000, time = 35,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}
+  data.raw.technology["transport-drone-capacity-1"].order = "nullius-dl"
+  data.raw.technology["transport-drone-capacity-1"].prerequisites = {
+    "transport-drone-speed-1", "nullius-braking-1"}
+  data.raw.technology["transport-drone-capacity-1"].unit = {
+    count = 250, time = 30,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+    }
   }
-}
-table.insert(data.raw.technology["nullius-electromagnetism-3"].prerequisites,"transport-drone-capacity-2")
+  data.raw.technology["nullius-braking-2"].prerequisites =
+      {"nullius-checkpoint-ceramic-powder", "transport-drone-capacity-1"}
 
-data.raw.technology["transport-drone-speed-3"].order = "nullius-fh"
-data.raw.technology["transport-drone-speed-3"].prerequisites = {
-  "transport-drone-capacity-3", "nullius-robot-speed-3" }
-data.raw.technology["transport-drone-speed-3"].unit = {
-  count = 1600, time = 45,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  data.raw.technology["transport-drone-speed-2"].order = "nullius-en"
+  data.raw.technology["transport-drone-speed-2"].prerequisites = {
+    "nullius-robot-speed-2", "nullius-checkpoint-truck" }
+  data.raw.technology["transport-drone-speed-2"].unit = {
+    count = 800, time = 35,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}
+    }
   }
-}
-data.raw.technology["transport-drone-speed-3"].effects[2] = {
-  type = "unlock-recipe", recipe = "fast-road"
-}
-data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
-data.raw.technology["transport-drone-capacity-3"].prerequisites = {
-  "nullius-mechanical-engineering-2" }
-data.raw.technology["transport-drone-capacity-3"].unit = {
-  count = 1600, time = 45,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  data.raw.technology["transport-drone-capacity-2"].order = "nullius-eo"
+  data.raw.technology["transport-drone-capacity-2"].prerequisites = {
+    "transport-drone-speed-2", "nullius-robot-cargo-1" }
+  data.raw.technology["transport-drone-capacity-2"].unit = {
+    count = 1000, time = 35,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}
+    }
   }
-}
-table.insert(data.raw.technology["nullius-braking-6"].prerequisites,"transport-drone-speed-3")
+  table.insert(data.raw.technology["nullius-electromagnetism-3"].prerequisites,"transport-drone-capacity-2")
 
-data.raw.technology["transport-drone-speed-4"].order = "nullius-fu"
-data.raw.technology["transport-drone-speed-4"].prerequisites = {
-  "nullius-personal-transportation-3", "nullius-robot-speed-4" }
-data.raw.technology["transport-drone-speed-4"].unit = {
-  count = 4200, time = 55,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  data.raw.technology["transport-drone-speed-3"].order = "nullius-fh"
+  data.raw.technology["transport-drone-speed-3"].prerequisites = {
+    "transport-drone-capacity-3", "nullius-robot-speed-3" }
+  data.raw.technology["transport-drone-speed-3"].unit = {
+    count = 1600, time = 45,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+    }
   }
-}
-data.raw.technology["transport-drone-capacity-4"].order = "nullius-fv"
-data.raw.technology["transport-drone-capacity-4"].prerequisites = {
-  "transport-drone-speed-4", "nullius-braking-8" }
-data.raw.technology["transport-drone-capacity-4"].unit = {
-  count = 4500, time = 55,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+  if (data.raw.technology["fast-road"] == nil) then
+    data.raw.technology["transport-drone-speed-3"].effects[2] = {
+      type = "unlock-recipe", recipe = "fast-road"
+    }
+  else
+    data.raw.technology["fast-road"].order = "nullius-fha"
+    data.raw.technology["fast-road"].effects = {
+      { type = "unlock-recipe", recipe = "fast-road" }
+    }
+    data.raw.technology["fast-road"].prerequisites = {
+      "transport-drone-speed-3", "nullius-packaging-2" }
+    data.raw.technology["fast-road"].unit = {
+      count = 1600, time = 45,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+      }
+    }
+  end
+  data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
+  data.raw.technology["transport-drone-capacity-3"].prerequisites = {
+    "nullius-mechanical-engineering-2" }
+  data.raw.technology["transport-drone-capacity-3"].unit = {
+    count = 1600, time = 45,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+    }
   }
-}
-table.insert(data.raw.technology["nullius-inserter-capacity-6"].prerequisites,"transport-drone-capacity-4")
+  table.insert(data.raw.technology["nullius-braking-6"].prerequisites,"transport-drone-speed-3")
 
-data.raw.technology["transport-drone-speed-5"].order = "nullius-gj"
-data.raw.technology["transport-drone-speed-5"].prerequisites = {
-  "nullius-robot-speed-5" }
-data.raw.technology["transport-drone-speed-5"].unit = {
-  count_formula = "(2^(L-5))*15000", time = 60,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-    {"nullius-astronomy-pack", 1}
+  data.raw.technology["transport-drone-speed-4"].order = "nullius-fu"
+  data.raw.technology["transport-drone-speed-4"].prerequisites = {
+    "nullius-personal-transportation-3", "nullius-robot-speed-4" }
+  data.raw.technology["transport-drone-speed-4"].unit = {
+    count = 4200, time = 55,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+    }
   }
-}
-data.raw.technology["transport-drone-capacity-5"].order = "nullius-gj"
-data.raw.technology["transport-drone-capacity-5"].prerequisites = {
-  "nullius-inserter-capacity-7" }
-data.raw.technology["transport-drone-capacity-5"].unit = {
-  count = 25000, time = 60,
-  ingredients = {
-    {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-    {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-    {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
-    {"nullius-astronomy-pack", 1}
+  data.raw.technology["transport-drone-capacity-4"].order = "nullius-fv"
+  data.raw.technology["transport-drone-capacity-4"].prerequisites = {
+    "transport-drone-speed-4", "nullius-braking-8" }
+  data.raw.technology["transport-drone-capacity-4"].unit = {
+    count = 4500, time = 55,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
+    }
   }
-}
-data.raw.technology["nullius-inserter-capacity-8"].prerequisites =
-    {"transport-drone-capacity-5", "nullius-locomotion-5"}
+  table.insert(data.raw.technology["nullius-inserter-capacity-6"].prerequisites,"transport-drone-capacity-4")
 
-data.raw.item["road"].order = "nullius-b"
-data.raw.item["road"].stack_size = 500
-data.raw.recipe["road"].order = "nullius-b"
-data.raw.recipe["road"].always_show_made_in = true
-data.raw.recipe["road"].show_amount_in_title = false
-data.raw.recipe["road"].always_show_products = true
-data.raw.recipe["road"].category = "hand-casting"
-data.raw.recipe["road"].energy_required = 3
-data.raw.recipe["road"].results[1].amount = 4
-data.raw.recipe["road"].ingredients = {
-  {type = "item", name = "nullius-rubber", amount = 1},
-  {type = "item", name = "nullius-land-fill-sand", amount = 1},
-  {type = "item", name = "nullius-gravel", amount = 3}
-}
-data.raw.item["transport-drone"].order = "nullius-c"
-data.raw.item["transport-drone"].stack_size = 20
-data.raw.recipe["transport-drone"].order = "nullius-c"
-data.raw.recipe["transport-drone"].always_show_made_in = true
-data.raw.recipe["transport-drone"].show_amount_in_title = false
-data.raw.recipe["transport-drone"].always_show_products = true
-data.raw.recipe["transport-drone"].category = "medium-crafting"
-data.raw.recipe["transport-drone"].energy_required = 10
-data.raw.recipe["transport-drone"].results[1].amount = 3
-data.raw.recipe["transport-drone"].ingredients = {
-  {type = "item", name = "nullius-car-1", amount = 1},
-  {type = "item", name = "arithmetic-combinator", amount = 5},
-  {type = "item", name = "programmable-speaker", amount = 2},
-  {type = "item", name = "turbo-filter-inserter", amount = 3}
-}
+  data.raw.technology["transport-drone-speed-5"].order = "nullius-gj"
+  data.raw.technology["transport-drone-speed-5"].prerequisites = {
+    "nullius-robot-speed-5" }
+  data.raw.technology["transport-drone-speed-5"].unit = {
+    count_formula = "(2^(L-5))*15000", time = 60,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+      {"nullius-astronomy-pack", 1}
+    }
+  }
+  data.raw.technology["transport-drone-capacity-5"].order = "nullius-gj"
+  data.raw.technology["transport-drone-capacity-5"].prerequisites = {
+    "nullius-inserter-capacity-7" }
+  data.raw.technology["transport-drone-capacity-5"].unit = {
+    count = 25000, time = 60,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1},
+      {"nullius-astronomy-pack", 1}
+    }
+  }
+  data.raw.technology["nullius-inserter-capacity-8"].prerequisites =
+      {"transport-drone-capacity-5", "nullius-locomotion-5"}
 
-data.raw.item["supply-depot"].order = "nullius-d"
-data.raw.item["supply-depot"].stack_size = 20
-data.raw.recipe["supply-depot"].order = "nullius-d"
-data.raw.recipe["supply-depot"].always_show_made_in = true
-data.raw.recipe["supply-depot"].category = "large-crafting"
-data.raw.recipe["supply-depot"].energy_required = 12
-data.raw.recipe["supply-depot"].ingredients = {
-  {type = "item", name = "nullius-large-chest-1", amount = 1},
-  {type = "item", name = "nullius-steel-beam", amount = 4},
-  {type = "item", name = "nullius-glass", amount = 2},
-  {type = "item", name = "train-stop", amount = 1}
-}
-data.raw.item["request-depot"].order = "nullius-e"
-data.raw.item["request-depot"].stack_size = 20
-data.raw.recipe["request-depot"].order = "nullius-e"
-data.raw.recipe["request-depot"].always_show_made_in = true
-data.raw.recipe["request-depot"].category = "large-crafting"
-data.raw.recipe["request-depot"].energy_required = 6
-data.raw.recipe["request-depot"].ingredients = {
-  {type = "item", name = "fluid-depot", amount = 1},
-  {type = "item", name = "nullius-hangar-1", amount = 1}
-}
-data.raw.item["buffer-depot"].order = "nullius-f"
-data.raw.item["buffer-depot"].stack_size = 20
-data.raw.recipe["buffer-depot"].order = "nullius-f"
-data.raw.recipe["buffer-depot"].always_show_made_in = true
-data.raw.recipe["buffer-depot"].no_productivity = true
-data.raw.recipe["buffer-depot"].category = "large-crafting"
-data.raw.recipe["buffer-depot"].energy_required = 4
-data.raw.recipe["buffer-depot"].ingredients = {
-  {type = "item", name = "request-depot", amount = 1},
-  {type = "item", name = "train-stop", amount = 1}
-}
-data.raw.item["fluid-depot"].order = "nullius-g"
-data.raw.item["fluid-depot"].stack_size = 20
-data.raw.recipe["fluid-depot"].order = "nullius-g"
-data.raw.recipe["fluid-depot"].always_show_made_in = true
-data.raw.recipe["fluid-depot"].category = "large-crafting"
-data.raw.recipe["fluid-depot"].energy_required = 4
-data.raw.recipe["fluid-depot"].ingredients = {
-  {type = "item", name = "supply-depot", amount = 1},
-  {type = "item", name = "nullius-medium-tank-2", amount = 1},
-  {type = "item", name = "nullius-barrel-pump-1", amount = 1}
-}
-data.raw.item["fuel-depot"].order = "nullius-h"
-data.raw.item["fuel-depot"].stack_size = 20
-data.raw.recipe["fuel-depot"].order = "nullius-h"
-data.raw.recipe["fuel-depot"].always_show_made_in = true
-data.raw.recipe["fuel-depot"].category = "large-crafting"
-data.raw.recipe["fuel-depot"].energy_required = 4
-data.raw.recipe["fuel-depot"].ingredients = {
-  {type = "item", name = "buffer-depot", amount = 1},
-  {type = "item", name = "nullius-pump-2", amount = 2}
-}
+  local function set_transport_drone_item(opts)
+    local item = data.raw.item[opts.name]
+    if (item == nil) then return false end
+    item.order = opts.order
+    item.stack_size = opts.stack_size
+    return true
+  end
 
-data.raw.item["road-network-reader"].order = "nullius-i"
-data.raw.item["road-network-reader"].stack_size = 50
-data.raw.recipe["road-network-reader"].order = "nullius-i"
-data.raw.recipe["road-network-reader"].always_show_made_in = true
-data.raw.recipe["road-network-reader"].category = "small-crafting"
-data.raw.recipe["road-network-reader"].energy_required = 5
-data.raw.recipe["road-network-reader"].ingredients = {
-  {type = "item", name = "rail-chain-signal", amount = 1},
-  {type = "item", name = "nullius-sensor-1", amount = 1},
-  {type = "item", name = "programmable-speaker", amount = 1}
-}
-data.raw.item["transport-depot-reader"].order = "nullius-j"
-data.raw.item["transport-depot-reader"].stack_size = 50
-data.raw.recipe["transport-depot-reader"].order = "nullius-j"
-data.raw.recipe["transport-depot-reader"].always_show_made_in = true
-data.raw.recipe["transport-depot-reader"].category = "small-crafting"
-data.raw.recipe["transport-depot-reader"].energy_required = 2
-data.raw.recipe["transport-depot-reader"].ingredients = {
-  {type = "item", name = "road-network-reader", amount = 1},
-  {type = "item", name = "nullius-red-wire", amount = 2}
-}
-data.raw.item["transport-depot-writer"].order = "nullius-k"
-data.raw.item["transport-depot-writer"].stack_size = 50
-data.raw.recipe["transport-depot-writer"].order = "nullius-k"
-data.raw.recipe["transport-depot-writer"].always_show_made_in = true
-data.raw.recipe["transport-depot-writer"].category = "small-crafting"
-data.raw.recipe["transport-depot-writer"].energy_required = 3
-data.raw.recipe["transport-depot-writer"].ingredients = {
-  {type = "item", name = "road-network-reader", amount = 1},
-  {type = "item", name = "nullius-green-wire", amount = 3}
-}
+  local function set_transport_drone_recipe(opts)
+    local recipe = data.raw.recipe[opts.name]
+    if (recipe == nil) then return false end
+    recipe.order = opts.order
+    recipe.enabled = false
+    recipe.always_show_made_in = true
+    recipe.category = opts.category
+    recipe.energy_required = opts.time
+    recipe.ingredients = opts.ingredients
+    recipe.results = opts.results or {
+      {type = "item", name = opts.name, amount = opts.amount or 1}
+    }
+    if (opts.properties ~= nil) then
+      for key,value in pairs(opts.properties) do
+        recipe[key] = value
+      end
+    end
+    return true
+  end
 
-data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 6
-data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 6
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -3
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 8
-data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 250
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -3
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 8
-data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
+  set_transport_drone_item({name = "road", order = "nullius-b", stack_size = 500})
+  set_transport_drone_recipe({
+    name = "road",
+    order = "nullius-b",
+    category = "hand-casting",
+    time = 3,
+    amount = 4,
+    ingredients = {
+      {type = "item", name = "nullius-rubber", amount = 1},
+      {type = "item", name = "nullius-land-fill-sand", amount = 1},
+      {type = "item", name = "nullius-gravel", amount = 3}
+    },
+    properties = {
+      show_amount_in_title = false,
+      always_show_products = true
+    }
+  })
 
-data.raw.item["fast-road"].stack_size = 500
-data.raw.item["fast-road"].subgroup = "concrete"
-data.raw.item["fast-road"].order = "nullius-cr"
-data.raw.item["fast-road"].icons[1].tint = { 0.66, 0.66, 0.66 }
-data.raw.tile["transport-drone-road-better"].tint = {0.66, 0.66, 0.66}
-data.raw.tile["transport-drone-road-better"].vehicle_friction_modifier = 0.4
-data.raw.item["nullius-black-concrete"].icons[1].tint = { 0.4, 0.4, 0.4 }
-data.raw.tile["black-refined-concrete"].tint = {0.4, 0.4, 0.4}
+  set_transport_drone_item({name = "transport-drone", order = "nullius-c", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "transport-drone",
+    order = "nullius-c",
+    category = "medium-crafting",
+    time = 10,
+    amount = 3,
+    ingredients = {
+      {type = "item", name = "nullius-car-1", amount = 1},
+      {type = "item", name = "arithmetic-combinator", amount = 5},
+      {type = "item", name = "programmable-speaker", amount = 2},
+      {type = "item", name = "bob-turbo-inserter", amount = 3}
+    },
+    properties = {
+      show_amount_in_title = false,
+      always_show_products = true
+    }
+  })
 
-data.raw.recipe["fast-road"].icons = data.raw.item["fast-road"].icons
-data.raw.recipe["fast-road"].subgroup = "concrete"
-data.raw.recipe["fast-road"].order = "nullius-cr"
-data.raw.recipe["fast-road"].always_show_made_in = true
-data.raw.recipe["fast-road"].show_amount_in_title = false
-data.raw.recipe["fast-road"].always_show_products = true
-data.raw.recipe["fast-road"].category = "large-crafting"
-data.raw.recipe["fast-road"].energy_required = 30
-data.raw.recipe["fast-road"].results[1].amount = 8
-data.raw.recipe["fast-road"].ingredients = {
-  {type = "item", name = "road", amount = 50},
-  {type = "item", name = "nullius-box-black-concrete", amount = 6},
-  {type = "item", name = "road-network-reader", amount = 1}
-}
+  set_transport_drone_item({name = "supply-depot", order = "nullius-d", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "supply-depot",
+    order = "nullius-d",
+    category = "large-crafting",
+    time = 12,
+    ingredients = {
+      {type = "item", name = "nullius-large-chest-1", amount = 1},
+      {type = "item", name = "nullius-steel-beam", amount = 4},
+      {type = "item", name = "nullius-glass", amount = 2},
+      {type = "item", name = "train-stop", amount = 1}
+    }
+  })
+
+  set_transport_drone_item({name = "request-depot", order = "nullius-e", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "request-depot",
+    order = "nullius-e",
+    category = "large-crafting",
+    time = 6,
+    ingredients = {
+      {type = "item", name = "fluid-depot", amount = 1},
+      {type = "item", name = "nullius-hangar-1", amount = 1}
+    }
+  })
+
+  set_transport_drone_item({name = "buffer-depot", order = "nullius-f", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "buffer-depot",
+    order = "nullius-f",
+    category = "large-crafting",
+    time = 4,
+    ingredients = {
+      {type = "item", name = "request-depot", amount = 1},
+      {type = "item", name = "train-stop", amount = 1}
+    },
+    properties = { no_productivity = true }
+  })
+
+  set_transport_drone_item({name = "fluid-depot", order = "nullius-g", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "fluid-depot",
+    order = "nullius-g",
+    category = "large-crafting",
+    time = 4,
+    ingredients = {
+      {type = "item", name = "supply-depot", amount = 1},
+      {type = "item", name = "nullius-medium-tank-2", amount = 1},
+      {type = "item", name = "nullius-barrel-pump-1", amount = 1}
+    }
+  })
+
+  set_transport_drone_item({name = "fuel-depot", order = "nullius-h", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "fuel-depot",
+    order = "nullius-h",
+    category = "large-crafting",
+    time = 4,
+    ingredients = {
+      {type = "item", name = "buffer-depot", amount = 1},
+      {type = "item", name = "nullius-pump-2", amount = 2}
+    }
+  })
+
+  set_transport_drone_item({name = "active-depot", order = "nullius-fa", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "active-depot",
+    order = "nullius-fa",
+    category = "large-crafting",
+    time = 8,
+    ingredients = {
+      {type = "item", name = "supply-depot", amount = 1},
+      {type = "item", name = "nullius-large-supply-chest-1", amount = 1},
+      {type = "item", name = "nullius-hangar-1", amount = 1},
+      {type = "item", name = "nullius-green-wire", amount = 4}
+    }
+  })
+
+  set_transport_drone_item({name = "storage-depot", order = "nullius-fb", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "storage-depot",
+    order = "nullius-fb",
+    category = "large-crafting",
+    time = 8,
+    ingredients = {
+      {type = "item", name = "supply-depot", amount = 1},
+      {type = "item", name = "nullius-large-storage-chest-1", amount = 1},
+      {type = "item", name = "nullius-red-wire", amount = 2},
+      {type = "item", name = "nullius-green-wire", amount = 2}
+    }
+  })
+
+  set_transport_drone_item({name = "drone-dispatcher", order = "nullius-ha", stack_size = 20})
+  set_transport_drone_recipe({
+    name = "drone-dispatcher",
+    order = "nullius-ha",
+    category = "large-crafting",
+    time = 8,
+    ingredients = {
+      {type = "item", name = "fuel-depot", amount = 1},
+      {type = "item", name = "nullius-hangar-1", amount = 1},
+      {type = "item", name = "arithmetic-combinator", amount = 2},
+      {type = "item", name = "nullius-green-wire", amount = 4}
+    }
+  })
+
+  set_transport_drone_item({name = "road-network-reader", order = "nullius-i", stack_size = 50})
+  set_transport_drone_recipe({
+    name = "road-network-reader",
+    order = "nullius-i",
+    category = "small-crafting",
+    time = 5,
+    ingredients = {
+      {type = "item", name = "rail-chain-signal", amount = 1},
+      {type = "item", name = "nullius-sensor-1", amount = 1},
+      {type = "item", name = "programmable-speaker", amount = 1}
+    }
+  })
+
+  set_transport_drone_item({name = "transport-depot-reader", order = "nullius-j", stack_size = 50})
+  set_transport_drone_recipe({
+    name = "transport-depot-reader",
+    order = "nullius-j",
+    category = "small-crafting",
+    time = 2,
+    ingredients = {
+      {type = "item", name = "road-network-reader", amount = 1},
+      {type = "item", name = "nullius-red-wire", amount = 2}
+    }
+  })
+
+  set_transport_drone_item({name = "transport-depot-writer", order = "nullius-k", stack_size = 50})
+  set_transport_drone_recipe({
+    name = "transport-depot-writer",
+    order = "nullius-k",
+    category = "small-crafting",
+    time = 3,
+    ingredients = {
+      {type = "item", name = "road-network-reader", amount = 1},
+      {type = "item", name = "nullius-green-wire", amount = 3}
+    }
+  })
+
+  data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 6
+  data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 6
+  data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_level = -3
+  data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].height = 8
+  data.raw["assembling-machine"]["fuel-depot"].fluid_boxes[2].base_area = 250
+  data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_level = -3
+  data.raw["furnace"]["fluid-depot"].fluid_boxes[2].height = 8
+  data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
+
+  data.raw.item["fast-road"].stack_size = 500
+  data.raw.item["fast-road"].subgroup = "concrete"
+  data.raw.item["fast-road"].order = "nullius-cr"
+  data.raw.item["fast-road"].icons[1].tint = { 0.66, 0.66, 0.66 }
+  data.raw.tile["transport-drone-road-better"].tint = {0.66, 0.66, 0.66}
+  data.raw.tile["transport-drone-road-better"].vehicle_friction_modifier = 0.4
+  data.raw.item["nullius-black-concrete"].icons[1].tint = { 0.4, 0.4, 0.4 }
+  data.raw.tile["black-refined-concrete"].tint = {0.4, 0.4, 0.4}
+
+  data.raw.recipe["fast-road"].icons = data.raw.item["fast-road"].icons
+  data.raw.recipe["fast-road"].subgroup = "concrete"
+  data.raw.recipe["fast-road"].order = "nullius-cr"
+  data.raw.recipe["fast-road"].enabled = false
+  data.raw.recipe["fast-road"].hidden = false
+  data.raw.recipe["fast-road"].always_show_made_in = true
+  data.raw.recipe["fast-road"].show_amount_in_title = false
+  data.raw.recipe["fast-road"].always_show_products = true
+  data.raw.recipe["fast-road"].category = "large-crafting"
+  data.raw.recipe["fast-road"].energy_required = 30
+  data.raw.recipe["fast-road"].results = {
+    {type = "item", name = "fast-road", amount = 8}
+  }
+  data.raw.recipe["fast-road"].ingredients = {
+    {type = "item", name = "road", amount = 50},
+    {type = "item", name = "nullius-box-black-concrete", amount = 6},
+    {type = "item", name = "road-network-reader", amount = 1}
+  }
 end
 
 
@@ -1609,7 +1791,7 @@ if (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) then
   table.insert(data.raw["technology"]["nullius-computation"].effects,
     {type = "unlock-recipe", recipe = "nullius-crafting-combinator"})
   table.insert(data.raw["technology"]["nullius-computation"].effects,
-    {type = "unlock-recipe", recipe = "nullius-recipe-combinator"})  
+    {type = "unlock-recipe", recipe = "nullius-recipe-combinator"})
 end
 
 
@@ -1653,7 +1835,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
   data.raw.item["classic-nixie-tube"].stack_size = 50
   data.raw.item["reinforced-nixie-tube"].stack_size = 50
   data.raw.item["small-reinforced-nixie-tube"].stack_size = 50
-  
+
   data.raw["arithmetic-combinator"]["classic-nixie-tube-sprite"].hidden_in_factoriopedia = true
   data.raw["arithmetic-combinator"]["reinforced-nixie-tube-sprite"].hidden_in_factoriopedia = true
   data.raw["arithmetic-combinator"]["small-reinforced-nixie-tube-sprite"].hidden_in_factoriopedia = true
@@ -1831,7 +2013,7 @@ if settings.startup["RTZiplineSetting"].value then
 end
 
 if settings.startup["RTTrainRampSetting"].value then
-  if mods["Transport_Drones"] then
+  if has_transport_drones then
     table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
       "nullius-freight-ballistics-1")
     if settings.startup["RTThrowersSetting"].value then
@@ -2248,7 +2430,7 @@ end
 if (mods["beautiful_bridge_railway"] or
     mods["beautiful_bridge_railway_Cargoships"] or
     mods["beautiful_straight_bridge_railway"]) then
-  if (not mods["Transport_Drones"]) then
+  if (not has_transport_drones) then
     data.raw.technology["nullius-braking-2"].prerequisites[2] = nil
   end
   table.insert(data.raw.technology["nullius-braking-2"].prerequisites,"nullius-rail-bridges")
@@ -2458,7 +2640,7 @@ if mods["Mini_Trains"] then
   mtf3.braking_force = 2
   mtf3.friction_force = 0.3
   mtf3.air_resistance = 0.009
-  
+
   data:extend({ mtl1, mtl2, mtl3, mtls, mtc1, mtc2, mtc3, mtf1, mtf2, mtf3 })
 
 
