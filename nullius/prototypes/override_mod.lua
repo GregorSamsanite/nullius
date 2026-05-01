@@ -1343,7 +1343,7 @@ data.raw.recipe["transport-drone"].ingredients = {
   {type = "item", name = "nullius-car-1", amount = 1},
   {type = "item", name = "arithmetic-combinator", amount = 5},
   {type = "item", name = "programmable-speaker", amount = 2},
-  {type = "item", name = "turbo-filter-inserter", amount = 3}
+  {type = "item", name = "bob-turbo-inserter", amount = 3}
 }
 
 data.raw.item["supply-depot"].order = "nullius-d"
