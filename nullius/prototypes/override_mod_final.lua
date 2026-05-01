@@ -80,7 +80,9 @@ end
 end
 
 
-if mods["Transport_Drones"] then
+local has_transport_drones = mods["Transport_Drones"] or mods["Transport_Drones_Meglinge_Fork"]
+
+if has_transport_drones then
   for _,recipe in pairs(data.raw.recipe) do
     if (string.sub(recipe.name, 1, 8) == "request-") then
       local product = string.sub(recipe.name, 9, -1)

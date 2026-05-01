@@ -1,5 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
+local has_transport_drones = mods["Transport_Drones"] or mods["Transport_Drones_Meglinge_Fork"]
 
 
 if mods["elevated-rails"] then
@@ -1165,7 +1166,7 @@ data.raw.technology["induction-technology5"].unit = {
 end
 
 
-if mods["Transport_Drones"] then
+if has_transport_drones then
 data.raw["item-subgroup"]["transport-drones"].order = "gd"
 
 data.raw.technology["transport-system"].order = "nullius-dg"
@@ -1831,7 +1832,7 @@ if settings.startup["RTZiplineSetting"].value then
 end
 
 if settings.startup["RTTrainRampSetting"].value then
-  if mods["Transport_Drones"] then
+  if has_transport_drones then
     table.insert(data.raw.technology["transport-drone-capacity-1"].prerequisites,
       "nullius-freight-ballistics-1")
     if settings.startup["RTThrowersSetting"].value then
@@ -2248,7 +2249,7 @@ end
 if (mods["beautiful_bridge_railway"] or
     mods["beautiful_bridge_railway_Cargoships"] or
     mods["beautiful_straight_bridge_railway"]) then
-  if (not mods["Transport_Drones"]) then
+  if (not has_transport_drones) then
     data.raw.technology["nullius-braking-2"].prerequisites[2] = nil
   end
   table.insert(data.raw.technology["nullius-braking-2"].prerequisites,"nullius-rail-bridges")
