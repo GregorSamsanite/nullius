@@ -1220,8 +1220,13 @@ if has_transport_drones then
 
   if (data.raw.technology["transport-logistics"] ~= nil) then
     data.raw.technology["transport-logistics"].order = "nullius-dj"
-    data.raw.technology["transport-logistics"].prerequisites = {
-      "transport-system", "nullius-logistic-robot-1" }
+    if (data.raw.technology["transport-active-supply"] ~= nil) then
+      data.raw.technology["transport-logistics"].prerequisites = {
+        "transport-active-supply", "nullius-logistic-robot-1" }
+    else
+      data.raw.technology["transport-logistics"].prerequisites = {
+        "transport-system", "nullius-logistic-robot-1" }
+    end
     data.raw.technology["transport-logistics"].unit = {
       count = 300, time = 30,
       ingredients = {
@@ -1235,7 +1240,7 @@ if has_transport_drones then
   if (data.raw.technology["transport-active-supply"] ~= nil) then
     data.raw.technology["transport-active-supply"].order = "nullius-dka"
     data.raw.technology["transport-active-supply"].prerequisites = {
-      "transport-buffering", "transport-logistics", "nullius-distribution-2" }
+      "transport-buffering", "nullius-distribution-2" }
     data.raw.technology["transport-active-supply"].unit = {
       count = 500, time = 30,
       ingredients = {
