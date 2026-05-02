@@ -1219,13 +1219,15 @@ if has_transport_drones then
   end
 
   if (data.raw.technology["transport-logistics"] ~= nil) then
+    local active_supply = data.raw.technology["transport-active-supply"]
     data.raw.technology["transport-logistics"].order = "nullius-dj"
-    if (data.raw.technology["transport-active-supply"] ~= nil) then
+    -- Continued always creates this tech, but it can be empty if both depots are disabled.
+    if ((active_supply ~= nil) and (next(active_supply.effects or {}) ~= nil)) then
       data.raw.technology["transport-logistics"].prerequisites = {
         "transport-active-supply", "nullius-logistic-robot-1" }
     else
       data.raw.technology["transport-logistics"].prerequisites = {
-        "transport-system", "nullius-logistic-robot-1" }
+        "transport-buffering", "nullius-distribution-2", "nullius-logistic-robot-1" }
     end
     data.raw.technology["transport-logistics"].unit = {
       count = 300, time = 30,
