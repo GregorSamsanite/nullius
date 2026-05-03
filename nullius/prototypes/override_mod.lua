@@ -1649,8 +1649,7 @@ if has_transport_drones then
   data.raw["furnace"]["fluid-depot"].fluid_boxes[2].base_area = 125
 
   data.raw.item["fast-road"].stack_size = 500
-  data.raw.item["fast-road"].subgroup = "concrete"
-  data.raw.item["fast-road"].order = "nullius-cr"
+  data.raw.item["fast-road"].order = "nullius-ba"
   data.raw.item["fast-road"].icons[1].tint = { 0.66, 0.66, 0.66 }
   data.raw.tile["transport-drone-road-better"].tint = {0.66, 0.66, 0.66}
   data.raw.tile["transport-drone-road-better"].vehicle_friction_modifier = 0.4
@@ -1658,8 +1657,7 @@ if has_transport_drones then
   data.raw.tile["black-refined-concrete"].tint = {0.4, 0.4, 0.4}
 
   data.raw.recipe["fast-road"].icons = data.raw.item["fast-road"].icons
-  data.raw.recipe["fast-road"].subgroup = "concrete"
-  data.raw.recipe["fast-road"].order = "nullius-cr"
+  data.raw.recipe["fast-road"].order = "nullius-ba"
   data.raw.recipe["fast-road"].enabled = false
   data.raw.recipe["fast-road"].hidden = false
   data.raw.recipe["fast-road"].always_show_made_in = true
