@@ -1167,6 +1167,32 @@ end
 
 
 if has_transport_drones then
+  assert(data.raw["item-subgroup"]["transport-drones"] ~= nil, "Nullius Transport Drones compatibility requires item-subgroup[transport-drones]")
+  assert(data.raw.technology["transport-system"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-system]")
+  assert(data.raw.recipe["transport-drone"] ~= nil, "Nullius Transport Drones compatibility requires recipe[transport-drone]")
+  assert(data.raw.item["transport-drone"] ~= nil, "Nullius Transport Drones compatibility requires item[transport-drone]")
+  assert(data.raw.recipe["road"] ~= nil, "Nullius Transport Drones compatibility requires recipe[road]")
+  assert(data.raw.item["road"] ~= nil, "Nullius Transport Drones compatibility requires item[road]")
+  assert(data.raw.technology["fast-road"] ~= nil, "Nullius Transport Drones compatibility requires technology[fast-road]")
+  assert(data.raw.recipe["fast-road"] ~= nil, "Nullius Transport Drones compatibility requires recipe[fast-road]")
+  assert(data.raw.item["fast-road"] ~= nil, "Nullius Transport Drones compatibility requires item[fast-road]")
+  assert(data.raw.tile["transport-drone-road-better"] ~= nil, "Nullius Transport Drones compatibility requires tile[transport-drone-road-better]")
+  assert(data.raw.technology["transport-depot-circuits"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-depot-circuits]")
+  assert(data.raw.technology["transport-drone-speed-1"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-speed-1]")
+  assert(data.raw.technology["transport-drone-speed-2"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-speed-2]")
+  assert(data.raw.technology["transport-drone-speed-3"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-speed-3]")
+  assert(data.raw.technology["transport-drone-speed-4"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-speed-4]")
+  assert(data.raw.technology["transport-drone-speed-5"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-speed-5]")
+  assert(data.raw.technology["transport-drone-capacity-1"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-capacity-1]")
+  assert(data.raw.technology["transport-drone-capacity-2"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-capacity-2]")
+  assert(data.raw.technology["transport-drone-capacity-3"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-capacity-3]")
+  assert(data.raw.technology["transport-drone-capacity-4"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-capacity-4]")
+  assert(data.raw.technology["transport-drone-capacity-5"] ~= nil, "Nullius Transport Drones compatibility requires technology[transport-drone-capacity-5]")
+  assert(data.raw["assembling-machine"]["request-depot"] ~= nil, "Nullius Transport Drones compatibility requires assembling-machine[request-depot]")
+  assert(data.raw["assembling-machine"]["buffer-depot"] ~= nil, "Nullius Transport Drones compatibility requires assembling-machine[buffer-depot]")
+  assert(data.raw["assembling-machine"]["fuel-depot"] ~= nil, "Nullius Transport Drones compatibility requires assembling-machine[fuel-depot]")
+  assert(data.raw["furnace"]["fluid-depot"] ~= nil, "Nullius Transport Drones compatibility requires furnace[fluid-depot]")
+
   data.raw["item-subgroup"]["transport-drones"].order = "gd"
 
   data.raw.technology["transport-system"].order = "nullius-dg"
