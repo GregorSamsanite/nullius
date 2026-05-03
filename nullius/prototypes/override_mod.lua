@@ -1325,26 +1325,22 @@ if has_transport_drones then
       {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
     }
   }
-  if (data.raw.technology["fast-road"] == nil) then
-    data.raw.technology["transport-drone-speed-3"].effects[2] = {
-      type = "unlock-recipe", recipe = "fast-road"
+
+  data.raw.technology["fast-road"].order = "nullius-fha"
+  data.raw.technology["fast-road"].effects = {
+    { type = "unlock-recipe", recipe = "fast-road" }
+  }
+  data.raw.technology["fast-road"].prerequisites = {
+    "transport-drone-speed-3", "nullius-packaging-2" }
+  data.raw.technology["fast-road"].unit = {
+    count = 1600, time = 45,
+    ingredients = {
+      {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+      {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+      {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
     }
-  else
-    data.raw.technology["fast-road"].order = "nullius-fha"
-    data.raw.technology["fast-road"].effects = {
-      { type = "unlock-recipe", recipe = "fast-road" }
-    }
-    data.raw.technology["fast-road"].prerequisites = {
-      "transport-drone-speed-3", "nullius-packaging-2" }
-    data.raw.technology["fast-road"].unit = {
-      count = 1600, time = 45,
-      ingredients = {
-        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
-        {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
-      }
-    }
-  end
+  }
+
   data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
   data.raw.technology["transport-drone-capacity-3"].prerequisites = {
     "nullius-mechanical-engineering-2" }
