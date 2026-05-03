@@ -1195,9 +1195,22 @@ if has_transport_drones then
 
   data.raw["item-subgroup"]["transport-drones"].order = "gd"
 
+  local dispatcher_enabled = false
+  for _,effect in pairs(data.raw.technology["transport-system"].effects or {}) do
+    if ((effect.type == "unlock-recipe") and (effect.recipe == "drone-dispatcher")) then
+      dispatcher_enabled = true
+    end
+  end
+
   data.raw.technology["transport-system"].order = "nullius-dg"
+  data.raw.technology["transport-system"].effects = {
+    {type = "unlock-recipe", recipe = "transport-drone"},
+    {type = "unlock-recipe", recipe = "supply-depot"},
+    {type = "unlock-recipe", recipe = "road"}
+  }
   data.raw.technology["transport-system"].prerequisites = {
-    "nullius-robotics-1", "nullius-checkpoint-compressed-nitrogen" }
+    "nullius-robotics-1", "nullius-personal-transportation-1",
+    "nullius-checkpoint-compressed-nitrogen" }
   data.raw.technology["transport-system"].unit = {
     count = 100, time = 30,
     ingredients = {
@@ -1219,6 +1232,10 @@ if has_transport_drones then
 
   if (data.raw.technology["transport-fluids"] ~= nil) then
     data.raw.technology["transport-fluids"].order = "nullius-dh"
+    data.raw.technology["transport-fluids"].effects = {
+      {type = "unlock-recipe", recipe = "fluid-depot"},
+      {type = "unlock-recipe", recipe = "request-depot"}
+    }
     data.raw.technology["transport-fluids"].prerequisites = {
       "transport-system", "nullius-pumping-2" }
     data.raw.technology["transport-fluids"].unit = {
@@ -1233,7 +1250,15 @@ if has_transport_drones then
 
   if (data.raw.technology["transport-buffering"] ~= nil) then
     data.raw.technology["transport-buffering"].order = "nullius-di"
-    data.raw.technology["transport-buffering"].prerequisites = { "transport-system" }
+    data.raw.technology["transport-buffering"].effects = {
+      {type = "unlock-recipe", recipe = "buffer-depot"},
+      {type = "unlock-recipe", recipe = "fuel-depot"}
+    }
+    if dispatcher_enabled then
+      table.insert(data.raw.technology["transport-buffering"].effects,
+        {type = "unlock-recipe", recipe = "drone-dispatcher"})
+    end
+    data.raw.technology["transport-buffering"].prerequisites = { "transport-fluids" }
     data.raw.technology["transport-buffering"].unit = {
       count = 300, time = 30,
       ingredients = {
@@ -1357,7 +1382,8 @@ if has_transport_drones then
     { type = "unlock-recipe", recipe = "fast-road" }
   }
   data.raw.technology["fast-road"].prerequisites = {
-    "transport-drone-speed-3", "nullius-packaging-2" }
+    "transport-drone-speed-3", "transport-depot-circuits",
+    "nullius-packaging-4", "nullius-aesthetics-2" }
   data.raw.technology["fast-road"].unit = {
     count = 1600, time = 45,
     ingredients = {
