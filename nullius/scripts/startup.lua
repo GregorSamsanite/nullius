@@ -79,7 +79,7 @@ function broken_finished(name)
   --   force.recipes[name].enabled = false
   -- end
 
-  -- if (script.active_mods["Companion_Drones"] and
+  -- if (script.active_mods["companion-drones-mjlfix"] and
   --     (storage.nullius_companion_fix == nil)) then
   --   fuel_companion_drones(game.surfaces[1])
 	-- storage.nullius_companion_fix = true
@@ -228,7 +228,7 @@ local function equip_armor(player)
     end
 
     if ((body ~= nil) and (body.grid ~= nil)) then
-	  if (script.active_mods["Companion_Drones"]) then
+	  if (script.active_mods["companion-drones-mjlfix"]) then
 	    body.grid.put({name="nullius-solar-panel-1"})
 	    body.grid.put({name="nullius-battery-1"})
 	    body.grid.put({name="nullius-battery-1"})
@@ -254,7 +254,7 @@ end
 
 function equip_player(player)
   equip_armor(player)
-  if (not script.active_mods["Companion_Drones"]) then
+  if (not script.active_mods["companion-drones-mjlfix"]) then
     player.insert({name="nullius-construction-bot-1", count=6})
   end
   player.insert({name="nullius-solar-panel-1", count=10})

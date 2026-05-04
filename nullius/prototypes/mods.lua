@@ -1978,13 +1978,26 @@ data:extend({
 end
 
 
-if mods["Companion_Drones"] then
+if mods["companion-drones-mjlfix"] then
 data:extend({
+  {
+    type = "item",
+    name = "rocket-booster",
+    icon = "__angelspetrochemgraphics__/graphics/icons/rocket-booster.png",
+    icon_size = 32,
+    subgroup = "petrochem-fuel",
+    order = "c[rocket-booster]",
+    fuel_category = "chemical",
+    fuel_value = "10MJ",
+    fuel_acceleration_multiplier = 1.8,
+    fuel_top_speed_multiplier = 1.15,
+    stack_size = 200,
+    },
   {
     type = "technology",
     name = "nullius-companionship",
     order = "nullius-gl",
-    icon = "__Companion_Drones__/drone-icon.png",
+    icon = "__companion-drones-mjlfix__/sprites/drone-icon.png",
     icon_size = 200,
     effects = {
       {
@@ -5214,3 +5227,4 @@ if mods["stack-inserters"] then
 	data.raw["inserter"]["stack-inserter"].fast_replaceable_group = "inserter"
 	data.raw["inserter"]["stack-inserter"].rotation_speed = 0.0333333
 end
+
