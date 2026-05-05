@@ -1620,6 +1620,33 @@ if mods["stack-combinator"] then
 end
 
 
+if mods["shortwave_fix"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-shortwave",
+      localised_name = {"item-name.shortwave-radio"},
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 5,
+      ingredients = {
+        {type = "item", name = "programmable-speaker", amount = 2},
+        {type = "item", name = "decider-combinator", amount = 2}
+      },
+      results = {
+        {type = "item", name = "shortwave-radio", amount = 1}
+      }
+    }
+  })
+
+  data.raw.item["shortwave-radio"].subgroup = "circuit-network"
+  data.raw.item["shortwave-radio"].order = "nullius-sa"
+  table.insert(data.raw["technology"]["nullius-computation"].effects,
+    {type = "unlock-recipe", recipe = "nullius-shortwave"})
+end
+
+
 if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
   data:extend({
     {
