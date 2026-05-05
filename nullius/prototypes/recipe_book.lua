@@ -48,6 +48,7 @@ group_with(data.raw.item["power-switch"], data.raw.recipe["nullius-power-switch"
 group_with(data.raw.item["constant-combinator"], data.raw.recipe["nullius-memory-circuit"])
 group_with(data.raw.item["arithmetic-combinator"], data.raw.recipe["nullius-arithmetic-circuit"])
 group_with(data.raw.item["decider-combinator"], data.raw.recipe["nullius-logic-circuit"])
+group_with(data.raw.item["hud-combinator"], data.raw.recipe["nullius-circuit-hud"])
 group_with(data.raw.item["red-wire"], data.raw.recipe["nullius-red-wire"])
 group_with(data.raw.item["green-wire"], data.raw.recipe["nullius-green-wire"])
 group_with(data.raw.item["substation"], data.raw.recipe["nullius-substation-1"])
