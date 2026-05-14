@@ -61,6 +61,14 @@ local si1 = {
     pipe_connections = {{position = {0, 1}, flow_direction = "output", direction = defines.direction.south}}
   }},
   module_slots = 1,
+  icons_positioning = {
+    {
+      inventory_index = defines.inventory.crafter_modules,
+      shift = {0, 0.25},
+      scale = 0.5,
+      max_icons_per_row = 1
+    },
+  },
   allowed_effects = {"speed", "consumption", "pollution"},
   fast_replaceable_group = "seawater-intake",
   next_upgrade = "nullius-seawater-intake-2",
@@ -82,6 +90,14 @@ si2.next_upgrade = nil
 si2.max_health = 300
 si2.fluid_boxes[1].volume = 500
 si2.module_slots = 2
+si2.icons_positioning = {
+  {
+    inventory_index = defines.inventory.crafter_modules,
+    shift = {0, 0.3},
+    scale = 0.5,
+    max_icons_per_row = 2
+  },
+}
 
 si2.graphics_set.animation = {
   north = scale_image({ layers = {

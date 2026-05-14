@@ -121,6 +121,21 @@ local terrain_to_fill = {
   ["mineral-white-sand-3"] = "nullius-land-fill-limestone"
 }
 
+local sand_dune_decoratives = {
+  "sand-dune-decal-tan",
+  "sand-dune-decal-white",
+  "sand-dune-decal-grey",
+  "sand-dune-decal-black",
+  "sand-dune-decal-purple",
+  "sand-dune-decal-red",
+  "sand-dune-decal-violet",
+  "sand-dune-decal-dustyrose",
+  "sand-dune-decal-cream",
+  "sand-dune-decal-brown",
+  "sand-dune-decal-beige",
+  "sand-dune-decal-aubergine"
+}
+
 
 local function landfill_map(fillname, goalname)
   local goalprefix = string.sub(goalname, 1, 8)
@@ -1254,6 +1269,12 @@ function grass_area(surface, center, fillsurface)
     end
   end
 
+  surface.destroy_decoratives{
+    area=rectangle_bound(center, 102, 92), name=sand_dune_decoratives
+  }
+  surface.destroy_decoratives{
+    area=rectangle_bound(center, 92, 102), name=sand_dune_decoratives
+  }
   surface.create_decoratives{check_collision=true, decoratives=decor_list}
   return ret
 end

@@ -13,6 +13,25 @@ local wind_mod_offsets = {
   ["cargo-drone-depot-constant-combinator"] = {0, -1, 0, -1}
 }
 
+-- storage.nullius_turbine_buckets :: array[TurbineBucket]
+-- Information about individual wind turbines, grouped into buckets for performance
+--
+-- TurbineBucket = {
+--   turbines :: dictionary[int -> TurbineEntry],
+--   orientation :: int, last_speed :: float, last_offset :: float
+-- }
+--
+-- TurbineEntry = {
+--   base :: LuaEntity,
+--   collision_box :: LuaEntity?,
+--   collision_box2 :: LuaEntity?,
+--   collision_box3 :: LuaEntity?,
+--   collision_box4 :: LuaEntity?,
+--   surface :: LuaSurface,
+--   blade :: LuaRenderObject,
+--   shadow :: LuaRenderObject
+-- }
+
 function init_wind()
   storage.nullius_wind_orientation = 4
   storage.nullius_wind_factor = 0.7
@@ -83,20 +102,36 @@ function recalculate_wind()
   storage.nullius_wind_orientation = math.floor((surface.wind_orientation * 8) % 8)
 end
 
-function destroy_turbine(entry)
+function build_turbine_collision_boxes(entry, surface, position, force)
+  -- Create collision boxes around a wind turbine.  Update entry.
+  entry.collision_box = create_wind_collision(surface, position, force, "horizontal", 14.5, 16, 16, 14.5)
+  entry.collision_box2 = create_wind_collision(surface, position, force, "vertical", 16, -14.5, 14.5, 16)
+  entry.collision_box3 = create_wind_collision(surface, position, force, "horizontal", -14.5, -16, 16, 14.5)
+  entry.collision_box4 = create_wind_collision(surface, position, force, "vertical", -16, 14.5, 14.5, 16)
+end
+
+function destroy_turbine_collision_boxes(entry)
+  -- Destroy collision boxes around a wind turbine.  Update entry.
   if ((entry.collision_box ~= nil) and (entry.collision_box.valid)) then
     entry.collision_box.destroy()
+    entry.collision_box = nil
   end
   if ((entry.collision_box2 ~= nil) and (entry.collision_box2.valid)) then
     entry.collision_box2.destroy()
+    entry.collision_box2 = nil
   end
   if ((entry.collision_box3 ~= nil) and (entry.collision_box3.valid)) then
     entry.collision_box3.destroy()
+    entry.collision_box3 = nil
   end
   if ((entry.collision_box4 ~= nil) and (entry.collision_box4.valid)) then
     entry.collision_box4.destroy()
+    entry.collision_box4 = nil
   end
+end
 
+function destroy_turbine(entry)
+  destroy_turbine_collision_boxes(entry)
   entry.blade.destroy()
   entry.shadow.destroy()
 end
@@ -175,21 +210,12 @@ function build_wind_turbine(entity, level)
   newentity.power_production = storage.nullius_current_power[level]
   script.register_on_object_destroyed(newentity)
 
-  local collision1 = create_wind_collision(surface, position, force, "horizontal", 14.5, 16, 16, 14.5)
-  local collision2 = create_wind_collision(surface, position, force, "vertical", 16, -14.5, 14.5, 16)
-  local collision3 = create_wind_collision(surface, position, force, "horizontal", -14.5, -16, 16, 14.5)
-  local collision4 = create_wind_collision(surface, position, force, "vertical", -16, 14.5, 14.5, 16)
-
   local ind = level + ((newentity.unit_number % 307) * 3)
   local bucket = storage.nullius_turbine_buckets[ind]
   local scale = 0.4 + (level * 0.2)
 
-  bucket.turbines[newentity.unit_number] = {
+  local entry = {
     base = newentity,
-    collision_box = collision1,
-    collision_box2 = collision2,
-    collision_box3 = collision3,
-    collision_box4 = collision4,
     surface = surface.name,
     blade = rendering.draw_animation{
       animation = "nullius-wind-blade-"..level.."-"..bucket.orientation,
@@ -205,6 +231,8 @@ function build_wind_turbine(entity, level)
       animation_speed = bucket.last_speed,
       animation_offset = bucket.last_offset}
   }
+  build_turbine_collision_boxes(entry, surface, position, force)
+  bucket.turbines[newentity.unit_number] = entry
 end
 
 function remove_wind_unit(unit, died, level)

@@ -14,7 +14,15 @@ data:extend({
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    icon_draw_specification = {shift = {0, -0.1}, scale = 0.8},
+    icon_draw_specification = {shift = {0, -0.125}, scale = 0.8},
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.crafter_modules,
+        shift = {0, 0.5},
+        scale = 0.4,
+        max_icons_per_row = 3
+      },
+    },
     minable = {mining_time = 0.6, result = "nullius-small-assembler-1"},
     max_health = 200,
     dying_explosion = "medium-explosion",
@@ -275,7 +283,15 @@ data:extend({
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    icon_draw_specification = {shift = {0, -0.1}, scale = 0.8},
+    icon_draw_specification = {shift = {0, -0.125}, scale = 0.8},
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.crafter_modules,
+        shift = {0, 0.5},
+        scale = 0.4,
+        max_icons_per_row = 3
+      },
+    },
     minable = {mining_time = 0.9, result = "nullius-small-assembler-2"},
     max_health = 300,
     dying_explosion = "medium-explosion",
@@ -331,7 +347,15 @@ data:extend({
     icon_size = 64,
     icons = data.raw.item["nullius-small-assembler-3"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    icon_draw_specification = {shift = {0, -0.1}, scale = 0.8},
+    icon_draw_specification = {shift = {0, -0.125}, scale = 0.8},
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.crafter_modules,
+        shift = {0, 0.5},
+        scale = 0.4,
+        max_icons_per_row = 3
+      },
+    },
     minable = {mining_time = 1.2, result = "nullius-small-assembler-3"},
     max_health = 400,
     dying_explosion = "medium-explosion",

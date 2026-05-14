@@ -2573,9 +2573,9 @@ recipe.always_show_made_in = true
 data.raw["item-with-entity-data"]["cargo-drone"].order = "nullius-a"
 data.raw["item-with-entity-data"]["cargo-drone"].subgroup = "cargo-drone"
 data.raw.car["cargo-drone"].energy_source.fuel_categories = {"vehicle"}
-data.raw.car["cargo-drone"].energy_source.effectivity = 0.5
-data.raw.car["cargo-drone"].consumption = "50kW"
-data.raw.car["cargo-drone"].friction = 0.003
+data.raw.car["cargo-drone"].energy_source.effectivity = 0.65
+data.raw.car["cargo-drone"].consumption = "65kW"
+data.raw.car["cargo-drone"].friction = 0.0041
 
 data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].order = "nullius-b"
 data.raw.item["cargo-drone-mooring-constant-combinator-refueler"].stack_size = 10

@@ -221,7 +221,6 @@ end
 if mods["RenaiTransportation"] then
     if settings.startup["RTThrowersSetting"].value then
     clutterpedia["nullius-open-chest"] =                        {name = "OpenContainer",                    tech = "nullius-logistic-ballistics-1"}
-    clutterpedia["nullius-closed-chest"] =                      {name = "wooden-chest",                     tech = "nullius-logistic-ballistics-1"}
     
     clutterpedia["nullius-thrower-1"] =                         {name = "RTThrower-inserter-Item",          tech = "nullius-logistic-ballistics-1"}
     clutterpedia["nullius-thrower-2"] =                         {name = "RTThrower-bob-turbo-inserter-Item",tech = "nullius-logistic-ballistics-5"}
