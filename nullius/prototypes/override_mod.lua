@@ -1545,7 +1545,7 @@ if mods["FuelTrainStop"] then
 end
 
 
-if mods["Companion_Drones"] then
+if mods["companion-drones-mjlfix"] then
   data.raw["item-subgroup"]["companion"].group = "drones"
   data.raw["item-subgroup"]["companion"].order = "d"
   -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"

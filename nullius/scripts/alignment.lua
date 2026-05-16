@@ -901,7 +901,7 @@ local function align_update_teleport(entry)
 	    {"alignment.faction-summoned", player.name, entry.summons}})
   end
 
-  if (script.active_mods["Companion_Drones"]) then
+  if (script.active_mods["companion-drones-mjlfix"]) then
     align_add_queue({
       state = ALIGN_COMPANION,
 	  surface = surface
