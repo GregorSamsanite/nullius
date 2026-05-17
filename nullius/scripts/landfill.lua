@@ -1269,11 +1269,17 @@ function grass_area(surface, center, fillsurface)
     end
   end
 
+  local sand_dune_decoratives_filtered = {}
+  for _, n in pairs(sand_dune_decoratives) do
+    if(prototypes.decorative[n] ~= nil) then
+      table.insert(sand_dune_decoratives_filtered, n)
+    end
+  end
   surface.destroy_decoratives{
-    area=rectangle_bound(center, 102, 92), name=sand_dune_decoratives
+    area=rectangle_bound(center, 102, 92), name=sand_dune_decoratives_filtered
   }
   surface.destroy_decoratives{
-    area=rectangle_bound(center, 92, 102), name=sand_dune_decoratives
+    area=rectangle_bound(center, 92, 102), name=sand_dune_decoratives_filtered
   }
   surface.create_decoratives{check_collision=true, decoratives=decor_list}
   return ret
