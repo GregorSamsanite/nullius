@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 17.05.2026
+  Changes:
+    - Made legacy mirrored entities minable again to not break existing factories
+  Bugfixes:
+    - Fixed crash when using grass drone
+  Modding:
+    - Made incompatible with angels refining
+---------------------------------------------------------------------------------------------------
 Version: 2.0.6
 Date: 14.05.2026
   Changes:

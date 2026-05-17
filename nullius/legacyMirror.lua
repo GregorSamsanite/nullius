@@ -238,3 +238,54 @@ nmc2.name = "nullius-mirror-chimney-2"
 nmc2.hidden = true
 
 data:extend{mnf1,mhp1,md1,mse1,mpe1,mcp1,mcc1,ex1m,ex2m,ex3m,boilm,boil2m,mfc1,nmc1,nmc2}
+
+local mirrorBuildings = {
+  "chemical-plant-1",
+  "chemical-plant-2",
+  "chemical-plant-3",
+  "distillery-1",
+  "distillery-2",
+  "distillery-3",
+  "hydro-plant-1",
+  "hydro-plant-2",
+  "hydro-plant-3",
+  "heat-exchanger-1",
+  "heat-exchanger-2",
+  "heat-exchanger-3",
+  "boiler-1",
+  "boiler-2",
+  "combustion-chamber-1",
+  "combustion-chamber-2",
+  "combustion-chamber-3",
+  "nanofabricator-1",
+  "nanofabricator-2",
+  "flotation-cell-1",
+  "flotation-cell-2",
+  "flotation-cell-3"
+}
+
+for _, baseName in pairs(mirrorBuildings) do
+  local mirrorName = "nullius-mirror-"..baseName
+  data.raw["assembling-machine"][mirrorName].minable = {mining_time = 0, result = "nullius-"..baseName}
+  data.raw["assembling-machine"][mirrorName].selection_box = {{-2, -2}, {2, 2}}
+end
+
+local mirrorBuildings2 = {
+  "surge-electrolyzer-1",
+  "surge-electrolyzer-2",
+  "surge-electrolyzer-3",
+  "priority-electrolyzer-1",
+  "priority-electrolyzer-2",
+  "priority-electrolyzer-3"
+}
+
+for _, baseName in pairs(mirrorBuildings2) do
+  local mirrorName = "nullius-mirror-"..baseName
+  data.raw["assembling-machine"][mirrorName].minable = {mining_time = 0, result = "nullius-electrolyzer-1"}
+  data.raw["assembling-machine"][mirrorName].selection_box = {{-2, -2}, {2, 2}}
+end
+
+data.raw["furnace"]["nullius-chimney-1"].minable = {mining_time = 0, result = "nullius-chimney-1"}
+data.raw["furnace"]["nullius-chimney-1"].selection_box = {{-2, -2}, {2, 2}}
+data.raw["furnace"]["nullius-chimney-2"].minable = {mining_time = 0, result = "nullius-chimney-2"}
+data.raw["furnace"]["nullius-chimney-2"].selection_box = {{-2, -2}, {2, 2}}

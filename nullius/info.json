@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "factorio_version": "2.0",
   "title": "Nullius",
   "author": "Anachrony",
@@ -60,6 +60,7 @@
 	"! bobores",
 	"! stack-size-tooltip",
 	"! angelssmelting",
+	"! angelsrefining",
 	
 	"(?) Transport_Drones >= 1.0.16",
 	"(?) Companion_Drones >= 1.0.25",
