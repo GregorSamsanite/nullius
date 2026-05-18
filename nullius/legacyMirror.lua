@@ -285,7 +285,7 @@ for _, baseName in pairs(mirrorBuildings2) do
   data.raw["assembling-machine"][mirrorName].selection_box = {{-2, -2}, {2, 2}}
 end
 
-data.raw["furnace"]["nullius-chimney-1"].minable = {mining_time = 0, result = "nullius-chimney-1"}
-data.raw["furnace"]["nullius-chimney-1"].selection_box = {{-2, -2}, {2, 2}}
-data.raw["furnace"]["nullius-chimney-2"].minable = {mining_time = 0, result = "nullius-chimney-2"}
-data.raw["furnace"]["nullius-chimney-2"].selection_box = {{-2, -2}, {2, 2}}
+data.raw["furnace"]["nullius-mirror-chimney-1"].minable = {mining_time = 0, result = "nullius-chimney-1"}
+data.raw["furnace"]["nullius-mirror-chimney-1"].selection_box = {{-2, -2}, {2, 2}}
+data.raw["furnace"]["nullius-mirror-chimney-2"].minable = {mining_time = 0, result = "nullius-chimney-2"}
+data.raw["furnace"]["nullius-mirror-chimney-2"].selection_box = {{-2, -2}, {2, 2}}
