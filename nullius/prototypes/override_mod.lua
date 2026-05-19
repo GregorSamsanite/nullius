@@ -1620,6 +1620,33 @@ if mods["stack-combinator"] then
 end
 
 
+if mods["CircuitHUD-V2"] then
+  data:extend({
+    {
+      type = "recipe",
+      name = "nullius-circuit-hud",
+      localised_name = {"recipe-name.hud-combinator"},
+      enabled = false,
+      always_show_made_in = true,
+      category = "small-crafting",
+      energy_required = 5,
+      ingredients = {
+        {type = "item", name = "programmable-speaker", amount = 2},
+        {type = "item", name = "decider-combinator", amount = 2}
+      },
+      results = {
+        {type = "item", name = "hud-combinator", amount = 1}
+      }
+    }
+  })
+
+  data.raw.item["hud-combinator"].subgroup = "circuit-network"
+  data.raw.item["hud-combinator"].order = "nullius-sb"
+  table.insert(data.raw["technology"]["nullius-computation"].effects,
+    {type = "unlock-recipe", recipe = "nullius-circuit-hud"})
+end
+
+
 if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
   data:extend({
     {
