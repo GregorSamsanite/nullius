@@ -80,14 +80,39 @@ end
 end
 
 
-if mods["Transport_Drones"] then
+local has_transport_drones = mods["Transport_Drones_Continued"]
+
+local function get_drone_fuel_ingredient_name(recipe)
+  if (recipe.ingredients == nil) then return end
+  for _,ingredient in pairs(recipe.ingredients) do
+    if (ingredient.type == "fluid") then
+      return ingredient.name
+    end
+  end
+end
+
+local function set_drone_fuel_ingredient(recipe, amount)
+  local fuel = get_drone_fuel_ingredient_name(recipe)
+  if (fuel == nil) then return end
+  recipe.ingredients = {{type = "fluid", name = fuel, amount = amount}}
+end
+
+local function has_fluid_result(recipe, name)
+  for _,result in pairs(recipe.results or {}) do
+    if ((result.type == "fluid") and (result.name == name)) then
+      return true
+    end
+  end
+  return false
+end
+
+if has_transport_drones then
   for _,recipe in pairs(data.raw.recipe) do
     if (string.sub(recipe.name, 1, 8) == "request-") then
       local product = string.sub(recipe.name, 9, -1)
       local item = data.raw.item[product]
       local fluid = data.raw.fluid[product]
-      if ((item ~= nil) and ((fluid == nil) or (recipe.results == nil) or
-	      (recipe.results[1].type ~= "fluid"))) then
+      if ((item ~= nil) and (not has_fluid_result(recipe, product))) then
         recipe.icons = item.icons
         recipe.icon = item.icon
         recipe.icon_size = item.icon_size
@@ -96,7 +121,10 @@ if mods["Transport_Drones"] then
         recipe.always_show_products = true
         recipe.show_amount_in_title = false
         recipe.overload_multiplier = 40
-        recipe.ingredients[2].amount = 15000
+        set_drone_fuel_ingredient(recipe, 15000)
+        if (not mods["quality"]) then
+          recipe.allow_quality = false
+        end
         recipe.results = {
           {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false},
           {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false},
@@ -112,19 +140,27 @@ if mods["Transport_Drones"] then
         recipe.always_show_products = true
         recipe.show_amount_in_title = false
         recipe.overload_multiplier = 40
-        recipe.ingredients[2].amount = 15000
-        recipe.results[1].amount = 500000
+        set_drone_fuel_ingredient(recipe, 15000)
+        recipe.results = {
+          {type = "fluid", name = fluid.name, amount = 500000, show_details_in_recipe_tooltip = false}
+        }
         recipe.energy_required = 600
       end
     end
   end
 
-  if (data.raw.recipe["fuel-depots"] ~= nil) then
-    data.raw.recipe["fuel-depots"].ingredients[1].amount = 1
+  local fuel_depots = data.raw.recipe["fuel-depots"]
+  if (fuel_depots ~= nil) then
+    for _,ingredient in pairs(fuel_depots.ingredients or {}) do
+      if ((ingredient.type == "item") and (ingredient.name == "transport-drone")) then
+        ingredient.amount = 1
+      end
+    end
     data.raw.recipe["fuel-depots"].overload_multiplier = 40
     data.raw.recipe["fuel-depots"].energy_required = 60
     data.raw.recipe["fuel-depots"].show_amount_in_title = false
   end
+
 end
 
 
@@ -152,7 +188,7 @@ if (mods["RenaiTransportation"] and
     {type = "item", name = "RTThrower-inserter-Item", amount = 1},
     {type = "item", name = "nullius-steel-plate", amount = 2}
   }
-  
+
   data.raw.recipe["RTThrower-burner-inserter-Recipe"].enabled = false
   data.raw.recipe["RTThrower-inserter-Recipe"].enabled = false
   data.raw.item["RTThrower-inserter-Item"].localised_name = {"entity-name.nullius-thrower", tostring(1)}
@@ -217,15 +253,15 @@ if (mods["RenaiTransportation"] and
   data.raw.recipe["nullius-thrower-2"].results = {
 			{type = "item", name = "RTThrower-bob-turbo-inserter-Item", amount = 1}
 		}
-  
+
   data.raw.recipe["nullius-thrower-3"].results = {
 			{type = "item", name = "RTThrower-bulk-inserter-Item", amount = 1}
 		}
-  
+
   data.raw.recipe["nullius-thrower-4"].results = {
 			{type = "item", name = "RTThrower-bob-express-bulk-inserter-Item", amount = 1}
 		}
-	
+
 	local hiddenInserterRecipes = {
 	  "RTThrower-burner-inserter-Recipe",
     "RTThrower-inserter-Recipe",
@@ -240,7 +276,7 @@ if (mods["RenaiTransportation"] and
     "RTThrower-bob-turbo-bulk-inserter-Recipe",
     "RTThrower-bob-express-inserter-Recipe"
   }
-  
+
   for _, inserter in pairs(hiddenInserterRecipes) do
     data.raw.recipe[inserter].hidden_in_factoriopedia = true
   end

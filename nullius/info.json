@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "2.0.8",
+  "version": "2.0.6",
   "factorio_version": "2.0",
   "title": "Nullius",
   "author": "Anachrony",
@@ -23,7 +23,7 @@
     "(?) boblibrary >= 1.1.4",
     "(?) IRobot >= 2.0.0",
 	"(?) jetpack >= 0.4.12",
-	  
+
 	"(?) FluidMustFlow >= 1.4.3",
 	"(?) factorissimo-2-notnotmelon >= 3.9.6",
 	"(?) safefill >= 2.0.0",
@@ -51,7 +51,7 @@
 	"(?) cargo-drone >= 1.8.0",
 	"(?) aai-containers >= 0.3.2",
 	"(?) stack-inserters >= 1.0.1",
-	  
+
 	"! space-age",
 	"! quality",
     "! aai-industry",
@@ -61,8 +61,10 @@
 	"! stack-size-tooltip",
 	"! angelssmelting",
 	"! angelsrefining",
-	
-	"(?) Transport_Drones >= 1.0.16",
+   "! Transport_Drones",
+	"! Transport_Drones_Meglinge_Fork",
+
+	"(?) Transport_Drones_Continued >= 2.0.64",
 	"(?) Companion_Drones >= 1.0.25",
 	"(?) miniloader >= 1.15.7",
 	"(?) FuelTrainStop >= 1.1.0",
