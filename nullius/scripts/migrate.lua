@@ -14,7 +14,7 @@ function init_legacy_recipes(force)
 end
 
 -- For people who were using the Transport Drones Continued compat mod.
--- Existing saves should converge on the native early-drone progression
+-- Existing saves should converge on the native drone progression
 -- without losing depot recipes they had already earned or crafted.
 local transport_drone_recipe_names = {
   "transport-drone", "road", "fast-road", "supply-depot",
