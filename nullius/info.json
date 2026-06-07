@@ -63,6 +63,7 @@
 	"! angelsrefining",
         "! Transport_Drones",
 	"! Transport_Drones_Meglinge_Fork",
+	"! nullius-compat-transport-drones-continued",
 
 	"(?) Transport_Drones_Continued >= 2.0.64",
 	"(?) Companion_Drones >= 1.0.25",
