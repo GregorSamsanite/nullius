@@ -55,11 +55,8 @@
 	"! space-age",
 	"! quality",
     "! aai-industry",
-	"! angelsbioprocessing",
-	"! angelsinfiniteores",
 	"! bobores",
 	"! stack-size-tooltip",
-	"! angelssmelting",
 	"! angelsrefining",
 	
 	"(?) Transport_Drones >= 1.0.16",

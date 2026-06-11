@@ -1,10 +1,17 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.9
-Date: xx.xx.2026
+Date: 09.06.2026
+  Features:
+    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative.
+    - Added new menu simulations
   Changes:
-    - Changed inserter description to inform more clearly about the filtering being unlocked at tier 2 (TODO)
+    - Changed actuation tech description to inform more clearly about the filtering being unlocked at tier 2
+    - Hangar, Relay and Chargers no longer provide radar coverage.
   Bugfixes:
-    - erfererf
+    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests.
+    - Fixed duplicated pipeline extent tooltip for underground-pipe-pack
+    - Flushing a Diesel canister now produces as much Diesel as it took to make one.
+    - Fixed broken menu simulations
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.8
 Date: 18.05.2026

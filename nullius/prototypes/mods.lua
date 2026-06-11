@@ -2847,6 +2847,8 @@ data:extend({
     localised_name = {"recipe-name.nullius-close-chest"},
     enabled = false,
     always_show_made_in = true,
+    allow_as_intermediate = false,
+    allow_intermediates = false,
     no_productivity = true,
     category = "medium-crafting",
 	  subgroup = "nullius-renai-bounce",

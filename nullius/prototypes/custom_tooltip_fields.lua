@@ -23,6 +23,8 @@ local function add_description(prototype, description)
     table.insert(prototype.custom_tooltip_fields, description)
 end
 
+local extent_tooltip_already_added = {}
+
 ---Add the pipeline extent of the given fluid box, to the item adquired by the given minerable object.
 ---@param mineable? data.MinableProperties
 ---@param fluid_box data.FluidBox
@@ -32,6 +34,11 @@ local function add_pipeline_extent(mineable, fluid_box)
         -- Use the item instead of the entity itself, as the entity has the extent of it's connected pipeline.
         local item = get_item_from_mineable(mineable)
         if not item then return end
+
+        -- In case we have multiple entities that use the same item, such as all the different underground pipes from underground-pipe-pack
+        if extent_tooltip_already_added[item.name] then return end
+        extent_tooltip_already_added[item.name] = true
+        -- Assuming that all entities from the same item have the same extent.
 
         local description = {
             -- Use base game translation key for "Pipeline extent" to get all localizations for free

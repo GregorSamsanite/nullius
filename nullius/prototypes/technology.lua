@@ -2154,6 +2154,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-actuation-2",
+    localised_description = {"", {"technology-description.nullius-actuation"}, {"technology-description.nullius-actuation-can-filter"}},
     order = "nullius-dc",
     icon = "__base__/graphics/technology/fast-inserter.png",
     icon_size = 256,
@@ -6235,6 +6236,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-actuation-3",
+    localised_description = {"", {"technology-description.nullius-actuation"}, {"technology-description.nullius-actuation-can-filter"}},
     order = "nullius-ej",
     icon = "__base__/graphics/technology/bulk-inserter.png",
     icon_size = 256,
@@ -8360,6 +8362,57 @@ data:extend({
     upgrade = true
   },
 
+
+  {
+    type = "technology",
+    name = "nullius-hydrocarbon-combustion-3",
+    order = "nullius-ek",
+
+    icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+    icon_size = 64,
+
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-diesel"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-diesel-combustion"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-diesel-canister"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-diesel-canister"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-box-diesel-canister"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-unbox-diesel-canister"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-diesel-canister-flushing"
+      },
+    },
+    unit = {
+      count = 800,
+      ingredients = {
+        {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+        {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+		    {"nullius-chemical-pack", 1}
+      },
+      time = 30
+    },
+    prerequisites = {"nullius-braking-4", "nullius-mass-production-5", "nullius-packaging-4"}
+  },
+
   {
     type = "technology",
     name = "nullius-toolmaking-6",
@@ -9200,7 +9253,7 @@ data:extend({
       },
       time = 35
     },
-    prerequisites = {"nullius-parallel-computing-2", "nullius-braking-5", "nullius-robot-cargo-1"}
+    prerequisites = {"nullius-parallel-computing-2", "nullius-braking-5", "nullius-hydrocarbon-combustion-3", "nullius-robot-cargo-1"}
   },
   {
     type = "technology",
@@ -9676,6 +9729,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-actuation-4",
+    localised_description = {"", {"technology-description.nullius-actuation"}, {"technology-description.nullius-actuation-can-filter"}},
     order = "nullius-fd",
     icon_size = 128,
     icon = "__boblogistics__/graphics/icons/technology/green-inserter.png",
@@ -14637,31 +14691,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "nullius-biodiesel-combustion"
-      },
-      {
-        type = "unlock-recipe",
         recipe = "nullius-glycerol-reforming"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-biodiesel-canister"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-boxed-biodiesel-canister"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-box-biodiesel-canister"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-unbox-biodiesel-canister"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "nullius-biodiesel-canister-flushing"
       },
       {
         type = "unlock-recipe",
