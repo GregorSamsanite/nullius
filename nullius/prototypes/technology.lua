@@ -9797,6 +9797,14 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
+        recipe = "nullius-small-tank-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-medium-tank-4"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-large-tank-3"
       },
       {

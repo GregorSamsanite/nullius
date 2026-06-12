@@ -1975,6 +1975,39 @@ data:extend({
     }
   },
 
+
+  {
+    type = "item",
+    name = "nullius-medium-tank-4",
+    icons = {{
+      icon = ENTICONPATH .. "tank2.png",
+      icon_size = 64,
+      tint = {0.9, 0.85, 1}
+    }},
+    subgroup = "tanks",
+    order = "nullius-bce",
+    place_result = "nullius-medium-tank-4",
+    stack_size = 50
+  },
+  {
+    type = "recipe",
+    name = "nullius-medium-tank-4",
+    enabled = false,
+    category = "large-crafting",
+    always_show_made_in = true,
+    energy_required = 40,
+    ingredients = {
+      {type="item", name="nullius-medium-tank-3", amount=1},
+      {type="item", name="nullius-box-titanium-rod", amount=1},
+      {type="item", name="nullius-box-titanium-sheet", amount=1},
+      {type="item", name="nullius-box-pipe-4", amount=2}
+    },
+    results = {
+      {type = "item", name = "nullius-medium-tank-4", amount = 1}
+    }
+  },
+
+
   {
     type = "item",
     name = "nullius-small-tank-1",
@@ -2073,6 +2106,40 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-box-small-tank-2", amount = 3}
+    }
+  },
+
+  {
+    type = "item",
+    name = "nullius-small-tank-3",
+    icons = {
+      {
+        icon = "__angelspetrochemgraphics__/graphics/icons/petrochem-inline-tank.png",
+        icon_size = 64,
+	    
+        tint = {0.8, 0.8, 0.8}
+      }
+    },
+    subgroup = "tanks",
+    order = "nullius-bbd",
+    place_result = "nullius-small-tank-3",
+    stack_size = 100
+  },
+  {
+    type = "recipe",
+    name = "nullius-small-tank-3",
+    enabled = false,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    category = "medium-crafting",
+    energy_required = 12,
+    ingredients = {
+      {type = "item", name = "nullius-small-tank-2", amount = 2},
+      {type = "item", name = "nullius-medium-tank-4", amount = 1}
+    },
+    results = {
+      {type = "item", name = "nullius-small-tank-3", amount = 3}
     }
   },
 
