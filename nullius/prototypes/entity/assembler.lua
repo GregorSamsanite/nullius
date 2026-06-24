@@ -1,6 +1,9 @@
 require ("circuit-connector-sprites")
 local sounds = require("__base__/prototypes/entity/sounds")
 
+
+local assembler2pipepictures = require("__base__/prototypes/entity/assembler-pictures").assembler2pipepictures
+
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
@@ -108,7 +111,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 500,
         pipe_connections = {{ flow_direction ="input", position = {0, -1}, direction = defines.direction.north }},
@@ -116,7 +119,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 500,
         pipe_connections = {{ flow_direction ="input", position = {0, 1}, direction = defines.direction.south }},
@@ -201,7 +204,7 @@ data:extend({
     fluid_boxes = {
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 500,
         pipe_connections = {{ flow_direction ="input", position = {0.5, -1.5}, direction = defines.direction.north }},
@@ -209,7 +212,7 @@ data:extend({
       },
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 500,
         pipe_connections = {{ flow_direction ="input", position = {-0.5, 1.5}, direction = defines.direction.south }},
