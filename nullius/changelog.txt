@@ -5,6 +5,7 @@ Date: xx.xx.2026
     - Added a checkpoint for toggling pumps
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
+    - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
@@ -12,15 +13,15 @@ Date: xx.xx.2026
 Version: 2.0.9
 Date: 09.06.2026
   Features:
-    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative.
+    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative
     - Added new menu simulations
   Changes:
     - Changed actuation tech description to inform more clearly about the filtering being unlocked at tier 2
-    - Hangar, Relay and Chargers no longer provide radar coverage.
+    - Hangar, Relay and Chargers no longer provide radar coverage
   Bugfixes:
-    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests.
+    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests
     - Fixed duplicated pipeline extent tooltip for underground-pipe-pack
-    - Flushing a Diesel canister now produces as much Diesel as it took to make one.
+    - Flushing a Diesel canister now produces as much Diesel as it took to make one
     - Fixed broken menu simulations
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.8
