@@ -47,7 +47,15 @@ function entity_added(entity, handbuilt)
   end
 end
 
-function entity_removed(entity, died)
+local refundable_burnt_result = { -- what burnt results should be returned if an entity is mined
+	["nullius-uncharged-battery-1"] = true,
+	["nullius-uncharged-battery-2"] = true,
+	["nullius-uncharged-battery-3"] = true,
+	["nullius-canister"] = true,
+	["nullius-water-canister"] = true,
+}
+
+function entity_removed(entity, died, buffer)
   if (string.sub(entity.name, 1, 8) ~= "nullius-") then
     if (entity.type == "constant-combinator" and
         string.sub(entity.name, 1, 12) == "cargo-drone-") then
@@ -55,6 +63,12 @@ function entity_removed(entity, died)
     else
       return
     end
+  end
+  if entity.burner and buffer and entity.burner.currently_burning then
+	local burnt_result = entity.burner.currently_burning.name.burnt_result
+	if burnt_result and refundable_burnt_result[burnt_result.name] then
+	   buffer.insert({name = burnt_result, count = 1})
+	end
   end
   local suffix = string.sub(entity.name, 9, -2)
   if (suffix == "wind-base-") then
@@ -83,11 +97,11 @@ function entity_raised(event)
   entity_added(event.entity, nil)
 end
 function entity_mined(event)
-  entity_removed(event.entity, false)
+  entity_removed(event.entity, false, event.buffer)
 end
 function entity_died(event)
   if script_kill then return end
-  entity_removed(event.entity, true)
+  entity_removed(event.entity, true, nil)
 end
 function entity_destroyed(event)
   if (script_kill or (event.type ~= defines.target_type.entity)) then return end
