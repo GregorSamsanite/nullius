@@ -4,6 +4,7 @@ Date: xx.xx.2026
   Features:
     - Added a checkpoint for toggling pumps
     - Added German translation
+    - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
