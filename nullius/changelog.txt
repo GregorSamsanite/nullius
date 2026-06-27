@@ -6,6 +6,8 @@ Date: xx.xx.2026
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
     - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Changes:
+    - Update the icons of a few technologies to better match their intent.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
