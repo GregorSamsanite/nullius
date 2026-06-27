@@ -7,6 +7,8 @@ Date: xx.xx.2026
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
     - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Changes:
+    - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission

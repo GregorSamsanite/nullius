@@ -9809,6 +9809,10 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "nullius-boxed-medium-tank-4"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-pipe-4"
       },
       {
