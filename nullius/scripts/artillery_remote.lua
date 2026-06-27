@@ -136,32 +136,32 @@ local function initialize_remotes()
     {
       payload = "nullius-algae",
       remote = "nullius-algaculture-remote",
-      technology = "nullius-biology-2",
+      technology = "nullius-ecology-1",
     },
     {
       payload = "nullius-grass",
       remote = "nullius-horticulture-remote",
-      technology = "nullius-botany-1",
+      technology = "nullius-ecology-2",
     },
     {
       payload = "nullius-tree",
       remote = "nullius-arboriculture-remote",
-      technology = "nullius-botany-2",
+      technology = "nullius-ecology-4",
     },
     {
       payload = "nullius-worm",
       remote = "nullius-entomology-remote",
-      technology = "nullius-zoology-1",
+      technology = "nullius-ecology-3",
     },
     {
       payload = "nullius-fish",
       remote = "nullius-aquaculture-remote",
-      technology = "nullius-zoology-2",
+      technology = "nullius-ecology-5",
     },
     {
       payload = "nullius-arthropod",
       remote = "nullius-husbandry-remote",
-      technology = "nullius-zoology-3",
+      technology = "nullius-ecology-6",
     },
     {
       payload = "nullius-coal",

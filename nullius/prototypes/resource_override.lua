@@ -15,25 +15,6 @@ function remove_autoplace(resource)
   data.raw.planet["nauvis"].map_gen_settings.autoplace_settings["entity"]["settings"][resource] = nil
 end
 
-
-if mods["angelsrefining"] then
-  for r, subdir in pairs(angelsmods.functions.store) do 
-    for r, input in pairs(subdir) do
-      if (not input.inactive) then
-  	  if ((input.name == "coal") or (input.name == "crude-oil")) then
-  	    input.inactive = true
-  	  else
-          angelsmods.functions.remove_resource(input.name)
-  	  end
-      end
-    end
-  end
-  
-  if data.raw["simple-entity"]["angels-crystal-rock"] then
-    data.raw["simple-entity"]["angels-crystal-rock"].autoplace = nil
-  end
-end
-
 remove_autoplace("copper-ore")
 remove_autoplace("uranium-ore")
 remove_autoplace("coal")
