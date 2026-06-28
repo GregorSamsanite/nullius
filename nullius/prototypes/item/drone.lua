@@ -657,12 +657,12 @@ data:extend({
     weight = 1000000,
     send_to_orbit_mode = "automated",
     rocket_launch_products = {
-      {type = "item", name="nullius-guide-drone-iron-1", amount=1, probability=0.3},
-      {type = "item", name="nullius-guide-drone-sandstone-1", amount=1, probability=0.2},
-      {type = "item", name="nullius-guide-drone-bauxite-1", amount=1, probability=0.2},
-      {type = "item", name="nullius-guide-drone-limestone-1", amount=1, probability=0.1},
-      {type = "item", name="nullius-guide-drone-copper-1", amount=1, probability=0.1},
-      {type = "item", name="nullius-guide-drone-uranium-1", amount=1, probability=0.1}
+      {type = "item", name="nullius-guide-drone-iron-1",      amount=1, shared_probability={min=0.0, max=0.3}}, -- 0.3
+      {type = "item", name="nullius-guide-drone-sandstone-1", amount=1, shared_probability={min=0.3, max=0.5}}, -- 0.2
+      {type = "item", name="nullius-guide-drone-bauxite-1",   amount=1, shared_probability={min=0.5, max=0.7}}, -- 0.2
+      {type = "item", name="nullius-guide-drone-limestone-1", amount=1, shared_probability={min=0.7, max=0.8}}, -- 0.1
+      {type = "item", name="nullius-guide-drone-copper-1",    amount=1, shared_probability={min=0.8, max=0.9}}, -- 0.1
+      {type = "item", name="nullius-guide-drone-uranium-1",   amount=1, shared_probability={min=0.9, max=1.0}}, -- 0.1
     }
   },
   {
@@ -700,12 +700,12 @@ data:extend({
     weight = 1000000,
     send_to_orbit_mode = "automated",
     rocket_launch_products = {
-      {type = "item", name="nullius-guide-drone-iron-1", amount=1, probability=0.9},
-      {type = "item", name="nullius-guide-drone-sandstone-1", amount=1, probability=0.8},
-      {type = "item", name="nullius-guide-drone-bauxite-1", amount=1, probability=0.7},
-      {type = "item", name="nullius-guide-drone-limestone-1", amount=1, probability=0.5},
-      {type = "item", name="nullius-guide-drone-copper-1", amount=1, probability=0.4},
-      {type = "item", name="nullius-guide-drone-uranium-1", amount=1, probability=0.3}
+      {type = "item", name="nullius-guide-drone-iron-1",      amount=1, independent_probability=0.9},
+      {type = "item", name="nullius-guide-drone-sandstone-1", amount=1, independent_probability=0.8},
+      {type = "item", name="nullius-guide-drone-bauxite-1",   amount=1, independent_probability=0.7},
+      {type = "item", name="nullius-guide-drone-limestone-1", amount=1, independent_probability=0.5},
+      {type = "item", name="nullius-guide-drone-copper-1",    amount=1, independent_probability=0.4},
+      {type = "item", name="nullius-guide-drone-uranium-1",   amount=1, independent_probability=0.3}
     }
   },
   {
