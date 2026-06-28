@@ -18,34 +18,35 @@ for _,rock in pairs(data.raw["simple-entity"]) do
   local secondary = "stone"
   local tertiary = "nullius-mineral-dust"
   local locale_name = nil
-  
+  local rockColor
+
   local tmp = split(rock.name, "-")
   if #tmp == 3 then -- regular rock
     rockColor = tmp[3]
     if rockColor ~= "rock" then
-    if (rockColor == "brown") or (rockColor == "red") or (rockColor == "dustyrose") then
-      primary = "nullius-bauxite"
-      tertiary = "nullius-sand"
-	    locale_name = "bauxite"
-    elseif (rockColor == "white") then
-      primary = "nullius-limestone"
-	    locale_name = "limestone"
-    elseif (rockColor == "cream") or (rockColor == "beige") then
-      primary = "nullius-limestone"
-      secondary = "nullius-gypsum"
-	    locale_name = "limestone"
-    elseif (rockColor == "tan") then
-      primary = "nullius-gypsum"
-      secondary = "nullius-limestone"
-    elseif (rockColor == "grey") then
-      primary = "stone"
-      secondary = "nullius-sandstone"
-      tertiary = "nullius-gravel"
-    else
-      primary = "iron-ore"
-      tertiary = "nullius-gravel"
-	    locale_name = "ironstone"
-    end
+      if (rockColor == "brown") or (rockColor == "red") or (rockColor == "dustyrose") then
+        primary = "nullius-bauxite"
+        tertiary = "nullius-sand"
+        locale_name = "bauxite"
+      elseif (rockColor == "white") then
+        primary = "nullius-limestone"
+        locale_name = "limestone"
+      elseif (rockColor == "cream") or (rockColor == "beige") then
+        primary = "nullius-limestone"
+        secondary = "nullius-gypsum"
+        locale_name = "limestone"
+      elseif (rockColor == "tan") then
+        primary = "nullius-gypsum"
+        secondary = "nullius-limestone"
+      elseif (rockColor == "grey") then
+        primary = "stone"
+        secondary = "nullius-sandstone"
+        tertiary = "nullius-gravel"
+      else
+        primary = "iron-ore"
+        tertiary = "nullius-gravel"
+        locale_name = "ironstone"
+      end
     end
   elseif #tmp == 4 then -- sand rock
     rockColor = tmp[4]
@@ -66,12 +67,12 @@ for _,rock in pairs(data.raw["simple-entity"]) do
   if (primary ~= nil) then
     if (locale_name ~= nil) then
       rock.localised_name = { "entity-name.nullius-rock-" .. locale_name }
-	end
-	if (rock.flags ~= nil) then
-	  table.insert(rock.flags, "not-in-kill-statistics")
-	  table.insert(rock.flags, "not-repairable")
-	  table.insert(rock.flags, "not-flammable")
-	end
+	  end
+    if (rock.flags ~= nil) then
+      table.insert(rock.flags, "not-in-kill-statistics")
+      table.insert(rock.flags, "not-repairable")
+      table.insert(rock.flags, "not-flammable")
+    end
 
     if (rock.minable ~= nil) then
       if (rock.minable.results ~= nil) then
@@ -95,11 +96,20 @@ for _,rock in pairs(data.raw["simple-entity"]) do
         end
         rock.loot = {}
         for _,minres in pairs(rock.minable.results) do
-          table.insert(rock.loot, {item=minres.name, count_min=minres.amount_min*0.5,
-          count_max=(minres.amount_max*0.8)+0.2})
+          table.insert(rock.loot, {
+            type = "item",
+            name = minres.name,
+            amount_min = minres.amount_min*0.5,
+            amount_max = (minres.amount_max*0.8)+0.2
+          })
         end
         if (total > 4) then
-          table.insert(rock.loot, {item=tertiary, count_min=0, count_max=(total / 5)})
+          table.insert(rock.loot, {
+            type = "item",
+            name = tertiary,
+            amount_min = 0,
+            amount_max = (total / 5),
+          })
         end
       elseif (rock.minable.result ~= nil) then
         rock.minable.count = rock.minable.count * 0.25
@@ -108,10 +118,22 @@ for _,rock in pairs(data.raw["simple-entity"]) do
         elseif rock.minable.result == "coal" then
           rock.minable.result = secondary
         end
-        rock.loot = {{item=rock.minable.result, count_min=rock.minable.count*0.6,
-          count_max=(rock.minable.count*0.8)+0.2}}
+        rock.loot = {
+          {
+            type = "item",
+            name = rock.minable.result,
+            amount_min = rock.minable.count*0.6,
+            amount_max = (rock.minable.count*0.8)+0.2
+          }
+        }
         if (rock.minable.count > 2) then
-          table.insert(rock.loot, {item=tertiary, count_min=0, count_max=(rock.minable.count/2.5)})
+          table.insert(rock.loot, {
+            type = "item",
+            name = tertiary,
+            amount_min = 0,
+            amount_max = rock.minable.count/2.5,
+          }
+        )
         end
       else
         rock.loot = nil
@@ -125,6 +147,6 @@ end
 -- From Alien Biomes
 if (data.raw["simple-entity"]["sand-big-rock-white"] ~= nil) then
   table.insert(data.raw["simple-entity"]["sand-big-rock-white"].minable.results,
-    {type="item", name="nullius-soda-ash", probability=0.1, amount_min=1, amount_max=2}
+    {type="item", name="nullius-soda-ash", independent_probability=0.1, amount_min=1, amount_max=2}
   )
 end
