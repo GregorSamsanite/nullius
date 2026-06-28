@@ -2010,16 +2010,6 @@ data:extend({
     type = "recipe",
     name = "nullius-boxed-medium-tank-4",
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-medium-tank-4"}},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
-      },
-      {
-        icon = ENTICONPATH .. "tank2.png",
-        icon_size = 64,
-      }
-    },
     enabled = false,
     category = "huge-assembly",
     subgroup = "boxed-tank",
