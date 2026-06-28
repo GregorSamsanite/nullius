@@ -95,9 +95,10 @@ local get_offset = function(part)
 end
 
 function landing_site(surface, loc, frc)
-  for _, entity in pairs (surface.find_entities_filtered{
+  for _, entity in pairs(surface.find_entities_filtered{
       area = {{loc.x - 32, loc.y - 24}, {loc.x + 32, loc.y + 24}},
-      force = "neutral", collision_mask = "player"}) do
+      force = "neutral", collision_mask = "player"
+    }) do
     if entity.valid then
       entity.destroy()
     end
@@ -125,7 +126,7 @@ function landing_site(surface, loc, frc)
       local x = (loc[1] or loc.x) + offset[1]
       local y = (loc[2] or loc.y) + offset[2]
       part_position = {x, y}
-	  local can_place = surface.can_place_entity{
+      local can_place = surface.can_place_entity{
           name = part.name, position = part_position,
           force = frc, forced = true,
           build_check_type = defines.build_check_type.ghost_place }--todo: check this
@@ -152,7 +153,7 @@ function landing_site(surface, loc, frc)
       if (part.pod == 1) then
         part_entity.insert({name="wooden-chest", count=2})
         part_entity.insert({name="inserter", count=30})
-	    part_entity.insert({name="cliff-explosives", count=30})
+        part_entity.insert({name="cliff-explosives", count=30})
       else
         part_entity.insert({name="nullius-small-storage-chest-1", count=1})
         part_entity.insert({name="transport-belt", count=300})
