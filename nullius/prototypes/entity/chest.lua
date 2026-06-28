@@ -2,6 +2,78 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local BASEENTITY = "__base__/graphics/entity/"
 
+local function logistic_entry(scale)
+  return {
+    filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
+    width = 64,
+    height = 64,
+    frame_count = 1,
+    repeat_count = 16,
+    scale = scale
+  }
+end
+local function logistic_chest_mask(tint, scale)
+  return {
+    filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
+    width = 32,
+    height = 32,
+    frame_count = 1,
+    repeat_count = 16,
+    tint = tint,
+    scale = scale
+  }
+end
+
+local small_chest_1_shadow = {
+  filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
+  priority = "extra-high",
+  width = 86,
+  height = 44,
+  frame_count = 1,
+  repeat_count = 16,
+  shift = util.by_pixel(8.5, 6),
+  draw_as_shadow = true,
+  scale = 0.5
+}
+local small_chest_1_port_back = {
+  filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+  width = 10,
+  height = 8,
+  frame_count = 1,
+  repeat_count = 16,
+  shift = util.by_pixel(0, -9)
+}
+local small_chest_1_roboport_door = {
+  filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+  priority = "medium",
+  width = 52,
+  height = 39,
+  frame_count = 16,
+  scale = 0.25,
+  shift = util.by_pixel(0, -9)
+}
+local large_chest_1_shadow = {
+  filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
+  priority = "extra-high",
+  width = 86,
+  height = 44,
+  frame_count = 1,
+  repeat_count = 16,
+  shift = util.by_pixel(15.3, 10.8),
+  draw_as_shadow = true,
+  scale = 0.9
+}
+local large_chest_2_shadow = {
+  filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
+  priority = "extra-high",
+  width = 96,
+  height = 44,
+  repeat_count = 7,
+  shift = util.by_pixel(15.3, 9),
+  draw_as_shadow = true,
+  scale = 0.9
+}
+
 data:extend({
   {
     type = "container",
@@ -116,60 +188,23 @@ data:extend({
     logistic_mode = "storage",
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(8.5, 6),
-          draw_as_shadow = true,
-          scale = 0.5
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.25,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.9, g = 0.75, b = 0.1}
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.5),
+          small_chest_1_shadow,
+          small_chest_1_port_back,
+          small_chest_1_roboport_door,
+          logistic_chest_mask({r = 0.9, g = 0.75, b = 0.1}, nil),
         }
       }
-    }
+    },
   },
   {
     type = "logistic-container",
@@ -189,64 +224,42 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-storage-chest-2",
+    next_upgrade = "nullius-large-storage-chest-2",
     inventory_size = 100,
     logistic_mode = "storage",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(15.3, 10.8),
-          draw_as_shadow = true,
-          scale = 0.9
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -16.2),
-          scale = 1.8
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.45,
-          shift = util.by_pixel(0, -16.2)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.9, g = 0.75, b = 0.1},
-          scale = 1.8
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.9),
+          large_chest_1_shadow,
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+            width = 10,
+            height = 8,
+            frame_count = 1,
+            repeat_count = 16,
+            shift = util.by_pixel(0, -16.2),
+            scale = 1.8
+          },
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+            priority = "medium",
+            width = 52,
+            height = 39,
+            frame_count = 16,
+            scale = 0.45,
+            shift = util.by_pixel(0, -16.2)
+          },
+          logistic_chest_mask({r = 0.9, g = 0.75, b = 0.1}, 1.8),
         }
       }
     }
@@ -271,33 +284,28 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "storage",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "logistic-chest/storage-chest.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -3.6),
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 96,
-          height = 44,
-          repeat_count = 7,
-          shift = util.by_pixel(15.3, 9),
-          draw_as_shadow = true,
-          scale = 0.9
+
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          {
+            filename = BASEENTITY .. "logistic-chest/storage-chest.png",
+            priority = "extra-high",
+            width = 66,
+            height = 74,
+            frame_count = 7,
+            shift = util.by_pixel(0, -3.6),
+            scale = 0.9
+          },
+          large_chest_2_shadow,
         }
       }
     }
@@ -321,62 +329,26 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "passive-provider-chest",
+    next_upgrade = "passive-provider-chest",
     inventory_size = 20,
     logistic_mode = "passive-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(8.5, 6),
-          draw_as_shadow = true,
-          scale = 0.5
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.25,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.9, g = 0.2, b = 0.1}
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.5),
+          small_chest_1_shadow,
+          small_chest_1_port_back,
+          small_chest_1_roboport_door,
+          logistic_chest_mask({r = 0.9, g = 0.2, b = 0.1}, nil),
         }
       }
     }
@@ -398,64 +370,42 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-supply-chest-2",
+    next_upgrade = "nullius-large-supply-chest-2",
     inventory_size = 100,
     logistic_mode = "passive-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(15.3, 10.8),
-          draw_as_shadow = true,
-          scale = 0.9
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -16.2),
-          scale = 1.8
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.45,
-          shift = util.by_pixel(0, -16.2)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.9, g = 0.2, b = 0.1},
-          scale = 1.8
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.9),
+          large_chest_1_shadow,
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+            width = 10,
+            height = 8,
+            frame_count = 1,
+            repeat_count = 16,
+            shift = util.by_pixel(0, -16.2),
+            scale = 1.8
+          },
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+            priority = "medium",
+            width = 52,
+            height = 39,
+            frame_count = 16,
+            scale = 0.45,
+            shift = util.by_pixel(0, -16.2)
+          },
+          logistic_chest_mask({r = 0.9, g = 0.2, b = 0.1}, 1.8),
         }
       }
     }
@@ -479,33 +429,28 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "passive-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "logistic-chest/passive-provider-chest.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -3.6),
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 96,
-          height = 44,
-          repeat_count = 7,
-          shift = util.by_pixel(15.3, 9),
-          draw_as_shadow = true,
-          scale = 0.9
+
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          {
+            filename = BASEENTITY .. "logistic-chest/passive-provider-chest.png",
+            priority = "extra-high",
+            width = 66,
+            height = 74,
+            frame_count = 7,
+            shift = util.by_pixel(0, -3.6),
+            scale = 0.9
+          },
+          large_chest_2_shadow,
         }
       }
     }
@@ -535,59 +480,23 @@ data:extend({
 	  next_upgrade = "requester-chest",
     inventory_size = 20,
     logistic_mode = "requester",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(8.5, 6),
-          draw_as_shadow = true,
-          scale = 0.5
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.25,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 98, g = 203, b = 230}
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.5),
+          small_chest_1_shadow,
+          small_chest_1_port_back,
+          small_chest_1_roboport_door,
+          logistic_chest_mask({r = 98, g = 203, b = 230}),
         }
       }
     }
@@ -610,66 +519,44 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-demand-chest-2",
+    next_upgrade = "nullius-large-demand-chest-2",
     inventory_size = 100,
     trash_inventory_size = 20,
     -- max_logistic_slots = 8,
     logistic_mode = "requester",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(15.3, 10.8),
-          draw_as_shadow = true,
-          scale = 0.9
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -16.2),
-          scale = 1.8
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.45,
-          shift = util.by_pixel(0, -16.2)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 98, g = 203, b = 230},
-          scale = 1.8
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.9),
+          large_chest_1_shadow,
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+            width = 10,
+            height = 8,
+            frame_count = 1,
+            repeat_count = 16,
+            shift = util.by_pixel(0, -16.2),
+            scale = 1.8
+          },
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+            priority = "medium",
+            width = 52,
+            height = 39,
+            frame_count = 16,
+            scale = 0.45,
+            shift = util.by_pixel(0, -16.2)
+          },
+          logistic_chest_mask({r = 98, g = 203, b = 230}, 1.8),
         }
       }
     }
@@ -696,33 +583,28 @@ data:extend({
     trash_inventory_size = 30,
     -- max_logistic_slots = 20,
     logistic_mode = "requester",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "logistic-chest/requester-chest.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -3.6),
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 96,
-          height = 44,
-          repeat_count = 7,
-          shift = util.by_pixel(15.3, 9),
-          draw_as_shadow = true,
-          scale = 0.9
+
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          {
+            filename = BASEENTITY .. "logistic-chest/requester-chest.png",
+            priority = "extra-high",
+            width = 66,
+            height = 74,
+            frame_count = 7,
+            shift = util.by_pixel(0, -3.6),
+            scale = 0.9
+          },
+          large_chest_2_shadow,
         }
       }
     }
@@ -747,64 +629,28 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "buffer-chest",
+    next_upgrade = "buffer-chest",
     inventory_size = 20,
     trash_inventory_size = 5,
     -- max_logistic_slots = 4,
     logistic_mode = "buffer",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(8.5, 6),
-          draw_as_shadow = true,
-          scale = 0.5
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.25,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.2, g = 0.9, b = 0.1}
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.5),
+          small_chest_1_shadow,
+          small_chest_1_port_back,
+          small_chest_1_roboport_door,
+          logistic_chest_mask({r = 0.2, g = 0.9, b = 0.1}),
         }
       }
     }
@@ -827,66 +673,44 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-buffer-chest-2",
+    next_upgrade = "nullius-large-buffer-chest-2",
     inventory_size = 100,
     trash_inventory_size = 20,
     -- max_logistic_slots = 5,
     logistic_mode = "buffer",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(15.3, 10.8),
-          draw_as_shadow = true,
-          scale = 0.9
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -16.2),
-          scale = 1.8
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.45,
-          shift = util.by_pixel(0, -16.2)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.2, g = 0.9, b = 0.1},
-          scale = 1.8
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.9),
+          large_chest_1_shadow,
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+            width = 10,
+            height = 8,
+            frame_count = 1,
+            repeat_count = 16,
+            shift = util.by_pixel(0, -16.2),
+            scale = 1.8
+          },
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+            priority = "medium",
+            width = 52,
+            height = 39,
+            frame_count = 16,
+            scale = 0.45,
+            shift = util.by_pixel(0, -16.2)
+          },
+          logistic_chest_mask({r = 0.2, g = 0.9, b = 0.1}, 1.8),
         }
       }
     }
@@ -913,33 +737,28 @@ data:extend({
     trash_inventory_size = 30,
     -- max_logistic_slots = 8,
     logistic_mode = "buffer",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "logistic-chest/buffer-chest.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -3.6),
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 96,
-          height = 44,
-          repeat_count = 7,
-          shift = util.by_pixel(15.3, 9),
-          draw_as_shadow = true,
-          scale = 0.9
+
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          {
+            filename = BASEENTITY .. "logistic-chest/buffer-chest.png",
+            priority = "extra-high",
+            width = 66,
+            height = 74,
+            frame_count = 7,
+            shift = util.by_pixel(0, -3.6),
+            scale = 0.9
+          },
+          large_chest_2_shadow,
         }
       }
     }
@@ -966,59 +785,23 @@ data:extend({
 	  next_upgrade = "active-provider-chest",
     inventory_size = 20,
     logistic_mode = "active-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.5
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(8.5, 6),
-          draw_as_shadow = true,
-          scale = 0.5
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.25,
-          shift = util.by_pixel(0, -9)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.7, g = 0.1, b = 0.9}
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.5),
+          small_chest_1_shadow,
+          small_chest_1_port_back,
+          small_chest_1_roboport_door,
+          logistic_chest_mask({r = 0.7, g = 0.1, b = 0.9}),
         }
       }
     }
@@ -1040,64 +823,42 @@ data:extend({
       { type = "fire", percent = 75 }
     },
     fast_replaceable_group = "container",
-	next_upgrade = "nullius-large-dispatch-chest-2",	
+    next_upgrade = "nullius-large-dispatch-chest-2",	
     inventory_size = 100,
     logistic_mode = "active-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
-    animation = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "logistic-entity/logistic-entity.png",
-          width = 64,
-          height = 64,
-          frame_count = 1,
-          repeat_count = 16,
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 86,
-          height = 44,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(15.3, 10.8),
-          draw_as_shadow = true,
-          scale = 0.9
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
-          width = 10,
-          height = 8,
-          frame_count = 1,
-          repeat_count = 16,
-          shift = util.by_pixel(0, -16.2),
-          scale = 1.8
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
-          priority = "medium",
-          width = 52,
-          height = 39,
-          frame_count = 16,
-          scale = 0.45,
-          shift = util.by_pixel(0, -16.2)
-        },
-        {
-          filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-mask.png",
-          width = 32,
-          height = 32,
-          frame_count = 1,
-          repeat_count = 16,
-          tint = {r = 0.7, g = 0.1, b = 0.9},
-          scale = 1.8
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          logistic_entry(0.9),
+          large_chest_1_shadow,
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/logistic-chest-port-back.png",
+            width = 10,
+            height = 8,
+            frame_count = 1,
+            repeat_count = 16,
+            shift = util.by_pixel(0, -16.2),
+            scale = 1.8
+          },
+          {
+            filename = "__boblogistics__/graphics/entity/logistic-chest/roboport-door-2.png",
+            priority = "medium",
+            width = 52,
+            height = 39,
+            frame_count = 16,
+            scale = 0.45,
+            shift = util.by_pixel(0, -16.2)
+          },
+          logistic_chest_mask({r = 0.7, g = 0.1, b = 0.9}, 1.8),
         }
       }
     }
@@ -1121,33 +882,28 @@ data:extend({
     fast_replaceable_group = "container",
     inventory_size = 150,
     logistic_mode = "active-provider",
+
     open_sound = data.raw["logistic-container"]["storage-chest"].open_sound,
     close_sound = data.raw["logistic-container"]["storage-chest"].close_sound,
-    animation_sound = data.raw["logistic-container"]["storage-chest"].animation_sound,
     impact_category = data.raw["logistic-container"]["storage-chest"].impact_category,
-    opened_duration = data.raw["logistic-container"]["storage-chest"].opened_duration,
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    animation = {
-      layers = {
-        {
-          filename = BASEENTITY .. "logistic-chest/active-provider-chest.png",
-          priority = "extra-high",
-          width = 66,
-          height = 74,
-          frame_count = 7,
-          shift = util.by_pixel(0, -3.6),
-          scale = 0.9
-        },
-        {
-          filename = BASEENTITY .. "logistic-chest/logistic-chest-shadow.png",
-          priority = "extra-high",
-          width = 96,
-          height = 44,
-          repeat_count = 7,
-          shift = util.by_pixel(15.3, 9),
-          draw_as_shadow = true,
-          scale = 0.9
+
+    robot_door = {
+      opened_duration = data.raw["logistic-container"]["storage-chest"].robot_door.opened_duration,
+      animation_sound = data.raw["logistic-container"]["storage-chest"].robot_door.animation_sound,
+      animation = {
+        layers = {
+          {
+            filename = BASEENTITY .. "logistic-chest/active-provider-chest.png",
+            priority = "extra-high",
+            width = 66,
+            height = 74,
+            frame_count = 7,
+            shift = util.by_pixel(0, -3.6),
+            scale = 0.9
+          },
+          large_chest_2_shadow,
         }
       }
     }
