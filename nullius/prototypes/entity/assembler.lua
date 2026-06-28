@@ -9,6 +9,151 @@ local ENTITYPATH = "__nullius__/graphics/entity/"
 
 local BASEENTITY = "__base__/graphics/entity/"
 
+local function assembler1_graphics(scale)
+  return {
+    animation = {
+      layers = {
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-base",
+          {
+            priority = "high",
+            frame_count = 1,
+            repeat_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-anim",
+          {
+            priority = "high",
+            frame_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow",
+          {
+            priority = "high",
+            frame_count = 1,
+            repeat_count = 64,
+            scale = 0.5 * scale,
+            draw_as_shadow = true,
+          }
+        ),
+      }
+    },
+    working_visualisations = {
+      {
+        animation = util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-status-light",
+          {
+            priority = "high",
+            repeat_count = 64,
+            draw_as_glow = true,
+            blend_mode = "additive",
+            scale = 0.5 * scale,
+          }
+        ),
+      }
+    }
+  }
+end
+local function assembler2_graphics(scale)
+  return {
+    animation = {
+      layers = {
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-base",
+          {
+            priority = "high",
+            repeat_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-anim",
+          {
+            priority = "high",
+            frame_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-shadow",
+          {
+            priority = "high",
+            repeat_count = 64,
+            scale = 0.5 * scale,
+            draw_as_shadow = true,
+          }
+        ),
+      }
+    },
+    working_visualisations = {
+      {
+        animation = util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-status-light",
+          {
+            priority = "high",
+            repeat_count = 64,
+            draw_as_glow = true,
+            blend_mode = "additive",
+            scale = 0.5 * scale,
+          }
+        ),
+      }
+    }
+  }
+end
+local function assembler3_graphics(scale)
+  return {
+    animation_progress = 0.5,
+    animation = {
+      layers = {
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-base",
+          {
+            priority = "high",
+            repeat_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-anim",
+          {
+            priority = "high",
+            frame_count = 64,
+            scale = 0.5 * scale,
+          }
+        ),
+        util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow",
+          {
+            priority = "high",
+            frame_count = 64,
+            scale = 0.5 * scale,
+            draw_as_shadow = true,
+          }
+        ),
+      }
+    },
+    working_visualisations = {
+      {
+        animation = util.sprite_load(
+          "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-status-light",
+          {
+            priority = "high",
+            repeat_count = 64,
+            draw_as_glow = true,
+            blend_mode = "additive",
+            scale = 0.5 * scale,
+          }
+        ),
+      }
+    }
+  }
+end
+
 data:extend({
   {
     type = "assembling-machine",
@@ -38,34 +183,7 @@ data:extend({
     fast_replaceable_group = "small-assembler",
     next_upgrade = "nullius-small-assembler-2",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-            filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1.png",
-            priority="high",
-            width = 214,
-            height = 226,
-            frame_count = 32,
-            line_length = 8,
-            shift = util.by_pixel(0, 2),
-            scale = 0.666*0.5
-          },
-          {
-            filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1-shadow.png",
-            priority="high",
-            width = 190,
-            height = 165,
-            frame_count = 1,
-            line_length = 1,
-            repeat_count = 32,
-            draw_as_shadow = true,
-            shift = util.by_pixel(8.5, 5),
-            scale = 0.666*0.5
-          }
-        }
-      }
-    },
+    graphics_set = assembler1_graphics(0.5),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
@@ -130,35 +248,7 @@ data:extend({
     fast_replaceable_group = "medium-assembler",
     next_upgrade = "nullius-medium-assembler-2",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-              filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1.png",
-              priority="high",
-              width = 214,
-              height = 226,
-              frame_count = 32,
-              line_length = 8,
-              shift = util.by_pixel(0, 2),
-              scale = 0.5,
-              animation_speed = 0.5
-          },
-          {
-              filename = BASEENTITY .. "assembling-machine-1/assembling-machine-1-shadow.png",
-              priority="high",
-              width = 190,
-              height = 165,
-              frame_count = 1,
-              line_length = 1,
-              repeat_count = 32,
-              draw_as_shadow = true,
-              shift = util.by_pixel(8.5, 5),
-              scale = 0.5
-          }
-        }
-      }
-    },
+    graphics_set = assembler1_graphics(1.0),
     crafting_categories = {
       "small-crafting", "medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
@@ -223,35 +313,7 @@ data:extend({
     fast_replaceable_group = "large-assembler",
     next_upgrade = "nullius-large-assembler-2",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-            filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2.png",
-            priority = "high",
-            width = 214,
-            height = 218,
-            frame_count = 32,
-            line_length = 8,
-            shift = util.by_pixel(0, 4),
-            scale = 0.666,
-            animation_speed = 0.2
-          },
-          {
-            filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2-shadow.png",
-            priority = "high",
-            width = 196,
-            height = 163,
-            frame_count = 32,
-            line_length = 8,
-            draw_as_shadow = true,
-            shift = util.by_pixel(12, 4.75),
-            scale = 0.666,
-            animation_speed = 0.2
-          }
-        }
-      }
-    },
+    graphics_set = assembler2_graphics(1.333),
     crafting_categories = {
       "medium-crafting", "large-crafting", "huge-crafting",
       "medium-assembly", "large-assembly", "huge-assembly",
@@ -307,24 +369,7 @@ data:extend({
     fast_replaceable_group = "small-assembler",
     next_upgrade = "nullius-small-assembler-3",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-            filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2.png",
-            priority = "high",
-            width = 214,
-            height = 218,
-            frame_count = 32,
-            line_length = 8,
-            shift = util.by_pixel(0, 4),
-            scale = 0.666*0.5,
-            animation_speed = 0.8
-          },
-          data.raw["assembling-machine"]["nullius-small-assembler-1"].graphics_set.animation.layers[2]
-        }
-      }
-    },
+    graphics_set = assembler2_graphics(0.5),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
@@ -370,35 +415,7 @@ data:extend({
     selection_box = {{-1.0, -1.0}, {1.0, 1.0}},
     fast_replaceable_group = "small-assembler",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-            filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3.png",
-            priority = "high",
-            width = 214,
-            height = 237,
-            frame_count = 32,
-            line_length = 8,
-            shift = util.by_pixel(0, -0.3333), 
-            scale = 0.666*0.5,
-            animation_speed = 0.6
-          },
-          {
-            filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3-shadow.png",
-            priority = "high",
-            width = 260,
-            height = 162,
-            frame_count = 32,
-            line_length = 8,
-            draw_as_shadow = true,
-            shift = util.by_pixel(18.667, 2.6667),
-            scale = 0.666*0.5,
-            animation_speed = 0.6
-          }
-        }
-      }
-    },
+    graphics_set = assembler3_graphics(0.5),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
@@ -440,35 +457,7 @@ data:extend({
     fast_replaceable_group = "medium-assembler",
     next_upgrade = "nullius-medium-assembler-3",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-              filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2.png",
-              priority = "high",
-              width = 214,
-              height = 218,
-              frame_count = 32,
-              line_length = 8,
-              shift = util.by_pixel(0, 4),
-              scale = 0.5,
-              animation_speed = 0.4
-          },
-          {
-              filename = BASEENTITY .. "assembling-machine-2/assembling-machine-2-shadow.png",
-              priority = "high",
-              width = 196,
-              height = 163,
-              frame_count = 32,
-              line_length = 8,
-              draw_as_shadow = true,
-              shift = util.by_pixel(12, 4.75),
-              scale = 0.5,
-              animation_speed = 0.4
-          }
-        }
-      }
-    },
+    graphics_set = assembler2_graphics(1),
     crafting_categories = {
       "small-crafting", "medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
@@ -509,35 +498,7 @@ data:extend({
     fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "medium-assembler",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-              filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3.png",
-              priority = "high",
-              width = 214,
-              height = 237,
-              frame_count = 32,
-              line_length = 8,
-              shift = util.by_pixel(0, -0.75),
-              scale = 0.5,
-              animation_speed = 0.3
-          },
-          {
-              filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3-shadow.png",
-              priority = "high",
-              width = 260,
-              height = 162,
-              frame_count = 32,
-              line_length = 8,
-              draw_as_shadow = true,
-              shift = util.by_pixel(28, 4),
-              scale = 0.5,
-              animation_speed = 0.3
-          }
-        }
-      }
-    },
+    graphics_set = assembler3_graphics(1),
     crafting_categories = {
       "small-crafting","medium-crafting", "large-crafting",
       "small-assembly", "medium-assembly", "large-assembly", "medium-only-assembly",
@@ -577,35 +538,7 @@ data:extend({
     fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "large-assembler",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = {
-      animation = {
-        layers = {
-          {
-            filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3.png",
-            priority = "high",
-            width = 214,
-            height = 237,
-            frame_count = 32,
-            line_length = 8,
-            shift = util.by_pixel(0, -1),
-            scale = 0.666,
-            animation_speed = 0.15
-          },
-          {
-            filename = BASEENTITY .. "assembling-machine-3/assembling-machine-3-shadow.png",
-            priority = "high",
-            width = 260,
-            height = 162,
-            frame_count = 32,
-            line_length = 8,
-            draw_as_shadow = true,
-            shift = util.by_pixel(37.333, 5.3333),
-            scale = 0.666,
-            animation_speed = 0.15
-          }
-        }
-      }
-    },
+    graphics_set = assembler3_graphics(1.333),
     crafting_categories = {
       "medium-crafting", "large-crafting", "huge-crafting",
       "medium-assembly", "large-assembly", "huge-assembly",
@@ -626,39 +559,39 @@ data:extend({
 })
 
 local nanofab_pipes = {
-        north = {
-          filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
-          priority = "extra-high",
-          size = 128,
-          x = 0,
-          shift = { 0, 1 },
-          scale = 0.5,
-        },
-        east = {
-          filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
-          priority = "extra-high",
-          size = 128,
-          x = 128,
-          shift = { -1, 0 },
-          scale = 0.5,
-        },
-        south = {
-          filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
-          priority = "extra-high",
-          size = 128,
-          x = 256,
-          shift = { 0, -1 },
-          scale = 0.5,
-        },
-        west = {
-          filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
-          priority = "extra-high",
-          size = 128,
-          x = 384,
-          shift = { 1, 0 },
-          scale = 0.5,
-        },
-      }
+  north = {
+    filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
+    priority = "extra-high",
+    size = 128,
+    x = 0,
+    shift = { 0, 1 },
+    scale = 0.5,
+  },
+  east = {
+    filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
+    priority = "extra-high",
+    size = 128,
+    x = 128,
+    shift = { -1, 0 },
+    scale = 0.5,
+  },
+  south = {
+    filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
+    priority = "extra-high",
+    size = 128,
+    x = 256,
+    shift = { 0, -1 },
+    scale = 0.5,
+  },
+  west = {
+    filename = "__angelsrefininggraphics__/graphics/entity/crystallizer/crystallizer-pipe-connection.png",
+    priority = "extra-high",
+    size = 128,
+    x = 384,
+    shift = { 1, 0 },
+    scale = 0.5,
+  },
+}
 nanofab_pipes.south = util.table.deepcopy(data.raw["pipe-to-ground"]["pipe-to-ground"].pictures.south)
 nanofab_pipes.south.shift = {0, -1}
 
