@@ -593,7 +593,7 @@ data:extend({
     allowed_effects = {"speed", "consumption", "pollution"},
     fast_replaceable_group = "well",
     next_upgrade = "nullius-well-2",
-    
+
     circuit_connector = circuit_connector_definitions["pumpjack"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
@@ -636,7 +636,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.4,
               draw_as_shadow = true,
               line_length = 8,
@@ -687,7 +687,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.4,
               draw_as_shadow = true,
               line_length = 8,
@@ -738,7 +738,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.4,
               draw_as_shadow = true,
               line_length = 8,
@@ -789,7 +789,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.4,
               draw_as_shadow = true,
               line_length = 8,
@@ -891,7 +891,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.6,
               draw_as_shadow = true,
               line_length = 8,
@@ -942,7 +942,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.6,
               draw_as_shadow = true,
               line_length = 8,
@@ -993,7 +993,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.6,
               draw_as_shadow = true,
               line_length = 8,
@@ -1044,7 +1044,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.6,
               draw_as_shadow = true,
               line_length = 8,
@@ -2592,7 +2592,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.66667,
               draw_as_shadow = true,
               line_length = 8,
@@ -2699,7 +2699,7 @@ data:extend({
             },
             {
               priority = "high",
-              filename = BASEENTITY .. "pumpjack/pumpjack-horsehead-shadow.png",
+              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
               animation_speed = 0.66667,
               draw_as_shadow = true,
               line_length = 8,
