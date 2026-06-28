@@ -495,59 +495,69 @@ data:extend({
     type = "rocket-silo",
     name = "nullius-silo",
     icon = "__base__/graphics/icons/rocket-silo.png",
-    icon_size = 64,
     flags = {"placeable-player", "player-creation"},
+    fast_transfer_modules_into_module_slots_only = true,
     crafting_categories = {"rocketry"},
     rocket_parts_required = 1,
+
     crafting_speed = 1,
-    module_slots = 4,
-    fixed_recipe = "nullius-rocket",
-    show_recipe_icon = false,
+    to_be_inserted_to_rocket_inventory_size = 1,
+    logistic_trash_inventory_size = 0,
     icon_draw_specification = {shift = {0, 2}},
+    module_slots = 4,
     icons_positioning =
     {
       {inventory_index = defines.inventory.crafter_modules, shift = {0, 3.3}}
     },
+
+    fixed_recipe = "nullius-rocket",
+    show_recipe_icon = false,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
     minable = {mining_time = 8, result = "nullius-silo"},
     max_health = 5000,
     corpse = "rocket-silo-remnants",
     dying_explosion = "rocket-silo-explosion",
+
     collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
     selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+    damaged_trigger_effect = data.raw["rocket-silo"]["rocket-silo"].damaged_trigger_effect,
     hole_clipping_box = { {-2.75, -1.15}, {2.75, 2.25} },
+
+    graphics_set = data.raw["rocket-silo"]["rocket-silo"].graphics_set,
+    perceived_performance = data.raw["rocket-silo"]["rocket-silo"].perceived_performance,
+
     resistances = {
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 100, percent = 90 },
       { type = "explosion", decrease = 100, percent = 90 },
       { type = "physical", decrease = 20, percent = 50 }
     },
-    damaged_trigger_effect = data.raw["rocket-silo"]["rocket-silo"].damaged_trigger_effect,
     impact_category = data.raw["rocket-silo"]["rocket-silo"].impact_category,
+
     energy_source = {
       type = "electric",
       usage_priority = "primary-input",
       drain = "200kW"
     },
     energy_usage = "800kW",
-    --idle_energy_usage = "200kW",
     lamp_energy_usage = "200kW",
     active_energy_usage = "2600kW",
     rocket_entity = "rocket-silo-rocket",
+
     times_to_blink = 3,
     light_blinking_speed = 1 / (3 * 60),
     door_opening_speed = 1 / (4.25 * 60),
+
     can_launch_without_landing_pads = true,
-    to_be_inserted_to_rocket_inventory_size = 1,
     circuit_connector = circuit_connector_definitions["rocket-silo"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-
     base_engine_light = data.raw["rocket-silo"]["rocket-silo"].base_engine_light,
     shadow_sprite = data.raw["rocket-silo"]["rocket-silo"].shadow_sprite,
     hole_sprite = data.raw["rocket-silo"]["rocket-silo"].hole_sprite,
     hole_light_sprite = data.raw["rocket-silo"]["rocket-silo"].hole_light_sprite,
     rocket_shadow_overlay_sprite = data.raw["rocket-silo"]["rocket-silo"].rocket_shadow_overlay_sprite,
     rocket_glow_overlay_sprite = data.raw["rocket-silo"]["rocket-silo"].rocket_glow_overlay_sprite,
+    
     door_back_sprite = data.raw["rocket-silo"]["rocket-silo"].door_back_sprite,
     door_front_sprite = data.raw["rocket-silo"]["rocket-silo"].door_front_sprite,
     door_back_open_offset = {1.8, -1.8 * 0.43299225},
@@ -555,14 +565,18 @@ data:extend({
     base_day_sprite = data.raw["rocket-silo"]["rocket-silo"].base_day_sprite,
     red_lights_back_sprites = data.raw["rocket-silo"]["rocket-silo"].red_lights_back_sprites,
     red_lights_front_sprites = data.raw["rocket-silo"]["rocket-silo"].red_lights_front_sprites,
+    
     satellite_animation = data.raw["rocket-silo"]["rocket-silo"].satellite_animation,
+    robot_door = data.raw["rocket-silo"]["rocket-silo"].robot_door,
     arm_01_back_animation = data.raw["rocket-silo"]["rocket-silo"].arm_01_back_animation,
     arm_02_right_animation = data.raw["rocket-silo"]["rocket-silo"].arm_02_right_animation,
     arm_03_front_animation = data.raw["rocket-silo"]["rocket-silo"].arm_03_front_animation,
     base_front_sprite = data.raw["rocket-silo"]["rocket-silo"].base_front_sprite,
+
     silo_fade_out_start_distance = 8,
     silo_fade_out_end_distance = 15,
     alarm_sound = data.raw["rocket-silo"]["rocket-silo"].alarm_sound,
+    quick_alarm_sound = data.raw["rocket-silo"]["rocket-silo"].quick_alarm_sound,
     clamps_on_sound = data.raw["rocket-silo"]["rocket-silo"].clamps_on_sound,
     clamps_off_sound = data.raw["rocket-silo"]["rocket-silo"].clamps_off_sound,
     doors_sound = data.raw["rocket-silo"]["rocket-silo"].doors_sound,
@@ -570,9 +584,8 @@ data:extend({
     open_sound = data.raw["rocket-silo"]["rocket-silo"].open_sound,
     close_sound = data.raw["rocket-silo"]["rocket-silo"].close_sound,
     working_sound = data.raw["rocket-silo"]["rocket-silo"].working_sound,
-    flying_sound = data.raw["rocket-silo"]["rocket-silo"].flying_sound,
-    
+
     rocket_quick_relaunch_start_offset = data.raw["rocket-silo"]["rocket-silo"].rocket_quick_relaunch_start_offset,
-    cargo_station_parameters = data.raw["rocket-silo"]["rocket-silo"].cargo_station_parameters
+    cargo_station_parameters = data.raw["rocket-silo"]["rocket-silo"].cargo_station_parameters,
   }
 })
