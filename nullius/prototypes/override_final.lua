@@ -311,7 +311,7 @@ for _,fluid in pairs(data.raw.fluid) do
       data.raw.recipe[fluid.name .. "-barrel"] then  
     local fill_name = barrel_name
     local empty_name = "empty-" .. barrel_name
-	local subgroup = fluid.subgroup
+	  local subgroup = fluid.subgroup
     data.raw.item[barrel_name].subgroup = "fill-" .. subgroup
     data.raw.item[barrel_name].order = fluid.order
     data.raw.item[barrel_name].stack_size = 20
@@ -320,17 +320,17 @@ for _,fluid in pairs(data.raw.fluid) do
     data.raw.recipe[fill_name].hide_from_player_crafting = true
     data.raw.recipe[fill_name].hide_from_stats = true
     data.raw.recipe[fill_name].enabled = true
-    data.raw.recipe[fill_name].category = "nullius-barrel"
+    data.raw.recipe[fill_name].categories = {"nullius-barrel"}
     data.raw.recipe[fill_name].energy_required = 0.25
-	data.raw.recipe[fill_name].requester_paste_multiplier = 5
+	  data.raw.recipe[fill_name].requester_paste_multiplier = 5
     data.raw.recipe[empty_name].subgroup = "empty-" .. subgroup
     data.raw.recipe[empty_name].order = fluid.order
     data.raw.recipe[empty_name].hide_from_player_crafting = true
     data.raw.recipe[empty_name].hide_from_stats = true
     data.raw.recipe[empty_name].enabled = true
-    data.raw.recipe[empty_name].category = "nullius-unbarrel"
+    data.raw.recipe[empty_name].categories = {"nullius-unbarrel"}
     data.raw.recipe[empty_name].energy_required = 0.25
-	data.raw.recipe[empty_name].requester_paste_multiplier = 5
+	  data.raw.recipe[empty_name].requester_paste_multiplier = 5
 
     if (fluid.fuel_value ~= nil) then
       data.raw.recipe[fill_name].enabled = false
@@ -353,7 +353,8 @@ end
 
 -- Mods might overwrite character crafting categories, making everything un-hand-craftable in
 -- Nullius.  At this stage, set them again, but this time, insert missing categories rather than -- overwriting the list, to give other mods opportunity to insert their own categories.
-local hand_crafting = { "hand-crafting", "tiny-crafting", "small-crafting", "medium-crafting",
+local hand_crafting = {
+  "hand-crafting", "tiny-crafting", "small-crafting", "medium-crafting",
   "large-crafting", "huge-crafting", "packaging", "hand-casting", "hand-crushing"
 }
 for _,character in pairs(data.raw["character"]) do

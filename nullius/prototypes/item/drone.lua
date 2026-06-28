@@ -100,7 +100,7 @@ local function create_terraform(suffix, tile, suborder, tech)
       name = "nullius-terraforming-drone-"..suffix,
       enabled = false,
       always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 60,
       ingredients = {
         {type = "item", name = "nullius-shallow-excavation-drone", amount = 1},
@@ -126,7 +126,7 @@ local function create_paving(suffix, landfill, suborder, tech, tile)
       name = "nullius-paving-drone-"..suffix,
       enabled = false,
       always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 25,
       ingredients = {
         {type = "item", name = "nullius-terraforming-drone-"..landfill, amount = 1},
@@ -225,7 +225,7 @@ local function create_miner(mineral, suborder, group, tech, iname, isize, itint)
       allow_as_intermediate = false,
       allow_decomposition = false,
       no_productivity = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       subgroup = sg,
       order = "nullius-"..suborder.."d",
       energy_required = 20,
@@ -243,7 +243,7 @@ local function create_miner(mineral, suborder, group, tech, iname, isize, itint)
       enabled = false,
       always_show_made_in = true,
       always_show_products = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 30,
       ingredients = {
         {type = "item", name = "nullius-guide-drone-"..mineral.."-1", amount = 40},
@@ -295,7 +295,7 @@ local function create_farmer(base, suborder, species, spore, spore_count,
       name = "nullius-"..base.."-drone",
       enabled = false,
       always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 60,
       ingredients = {
         {type = "item", name = "nullius-scout-drone-" .. drone_tier, amount = 1},
@@ -384,7 +384,7 @@ data:extend({
     name = "nullius-scout-drone-1",
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "nullius-robot-frame-1", amount = 1},
@@ -401,7 +401,7 @@ data:extend({
     name = "nullius-scout-drone-2",
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "nullius-scout-drone-1", amount = 2},
@@ -437,7 +437,7 @@ data:extend({
     name = "nullius-demolition-drone",
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-scout-drone-2", amount = 1},
@@ -457,7 +457,7 @@ data:extend({
 	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-scout-drone-2", amount = 1},
@@ -474,7 +474,7 @@ data:extend({
     name = "nullius-shallow-excavation-drone",
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-demolition-drone", amount = 1},
@@ -492,7 +492,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
 	  no_productivity = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "nullius-shallow-excavation-drone", amount = 1},
@@ -510,7 +510,7 @@ data:extend({
 	  hidden = true,
     allow_decomposition = false,
     allow_as_intermediate = false,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-demolition-drone", amount = 1},
@@ -538,7 +538,7 @@ data:extend({
     type = "recipe",
     name = "nullius-drone-launcher-1",
     enabled = false,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 20,
     ingredients = {
@@ -572,7 +572,7 @@ data:extend({
     name = "nullius-drone-launcher-2",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 30,
     ingredients = {
       {type = "item", name = "nullius-drone-launcher-1", amount = 2},
@@ -602,7 +602,7 @@ data:extend({
     type = "recipe",
     name = "nullius-drone-carrier-1",
     enabled = false,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 12,
     ingredients = {
@@ -632,7 +632,7 @@ data:extend({
     name = "nullius-drone-carrier-2",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 20,
     ingredients = {
       {type = "item", name = "nullius-drone-carrier-1", amount = 1},
@@ -670,7 +670,7 @@ data:extend({
     name = "nullius-asteroid-miner-1",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 120,
     ingredients = {
       {type = "item", name = "nullius-satellite", amount = 1},
@@ -713,7 +713,7 @@ data:extend({
     name = "nullius-asteroid-miner-2",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 240,
     ingredients = {
       {type = "item", name = "nullius-asteroid-miner-1", amount = 2},
@@ -762,7 +762,7 @@ data:extend({
     name = "nullius-android-1",
     enabled = false,
     always_show_made_in = true,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 250,
     ingredients = {
       {type = "item", name = "nullius-chassis-3", amount = 1},
@@ -787,7 +787,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     always_show_made_in = true,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 250,
     ingredients = {
       {type = "item", name = "nullius-chassis-3", amount = 1},
@@ -810,7 +810,7 @@ data:extend({
     name = "nullius-android-2",
     enabled = false,
     always_show_made_in = true,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 400,
     ingredients = {
       --{type = "item", name = "nullius-android-1", amount = 1},
@@ -834,7 +834,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     always_show_made_in = true,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 400,
     ingredients = {
       --{type = "item", name = "nullius-android-1", amount = 1},

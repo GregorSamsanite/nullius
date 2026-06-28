@@ -301,7 +301,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 12,
     ingredients = {
       {type="item", name="decider-combinator", amount=2},
@@ -318,7 +318,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 60,
     ingredients = {
@@ -336,7 +336,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 12,
     ingredients = {
       {type="item", name="arithmetic-combinator", amount=2},
@@ -353,7 +353,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 60,
     ingredients = {
@@ -371,7 +371,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-haste-module-1", amount=2},
@@ -387,7 +387,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 40,
     ingredients = {
@@ -404,7 +404,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 8,
     ingredients = {
       {type="item", name="nullius-efficiency-module-1", amount=2},
@@ -420,7 +420,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 40,
     ingredients = {
@@ -436,7 +436,7 @@ data:extend({
     type = "recipe",
     name = "nullius-efficiency-module-2",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-efficiency-module-1", amount=2},
@@ -454,7 +454,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 100,
     ingredients = {
@@ -473,7 +473,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-haste-module-1", amount=2},
@@ -491,7 +491,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 100,
     ingredients = {
@@ -510,7 +510,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-yield-module-1", amount=1},
@@ -526,7 +526,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 50,
     ingredients = {
@@ -543,7 +543,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-speed-module-1", amount=1},
@@ -559,7 +559,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 50,
     ingredients = {
@@ -576,7 +576,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 16,
     ingredients = {
       {type="item", name="nullius-yield-module-2", amount=2},
@@ -592,7 +592,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 80,
     ingredients = {
@@ -610,7 +610,7 @@ data:extend({
     enabled = false,
 	show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-efficiency-module-2", amount=3},
@@ -630,7 +630,7 @@ data:extend({
     enabled = false,
 	show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 150,
     ingredients = {
@@ -651,7 +651,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 30,
     ingredients = {
       {type="item", name="nullius-haste-module-2", amount=1},
@@ -670,7 +670,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 150,
     ingredients = {
@@ -690,7 +690,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-efficiency-module-3", amount=1},
@@ -707,7 +707,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 100,
     ingredients = {
@@ -725,7 +725,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-haste-module-3", amount=1},
@@ -742,7 +742,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 100,
     ingredients = {
@@ -760,7 +760,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-productivity-module-1", amount=2},
@@ -777,7 +777,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 300,
     ingredients = {
@@ -796,7 +796,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 50,
     ingredients = {
       {type="item", name="nullius-haste-module-3", amount=1},
@@ -815,7 +815,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 250,
     ingredients = {
@@ -835,7 +835,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 40,
     ingredients = {
       {type="item", name="nullius-speed-module-3", amount=1},
@@ -852,7 +852,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-1",
     energy_required = 200,
     ingredients = {
@@ -870,7 +870,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 90,
     ingredients = {
       {type="item", name="nullius-productivity-module-2", amount=3},
@@ -887,7 +887,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 450,
     ingredients = {
@@ -905,7 +905,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 75,
     ingredients = {
       {type="item", name="nullius-productivity-module-3", amount=3},
@@ -921,7 +921,7 @@ data:extend({
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-only-assembly",
+    categories = {"medium-only-assembly"},
     subgroup = "boxed-module-2",
     energy_required = 375,
     ingredients = {
@@ -1058,7 +1058,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-speed-1",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-speed-module-1", amount=2},
@@ -1073,7 +1073,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-efficiency-1",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-efficiency-module-1", amount=2},
@@ -1088,7 +1088,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-productivity-1",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 12,
     ingredients = {
       {type="item", name="nullius-yield-module-1", amount=2},
@@ -1103,7 +1103,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-speed-2",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-speed-module-2", amount=2},
@@ -1119,7 +1119,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-efficiency-2",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-efficiency-module-2", amount=2},
@@ -1135,7 +1135,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-productivity-2",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 18,
     ingredients = {
       {type="item", name="nullius-productivity-module-1", amount=2},
@@ -1151,7 +1151,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-speed-3",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-speed-module-3", amount=2},
@@ -1167,7 +1167,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-efficiency-3",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 20,
     ingredients = {
       {type="item", name="nullius-efficiency-module-3", amount=2},
@@ -1183,7 +1183,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-productivity-3",
     enabled = false,
-    category = "tiny-assembly",
+    categories = {"tiny-assembly"},
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-productivity-module-2", amount=2},
@@ -1199,7 +1199,7 @@ data:extend({
     type = "recipe",
     name = "nullius-coprocessor-quantum",
     enabled = false,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 60,
     ingredients = {
       {type="item", name="nullius-yield-module-4", amount=1},

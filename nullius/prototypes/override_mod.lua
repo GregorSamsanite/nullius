@@ -1627,7 +1627,7 @@ if (mods["GCKI"] and (data.raw.item["car-key"] ~= nil)) then
       name = "nullius-car-key",
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 3,
       ingredients = {
         {type = "item", name = "programmable-speaker", amount = 1},

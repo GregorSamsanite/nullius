@@ -340,7 +340,6 @@ data:extend({
           name = "nullius-volcanic-gas",
           amount_min = 10,
           amount_max = 10,
-          probability = 1,
           temperature = 200
         }
       }
