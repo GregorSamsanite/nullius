@@ -937,6 +937,18 @@ data.raw["assembling-machine"]["nullius-hydro-plant-2"].graphics_set.working_vis
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].graphics_set.working_visualisations[4] = nil
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].graphics_set.working_visualisations[5] = nil
 
+local function oil_refinery_graphics_set(tint)
+  -- FIXME: don't tint the shadow
+  local base_set = require("__base__/prototypes/entity/oil-refinery-animation")
+  return {
+    animation = util.recursive_tint(
+      table.deepcopy(base_set.animation),
+      tint
+    ),
+    working_visualisations = base_set.working_visualisations,
+  }
+end
+
 data:extend({
   {
     type = "assembling-machine",
@@ -1009,52 +1021,7 @@ data:extend({
     fast_replaceable_group = "distillery",
     next_upgrade = "nullius-distillery-2",
 
-    graphics_set = {
-      working_visualisations = {
-        {
-          apply_recipe_tint = "primary",
-          constant_speed = true,
-          north_position = {1, -3.85},
-          east_position = {-1.7, -3.8},
-          south_position = {-1.85, -4.4},
-          west_position = {1.7, -3.65},
-          render_layer = "wires",
-          animation = {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
-            frame_count = 47,
-            line_length = 16,
-            width = 90,
-            height = 188,
-            animation_speed = 0.25,
-            scale = 0.7
-          }
-        },
-      },
-  
-      animation = make_4way_animation_from_spritesheet({
-        layers = {
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
-              width = 386,
-              height = 430,
-              frame_count = 1,
-              shift = util.by_pixel(0, -7.5),
-              scale = 0.5,
-              tint = {0.77, 0.77, 0.66, 1}
-          },
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
-              width = 674,
-              height = 426,
-              frame_count = 1,
-              shift = util.by_pixel(82.5, 26.5),
-              draw_as_shadow = true,
-              force_hr_shadow = true,
-              scale = 0.5
-          }
-        }
-      })
-    }
+    graphics_set = oil_refinery_graphics_set({0.77, 0.77, 0.66, 1}),
   }
 })
 
@@ -1129,32 +1096,7 @@ data:extend({
       }
     },
 
-    graphics_set = {
-      animation = make_4way_animation_from_spritesheet({
-        layers = {
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
-              width = 386,
-              height = 430,
-              frame_count = 1,
-              shift = util.by_pixel(0, -7.5),
-              scale = 0.5,
-              tint = {0.8, 0.8, 1, 1}
-          },
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
-              width = 674,
-              height = 426,
-              frame_count = 1,
-              shift = util.by_pixel(82.5, 26.5),
-              draw_as_shadow = true,
-              force_hr_shadow = true,
-              scale = 0.5
-          }
-        }
-      }),
-      working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].graphics_set.working_visualisations,
-    }
+    graphics_set = oil_refinery_graphics_set({0.8, 0.8, 1, 1}),
   },
 
   {
@@ -1192,10 +1134,7 @@ data:extend({
     fast_replaceable_group = "distillery",
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["oil-refinery"],
-    graphics_set = {
-      animation = data.raw["assembling-machine"]["oil-refinery"].graphics_set.animation,
-      working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].graphics_set.working_visualisations,
-    },
+    graphics_set = data.raw["assembling-machine"]["oil-refinery"].graphics_set,
 
     fluid_boxes = {
       {
