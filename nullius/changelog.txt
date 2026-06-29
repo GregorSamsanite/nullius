@@ -15,6 +15,7 @@ Date: xx.xx.2026
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
+    - Researching Robotic construction 1 now properly unlocks destroyed entities becoming ghosts.
     - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
   Optimizations:
     - Improved performance of arboriculture drones.
