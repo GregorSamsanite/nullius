@@ -24,7 +24,8 @@ local transport_drone_recipe_names = {
 }
 
 local transport_system_recipe_names = {
-  "transport-drone", "road", "supply-depot", "request-depot", "fluid-depot"
+  "transport-drone", "road", "supply-depot", "request-depot",
+  "buffer-depot", "fluid-depot", "fuel-depot", "drone-dispatcher"
 }
 
 local transport_infrastructure_recipe_names = {
@@ -60,6 +61,22 @@ local function unlock_recipes(force, recipe_names)
   end
 end
 
+local function unlock_technology_recipes(force, technology, recipe_names)
+  if technology.prototype == nil then return end
+  local unlocked_by_technology = {}
+  for _, effect in pairs(technology.prototype.effects or {}) do
+    if effect.type == "unlock-recipe" and effect.recipe then
+      unlocked_by_technology[effect.recipe] = true
+    end
+  end
+  for _, name in pairs(recipe_names) do
+    local recipe = force.recipes[name]
+    if recipe and unlocked_by_technology[name] then
+      recipe.enabled = true
+    end
+  end
+end
+
 local function unlock_researched_tech_recipes(force)
   for _, technology in pairs(force.technologies) do
     if technology.researched and technology.prototype then
@@ -89,7 +106,7 @@ local function refresh_transport_drone_recipes(force)
 
   local transport_system = force.technologies["transport-system"]
   if ((transport_system ~= nil) and transport_system.researched) then
-    unlock_recipes(force, transport_system_recipe_names)
+    unlock_technology_recipes(force, transport_system, transport_system_recipe_names)
   end
 
   local transport_fluids = force.technologies["transport-fluids"]
