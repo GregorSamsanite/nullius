@@ -4,7 +4,7 @@ Date: xx.xx.2026
   Features:
     - Support for Factorio 2.1
   Changes:
-    - Asteroid Miner 1 is guaranteed to produce exactly one guide drone. Asteroid Miner 2 is unchanged.
+    - Asteroid Miner 1 is guaranteed to produce exactly one guide drone, while Asteroid Miner 2 is guaranteed to produce at least one.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
 Date: xx.xx.2026

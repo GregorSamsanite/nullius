@@ -702,10 +702,10 @@ data:extend({
     rocket_launch_products = {
       {type = "item", name="nullius-guide-drone-iron-1",      amount=1, independent_probability=0.9},
       {type = "item", name="nullius-guide-drone-sandstone-1", amount=1, independent_probability=0.8},
-      {type = "item", name="nullius-guide-drone-bauxite-1",   amount=1, independent_probability=0.7},
+      {type = "item", name="nullius-guide-drone-bauxite-1",   amount=1, shared_probability={min=0.0, max=0.7}},
       {type = "item", name="nullius-guide-drone-limestone-1", amount=1, independent_probability=0.5},
       {type = "item", name="nullius-guide-drone-copper-1",    amount=1, independent_probability=0.4},
-      {type = "item", name="nullius-guide-drone-uranium-1",   amount=1, independent_probability=0.3}
+      {type = "item", name="nullius-guide-drone-uranium-1",   amount=1, shared_probability={min=0.7, max=1.0}}
     }
   },
   {
