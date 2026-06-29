@@ -2415,7 +2415,7 @@ data:extend({
     localised_name = {"entity-name.duct-small"},
     enabled = false,
     always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-box-steel-plate", amount = 1},
@@ -3997,7 +3997,7 @@ if mods["ch-concentrated-solar"] then
       localised_name = {"entity-name.chcs-heliostat-mirror"},
       enabled = false,
       always_show_made_in = true,
-      categories = {"hand-casting"},
+      categories = {"machine-casting", "hand-crafting"},
       energy_required = 10,
       ingredients = {
 	    {type = "item", name = "nullius-aluminum-sheet", amount = 8},

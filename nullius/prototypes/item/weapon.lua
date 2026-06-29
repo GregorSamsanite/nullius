@@ -737,7 +737,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "cliff-explosives", amount = 1},
@@ -772,7 +772,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "nullius-box-magazine", amount = 2},

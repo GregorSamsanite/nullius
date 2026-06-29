@@ -102,10 +102,6 @@ data:extend({
   },
   {
     type = "recipe-category",
-    name = "hand-casting",
-  },
-  {
-    type = "recipe-category",
     name = "machine-casting",
   },
   {

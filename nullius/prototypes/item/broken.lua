@@ -339,7 +339,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     no_productivity = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     subgroup = "broken",
     order = "nullius-q",
     energy_required = 8,

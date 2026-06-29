@@ -883,7 +883,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"machine-casting", "hand-casting"},
+    crafting_categories = {"machine-casting"},
     crafting_speed = 1,
     energy_source = {
       type = "electric",
@@ -940,7 +940,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"machine-casting", "hand-casting"},
+    crafting_categories = {"machine-casting"},
     crafting_speed = 2,
     energy_source = {
       type = "electric",
@@ -994,7 +994,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"machine-casting", "hand-casting"},
+    crafting_categories = {"machine-casting"},
     crafting_speed = 4,
     energy_source = {
       type = "electric",

@@ -1271,7 +1271,7 @@ data:extend({
       }
     },
     enabled = false,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     subgroup = "canisters",
     order = "nullius-bb",
     always_show_made_in = true,
@@ -1334,7 +1334,7 @@ data:extend({
     name = "nullius-barrel-2",
 	  localised_name = {"", {"item-name.barrel"}, " ", tostring(2)},
     enabled = false,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     subgroup = "canisters",
     order = "nullius-bc",
     always_show_made_in = true,
@@ -1380,7 +1380,7 @@ data:extend({
     icon_size = 64,
     
     enabled = false,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
 	  subgroup = "canister-emptying",
     order = "nullius-b",
     always_show_made_in = true,

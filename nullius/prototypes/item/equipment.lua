@@ -144,7 +144,7 @@ data:extend({
     type = "recipe",
     name = "nullius-chassis-3",
     enabled = false,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     always_show_made_in = true,
     energy_required = 60,
     ingredients = {
@@ -164,7 +164,7 @@ data:extend({
     name = "nullius-chassis-4",
     enabled = false,
     always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 120,
     ingredients = {
       {type = "item", name = "nullius-titanium-plate", amount = 20},
@@ -184,7 +184,7 @@ data:extend({
     name = "nullius-chassis-5",
     enabled = false,
     always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 250,
     ingredients = {
       {type = "item", name = "nullius-box-titanium-plate", amount = 8},
@@ -208,7 +208,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
 	order = "nullius-efl",
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 250,
     ingredients = {
       {type = "item", name = "nullius-box-titanium-plate", amount = 8},
@@ -3584,7 +3584,7 @@ data:extend({
     name = "nullius-armor-plate",
     enabled = false,
     always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 12,
     ingredients = {
       {type = "item", name = "nullius-steel-plate", amount = 3},
@@ -3984,7 +3984,7 @@ data:extend({
     show_amount_in_title = false,
     always_show_products = true,
 	always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 4,
     ingredients = {
       {type="item", name="nullius-iron-plate", amount=2},
@@ -4231,7 +4231,7 @@ data:extend({
     name = "nullius-shackle",
     enabled = false,
     always_show_made_in = true,
-    categories = {"hand-casting"},
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 10,
     ingredients = {
       {type="item", name="nullius-iron-ingot", amount=8},
