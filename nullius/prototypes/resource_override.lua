@@ -3,7 +3,7 @@ local resource_autoplace = require("resource-autoplace")
 function remove_autoplace(resource)
   if data.raw.resource[resource] then
     data.raw["autoplace-control"][resource] = nil
-	  data.raw.resource[resource].autoplace = nil
+    data.raw.resource[resource].autoplace = nil
   end
   for _, preset in pairs(data.raw["map-gen-presets"]["default"]) do
     if ((preset.basic_settings ~= nil) and
