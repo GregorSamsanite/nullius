@@ -13,6 +13,7 @@ Date: xx.xx.2026
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
+    - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.9
 Date: 09.06.2026
