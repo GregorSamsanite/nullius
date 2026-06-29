@@ -618,30 +618,42 @@ data:extend({
   }
 })
 
+---@param recipe data.RecipePrototype
+---@param category string
+---@return boolean
+local function is_category(recipe, category)
+  for _, cat in pairs(recipe.categories or {}) do
+    if cat == category then
+      return true
+    end
+  end
+  return false
+end
+
 -- Fix localised names and icons for voiding recipes
 for _, recipe in pairs(data.raw.recipe) do
-  if recipe.category == "nullius-liquid-void" then
+  if is_category(recipe, "nullius-liquid-void") then
     recipe.localised_name = {"recipe-name.nullius-liquid-void", {"fluid-name."..recipe.ingredients[1].name}}
     if recipe.icons ~= nil then
       local newIcons = table.deepcopy(recipe.icons)
       table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.6, icon_size=64, shift = {-10,10}, tint = {0.8,0.8,0.8,0.8}})
       recipe.icons = newIcons
     end
-  elseif recipe.category == "nullius-gas-void" then
+  elseif is_category(recipe, "nullius-gas-void") then
     recipe.localised_name = {"recipe-name.nullius-gas-void", {"fluid-name."..recipe.ingredients[1].name}}
     if recipe.icons ~= nil then
       local newIcons = table.deepcopy(recipe.icons)
       table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.6, icon_size=64, shift = {-10,10}, tint = {0.8,0.8,0.8,0.8}})
       recipe.icons = newIcons
     end
-  elseif recipe.category == "turbine-open" then --or recipe.category == "turbine-closed" then 
+  elseif is_category(recipe, "turbine-open") then --or is_category(recipe, "turbine-closed") then 
     if recipe.icons ~= nil then
       local newIcons = table.deepcopy(recipe.icons)
       table.insert(newIcons,{icon = ICONPATH.."fluid/energy.png", scale=0.6, icon_size=32, shift = {-5,5}})
       table.insert(newIcons,{icon = ICONPATH.."red_cross.png", scale=0.4, icon_size=64, shift = {10,10}})
       recipe.icons = newIcons
     end
-  elseif recipe.category == "turbine-closed" then 
+  elseif is_category(recipe, "turbine-closed") then 
     if recipe.icons ~= nil then
       local newIcons = table.deepcopy(recipe.icons)
       table.insert(newIcons,{icon = ICONPATH.."fluid/energy.png", scale=0.6, icon_size=32, shift = {-5,5}})
