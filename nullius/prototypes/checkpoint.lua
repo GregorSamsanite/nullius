@@ -5,9 +5,8 @@ local function checkmark(scale)
   return {
     icon = ICONPATH .. "checkpoint.png",
     icon_size = 64,
-    
-	tint = {0.6, 0.6, 0.6, 0.6},
-	scale = scale
+    tint = {0.6, 0.6, 0.6, 0.6},
+    scale = scale
   }
 end
 
@@ -315,10 +314,10 @@ data:extend({
         icon_size = 64,
         
       },
-	  {
-	    icon = "__nullius__/graphics/technology/tech_windturbine1.png",
-	    icon_size = 254,
-		scale = 0.5
+	    {
+	      icon = "__nullius__/graphics/technology/tech_windturbine1.png",
+	      icon_size = 254,
+		    scale = 0.5
       }
     },
     unit = {
@@ -345,17 +344,10 @@ data:extend({
     order = "nullius-yc",
     icons = {
       {
-        icon = BASEICON .. "steam-turbine.png",
-        icon_size = 64,
-        
+        icon = "__base__/graphics/technology/steam-power.png",
+        icon_size = 256,
       },
-      {
-        icon = BASEICON .. "fluid/steam.png",
-        icon_size = 64,
-        
-		scale = 1.8,
-		tint = {0.75, 0.75, 0.75, 0.75}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1277,12 +1269,11 @@ data:extend({
 	    {"technology-description.nullius-item", tostring(100), "nullius-battery-1", {"item-name.nullius-battery-1"}}},
     order = "nullius-ye",
     icons = {
-	  {
-        icon = "__base__/graphics/icons/battery-equipment.png",
-        icon_size = 64,
-        
-	  },
-          checkmark(2)
+	    {
+        icon = "__base__/graphics/technology/battery.png",
+        icon_size = 256,  
+	    },
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1542,7 +1533,7 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/productivity-module-2.png",
+        icon = "__base__/graphics/technology/productivity-module-1.png",
         icon_size = 256,
         
       },
@@ -1863,7 +1854,6 @@ data:extend({
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        
       },
       {
         icon = ICONPATH .. "android1.png",
@@ -1888,12 +1878,11 @@ data:extend({
 		    "nullius-box-battery-2", {"item-name.nullius-battery-2"}}},
     order = "nullius-yf",
     icons = {
-	  {
-        icon = "__base__/graphics/icons/battery-equipment.png",
-        icon_size = 64,
-        
-	  },
-          checkmark(2)
+      {
+          icon = "__base__/graphics/technology/battery-mk2-equipment.png",
+          icon_size = 256,
+      },
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -2002,7 +1991,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-checkpoint-processor-2",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization", 
 	    {"item-name.nullius-processor-2"}}},
     localised_description = {"technology-description.nullius-consume",
 	    {"technology-description.nullius-item-boxable", tostring(1000), "nullius-processor-2",
@@ -2014,7 +2003,7 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__base__/graphics/technology/processing-unit.png",
+        icon = "__base__/graphics/technology/advanced-circuit.png",
         icon_size = 256,
         
 		scale = 0.2

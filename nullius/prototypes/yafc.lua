@@ -30,6 +30,8 @@ local starting_items = {
 
 table.insert(data.script_enabled, {type = "entity", name = "uranium-ore"})
 table.insert(data.script_enabled, {type = "entity", name = "copper-ore"})
+table.insert(data.script_enabled, {type = "entity", name = "nullius-landing-lab"})
+
 
 for _, itemname in pairs(starting_items) do
   table.insert(data.script_enabled, {type = "item", name = itemname})
@@ -39,4 +41,13 @@ for _, tech in pairs(data.raw.technology) do
   if (string.sub(tech.name, 1, 19) == "nullius-checkpoint-") then
     table.insert(data.script_enabled, {type = "technology", name = tech.name})
   end
+end
+
+if data.data_crawler and string.sub(data.data_crawler,1,4)=="yafc" then
+	if data.raw.lab.lab then
+	    data.raw.lab.lab.inputs = {}
+	end
+	if data.raw.lab["nullius-hidden-lab"] then
+	    data.raw.lab["nullius-hidden-lab"].inputs = {}
+	end
 end
