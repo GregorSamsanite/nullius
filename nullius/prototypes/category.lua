@@ -38,10 +38,6 @@ data:extend({
   },
   {
     type = "recipe-category",
-    name = "hand-crushing",
-  },
-  {
-    type = "recipe-category",
     name = "bio-harvesting",
   },
   {

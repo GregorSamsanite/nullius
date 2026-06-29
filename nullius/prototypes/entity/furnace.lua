@@ -1049,7 +1049,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"ore-crushing", "hand-crushing"},
+    crafting_categories = {"ore-crushing"},
     crafting_speed = 1,
     module_slots = 1,
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
@@ -1132,7 +1132,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"ore-crushing", "hand-crushing"},
+    crafting_categories = {"ore-crushing"},
     crafting_speed = 2,
     energy_source = {
       type = "electric",
@@ -1213,7 +1213,7 @@ data:extend({
     dying_explosion = "medium-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    crafting_categories = {"ore-crushing", "hand-crushing", "bio-harvesting"},
+    crafting_categories = {"ore-crushing", "bio-harvesting"},
     crafting_speed = 4,
     energy_source = {
       type = "electric",
