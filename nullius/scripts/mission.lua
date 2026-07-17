@@ -94,8 +94,8 @@ function update_mission_panel(player)
 				  {"objective-description.nullius-suffix-"..suffix},
 				  "[/color]"},
 			  tooltip = {"objective-description.nullius-vented"}})
-		end
-	  end
+        end
+      end
     end
   end
 end
@@ -122,7 +122,9 @@ end
 
 local function update_mission_global()
   for _, player in pairs(game.players) do
-    update_mission_player(player)
+    if player.connected then
+      update_mission_player(player)
+    end
   end
 end
 
