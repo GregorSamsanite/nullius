@@ -10,6 +10,16 @@ local function checkmark(scale)
   }
 end
 
+local checkpoint_mining_iron = "iron-ore"
+local checkpoint_mining_iron_box = "nullius-box-iron-ore"
+local checkpoint_mining_iron_localised = {"item-name.iron-ore"}
+if mods["tricky-old-nick"] then
+  checkpoint_mining_iron = "nullius-nickel-ore"
+  checkpoint_mining_iron_box = "nullius-box-nickel-ore"
+  checkpoint_mining_iron_localised = {"item-name.nullius-nickel-ore"}
+end
+
+
 data:extend({
   {
     type = "technology",
@@ -1819,7 +1829,7 @@ data:extend({
 	    {"technology-name.nullius-mining"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    tostring(1200000),"iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
+		    tostring(1200000), checkpoint_mining_iron, checkpoint_mining_iron_box, checkpoint_mining_iron_localised}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
 		    tostring(900000),"nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
