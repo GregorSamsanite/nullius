@@ -468,80 +468,138 @@ function arboriculture_effect(event)
   local c = tile_center(event)
   local a = area_bound(c, 96)
   local worm_count = count_decoratives(s, a, 10, "worms-decal")
-  local turrets = s.count_entities_filtered{limit=10, area=a,
-	  name = {"small-worm-turret", "medium-worm-turret",
-	      "big-worm-turret", "behemoth-worm-turret"}}
+  local turrets = s.count_entities_filtered{
+    limit=10, area=a,
+	  name = {"small-worm-turret", "medium-worm-turret", "big-worm-turret", "behemoth-worm-turret"}
+  }
 
-  local fumarole_count = s.count_entities_filtered{area=area_bound(c, 256),
-      position=c, radius=256, limit=20, name="nullius-fumarole"}
-  local count = 24 * (1 + (math.random() * 2) - fumarole_count +
-      (math.sqrt(worm_count + (turrets * 1.5)) * (2 + (4 * math.random()))))
+  local fumarole_count = s.count_entities_filtered{
+    area=area_bound(c, 256),
+    position=c, radius=256, limit=20, name="nullius-fumarole"
+  }
+  local count = (
+    24 * (
+      1 + (math.random() * 2) - fumarole_count + (
+        math.sqrt(worm_count + (turrets * 1.5)) * (2 + (4 * math.random()))
+      )
+    )
+  )
   local bump_count = 0
+  local function place_tree(p, temp, moist)
+    if (temp == nil) then temp = 5 end
+    if (moist == nil) then moist = 0.4 end
+    temp = math.max(0, math.min(1, ((temp + 6) / 52)))
+    moist = math.max(0, math.min(1, moist))
+    local temp_score = (4 * temp * (1 - temp))
+    local moist_score = (1 - ((1 - moist) * (1 - moist)))
+
+    if ((math.random() * 4) < (2 + temp_score + moist_score)) then
+      local ti = ((2 * temp) + math.random())
+      local mi = ((2 * moist) + math.random())
+      local treenum = 8
+      if (ti < 1) then
+        if (mi < 1) then treenum = 1
+        elseif (mi > 2) then treenum = 9
+        else treenum = 2 end
+      elseif (ti > 2) then
+        if (mi < 1) then treenum = 6
+        elseif (mi > 2) then treenum = 4
+        else treenum = 3 end
+      else
+        if (mi < 1) then treenum = 8
+        elseif (mi > 2) then treenum = 7
+        else treenum = 5 end
+      end
+      if (s.create_entity({name="tree-0"..treenum, amount=1, position=p}) ~= nil) then
+        bump_count = bump_count + 1
+      end
+    end
+  end
+
+  -- `calculate_tile_properties` is an expensive operation, so we want to minimize how many times we call it
+  -- to do so, we're calling it a fixed number of times and then interpolating the results for each tree to be placed.
   local propnames = {[1] = "temperature", [2] = "moisture"}
+  local positions_for_tile_properties = {}
+  local max_distance = 92 -- must match the `distance` formula calculated later.
+  local interpolate_count = 4
+
+  local interpolate_top_left = {
+    x = c.x - max_distance,
+    y = c.y - max_distance
+  }
+  local interpolate_step = (max_distance * 2) / (interpolate_count - 1)
+  for x = 0, interpolate_count - 1 do
+    for y = 0, interpolate_count - 1 do
+      table.insert(positions_for_tile_properties, {
+        x = interpolate_top_left.x + x * interpolate_step,
+        y = interpolate_top_left.y + y * interpolate_step,
+      })
+    end
+  end
+  local properties = s.calculate_tile_properties(propnames, positions_for_tile_properties)
+
+  ---Calculates the temperature and moisture at a given position by interpolating the closest 4 sampled points.
+  ---@param pos data.MapPosition.struct
+  ---@return float
+  ---@return float
+  local function interpolate_temperature_moisture(pos)
+    local gx = ((pos.x - interpolate_top_left.x) / interpolate_step)
+    local gy = ((pos.y - interpolate_top_left.y) / interpolate_step)
+    local x0 = math.max(0, math.min(interpolate_count - 2, math.floor(gx)))
+    local y0 = math.max(0, math.min(interpolate_count - 2, math.floor(gy)))
+    local fx = math.max(0, math.min(1, gx - x0))
+    local fy = math.max(0, math.min(1, gy - y0))
+
+    local i00 = ((x0 * interpolate_count) + y0 + 1)
+    local i01 = (i00 + 1)
+    local i10 = (i00 + interpolate_count)
+    local i11 = (i10 + 1)
+
+    local function bilinear(v)
+      local top = (v[i00] + ((v[i10] - v[i00]) * fx))
+      local bottom = (v[i01] + ((v[i11] - v[i01]) * fx))
+      return (top + ((bottom - top) * fy))
+    end
+
+    return bilinear(properties["temperature"]), bilinear(properties["moisture"])
+  end
 
   for _ = 1, count do
     local angle = (8 * math.pi * math.random())
     local distance = ((math.random() * 120) + (math.random() * 64) - 92)
-    local p = {x = c.x + (math.cos(angle) * distance),
-	    y = c.y + (math.sin(angle) * distance)}
+    local p = {
+      x = c.x + (math.cos(angle) * distance),
+	    y = c.y + (math.sin(angle) * distance),
+    }
     local p = s.find_non_colliding_position("tree-05", p, 6, 0.1)
     if (p ~= nil) then
-	  local overlap_obstacle = s.count_entities_filtered{
-	      area=area_bound(p, 1.2), limit=2}
+      local overlap_obstacle = s.count_entities_filtered{
+        area=area_bound(p, 1.2), limit=2
+      }
       if ((overlap_obstacle < 1) or (math.random() < 0.4)) then
-		local near_tiles = s.find_tiles_filtered{area=area_bound(p, 1.8),
-		    radius=1.6, collision_mask="ground_tile"}
-		local near_num = 0
-		for _,nt in pairs(near_tiles) do
-		  near_num = near_num + 1
-	    end
-		local near = near_tiles[math.floor(1 + (math.random() * near_num))]
+        local near_tiles = s.find_tiles_filtered{
+          area=area_bound(p, 1.8),
+          radius=1.6, collision_mask="ground_tile"
+        }
+        local near_num = #near_tiles
+        local near = near_tiles[math.floor(1 + (math.random() * near_num))]
 
-		if (near ~= nil) then
-		  local level = grass_level(near.name)
-		  local rf = (2.5 * math.random())
-		  if ((rf * rf) < level) then
-            local ore_count = s.count_entities_filtered{area=area_bound(p, 21),
-		        position=p, radius=20, limit=100, type="resource"}
+        if (near ~= nil) then
+          local level = grass_level(near.name)
+          local rf = (2.5 * math.random())
+          if ((rf * rf) < level) then
+            local ore_count = s.count_entities_filtered{
+              area=area_bound(p, 21),
+              position=p, radius=20, limit=100, type="resource"
+            }
             if ((ore_count < 1) or (math.random() < (1 - (ore_count / 100)))) then
-              local properties = s.calculate_tile_properties(propnames,
-			      {[1]=near.position})
-              local temp = properties["temperature"][1]
-              local moist = properties["moisture"][1]
-			  if (temp == nil) then temp = 5 end
-			  if (moist == nil) then moist = 0.4 end
-			  temp = math.max(0, math.min(1, ((temp + 6) / 52)))
-			  moist = math.max(0, math.min(1, moist))
-			  local temp_score = (4 * temp * (1 - temp))
-			  local moist_score = (1 - ((1 - moist) * (1 - moist)))
-
-			  if ((math.random() * 4) < (2 + temp_score + moist_score)) then
-			    local ti = ((2 * temp) + math.random())
-			    local mi = ((2 * moist) + math.random())
-				local treenum = 8
-				if (ti < 1) then
-				  if (mi < 1) then treenum = 1
-				  elseif (mi > 2) then treenum = 9
-				  else treenum = 2 end
-				elseif (ti > 2) then
-				  if (mi < 1) then treenum = 6
-				  elseif (mi > 2) then treenum = 4
-				  else treenum = 3 end
-				else
-				  if (mi < 1) then treenum = 8
-				  elseif (mi > 2) then treenum = 7
-				  else treenum = 5 end
-				end
-                if (s.create_entity({name="tree-0"..treenum,
-				    amount=1, position=p}) ~= nil) then
-				  bump_count = bump_count + 1
-				end
-			  end
-			end
-		  end
+              local temp, moist = interpolate_temperature_moisture(p)
+              place_tree(p, temp, moist)
+            end
+          end
         end
-	  end
-	end
+      end
+    end
   end
 
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
