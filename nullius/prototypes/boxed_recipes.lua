@@ -4,7 +4,7 @@
 ---@field name? string
 ---@field localised_name? string
 ---@field scale_existing_icons? double
----@field add_box_icon? boolean
+---@field add_box_icon? boolean|string
 ---@field icons? boolean
 ---@field icon_override? (table<string, any>)[]
 ---@field category? string
@@ -108,8 +108,12 @@ for name, recipe in pairs(data.raw.recipe) do
     end
 
     if boxed.icons and auto_boxed.add_box_icon ~= false then
+      local create_icon = "__nullius__/graphics/icons/crate.png"
+      if type(auto_boxed.add_box_icon) == "string" then
+        create_icon = auto_boxed.add_box_icon
+      end
       table.insert(boxed.icons, 1, {
-        icon = "__nullius__/graphics/icons/crate.png",
+        icon = create_icon,
         icon_size = 64,
       })
     end
