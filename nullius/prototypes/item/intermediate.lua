@@ -170,11 +170,10 @@ data:extend({
       {
         icon = "__base__/graphics/icons/utility-science-pack.png",
         icon_size = 64,
-        
       },
       {
-		icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
-		icon_size = 32,
+        icon = "__angelsrefininggraphics__/graphics/icons/iron-pebbles.png",
+        icon_size = 32,
         scale = 0.55,
         shift = {0, 6},
         tint = {r=0.85, g=0.85, b=0.7, a=0.85}
@@ -196,28 +195,14 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-geology-pack", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-geology-pack",
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    hide_from_signal_gui = false,
-    enabled = false,
-    category = "large-assembly",
-    subgroup = "boxed-science",
-    energy_required = 40,
-    ingredients = {
-      {type = "item", name = "nullius-box-crushed-iron-ore", amount = 1},
-      {type = "item", name = "nullius-box-crushed-bauxite", amount = 1},
-      {type = "item", name = "nullius-box-crushed-limestone", amount = 1},
-      {type = "item", name = "nullius-box-sand", amount = 1},
-      {type = "item", name = "nullius-box-mineral-dust", amount = 4}
     },
-    results = {
-      {type = "item", name = "nullius-box-geology-pack", amount = 1}
+
+    auto_boxed = {
+      name = "nullius-boxed-geology-pack",
+      localised_name = false,
+      icons = false,
+      category = "large-assembly",
+      subgroup = "boxed-science",
     }
   },
 
