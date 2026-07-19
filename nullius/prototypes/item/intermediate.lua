@@ -501,22 +501,11 @@ data:extend({
       {type="item", name="nullius-crushed-copper-ore", amount=3},
       {type="item", name="stone", amount=1}
     },
-    main_product = "nullius-crushed-copper-ore"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-crushed-copper-ore",
-    enabled = false,
-    hide_from_signal_gui = false,
-    category = "ore-crushing",
-    subgroup = "boxed-copper",
-    energy_required = 20,
-    ingredients = {{type = "item", name = "nullius-box-copper-ore", amount = 4}},
-    results = {
-      {type="item", name="nullius-box-crushed-copper-ore", amount=3},
-      {type="item", name="nullius-box-stone", amount=1}
-    },
-    main_product = "nullius-box-crushed-copper-ore"
+    main_product = "nullius-crushed-copper-ore",
+
+    auto_boxed = {
+      subgroup = "boxed-copper",
+    }
   },
   {
     type = "recipe",
@@ -536,37 +525,35 @@ data:extend({
       {type="fluid", name="nullius-copper-solution", amount=40},
       {type="fluid", name="nullius-sludge", amount=20}
     },
-    main_product = "nullius-copper-solution"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-copper-solution",
-    localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-copper-solution"}},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
+    main_product = "nullius-copper-solution",
+    
+    auto_boxed = {
+      localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-copper-solution"}},
+      subgroup = "boxed-copper",
+      order = "nullius-pd",
+
+      icons = {
+        {
+          icon = ICONPATH .. "crate.png",
+          icon_size = 64
+        },
+        data.raw.fluid["nullius-copper-solution"].icons[2],
+        data.raw.fluid["nullius-copper-solution"].icons[3],
+        data.raw.fluid["nullius-copper-solution"].icons[4]
       },
-      data.raw.fluid["nullius-copper-solution"].icons[2],
-      data.raw.fluid["nullius-copper-solution"].icons[3],
-      data.raw.fluid["nullius-copper-solution"].icons[4]
-    },
-    enabled = false,
-    icon_size = 32,
-    category = "ore-flotation",
-    subgroup = "boxed-copper",
-    order = "nullius-pd",
-    energy_required = 15,
-    ingredients = {
-      {type="item", name="nullius-box-crushed-copper-ore", amount=1},
-      {type="fluid", name="nullius-acid-sulfuric", amount=25},
-      {type="fluid", name="nullius-solvent", amount=15}
-    },
-    results = {
-      {type="fluid", name="nullius-copper-solution", amount=40},
-      {type="fluid", name="nullius-sludge", amount=20}
-    },
-    main_product = "nullius-copper-solution"
+
+      -- When boxed, the only difference is taking 1 box instead of 5 ore.
+      energy_required = 15,
+      ingredients = {
+        {type="item", name="nullius-box-crushed-copper-ore", amount=1},
+        {type="fluid", name="nullius-acid-sulfuric", amount=25},
+        {type="fluid", name="nullius-solvent", amount=15}
+      },
+      results = {
+        {type="fluid", name="nullius-copper-solution", amount=40},
+        {type="fluid", name="nullius-sludge", amount=20}
+      },
+    }
   },
   {
     type = "recipe",
@@ -581,23 +568,11 @@ data:extend({
       {type="item", name="nullius-copper-ingot", amount=3},
       {type="fluid", name="nullius-wastewater", amount=10, fluidbox_index=1}
     },
-    main_product = "nullius-copper-ingot"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-copper-ingot",
-    enabled = false,
-    category = "nullius-electrolysis",
-    subgroup = "boxed-copper",
-    energy_required = 5,
-    ingredients = {
-      {type="fluid", name="nullius-copper-solution", amount=100}
-    },
-    results = {
-      {type="item", name="nullius-box-copper-ingot", amount=3},
-      {type="fluid", name="nullius-wastewater", amount=50, fluidbox_index=1}
-    },
-    main_product = "nullius-box-copper-ingot"
+    main_product = "nullius-copper-ingot",
+    
+    auto_boxed = {
+      subgroup = "boxed-copper",
+    }
   },
   {
     type = "recipe",
@@ -613,23 +588,10 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-copper-wire", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-copper-wire",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "machine-casting",
-    subgroup = "boxed-copper",
-    energy_required = 5,
-    ingredients = {
-      {type="item", name="nullius-box-copper-ingot", amount=1},
-      {type="fluid", name="nullius-lubricant", amount=5}
     },
-    results = {
-      {type = "item", name = "nullius-box-copper-wire", amount = 2}
+    
+    auto_boxed = {
+      subgroup = "boxed-copper",
     }
   },
   {
@@ -646,23 +608,10 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-copper-sheet", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-copper-sheet",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "machine-casting",
-    subgroup = "boxed-copper",
-    energy_required = 5,
-    ingredients = {
-      {type="item", name="nullius-box-copper-ingot", amount=1},
-      {type="fluid", name="nullius-acid-sulfuric", amount=5}
     },
-    results = {
-      {type = "item", name = "nullius-box-copper-sheet", amount = 1}
+    
+    auto_boxed = {
+      subgroup = "boxed-copper",
     }
   },
 
