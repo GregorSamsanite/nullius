@@ -5692,30 +5692,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-boxed-robot-frame-1",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-gb",
-    energy_required = 75,
-    ingredients = {
-      {type = "item", name = "nullius-box-turbine-open-2", amount = 1},
-      {type = "item", name = "nullius-box-capacitor", amount = 4},
-      {type = "item", name = "nullius-box-inserter-2", amount = 3},
-      {type = "item", name = "nullius-box-memory-circuit", amount = 3},
-      {type = "item", name = "nullius-box-antenna", amount = 2},
-      {type = "item", name = "nullius-box-sensor-1", amount = 2},
-      {type = "item", name = "nullius-box-aluminum-plate", amount = 3}
-    },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-1", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
     name = "nullius-legacy-robot-frame-1",
     enabled = false,
 	  hidden = true,
@@ -5737,33 +5713,14 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-robot-frame-1", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-legacy-boxed-robot-frame-1",
-    enabled = false,
-	  hidden = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-gbl",
-    energy_required = 60,
-    ingredients = {
-      {type = "item", name = "nullius-box-turbine-open-1", amount = 1},
-      {type = "item", name = "nullius-box-capacitor", amount = 2},
-      {type = "item", name = "nullius-box-inserter-2", amount = 2},
-      {type = "item", name = "nullius-box-memory-circuit", amount = 2},
-      {type = "item", name = "nullius-box-antenna", amount = 1},
-      {type = "item", name = "nullius-box-aluminum-sheet", amount = 3}
     },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-1", amount = 2}
-    }
+
+    auto_boxed = {
+      name = "nullius-legacy-boxed-robot-frame-1",
+      category = "medium-only-assembly",
+      subgroup = "boxed-hangar",
+      order = "nullius-gbl",
+    },
   },
   {
     type = "recipe",
@@ -5783,29 +5740,13 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-robot-frame-2", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-robot-frame-2",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-gc",
-    energy_required = 50,
-    ingredients = {
-      {type = "item", name = "nullius-box-robot-frame-1", amount = 1},
-      {type = "item", name = "nullius-box-levitation-field-1",amount =  1},
-      {type = "item", name = "nullius-box-battery-1", amount = 2},
-      {type = "item", name = "nullius-box-night-vision-1", amount = 1},
-      {type = "item", name = "nullius-box-fiberglass", amount = 3}
     },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-2", amount = 1}
-    }
+
+    auto_boxed = {
+      category = "medium-only-assembly",
+      subgroup = "boxed-hangar",
+      order = "nullius-gc",
+    },
   },
   {
     type = "recipe",
@@ -5829,32 +5770,14 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-robot-frame-2", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-legacy-boxed-robot-frame-2",
-    enabled = false,
-	  hidden = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-gcl",
-    energy_required = 75,
-    ingredients = {
-      {type = "item", name = "nullius-box-robot-frame-1", amount = 1},
-      {type = "item", name = "nullius-box-turbine-open-2", amount = 1},
-      {type = "item", name = "nullius-box-battery-1", amount = 3},
-      {type = "item", name = "nullius-box-sensor-1", amount = 2},
-      {type = "item", name = "nullius-box-fiberglass", amount = 5}
     },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-2", amount = 2}
-    }
+
+    auto_boxed = {
+      name = "nullius-legacy-boxed-robot-frame-2",
+      category = "medium-only-assembly",
+      subgroup = "boxed-hangar",
+      order = "nullius-gcl",
+    },
   },
   {
     type = "recipe",
@@ -5875,30 +5798,13 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-robot-frame-3", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-robot-frame-3",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-gd",
-    energy_required = 125,
-    ingredients = {
-      {type = "item", name = "nullius-box-robot-frame-2", amount = 2},
-      {type = "item", name = "nullius-box-turbine-open-3", amount = 1},
-      {type = "item", name = "nullius-box-battery-2", amount = 2},
-      {type = "item", name = "nullius-box-carbon-composite", amount = 5},
-      {type = "item", name = "nullius-box-relay-3", amount = 1},
-      {type = "item", name = "nullius-box-inserter-4", amount = 3}
     },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-3", amount = 2}
-    }
+
+    auto_boxed = {
+      category = "medium-only-assembly",
+      subgroup = "boxed-hangar",
+      order = "nullius-gd",
+    },
   },
   {
     type = "recipe",
@@ -5919,30 +5825,13 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-robot-frame-4", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-robot-frame-4",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    always_show_made_in = true,
-    category = "medium-only-assembly",
-    subgroup = "boxed-hangar",
-    order = "nullius-ge",
-    energy_required = 150,
-    ingredients = {
-      {type = "item", name = "nullius-box-robot-frame-3", amount = 1},
-      {type = "item", name = "nullius-box-titanium-sheet", amount = 6},
-      {type = "item", name = "nullius-box-copper-wire", amount = 4},
-      {type = "item", name = "nullius-night-vision-3", amount = 5},
-      {type = "item", name = "nullius-levitation-field-2", amount = 5},
-      {type = "item", name = "nullius-box-processor-3", amount = 2}
     },
-    results = {
-      {type = "item", name = "nullius-box-robot-frame-4", amount = 1}
-    }
+
+    auto_boxed = {
+      category = "medium-only-assembly",
+      subgroup = "boxed-hangar",
+      order = "nullius-ge",
+    },
   },
 
   {
@@ -5971,24 +5860,12 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-fiberglass", amount = 5}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-fiberglass",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "huge-fluid-assembly",
-    subgroup = "boxed-glass",
-    energy_required = 60,
-    ingredients = {
-      {type="item", name="nullius-box-glass-fiber", amount=2},
-      {type="fluid", name="nullius-epoxy", amount=75, fluidbox_index=1}
     },
-    results = {
-      {type = "item", name = "nullius-box-fiberglass", amount = 5}
-    }
+
+    auto_boxed = {
+      category = "huge-fluid-assembly",
+      subgroup = "boxed-glass",
+    },
   },
 
   {
@@ -6017,27 +5894,13 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-carbon-composite", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-carbon-composite",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "machine-casting",
-    subgroup = "boxed-organic-2",
-    order = "nullius-i",
-    energy_required = 40,
-    ingredients = {
-      {type="item", name="nullius-box-carbon-fiber", amount=2},
-      {type="fluid", name="nullius-epoxy", amount=40}
     },
-    results = {
-      {type = "item", name = "nullius-box-carbon-composite", amount = 1}
-    }
-  },
 
+    auto_boxed = {
+      subgroup = "boxed-organic-2",
+      order = "nullius-i",
+    },
+  },
   {
     type = "item",
     name = "nullius-graphene",
@@ -6067,28 +5930,12 @@ data:extend({
       {type="item", name="nullius-silica", amount=3},
       {type="fluid", name="nullius-wastewater", amount=30}
     },
-    main_product = "nullius-graphene"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-graphene",
-    enabled = false,
-    category = "nanotechnology",
-    subgroup = "boxed-organic-2",
-    order = "nullius-j",
-    energy_required = 320,
-    ingredients = {
-      {type="item", name="nullius-box-graphite", amount=8},
-      {type="item", name="nullius-box-monocrystalline-silicon", amount=4},
-      {type="fluid", name="nullius-acid-nitric", amount=175, fluidbox_index=1},
-      {type="fluid", name="nullius-compressed-argon", amount=30, fluidbox_index=2},
+    main_product = "nullius-graphene",
+
+    auto_boxed = {
+      subgroup = "boxed-organic-2",
+      order = "nullius-j",
     },
-    results = {
-      {type="item", name="nullius-box-graphene", amount=3},
-      {type="item", name="nullius-box-silica", amount=3},
-      {type="fluid", name="nullius-wastewater", amount=150}
-    },
-    main_product = "nullius-box-graphene"
   },
 
   {
@@ -6117,26 +5964,12 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-insulation", amount = 2}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-insulation",
-    enabled = false,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "huge-assembly",
-    subgroup = "boxed-glass",
-    energy_required = 30,
-    ingredients = {
-      {type = "item", name = "nullius-box-gypsum", amount = 3},
-      {type = "item", name = "nullius-box-glass-fiber", amount = 2},
-      {type = "item", name = "nullius-box-plastic", amount = 2},
-      {type = "item", name = "nullius-box-textile", amount = 1}
     },
-    results = {
-      {type = "item", name = "nullius-box-insulation", amount = 2}
-    }
+
+    auto_boxed = {
+      category = "huge-assembly",
+      subgroup = "boxed-glass",
+    },
   },
 
   {
@@ -6166,27 +5999,11 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-processor-1", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-processor-1",
-    enabled = false,
-    category = "nanotechnology",
-    subgroup = "boxed-electrical",
-    energy_required = 30,
-    ingredients = {
-      {type="item", name="nullius-box-fiberglass", amount=1},
-      {type="item", name="nullius-box-monocrystalline-silicon", amount=2},
-      {type="item", name="nullius-box-ceramic-powder", amount=1},
-      {type="item", name="nullius-box-memory-circuit", amount=2},
-      {type="item", name="nullius-box-green-wire", amount=2},
-      {type="fluid", name="nullius-acid-nitric", amount=15, fluidbox_index=2},
-      {type="fluid", name="nullius-argon", amount=10, fluidbox_index=3}
     },
-    results = {
-      {type = "item", name = "nullius-box-processor-1", amount = 1}
-    }
+
+    auto_boxed = {
+      subgroup = "boxed-electrical",
+    },
   },
   {
     type = "item",
@@ -6215,27 +6032,11 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-processor-2", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-processor-2",
-    enabled = false,
-    category = "nanotechnology",
-    subgroup = "boxed-electrical",
-    energy_required = 75,
-    ingredients = {
-      {type="item", name="nullius-box-processor-1", amount=2},
-      {type="item", name="nullius-box-arithmetic-circuit", amount=2},
-      {type="item", name="nullius-box-battery-1", amount=1},
-      {type="item", name="nullius-box-heat-pipe-2", amount=1},
-      {type="item", name="nullius-box-graphene", amount=1},
-      {type="fluid", name="nullius-acid-sulfuric", amount=20, fluidbox_index=2},
-      {type="fluid", name="nullius-helium", amount=40, fluidbox_index=3}
     },
-    results = {
-      {type = "item", name = "nullius-box-processor-2", amount = 1}
-    }
+
+    auto_boxed = {
+      subgroup = "boxed-electrical",
+    },
   },
   {
     type = "item",
@@ -6265,28 +6066,11 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-processor-3", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-processor-3",
-    enabled = false,
-    category = "nanotechnology",
-    subgroup = "boxed-electrical",
-    energy_required = 125,
-    ingredients = {
-      {type="item", name="nullius-box-processor-2", amount=2},
-      {type="item", name="nullius-box-sensor-2", amount=1},
-      {type="item", name="nullius-box-copper-wire", amount=4},
-      {type="item", name="nullius-box-copper-sheet", amount=1},
-      {type="item", name="nullius-box-monocrystalline-silicon", amount=3},
-      {type="item", name="nullius-box-heat-pipe-3", amount=1},
-      {type="fluid", name="nullius-helium", amount=40, fluidbox_index=2},
-      {type="fluid", name="nullius-compressed-oxygen", amount=50, fluidbox_index=3}
     },
-    results = {
-      {type = "item", name = "nullius-box-processor-3", amount = 1}
-    }
+
+    auto_boxed = {
+      subgroup = "boxed-electrical",
+    },
   },
 
   {
@@ -6313,25 +6097,12 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-transformer", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-transformer",
-    enabled = false,
-    always_show_made_in = true,
-    category = "large-assembly",
-    subgroup = "boxed-electrical",
-    energy_required = 30,
-    ingredients = {
-      {type="item", name="nullius-box-iron-plate", amount=2},
-      {type="item", name="nullius-box-heat-pipe-1", amount=1},
-      {type="item", name="nullius-box-insulated-wire", amount=2},
-      {type="item", name="nullius-box-plastic", amount=1}
     },
-    results = {
-      {type = "item", name = "nullius-box-transformer", amount = 1}
-    }
+
+    auto_boxed = {
+      category = "large-assembly",
+      subgroup = "boxed-electrical",
+    },
   },
 
   {
