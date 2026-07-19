@@ -11,6 +11,7 @@ local box_stack_size = {
 }
 
 BOXED_ITEM_MAPPING = {}
+DOUBLE_RATIO_BOX = {}
 
 
 local function create_boxed_item(base_name, group, box_order,
@@ -31,6 +32,7 @@ local function create_boxed_item(base_name, group, box_order,
   local ratio = 5
   if (stack_size > 300) then
     ratio = 10
+    DOUBLE_RATIO_BOX[full_name] = true
   end
   local box_stack = box_stack_size[stack_size]
   if (box_stack == nil) then
