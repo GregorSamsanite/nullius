@@ -1208,7 +1208,7 @@ data:extend({
       subgroup = "boxed-iron",
       icons = false,
 
-      -- This recipe is 5 times faster when boxed.
+      -- Balancing
       energy_required = 20,
     }
   },
@@ -1256,7 +1256,7 @@ data:extend({
         {scale = 0.22}
       },
 
-      -- Difference balance.
+      -- Balancing
       energy_required = 25,
       ingredients = {
         {type="item", name="nullius-box-iron-oxide", amount = 13},
@@ -1339,6 +1339,7 @@ data:extend({
       order = "nullius-ab",
       icons = false,
 
+      -- Balancing
       energy_required = 25,
     }
   },
@@ -1386,7 +1387,7 @@ data:extend({
         {scale = 0.2, shift = {8, -10}}
       },
 
-      -- Recipe is faster
+      -- Balancing
       energy_required = 60,
     }
   },
@@ -1540,7 +1541,7 @@ data:extend({
       subgroup = "boxed-calcium",
       icons = false,
 
-      -- Intentionally faster.
+      -- Balancing
       energy_required = 5,
     }
   },
@@ -1625,7 +1626,7 @@ data:extend({
         {scale = 0.14, shift = {11, 12}}
       },
 
-      -- Different balance
+      -- Balancing
       energy_required = 3,
       ingredients = {{type="item", name="nullius-box-gypsum", amount = 2}},
       results = {
@@ -1764,7 +1765,6 @@ data:extend({
         data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
         data.raw.fluid["nullius-calcium-chloride-solution"].icons[4]
       },
-      add_box_icon = true,
     }
   },
   {
@@ -1963,7 +1963,7 @@ data:extend({
         {scale = 0.13, shift = {11, 11}}
       },
 
-      -- balance
+      -- Balancing
       energy_required = 2,
     }
   },
@@ -2239,7 +2239,7 @@ data:extend({
       category = "bulk-smelting",
       subgroup = "boxed-glass",
 
-      -- balance
+      -- Balancing
       energy_required = 50,
     },
   },
