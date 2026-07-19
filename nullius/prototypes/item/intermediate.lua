@@ -214,12 +214,11 @@ data:extend({
       {
         icon = "__base__/graphics/icons/automation-science-pack.png",
         icon_size = 64,
-        
       },
       {
         icon = "__base__/graphics/icons/iron-gear-wheel.png",
         icon_size = 64,
-        
+
         scale = 0.22,
         shift = {1, 6},
         tint = {r=0.9, g=1, b=1, a=0.8}
@@ -248,27 +247,13 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-mechanical-pack", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-mechanical-pack-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(1)},
-    enabled = false,
-    always_show_made_in = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    hide_from_signal_gui = false,
-    category = "large-assembly",
-    subgroup = "boxed-science",
-    order = "nullius-db",
-    energy_required = 75,
-    ingredients = {
-      {type = "item", name = "nullius-box-motor-1", amount = 1},
-      {type = "item", name = "nullius-box-iron-gear", amount = 3}
     },
-    results = {
-      {type = "item", name = "nullius-box-mechanical-pack", amount = 1}
+
+    auto_boxed = {
+      name = "nullius-boxed-mechanical-pack-1",
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(1)},
+      category = "large-assembly",
+      subgroup = "boxed-science",
     }
   },
   {
@@ -280,7 +265,6 @@ data:extend({
       {
         icon = "__base__/graphics/icons/automation-science-pack.png",
         icon_size = 64,
-        
       },
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
@@ -304,46 +288,31 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-mechanical-pack", amount = 25}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-mechanical-pack-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(2)},
-    hide_from_signal_gui = false,
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
-      },
-      {
-        icon = "__base__/graphics/icons/automation-science-pack.png",
-        icon_size = 64,
-        
-        scale = 0.45
-      },
-      {
-        icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
-        icon_size = 32,
-        scale = 0.44,
-        shift = {0, 5.4},
-        tint = {r=0.8, g=0.9, b=0.9, a=0.95}
-      }
     },
-    enabled = false,
-    always_show_made_in = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "large-assembly",
-    subgroup = "boxed-science",
-    order = "nullius-dc",
-    energy_required = 300,
-    ingredients = {
-      {type = "item", name = "nullius-box-pump-3", amount = 1},
-      {type = "item", name = "nullius-box-steel-cable", amount = 3}
-    },
-    results = {
-      {type = "item", name = "nullius-box-mechanical-pack", amount = 25}
+
+    auto_boxed = {
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(2)},
+      category = "large-assembly",
+      subgroup = "boxed-science",
+      icons = {
+        {
+          icon = ICONPATH .. "crate.png",
+          icon_size = 64
+        },
+        {
+          icon = "__base__/graphics/icons/automation-science-pack.png",
+          icon_size = 64,
+          
+          scale = 0.45
+        },
+        {
+          icon = "__angelssmeltinggraphics__/graphics/icons/wire-silver.png",
+          icon_size = 32,
+          scale = 0.44,
+          shift = {0, 5.4},
+          tint = {r=0.8, g=0.9, b=0.9, a=0.95}
+        }
+      },
     }
   },
 

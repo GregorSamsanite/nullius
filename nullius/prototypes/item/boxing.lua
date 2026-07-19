@@ -10,6 +10,8 @@ local box_stack_size = {
   [500] = 100
 }
 
+BOXED_ITEM_MAPPING = {}
+
 
 local function create_boxed_item(base_name, group, box_order,
         full_name, category, stack_size)
@@ -46,6 +48,7 @@ local function create_boxed_item(base_name, group, box_order,
     localname = {"equipment-name."..item.place_as_equipment_result}
   end
 
+  BOXED_ITEM_MAPPING[full_name] = "nullius-box-"..base_name
   data:extend({
     {
       type = "item",
