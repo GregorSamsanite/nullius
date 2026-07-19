@@ -302,7 +302,6 @@ data:extend({
         {
           icon = "__base__/graphics/icons/automation-science-pack.png",
           icon_size = 64,
-          
           scale = 0.45
         },
         {
@@ -313,6 +312,8 @@ data:extend({
           tint = {r=0.8, g=0.9, b=0.9, a=0.95}
         }
       },
+      -- TODO: the automated scale for wire-silver is slightly different. It's fine, but let's keep it identical as testing is easier this way
+      -- icon_add_box_and_scale = true,
     }
   },
 
@@ -324,12 +325,11 @@ data:extend({
       {
         icon = "__base__/graphics/icons/production-science-pack.png",
         icon_size = 64,
-        
       },
       {
         icon = "__base__/graphics/icons/processing-unit.png",
         icon_size = 64,
-        
+
         scale = 0.18,
         shift = {0, 6},
         tint = {r=1, g=1, b=1, a=0.5}
@@ -359,28 +359,12 @@ data:extend({
     },
     results = {
       {type = "item", name = "nullius-electrical-pack", amount = 1}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-electrical-pack",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(1)},
-    enabled = false,
-    always_show_made_in = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    hide_from_signal_gui = false,
-    category = "large-assembly",
-    subgroup = "boxed-science",
-    energy_required = 60,
-    ingredients = {
-      {type = "item", name = "nullius-box-logic-circuit", amount = 1},
-      {type = "item", name = "nullius-box-lamp-1", amount = 1},
-      {type = "item", name = "nullius-box-insulated-wire", amount = 2},
-      {type = "item", name = "nullius-box-capacitor", amount = 1}
     },
-    results = {
-      {type = "item", name = "nullius-box-electrical-pack", amount = 1}
+
+    auto_boxed = {
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(1)},
+      category = "large-assembly",
+      subgroup = "boxed-science",
     }
   },
   {
@@ -392,12 +376,11 @@ data:extend({
       {
         icon = "__base__/graphics/icons/production-science-pack.png",
         icon_size = 64,
-        
       },
       {
         icon = "__base__/graphics/icons/advanced-circuit.png",
         icon_size = 64,
-        
+
         scale = 0.18,
         shift = {0, 6},
         tint = {r=1, g=1, b=1, a=0.8}
@@ -418,48 +401,13 @@ data:extend({
     },
 	  results = {
       {type = "item", name = "nullius-electrical-pack", amount = 50}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-electrical-pack-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(2)},
-    hide_from_signal_gui = false,
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
-      },
-      {
-        icon = "__base__/graphics/icons/production-science-pack.png",
-        icon_size = 64,
-        
-		scale = 0.45
-      },
-      {
-        icon = "__base__/graphics/icons/advanced-circuit.png",
-        icon_size = 64,
-        
-        scale = 0.162,
-        shift = {0, 5.4},
-        tint = {r=1, g=1, b=1, a=0.8}
-      }
     },
-    enabled = false,
-    always_show_made_in = true,
-    show_amount_in_title = false,
-    always_show_products = true,
-    category = "tiny-assembly",
-    subgroup = "boxed-science",
-    order = "nullius-ed",
-    energy_required = 800,
-    ingredients = {
-      {type = "item", name = "nullius-box-processor-2", amount = 1},
-      {type = "item", name = "nullius-box-sensor-2", amount = 1},
-      {type = "item", name = "nullius-box-battery-2", amount = 1}
-    },
-	  results = {
-      {type = "item", name = "nullius-box-electrical-pack", amount = 50}
+
+    auto_boxed = {
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(2)},
+      category = "tiny-assembly",
+      subgroup = "boxed-science",
+      icon_add_box_and_scale = true,
     }
   },
 
