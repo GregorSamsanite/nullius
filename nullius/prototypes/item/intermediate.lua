@@ -294,8 +294,6 @@ data:extend({
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(2)},
       category = "large-assembly",
       subgroup = "boxed-science",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -395,9 +393,6 @@ data:extend({
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-electrical-pack"}}, " ", tostring(2)},
       category = "tiny-assembly",
       subgroup = "boxed-science",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
-      icon_add_box_and_scale = true,
     }
   },
 
@@ -698,8 +693,6 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-iron",
 
-      add_box_icon = true,
-      scale_existing_icons = 0.9,
       icon_override = {
         false,
         {
@@ -777,8 +770,6 @@ data:extend({
       subgroup = "boxed-calcium",
       order = "nullius-cc",
 
-      add_box_icon = true,
-      scale_existing_icons = 0.9,
       icon_override = {
         false,
         {
@@ -947,8 +938,6 @@ data:extend({
     auto_boxed = {
       localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-slag-reprocessing"}},
       subgroup = "boxed-silicon",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -991,8 +980,6 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-aluminum-1",
 
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -1034,8 +1021,6 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-aluminum-1",
       order = "nullius-l",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -1080,8 +1065,6 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-titanium",
 
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -1125,8 +1108,6 @@ data:extend({
       subgroup = "boxed-calcium",
       order = "nullius-y",
 
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {
@@ -1281,8 +1262,6 @@ data:extend({
       category = "machine-casting",
       subgroup = "boxed-iron",
 
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.22}
@@ -1413,8 +1392,6 @@ data:extend({
       category = "bulk-smelting",
       subgroup = "boxed-steel",
       order = "nullius-ac",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.2, shift = {8, -10}}
@@ -1614,8 +1591,6 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-calcium",
       order = "nullius-cd",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.36, shift = {-10, -10}}
@@ -1656,8 +1631,6 @@ data:extend({
       category = "bulk-smelting",
       subgroup = "boxed-calcium",
       order = "nullius-dc",
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.14, shift = {11, 12}}
@@ -1714,8 +1687,6 @@ data:extend({
       subgroup = "boxed-glass",
       order = "nullius-ef",
       
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.2, shift = {-8, -10}}
@@ -1763,8 +1734,6 @@ data:extend({
       subgroup = "boxed-glass",
       order = "nullius-eg",
       
-      scale_existing_icons = 0.9,
-      add_box_icon = true,
       icon_override = {
         false,
         {scale = 0.5, shift = {-8, -8}}
@@ -1849,7 +1818,7 @@ data:extend({
       subgroup = "boxed-fluid",
       order = "nullius-ccc",
 
-      add_box_icon = true,
+      scale_existing_icons = 1.0,
       icon_override = {
         false,
         false,
@@ -1954,7 +1923,7 @@ data:extend({
       subgroup = "boxed-fluid",
       order = "nullius-cd",
 
-      add_box_icon = true,
+      scale_existing_icons = 1.0,
       icon_override = {
         false,
         false,
@@ -2000,8 +1969,6 @@ data:extend({
       subgroup = "boxed-calcium",
       order = "nullius-dd",
 
-      add_box_icon = true,
-      scale_existing_icons = 0.9,
       icon_override = {
         false,
         {scale = 0.13, shift = {11, 11}}
@@ -2112,8 +2079,6 @@ data:extend({
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(2)},
       subgroup = "boxed-silicon",
 
-      add_box_icon = true,
-      scale_existing_icons = 0.9,
       icon_override = {
         false,
         {scale = 0.23, shift = {8, 8}}
