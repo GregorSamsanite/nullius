@@ -1756,49 +1756,20 @@ data:extend({
       {type="item", name="nullius-gypsum", amount=2},
       {type="fluid", name="nullius-brine", amount=20, fluidbox_index=1}
     },
-    main_product = "nullius-gypsum"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-gypsum-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", tostring(2)},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
+    main_product = "nullius-gypsum",
+
+    auto_boxed = {
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-gypsum"}}, " ", tostring(2)},
+      subgroup = "boxed-glass",
+      order = "nullius-eg",
+      
+      scale_existing_icons = 0.9,
+      add_box_icon = true,
+      icon_override = {
+        false,
+        {scale = 0.5, shift = {-8, -8}}
       },
-      {
-        icon = "__angelsrefininggraphics__/graphics/icons/crushed/crushed-4.png",
-        icon_size = 64,
-        tint = {1, 1, 0.8},
-        scale = 0.45
-      },
-      {
-        icon = "__angelspetrochemgraphics__/graphics/icons/solid-sodium-sulfate.png",
-        icon_size = 32,
-        scale = 0.5,
-        shift = {-8, -8}
-      }
-    },
-    enabled = false,
-    always_show_made_in = true,
-    category = "ore-flotation",
-    subgroup = "boxed-glass",
-    order = "nullius-eg",
-    crafting_machine_tint = {
-      primary = data.raw.fluid["nullius-acid-sulfuric"].flow_color,
-      secondary = data.raw.fluid["nullius-brine"].flow_color
-    },
-    energy_required = 15,
-    ingredients = {
-      {type="item", name="nullius-box-sodium-sulfate", amount=3},
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=125, fluidbox_index=1}
-    },
-    results = {
-      {type="item", name="nullius-box-gypsum", amount=2},
-      {type="fluid", name="nullius-brine", amount=100, fluidbox_index=1}
-    },
-    main_product = "nullius-box-gypsum"
+    }
   },
 
   {
@@ -1824,40 +1795,19 @@ data:extend({
       {type="fluid", name="nullius-calcium-chloride-solution", amount=16},
       {type="fluid", name="nullius-carbon-dioxide", amount=10}
     },
-    main_product = "nullius-calcium-chloride-solution"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium-chloride-1",
-    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(1)}},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
+    main_product = "nullius-calcium-chloride-solution",
+
+    auto_boxed = {
+      subgroup = "boxed-fluid",
+      order = "nullius-ccb",
+
+      icons = {
+        data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
+        data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
+        data.raw.fluid["nullius-calcium-chloride-solution"].icons[4]
       },
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[4]
-    },
-    category = "basic-chemistry",
-    subgroup = "boxed-fluid",
-    order = "nullius-ccb",
-    enabled = false,
-    always_show_made_in = true,
-    crafting_machine_tint = {
-      primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
-      secondary = data.raw.fluid["nullius-carbon-dioxide"].flow_color
-    },
-    energy_required = 5,
-    ingredients = {
-      {type="item", name="nullius-box-crushed-limestone", amount=1},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=125, fluidbox_index=1}
-    },
-    results = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=80},
-      {type="fluid", name="nullius-carbon-dioxide", amount=50}
-    },
-    main_product = "nullius-calcium-chloride-solution"
+      add_box_icon = true,
+    }
   },
   {
     type = "recipe",
@@ -1893,46 +1843,20 @@ data:extend({
       {type="fluid", name="nullius-calcium-chloride-solution", amount=60},
       {type="fluid", name="nullius-oxygen", amount=20}
     },
-    main_product = "nullius-calcium-chloride-solution"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium-chloride-2",
-    localised_name = {"recipe-name.nullius-boxed", {"", {"item-name.nullius-calcium-chloride"}, " ", tostring(2)}},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
+    main_product = "nullius-calcium-chloride-solution",
+
+    auto_boxed = {
+      subgroup = "boxed-fluid",
+      order = "nullius-ccc",
+
+      add_box_icon = true,
+      icon_override = {
+        false,
+        false,
+        false,
+        {scale = 0.36, shift = {-10, -11}},
       },
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
-      {
-        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
-        icon_size = 32,
-        scale = 0.36,
-        shift = {-10, -11}
-      }
-    },
-    enabled = false,
-    category = "basic-chemistry",
-    subgroup = "boxed-fluid",
-    order = "nullius-ccc",
-    crafting_machine_tint = {
-      primary = data.raw.fluid["nullius-acid-hydrochloric"].flow_color,
-      secondary = data.raw.fluid["nullius-oxygen"].flow_color
-    },
-    energy_required = 10,
-    ingredients = {
-      {type="item", name="nullius-box-lime", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=250},
-      {type="fluid", name="nullius-water", amount=300}
-    },
-    results = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=300},
-      {type="fluid", name="nullius-oxygen", amount=100}
-    },
-    main_product = "nullius-calcium-chloride-solution"
+    }
   },
   {
     type = "recipe",
@@ -1954,31 +1878,14 @@ data:extend({
       {type="item", name="nullius-calcium-chloride", amount=2},
       {type="fluid", name="nullius-steam", amount=30, fluidbox_index=2}
     },
-    main_product = "nullius-calcium-chloride"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium-chloride-dehydration",
-    localised_name = {"recipe-name.nullius-dehydration",
-      {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
-    enabled = false,
-	  no_productivity = true,
-    category = "distillation",
-    subgroup = "boxed-calcium",
-    order = "nullius-fc",
-    crafting_machine_tint = {
-      primary = data.raw.fluid["nullius-calcium-chloride-solution"].flow_color,
-      secondary = data.raw.fluid["nullius-steam"].flow_color
-    },
-    energy_required = 5,
-    ingredients = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=165}
-    },
-    results = {
-      {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=150, fluidbox_index=2}
-    },
-    main_product = "nullius-box-calcium-chloride"
+    main_product = "nullius-calcium-chloride",
+
+    auto_boxed = {
+      name = "nullius-boxed-calcium-chloride-dehydration",
+      localised_name = {"recipe-name.nullius-dehydration", {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
+      subgroup = "boxed-calcium",
+      order = "nullius-fc",
+    }
   },
   {
     type = "recipe",
@@ -2002,99 +1909,58 @@ data:extend({
       {type="item", name="nullius-calcium-chloride", amount=2},
       {type="fluid", name="nullius-steam", amount=30, fluidbox_index=2}
     },
-    main_product = "nullius-calcium-chloride"
-  },
-  {
-    type = "recipe",
-    name = "nullius-legacy-boxed-calcium-chloride-dehydration",
-    localised_name = {"recipe-name.nullius-dehydration",
-      {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
-    enabled = false,
-	  hidden = true,
-    allow_decomposition = false,
-    allow_as_intermediate = false,
-    category = "distillation",
-    subgroup = "boxed-calcium",
-    order = "nullius-fc",
-    crafting_machine_tint = {
-      primary = data.raw.fluid["nullius-calcium-chloride-solution"].flow_color,
-      secondary = data.raw.fluid["nullius-steam"].flow_color
-    },
-    energy_required = 5,
-    ingredients = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=200}
-    },
-    results = {
-      {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=150, fluidbox_index=2}
-    },
-    main_product = "nullius-box-calcium-chloride"
+    main_product = "nullius-calcium-chloride",
+    
+    auto_boxed = {
+      name = "nullius-legacy-boxed-calcium-chloride-dehydration",
+      localised_name = {"recipe-name.nullius-dehydration", {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
+      subgroup = "boxed-calcium",
+      order = "nullius-fc",
+    }
   },
   {
     type = "recipe",
     name = "nullius-calcium-chloride-hydration",
     localised_name = {"recipe-name.nullius-hydration", {"item-name.nullius-calcium-chloride"}},
-	icons = {
+    icons = {
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
       data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
       {
-		icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
+		    icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
         icon_size = 32,
         scale = 0.4,
         shift = {-11, -12}
       }
     },
     enabled = false,
-	no_productivity = true,
-	show_amount_in_title = false,
+    no_productivity = true,
+    show_amount_in_title = false,
     always_show_products = true,
     category = "ore-flotation",
-	subgroup = "chlorine-chemistry",
+    subgroup = "chlorine-chemistry",
     order = "nullius-fd",
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-calcium-chloride", amount=4},
       {type="fluid", name="nullius-water", amount=60, fluidbox_index=2}
-	},
-	results = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=65}
-    }
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium-chloride-hydration",
-    localised_name = {"recipe-name.nullius-hydration",
-      {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
-	  icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
-      },
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[2],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[3],
-      data.raw.fluid["nullius-calcium-chloride-solution"].icons[4],
-      {
-	    icon = "__angelspetrochemgraphics__/graphics/icons/solid-calcium-chloride.png",
-        icon_size = 32,
-        scale = 0.36,
-        shift = {-10, -11}
-      }
     },
-    enabled = false,
-	  no_productivity = true,
-	  show_amount_in_title = false,
-    always_show_products = true,
-    category = "ore-flotation",
-	  subgroup = "boxed-fluid",
-    order = "nullius-cd",
-    energy_required = 5,
-    ingredients = {
-      {type="item", name="nullius-box-calcium-chloride", amount=4},
-      {type="fluid", name="nullius-water", amount=300, fluidbox_index=2}
-	},
-	results = {
-      {type="fluid", name="nullius-calcium-chloride-solution", amount=325}
+    results = {
+      {type="fluid", name="nullius-calcium-chloride-solution", amount=65}
+    },
+
+    auto_boxed = {
+      localised_name = {"recipe-name.nullius-hydration", {"item-name.nullius-box", {"item-name.nullius-calcium-chloride"}}},
+      subgroup = "boxed-fluid",
+      order = "nullius-cd",
+
+      add_box_icon = true,
+      icon_override = {
+        false,
+        false,
+        false,
+        {scale = 0.36, shift = {-10, -11}}
+      }
     }
   },
   {
@@ -2127,45 +1993,23 @@ data:extend({
       {type="item", name="nullius-lime", amount=1},
       {type="fluid", name="nullius-hydrogen-chloride", amount=10}
     },
-    main_product = "nullius-lime"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium-chloride-decomposition",
-    localised_name = {"recipe-name.nullius-boxed",
-        {"recipe-name.nullius-calcium-chloride-decomposition"}},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
+    main_product = "nullius-lime",
+
+    auto_boxed = {
+      category = "bulk-smelting",
+      subgroup = "boxed-calcium",
+      order = "nullius-dd",
+
+      add_box_icon = true,
+      scale_existing_icons = 0.9,
+      icon_override = {
+        false,
+        {scale = 0.13, shift = {11, 11}}
       },
-      {
-        icon = "__angelssmeltinggraphics__/graphics/icons/solid-lime.png",
-        icon_size = 32,
-        scale = 0.9
-      },
-      {
-        icon = "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen-chloride.png",
-        icon_size = 72,
-        scale = 0.13,
-        shift = {11, 11}
-      }
-    },
-    enabled = false,
-    icon_size = 32,
-    category = "bulk-smelting",
-    subgroup = "boxed-calcium",
-    order = "nullius-dd",
-    energy_required = 2,
-    ingredients = {
-      {type="item", name="nullius-box-calcium-chloride", amount=2},
-      {type="fluid", name="nullius-steam", amount=500}
-    },
-    results = {
-      {type="item", name="nullius-box-lime", amount=1},
-      {type="fluid", name="nullius-hydrogen-chloride", amount=50}
-    },
-    main_product = "nullius-box-lime"
+
+      -- balance
+      energy_required = 2,
+    }
   },
   {
     type = "recipe",
@@ -2180,23 +2024,11 @@ data:extend({
       {type="item", name="nullius-calcium", amount=3},
       {type="fluid", name="nullius-chlorine", amount=12, fluidbox_index=1}
     },
-    main_product = "nullius-calcium"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-calcium",
-    enabled = false,
-    category = "nullius-electrolysis",
-    subgroup = "boxed-calcium",
-    energy_required = 10,
-    ingredients = {
-      {type="item", name="nullius-box-calcium-chloride", amount=4}
-    },
-    results = {
-      {type="item", name="nullius-box-calcium", amount=3},
-      {type="fluid", name="nullius-chlorine", amount=60, fluidbox_index=1}
-    },
-    main_product = "nullius-box-calcium"
+    main_product = "nullius-calcium",
+    
+    auto_boxed = {
+      subgroup = "boxed-calcium",
+    }
   },
 
   {
@@ -2236,7 +2068,13 @@ data:extend({
       {type="item", name="nullius-silica", amount=6},
       {type="fluid", name="nullius-wastewater", amount=50, fluidbox_index=1}
     },
-    main_product = "nullius-silica"
+    main_product = "nullius-silica",
+
+    auto_boxed = {
+      name = "nullius-boxed-silica-1",
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(1)},
+      subgroup = "boxed-silicon",
+    }
   },
   {
     type = "recipe",
@@ -2247,12 +2085,10 @@ data:extend({
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/powder-silica.png",
         icon_size = 64,
-        
       },
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
         icon_size = 64,
-        
         scale = 0.25,
         shift = {9, 9}
       }
@@ -2270,64 +2106,19 @@ data:extend({
       {type="item", name="nullius-rutile", amount=1},
       {type="fluid", name="nullius-wastewater", amount=120, fluidbox_index=1}
     },
-    main_product = "nullius-silica"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-silica-1",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(1)},
-    enabled = false,
-    category = "ore-flotation",
-    subgroup = "boxed-silicon",
-    energy_required = 25,
-    ingredients = {
-      {type="item", name="nullius-box-sand", amount=8},
-      {type="fluid", name="nullius-saline", amount=300, fluidbox_index=1}
-    },
-    results = {
-      {type="item", name="nullius-box-silica", amount=6},
-      {type="fluid", name="nullius-wastewater", amount=250, fluidbox_index=1}
-    },
-    main_product = "nullius-box-silica"
-  },
-  {
-    type = "recipe",
-    name = "nullius-boxed-silica-2",
-    localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(2)},
-    icons = {
-      {
-        icon = ICONPATH .. "crate.png",
-        icon_size = 64
-      },
-      {
-        icon = "__angelssmeltinggraphics__/graphics/icons/powder-silica.png",
-        icon_size = 64,
-        
-        scale = 0.45
-      },
-      {
-        icon = "__angelssmeltinggraphics__/graphics/icons/powder-titanium.png",
-        icon_size = 64,
-        
-        scale = 0.23,
-        shift = {8, 8}
+    main_product = "nullius-silica",
+
+    auto_boxed = {
+      localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-silica"}}, " ", tostring(2)},
+      subgroup = "boxed-silicon",
+
+      add_box_icon = true,
+      scale_existing_icons = 0.9,
+      icon_override = {
+        false,
+        {scale = 0.23, shift = {8, 8}}
       }
-    },
-    enabled = false,
-    category = "ore-flotation",
-    subgroup = "boxed-silicon",
-    energy_required = 75,
-    ingredients = {
-      {type="item", name="nullius-box-sand", amount=15},
-      {type="fluid", name="nullius-caustic-solution", amount=300},
-      {type="fluid", name="nullius-acid-hydrochloric", amount=375}
-    },
-    results = {
-      {type="item", name="nullius-box-silica", amount=12},
-      {type="item", name="nullius-box-rutile", amount=1},
-      {type="fluid", name="nullius-wastewater", amount=600, fluidbox_index=1}
-    },
-    main_product = "nullius-box-silica"
+    }
   },
   {
     type = "recipe",
