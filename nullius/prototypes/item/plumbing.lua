@@ -1993,7 +1993,7 @@ data:extend({
     type = "recipe",
     name = "nullius-medium-tank-4",
     enabled = false,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     always_show_made_in = true,
     energy_required = 40,
     ingredients = {
@@ -2011,7 +2011,7 @@ data:extend({
     name = "nullius-boxed-medium-tank-4",
     localised_name = {"recipe-name.nullius-boxed", {"entity-name.nullius-medium-tank-4"}},
     enabled = false,
-    category = "huge-assembly",
+    categories = {"huge-assembly"},
     subgroup = "boxed-tank",
     order = "nullius-ce",
     always_show_made_in = true,
@@ -2153,7 +2153,7 @@ data:extend({
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 12,
     ingredients = {
       {type = "item", name = "nullius-small-tank-2", amount = 2},
@@ -2263,7 +2263,7 @@ data:extend({
     localised_name = {"entity-name.nullius-legacy", {"entity-name.nullius-large-tank-3"}},
     enabled = false,
     hidden = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     always_show_made_in = true,
     energy_required = 40,
     ingredients = {
