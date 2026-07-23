@@ -247,7 +247,7 @@ if (mods["RenaiTransportation"] and
 end
 
 
-if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
+if mods["cargo-ships-oil-rig"] then
   -- Cargo Ships sets offshore oil's infinite flag to match crude-oil's
   -- (https://github.com/robot256/cargo_ships/blob/1e3f16b1192e9f01510c42ddfd443211e81215fb/data-final-fixes.lua#L139C22-L139C34)
 

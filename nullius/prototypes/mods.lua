@@ -2981,9 +2981,9 @@ data:extend({
     energy_required = 3,
     ingredients = {
       {type = "item", name = "DirectedBouncePlate", amount = 1},
-	  {type = "item", name = "nullius-motor-2", amount = 1},
+      {type = "item", name = "nullius-motor-2", amount = 1},
       {type = "item", name = "nullius-iron-gear", amount = 3},
-	  {type = "item", name = "nullius-sensor-1", amount = 1}
+      {type = "item", name = "nullius-sensor-1", amount = 1}
     },
     results = {
 			{type = "item", name = "DirectorBouncePlate", amount = 1}
@@ -3407,7 +3407,7 @@ data:extend({
     name = "nullius-logistic-ballistics-6",
     order = "nullius-dl",
 	  icon = "__RenaiTransportation__/graphics/icons/DirectorPlateIcon.png",
-	  icon_size = 256,
+	  icon_size = 64,
     effects = {
       -- {
       --   type = "unlock-recipe",
