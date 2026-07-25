@@ -2,16 +2,23 @@
 Version: 2.0.10
 Date: xx.xx.2026
   Features:
+    - Added Small Tank 3 and Medium Tank 4.
     - Added a checkpoint for toggling pumps
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
     - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Graphics:
+    - New icon for cellulose.
   Changes:
     - Update the icons of a few technologies to better match their intent.
+    - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
     - Researching Robotic construction 1 now properly unlocks destroyed entities becoming ghosts.
+    - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
+  Optimizations:
+    - Improved performance of arboriculture drones.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.9
 Date: 09.06.2026
