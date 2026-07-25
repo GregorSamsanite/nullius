@@ -26,10 +26,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-cellulose",
-    icons = {{
-      icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-      icon_size = 54
-    }},
+    icon = "__nullius__/graphics/icons/cellulose.png",
     subgroup = "biology-material",
     order = "nullius-c",
     stack_size = 200
