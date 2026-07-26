@@ -1023,6 +1023,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1171,6 +1172,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-1"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1310,6 +1312,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1458,6 +1461,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-2"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1563,6 +1567,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1709,6 +1714,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
