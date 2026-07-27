@@ -4325,6 +4325,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe"]["pipe"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe"]["pipe"].impact_category,
     working_sound = data.raw["pipe"]["pipe"].working_sound,
     horizontal_window_bounding_box = {{-0.25, -0.25}, {0.25, 0.15625}},
@@ -4364,6 +4367,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe"]["pipe"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe"]["pipe"].impact_category,
     working_sound = data.raw["pipe"]["pipe"].working_sound,
     horizontal_window_bounding_box = {{-0.25, -0.25}, {0.25, 0.15625}},
@@ -4402,6 +4408,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe"]["pipe"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe"]["pipe"].impact_category,
     working_sound = data.raw["pipe"]["pipe"].working_sound,
     horizontal_window_bounding_box = {{-0.25, -0.25}, {0.25, 0.15625}},
@@ -4444,6 +4453,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe-to-ground"]["pipe-to-ground"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe-to-ground"]["pipe-to-ground"].impact_category,
     pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/copper-tungsten/"),
     visualization = data.raw["pipe-to-ground"]["pipe-to-ground"].visualization,
@@ -4485,6 +4497,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe-to-ground"]["pipe-to-ground"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe-to-ground"]["pipe-to-ground"].impact_category,
     pictures = data.raw["pipe-to-ground"]["bob-plastic-pipe-to-ground"].pictures,
     visualization = data.raw["pipe-to-ground"]["pipe-to-ground"].visualization,
@@ -4525,6 +4540,9 @@ data:extend({
       },
       hide_connection_info = true
     },
+    circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
+    circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
+    default_fluid_temperature_signal = data.raw["pipe-to-ground"]["pipe-to-ground"]["default_fluid_temperature_signal"],
     impact_category = data.raw["pipe-to-ground"]["pipe-to-ground"].impact_category,
     pictures = undergroundpipepics("__boblogistics__/graphics/entity/pipe/tungsten/"),
     visualization = data.raw["pipe-to-ground"]["pipe-to-ground"].visualization,
