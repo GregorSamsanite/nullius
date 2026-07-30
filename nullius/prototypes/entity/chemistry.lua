@@ -309,6 +309,7 @@ data:extend({
         }
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -601,6 +602,7 @@ data:extend({
         }
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -890,6 +892,7 @@ data:extend({
         },
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -1022,6 +1025,7 @@ data:extend({
     next_upgrade = "nullius-distillery-2",
 
     graphics_set = oil_refinery_graphics_set({0.77, 0.77, 0.66, 1}),
+    use_mirroring = true,
   }
 })
 
@@ -1097,6 +1101,7 @@ data:extend({
     },
 
     graphics_set = oil_refinery_graphics_set({0.8, 0.8, 1, 1}),
+    use_mirroring = true,
   },
 
   {
@@ -1135,6 +1140,7 @@ data:extend({
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["oil-refinery"],
     graphics_set = data.raw["assembling-machine"]["oil-refinery"].graphics_set,
+    use_mirroring = true,
 
     fluid_boxes = {
       {
@@ -1266,6 +1272,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
 	impact_category = "metal",
 	working_sound = {
       sound = { filename = "__angelspetrochemgraphics__/sound/electrolyser.ogg", volume = 0.15, audible_distance_modifier = 0.75 },
@@ -1387,6 +1394,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
 	  impact_category = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].impact_category,
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1480,6 +1488,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1597,6 +1606,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1684,6 +1694,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1796,6 +1807,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1977,6 +1989,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2079,6 +2092,7 @@ data:extend({
       }}),
       working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].graphics_set.working_visualisations,
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2179,6 +2193,7 @@ data:extend({
       }}),
       working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].graphics_set.working_visualisations,
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },

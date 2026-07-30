@@ -225,7 +225,7 @@ data:extend({
     },
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     fluid_boxes = {
       {
         production_type = "input",
@@ -290,7 +290,7 @@ data:extend({
     },
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     fluid_boxes = {
       {
         production_type = "input",
@@ -451,7 +451,7 @@ data:extend({
     },
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     fluid_boxes = data.raw["assembling-machine"]["nullius-medium-assembler-1"].fluid_boxes,
     fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "medium-assembler",
@@ -493,7 +493,7 @@ data:extend({
     },
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     fluid_boxes = data.raw["assembling-machine"]["nullius-medium-assembler-1"].fluid_boxes,
     fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "medium-assembler",
@@ -533,7 +533,7 @@ data:extend({
     },
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     fluid_boxes = data.raw["assembling-machine"]["nullius-large-assembler-1"].fluid_boxes,
     fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "large-assembler",
@@ -617,7 +617,7 @@ data:extend({
     fast_replaceable_group = "nanofabricator",
     next_upgrade = "nullius-nanofabricator-2",
     crafting_speed = 1,
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",
@@ -716,7 +716,7 @@ data:extend({
     crafting_categories = {"nanotechnology"},
     fast_replaceable_group = "nanofabricator",
     crafting_speed = 2,
-    forced_symmetry = "horizontal",
+    use_mirroring = true,
     energy_source = {
       type = "electric",
       usage_priority = "secondary-input",

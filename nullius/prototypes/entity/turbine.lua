@@ -218,6 +218,7 @@ local furnace1cb = {
   collision_box = {{-1.25, -2.05}, {1.25, 2.05}},
   
   alert_icon_shift = util.by_pixel(0, -12),
+  use_mirroring = true,
   energy_source = { type = "void" },
   energy_usage = "1W",
   crafting_categories = {"turbine-closed"},

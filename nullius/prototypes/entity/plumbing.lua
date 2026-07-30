@@ -802,7 +802,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   },
 
   {
@@ -1057,7 +1058,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
