@@ -4,12 +4,7 @@
 
 ---@alias SolarBucket table<integer, SolarEntry>
 
--- These constants must match solar_thermal.lua
-local SOLAR_FLUX_BASELINE = -270
-local SOLAR_FLUX_MAX = 5700
-local SOLAR_BUFFER_SIZE = 50490  -- Displayed as 50k
-
-local SOLAR_FLUX_SCALE = SOLAR_FLUX_MAX - SOLAR_FLUX_BASELINE
+local constants = require("constants")
 
 function init_solar()
   if (storage.nullius_solar_buckets == nil) then
@@ -49,6 +44,8 @@ end
 
 function update_solar()
   if (storage.nullius_solar_buckets == nil) then return end
+
+  local solar_flux_scale = constants.SOLAR_FLUX_MAX - constants.SOLAR_FLUX_BASELINE
   local tick = game.tick * 382
   local light_table = {} -- Saves the computed light on each surface
   for j=0,1 do
@@ -64,8 +61,12 @@ function update_solar()
         end
 
         t.collector.clear_fluid_inside()
-        local temperature = SOLAR_FLUX_BASELINE + SOLAR_FLUX_SCALE * light
-        t.collector.insert_fluid{name="nullius-solar-flux", amount=SOLAR_BUFFER_SIZE, temperature=temperature}
+        local temperature = constants.SOLAR_FLUX_BASELINE + solar_flux_scale * light
+        t.collector.insert_fluid{
+          name = "nullius-solar-flux",
+          amount = constants.SOLAR_BUFFER_SIZE,
+          temperature=temperature
+        }
       else
         bucket[i] = nil
       end

@@ -2,10 +2,7 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local ENTICONPATH = "__nullius__/graphics/icons/entity/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
--- These constants must match solar.lua
-local SOLAR_FLUX_BASELINE = -270
-local SOLAR_FLUX_MAX = 5700
-local SOLAR_BUFFER_SIZE = 50490  -- Displayed as 50k
+local constants = require("constants")
 
 -- Peak power of highest tier solar collector
 local PEAK_POWER=960000
@@ -13,7 +10,9 @@ local PEAK_POWER=960000
 -- Heat capacity of highest tier collector is calculated to
 -- produce PEAK_POWER at maximum temperature.
 -- power = fluid_per_second * heat_capacity * (max_temp - min_temp).
-local SOLAR_FLUX_HEAT_CAPACITY = PEAK_POWER / (60 * (SOLAR_FLUX_MAX - SOLAR_FLUX_BASELINE))
+local SOLAR_FLUX_HEAT_CAPACITY = (
+  PEAK_POWER / (60 * (constants.SOLAR_FLUX_MAX - constants.SOLAR_FLUX_BASELINE))
+)
 
 local function solar_energy_source(effectivity)
   -- Return a FluidEnergySource for solar power.
@@ -22,7 +21,7 @@ local function solar_energy_source(effectivity)
   return {
     type = "fluid",
     fluid_box = {
-      volume = SOLAR_BUFFER_SIZE,
+      volume = constants.SOLAR_BUFFER_SIZE,
       pipe_connections = {},
       filter = "nullius-solar-flux",
       draw_only_when_connected = true,
@@ -76,7 +75,7 @@ local function solar_collector(args)
     minable = {mining_time = args.mining_time, result = name},
     fast_replaceable_group = "solar-collector",
     next_upgrade = upgrade_name,
-    max_health = 250,
+    max_health = max_health,
     corpse = "solar-panel-remnants",
     consumption = tostring(args.peak_power) .. "kW",
     energy_source = solar_energy_source(args.effectivity),
@@ -152,10 +151,10 @@ data:extend({
     name = "nullius-solar-flux",
     icon = "__base__/graphics/icons/signal/signal-sun.png",
     subgroup = "solar",
-    default_temperature = SOLAR_FLUX_BASELINE,
+    default_temperature = constants.SOLAR_FLUX_BASELINE,
     base_color = {255, 240, 160},
     flow_color = {255, 240, 160},
-    max_temperature = SOLAR_FLUX_MAX,
+    max_temperature = constants.SOLAR_FLUX_MAX,
     heat_capacity = tostring(SOLAR_FLUX_HEAT_CAPACITY) .. "J",
     auto_barrel = false,
     hidden_in_factoriopedia = true
