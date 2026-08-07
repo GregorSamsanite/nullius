@@ -158,6 +158,13 @@ function migrate_version(event)
     storage.nullius_wind_mod_entities = {}
   end
 
+  update_all_upgrades()
+  if storage.nullius_mecha_list ~= nil then
+    for _, node in pairs(storage.nullius_mecha_list) do
+      check_mecha_equipment(node)
+    end
+  end
+
   if (version >= 20003) then return end
   if storage.fixing_machines ~= nil then
     storage.fixing_machines = nil
