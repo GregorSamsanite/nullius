@@ -12,6 +12,7 @@ Date: xx.xx.2026
   Changes:
     - Update the icons of a few technologies to better match their intent.
     - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
+    - Use SI prefixes for large numbers in checkpoint descriptions.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
