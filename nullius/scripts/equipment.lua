@@ -278,6 +278,7 @@ function update_player_upgrades(player)
     new_entry = {
       type = "character",
       character = player.character,
+      unit = unit,
       lst = generators,
       last_fuels = { },
     }
@@ -566,7 +567,7 @@ function update_generator(e)
 
   if c == nil then return end
   if not c.valid then
-    storage.nullius_generator_equipment[c.unit_number] = nil
+    storage.nullius_generator_equipment[e.unit] = nil
     return
   end
 
@@ -684,6 +685,11 @@ function check_mecha_equipment(node)
   end
   local generators = { }
   local refueler = false
+  if not node.entity.valid then
+    remove_mecha_node(node)
+    return
+  end
+
   local g = node.entity.grid
   if ((g ~= nil) and g.valid) then
     for _,equip in pairs(g.equipment) do
@@ -699,6 +705,7 @@ function check_mecha_equipment(node)
     local new_entry = {
       type = "mech",
       mech = node,
+      unit = node.unit,
       lst = generators,
       last_fuels = { },
     }
@@ -718,20 +725,27 @@ function update_mechas()
   if (storage.nullius_refueler_inserted_tick == nil) then return end
   local node = storage.nullius_mecha_head.next
   if (not node.entity.valid) then
-    storage.nullius_mecha_list[node.unit] = nil
-    if (node == storage.nullius_mecha_head) then
-	  storage.nullius_mecha_list = nil
-	  storage.nullius_mecha_head = nil
-	else
-	  node.next.prev = node.prev
-	  node.prev.next = node.next
-	end
+    remove_mecha_node(node)
     return
   end
 
   storage.nullius_mecha_head = node
   if (node.tick <= storage.nullius_refueler_inserted_tick) then
     node.tick = game.tick
-	check_mecha_equipment(node)
+    check_mecha_equipment(node)
+  end
+end
+
+function remove_mecha_node(node)
+  storage.nullius_mecha_list[node.unit] = nil
+  if node == node.next and node == node.prev then
+    storage.nullius_mecha_list = nil
+    storage.nullius_mecha_head = nil
+  else
+    node.next.prev = node.prev
+    node.prev.next = node.next
+    if storage.nullius_mecha_head == node then
+      storage.nullius_mecha_head = node.next
+    end
   end
 end
