@@ -183,9 +183,9 @@ function update_player_upgrades(player)
 
             if (equip.prototype.energy_production > 0) then
               production = production + equip.prototype.energy_production
-            end
-            if detect_generator_type(equip) ~= nil then
-              table.insert(generators, equip)
+              if detect_generator_type(equip) ~= nil then
+                table.insert(generators, equip)
+              end
             end
           end
         end
@@ -531,7 +531,7 @@ script.on_event(defines.events.on_player_crafted_item,
 -- current_count : unit32
 --   The current amount of that fuel in the generator
 function refuel_generator(entity, burner_inventory, fuel, current_count)
-  fuel_limit = 5
+  local fuel_limit = 5
   if current_count >= fuel_limit then
     return
   end
@@ -564,8 +564,10 @@ function update_generator(e)
     c = e.mech.entity
   end
 
-  if c == nil or not c.valid then
-    return nil
+  if c == nil then return end
+  if not c.valid then
+    storage.nullius_generator_equipment[c.unit_number] = nil
+    return
   end
 
   local invalid = false
@@ -618,22 +620,18 @@ function update_generator(e)
   end
 
   if invalid then
-    if e.character ~= nil and c.player ~= nil then
+    if e.type == "character" then
       update_player_upgrades(c.player)
-    elseif e.mech ~= nil then
-      e.mech.tick = -1
+    elseif e.type == "mech" then
+      check_mecha_equipment(e.mech)
     end
-
-    return
-  else
-    return e
   end
 end
 
 function update_generators()
   if (storage.nullius_generator_equipment == nil) then return end
-  for i, e in pairs(storage.nullius_generator_equipment) do
-    storage.nullius_generator_equipment[i] = update_generator(e)
+  for _, e in pairs(storage.nullius_generator_equipment) do
+    update_generator(e)
   end
 end
 
