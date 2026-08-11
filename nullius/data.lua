@@ -50,6 +50,7 @@ require("prototypes.mods")
 require("prototypes.yafc")
 require("prototypes.inputs")
 require("prototypes.achievements")
+require("prototypes.tips-and-tricks")
 
 data.raw["map-settings"]["map-settings"].pollution.enabled = false
 
