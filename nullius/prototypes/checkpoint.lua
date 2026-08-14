@@ -19,7 +19,7 @@ local function si_string(n)
   -- The null prefix and k, M, G, and T are used.
   -- The significand is made less than or equal to 1500, and
   -- rounded to an integer.  As a special case,
-  -- multiples of 1000 up to 9000 are formatted without a prefix.
+  -- multiples of 1000 up to 9000 are formatted without a suffix.
   if n <= 1.5004e3 or (n < 1e4 and n % 1000 == 0) then return tostring(round(n)) end
   if n <= 1.5004e6 then return tostring(round(n / 1e3)) .. 'k' end
   if n <= 1.5004e9 then return tostring(round(n / 1e6)) .. 'M' end
