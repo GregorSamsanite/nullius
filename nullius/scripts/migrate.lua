@@ -118,7 +118,7 @@ local function refresh_transport_drone_recipes(force)
 end
 
 function migrate_transport_drones(event)
-  if script.active_mods["Transport_Drones_Continued"] == nil then return end
+  if script.active_mods["Transport_Drones_Continued_Fixed"] == nil then return end
   local changes = (event and event.mod_changes) or {}
   local nullius_changed = (changes["nullius"] ~= nil)
   local compat_changed = (changes["nullius-compat-transport-drones-continued"] ~= nil)

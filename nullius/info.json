@@ -63,9 +63,10 @@
 	"! angelsrefining",
         "! Transport_Drones",
 	"! Transport_Drones_Meglinge_Fork",
+	"! Transport_Drones_Continued",
 	"! nullius-compat-transport-drones-continued",
 
-	"(?) Transport_Drones_Continued >= 2.0.64",
+	"(?) Transport_Drones_Continued_Fixed >= 2.0.69",
 	"(?) Companion_Drones >= 1.0.25",
 	"(?) miniloader >= 1.15.7",
 	"(?) FuelTrainStop >= 1.1.0",

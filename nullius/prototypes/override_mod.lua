@@ -1,6 +1,6 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
-local has_transport_drones = mods["Transport_Drones_Continued"]
+local has_transport_drones = mods["Transport_Drones_Continued_Fixed"]
 local early_transport_drones = settings.startup["nullius-early-transport-drones"].value
 
 
@@ -1204,20 +1204,23 @@ if has_transport_drones then
   end
 
   data.raw.technology["transport-system"].order = "nullius-dg"
-  data.raw.technology["transport-system"].effects = {
+  local transport_system_effects = {
     {type = "unlock-recipe", recipe = "transport-drone"},
     {type = "unlock-recipe", recipe = "supply-depot"},
-    {type = "unlock-recipe", recipe = "request-depot"},
-    {type = "unlock-recipe", recipe = "fluid-depot"},
     {type = "unlock-recipe", recipe = "road"}
   }
   if early_transport_drones then
-    table.insert(data.raw.technology["transport-system"].effects,
-      {type = "unlock-recipe", recipe = "buffer-depot"})
-    table.insert(data.raw.technology["transport-system"].effects,
-      {type = "unlock-recipe", recipe = "fuel-depot"})
+    transport_system_effects = {
+      {type = "unlock-recipe", recipe = "transport-drone"},
+      {type = "unlock-recipe", recipe = "supply-depot"},
+      {type = "unlock-recipe", recipe = "request-depot"},
+      {type = "unlock-recipe", recipe = "fluid-depot"},
+      {type = "unlock-recipe", recipe = "buffer-depot"},
+      {type = "unlock-recipe", recipe = "fuel-depot"},
+      {type = "unlock-recipe", recipe = "road"}
+    }
     if dispatcher_enabled then
-      table.insert(data.raw.technology["transport-system"].effects,
+      table.insert(transport_system_effects,
         {type = "unlock-recipe", recipe = "drone-dispatcher"})
     end
     data.raw.technology["transport-system"].prerequisites = {
@@ -1226,8 +1229,9 @@ if has_transport_drones then
   else
     data.raw.technology["transport-system"].prerequisites = {
       "nullius-robotics-1", "nullius-personal-transportation-1",
-      "nullius-pumping-2" }
+      "nullius-checkpoint-compressed-nitrogen" }
   end
+  data.raw.technology["transport-system"].effects = transport_system_effects
   data.raw.technology["transport-system"].unit = {
     count = early_transport_drones and 200 or 100, time = 30,
     ingredients = {
@@ -1245,42 +1249,60 @@ if has_transport_drones then
       {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
     }
   }
+  if not early_transport_drones then
+    table.insert(data.raw.technology["nullius-sensors-2"].prerequisites,"transport-depot-circuits")
+  end
 
   if (data.raw.technology["transport-fluids"] ~= nil) then
     data.raw.technology["transport-fluids"].order = "nullius-dh"
-    data.raw.technology["transport-fluids"].localised_name = {"", "Transport depot infrastructure"}
     if early_transport_drones then
+      data.raw.technology["transport-fluids"].localised_name = {"", "Transport depot infrastructure"}
       data.raw.technology["transport-fluids"].effects = {}
       data.raw.technology["transport-fluids"].enabled = false
       data.raw.technology["transport-fluids"].hidden = true
     else
       data.raw.technology["transport-fluids"].effects = {
-        {type = "unlock-recipe", recipe = "buffer-depot"},
-        {type = "unlock-recipe", recipe = "fuel-depot"}
+        {type = "unlock-recipe", recipe = "fluid-depot"},
+        {type = "unlock-recipe", recipe = "request-depot"}
       }
-      if dispatcher_enabled then
-        table.insert(data.raw.technology["transport-fluids"].effects,
-          {type = "unlock-recipe", recipe = "drone-dispatcher"})
-      end
       data.raw.technology["transport-fluids"].prerequisites = {
-        "transport-system" }
+        "transport-system", "nullius-pumping-2" }
       data.raw.technology["transport-fluids"].unit = {
         count = 150, time = 30,
         ingredients = {
           {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
-          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+          {"nullius-chemical-pack", 1}
         }
       }
-      table.insert(data.raw.technology["transport-fluids"].unit.ingredients,
-        {"nullius-chemical-pack", 1})
     end
   end
 
   if (data.raw.technology["transport-buffering"] ~= nil) then
     data.raw.technology["transport-buffering"].order = "nullius-di"
-    data.raw.technology["transport-buffering"].effects = {}
-    data.raw.technology["transport-buffering"].enabled = false
-    data.raw.technology["transport-buffering"].hidden = true
+    if early_transport_drones then
+      data.raw.technology["transport-buffering"].effects = {}
+      data.raw.technology["transport-buffering"].enabled = false
+      data.raw.technology["transport-buffering"].hidden = true
+    else
+      data.raw.technology["transport-buffering"].effects = {
+        {type = "unlock-recipe", recipe = "buffer-depot"},
+        {type = "unlock-recipe", recipe = "fuel-depot"}
+      }
+      if dispatcher_enabled then
+        table.insert(data.raw.technology["transport-buffering"].effects,
+          {type = "unlock-recipe", recipe = "drone-dispatcher"})
+      end
+      data.raw.technology["transport-buffering"].prerequisites = { "transport-fluids" }
+      data.raw.technology["transport-buffering"].unit = {
+        count = 300, time = 30,
+        ingredients = {
+          {"nullius-geology-pack", 1}, {"nullius-climatology-pack", 1},
+          {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1},
+          {"nullius-chemical-pack", 1}
+        }
+      }
+    end
   end
 
   if (data.raw.technology["transport-logistics"] ~= nil) then
@@ -1296,7 +1318,7 @@ if has_transport_drones then
           "transport-system", "nullius-distribution-2", "nullius-logistic-robot-1" }
       else
         data.raw.technology["transport-logistics"].prerequisites = {
-          "transport-fluids", "nullius-distribution-2", "nullius-logistic-robot-1" }
+          "transport-buffering", "nullius-distribution-2", "nullius-logistic-robot-1" }
       end
     end
     data.raw.technology["transport-logistics"].unit = {
@@ -1316,7 +1338,7 @@ if has_transport_drones then
         "transport-system", "nullius-distribution-2" }
     else
       data.raw.technology["transport-active-supply"].prerequisites = {
-        "transport-fluids", "nullius-distribution-2" }
+        "transport-buffering", "nullius-distribution-2" }
     end
     data.raw.technology["transport-active-supply"].unit = {
       count = 500, time = 30,
@@ -1348,8 +1370,13 @@ if has_transport_drones then
   end
 
   data.raw.technology["transport-drone-speed-1"].order = "nullius-dl"
-  data.raw.technology["transport-drone-speed-1"].prerequisites = {
-    "transport-system", "nullius-robot-speed-1" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-speed-1"].prerequisites = {
+      "transport-system", "nullius-robot-speed-1" }
+  else
+    data.raw.technology["transport-drone-speed-1"].prerequisites = {
+      "nullius-robot-speed-1" }
+  end
   data.raw.technology["transport-drone-speed-1"].unit = {
     count = 200, time = 30,
     ingredients = {
@@ -1367,11 +1394,20 @@ if has_transport_drones then
       {"nullius-mechanical-pack", 1}, {"nullius-electrical-pack", 1}
     }
   }
+  if not early_transport_drones then
+    data.raw.technology["nullius-braking-2"].prerequisites =
+        {"nullius-checkpoint-ceramic-powder", "transport-drone-capacity-1"}
+  end
 
   data.raw.technology["transport-drone-speed-2"].order = "nullius-en"
-  data.raw.technology["transport-drone-speed-2"].prerequisites = {
-    "transport-drone-speed-1", "nullius-robot-speed-2",
-    "nullius-checkpoint-truck" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-speed-2"].prerequisites = {
+      "transport-drone-speed-1", "nullius-robot-speed-2",
+      "nullius-checkpoint-truck" }
+  else
+    data.raw.technology["transport-drone-speed-2"].prerequisites = {
+      "nullius-robot-speed-2", "nullius-checkpoint-truck" }
+  end
   data.raw.technology["transport-drone-speed-2"].unit = {
     count = 800, time = 35,
     ingredients = {
@@ -1381,9 +1417,14 @@ if has_transport_drones then
     }
   }
   data.raw.technology["transport-drone-capacity-2"].order = "nullius-eo"
-  data.raw.technology["transport-drone-capacity-2"].prerequisites = {
-    "transport-drone-capacity-1", "transport-drone-speed-2",
-    "nullius-robot-cargo-1" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-capacity-2"].prerequisites = {
+      "transport-drone-capacity-1", "transport-drone-speed-2",
+      "nullius-robot-cargo-1" }
+  else
+    data.raw.technology["transport-drone-capacity-2"].prerequisites = {
+      "transport-drone-speed-2", "nullius-robot-cargo-1" }
+  end
   data.raw.technology["transport-drone-capacity-2"].unit = {
     count = 1000, time = 35,
     ingredients = {
@@ -1392,11 +1433,19 @@ if has_transport_drones then
       {"nullius-chemical-pack", 1}
     }
   }
+  if not early_transport_drones then
+    table.insert(data.raw.technology["nullius-electromagnetism-3"].prerequisites,"transport-drone-capacity-2")
+  end
 
   data.raw.technology["transport-drone-speed-3"].order = "nullius-fh"
-  data.raw.technology["transport-drone-speed-3"].prerequisites = {
-    "transport-drone-speed-2", "transport-drone-capacity-3",
-    "nullius-robot-speed-3" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-speed-3"].prerequisites = {
+      "transport-drone-speed-2", "transport-drone-capacity-3",
+      "nullius-robot-speed-3" }
+  else
+    data.raw.technology["transport-drone-speed-3"].prerequisites = {
+      "transport-drone-capacity-3", "nullius-robot-speed-3" }
+  end
   data.raw.technology["transport-drone-speed-3"].unit = {
     count = 1600, time = 45,
     ingredients = {
@@ -1423,8 +1472,13 @@ if has_transport_drones then
   }
 
   data.raw.technology["transport-drone-capacity-3"].order = "nullius-fh"
-  data.raw.technology["transport-drone-capacity-3"].prerequisites = {
-    "transport-drone-capacity-2", "nullius-mechanical-engineering-2" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-capacity-3"].prerequisites = {
+      "transport-drone-capacity-2", "nullius-mechanical-engineering-2" }
+  else
+    data.raw.technology["transport-drone-capacity-3"].prerequisites = {
+      "nullius-mechanical-engineering-2" }
+  end
   data.raw.technology["transport-drone-capacity-3"].unit = {
     count = 1600, time = 45,
     ingredients = {
@@ -1433,11 +1487,19 @@ if has_transport_drones then
       {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
     }
   }
+  if not early_transport_drones then
+    table.insert(data.raw.technology["nullius-braking-6"].prerequisites,"transport-drone-speed-3")
+  end
 
   data.raw.technology["transport-drone-speed-4"].order = "nullius-fu"
-  data.raw.technology["transport-drone-speed-4"].prerequisites = {
-    "transport-drone-speed-3", "nullius-personal-transportation-3",
-    "nullius-robot-speed-4" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-speed-4"].prerequisites = {
+      "transport-drone-speed-3", "nullius-personal-transportation-3",
+      "nullius-robot-speed-4" }
+  else
+    data.raw.technology["transport-drone-speed-4"].prerequisites = {
+      "nullius-personal-transportation-3", "nullius-robot-speed-4" }
+  end
   data.raw.technology["transport-drone-speed-4"].unit = {
     count = 4200, time = 55,
     ingredients = {
@@ -1447,9 +1509,14 @@ if has_transport_drones then
     }
   }
   data.raw.technology["transport-drone-capacity-4"].order = "nullius-fv"
-  data.raw.technology["transport-drone-capacity-4"].prerequisites = {
-    "transport-drone-capacity-3", "transport-drone-speed-4",
-    "nullius-braking-8" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-capacity-4"].prerequisites = {
+      "transport-drone-capacity-3", "transport-drone-speed-4",
+      "nullius-braking-8" }
+  else
+    data.raw.technology["transport-drone-capacity-4"].prerequisites = {
+      "transport-drone-speed-4", "nullius-braking-8" }
+  end
   data.raw.technology["transport-drone-capacity-4"].unit = {
     count = 4500, time = 55,
     ingredients = {
@@ -1458,10 +1525,18 @@ if has_transport_drones then
       {"nullius-chemical-pack", 1}, {"nullius-physics-pack", 1}
     }
   }
+  if not early_transport_drones then
+    table.insert(data.raw.technology["nullius-inserter-capacity-6"].prerequisites,"transport-drone-capacity-4")
+  end
 
   data.raw.technology["transport-drone-speed-5"].order = "nullius-gj"
-  data.raw.technology["transport-drone-speed-5"].prerequisites = {
-    "transport-drone-speed-4", "nullius-robot-speed-5" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-speed-5"].prerequisites = {
+      "transport-drone-speed-4", "nullius-robot-speed-5" }
+  else
+    data.raw.technology["transport-drone-speed-5"].prerequisites = {
+      "nullius-robot-speed-5" }
+  end
   data.raw.technology["transport-drone-speed-5"].unit = {
     count_formula = "(2^(L-5))*15000", time = 60,
     ingredients = {
@@ -1472,8 +1547,13 @@ if has_transport_drones then
     }
   }
   data.raw.technology["transport-drone-capacity-5"].order = "nullius-gj"
-  data.raw.technology["transport-drone-capacity-5"].prerequisites = {
-    "transport-drone-capacity-4", "nullius-inserter-capacity-7" }
+  if early_transport_drones then
+    data.raw.technology["transport-drone-capacity-5"].prerequisites = {
+      "transport-drone-capacity-4", "nullius-inserter-capacity-7" }
+  else
+    data.raw.technology["transport-drone-capacity-5"].prerequisites = {
+      "nullius-inserter-capacity-7" }
+  end
   data.raw.technology["transport-drone-capacity-5"].unit = {
     count = 25000, time = 60,
     ingredients = {
@@ -1483,6 +1563,10 @@ if has_transport_drones then
       {"nullius-astronomy-pack", 1}
     }
   }
+  if not early_transport_drones then
+    data.raw.technology["nullius-inserter-capacity-8"].prerequisites =
+        {"transport-drone-capacity-5", "nullius-locomotion-5"}
+  end
 
   local function set_transport_drone_item(opts)
     local item = data.raw.item[opts.name]
@@ -1749,7 +1833,6 @@ if has_transport_drones then
     {type = "item", name = "road-network-reader", amount = 1}
   }
 end
-
 
 if mods["textplates"] then
 local textplatematerial = {
