@@ -13,6 +13,7 @@ Date: xx.xx.2026
     - Update the icons of a few technologies to better match their intent.
     - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
     - Use SI prefixes for large numbers in checkpoint descriptions.
+    - Auto refueler now only recharges to 5 items of fuel instead of a full stack.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
