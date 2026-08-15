@@ -201,6 +201,7 @@ script.on_load(
 script.on_configuration_changed(
   ---@param event ConfigurationChangedData
   function(event)
+    migrate_transport_drones(event)
     migrate_version(event)
     reset_config()
 	  init_alignment()

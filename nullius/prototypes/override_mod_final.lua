@@ -79,55 +79,6 @@ end
 end
 end
 
-
-if mods["Transport_Drones"] then
-  for _,recipe in pairs(data.raw.recipe) do
-    if (string.sub(recipe.name, 1, 8) == "request-") then
-      local product = string.sub(recipe.name, 9, -1)
-      local item = data.raw.item[product]
-      local fluid = data.raw.fluid[product]
-      if ((item ~= nil) and ((fluid == nil) or (recipe.results == nil) or
-	      (recipe.results[1].type ~= "fluid"))) then
-        recipe.icons = item.icons
-        recipe.icon = item.icon
-        recipe.icon_size = item.icon_size
-        recipe.subgroup = item.subgroup
-        recipe.order = item.order
-        recipe.always_show_products = true
-        recipe.show_amount_in_title = false
-        recipe.overload_multiplier = 40
-        recipe.ingredients[2].amount = 15000
-        recipe.results = {
-          {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false},
-          {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false},
-          {type = "item", name = item.name, amount = 50000, show_details_in_recipe_tooltip = false}
-        }
-        recipe.energy_required = 600
-      elseif (fluid ~= nil) then
-        recipe.icons = fluid.icons
-        recipe.icon = fluid.icon
-        recipe.icon_size = fluid.icon_size
-        recipe.subgroup = fluid.subgroup
-        recipe.order = fluid.order
-        recipe.always_show_products = true
-        recipe.show_amount_in_title = false
-        recipe.overload_multiplier = 40
-        recipe.ingredients[2].amount = 15000
-        recipe.results[1].amount = 500000
-        recipe.energy_required = 600
-      end
-    end
-  end
-
-  if (data.raw.recipe["fuel-depots"] ~= nil) then
-    data.raw.recipe["fuel-depots"].ingredients[1].amount = 1
-    data.raw.recipe["fuel-depots"].overload_multiplier = 40
-    data.raw.recipe["fuel-depots"].energy_required = 60
-    data.raw.recipe["fuel-depots"].show_amount_in_title = false
-  end
-end
-
-
 if (mods["RenaiTransportation"] and
     settings.startup["RTThrowersSetting"].value) then
   data.raw.recipe["nullius-thrower-2"].ingredients = {
@@ -152,7 +103,7 @@ if (mods["RenaiTransportation"] and
     {type = "item", name = "RTThrower-inserter-Item", amount = 1},
     {type = "item", name = "nullius-steel-plate", amount = 2}
   }
-  
+
   data.raw.recipe["RTThrower-burner-inserter-Recipe"].enabled = false
   data.raw.recipe["RTThrower-inserter-Recipe"].enabled = false
   data.raw.item["RTThrower-inserter-Item"].localised_name = {"entity-name.nullius-thrower", tostring(1)}
@@ -217,15 +168,15 @@ if (mods["RenaiTransportation"] and
   data.raw.recipe["nullius-thrower-2"].results = {
 			{type = "item", name = "RTThrower-bob-turbo-inserter-Item", amount = 1}
 		}
-  
+
   data.raw.recipe["nullius-thrower-3"].results = {
 			{type = "item", name = "RTThrower-bulk-inserter-Item", amount = 1}
 		}
-  
+
   data.raw.recipe["nullius-thrower-4"].results = {
 			{type = "item", name = "RTThrower-bob-express-bulk-inserter-Item", amount = 1}
 		}
-	
+
 	local hiddenInserterRecipes = {
 	  "RTThrower-burner-inserter-Recipe",
     "RTThrower-inserter-Recipe",
@@ -240,7 +191,7 @@ if (mods["RenaiTransportation"] and
     "RTThrower-bob-turbo-bulk-inserter-Recipe",
     "RTThrower-bob-express-inserter-Recipe"
   }
-  
+
   for _, inserter in pairs(hiddenInserterRecipes) do
     data.raw.recipe[inserter].hidden_in_factoriopedia = true
   end

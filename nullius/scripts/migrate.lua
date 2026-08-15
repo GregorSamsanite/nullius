@@ -13,6 +13,126 @@ function init_legacy_recipes(force)
   end
 end
 
+-- For people who were using the Transport Drones Continued compat mod.
+-- Existing saves should converge on the native drone progression
+-- without losing depot recipes they had already earned or crafted.
+local transport_drone_recipe_names = {
+  "transport-drone", "road", "fast-road", "supply-depot",
+  "request-depot", "buffer-depot", "fluid-depot", "fuel-depot",
+  "active-depot", "storage-depot", "drone-dispatcher",
+  "road-network-reader", "transport-depot-reader", "transport-depot-writer"
+}
+
+local transport_system_recipe_names = {
+  "transport-drone", "road", "supply-depot", "request-depot",
+  "buffer-depot", "fluid-depot", "fuel-depot", "drone-dispatcher"
+}
+
+local transport_infrastructure_recipe_names = {
+  "buffer-depot", "fuel-depot", "drone-dispatcher"
+}
+
+local function capture_enabled_recipes(force, recipe_names)
+  local enabled = {}
+  for _, name in pairs(recipe_names) do
+    local recipe = force.recipes[name]
+    enabled[name] = recipe and recipe.enabled or false
+  end
+  return enabled
+end
+
+local function restore_enabled_recipes(force, enabled)
+  for name, was_enabled in pairs(enabled) do
+    if was_enabled then
+      local recipe = force.recipes[name]
+      if recipe then
+        recipe.enabled = true
+      end
+    end
+  end
+end
+
+local function unlock_recipes(force, recipe_names)
+  for _, name in pairs(recipe_names) do
+    local recipe = force.recipes[name]
+    if recipe then
+      recipe.enabled = true
+    end
+  end
+end
+
+local function unlock_technology_recipes(force, technology, recipe_names)
+  if technology.prototype == nil then return end
+  local unlocked_by_technology = {}
+  for _, effect in pairs(technology.prototype.effects or {}) do
+    if effect.type == "unlock-recipe" and effect.recipe then
+      unlocked_by_technology[effect.recipe] = true
+    end
+  end
+  for _, name in pairs(recipe_names) do
+    local recipe = force.recipes[name]
+    if recipe and unlocked_by_technology[name] then
+      recipe.enabled = true
+    end
+  end
+end
+
+local function unlock_researched_tech_recipes(force)
+  for _, technology in pairs(force.technologies) do
+    if technology.researched and technology.prototype then
+      for _, effect in pairs(technology.prototype.effects or {}) do
+        if effect.type == "unlock-recipe" and effect.recipe then
+          local recipe = force.recipes[effect.recipe]
+          if recipe then
+            recipe.enabled = true
+          end
+        end
+      end
+    end
+  end
+end
+
+local function refresh_transport_drone_recipes(force)
+  local previously_enabled = capture_enabled_recipes(force, transport_drone_recipe_names)
+  force.reset_technologies()
+  force.reset_recipes()
+  local effects_reset = pcall(function()
+    force.reset_technology_effects()
+  end)
+  if not effects_reset then
+    unlock_researched_tech_recipes(force)
+  end
+  restore_enabled_recipes(force, previously_enabled)
+
+  local transport_system = force.technologies["transport-system"]
+  if ((transport_system ~= nil) and transport_system.researched) then
+    unlock_technology_recipes(force, transport_system, transport_system_recipe_names)
+  end
+
+  local transport_fluids = force.technologies["transport-fluids"]
+  local transport_buffering = force.technologies["transport-buffering"]
+  if (((transport_fluids ~= nil) and transport_fluids.researched) or
+      ((transport_buffering ~= nil) and transport_buffering.researched)) then
+    unlock_recipes(force, transport_infrastructure_recipe_names)
+  end
+end
+
+function migrate_transport_drones(event)
+  if script.active_mods["Transport_Drones_Continued_Fixed"] == nil then return end
+  local changes = (event and event.mod_changes) or {}
+  local nullius_changed = (changes["nullius"] ~= nil)
+  local compat_changed = (changes["nullius-compat-transport-drones-continued"] ~= nil)
+  if ((not nullius_changed) and (not compat_changed)) then return end
+  if ((not compat_changed) and storage.nullius_transport_drones_migrated) then return end
+
+  for _, force in pairs(game.forces) do
+    if force.research_enabled then
+      refresh_transport_drone_recipes(force)
+    end
+  end
+  storage.nullius_transport_drones_migrated = true
+end
+
 local function legacy_recipe(force, techname, recipename)
   if (not force.technologies[techname].researched) then return end
   if (storage.nullius_legacy == nil) then
@@ -137,7 +257,7 @@ function update_railloader_bulk()
   remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-bauxite")
   remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-iron")
   remote.call("railloader", "add_bulk_item", "nullius-box-land-fill-limestone")
-  remote.call("railloader", "add_bulk_item", "nullius-box-acid-boric")  
+  remote.call("railloader", "add_bulk_item", "nullius-box-acid-boric")
   remote.call("railloader", "add_bulk_item", "nullius-box-iron-ore")
   remote.call("railloader", "add_bulk_item", "nullius-box-copper-ore")
 end
@@ -176,7 +296,7 @@ function migrate_version(event)
           local ctrl_connect_to_logistic_network = ctrl.connect_to_logistic_network
           local ctrl_circuit_enable_disable = ctrl.circuit_enable_disable
           entity.destroy({ raise_destroy = true })
-      
+
           local pump = surface.create_entity({
               name =name,
               position = position,
@@ -184,7 +304,7 @@ function migrate_version(event)
               direction = direction,
               raise_built = true,
           })
-          
+
           local control_behavior = pump.get_or_create_control_behavior()
           control_behavior.circuit_condition = ctrl_circuit_condition
           control_behavior.logistic_condition = ctrl_logistic_condition
@@ -198,7 +318,7 @@ function migrate_version(event)
         local direction = entity.direction
         local force = entity.force
         entity.destroy({ raise_destroy = true })
-    
+
         local valve = surface.create_entity({
             name = "nullius-togglable-small-pump-1",
             position = position,
@@ -206,7 +326,7 @@ function migrate_version(event)
             direction = direction,
             raise_built = true,
         })
-        
+
         local control_behavior = valve.get_or_create_control_behavior()
         control_behavior.circuit_condition = { comparator = '>', first_signal = { type = "virtual", name = "signal-I" },  second_signal = { type = "virtual", name = "signal-O" }, }
     end
@@ -215,7 +335,7 @@ function migrate_version(event)
         local direction = entity.direction
         local force = entity.force
         entity.destroy({ raise_destroy = true })
-    
+
         local valve = surface.create_entity({
             name = "nullius-togglable-small-pump-1",
             position = position,
@@ -231,7 +351,7 @@ function migrate_version(event)
         local direction = entity.direction
         local force = entity.force
         entity.destroy({ raise_destroy = true })
-    
+
         local valve = surface.create_entity({
             name = "nullius-togglable-small-pump-1",
             position = position,
@@ -247,7 +367,7 @@ function migrate_version(event)
         local direction = entity.direction
         local force = entity.force
         entity.destroy({ raise_destroy = true })
-    
+
         local valve = surface.create_entity({
             name = "nullius-togglable-small-pump-1",
             position = position,

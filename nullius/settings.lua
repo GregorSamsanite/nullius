@@ -22,6 +22,12 @@ data:extend({
     },
     {
         type = "bool-setting",
+        name = "nullius-early-transport-drones",
+        setting_type = "startup",
+        default_value = true
+    },
+    {
+        type = "bool-setting",
         name = "nullius-hide-recipe-signals",
         setting_type = "startup",
         default_value = false
