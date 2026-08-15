@@ -1,15 +1,18 @@
+---@param force LuaForce
 function init_legacy_recipes(force)
   if (storage.nullius_legacy == nil) then return end
+
   local legacy = storage.nullius_legacy[force.index]
   if (legacy == nil) then return end
+
   for recipename, techname in pairs(legacy) do
-    if (force.technologies[techname].researched and
-	    (force.recipes[recipename] ~= nil)) then
-	  force.recipes[recipename].enabled = true
-	end
+
+    if force.technologies[techname].researched and (force.recipes[recipename] ~= nil) then
+	    force.recipes[recipename].enabled = true
+	  end
   end
 end
-  
+
 local function legacy_recipe(force, techname, recipename)
   if (not force.technologies[techname].researched) then return end
   if (storage.nullius_legacy == nil) then
@@ -23,9 +26,9 @@ end
 
 local function legacy_recipe_all(techname, recipename)
   for _, force in pairs(game.forces) do
-    if (force.research_enabled) then
-	  legacy_recipe(force, techname, recipename)
-	end
+    if force.research_enabled then
+	    legacy_recipe(force, techname, recipename)
+	  end
   end
 end
 
@@ -140,22 +143,34 @@ function update_railloader_bulk()
 end
 
 
+---@param event ConfigurationChangedData
 function migrate_version(event)
   local version_info = event.mod_changes["nullius"]
   if (version_info == nil) then return end
+
   local version = parse_version(version_info.old_version)
   if (version == nil) then return end
+
+  if (version >= 20010) then return end
+  legacy_recipe_all("nullius-plumbing-6", "large-tank-3")
 
   if storage.nullius_wind_mod_entities == nil then
     storage.nullius_wind_mod_entities = {}
   end
 
-  if(version >= 20003) then return end
+  update_all_upgrades()
+  if storage.nullius_mecha_list ~= nil then
+    for _, node in pairs(storage.nullius_mecha_list) do
+      check_mecha_equipment(node)
+    end
+  end
+
+  if (version >= 20003) then return end
   if storage.fixing_machines ~= nil then
     storage.fixing_machines = nil
   end
-  
-  if(version >= 20002) then return end
+
+  if (version >= 20002) then return end
   for _, surface in pairs(game.surfaces) do
       for _, entity in pairs(surface.find_entities_filtered({ name = {"nullius-pump-1","nullius-pump-2","pump","nullius-small-pump-1","nullius-small-pump-2" }})) do
           local position = entity.position
@@ -251,7 +266,7 @@ function migrate_version(event)
         control_behavior.circuit_condition = { comparator = '<', first_signal = { type = "virtual", name = "signal-O" }, constant = 50, }
     end
   end
-  if(version >= 20000) then return end
+  if (version >= 20000) then return end
   for _,bucket in pairs(storage.nullius_turbine_buckets) do
     for _,t in pairs(bucket.turbines) do
       t.blade = rendering.get_object_by_id(t.blade)
@@ -277,7 +292,7 @@ function migrate_version(event)
       end
     end
   end
-  
+
   if (version >= 10901) then return end
   legacy_recipe_all("nullius-lithium-production", "lithium-chloride")
   legacy_recipe_all("nullius-lithium-production", "boxed-lithium-chloride")
@@ -360,39 +375,39 @@ function migrate_version(event)
   if (version >= 10500) then return end
   for _, force in pairs(game.forces) do
     if (force.research_enabled) then
-	  legacy_recipe(force, "nullius-automation", "small-assembler-1")
-	  legacy_recipe(force, "nullius-automation-2", "small-assembler-2")
-	  legacy_recipe(force, "nullius-mining-1", "small-miner-1")
-	  legacy_recipe(force, "nullius-mineral-processing-3", "crusher-3")
-	  legacy_recipe(force, "nullius-broadcasting-4", "large-beacon-2")
-	  legacy_recipe(force, "nullius-terraforming-1", "demolition-drone")
-	  legacy_recipe(force, "nullius-terraforming-1", "excavation-drone")
-	  legacy_recipe(force, "nullius-cybernetics-6", "chassis-5")
-	  legacy_recipe(force, "nullius-maintenance", "repair-pack")
-	  legacy_recipe(force, "nullius-mass-production-4", "boxed-repair-pack")
-	  legacy_recipe(force, "nullius-robotics-4", "levitation-field-2")
-	  legacy_recipe(force, "nullius-freight-transportation-2", "locomotive-2")
-	  legacy_recipe(force, "nullius-nanotechnology-1", "nanofabricator-1")
-	  legacy_recipe(force, "nullius-nanotechnology-2", "nanofabricator-2")
-	  legacy_recipe(force, "nullius-construction-robot-1", "construction-bot-1")
-	  legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-1")
-	  legacy_recipe(force, "nullius-construction-robot-2", "construction-bot-2")
-	  legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-2")
-	  legacy_recipe(force, "nullius-construction-robot-3", "construction-bot-3")
-	  legacy_recipe(force, "nullius-construction-robot-3", "boxed-construction-bot-3")
-	  legacy_recipe(force, "nullius-construction-robot-4", "construction-bot-4")
-	  legacy_recipe(force, "nullius-construction-robot-4", "boxed-construction-bot-4")
-	  legacy_recipe(force, "nullius-logistic-robot-1", "logistic-bot-1")
-	  legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-1")
-	  legacy_recipe(force, "nullius-logistic-robot-2", "logistic-bot-2")
-	  legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-2")
-	  legacy_recipe(force, "nullius-logistic-robot-3", "logistic-bot-3")
-	  legacy_recipe(force, "nullius-logistic-robot-3", "boxed-logistic-bot-3")
-	  legacy_recipe(force, "nullius-logistic-robot-4", "logistic-bot-4")
-	  legacy_recipe(force, "nullius-logistic-robot-4", "boxed-logistic-bot-4")
-	end
+      legacy_recipe(force, "nullius-automation", "small-assembler-1")
+      legacy_recipe(force, "nullius-automation-2", "small-assembler-2")
+      legacy_recipe(force, "nullius-mining-1", "small-miner-1")
+      legacy_recipe(force, "nullius-mineral-processing-3", "crusher-3")
+      legacy_recipe(force, "nullius-broadcasting-4", "large-beacon-2")
+      legacy_recipe(force, "nullius-terraforming-1", "demolition-drone")
+      legacy_recipe(force, "nullius-terraforming-1", "excavation-drone")
+      legacy_recipe(force, "nullius-cybernetics-6", "chassis-5")
+      legacy_recipe(force, "nullius-maintenance", "repair-pack")
+      legacy_recipe(force, "nullius-mass-production-4", "boxed-repair-pack")
+      legacy_recipe(force, "nullius-robotics-4", "levitation-field-2")
+      legacy_recipe(force, "nullius-freight-transportation-2", "locomotive-2")
+      legacy_recipe(force, "nullius-nanotechnology-1", "nanofabricator-1")
+      legacy_recipe(force, "nullius-nanotechnology-2", "nanofabricator-2")
+      legacy_recipe(force, "nullius-construction-robot-1", "construction-bot-1")
+      legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-1")
+      legacy_recipe(force, "nullius-construction-robot-2", "construction-bot-2")
+      legacy_recipe(force, "nullius-mass-production-6", "boxed-construction-bot-2")
+      legacy_recipe(force, "nullius-construction-robot-3", "construction-bot-3")
+      legacy_recipe(force, "nullius-construction-robot-3", "boxed-construction-bot-3")
+      legacy_recipe(force, "nullius-construction-robot-4", "construction-bot-4")
+      legacy_recipe(force, "nullius-construction-robot-4", "boxed-construction-bot-4")
+      legacy_recipe(force, "nullius-logistic-robot-1", "logistic-bot-1")
+      legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-1")
+      legacy_recipe(force, "nullius-logistic-robot-2", "logistic-bot-2")
+      legacy_recipe(force, "nullius-mass-production-6", "boxed-logistic-bot-2")
+      legacy_recipe(force, "nullius-logistic-robot-3", "logistic-bot-3")
+      legacy_recipe(force, "nullius-logistic-robot-3", "boxed-logistic-bot-3")
+      legacy_recipe(force, "nullius-logistic-robot-4", "logistic-bot-4")
+      legacy_recipe(force, "nullius-logistic-robot-4", "boxed-logistic-bot-4")
+    end
   end
-  
+
   if (version >= 10419) then return end
   for _, force in pairs(game.forces) do
     if (force.research_enabled) then

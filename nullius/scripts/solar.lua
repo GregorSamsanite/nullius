@@ -1,3 +1,9 @@
+---@class SolarEntry
+---@field collector LuaEntity
+---@field level integer
+
+---@alias SolarBucket table<integer, SolarEntry>
+
 function init_solar()
   if (storage.nullius_solar_buckets == nil) then
     storage.nullius_solar_buckets = {}
@@ -17,53 +23,60 @@ function update_solar()
   if (storage.nullius_solar_buckets == nil) then return end
   local tick = game.tick * 382
   for j=0,1 do
-    local bucket = storage.nullius_solar_buckets[(tick + j) % 541]
+    local bucket = storage.nullius_solar_buckets[(tick + j) % 541] --[[@as SolarBucket]]
     for i,t in pairs(bucket) do
       if (t.collector.valid) then
         local surface = t.collector.surface
-      local dayt = surface.daytime
-      local light = 1
-      if ((dayt > surface.dusk) and (dayt < surface.dawn)) then
-        if (dayt < surface.evening) then
-        light = (surface.evening - dayt) / (surface.evening - surface.dusk)
-      elseif (dayt > surface.morning) then
-        light = (dayt - surface.morning) / (surface.dawn - surface.morning)
-      else
-        light = 0
-      end
-      end
-      light = light * surface.solar_power_multiplier
+        local dayt = surface.daytime
+        local light = 1
+        if ((dayt > surface.dusk) and (dayt < surface.dawn)) then
+          if (dayt < surface.evening) then
+            light = (surface.evening - dayt) / (surface.evening - surface.dusk)
+          elseif (dayt > surface.morning) then
+            light = (dayt - surface.morning) / (surface.dawn - surface.morning)
+          else
+            light = 0
+          end
+        end
+        light = light * surface.solar_power_multiplier
 
         local vals = solar_values[t.level]
-      local realtemp = t.collector.temperature
-    local basetemp = math.max(realtemp, 175)
-      if (basetemp < vals.maxtemp) then
-        local target = (vals.maxtemp * (light + 0.1)) - basetemp
-        if (target > 0) then
-          local adjust = vals.ratio * (1 + t.collector.neighbour_bonus) * light
-          if (target < vals.threshold) then
-            adjust = adjust * (target / vals.threshold)
+        local realtemp = t.collector.temperature
+        local basetemp = math.max(realtemp, 175)
+        if (basetemp < vals.maxtemp) then
+          local target = (vals.maxtemp * (light + 0.1)) - basetemp
+          if (target > 0) then
+            local adjust = vals.ratio * (1 + t.collector.neighbour_bonus) * light
+            if (target < vals.threshold) then
+              adjust = adjust * (target / vals.threshold)
+            end
+            t.collector.temperature = math.min(vals.maxtemp, (realtemp + adjust))
           end
-        t.collector.temperature = math.min(vals.maxtemp, (realtemp + adjust))
         end
+      else
+        bucket[i] = nil
       end
-    else
-      bucket[i] = nil
-    end
     end
   end
 end
 
+---Called when a new solar collector is built.
+---@param entity LuaEntity
+---@param level number
 function build_solar_collector(entity, level)
   if ((level < 1) or (level > 3)) then return end
   init_solar()
   local bucket = storage.nullius_solar_buckets[entity.unit_number % 541]
   bucket[entity.unit_number] = {
     collector = entity,
-  level = level
+    level = level
   }
 end
 
+---Called when a solar collector is removed.
+---@param entity LuaEntity
+---@param died boolean
+---@param level number
 function remove_solar_collector(entity, died, level)
   if (storage.nullius_solar_buckets == nil) then return end
   local bucket = storage.nullius_solar_buckets[entity.unit_number % 541]

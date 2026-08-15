@@ -3,7 +3,7 @@ local resource_autoplace = require("resource-autoplace")
 function remove_autoplace(resource)
   if data.raw.resource[resource] then
     data.raw["autoplace-control"][resource] = nil
-	data.raw.resource[resource].autoplace = nil
+    data.raw.resource[resource].autoplace = nil
   end
   for _, preset in pairs(data.raw["map-gen-presets"]["default"]) do
     if ((preset.basic_settings ~= nil) and
@@ -13,25 +13,6 @@ function remove_autoplace(resource)
   end
   data.raw.planet["nauvis"].map_gen_settings.autoplace_controls[resource] = nil
   data.raw.planet["nauvis"].map_gen_settings.autoplace_settings["entity"]["settings"][resource] = nil
-end
-
-
-if mods["angelsrefining"] then
-  for r, subdir in pairs(angelsmods.functions.store) do 
-    for r, input in pairs(subdir) do
-      if (not input.inactive) then
-  	  if ((input.name == "coal") or (input.name == "crude-oil")) then
-  	    input.inactive = true
-  	  else
-          angelsmods.functions.remove_resource(input.name)
-  	  end
-      end
-    end
-  end
-  
-  if data.raw["simple-entity"]["angels-crystal-rock"] then
-    data.raw["simple-entity"]["angels-crystal-rock"].autoplace = nil
-  end
 end
 
 remove_autoplace("copper-ore")
@@ -165,12 +146,12 @@ if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
   data.raw["autoplace-control"]["offshore-oil"].localised_name = {"", "[entity=offshore-oil] ", {"autoplace-control-names.nullius-hydrothermal"}}
 
 
-data.raw.resource["offshore-oil"].icons = combine_icons(
-  data.raw.fluid["nullius-volcanic-gas"].icons, 
-  {{icon = data.raw.fluid["nullius-water"].icon, icon_size = 64}},
-  0.85, 0.25, nil, {-10, -10}
-)
-data.raw.resource["offshore-oil"].autoplace =
+  data.raw.resource["offshore-oil"].icons = combine_icons(
+    data.raw.fluid["nullius-volcanic-gas"].icons, 
+    {{icon = data.raw.fluid["nullius-water"].icon, icon_size = 64}},
+    0.85, 0.25, nil, {-10, -10}
+  )
+  data.raw.resource["offshore-oil"].autoplace =
     resource_autoplace.resource_autoplace_settings {
       name = "offshore-oil",
       order = "a-c-c",
@@ -184,48 +165,48 @@ data.raw.resource["offshore-oil"].autoplace =
       has_starting_area_placement = false
     }
 
-data.raw.resource["offshore-oil"].minable = {
-  mining_time = 1,
-  results = {{
-    type = "fluid",
-    name = "nullius-volcanic-gas",
-    amount_min = 10,
-    amount_max = 10,
-    probability = 1,
-    temperature = 200
+  data.raw.resource["offshore-oil"].minable = {
+    mining_time = 1,
+    results = {{
+      type = "fluid",
+      name = "nullius-volcanic-gas",
+      amount_min = 10,
+      amount_max = 10,
+      probability = 1,
+      temperature = 200
+    }}
+  }
+
+  data.raw["resource"]["offshore-oil"].order = "a-c-c"
+  data.raw.resource["offshore-oil"].mining_visualisation_tint = {r = 1.0, g = 0.7, b = 0.4, a = 1.0}
+  data.raw.resource["offshore-oil"].localised_name = {"entity-name.nullius-hydrothermal-vent"}
+  data.raw.resource["offshore-oil"].localised_description = {"entity-description.nullius-hydrothermal-vent"}
+
+  table.insert(data.raw.resource["offshore-oil"].collision_mask, 'ground-tile')
+
+  data.raw.resource["offshore-oil"].stages = { sheet = {
+    filename = "__angelsrefininggraphics__/graphics/entity/patches/gas.png",
+    tint = {0.4, 0.2, 0, 0.4},
+    priority = "extra-high",
+    width = 64,
+    height = 64,
+    frame_count = 4,
+    variation_count = 1
   }}
-}
 
-data.raw.resource["offshore-oil"].map_color = {r=0.7, g=0.5, b=0.3}
-data.raw.resource["offshore-oil"].mining_visualisation_tint = {r = 1.0, g = 0.7, b = 0.4, a = 1.0}
-data.raw.resource["offshore-oil"].localised_name = {"entity-name.nullius-hydrothermal-vent"}
-data.raw.resource["offshore-oil"].localised_description = {"entity-description.nullius-hydrothermal-vent"}
+  data.raw["map-gen-presets"]["default"]["rich-resources"].basic_settings.
+      autoplace_controls["offshore-oil"] = { richness = "very-good"}
+  data.raw["map-gen-presets"]["default"]["rail-world"].basic_settings.
+      autoplace_controls["offshore-oil"] = { frequency = 0.33333333333, size = 3 }
+  data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings.
+      autoplace_controls["offshore-oil"] = { frequency = 3, size = 0.5, richness = 2 }
 
-table.insert(data.raw.resource["offshore-oil"].collision_mask, 'ground-tile')
-
-data.raw.resource["offshore-oil"].stages = { sheet = {
-  filename = "__angelsrefininggraphics__/graphics/entity/patches/gas.png",
-  tint = {0.4, 0.2, 0, 0.4},
-  priority = "extra-high",
-  width = 64,
-  height = 64,
-  frame_count = 4,
-  variation_count = 1
-}}
-
-data.raw["map-gen-presets"]["default"]["rich-resources"].basic_settings.
-    autoplace_controls["offshore-oil"] = { richness = "very-good"}
-data.raw["map-gen-presets"]["default"]["rail-world"].basic_settings.
-    autoplace_controls["offshore-oil"] = { frequency = 0.33333333333, size = 3 }
-data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings.
-    autoplace_controls["offshore-oil"] = { frequency = 3, size = 0.5, richness = 2 }
-
-if (not settings.startup["no_oil_for_oil_rig"].value) then
-  data.raw.resource["nullius-fumarole"].infinite = false
-  data.raw.resource["nullius-fumarole"].infinite_depletion_amount = nil
-  data.raw.resource["nullius-fumarole"].localised_description =
-    {"entity-description.nullius-fumarole-finite"}
-end
+  if not settings.startup["no_oil_for_oil_rig"].value then
+    data.raw.resource["nullius-fumarole"].infinite = false
+    data.raw.resource["nullius-fumarole"].infinite_depletion_amount = nil
+    data.raw.resource["nullius-fumarole"].localised_description =
+      {"entity-description.nullius-fumarole-finite"}
+  end
 end
 
 -- Alien Biomes Patch (alien biomes 0.7.4 crashes when the disable all vegetation setting is enabled)

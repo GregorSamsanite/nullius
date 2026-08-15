@@ -384,7 +384,7 @@ data:extend({
       ingredients = {{"nullius-geology-pack", 1}, {"nullius-climatology-pack", 2}},
       time = 8
     },
-    prerequisites = {"nullius-plumbing-1", "nullius-iron-working-2", "nullius-masonry-1"},
+    prerequisites = {"nullius-checkpoint-toggle-pump", "nullius-iron-working-2", "nullius-masonry-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -1145,9 +1145,8 @@ data:extend({
     type = "technology",
     name = "nullius-energy-storage-1",
     order = "nullius-cf",
-    icon_size = 64,
-    
-    icon = "__base__/graphics/icons/steam-turbine.png",
+    icon = "__base__/graphics/technology/steam-power.png",
+    icon_size = 256,
     effects = {
       {
         type = "unlock-recipe",
@@ -1853,7 +1852,7 @@ data:extend({
     type = "technology",
     name = "nullius-electronics-1",
     order = "nullius-cl",
-    icon = "__base__/graphics/technology/electronics.png",
+    icon = "__base__/graphics/technology/advanced-combinators.png",
     icon_size = 256,
     
     effects = {
@@ -2451,7 +2450,7 @@ data:extend({
     type = "technology",
     name = "nullius-mining-2",
     order = "nullius-de",
-    icon = "__base__/graphics/technology/mining-productivity.png",
+    icon = "__base__/graphics/technology/electric-mining-drill.png",
     icon_size = 256,
     
     effects = {
@@ -2814,10 +2813,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-construction-bot-1"
       },
-      -- {
-      --   type = "ghost-time-to-live",
-      --   modifier = 60 * 60 * 60 * 2
-      -- }
+      {
+        type = "create-ghost-on-entity-death",
+        modifier = true
+      },
     },
     unit = {
       count = 100,
@@ -5765,7 +5764,7 @@ data:extend({
     type = "technology",
     name = "nullius-electronics-2",
     order = "nullius-ei",
-    icon = "__base__/graphics/technology/advanced-circuit.png",
+    icon = "__base__/graphics/technology/electronics.png",
     icon_size = 256,
     
     effects = {
@@ -6440,10 +6439,6 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-construction-bot-2"
       },
-      -- {
-      --   type = "ghost-time-to-live",
-      --   modifier = 60 * 60 * 60 * 10
-      -- }
     },
     unit = {
       count = 600,
@@ -7031,10 +7026,6 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-gate"
       },
-      -- {
-      --   type = "ghost-time-to-live",
-      --   modifier = 60 * 60 * 60 * 12
-      -- }
     },
     unit = {
       count = 700,
@@ -7133,7 +7124,7 @@ data:extend({
     type = "technology",
     name = "nullius-optimization-4",
     order = "nullius-el",
-    icon = "__base__/graphics/technology/productivity-module-2.png",
+    icon = "__base__/graphics/technology/productivity-module-1.png",
     icon_size = 256,
     
     effects = {
@@ -9664,7 +9655,7 @@ data:extend({
     type = "technology",
     name = "nullius-mining-3",
     order = "nullius-fd",
-    icon = "__base__/graphics/technology/mining-productivity.png",
+    icon = "__base__/graphics/technology/electric-mining-drill.png",
     icon_size = 256,
     
     effects = {
@@ -9797,7 +9788,19 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
+        recipe = "nullius-small-tank-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-medium-tank-4"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "nullius-large-tank-3"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "nullius-boxed-medium-tank-4"
       },
       {
         type = "unlock-recipe",
@@ -10786,7 +10789,7 @@ data:extend({
     type = "technology",
     name = "nullius-battery-storage-3",
     order = "nullius-fj",
-    icon = "__base__/graphics/technology/battery.png",
+    icon = "__base__/graphics/technology/battery-mk2-equipment.png",
     icon_size = 256,
     
     effects = {
@@ -11235,7 +11238,7 @@ data:extend({
     type = "technology",
     name = "nullius-electronics-3",
     order = "nullius-fm",
-    icon = "__base__/graphics/technology/processing-unit.png",
+    icon = "__base__/graphics/technology/advanced-circuit.png",
     icon_size = 256,
     
     effects = {
@@ -11932,7 +11935,6 @@ data:extend({
     order = "nullius-fq",
     icon = "__base__/graphics/technology/electronics.png",
     icon_size = 256,
-    
     effects = {
       {
         type = "unlock-recipe",
@@ -12018,10 +12020,6 @@ data:extend({
         type = "unlock-recipe",
         recipe = "nullius-unbox-construction-bot-3"
       },
-      -- {
-      --   type = "ghost-time-to-live",
-      --   modifier = 60 * 60 * 60 * 24 * 6
-      -- }
     },
     unit = {
       count = 3400,
@@ -13922,7 +13920,7 @@ data:extend({
     type = "technology",
     name = "nullius-miniaturization-2",
     order = "nullius-gg",
-    icon = "__base__/graphics/technology/electronics.png",
+    icon = "__base__/graphics/technology/advanced-circuit.png",
     icon_size = 256,
     
     effects = {
