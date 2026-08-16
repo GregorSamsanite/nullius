@@ -54,6 +54,7 @@
 	"(?) DisplayPlatesForked >= 1.6.1",
 	"(?) GCKI >= 0.16.0",
 	"(?) companion-drones-mjlfix >= 3.1.2",
+	"(?) ShuttleTrainRefresh >= 2.0.4",
 	  
 	"! space-age",
 	"! quality",
@@ -66,7 +67,6 @@
 	"(?) miniloader >= 1.15.7",
 	"(?) FuelTrainStop >= 1.1.0",
 	"(?) crafting_combinator >= 0.16.3",
-	"(?) Shuttle_Train_Continued >= 1.1.0",
 	"(?) railloader >= 1.1.6",
 	"(?) beautiful_bridge_railway >= 1.1.1",
 	"(?) Induction Charging >= 2.0.0",

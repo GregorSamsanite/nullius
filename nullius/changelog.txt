@@ -5,6 +5,7 @@ Date: xx.xx.2026
     - Support for Display Plates Forked mod
     - Support for companion-drones-mjlfix mod
     - Patched GCKI support (probable bug when used with Renai Transportation mod)
+    - Added support for ShuttleTrainRefresh mod
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
 Date: 15.08.2026

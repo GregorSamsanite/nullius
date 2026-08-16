@@ -1680,15 +1680,20 @@ end
 end
 
 
-if mods["Shuttle_Train_Continued"] then
+if mods["ShuttleTrainRefresh"] then
   table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
-    {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
+    {type = "unlock-recipe", recipe = "shuttle-train"})
+  table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
+    {type = "unlock-recipe", recipe = "shuttle-train-manual"})
 if (mods["railway-motor-car"] or mods["jetpack"]) then
-  data.raw.item["shuttle-lite"].subgroup = "jetpack"
+  data.raw.item["shuttle-train"].subgroup = "jetpack"
+  data.raw.item["shuttle-train-manual"].subgroup = "jetpack"
 else
-  data.raw.item["shuttle-lite"].subgroup = "railway"
+  data.raw.item["shuttle-train"].subgroup = "railway"
+  data.raw.item["shuttle-train-manual"].subgroup = "railway"
 end
-  data.raw.item["shuttle-lite"].order = "nullius-s"
+  data.raw.item["shuttle-train"].order = "nullius-s"
+  data.raw.item["shuttle-train-manual"].order = "nullius-t"
 end
 
 
