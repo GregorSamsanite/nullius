@@ -1555,6 +1555,8 @@ if mods["companion-drones-mjlfix"] then
   data.raw["item"]["rocket-booster"].order = "r"
   data.raw["item"]["rocket-booster"].localised_name = {"item-name.nullius-companion-fuel"}
   data.raw["item"]["rocket-booster"].localised_description = {"item-description.nullius-companion-fuel"}
+  data.raw["projectile"]["companion-projectile"].hidden_in_factoriopedia = true
+  data.raw["item-with-entity-data"]["companion"].order = "nullius-a"
 end
 
 

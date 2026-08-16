@@ -311,6 +311,14 @@ if mods["DisplayPlatesForked"] then
     clutterpedia["nullius-display-plate-medium-plastic"] =      {name = "copper-display-medium",         tech = "nullius-display-plates"}
     clutterpedia["nullius-display-plate-large-plastic"] =       {name = "copper-display",                tech = "nullius-display-plates"}
 end
+if mods["companion-drones-mjlfix"] then
+    clutterpedia["nullius-companion"] =                         {name = "companion",                        tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-reactor-equipment"] =       {name = "companion-reactor-equipment",      tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-shield-equipment"] =        {name = "companion-shield-equipment",       tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-roboport-equipment"] =      {name = "companion-roboport-equipment",     tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-defense-equipment"] =       {name = "companion-defense-equipment",      tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-fuel"] =                    {name = "rocket-booster",                   tech = "nullius-hydrocarbon-combustion-2"}
+end
 
 function generate_migrations()
     local contents = "\n---- Generated migrations ----\n"

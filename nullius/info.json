@@ -52,6 +52,8 @@
 	"(?) aai-containers >= 0.3.2",
 	"(?) stack-inserters >= 1.0.1",
 	"(?) DisplayPlatesForked >= 1.6.1",
+	"(?) GCKI >= 0.16.0",
+	"(?) companion-drones-mjlfix >= 3.1.2",
 	  
 	"! space-age",
 	"! quality",
@@ -61,7 +63,6 @@
 	"! angelsrefining",
 
 	"(?) Transport_Drones >= 1.0.16",
-	"(?) companion-drones-mjlfix >= 3.1.2",
 	"(?) miniloader >= 1.15.7",
 	"(?) FuelTrainStop >= 1.1.0",
 	"(?) crafting_combinator >= 0.16.3",
@@ -69,7 +70,6 @@
 	"(?) railloader >= 1.1.6",
 	"(?) beautiful_bridge_railway >= 1.1.1",
 	"(?) Induction Charging >= 2.0.0",
-	"(?) stack-combinator >= 1.6.2",
-	"(?) GCKI >= 0.16.0"
+	"(?) stack-combinator >= 1.6.2"
   ]
 }

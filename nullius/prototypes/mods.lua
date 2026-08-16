@@ -2079,7 +2079,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-shield-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 5,
     ingredients = {
@@ -2094,7 +2094,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-roboport-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 40,
     ingredients = {
@@ -2110,7 +2110,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-defense-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 10,
     ingredients = {
@@ -2125,7 +2125,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-fuel",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
