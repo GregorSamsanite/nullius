@@ -4,6 +4,7 @@ Date: xx.xx.2026
   Modding:
     - Support for Display Plates Forked mod
     - Support for companion-drones-mjlfix mod
+    - Patched GCKI support (probable bug when used with Renai Transportation mod)
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
 Date: 15.08.2026
