@@ -3747,7 +3747,7 @@ end
 end
 
 
-if mods["DisplayPlates"] then
+if mods["DisplayPlatesForked"] then
 data:extend({
   {
     type = "recipe",
@@ -3892,7 +3892,7 @@ data:extend({
     name = "nullius-display-plates",
     localised_name = {"technology-name.nullius-display-plates"},
     localised_description = {"technology-description.nullius-display-plates"},
-    icon = "__DisplayPlates__/graphics/entities/steel-display-small.png",
+    icon = "__DisplayPlatesForked__/graphics/entities/steel-display-small.png",
     icon_size = 80,
     order = "nullius-cc",
     effects = {

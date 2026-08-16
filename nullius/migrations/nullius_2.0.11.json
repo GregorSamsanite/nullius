@@ -1,0 +1,14 @@
+{
+    "recipe": [
+        ["nullius-display-plate-small-steel", "iron-display-small"],
+        ["nullius-display-plate-medium-steel", "iron-display-medium"],
+        ["nullius-display-plate-large-steel", "iron-display"],
+        ["nullius-display-plate-small-aluminum", "steel-display-small"],
+        ["nullius-display-plate-medium-aluminum", "steel-display-medium"],
+        ["nullius-display-plate-large-aluminum", "steel-display"],
+        ["nullius-display-plate-small-plastic", "copper-display-small"],
+        ["nullius-display-plate-medium-plastic", "copper-display-medium"],
+        ["nullius-display-plate-large-plastic", "copper-display"]
+    ]
+}
+
