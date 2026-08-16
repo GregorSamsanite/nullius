@@ -1,4 +1,72 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 15.08.2026
+  Features:
+    - Added Small Tank 3 and Medium Tank 4.
+    - Added a checkpoint for toggling pumps
+    - Added German translation
+    - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
+    - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Graphics:
+    - New icon for cellulose.
+  Changes:
+    - Update the icons of a few technologies to better match their intent.
+    - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
+    - Use SI prefixes for large numbers in checkpoint descriptions.
+    - Auto refueler now only recharges to 5 items of fuel instead of a full stack.
+  Bugfixes:
+    - Fixed which recipes enable biology drone remotes
+    - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
+    - Researching Robotic construction 1 now properly unlocks destroyed entities becoming ghosts.
+    - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
+  Optimizations:
+    - Improved performance of arboriculture drones.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: 09.06.2026
+  Features:
+    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative
+    - Added new menu simulations
+  Changes:
+    - Changed actuation tech description to inform more clearly about the filtering being unlocked at tier 2
+    - Hangar, Relay and Chargers no longer provide radar coverage
+  Bugfixes:
+    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests
+    - Fixed duplicated pipeline extent tooltip for underground-pipe-pack
+    - Flushing a Diesel canister now produces as much Diesel as it took to make one
+    - Fixed broken menu simulations
+---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: 18.05.2026
+  Bugfixes:
+    - Fixed broken selection box for chimneys (introduced in 2.0.7 .. sorry)
+---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 17.05.2026
+  Changes:
+    - Made legacy mirrored entities minable again to not break existing factories
+  Bugfixes:
+    - Fixed crash when using grass drone
+  Modding:
+    - Made incompatible with angels refining
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 14.05.2026
+  Changes:
+    - Added elevated rail collisions to pylons and distilleries
+    - Added pipeline extent to the description of pipes and tanks
+    - Grass drones remove sand
+    - Updated Russian translation
+    - Defaults to hiding the voiding recipe icons in alt mode
+  Graphics:
+    - Improved alt-mode appearance of module icons in labs and 2x2 buildings
+  Bugfixes:
+    - Fixed pumping speed of tier 3 valves
+  Modding:
+    - Fixed a broken recipe with Renai Transportation mod
+    - Increased engine power of cargo drones to prevent them stalling
+    - Fixed crash in loading screen with factorissimo
+---------------------------------------------------------------------------------------------------
 Version: 2.0.5
 Date: 25.04.2026
   Changes:

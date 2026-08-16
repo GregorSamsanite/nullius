@@ -1,0 +1,20 @@
+{
+    "item": [
+        ["nullius-biodiesel-canister", "nullius-diesel-canister"],
+        ["nullius-biodiesel-barrel", "nullius-diesel-barrel"]
+    ],
+    "fluid": [
+        ["nullius-biodiesel", "nullius-diesel"]
+    ],
+    "recipe": [
+        ["nullius-biodiesel-combustion", "nullius-diesel-combustion"],
+
+        ["nullius-biodiesel-canister", "nullius-diesel-canister"],
+        ["nullius-boxed-biodiesel-canister", "nullius-boxed-diesel-canister"],
+        ["nullius-box-biodiesel-canister", "nullius-box-diesel-canister"],
+        ["nullius-unbox-biodiesel-canister", "nullius-unbox-diesel-canister"],
+        ["nullius-biodiesel-canister-flushing", "nullius-diesel-canister-flushing"],
+        ["nullius-biodiesel-barrel", "nullius-diesel-barrel"],
+        ["empty-nullius-biodiesel-barrel", "empty-nullius-diesel-barrel"]
+    ]
+}

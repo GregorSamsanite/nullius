@@ -63,8 +63,8 @@ data:extend({
   {
     type = "gun",
     name = "nullius-car-gun",
-    localised_name = {"item-name.nullius-gun"},
-    localised_description = {"item-description.nullius-gun"},
+    localised_name = {"item-name.nullius-car-gun"},
+    localised_description = {"item-description.nullius-car-gun"},
     icon = "__base__/graphics/icons/submachine-gun.png",
     icon_size = 64,
     
@@ -95,8 +95,8 @@ data:extend({
   {
     type = "gun",
     name = "nullius-car-gun-2",
-    localised_name = {"item-name.nullius-gun"},
-    localised_description = {"item-description.nullius-gun"},
+    localised_name = {"item-name.nullius-car-gun"},
+    localised_description = {"item-description.nullius-car-gun"},
     icon = "__base__/graphics/icons/submachine-gun.png",
     icon_size = 64,
     

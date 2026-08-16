@@ -498,11 +498,26 @@ data:extend({
   },
   {
     type = "fluid",
+    name = "nullius-diesel",
+    icons = {{
+      icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+      icon_size = 64,
+    }},
+    subgroup = "organic-chemistry",
+    order = "nullius-i",
+    base_color = {r=0.5, g=0.04, b=0},
+    flow_color = {r=0.85, g=0.6, b=0.3},
+    heat_capacity = "0.08kJ",
+    default_temperature = 25,
+    max_temperature = 100
+  },
+  {
+    type = "fluid",
     name = "nullius-solvent",
     icon = FLUIDPATH .. "solvent.png",
     icon_size = 64,
     subgroup = "organic-chemistry",
-    order = "nullius-i",
+    order = "nullius-j",
     base_color = {r = 232, g = 228, b = 200},
     flow_color = {r = 232, g = 228, b = 200},
     heat_capacity = "0.08kJ",
@@ -515,7 +530,7 @@ data:extend({
     icon = FLUIDPATH .. "epoxy.png",
     icon_size = 64,
     subgroup = "organic-chemistry",
-    order = "nullius-j",
+    order = "nullius-k",
     base_color = {r = 192, g = 184, b = 136},
     flow_color = {r = 192, g = 184, b = 136},
     heat_capacity = "0.08kJ",
@@ -577,22 +592,6 @@ data:extend({
     order = "nullius-f",
     base_color = {r=0.57, g=0.33, b=0},
     flow_color = {r=1, g=0.73, b=0.07},
-    heat_capacity = "0.08kJ",
-    default_temperature = 25,
-    max_temperature = 100
-  },
-  {
-    type = "fluid",
-    name = "nullius-biodiesel",
-    icons = {{
-      icon = "__base__/graphics/icons/fluid/heavy-oil.png",
-      icon_size = 64,
-      
-    }},
-    subgroup = "biochemistry",
-    order = "nullius-g",
-    base_color = {r=0.5, g=0.04, b=0},
-    flow_color = {r=0.85, g=0.6, b=0.3},
     heat_capacity = "0.08kJ",
     default_temperature = 25,
     max_temperature = 100
@@ -4797,13 +4796,12 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-biodiesel-combustion",
-    localised_name = {"recipe-name.nullius-biodiesel-combustion"},
+    name = "nullius-diesel-combustion",
+    localised_name = {"recipe-name.nullius-combustion", {"fluid-name.nullius-diesel"}},
     icon_size = 64,
     icons = {
       {
         icon = "__base__/graphics/icons/fluid/steam.png",
-        
       },
       {
         icon = "__base__/graphics/icons/fluid/heavy-oil.png",
@@ -4820,7 +4818,7 @@ data:extend({
     order = "nullius-ff",
     energy_required = 1,
     ingredients = {
-      {type="fluid", name="nullius-biodiesel", amount=8},
+      {type="fluid", name="nullius-diesel", amount=8},
       {type="fluid", name="nullius-compressed-oxygen", amount=40}
     },
     results = {
@@ -5352,8 +5350,8 @@ data:extend({
   },
   {
     type = "item",
-    name = "nullius-biodiesel-canister",
-    icon = ICONPATH .. "canister-biodiesel.png",
+    name = "nullius-diesel-canister",
+    icon = ICONPATH .. "canister-diesel.png",
     icon_size = 64,
     subgroup = "canisters",
     order = "nullius-f",
@@ -5743,7 +5741,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-biodiesel-canister",
+    name = "nullius-diesel-canister",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -5753,16 +5751,16 @@ data:extend({
     energy_required = 1,
     ingredients = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=25},
+      {type="fluid", name="nullius-diesel", amount=25},
       {type="fluid", name="nullius-compressed-oxygen", amount=120}
     },
     results = {
-      {type = "item", name = "nullius-biodiesel-canister", amount = 1}
+      {type = "item", name = "nullius-diesel-canister", amount = 1}
     }
   },
   {
     type = "recipe",
-    name = "nullius-boxed-biodiesel-canister",
+    name = "nullius-boxed-diesel-canister",
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -5773,11 +5771,11 @@ data:extend({
     energy_required = 5,
     ingredients = {
       {type="item", name="nullius-box-canister", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=125},
+      {type="fluid", name="nullius-diesel", amount=125},
       {type="fluid", name="nullius-compressed-oxygen", amount=600}
     },
     results = {
-      {type = "item", name = "nullius-box-biodiesel-canister", amount = 1}
+      {type = "item", name = "nullius-box-diesel-canister", amount = 1}
     }
   },
 
@@ -5846,9 +5844,9 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "nullius-biodiesel-canister-flushing",
+    name = "nullius-diesel-canister-flushing",
 	  localised_name = {"recipe-name.nullius-flushing",
-	    {"item-name.nullius-biodiesel-canister"}},
+	    {"item-name.nullius-diesel-canister"}},
 	  icons = {
       {
         icon = ICONPATH .. "canister-empty.png",
@@ -5870,11 +5868,11 @@ data:extend({
     order = "nullius-fd",
     energy_required = 1,
     ingredients = {
-      {type="item", name="nullius-biodiesel-canister", amount=1}
+      {type="item", name="nullius-diesel-canister", amount=1}
     },
     results = {
       {type="item", name="nullius-canister", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=32}
+      {type="fluid", name="nullius-diesel", amount=25}
     }
   },
 
@@ -7115,6 +7113,30 @@ data:extend({
       {type="fluid", name="nullius-acid-hydrochloric", amount=60}
     },
     main_product = "nullius-lubricant"
+  },
+
+  {
+    type = "recipe",
+    name = "nullius-diesel",
+    enabled = false,
+    allow_as_intermediate = false,
+    category = "basic-chemistry",
+    crafting_machine_tint = { primary = data.raw.fluid["nullius-diesel"].flow_color },
+    energy_required = 12,
+    show_amount_in_title = false,
+    ingredients = {
+      {type="fluid", name="nullius-compressed-hydrogen", amount=25},
+      {type="fluid", name="nullius-compressed-oxygen", amount=8},
+      {type="fluid", name="nullius-propene", amount=100},
+      {type="item", name="nullius-box-aluminum-powder", amount=3},
+    },
+    results = {
+      -- 160
+      {type="fluid", name="nullius-diesel", amount=15},
+      {type="fluid", name="nullius-methanol", amount=12},
+      {type="item", name="nullius-aluminum-hydroxide", amount=1},
+    },
+    main_product = "nullius-diesel"
   },
 
   {

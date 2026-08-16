@@ -152,11 +152,17 @@ local checkpoint_data = {
   ["oxygen-partial"] = {{ CHK_OBJECTIVE, 2, 25, {} }},
   ["oxygen-partial-2"] = {{ CHK_OBJECTIVE, 2, 50, {} }},
   ["oxygen-partial-3"] = {{ CHK_OBJECTIVE, 2, 75, {} }},
-  ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }}
+  ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }},
+  ["toggle-pump"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-togglable-pump-1"}} }},
+  
 }
 
 if script.active_mods["lambent-nil"] then
   checkpoint_data["chelating-agent"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"nullius-chelating-agent"}} }}
+end
+
+if script.active_mods["tricky-old-nick"] then
+  checkpoint_data["mining"][1][4] = {{"nullius-nickel-ore"}, {"nullius-box-nickel-ore",5}}
 end
 
 
@@ -315,14 +321,14 @@ local function test_checkpoint_req(force, req)
 	    (storage.nullius_mission_status[calc] / goal)))
   elseif (ctyp == CHK_SPECIAL) then
     if (calc == 1) then
-	  if (storage.nullius_switch_body_count == nil) then return 0 end
-	  local count = storage.nullius_switch_body_count[force.name]
-	  if (count == nil) then return 0 end
-	  return math.min(1, math.max(0, (count / goal)))
-	elseif (calc == 2) then
-	  local count = count_req_list(list[1],
+	    if (storage.nullius_switch_body_count == nil) then return 0 end
+	    local count = storage.nullius_switch_body_count[force.name]
+	    if (count == nil) then return 0 end
+	    return math.min(1, math.max(0, (count / goal)))
+	  elseif (calc == 2) then
+	    local count = count_req_list(list[1],
 	          force.get_fluid_production_statistics("nauvis"), STT_CONSUME) +
-		  count_req_list(list[2],
+		      count_req_list(list[2],
 	          force.get_item_production_statistics("nauvis"), STT_PRODUCE)
       return math.min(math.max((count / goal), 0), 1)
     else
@@ -362,7 +368,7 @@ local function update_checkpoint_force(force, tick)
   local count = 0
   for _, req in pairs(check.reqs) do
     progress = progress + test_checkpoint_req(force, req)
-	count = count + 1
+	  count = count + 1
   end
 
   if ((progress >= count) or (count < 1)) then

@@ -2,6 +2,15 @@ local ICONPATH = "__nullius__/graphics/icons/"
 local FLUIDPATH = ICONPATH .. "fluid/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
+local function copy_icon_resize_and_shift(icon, scale, shift)
+  local new_icon = table.deepcopy(icon)
+  new_icon.scale = (new_icon.scale or 1) * scale
+  new_icon.shift = new_icon.shift or {0, 0}
+  new_icon.shift = { (new_icon.shift[1] or 0) + shift[1],
+                      (new_icon.shift[2] or 0) + shift[2] }
+  return new_icon
+end
+
 data:extend({
   {
     type = "item",
@@ -17,10 +26,7 @@ data:extend({
   {
     type = "item",
     name = "nullius-cellulose",
-    icons = {{
-      icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-      icon_size = 54
-    }},
+    icon = "__nullius__/graphics/icons/cellulose.png",
     subgroup = "biology-material",
     order = "nullius-c",
     stack_size = 200
@@ -286,6 +292,15 @@ data:extend({
   {
     type = "recipe",
     name = "nullius-biodiesel",
+    icons = {
+      {
+        icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+        icon_size = 64,
+      },
+      copy_icon_resize_and_shift(data.raw.fluid["nullius-fatty-acids"].icons[2], 0.33, {-9, -9}),
+      copy_icon_resize_and_shift(data.raw.fluid["nullius-fatty-acids"].icons[3], 0.33, {-9, -9}),
+      copy_icon_resize_and_shift(data.raw.fluid["nullius-fatty-acids"].icons[4], 0.33, {-9, -9}),
+    },
     enabled = false,
     show_amount_in_title = false,
     always_show_products = true,
@@ -298,10 +313,10 @@ data:extend({
       {type="fluid", name="nullius-methanol", amount=8}
     },
     results = {
-      {type="fluid", name="nullius-biodiesel", amount=24},
+      {type="fluid", name="nullius-diesel", amount=24},
       {type="fluid", name="nullius-wastewater", amount=5}
     },
-    main_product = "nullius-biodiesel"
+    main_product = "nullius-diesel"
   },
   {
     type = "recipe",
@@ -1756,8 +1771,8 @@ data:extend({
     localised_name = {"recipe-name.nullius-grass-seed-milling"},
     icons = {
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.56
       },
       {
         icon = ICONPATH .. "protocell.png",
@@ -1801,9 +1816,8 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.5333
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.48
       },
       {
         icon = ICONPATH .. "protocell.png",
@@ -1846,8 +1860,7 @@ data:extend({
       data.raw.fluid["nullius-carbon-dioxide"].icons[3],
       data.raw.fluid["nullius-carbon-dioxide"].icons[4],
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
+        icon = "__nullius__/graphics/icons/cellulose.png",
         scale = 0.32,
         shift = {-8, -8}
       }
@@ -1881,8 +1894,7 @@ data:extend({
       data.raw.fluid["nullius-carbon-dioxide"].icons[3],
       data.raw.fluid["nullius-carbon-dioxide"].icons[4],
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
+        icon = "__nullius__/graphics/icons/cellulose.png",
         scale = 0.29,
         shift = {-7, -7}
       }
@@ -1912,8 +1924,7 @@ data:extend({
         icon_size = 64,
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
+        icon = "__nullius__/graphics/icons/cellulose.png",
         scale = 0.32,
         shift = {-8, -8}
       }
@@ -1950,8 +1961,7 @@ data:extend({
         scale = 0.45
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
+        icon = "__nullius__/graphics/icons/cellulose.png",
         scale = 0.29,
         shift = {-7, -7}
       }
@@ -1981,10 +1991,9 @@ data:extend({
         icon_size = 128
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.37,
-        shift = {-7, -7}
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.30,
+        shift = {-6.5, -6.5}
       }
 	  },
     enabled = false,
@@ -2019,9 +2028,8 @@ data:extend({
 		scale = 0.225
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.33,
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.29,
         shift = {-6, -6}
       }
 	},
@@ -2271,7 +2279,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-graphite", amount=12},
 	    {type="item", name="nullius-rubber", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=10},
+      {type="fluid", name="nullius-diesel", amount=10},
       {type="fluid", name="nullius-compressed-nitrogen", amount=50}
     },
     results = {
@@ -2296,7 +2304,7 @@ data:extend({
     ingredients = {
       {type="item", name="nullius-box-graphite", amount=12},
 	    {type="item", name="nullius-box-rubber", amount=1},
-      {type="fluid", name="nullius-biodiesel", amount=50},
+      {type="fluid", name="nullius-diesel", amount=50},
       {type="fluid", name="nullius-compressed-nitrogen", amount=250}
     },
     results = {
@@ -3496,13 +3504,13 @@ data:extend({
     localised_name = {"recipe-name.nullius-wood-pulping"},
     icons = {
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        tint = {0.99, 0.89, 0.77},  -- Wood-colored
       },
       {
         icon = ICONPATH .. "wood-chip.png",
         icon_size = 64,
-        scale = 0.33,
+        scale = 0.31,
         shift = {-8, -7}
       }
     },
@@ -3537,14 +3545,14 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.53
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.45,
+        tint = {0.99, 0.89, 0.77}  -- Wood-colored
       },
       {
         icon = ICONPATH .. "wood-chip.png",
         icon_size = 64,
-        scale = 0.3,
+        scale = 0.29,
         shift = {-7, -6}
       }
     },
@@ -3574,8 +3582,7 @@ data:extend({
     localised_name = {"recipe-name.nullius-harvest", {"item-name.nullius-tree-seed"}},
     icons = {
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54
+        icon = "__nullius__/graphics/icons/cellulose.png"
       },
       {
         icon = ICONPATH .. "protocell.png",

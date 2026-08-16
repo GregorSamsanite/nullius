@@ -3,6 +3,7 @@ require("prototypes.override_final_only")
 require("prototypes.override_mod_final")
 require("prototypes.item.module_limitation")
 require("prototypes.item.box_icons")
+require("prototypes.custom_tooltip_fields")
 require("legacyMirror")
 
 for _, recipe in pairs(data.raw.recipe) do

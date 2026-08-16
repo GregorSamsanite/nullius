@@ -191,6 +191,18 @@ data:extend({
       "nullius-astronomy-pack",
     },
     module_slots = 2,
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.lab_modules,
+        shift = {0, 0.9}
+      },
+      {
+        inventory_index = defines.inventory.lab_input,
+        shift = {0, -0.2},
+        max_icons_per_row = 4,
+        separation_multiplier = 1/1.1
+      }
+    },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
 
     on_animation = {
@@ -312,6 +324,18 @@ data:extend({
     researching_speed = 2,
     inputs = data.raw.lab["nullius-lab-1"].inputs,
     module_slots = 3,
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.lab_modules,
+        shift = {0, 0.9}
+      },
+      {
+        inventory_index = defines.inventory.lab_input,
+        shift = {0, -0.2},
+        max_icons_per_row = 4,
+        separation_multiplier = 1/1.1
+      }
+    },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
 
     on_animation = {
@@ -415,6 +439,18 @@ data:extend({
     researching_speed = 4,
     inputs = data.raw.lab["nullius-lab-1"].inputs,
     module_slots = 4,
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.lab_modules,
+        shift = {0, 0.9}
+      },
+      {
+        inventory_index = defines.inventory.lab_input,
+        shift = {0, -0.2},
+        max_icons_per_row = 4,
+        separation_multiplier = 1/1.1
+      }
+    },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
 
     on_animation = {
@@ -523,6 +559,18 @@ data:extend({
       "nullius-zoology-pack",
     },
     module_slots = 4,
+    icons_positioning = {
+      {
+        inventory_index = defines.inventory.lab_modules,
+        shift = {0, 0.6}
+      },
+      {
+        inventory_index = defines.inventory.lab_input,
+        shift = {0, -0.5},
+        max_icons_per_row = 4,
+        separation_multiplier = 1/1.1
+      }
+    },
     allowed_effects = {"speed", "productivity", "consumption", "pollution"},
 
     on_animation = {

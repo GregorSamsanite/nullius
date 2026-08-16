@@ -150,8 +150,8 @@ script.on_event(defines.events.on_player_joined_game,
   function(event)
     local player = game.players[event.player_index]
     update_mission_player(player)
-	rematerialize_body(event)
-	align_player_join(player)
+    rematerialize_body(event)
+    align_player_join(player)
   end
 )
 
@@ -199,6 +199,7 @@ script.on_load(
 )
 
 script.on_configuration_changed(
+  ---@param event ConfigurationChangedData
   function(event)
     migrate_version(event)
     reset_config()

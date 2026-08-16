@@ -88,6 +88,7 @@ data:extend({
     dying_explosion = "big-electric-pole-explosion",
     resistances = {{ type = "impact", decrease = 100, percent = 90 }},
     collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
+    collision_mask = {layers={item=true, object=true, player=true, water_tile=true, elevated_rail=true, is_object=true, is_lower_object=true}},
     selection_box = {{-1, -1}, {1, 1}},
     damaged_trigger_effect = data.raw["electric-pole"]["big-electric-pole"].damaged_trigger_effect,
     
@@ -137,6 +138,7 @@ data:extend({
     dying_explosion = "big-electric-pole-explosion",
     resistances = {{ type = "impact", decrease = 100, percent = 90 }},
     collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
+    collision_mask = {layers={item=true, object=true, player=true, water_tile=true, elevated_rail=true, is_object=true, is_lower_object=true}},
     selection_box = {{-1, -1}, {1, 1}},
     damaged_trigger_effect = data.raw["electric-pole"]["big-electric-pole"].damaged_trigger_effect,
     

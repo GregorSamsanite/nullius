@@ -1060,3 +1060,5 @@ data.raw["pump"]["nullius-small-pump-1"].energy_usage = tostring(small_pump_ener
 data.raw["pump"]["nullius-small-pump-2"].energy_usage = tostring(small_pump_energy_usage[2]) .. "kW"
 data.raw["pump"]["nullius-togglable-small-pump-1"].energy_usage = tostring(small_pump_energy_usage[1]) .. "kW"
 data.raw["pump"]["nullius-togglable-small-pump-2"].energy_usage = tostring(small_pump_energy_usage[2]) .. "kW"
+
+data.raw.technology["construction-robotics"].unit.ingredients = {} -- temporary (?) fix to prevent crash in loading screen For factorissimo (todo: check that it still works correctly)
