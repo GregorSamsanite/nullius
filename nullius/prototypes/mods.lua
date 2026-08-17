@@ -2079,7 +2079,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-shield-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 5,
     ingredients = {
@@ -2094,7 +2094,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-roboport-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 40,
     ingredients = {
@@ -2110,7 +2110,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-defense-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 10,
     ingredients = {
@@ -2125,7 +2125,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-fuel",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2393,21 +2393,39 @@ data:extend({
 end
 
 
-if mods["Shuttle_Train_Continued"] then
+if mods["ShuttleTrainRefresh"] then
 data:extend({
   {
     type = "recipe",
-    name = "nullius-shuttle-lite",
+    name = "shuttle-train",
     enabled = false,
+    order = "nullius-a",
     always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 8,
+    category = "medium-crafting",
+    energy_required = 10,
     ingredients = {
-      {type = "item", name = "radar", amount = 1},
-      {type = "item", name = "nullius-robot-frame-1", amount = 1}
+      {type = "item", name = "programmable-speaker", amount = 1}, 
+      {type = "item", name = "nullius-sensor-1", amount = 2}, 
+      {type = "item", name = "power-switch", amount = 1}
     },
     results = {
-			{type = "item", name = "shuttle-lite", amount = 1}
+			{type = "item", name = "shuttle-train", amount = 1}
+		}
+  },
+  {
+    type = "recipe",
+    name = "shuttle-train-manual",
+    enabled = false,
+    order = "nullius-b",
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type = "item", name = "nullius-sensor-1", amount = 2}, 
+      {type = "item", name = "power-switch", amount = 1}
+    },
+    results = {
+			{type = "item", name = "shuttle-train-manual", amount = 1}
 		}
   }
 })
@@ -3760,7 +3778,7 @@ end
 end
 
 
-if mods["DisplayPlates"] then
+if mods["DisplayPlatesForked"] then
 data:extend({
   {
     type = "recipe",
@@ -3905,7 +3923,7 @@ data:extend({
     name = "nullius-display-plates",
     localised_name = {"technology-name.nullius-display-plates"},
     localised_description = {"technology-description.nullius-display-plates"},
-    icon = "__DisplayPlates__/graphics/entities/steel-display-small.png",
+    icon = "__DisplayPlatesForked__/graphics/entities/steel-display-small.png",
     icon_size = 80,
     order = "nullius-cc",
     effects = {

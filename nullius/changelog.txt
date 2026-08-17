@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.11
+Date: 17.08.2026
+  Features:
+    - Changed implementation of solar thermal power.  The UI now shows the true peak power output.  Daily variation in power is greater, with 7% higher production at midday and lower production in morning and evening.
+  Changes:
+    - Compressors and large furnaces can now be flipped, mirroring their diagonal pipes.
+    - Added requirement to store hydrogen for the energy storage checkpoint
+    - Drone launchers now have a single drone slot with a larger capacity, instead of several slots that could mislead into loading multiple drone types (only one type can ever be fired).
+  Modding:
+    - Support for Display Plates Forked mod
+    - Support for companion-drones-mjlfix mod
+    - Patched GCKI support (probable bug when used with Renai Transportation mod)
+    - Added support for ShuttleTrainRefresh mod
+---------------------------------------------------------------------------------------------------
 Version: 2.0.10
 Date: 15.08.2026
   Features:
