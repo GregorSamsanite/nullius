@@ -3,6 +3,7 @@ Version: 2.0.11
 Date: xx.xx.2026
   Changes:
     - Compressors and large furnaces can now be flipped, mirroring their diagonal pipes.
+    - Added requirement to store hydrogen for the energy storage checkpoint
   Modding:
     - Support for Display Plates Forked mod
     - Support for companion-drones-mjlfix mod
