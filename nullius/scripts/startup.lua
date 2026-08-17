@@ -320,6 +320,7 @@ script.on_event(defines.events.on_research_finished,
 )
 
 DEBUG_MODE = false
+
 if DEBUG_MODE then
   commands.add_command("prereq", "Researches prerequisites for a tech", function(command)
       local tech_name = command.parameter
@@ -350,5 +351,11 @@ if DEBUG_MODE then
       p.insert{name="infinity-pipe", count=1}
       p.insert{name="electric-energy-interface", count=1}
       p.print("Cheat items added to the player inventory !")
+  end)
+
+  commands.add_command("finish_mission", "Triggers win", function()
+      local p = game.player
+      storage.nullius_mission_complete = true
+      update_and_check_victory(p.force)
   end)
 end

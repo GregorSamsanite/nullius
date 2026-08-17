@@ -139,6 +139,18 @@ function init_mission_global()
   update_mission_global()
 end
 
+function update_and_check_victory(force)
+  update_mission_global()
+  if (storage.nullius_mission_complete) then
+    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
+      remote.call("better-victory-screen", "trigger_victory", force)
+    else
+      game.set_game_state{game_finished=true, player_won=true,
+	    can_continue=true, victorious_force=force}
+    end
+  end
+end
+
 function set_mission_goal(goal, amount, force)
   if (storage.nullius_mission_complete) then return end
 
@@ -180,17 +192,8 @@ function set_mission_goal(goal, amount, force)
   if (finished and (force ~= nil)) then
     storage.nullius_mission_complete = true
   end
-  update_mission_global()
-  if (storage.nullius_mission_complete) then
 
-    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
-      remote.call("better-victory-screen", "trigger_victory", force)
-    else
-      game.set_game_state{game_finished=true, player_won=true,
-	    can_continue=true, victorious_force=force}
-    end
-
-  end
+  update_and_check_victory(force)
 end
 
 function bump_mission_goal(goal, amount, force)
