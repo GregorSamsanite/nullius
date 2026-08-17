@@ -161,6 +161,10 @@ if script.active_mods["lambent-nil"] then
   checkpoint_data["chelating-agent"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"nullius-chelating-agent"}} }}
 end
 
+if script.active_mods["tricky-old-nick"] then
+  checkpoint_data["mining"][1][4] = {{"nullius-nickel-ore"}, {"nullius-box-nickel-ore",5}}
+end
+
 
 local broken_data = {
   ["air-filter"] = 3,

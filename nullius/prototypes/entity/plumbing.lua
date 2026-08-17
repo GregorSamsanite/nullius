@@ -1881,6 +1881,7 @@ data:extend({
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time=1.6, result="nullius-medium-tank-3"},
     max_health = 600,
+    next_upgrade = "nullius-medium-tank-4",
     corpse = "storage-tank-remnants",
     fast_replaceable_group = "medium-tank",
     collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
@@ -1920,6 +1921,75 @@ data:extend({
             width = 219,
             height = 235,
             shift = util.by_pixel(-0.25, -1.25),
+            scale = 0.5
+          },
+          {
+              filename = BASEENTITY .. "storage-tank/storage-tank-shadow.png",
+              priority = "extra-high",
+              frames = 2,
+              width = 291,
+              height = 153,
+              shift = util.by_pixel(29.75, 22.25),
+              scale = 0.5,
+              draw_as_shadow = true
+          }
+        }
+      },
+      fluid_background = data.raw["storage-tank"]["storage-tank"].pictures.fluid_background,
+      window_background = data.raw["storage-tank"]["storage-tank"].pictures.window_background,
+      flow_sprite = data.raw["storage-tank"]["storage-tank"].pictures.flow_sprite,
+      gas_flow = data.raw["storage-tank"]["storage-tank"].pictures.gas_flow
+    }
+  },
+
+  {
+    type = "storage-tank",
+    name = "nullius-medium-tank-4",
+    icon = ENTICONPATH .. "tank2.png",
+    icon_size = 64,
+    flags = {"placeable-player", "player-creation"},
+    minable = {mining_time=2.0, result="nullius-medium-tank-4"},
+    max_health = 700,
+    corpse = "storage-tank-remnants",
+    fast_replaceable_group = "medium-tank",
+    collision_box = {{-1.3, -1.3}, {1.3, 1.3}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    fluid_box = {
+      volume = 120000,
+      pipe_covers = pipecoverspictures(),
+      max_pipeline_extent = pipe_extents[3],
+      pipe_connections = {
+        { position = {-1, -1},  direction = defines.direction.north },
+        { position = {1, 1},    direction = defines.direction.east },
+        { position = {1, 1},    direction = defines.direction.south },
+        { position = {-1, -1},  direction = defines.direction.west }
+      }
+    },
+    two_direction_only = true,
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", percent = 75 }
+    },
+    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
+    flow_length_in_ticks = 360,
+    impact_category = "metal",
+    working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
+    circuit_connector = circuit_connector_definitions["storage-tank"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+
+    pictures = {
+      picture = {
+        sheets = {
+          {
+            filename = ENTITYPATH .. "storage-tank/storage-tank-2.png",
+            priority = "extra-high",
+            frames = 2,
+            width = 219,
+            height = 235,
+            shift = util.by_pixel(-0.25, -1.25),
+            tint = {0.9, 0.85, 1},
             scale = 0.5
           },
           {
@@ -2178,6 +2248,44 @@ data:extend({
     },
     window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
     fast_replaceable_group = "small-tank",
+    next_upgrade = "nullius-small-tank-3",
+    pictures = util.table.deepcopy(data.raw["storage-tank"]["nullius-small-tank-1"].pictures),
+    flow_length_in_ticks = 360,
+    impact_category = "metal",
+    working_sound = data.raw["storage-tank"]["storage-tank"].working_sound,
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
+    circuit_connector = circuit_connector_definitions["nullius-small-tank"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance
+  },
+  
+  {
+    type = "storage-tank",
+    name = "nullius-small-tank-3",
+    icons = data.raw.item["nullius-small-tank-3"].icons,
+    flags = {"placeable-player", "player-creation"},
+    minable = {mining_time = 0.4, result = "nullius-small-tank-3"},
+    max_health = 300,
+    corpse = "medium-remnants",
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
+    selection_box = {{-1, -1}, {1, 1}},
+    two_direction_only = false,
+    fluid_box = {
+      volume = 40000,
+      pipe_covers = pipecoverspictures(),
+      max_pipeline_extent = pipe_extents[4],
+      pipe_connections = {
+        { position = {0.5, -0.5}, direction = defines.direction.north },
+        { position = {0.5, 0.5},  direction = defines.direction.south},
+        { position = {-0.5, 0.5}, direction = defines.direction.west }
+      }
+    },
+    resistances = {
+      { type = "impact", decrease = 100, percent = 90 },
+      { type = "fire", percent = 75 }
+    },
+    window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}},
+    fast_replaceable_group = "small-tank",
     pictures = util.table.deepcopy(data.raw["storage-tank"]["nullius-small-tank-1"].pictures),
     flow_length_in_ticks = 360,
     impact_category = "metal",
@@ -2198,6 +2306,15 @@ data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.south.layers[2
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[1].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[2].tint = nil
 data.raw["storage-tank"]["nullius-small-tank-2"].pictures.picture.west.layers[3].tint = nil
+
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.north.layers[1].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.north.layers[2].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.north.layers[3].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.east.layers[1].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.south.layers[1].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.south.layers[2].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.west.layers[1].tint[3] = 0.7
+data.raw["storage-tank"]["nullius-small-tank-3"].pictures.picture.west.layers[2].tint[3] = 0.7
 
 data:extend({
   {
