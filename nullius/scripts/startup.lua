@@ -187,6 +187,7 @@ script.on_init(
       remote.call("freeplay", "set_chart_distance", 250)
     end
     init_mission_global()
+    init_valve_arrows()
     artillery_remote.reset_remote_gui()
 	  on_load_mod_interface()
   end
