@@ -367,7 +367,7 @@ data:extend({
       {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
 		    tostring(1), "nullius-turbine-open-1", {"", {"entity-name.nullius-turbine-open-backup"}, " ", tostring(1)}}}, "\n",
       {"technology-description.nullius-store-fluid", {"technology-description.nullius-fluid",
-        tostring(60000), "nullius-hydrogen", {"fluid-name.nullius-hydrogen"}}}, "\n",
+        si_string(60000), "nullius-hydrogen", {"fluid-name.nullius-hydrogen"}}}, "\n",
       {"technology-description.nullius-generate", {"technology-description.nullius-fluid",
 		    tostring(1000), "nullius-steam", {"fluid-name.nullius-steam"}}}},
     order = "nullius-yc",
