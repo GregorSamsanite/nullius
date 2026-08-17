@@ -18,6 +18,7 @@ Date: 15.08.2026
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
     - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+    - Changed implementation of solar thermal power.  The UI now shows the true peak power output.  Daily variation in power is greater, with 7% higher production at midday and lower production in morning and evening.
   Graphics:
     - New icon for cellulose.
   Changes:
