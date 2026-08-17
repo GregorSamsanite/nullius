@@ -1023,6 +1023,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1171,6 +1172,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-1"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1310,6 +1312,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1458,6 +1461,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-2"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1563,6 +1567,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1709,6 +1714,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1836,6 +1842,42 @@ data:extend({
     }
   }
 })
+
+-- The thermal extractor was drawn for a drill that never mirrored, so a flipped
+-- compressor has no artwork of its own. Point the same layers at horizontally
+-- mirrored copies of both sheets: the base carries the pipe runs, the animation
+-- carries the body and its own pipe stubs, so both have to mirror together.
+local compressor_mirrored_sheets = {
+  ["thermal-extractor-base.png"] =
+      "__nullius__/graphics/entity/compressor/thermal-extractor-base-flipped.png",
+  ["thermal-extractor-animation.png"] =
+      "__nullius__/graphics/entity/compressor/thermal-extractor-animation-flipped.png"
+}
+
+local function mirror_compressor_sprite(sprite)
+  if not sprite or not sprite.filename then return end
+  for sheet, mirrored in pairs(compressor_mirrored_sheets) do
+    if string.find(sprite.filename, sheet, 1, true) then
+      sprite.filename = mirrored
+    end
+  end
+end
+
+for _, compressor in pairs({
+  "nullius-surge-compressor-1", "nullius-priority-compressor-1",
+  "nullius-surge-compressor-2", "nullius-priority-compressor-2",
+  "nullius-surge-compressor-3", "nullius-priority-compressor-3"
+}) do
+  local machine = data.raw["assembling-machine"][compressor]
+  local flipped = util.table.deepcopy(machine.graphics_set)
+  for _, direction in pairs(flipped.animation) do
+    mirror_compressor_sprite(direction)
+    for _, layer in pairs(direction.layers or {}) do
+      mirror_compressor_sprite(layer)
+    end
+  end
+  machine.graphics_set_flipped = flipped
+end
 
 data:extend({
   {
