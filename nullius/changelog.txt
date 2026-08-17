@@ -6,6 +6,7 @@ Date: xx.xx.2026
   Changes:
     - Compressors and large furnaces can now be flipped, mirroring their diagonal pipes.
     - Added requirement to store hydrogen for the energy storage checkpoint
+    - Drone launchers now have a single drone slot with a larger capacity, instead of several slots that could mislead into loading multiple drone types (only one type can ever be fired).
   Modding:
     - Support for Display Plates Forked mod
     - Support for companion-drones-mjlfix mod
