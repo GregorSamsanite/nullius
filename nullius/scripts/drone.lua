@@ -117,6 +117,9 @@ function terraform_score(name)
   elseif (string.sub(name, 1, 9) == "volcanic-") then
     return 2
   end
+  if script.active_mods["blockius"] and (string.sub(name, 1, 9) == "deepwater") then
+	return 0.25 
+  end
   return 0
 end
 
