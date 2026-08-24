@@ -3,6 +3,8 @@ Version: 2.0.12
 Date: xx.xx.2026
   Info:
     - Show dependencies that are not in the modpacks
+  Bugfixes:
+    - Fix Cloned achievement description.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 17.08.2026
