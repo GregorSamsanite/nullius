@@ -14,14 +14,38 @@ local ALIGN_ABSORB_TECH = 13
 local ALIGN_ABSORB_CONVERT = 14
 local ALIGN_ABSORB_UNSHARE = 15
 
+---@class AlignEntry
+---@field state integer
+---@field delay integer?
+---@field player LuaPlayer?
+---@field surface LuaSurface?
+---@field position MapPosition?
+---@field oldforce LuaForce?
+---@field newforce LuaForce?
+---@field next AlignEntry|nil
 
+
+---Gets the force of the given entity, with correct typing.
+---@param entity LuaEntity
+---@return LuaForce
+local function entity_force(entity)
+  return entity.force --[[@as LuaForce]]
+end
+
+
+---@param force LuaForce
+---@return table|nil
 local function lookup_force(force)
   if ((force == nil) or (not force.valid)) then return nil end
   return storage.nullius_align_factions[force.name]
 end
 
 local function init_faction(force, name)
-  local entry = { name = name, has_transmitter = false, tags = { }}
+  local entry = {
+    name = name,
+    has_transmitter = false,
+    tags = { }
+  }
   storage.nullius_align_factions[force.name] = entry
   init_broken()
 end
@@ -41,25 +65,27 @@ end
 
 function init_alignment()
   if (storage.nullius_alignment == nil) then
-    storage.nullius_alignment = (game.is_multiplayer() and
-	    settings.startup["nullius-alignment"].value)
+    storage.nullius_alignment = (
+      game.is_multiplayer() and settings.startup["nullius-alignment"].value
+    )
   end
 
   if (not storage.nullius_alignment) then
     storage.nullius_align_factions = nil
-	storage.nullius_align_queue_head = nil
-	storage.nullius_align_queue_tail = nil
-	storage.nullius_align_lobby = nil
-	storage.nullius_align_invite_status = nil
-	storage.nullius_align_satellite_winner = nil
+    storage.nullius_align_queue_head = nil
+    storage.nullius_align_queue_tail = nil
+    storage.nullius_align_lobby = nil
+    storage.nullius_align_invite_status = nil
+    storage.nullius_align_satellite_winner = nil
+
   elseif (storage.nullius_align_factions == nil) then
     storage.nullius_align_factions = { }
-	storage.nullius_align_invite_status = { }
-	storage.nullius_align_landing_distance = 32
-	storage.nullius_align_landing_sites = { }
-	storage.nullius_align_landing_sites[1] = {x = 0, y = 0}
-	storage.nullius_align_landing_count = 1
-	storage.nullius_align_satellite_winner = nil
+    storage.nullius_align_invite_status = { }
+    storage.nullius_align_landing_distance = 32
+    storage.nullius_align_landing_sites = { }
+    storage.nullius_align_landing_sites[1] = {x = 0, y = 0}
+    storage.nullius_align_landing_count = 1
+    storage.nullius_align_satellite_winner = nil
   end
 end
 
@@ -113,6 +139,7 @@ end
 script.on_event(defines.events.on_chunk_generated, chunk_generated)
 
 
+---@param entry AlignEntry
 local function align_add_queue(entry)
   if (storage.nullius_align_queue_tail == nil) then
     storage.nullius_align_queue_head = entry
@@ -122,86 +149,109 @@ local function align_add_queue(entry)
   storage.nullius_align_queue_tail = entry
 end
 
+---@param player LuaPlayer
+---@return LocalisedString
 function align_player_created(player)
   local surface = player.surface
   teleport_lobby(player)
   align_add_queue({
-    state = ALIGN_TRANSMITTER, player = player, surface = surface
+    state = ALIGN_TRANSMITTER,
+    player = player,
+    surface = surface,
   })
   return {"alignment.nullius-align-intro"}
 end
 
+---@param player LuaPlayer
+---@return LocalisedString
 function align_first_player_created(player)
   local surface = player.surface
   local position = player.position
   teleport_lobby(player)
   surface.request_to_generate_chunks({x = 0, y = 0}, 5)
   align_add_queue({
-    state = ALIGN_LANDING, delay = (game.tick + 300),
-	player = player, surface = surface, position = position
+    state = ALIGN_LANDING,
+    delay = (game.tick + 300),
+    player = player,
+    surface = surface,
+    position = position,
   })
   return {"alignment.nullius-align-first-intro"}
 end
 
-
+---@param force LuaForce
+---@param techname string
+---@return boolean
 local function faction_has_tech(force, techname)
   local tech = force.technologies["nullius-" .. techname]
   return ((tech ~= nil) and tech.valid and tech.researched)
 end
 
+---@param force LuaForce
+---@param itemname string
+---@param amount uint
+---@return boolean
 local function faction_has_crafted(force, itemname, amount)
   local stats = force.get_item_production_statistics("nauvis")
   local count = stats.get_input_count("nullius-" .. itemname)
   return (count >= amount)
 end
 
+---@param force LuaForce
+---@return boolean
 local function faction_has_identification(force)
   if (not faction_has_tech(force, "alignment-1")) then return false end
   if (not faction_has_tech(force, "steelworking")) then return false end
-  return (faction_has_crafted(force, "align-identification-card", 1) and
-      faction_has_crafted(force, "steel-sheet", 1) and
-	  faction_has_crafted(force, "plastic", 20) and
-	  faction_has_crafted(force, "mechanical-pack", 20))
+  return (
+    faction_has_crafted(force, "align-identification-card", 1) and
+    faction_has_crafted(force, "steel-sheet", 1) and
+    faction_has_crafted(force, "plastic", 20) and
+    faction_has_crafted(force, "mechanical-pack", 20)
+  )
 end
 
+---@param player LuaPlayer
+---@return boolean
 local function player_has_identification(player)
   return (player.get_item_count("nullius-align-identification-card") >= 1)
 end
 
 
+---@param player LuaPlayer
+---@param force LuaForce
 local function convert_player_faction(player, force)
-  local oldforce = player.force
+  local oldforce = entity_force(player)
   local oldentry = lookup_force(oldforce)
   local newentry = lookup_force(force)
   if ((oldentry == nil) or (newentry == nil)) then return end
-  
+
   if (oldentry.has_transmitter) then
     newentry.has_transmitter = true
-	oldentry.has_transmitter = false
+    oldentry.has_transmitter = false
   end
 
-  player.print({"alignment.align-msg", {"alignment.faction-switched",
-      oldentry.name, newentry.name}})
-  force.print({"alignment.align-msg", {"alignment.faction-joined",
-      player.name, newentry.name, oldentry.name}})
+  player.print({"alignment.align-msg", {"alignment.faction-switched", oldentry.name, newentry.name}})
+  force.print(
+    {"alignment.align-msg", {"alignment.faction-joined", player.name, newentry.name, oldentry.name}}
+  )
   player.force = force
-  oldforce.print({"alignment.align-msg", {"alignment.faction-quit",
-      player.name, oldentry.name, newentry.name}})
+  oldforce.print({"alignment.align-msg", {"alignment.faction-quit", player.name, oldentry.name, newentry.name}})
 end
 
+---@param player LuaPlayer
 function align_player_join(player)
   if (not storage.nullius_alignment) then return end
-  local force = player.force
+  local force = entity_force(player)
   for i = 1, 200 do
     local entry = lookup_force(force)
-	if (entry == nil) then return end
-	if (entry.absorbed == nil) then
-	  if (force ~= player.force) then
-	    convert_player_faction(player, force)
-	  end
-	  return
-	end
-	force = entry.absorbed
+    if (entry == nil) then return end
+    if (entry.absorbed == nil) then
+      if (force ~= player.force) then
+        convert_player_faction(player, force)
+      end
+      return
+    end
+	  force = entry.absorbed
   end
 end
 
@@ -210,54 +260,72 @@ local function schedule_absorb_faction(oldforce, newforce, target)
   oldforce.set_friend(newforce, true)
   newforce.set_friend(oldforce, true)
   align_add_queue({
-    state = ALIGN_ABSORB_CHART, oldforce = oldforce, newforce = newforce
+    state = ALIGN_ABSORB_CHART,
+    oldforce = oldforce,
+    newforce = newforce,
   })
   align_add_queue({
-    state = ALIGN_ABSORB_ENTITY, oldforce = oldforce, newforce = newforce
+    state = ALIGN_ABSORB_ENTITY,
+    oldforce = oldforce,
+    newforce = newforce,
   })
   align_add_queue({
     state = ALIGN_ABSORB_TECH,
-	surface = target.surface, position = target.position,
-	oldforce = oldforce, newforce = newforce
+    oldforce = oldforce,
+    newforce = newforce,
+    surface = target.surface,
+    position = target.position,
   })
   align_add_queue({
-    state = ALIGN_ABSORB_CONVERT, oldforce = oldforce, newforce = newforce
+    state = ALIGN_ABSORB_CONVERT,
+    oldforce = oldforce,
+    newforce = newforce,
   })
 end
 
+---@param rocket LuaEntity
 function align_satellite_launch(rocket) --todo: rename as pod and test if it works
   if (not storage.nullius_alignment) then return end
   if (storage.nullius_align_satellite_winner ~= nil) then return end
-  local newforce = rocket.force
+  local newforce = entity_force(rocket)
   local entry = lookup_force(newforce)
   if (entry == nil) then return end
-  storage.nullius_align_satellite_winner = { force = newforce,
-      surface = rocket.surface, position =
-	      { x = rocket.position.x, y = (rocket.position.y + 256) } }
+  storage.nullius_align_satellite_winner = {
+    force = newforce,
+    surface = rocket.surface,
+    position = {
+      x = rocket.position.x,
+      y = (rocket.position.y + 256)
+    }
+  }
 
   for _, force in pairs(game.forces) do
     if (force ~= newforce) then
-	  local force_entry = lookup_force(force)
-	  if ((force_entry ~= nil) and (force_entry.absorbed == nil)) then
-	    schedule_absorb_faction(force, newforce, rocket)
-	  end
-	end
+      local force_entry = lookup_force(force)
+      if ((force_entry ~= nil) and (force_entry.absorbed == nil)) then
+        schedule_absorb_faction(force, newforce, rocket)
+      end
+    end
   end
-  game.print({"alignment.align-msg",
-      {"alignment.align-concordance", entry.name}})
+  game.print({"alignment.align-msg", {"alignment.align-concordance", entry.name}})
 end
 
 
+---@param oldforce LuaForce
+---@param newforce LuaForce
+---@param target any
+---@return boolean
 local function check_faction_empty(oldforce, newforce, target)
   local oldentry = lookup_force(oldforce)
   local newentry = lookup_force(newforce)
   if ((oldentry == nil) or (newentry == nil)) then return false end
 
   for _,player in pairs(oldforce.players) do
-    if (player.valid and (player.connected or
-		((game.tick - player.last_online) < 2592000))) then
-	  return false
-	end
+    if player.valid and (
+        player.connected or ((game.tick - player.last_online) < 2592000)
+      ) then
+      return false
+    end
   end
 
   schedule_absorb_faction(oldforce, newforce, target)
@@ -269,11 +337,11 @@ local function align_update_absorb_entity(entry)
   local newforce = entry.newforce
   for _, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered{force = oldforce}
-	for _, entity in pairs(entities) do
-	  if (entity.valid and (entity.force == oldforce)) then
-	    entity.force = newforce
-	  end
-	end
+    for _, entity in pairs(entities) do
+      if (entity.valid and (entity.force == oldforce)) then
+        entity.force = newforce
+      end
+    end
   end
   return true
 end
@@ -293,8 +361,10 @@ local function align_update_absorb_chart(entry)
   end
 
   align_add_queue({
-    state = ALIGN_ABSORB_UNSHARE, delay = (game.tick + 1800),
-	oldforce = oldforce, newforce = newforce
+    state = ALIGN_ABSORB_UNSHARE,
+    delay = (game.tick + 1800),
+    oldforce = oldforce,
+    newforce = newforce,
   })
   return true
 end
@@ -947,11 +1017,11 @@ function update_align()
 
   if ((head.delay ~= nil) and (game.tick < head.delay)) then
     if (head == storage.nullius_align_queue_tail) then return end
-	storage.nullius_align_queue_head = head.next
-	head.next = nil
-	align_add_queue(head)
-	head = storage.nullius_align_queue_head
-	if ((head.delay ~= nil) and (game.tick < head.delay)) then return end
+    storage.nullius_align_queue_head = head.next
+    head.next = nil
+    align_add_queue(head)
+    head = storage.nullius_align_queue_head
+    if ((head.delay ~= nil) and (game.tick < head.delay)) then return end
   end
 
   local ret = true
@@ -996,82 +1066,101 @@ function update_align()
 end
 
 
+---@param entity LuaEntity?
+---@return LuaEntity?
 local function check_entity_force(entity)
   if ((entity == nil) or (not entity.valid)) then return nil end
-  local entry = lookup_force(entity.force)
+  local entry = lookup_force(entity_force(entity))
   if ((entry == nil) or (entry.absorbed ~= nil)) then return nil end
   return entity
 end
 
+---@param entity LuaEntity
+---@return LuaPlayer?
 local function check_entity_player(entity)
-  if (entity.type ~= "character") then return false end
+  if entity.type ~= "character" then
+    return nil
+  end
   local player = entity.player
-  if ((player == nil) or (not player.valid)) then return false end
-  return true
+  if player == nil or not player.valid then
+    return nil
+  end
+  return player
 end
 
 
+---@param target LuaEntity
+---@param source LuaEntity
 local function align_conscript_character(target, source)
-  if (not check_entity_player(target)) then return end
-  local player = target.player
-  local oldforce = target.force
-  if (player_has_identification(player) and
-      faction_has_identification(oldforce)) then
-    if (check_entity_player(source)) then
-      source.player.print({"alignment.align-msg",
-	        {"alignment.align-protected-identity"}})
+  local player = check_entity_player(target)
+  if not player then return end
+  local oldforce = entity_force(target)
+  if player_has_identification(player) and faction_has_identification(oldforce) then
+    if check_entity_player(source) then
+      source.player.print(
+        {"alignment.align-msg", {"alignment.align-protected-identity"}}
+      )
 	end 
-    return	  
+    return
   end
-  local newforce = source.force
+  local newforce = entity_force(source)
   convert_player_faction(player, newforce)
   check_faction_empty(oldforce, newforce, target)
 end
 
+---@param target LuaEntity
+---@param source LuaEntity
 local function align_conscript_building(target, source)
-  local oldforce = target.force
-  if (faction_has_identification(oldforce)) then
+  local oldforce = entity_force(target)
+  if faction_has_identification(oldforce) then
     for _, player in pairs(oldforce.connected_players) do
-      if (player.valid and
-	      (player.controller_type == defines.controllers.character) and
-	      (player.character ~= nil) and player.character.valid and
-	      (player.character.type == "character") and
-		  player_has_identification(player)) then
-		if (check_entity_player(source)) then
-          source.player.print({"alignment.align-msg",
-	            {"alignment.align-guarded-identity"}})
-	    end 
-	    return
-	  end
+      if (
+        player.valid and
+        (player.controller_type == defines.controllers.character) and
+        (player.character ~= nil) and player.character.valid and
+        (player.character.type == "character") and
+        player_has_identification(player)
+      ) then
+        if (check_entity_player(source)) then
+          source.player.print(
+            {"alignment.align-msg", {"alignment.align-guarded-identity"}})
+        end 
+        return
+      end
     end
   end
 
-  local newforce = source.force
+  local newforce = entity_force(source)
   target.force = newforce
-  if (check_faction_empty(oldforce, newforce, target)) then return end
+  if check_faction_empty(oldforce, newforce, target) then return end
 
   local lab_count = target.surface.count_entities_filtered{
-      force = oldforce, type = "lab", limit = 2 }
+    force = oldforce, type = "lab", limit = 2
+  }
   if (lab_count >= 1) then return end
 
-  schedule_absorb_faction(oldforce, newforce, target)  
+  schedule_absorb_faction(oldforce, newforce, target)
 end
 
+---@param target LuaEntity
+---@param source LuaEntity
 local function align_effect_conscription(target, source)
   if (source.force == target.force) then return end
-  local entry = lookup_force(target.force)
+  local entry = lookup_force(entity_force(target))
   if (entry == nil) then return end
   if (entry.has_transmitter) then
     if (check_entity_player(source)) then
-      source.player.print({"alignment.align-msg",
-	        {"alignment.align-protected-transmitter"}})
+      source.player.print(
+        {"alignment.align-msg", {"alignment.align-protected-transmitter"}}
+      )
 	end 
     return
   end
-  if (not faction_has_identification(source.force)) then
+  if (not faction_has_identification(entity_force(source))) then
     if (check_entity_player(source)) then
-      source.player.print({"alignment.align-msg",
-	        {"alignment.align-no-identification"}})
+      source.player.print(
+        {"alignment.align-msg", {"alignment.align-no-identification"}}
+      )
 	end 
     return
   end
@@ -1083,33 +1172,35 @@ local function align_effect_conscription(target, source)
 end
 
 
+---@param source LuaEntity
 local function align_effect_transponder(source)
   if (not storage.nullius_alignment) then return end
-  local source_entry = lookup_force(source.force)
+  local source_entry = lookup_force(entity_force(source))
   if (source_entry == nil) then return end
   if (not check_entity_player(source)) then return end
 
   local x = math.floor((source.position.x) + 0.5)
   local y = math.floor((source.position.y) + 0.5)
-  source.force.print({"alignment.align-msg",
-      {"alignment.align-transponder-self",
-	      source.player.name, source_entry.name, x, y}})
+  source.force.print({
+    "alignment.align-msg",
+    {"alignment.align-transponder-self", source.player.name, source_entry.name, x, y}
+  })
 
   for _, force in pairs(game.forces) do
     if ((force ~= newforce) and (lookup_force(force) ~= nil)) then
-	  local radar_count = source.surface.count_entities_filtered{
+    local radar_count = source.surface.count_entities_filtered{
           force = force, type = "radar", limit = 2 }
       if (radar_count >= 1) then
-	    force.chart(source.surface, {{x - 84, y - 84}, {x + 84, y + 84}})
-	    force.print({"alignment.align-msg",
-	        {"alignment.align-transponder-other",
-		        source_entry.name, x, y}})
-		align_add_queue({
+      force.chart(source.surface, {{x - 84, y - 84}, {x + 84, y + 84}})
+      force.print({"alignment.align-msg",
+          {"alignment.align-transponder-other",
+            source_entry.name, x, y}})
+    align_add_queue({
           state = ALIGN_TRANSPONDER, delay = (game.tick + 60),
           force = force, source = source
         })
-	  end
-	end
+    end
+  end
   end
 end
 
@@ -1165,6 +1256,8 @@ local function align_effect_invitation(target, source)
 end
 
 
+---@param event EventData.on_script_trigger_effect
+---@param suffix string
 function align_effect(event, suffix)
   if (not storage.nullius_alignment) then return end
   local target = check_entity_force(event.target_entity)
@@ -1197,22 +1290,27 @@ function build_transmitter(entity)
   force_entry.has_transmitter = true
 end
 
+---@param unit integer
 function remove_transmitter(unit)
   if (storage.nullius_align_transmitters == nil) then return end
+
   local trans_entry = storage.nullius_align_transmitters[unit]
   if (trans_entry == nil) then return end
+
   storage.nullius_align_transmitters[unit] = nil
   local force_entry = lookup_force(trans_entry.force)
   if (force_entry == nil) then return end
   force_entry.has_transmitter = false
 
   for u, e in pairs(storage.nullius_align_transmitters) do
-    if ((e == nil) or (e.force == nil) or (not e.force.valid) or
-	    (e.entity == nil) or (not e.entity.valid)) then
-	  storage.nullius_align_transmitters[u] = nil
-	elseif (f == force) then
-	  force_entry.has_transmitter = true
-	  return
-	end
+    if (
+      (e == nil) or (e.force == nil) or (not e.force.valid) or
+	    (e.entity == nil) or (not e.entity.valid)
+    ) then
+	    storage.nullius_align_transmitters[u] = nil
+	  elseif (e.force == force_entry.force) then
+	    force_entry.has_transmitter = true
+	    return
+    end
   end
 end
