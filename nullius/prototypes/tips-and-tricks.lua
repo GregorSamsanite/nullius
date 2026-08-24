@@ -225,3 +225,35 @@ data.extend{
 		},
 	},
 }
+
+-- Biology
+data.extend{
+	{
+		type = "tips-and-tricks-item-category",
+		name = "nullius-biology",
+		order = "nullius-d",
+	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-biology",
+		category = "nullius-biology",
+		is_title = true,
+		order = "nullius-a",
+		trigger = {
+			type = "research",
+			technology = "nullius-biochemistry-1",
+		},
+	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-bootstrapping-biology",
+		category = "nullius-biology",
+		order = "nullius-b",
+		indent = 1,
+		tag = "[technology=nullius-biology-1]",
+		trigger = {
+			type = "research",
+			technology = "nullius-biochemistry-1",
+		},
+	},
+}
