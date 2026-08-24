@@ -195,3 +195,33 @@ data.extend{
         },
     },
 }
+
+-- Terraforming
+data.extend{
+	{
+		type = "tips-and-tricks-item-category",
+		name = "nullius-terraforming",
+		order = "nullius-c",
+	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-terraforming",
+		category = "nullius-terraforming",
+		is_title = true,
+		order = "nullius-a",
+		starting_status = "unlocked",
+	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-oxygen-venting",
+		category = "nullius-terraforming",
+		order = "nullius-b",
+		indent = 1,
+		tag = "[technology=nullius-checkpoint-oxygen-partial]",
+		trigger = {
+			type = "build-entity",
+			entity = "nullius-chimney-1",
+			match_type_only = true,
+		},
+	},
+}
