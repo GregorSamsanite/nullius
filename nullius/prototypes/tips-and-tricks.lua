@@ -256,4 +256,16 @@ data.extend{
 			technology = "nullius-biochemistry-1",
 		},
 	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-creating-life",
+		category = "nullius-biology",
+		order = "nullius-b",
+		indent = 1,
+		tag = "[fluid=nullius-bacteria]",
+		trigger = {
+			type = "research",
+			technology = "nullius-biology-1",
+		},
+	},
 }
