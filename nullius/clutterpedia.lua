@@ -298,6 +298,27 @@ end
 if mods["stack-inserters"] then
     clutterpedia["nullius-stack-inserter"] =                    {name = "stack-inserter",                   tech = "nullius-stack-inserters"}
 end
+if mods["DisplayPlatesForked"] then
+    clutterpedia["nullius-display-plate-small-steel"] =         {name = "iron-display-small",            tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-medium-steel"] =        {name = "iron-display-medium",           tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-large-steel"] =         {name = "iron-display",                  tech = "nullius-display-plates"}
+
+    clutterpedia["nullius-display-plate-small-aluminum"] =      {name = "steel-display-small",           tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-medium-aluminum"] =     {name = "steel-display-medium",          tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-large-aluminum"] =      {name = "steel-display",                 tech = "nullius-display-plates"}
+
+    clutterpedia["nullius-display-plate-small-plastic"] =       {name = "copper-display-small",          tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-medium-plastic"] =      {name = "copper-display-medium",         tech = "nullius-display-plates"}
+    clutterpedia["nullius-display-plate-large-plastic"] =       {name = "copper-display",                tech = "nullius-display-plates"}
+end
+if mods["companion-drones-mjlfix"] then
+    clutterpedia["nullius-companion"] =                         {name = "companion",                        tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-reactor-equipment"] =       {name = "companion-reactor-equipment",      tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-shield-equipment"] =        {name = "companion-shield-equipment",       tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-roboport-equipment"] =      {name = "companion-roboport-equipment",     tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-defense-equipment"] =       {name = "companion-defense-equipment",      tech = "nullius-companionship"}
+    clutterpedia["nullius-companion-fuel"] =                    {name = "rocket-booster",                   tech = "nullius-hydrocarbon-combustion-2"}
+end
 
 function generate_migrations()
     local contents = "\n---- Generated migrations ----\n"

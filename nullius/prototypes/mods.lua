@@ -164,8 +164,8 @@ data:extend({
       {type = "item", name = "nullius-relay-1", amount = 2}
     },
     results = {
-			{type = "item", name = "aai-signal-sender", amount = 1}
-		},
+      {type = "item", name = "aai-signal-sender", amount = 1}
+    },
     enabled = false
   },
   {
@@ -180,8 +180,8 @@ data:extend({
       {type = "item", name = "programmable-speaker", amount = 2}
     },
     results = {
-			{type = "item", name = "aai-signal-receiver", amount = 1}
-		},
+      {type = "item", name = "aai-signal-receiver", amount = 1}
+    },
     enabled = false
   },
 
@@ -208,6 +208,8 @@ data:extend({
     prerequisites = {"nullius-checkpoint-sensor", "nullius-mass-production-3"}
   }
 })
+data.raw.item["aai-signal-sender"].order = "nullius-z-a"
+data.raw.item["aai-signal-receiver"].order = "nullius-z-b"
 data.raw.roboport["aai-signal-sender"].energy_source.input_flow_limit = "5MW"
 data.raw.roboport["aai-signal-sender"].energy_source.buffer_capacity = "1.2MJ"
 data.raw.roboport["aai-signal-sender"].energy_usage = "2.5MW"
@@ -279,6 +281,16 @@ data:extend({
     enabled = false
   }
 })
+
+for _, item_name in ipairs{"factory-1", "factory-1-instantiated", "factory-2", "factory-2-instantiated",
+                           "factory-3", "factory-3-instantiated", "factory-circuit-connector",
+                           "factory-requester-chest", "factory-input-pipe", "factory-output-pipe",
+                           "factory-circuit-input", "factory-circuit-output"} do
+  local item = data.raw.item[item_name]
+  if item then
+    item.order = "nullius-" .. item.order
+  end
+end
 
 if mods["factorissimo-2-notnotmelon"] then
 data:extend({
@@ -1978,13 +1990,26 @@ data:extend({
 end
 
 
-if mods["Companion_Drones"] then
+if mods["companion-drones-mjlfix"] then
 data:extend({
+  {
+    type = "item",
+    name = "rocket-booster",
+    icon = "__angelspetrochemgraphics__/graphics/icons/rocket-booster.png",
+    icon_size = 32,
+    subgroup = "petrochem-fuel",
+    order = "c[rocket-booster]",
+    fuel_category = "chemical",
+    fuel_value = "10MJ",
+    fuel_acceleration_multiplier = 1.8,
+    fuel_top_speed_multiplier = 1.15,
+    stack_size = 200,
+    },
   {
     type = "technology",
     name = "nullius-companionship",
     order = "nullius-gl",
-    icon = "__Companion_Drones__/drone-icon.png",
+    icon = "__companion-drones-mjlfix__/sprites/drone-icon.png",
     icon_size = 200,
     effects = {
       {
@@ -2054,7 +2079,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-shield-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 5,
     ingredients = {
@@ -2069,7 +2094,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-roboport-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 40,
     ingredients = {
@@ -2085,7 +2110,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-defense-equipment",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 10,
     ingredients = {
@@ -2100,7 +2125,7 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-fuel",
     enabled = false,
-	always_show_made_in = true,
+	  always_show_made_in = true,
     category = "medium-crafting",
     energy_required = 2,
     ingredients = {
@@ -2368,21 +2393,39 @@ data:extend({
 end
 
 
-if mods["Shuttle_Train_Continued"] then
+if mods["ShuttleTrainRefresh"] then
 data:extend({
   {
     type = "recipe",
-    name = "nullius-shuttle-lite",
+    name = "shuttle-train",
     enabled = false,
+    order = "nullius-a",
     always_show_made_in = true,
-    category = "large-crafting",
-    energy_required = 8,
+    category = "medium-crafting",
+    energy_required = 10,
     ingredients = {
-      {type = "item", name = "radar", amount = 1},
-      {type = "item", name = "nullius-robot-frame-1", amount = 1}
+      {type = "item", name = "programmable-speaker", amount = 1}, 
+      {type = "item", name = "nullius-sensor-1", amount = 2}, 
+      {type = "item", name = "power-switch", amount = 1}
     },
     results = {
-			{type = "item", name = "shuttle-lite", amount = 1}
+			{type = "item", name = "shuttle-train", amount = 1}
+		}
+  },
+  {
+    type = "recipe",
+    name = "shuttle-train-manual",
+    enabled = false,
+    order = "nullius-b",
+    always_show_made_in = true,
+    category = "medium-crafting",
+    energy_required = 10,
+    ingredients = {
+      {type = "item", name = "nullius-sensor-1", amount = 2}, 
+      {type = "item", name = "power-switch", amount = 1}
+    },
+    results = {
+			{type = "item", name = "shuttle-train-manual", amount = 1}
 		}
   }
 })
@@ -3735,7 +3778,7 @@ end
 end
 
 
-if mods["DisplayPlates"] then
+if mods["DisplayPlatesForked"] then
 data:extend({
   {
     type = "recipe",
@@ -3880,7 +3923,7 @@ data:extend({
     name = "nullius-display-plates",
     localised_name = {"technology-name.nullius-display-plates"},
     localised_description = {"technology-description.nullius-display-plates"},
-    icon = "__DisplayPlates__/graphics/entities/steel-display-small.png",
+    icon = "__DisplayPlatesForked__/graphics/entities/steel-display-small.png",
     icon_size = 80,
     order = "nullius-cc",
     effects = {
@@ -5216,3 +5259,4 @@ if mods["stack-inserters"] then
 	data.raw["inserter"]["stack-inserter"].fast_replaceable_group = "inserter"
 	data.raw["inserter"]["stack-inserter"].rotation_speed = 0.0333333
 end
+

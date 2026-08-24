@@ -10,8 +10,9 @@ data:extend({
     icons = data.raw.item["nullius-drone-launcher-1"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     collision_mask = collision_mask_util.get_default_mask("rocket-silo"),
-    inventory_size = 3,
-    ammo_stack_limit = 10,
+    -- Single slot, since the engine only ever fires the first drone type loaded
+    inventory_size = 1,
+    ammo_stack_limit = 30,
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 1.5, result = "nullius-drone-launcher-1"},
@@ -90,8 +91,9 @@ data:extend({
     icons = data.raw.item["nullius-drone-launcher-2"].icons,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     collision_mask = collision_mask_util.get_default_mask("rocket-silo"),
-    inventory_size = 5,
-    ammo_stack_limit = 10,
+    -- Single slot, since the engine only ever fires the first drone type loaded
+    inventory_size = 1,
+    ammo_stack_limit = 50,
     automated_ammo_count = 10,
     alert_when_attacking = false,
     minable = {mining_time = 2, result = "nullius-drone-launcher-2"},

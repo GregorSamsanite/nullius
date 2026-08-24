@@ -560,6 +560,7 @@ data:extend({
     next_upgrade = "nullius-large-furnace-2",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -820,6 +821,7 @@ data:extend({
     fast_replaceable_group = "large-furnace",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2.0, -2.0}, {2.0, 2.0}},
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-large-furnace-1"].fluid_boxes,
     fluid_boxes_off_when_no_fluid_recipe = true,
     crafting_categories = {"bulk-smelting"},

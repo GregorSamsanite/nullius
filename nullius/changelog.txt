@@ -1,16 +1,53 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.11
+Date: 17.08.2026
+  Features:
+    - Changed implementation of solar thermal power.  The UI now shows the true peak power output.  Daily variation in power is greater, with 7% higher production at midday and lower production in morning and evening.
+  Changes:
+    - Compressors and large furnaces can now be flipped, mirroring their diagonal pipes.
+    - Added requirement to store hydrogen for the energy storage checkpoint
+    - Drone launchers now have a single drone slot with a larger capacity, instead of several slots that could mislead into loading multiple drone types (only one type can ever be fired).
+  Modding:
+    - Support for Display Plates Forked mod
+    - Support for companion-drones-mjlfix mod
+    - Patched GCKI support (probable bug when used with Renai Transportation mod)
+    - Added support for ShuttleTrainRefresh mod
+---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 15.08.2026
+  Features:
+    - Added Small Tank 3 and Medium Tank 4.
+    - Added a checkpoint for toggling pumps
+    - Added German translation
+    - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
+    - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Graphics:
+    - New icon for cellulose.
+  Changes:
+    - Update the icons of a few technologies to better match their intent.
+    - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
+    - Use SI prefixes for large numbers in checkpoint descriptions.
+    - Auto refueler now only recharges to 5 items of fuel instead of a full stack.
+  Bugfixes:
+    - Fixed which recipes enable biology drone remotes
+    - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
+    - Researching Robotic construction 1 now properly unlocks destroyed entities becoming ghosts.
+    - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
+  Optimizations:
+    - Improved performance of arboriculture drones.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.9
 Date: 09.06.2026
   Features:
-    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative.
+    - Biodiesel is now Diesel with a brand new recipe unlocked in late Chemistry research. The old Biodiesel recipe is now an more efficient alternative
     - Added new menu simulations
   Changes:
     - Changed actuation tech description to inform more clearly about the filtering being unlocked at tier 2
-    - Hangar, Relay and Chargers no longer provide radar coverage.
+    - Hangar, Relay and Chargers no longer provide radar coverage
   Bugfixes:
-    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests.
+    - Fixed that handcrafting would prefer Renai Transportation Close Chest over crafting new chests
     - Fixed duplicated pipeline extent tooltip for underground-pipe-pack
-    - Flushing a Diesel canister now produces as much Diesel as it took to make one.
+    - Flushing a Diesel canister now produces as much Diesel as it took to make one
     - Fixed broken menu simulations
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.8

@@ -5,11 +5,37 @@ local function checkmark(scale)
   return {
     icon = ICONPATH .. "checkpoint.png",
     icon_size = 64,
-    
-	tint = {0.6, 0.6, 0.6, 0.6},
-	scale = scale
+    tint = {0.6, 0.6, 0.6, 0.6},
+    scale = scale
   }
 end
+
+local function round(n)
+  return math.floor(n + 0.5)
+end
+
+local function si_string(n)
+  -- Format number n as a string with an SI prefix.
+  -- The null prefix and k, M, G, and T are used.
+  -- The significand is made less than or equal to 1500, and
+  -- rounded to an integer.  As a special case,
+  -- multiples of 1000 up to 9000 are formatted without a suffix.
+  if n <= 1.5004e3 or (n < 1e4 and n % 1000 == 0) then return tostring(round(n)) end
+  if n <= 1.5004e6 then return tostring(round(n / 1e3)) .. 'k' end
+  if n <= 1.5004e9 then return tostring(round(n / 1e6)) .. 'M' end
+  if n <= 1.5004e12 then return tostring(round(n / 1e9)) .. 'G' end
+  return tostring(round(n / 1e12)) .. 'T'
+end
+
+local checkpoint_mining_iron = "iron-ore"
+local checkpoint_mining_iron_box = "nullius-box-iron-ore"
+local checkpoint_mining_iron_localised = {"item-name.iron-ore"}
+if mods["tricky-old-nick"] then
+  checkpoint_mining_iron = "nullius-nickel-ore"
+  checkpoint_mining_iron_box = "nullius-box-nickel-ore"
+  checkpoint_mining_iron_localised = {"item-name.nullius-nickel-ore"}
+end
+
 
 data:extend({
   {
@@ -189,7 +215,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-water"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", tostring(10000), "nullius-water", {"fluid-name.nullius-water"}}},
+	    {"technology-description.nullius-fluid", si_string(10000), "nullius-water", {"fluid-name.nullius-water"}}},
     order = "nullius-yc",
     icons = {
       {
@@ -208,6 +234,29 @@ data:extend({
       time = 1
     },
     prerequisites = {"nullius-checkpoint-energy-storage", "nullius-flotation-1"},
+    ignore_tech_cost_multiplier = true
+  },
+  {
+    type = "technology",
+    name = "nullius-checkpoint-toggle-pump",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
+	    {"entity-name.nullius-togglable-pump"}}},
+    localised_description = {"technology-description.nullius-toggle-pump"},
+    order = "nullius-yb",
+    icons = {
+      {
+        icon = "__nullius__/graphics/icons/entity/pump-blue.png",
+        icon_size = 64,
+        
+      },
+      checkmark(2.25)
+    },
+    unit = {
+      count = 1,
+      ingredients = {{"nullius-checkpoint", 1}, {"nullius-geology-pack", 1}},
+      time = 1
+    },
+    prerequisites = {"nullius-plumbing-1"},
     ignore_tech_cost_multiplier = true
   },
   {
@@ -292,10 +341,10 @@ data:extend({
         icon_size = 64,
         
       },
-	  {
-	    icon = "__nullius__/graphics/technology/tech_windturbine1.png",
-	    icon_size = 254,
-		scale = 0.5
+	    {
+	      icon = "__nullius__/graphics/technology/tech_windturbine1.png",
+	      icon_size = 254,
+		    scale = 0.5
       }
     },
     unit = {
@@ -312,27 +361,22 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-demonstration",
 	    {"technology-name.nullius-energy-storage"}}},
     localised_description = {"",
-	    {"technology-description.nullius-checkpoint-prioritize"}, "\n",
-	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
-		    tostring(1), "nullius-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
-	    {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
+      {"technology-description.nullius-checkpoint-prioritize"}, "\n",
+      {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
+  	    tostring(1), "nullius-electrolyzer-1", {"entity-name.nullius-surge-electrolyzer-1"}}}, "\n",
+      {"technology-description.nullius-checkpoint-configure", {"technology-description.nullius-item",
 		    tostring(1), "nullius-turbine-open-1", {"", {"entity-name.nullius-turbine-open-backup"}, " ", tostring(1)}}}, "\n",
-		{"technology-description.nullius-generate", {"technology-description.nullius-fluid",
+      {"technology-description.nullius-store-fluid", {"technology-description.nullius-fluid",
+        si_string(60000), "nullius-hydrogen", {"fluid-name.nullius-hydrogen"}}}, "\n",
+      {"technology-description.nullius-generate", {"technology-description.nullius-fluid",
 		    tostring(1000), "nullius-steam", {"fluid-name.nullius-steam"}}}},
     order = "nullius-yc",
     icons = {
       {
-        icon = BASEICON .. "steam-turbine.png",
-        icon_size = 64,
-        
+        icon = "__base__/graphics/technology/steam-power.png",
+        icon_size = 256,
       },
-      {
-        icon = BASEICON .. "fluid/steam.png",
-        icon_size = 64,
-        
-		scale = 1.8,
-		tint = {0.75, 0.75, 0.75, 0.75}
-      }
+      checkmark(2.25)
     },
     unit = {
       count = 1,
@@ -1077,7 +1121,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-propene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", tostring(300000), "nullius-propene", {"fluid-name.nullius-propene"}}},
+	    {"technology-description.nullius-fluid", si_string(300000), "nullius-propene", {"fluid-name.nullius-propene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1172,7 +1216,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-crushed-iron-ore"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", tostring(40000), "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
+	    {"technology-description.nullius-item", si_string(40000), "nullius-crushed-iron-ore", {"item-name.nullius-crushed-iron-ore"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1199,7 +1243,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-aluminum-carbide"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item", tostring(40000), "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
+	    {"technology-description.nullius-item", si_string(40000), "nullius-aluminum-carbide", {"item-name.nullius-aluminum-carbide"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1254,12 +1298,11 @@ data:extend({
 	    {"technology-description.nullius-item", tostring(100), "nullius-battery-1", {"item-name.nullius-battery-1"}}},
     order = "nullius-ye",
     icons = {
-	  {
-        icon = "__base__/graphics/icons/battery-equipment.png",
-        icon_size = 64,
-        
-	  },
-          checkmark(2)
+	    {
+        icon = "__base__/graphics/technology/battery.png",
+        icon_size = 256,  
+	    },
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1519,7 +1562,7 @@ data:extend({
     order = "nullius-ye",
     icons = {
       {
-        icon = "__base__/graphics/technology/productivity-module-2.png",
+        icon = "__base__/graphics/technology/productivity-module-1.png",
         icon_size = 256,
         
       },
@@ -1642,7 +1685,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"fluid-name.nullius-benzene"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-fluid", tostring(800000), "nullius-benzene", {"fluid-name.nullius-benzene"}}},
+	    {"technology-description.nullius-fluid", si_string(800000), "nullius-benzene", {"fluid-name.nullius-benzene"}}},
     order = "nullius-ye",
     icons = {
       {
@@ -1805,13 +1848,13 @@ data:extend({
 	    {"technology-name.nullius-mining"}}},
     localised_description = {"",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    tostring(1200000),"iron-ore", "nullius-box-iron-ore", {"item-name.iron-ore"}}}, "\n",
+		    si_string(1200000), checkpoint_mining_iron, checkpoint_mining_iron_box, checkpoint_mining_iron_localised}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    tostring(900000),"nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
+		    si_string(900000),"nullius-sandstone", "nullius-box-sandstone", {"item-name.nullius-sandstone"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    tostring(600000),"nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
+		    si_string(600000),"nullius-bauxite", "nullius-box-bauxite", {"item-name.nullius-bauxite"}}}, "\n",
 	    {"technology-description.nullius-consume", {"technology-description.nullius-item-boxable",
-		    tostring(300000),"nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},			
+		    si_string(300000),"nullius-limestone", "nullius-box-limestone", {"item-name.nullius-limestone"}}}},
     order = "nullius-yf",
     icons = {
 	  {
@@ -1840,7 +1883,6 @@ data:extend({
       {
         icon = BASEICON .. "blueprint.png",
         icon_size = 64,
-        
       },
       {
         icon = ICONPATH .. "android1.png",
@@ -1865,12 +1907,11 @@ data:extend({
 		    "nullius-box-battery-2", {"item-name.nullius-battery-2"}}},
     order = "nullius-yf",
     icons = {
-	  {
-        icon = "__base__/graphics/icons/battery-equipment.png",
-        icon_size = 64,
-        
-	  },
-          checkmark(2)
+      {
+          icon = "__base__/graphics/technology/battery-mk2-equipment.png",
+          icon_size = 256,
+      },
+      checkmark(2)
     },
     unit = {
       count = 1,
@@ -1979,7 +2020,7 @@ data:extend({
   {
     type = "technology",
     name = "nullius-checkpoint-processor-2",
-    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
+    localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization", 
 	    {"item-name.nullius-processor-2"}}},
     localised_description = {"technology-description.nullius-consume",
 	    {"technology-description.nullius-item-boxable", tostring(1000), "nullius-processor-2",
@@ -1991,7 +2032,7 @@ data:extend({
         icon_size = 64
       },
 	  {
-        icon = "__base__/graphics/technology/processing-unit.png",
+        icon = "__base__/graphics/technology/advanced-circuit.png",
         icon_size = 256,
         
 		scale = 0.2
@@ -2390,7 +2431,7 @@ data:extend({
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-wood"}}},
     localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", tostring(500000), "nullius-wood",
+	    {"technology-description.nullius-item-boxable", si_string(500000), "nullius-wood",
 		    "nullius-box-wood", {"item-name.nullius-wood"}}},
     order = "nullius-yg",
     icons = {
@@ -2609,10 +2650,10 @@ data:extend({
     localised_description = {"",
 	    {"technology-description.nullius-consume",
 		    {"technology-description.nullius-fluid-sequestration",
-		        tostring(1500000000),"nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
+		        si_string(1500000000),"nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
 			        {"fluid-name.nullius-carbon-dioxide"}}},"\n",
 	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
-		    tostring(2000000000),"nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
+		    si_string(2000000000),"nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
     order = "nullius-yg",
     icons = {
       {

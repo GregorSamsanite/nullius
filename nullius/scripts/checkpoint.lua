@@ -11,7 +11,6 @@ local STT_NET = 3
 local CAT_TECH = 1
 local CAT_BROKEN = 2
 
-
 local checkpoint_data = {
   ["iron-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 16, {{"nullius-iron-ingot"}} }},
   ["stone-brick"] = {{ CHK_ITEM, STT_PRODUCE, 40, {{"stone-brick"}} }},
@@ -27,7 +26,8 @@ local checkpoint_data = {
   ["caustic-solution"] = {{ CHK_FLUID, STT_CONSUME, 250, {{"nullius-caustic-solution"}} }},
   ["wind-power"] = {{ CHK_BUILD, STT_NET, 5, {{"nullius-wind-base-1"},{"nullius-wind-build-1"}} }},
   ["energy-storage"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-surge-electrolyzer-1"}} },
-			{ CHK_BUILD, STT_NET, 1, {{"nullius-turbine-open-backup-1"}} },
+      { CHK_BUILD, STT_NET, 1, {{"nullius-turbine-open-backup-1"}} },
+      { CHK_SPECIAL, 3, 60000, {{"nullius-hydrogen"}} },
 			{ CHK_FLUID, STT_CONSUME, 1000, {{"nullius-steam"}} }},
   ["iron-ingot-2"] = {{ CHK_ITEM, STT_CONSUME, 1500, {{"nullius-iron-ingot"}} }},
   ["steel-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 20, {{"nullius-steel-ingot"}} }},
@@ -152,11 +152,17 @@ local checkpoint_data = {
   ["oxygen-partial"] = {{ CHK_OBJECTIVE, 2, 25, {} }},
   ["oxygen-partial-2"] = {{ CHK_OBJECTIVE, 2, 50, {} }},
   ["oxygen-partial-3"] = {{ CHK_OBJECTIVE, 2, 75, {} }},
-  ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }}
+  ["oxygen"] = {{ CHK_OBJECTIVE, 2, 100, {} }},
+  ["toggle-pump"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-togglable-pump-1"}} }},
+  
 }
 
 if script.active_mods["lambent-nil"] then
   checkpoint_data["chelating-agent"] = {{ CHK_ITEM, STT_PRODUCE, 1000, {{"nullius-chelating-agent"}} }}
+end
+
+if script.active_mods["tricky-old-nick"] then
+  checkpoint_data["mining"][1][4] = {{"nullius-nickel-ore"}, {"nullius-box-nickel-ore",5}}
 end
 
 
@@ -294,6 +300,30 @@ local function count_req_list(list, stats, calc)
   return count
 end
 
+local function get_stored_fluid(force, fluid)
+  -- Get the total amount of fluid stored in tanks owned by force.
+  -- Calculated by summing contents of fluid segments connected to these tanks.
+  local surface = game.get_surface("nauvis")
+  local tanks = surface.find_entities_filtered{
+    force = force,
+    type = "storage-tank"
+  }
+
+  -- Sum fluid in fluid segments belonging to all matching tanks
+  local measured = {}  -- measured[id] if fluid segment id was scanned
+  local total = 0
+  for _, tank in pairs(tanks) do
+    local fluidbox = tank.fluidbox
+    local segment_id = fluidbox.get_fluid_segment_id(1)
+    if segment_id ~= nil and not measured[segment_id] then
+      measured[segment_id] = true
+      total = total + (fluidbox.get_fluid_segment_contents(1)[fluid] or 0)
+    end
+  end
+
+  return total
+end
+
 local function test_checkpoint_req(force, req)
   local goal = req[3]
   if (goal < 1) then return 1 end
@@ -315,16 +345,20 @@ local function test_checkpoint_req(force, req)
 	    (storage.nullius_mission_status[calc] / goal)))
   elseif (ctyp == CHK_SPECIAL) then
     if (calc == 1) then
-	  if (storage.nullius_switch_body_count == nil) then return 0 end
-	  local count = storage.nullius_switch_body_count[force.name]
-	  if (count == nil) then return 0 end
-	  return math.min(1, math.max(0, (count / goal)))
-	elseif (calc == 2) then
-	  local count = count_req_list(list[1],
+	    if (storage.nullius_switch_body_count == nil) then return 0 end
+	    local count = storage.nullius_switch_body_count[force.name]
+	    if (count == nil) then return 0 end
+	    return math.min(1, math.max(0, (count / goal)))
+	  elseif (calc == 2) then
+	    local count = count_req_list(list[1],
 	          force.get_fluid_production_statistics("nauvis"), STT_CONSUME) +
-		  count_req_list(list[2],
+		      count_req_list(list[2],
 	          force.get_item_production_statistics("nauvis"), STT_PRODUCE)
       return math.min(math.max((count / goal), 0), 1)
+    elseif (calc == 3) then
+      local fluid_name = list[1][1]
+      local count = get_stored_fluid(force, fluid_name)
+      return math.min(1, math.max(0, count / goal))
     else
       return 0
     end
@@ -362,7 +396,7 @@ local function update_checkpoint_force(force, tick)
   local count = 0
   for _, req in pairs(check.reqs) do
     progress = progress + test_checkpoint_req(force, req)
-	count = count + 1
+	  count = count + 1
   end
 
   if ((progress >= count) or (count < 1)) then

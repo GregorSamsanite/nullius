@@ -248,6 +248,13 @@ end
 
 
 if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
+  -- Cargo Ships sets offshore oil's infinite flag to match crude-oil's
+  -- (https://github.com/robot256/cargo_ships/blob/1e3f16b1192e9f01510c42ddfd443211e81215fb/data-final-fixes.lua#L139C22-L139C34)
+
+  data.raw.resource["offshore-oil"].map_color = {r=0.7, g=0.5, b=0.3}
+  data.raw.resource["offshore-oil"].infinite = true
+  data.raw.resource["offshore-oil"].infinite_depletion_amount = 10
+
   data.raw.technology["deep_sea_oil_extraction"].unit = {
     count = 200, time = 30,
     ingredients = {

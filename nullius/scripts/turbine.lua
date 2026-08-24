@@ -257,6 +257,7 @@ local function toggle_pump(entity, name, force, circuit_condition)
   if storage.nullius_valves == nil then
     storage.nullius_valves = { }
   end
+  
   local position = entity.position
   local direction = entity.direction
   local names = {["nullius-pump-1"]  = "nullius-togglable-pump-1", ["nullius-pump-2"] = "nullius-togglable-pump-2", ["pump"] = "nullius-togglable-pump-3", ["nullius-small-pump-1"] = "nullius-togglable-small-pump-1", ["nullius-small-pump-2"] = "nullius-togglable-small-pump-2"}
@@ -276,6 +277,7 @@ local function toggle_pump(entity, name, force, circuit_condition)
         create_build_effect_smoke = false
     })
   else
+    update_build_statistics(entity, force, true)
     destroy_if_valid(entity, true)
     conf_valve = game.surfaces["nauvis"].create_entity({
         name = names[name],
@@ -284,6 +286,7 @@ local function toggle_pump(entity, name, force, circuit_condition)
         direction = direction,
         raise_built = true,
     })
+    update_build_statistics(conf_valve, force, false)
   end
   
   if circuit_condition ~= nil then
@@ -319,6 +322,7 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
             create_build_effect_smoke = false
       })
     else
+      update_build_statistics(entity, force, true)
       destroy_if_valid(entity, true)
       pump = game.surfaces["nauvis"].create_entity({
             name = names[name],
@@ -327,6 +331,7 @@ local function toggle_conf_valve(entity, name, force, force_toggle)
             direction = direction,
             raise_built = true,
       })
+      update_build_statistics(pump, force, false)
     end
     
     --restore_fluid_contents(pump, fluid_contents)

@@ -1,6 +1,6 @@
 {
   "name": "nullius",
-  "version": "2.0.8",
+  "version": "2.0.11",
   "factorio_version": "2.0",
   "title": "Nullius",
   "author": "Anachrony",
@@ -27,7 +27,6 @@
 	"(?) FluidMustFlow >= 1.4.3",
 	"(?) factorissimo-2-notnotmelon >= 3.9.6",
 	"(?) safefill >= 2.0.0",
-	"(?) train-upgrader >= 2.0.0",
 	"(?) UPSFriendlyNixieTubeDisplay >= 0.2.9",
 	"(?) aai-loaders >= 0.2.7",
 	"(?) RenaiTransportation >= 2.2.4",
@@ -51,6 +50,11 @@
 	"(?) cargo-drone >= 1.8.0",
 	"(?) aai-containers >= 0.3.2",
 	"(?) stack-inserters >= 1.0.1",
+	"(?) DisplayPlatesForked >= 1.6.1",
+	"(?) GCKI >= 0.16.0",
+	"(?) companion-drones-mjlfix >= 3.1.2",
+	"(?) ShuttleTrainRefresh >= 2.0.4",
+	"(?) better-victory-screen >= 1.0.0",
 	  
 	"! space-age",
 	"! quality",
@@ -58,18 +62,16 @@
 	"! bobores",
 	"! stack-size-tooltip",
 	"! angelsrefining",
-	
+
 	"(?) Transport_Drones >= 1.0.16",
-	"(?) Companion_Drones >= 1.0.25",
-	"(?) miniloader >= 1.15.7",
-	"(?) FuelTrainStop >= 1.1.0",
 	"(?) crafting_combinator >= 0.16.3",
-	"(?) Shuttle_Train_Continued >= 1.1.0",
-	"(?) railloader >= 1.1.6",
-	"(?) DisplayPlates >= 1.5.1",
 	"(?) beautiful_bridge_railway >= 1.1.1",
 	"(?) Induction Charging >= 2.0.0",
 	"(?) stack-combinator >= 1.6.2",
-	"(?) GCKI >= 0.16.0"
+
+	"(?) miniloader >= 1.15.7",
+	"(?) train-upgrader >= 2.0.0",
+	"(?) railloader >= 1.1.6",
+	"(?) FuelTrainStop >= 1.1.0"
   ]
 }

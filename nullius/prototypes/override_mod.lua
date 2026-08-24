@@ -1545,7 +1545,7 @@ if mods["FuelTrainStop"] then
 end
 
 
-if mods["Companion_Drones"] then
+if mods["companion-drones-mjlfix"] then
   data.raw["item-subgroup"]["companion"].group = "drones"
   data.raw["item-subgroup"]["companion"].order = "d"
   -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"
@@ -1555,6 +1555,8 @@ if mods["Companion_Drones"] then
   data.raw["item"]["rocket-booster"].order = "r"
   data.raw["item"]["rocket-booster"].localised_name = {"item-name.nullius-companion-fuel"}
   data.raw["item"]["rocket-booster"].localised_description = {"item-description.nullius-companion-fuel"}
+  data.raw["projectile"]["companion-projectile"].hidden_in_factoriopedia = true
+  data.raw["item-with-entity-data"]["companion"].order = "nullius-a"
 end
 
 
@@ -1659,7 +1661,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
   data.raw["arithmetic-combinator"]["small-reinforced-nixie-tube-sprite"].hidden_in_factoriopedia = true
 
   table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-reinforced-nixie-tubes-reinforced")
-  if mods["DisplayPlates"] then
+  if mods["DisplayPlatesForked"] then
     data.raw.item["classic-nixie-tube"].subgroup = "display-plates"
     data.raw.item["small-reinforced-nixie-tube"].subgroup = "display-plates"
     data.raw.item["reinforced-nixie-tube"].subgroup = "display-plates"
@@ -1672,21 +1674,26 @@ if mods["holographic_signs"] then
   data.raw.item["hs_holo_sign"].stack_size = 50
   data.raw.container["hs_holo_sign"].minable.mining_time = 0.8
   table.insert(data.raw.technology["nullius-broadcasting-1"].prerequisites,"nullius-holographics")
-if mods["DisplayPlates"] then
+if mods["DisplayPlatesForked"] then
   data.raw.item["hs_holo_sign"].subgroup = "display-plates"
 end
 end
 
 
-if mods["Shuttle_Train_Continued"] then
+if mods["ShuttleTrainRefresh"] then
   table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
-    {type = "unlock-recipe", recipe = "nullius-shuttle-lite"})
+    {type = "unlock-recipe", recipe = "shuttle-train"})
+  table.insert(data.raw["technology"]["nullius-traffic-control"].effects,
+    {type = "unlock-recipe", recipe = "shuttle-train-manual"})
 if (mods["railway-motor-car"] or mods["jetpack"]) then
-  data.raw.item["shuttle-lite"].subgroup = "jetpack"
+  data.raw.item["shuttle-train"].subgroup = "jetpack"
+  data.raw.item["shuttle-train-manual"].subgroup = "jetpack"
 else
-  data.raw.item["shuttle-lite"].subgroup = "railway"
+  data.raw.item["shuttle-train"].subgroup = "railway"
+  data.raw.item["shuttle-train-manual"].subgroup = "railway"
 end
-  data.raw.item["shuttle-lite"].order = "nullius-s"
+  data.raw.item["shuttle-train"].order = "nullius-s"
+  data.raw.item["shuttle-train-manual"].order = "nullius-t"
 end
 
 
@@ -1909,7 +1916,7 @@ table.insert(data.raw.technology["nullius-distribution-1"].prerequisites,
 end
 
 
-if mods["DisplayPlates"] then
+if mods["DisplayPlatesForked"] then
 if mods["textplates"] then
 table.insert(data.raw.technology["nullius-typesetting-2"].prerequisites,"nullius-display-plates")
 else
@@ -1925,23 +1932,23 @@ data.raw.item["copper-display-small"].order = "nullius-db"
 data.raw.item["copper-display-medium"].order = "nullius-dc"
 data.raw.item["copper-display"].order = "nullius-dd"
 
-data.raw["simple-entity-with-owner"]["iron-display-small"].localised_name =
+data.raw["display-panel"]["iron-display-small"].localised_name =
     {"entity-name.nullius-display-plate-small-steel"}
-data.raw["simple-entity-with-owner"]["iron-display-medium"].localised_name =
+data.raw["display-panel"]["iron-display-medium"].localised_name =
     {"entity-name.nullius-display-plate-medium-steel"}
-data.raw["simple-entity-with-owner"]["iron-display"].localised_name =
+data.raw["display-panel"]["iron-display"].localised_name =
     {"entity-name.nullius-display-plate-large-steel"}
-data.raw["simple-entity-with-owner"]["steel-display-small"].localised_name =
+data.raw["display-panel"]["steel-display-small"].localised_name =
     {"entity-name.nullius-display-plate-small-aluminum"}
-data.raw["simple-entity-with-owner"]["steel-display-medium"].localised_name =
+data.raw["display-panel"]["steel-display-medium"].localised_name =
     {"entity-name.nullius-display-plate-medium-aluminum"}
-data.raw["simple-entity-with-owner"]["steel-display"].localised_name =
+data.raw["display-panel"]["steel-display"].localised_name =
     {"entity-name.nullius-display-plate-large-aluminum"}
-data.raw["simple-entity-with-owner"]["copper-display-small"].localised_name =
+data.raw["display-panel"]["copper-display-small"].localised_name =
     {"entity-name.nullius-display-plate-small-plastic"}
-data.raw["simple-entity-with-owner"]["copper-display-medium"].localised_name =
+data.raw["display-panel"]["copper-display-medium"].localised_name =
     {"entity-name.nullius-display-plate-medium-plastic"}
-data.raw["simple-entity-with-owner"]["copper-display"].localised_name =
+data.raw["display-panel"]["copper-display"].localised_name =
     {"entity-name.nullius-display-plate-large-plastic"}
 end
 
