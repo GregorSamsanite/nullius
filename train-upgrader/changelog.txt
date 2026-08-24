@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: ????
+  Bugfixes:
+    - Fix group and interrrupt deletion
+  Features:
+    - Add cybersyn 2 support
+    - Add interrupt handling while upgrading trains
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 18.12.2025
   Features:
