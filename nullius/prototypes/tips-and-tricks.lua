@@ -224,6 +224,18 @@ data.extend{
 			match_type_only = true,
 		},
 	},
+	{
+		type = "tips-and-tricks-item",
+		name = "nullius-land-fill-dumping",
+		category = "nullius-terraforming",
+		order = "nullius-c",
+		indent = 1,
+		tag = "[technology=nullius-land-fill-5]",
+		trigger = {
+			type = "research",
+			technology = "nullius-land-fill-5",
+		},
+	},
 }
 
 -- Biology
@@ -260,7 +272,7 @@ data.extend{
 		type = "tips-and-tricks-item",
 		name = "nullius-creating-life",
 		category = "nullius-biology",
-		order = "nullius-b",
+		order = "nullius-c",
 		indent = 1,
 		tag = "[fluid=nullius-bacteria]",
 		trigger = {
