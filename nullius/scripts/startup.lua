@@ -79,7 +79,7 @@ function broken_finished(name)
   --   force.recipes[name].enabled = false
   -- end
 
-  -- if (script.active_mods["Companion_Drones"] and
+  -- if (script.active_mods["companion-drones-mjlfix"] and
   --     (storage.nullius_companion_fix == nil)) then
   --   fuel_companion_drones(game.surfaces[1])
 	-- storage.nullius_companion_fix = true
@@ -229,7 +229,7 @@ local function equip_armor(player)
     end
 
     if ((body ~= nil) and (body.grid ~= nil)) then
-	  if (script.active_mods["Companion_Drones"]) then
+	  if (script.active_mods["companion-drones-mjlfix"]) then
 	    body.grid.put({name="nullius-solar-panel-1"})
 	    body.grid.put({name="nullius-battery-1"})
 	    body.grid.put({name="nullius-battery-1"})
@@ -255,7 +255,7 @@ end
 
 function equip_player(player)
   equip_armor(player)
-  if (not script.active_mods["Companion_Drones"]) then
+  if (not script.active_mods["companion-drones-mjlfix"]) then
     player.insert({name="nullius-construction-bot-1", count=6})
   end
   player.insert({name="nullius-solar-panel-1", count=10})
@@ -319,9 +319,43 @@ script.on_event(defines.events.on_research_finished,
   end
 )
 
-commands.add_command("flip_valves", nil, function(command)
-  for _, v in pairs(game.surfaces["nauvis"].find_entities_filtered{type = "valve"}) do
-    v.rotate()
-    v.rotate()
-  end
-end)
+DEBUG_MODE = false
+
+if DEBUG_MODE then
+  commands.add_command("prereq", "Researches prerequisites for a tech", function(command)
+      local tech_name = command.parameter
+      local force = game.player.force
+      local tech = force.technologies[tech_name]
+      
+      if not tech then
+          game.player.print("Technology '" .. tostring(tech_name) .. "' not found.")
+          return
+      end
+
+      local function unlock_prereqs(t)
+          for _, prereq in pairs(t.prerequisites) do
+              if not prereq.researched then
+                  unlock_prereqs(prereq)
+                  prereq.researched = true
+              end
+          end
+      end
+
+      unlock_prereqs(tech)
+      game.player.print("All prerequisites for " .. tech_name .. " have been researched!")
+  end)
+
+  commands.add_command("cheat_items", "Spawns an infinity chest/pipe and electric energy interface", function()
+      local p = game.player
+      p.insert{name="infinity-chest", count=1}
+      p.insert{name="infinity-pipe", count=1}
+      p.insert{name="electric-energy-interface", count=1}
+      p.print("Cheat items added to the player inventory !")
+  end)
+
+  commands.add_command("finish_mission", "Triggers win", function()
+      local p = game.player
+      storage.nullius_mission_complete = true
+      update_and_check_victory(p.force)
+  end)
+end

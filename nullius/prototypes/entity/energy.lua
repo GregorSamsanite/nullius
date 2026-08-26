@@ -1023,6 +1023,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1171,6 +1172,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-1"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1310,6 +1312,7 @@ data:extend({
     close_sound = sounds.steam_close,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1458,6 +1461,7 @@ data:extend({
     working_sound = data.raw["assembling-machine"]["nullius-surge-compressor-1"].working_sound,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
+    forced_symmetry = "horizontal",
     fluid_boxes = data.raw["assembling-machine"]["nullius-surge-compressor-2"].fluid_boxes,
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
@@ -1563,6 +1567,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1709,6 +1714,7 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nullius-compressor"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
+    forced_symmetry = "horizontal",
     fluid_boxes = {
       {
         production_type = "input",
@@ -1836,6 +1842,42 @@ data:extend({
     }
   }
 })
+
+-- The thermal extractor was drawn for a drill that never mirrored, so a flipped
+-- compressor has no artwork of its own. Point the same layers at horizontally
+-- mirrored copies of both sheets: the base carries the pipe runs, the animation
+-- carries the body and its own pipe stubs, so both have to mirror together.
+local compressor_mirrored_sheets = {
+  ["thermal-extractor-base.png"] =
+      "__nullius__/graphics/entity/compressor/thermal-extractor-base-flipped.png",
+  ["thermal-extractor-animation.png"] =
+      "__nullius__/graphics/entity/compressor/thermal-extractor-animation-flipped.png"
+}
+
+local function mirror_compressor_sprite(sprite)
+  if not sprite or not sprite.filename then return end
+  for sheet, mirrored in pairs(compressor_mirrored_sheets) do
+    if string.find(sprite.filename, sheet, 1, true) then
+      sprite.filename = mirrored
+    end
+  end
+end
+
+for _, compressor in pairs({
+  "nullius-surge-compressor-1", "nullius-priority-compressor-1",
+  "nullius-surge-compressor-2", "nullius-priority-compressor-2",
+  "nullius-surge-compressor-3", "nullius-priority-compressor-3"
+}) do
+  local machine = data.raw["assembling-machine"][compressor]
+  local flipped = util.table.deepcopy(machine.graphics_set)
+  for _, direction in pairs(flipped.animation) do
+    mirror_compressor_sprite(direction)
+    for _, layer in pairs(direction.layers or {}) do
+      mirror_compressor_sprite(layer)
+    end
+  end
+  machine.graphics_set_flipped = flipped
+end
 
 data:extend({
   {
@@ -2098,25 +2140,42 @@ data:extend({
   }
 })
 
+apply_heat_pipe_glow = function(layer)
+  local heat_glow_tint = {1, 1, 1, 1}
+  --layer.tint = heated_pipes_tint
 
-function make_heat_pipe_pictures(path, name_prefix, color, data)
+  local light_layer = util.copy(layer)
+  light_layer.draw_as_light = true
+  light_layer.tint = heat_glow_tint
+  return
+  {
+    layers =
+    {
+      layer,
+      light_layer
+    }
+  }
+end
+
+function make_heat_pipe_pictures(path, name_prefix, color, data, draw_as_glow)
   local all_pictures = {}
+  local func = draw_as_glow and apply_heat_pipe_glow or function(t) return t end
   for key, t in pairs(data) do
     if t.empty then
       all_pictures[key] = { priority = "extra-high", filename = "__core__/graphics/empty.png", width = 1, height = 1 }
     else
       local tile_pictures = {}
       for i = 1, (t.variations or 1) do
-        local sprite =
-          {
-            priority = "extra-high",
-            filename = path .. name_prefix .. "-" .. (t.name or string.gsub(key, "_", "-")) .. (t.ommit_number and ".png" or ("-" .. tostring(i) .. ".png")),
-            width = (t.width or 32) * 2,
-            height = (t.height or 32) * 2,
-            scale = 0.5,
-            shift = t.shift,
-            tint = color
-          }
+        local sprite = func
+        {
+          priority = "extra-high",
+          filename = path .. name_prefix .. "-" .. (t.name or string.gsub(key, "_", "-")) .. (t.ommit_number and ".png" or ("-" .. tostring(i) .. ".png")),
+          width = (t.width or 32) * 2,
+          height = (t.height or 32) * 2,
+          scale = 0.5,
+          shift = t.shift,
+          tint = color
+        }
         table.insert(tile_pictures, sprite)
       end
       all_pictures[key] = tile_pictures
@@ -2200,7 +2259,8 @@ data:extend({
         ending_down = {},
         ending_right = {},
         ending_left = {}
-      }
+      }, 
+      true
     )
   },
 
@@ -2260,7 +2320,7 @@ data:extend({
     ),
 
     heat_glow_sprites = make_heat_pipe_pictures(BASEENTITY .. "heat-pipe/",
-        "heated", {0.8, 0.8, 0.95},
+        "heated", {0.3, 0.45, 0.65, 0.3},
       {
         single = { empty = true },
         straight_vertical = { variations = 6 },
@@ -2278,7 +2338,7 @@ data:extend({
         ending_down = {},
         ending_right = {},
         ending_left = {}
-      }
+      }, true
     )
   },
 
@@ -3518,244 +3578,6 @@ data:extend({
     circuit_connector = circuit_connector_definitions["nuclear-reactor"],
   },
 
-  {
-    type = "reactor",
-    name = "nullius-solar-collector-1",
-    localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", tostring(1)},
-    icons = data.raw.item["nullius-solar-collector-1"].icons,
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.2, result = "nullius-solar-collector-1"},
-    fast_replaceable_group = "solar-collector",
-    next_upgrade = "nullius-solar-collector-2",
-    max_health = 250,
-    corpse = "solar-panel-remnants",
-    consumption = "150W",
-    energy_source = { type = "void" },
-    neighbour_bonus = 0.1,
-    --neighbour_collision_increase = 0.1,
-    -- circuit_connector = circuit_connector_definitions["nullius-solar-collector"], -- we decided not to have circuit connections for this building
-    -- circuit_wire_max_distance = reactor_circuit_wire_max_distance,
-    resistances = {
-      { type = "fire", decrease = 25, percent = 60 },
-      { type = "impact", decrease = 50, percent = 80 },
-      { type = "laser", decrease = 50, percent = 80 }
-    },
-    collision_box = {{-2.25, -1.6}, {2.25, 1.6}},
-    selection_box = {{-2.5, -2}, {2.5, 2}},
-    heat_buffer = {
-      max_temperature = 250,
-      specific_heat = "150kJ",
-      max_transfer = "3MW",
-      minimum_glow_temperature = 150,
-      connections = {
-        {
-          position = {2, 0.5},
-          direction = defines.direction.east
-        },
-        {
-          position = {-2, 0.5},
-          direction = defines.direction.west
-        }
-      },
-      pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.pipe_covers,
-      heat_pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.heat_pipe_covers
-    },
-    picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector1.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    },
-    working_light_picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector1.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    }
-  },
-
-  {
-    type = "reactor",
-    name = "nullius-solar-collector-2",
-    localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", tostring(2)},
-    icons = data.raw.item["nullius-solar-collector-2"].icons,
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 1.8, result = "nullius-solar-collector-2"},
-    fast_replaceable_group = "solar-collector",
-    next_upgrade = "nullius-solar-collector-3",
-    max_health = 300,
-    corpse = "solar-panel-remnants",
-    consumption = "300W",
-    energy_source = { type = "void" },
-    neighbour_bonus = 0.1,
-    --neighbour_collision_increase = 0.1,
-    -- circuit_connector = circuit_connector_definitions["nullius-solar-collector"],
-    -- circuit_wire_max_distance = reactor_circuit_wire_max_distance,
-    resistances = {
-      { type = "fire", decrease = 25, percent = 60 },
-      { type = "impact", decrease = 50, percent = 80 },
-      { type = "laser", decrease = 50, percent = 80 }
-    },
-    collision_box = {{-2.25, -1.6}, {2.25, 1.6}},
-    selection_box = {{-2.5, -2}, {2.5, 2}},
-    heat_buffer = {
-      max_temperature = 300,
-      specific_heat = "350kJ",
-      max_transfer = "8MW",
-      minimum_glow_temperature = 175,
-      connections = {
-        {
-          position = {2, 0.5},
-          direction = defines.direction.east
-        },
-        {
-          position = {-2, 0.5},
-          direction = defines.direction.west
-        }
-      },
-      pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.pipe_covers,
-      heat_pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.heat_pipe_covers
-    },
-    picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector2.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    },
-    working_light_picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector2.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    }
-  },
-
-  {
-    type = "reactor",
-    name = "nullius-solar-collector-3",
-    localised_name = {"", {"entity-name.nullius-solar-collector"}, " ", tostring(3)},
-    icons = data.raw.item["nullius-solar-collector-3"].icons,
-    flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 2.4, result = "nullius-solar-collector-3"},
-    fast_replaceable_group = "solar-collector",
-    max_health = 400,
-    corpse = "solar-panel-remnants",
-    consumption = "600W",
-    energy_source = { type = "void" },
-    neighbour_bonus = 0.1,
-    --neighbour_collision_increase = 0.1,
-    -- circuit_connector = circuit_connector_definitions["nullius-solar-collector"],
-    -- circuit_wire_max_distance = reactor_circuit_wire_max_distance,
-    resistances = {
-      { type = "fire", decrease = 25, percent = 60 },
-      { type = "impact", decrease = 50, percent = 80 },
-      { type = "laser", decrease = 50, percent = 80 }
-    },
-    collision_box = {{-2.25, -1.6}, {2.25, 1.6}},
-    selection_box = {{-2.5, -2}, {2.5, 2}},
-    heat_buffer = {
-      max_temperature = 400,
-      specific_heat = "800kJ",
-      max_transfer = "20MW",
-      minimum_glow_temperature = 200,
-      connections = {
-        {
-          position = {2, 0.5},
-          direction = defines.direction.east
-        },
-        {
-          position = {-2, 0.5},
-          direction = defines.direction.west
-        }
-      },
-      pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.pipe_covers,
-      heat_pipe_covers = data.raw.boiler["heat-exchanger"].energy_source.heat_pipe_covers
-    },
-    picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector3.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    },
-    working_light_picture = {
-      layers = {
-        {
-          filename = ENTITYPATH .. "collector/collector3.png",
-          width = 220,
-          height = 140,
-          scale = 0.9,
-          shift = {0, -0.25}
-        },
-        {
-          filename = ENTITYPATH .. "collector/collectorpipe.png",
-          width = 320,
-          height = 32,
-          scale = 0.5,
-          shift = {0, 0.5}
-        }
-      }
-    }
-  },
   {
     type = "assembling-machine",
     name = "nullius-heat-exchanger-1",
