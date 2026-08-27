@@ -8,7 +8,8 @@
 ---Otherwise if the recipe has a localised name, prepends "Boxed" to it.
 ---@field localised_name? data.LocalisedString|false
 ---When set, overrides the category of the boxed recipe.
----Defaults to the same as the original recipe.
+---Defaults to a category based on the original recipe.
+---Certain categories don't have a mapping, so this field becomes mandatory.
 ---@field category? string
 ---When set, overrides the subgroup of the boxed recipe.
 ---Errors when not set.
@@ -49,6 +50,43 @@
 ---Recipes opt into automatic boxing by carrying this field
 ---@class data.RecipePrototype
 ---@field auto_boxed? AutoBoxedRecipe
+
+
+local BOXED_CATEGORY_MAPPING = {
+  -- No hand-crafting
+  ["hand-crushing"] = "ore-crushing",
+
+  -- Furnaces
+  ["dry-smelting"] = "bulk-smelting",
+  ["wet-smelting"] = "bulk-smelting",
+  ["vent-smelting"] = "bulk-smelting",
+
+  -- Assemblers
+  ["tiny-crafting"] = "small-assembly",
+  ["tiny-assembly"] = "small-assembly",
+  ["small-crafting"] = "medium-assembly",
+  ["small-assembly"] = "medium-assembly",
+  ["medium-crafting"] = "large-assembly",
+  ["medium-assembly"] = "large-assembly",
+  ["medium-only-assembly"] = "large-assembly",
+  ["small-fluid-assembly"] = "large-assembly",  -- this is medium-only
+  ["large-crafting"] = "huge-assembly",
+  ["large-assembly"] = "huge-assembly",
+  ["large-fluid-assembly"] = "huge-fluid-assembly",
+  ["huge-crafting"] = "huge-assembly",
+  ["huge-assembly"] = "huge-assembly",
+  ["huge-fluid-assembly"] = "huge-fluid-assembly",
+
+  -- Others don't need changing
+  ["hand-casting"] = "hand-casting", -- TODO: maybe should be machine-casting?
+  ["basic-chemistry"] = "basic-chemistry",
+  ["distillation"] = "distillation",
+  ["machine-casting"] = "machine-casting",
+  ["nanotechnology"] = "nanotechnology",
+  ["nullius-electrolysis"] = "nullius-electrolysis",
+  ["ore-crushing"] = "ore-crushing",
+  ["ore-flotation"] = "ore-flotation",
+}
 
 ---@param item_name string
 ---@return string
@@ -150,10 +188,9 @@ for name, recipe in pairs(data.raw.recipe) do
       })
     end
 
-    if auto_boxed.category then
-      -- TODO: maybe bool means automatic?
-      boxed.category = auto_boxed.category
-    end
+    boxed.category = auto_boxed.category or BOXED_CATEGORY_MAPPING[recipe.category]
+    assert(boxed.category, recipe.name .. " has category " .. recipe.category .. " which requires a manual boxed definition")
+
     if auto_boxed.subgroup then
       boxed.subgroup = auto_boxed.subgroup
     else

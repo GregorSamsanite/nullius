@@ -254,7 +254,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-mechanical-pack-1",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(1)},
-      category = "large-assembly",
       subgroup = "boxed-science",
     }
   },
@@ -294,7 +293,6 @@ data:extend({
 
     auto_boxed = {
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-mechanical-pack"}}, " ", tostring(2)},
-      category = "large-assembly",
       subgroup = "boxed-science",
       icon_override = {
         {},
@@ -826,7 +824,6 @@ data:extend({
     
     auto_boxed = {
       name = "nullius-boxed-crushed-sandstone",
-      category = "ore-crushing",
       subgroup = "boxed-silicon",
     }
   },
@@ -850,7 +847,6 @@ data:extend({
     },
     
     auto_boxed = {
-      category = "ore-crushing",
       subgroup = "boxed-silicon",
     }
   },
@@ -1187,7 +1183,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-iron-ingot",
       localised_name = false,
-      category = "bulk-smelting",
       subgroup = "boxed-iron",
       icons = false,
 
@@ -1231,7 +1226,6 @@ data:extend({
     
     auto_boxed = {
       localised_name = {"recipe-name.nullius-aluminothermic", {"item-name.nullius-box", {"item-name.nullius-iron-ingot"}}},
-      category = "machine-casting",
       subgroup = "boxed-iron",
 
       icon_override = {
@@ -1317,7 +1311,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-steel-ingot-1",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", tostring(1)},
-      category = "bulk-smelting",
       subgroup = "boxed-steel",
       order = "nullius-ab",
       icons = false,
@@ -1362,7 +1355,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-steel-ingot-2",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-steel-ingot"}}, " ", tostring(2)},
-      category = "bulk-smelting",
       subgroup = "boxed-steel",
       order = "nullius-ac",
       icon_override = {
@@ -1520,7 +1512,6 @@ data:extend({
     main_product = "nullius-lime",
     
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-calcium",
       icons = false,
 
@@ -1601,7 +1592,6 @@ data:extend({
     main_product = "nullius-lime",
 
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-calcium",
       order = "nullius-dc",
       icon_override = {
@@ -1937,7 +1927,6 @@ data:extend({
     main_product = "nullius-lime",
 
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-calcium",
       order = "nullius-dd",
 
@@ -2219,7 +2208,6 @@ data:extend({
     },
 
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-glass",
 
       -- Balancing
@@ -2302,7 +2290,6 @@ data:extend({
     main_product = "nullius-boron",
     
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-glass",
 
       -- Balancing
@@ -3302,7 +3289,6 @@ data:extend({
     },
     
     auto_boxed = {
-      category = "huge-fluid-assembly",
       subgroup = "boxed-steel",
     },
   },
@@ -3590,7 +3576,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-refractory-brick",
       localised_name = false,
-      category = "bulk-smelting",
       subgroup = "boxed-terrain",
       order = false,
       icons = false,
@@ -3806,7 +3791,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-alumina",
       localised_name = false,
-      category = "bulk-smelting",
       subgroup = "boxed-aluminum-1",
       icons = false,
 
@@ -3872,7 +3856,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-aluminum-carbide",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", tostring(1)},
-      category = "bulk-smelting",
       subgroup = "boxed-aluminum-2",
       order = "nullius-gbb",
       icons = {
@@ -3929,7 +3912,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-aluminum-ingot-1",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", tostring(1)},
-      category = "bulk-smelting",
       subgroup = "boxed-aluminum-2",
       icons = false,
 
@@ -3976,7 +3958,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-aluminum-ingot-2",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-ingot"}}, " ", tostring(2)},
-      category = "bulk-smelting",
       subgroup = "boxed-aluminum-2",
       icon_override = {
         {},
@@ -4045,7 +4026,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-aluminum-carbide-2",
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-carbide"}}, " ", tostring(2)},
-      category = "bulk-smelting",
       subgroup = "boxed-aluminum-2",
       order = "nullius-gbc",
       icons = {
@@ -4120,7 +4100,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-silicon-ingot",
       localised_name = false,
-      category = "bulk-smelting",
       subgroup = "boxed-silicon",
       icons = false,
 
@@ -4505,7 +4484,6 @@ data:extend({
     auto_boxed = {
       name = "nullius-boxed-cement",
       localised_name = false,
-      category = "bulk-smelting",
       subgroup = "boxed-glass",
       order = false,
       icons = false,
@@ -5160,7 +5138,6 @@ data:extend({
     main_product = "nullius-ceramic-powder",
 
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-glass",
 
       -- Balancing
@@ -5262,7 +5239,6 @@ data:extend({
     main_product = "nullius-carbon-fiber",
 
     auto_boxed = {
-      category = "bulk-smelting",
       subgroup = "boxed-organic-2",
       order = "nullius-g",
 
@@ -5429,7 +5405,6 @@ data:extend({
 
     auto_boxed = {
       localised_name = {"recipe-name.nullius-boxed", {"fluid-name.nullius-titanium-tetrachloride"}},
-      category = "bulk-smelting",
       subgroup = "boxed-titanium",
       order = "nullius-c",
       icons = {
@@ -5504,7 +5479,6 @@ data:extend({
 
     auto_boxed = {
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-titanium-ingot"}}, " ", tostring(2)},
-      category = "bulk-smelting",
       subgroup = "boxed-titanium",
       order = "nullius-dc",
       icon_override = {
@@ -5849,7 +5823,6 @@ data:extend({
     },
 
     auto_boxed = {
-      category = "huge-fluid-assembly",
       subgroup = "boxed-glass",
     },
   },
