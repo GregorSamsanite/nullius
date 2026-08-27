@@ -15,6 +15,8 @@ function entity_added(entity, handbuilt)
     return
   end
 
+  draw_valve_arrow(entity)
+
   local suffix = string.sub(entity.name, 9, -2)
   if (string.sub(suffix, 1, 5) == "wind-") then
     if (string.sub(suffix, 6, -1) == "build-") then
@@ -70,6 +72,8 @@ function entity_removed(entity, died, buffer)
 	   buffer.insert({name = burnt_result, count = 1})
 	end
   end
+  remove_valve_arrow(entity.unit_number)
+
   local suffix = string.sub(entity.name, 9, -2)
   if (suffix == "wind-base-") then
     remove_wind_turbine(entity, died, (string.byte(entity.name, 19) - 48))
