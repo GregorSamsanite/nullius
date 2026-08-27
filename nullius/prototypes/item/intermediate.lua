@@ -1,3 +1,5 @@
+---@diagnostic disable: need-check-nil
+
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 local FLUIDPATH = ICONPATH .. "fluid/"
@@ -295,10 +297,8 @@ data:extend({
       category = "large-assembly",
       subgroup = "boxed-science",
       icon_override = {
-        false,
-        {
-          scale = 0.44,
-        }
+        {},
+        {scale = 0.44}
       }
     }
   },
@@ -524,7 +524,6 @@ data:extend({
         data.raw.fluid["nullius-copper-solution"].icons[3],
         data.raw.fluid["nullius-copper-solution"].icons[4]
       },
-      add_box_icon = true,
     }
   },
   {
@@ -683,10 +682,8 @@ data:extend({
       subgroup = "boxed-iron",
 
       icon_override = {
-        false,
-        {
-          shift = {-6, -6},
-        }
+        {},
+        {shift = {-6, -6}},
       }
     }
   },
@@ -760,10 +757,8 @@ data:extend({
       order = "nullius-cc",
 
       icon_override = {
-        false,
-        {
-          scale = 0.18,
-        }
+        {},
+        {scale = 0.18}
       }
     }
   },
@@ -928,10 +923,8 @@ data:extend({
       localised_name = {"recipe-name.nullius-boxed", {"recipe-name.nullius-slag-reprocessing"}},
       subgroup = "boxed-silicon",
       icon_override = {
-        false,
-        {
-          shift = {6, 6},
-        }
+        {},
+        {shift = {6, 6}}
       }
     }
   },
@@ -970,10 +963,8 @@ data:extend({
       subgroup = "boxed-aluminum-1",
 
       icon_override = {
-        false,
-        {
-          shift = {9, -8},
-        }
+        {},
+        {shift = {9, -8}}
       }
     }
   },
@@ -1011,11 +1002,8 @@ data:extend({
       subgroup = "boxed-aluminum-1",
       order = "nullius-l",
       icon_override = {
-        false,
-        {
-          scale = 0.22,
-          shift = {9, -8},
-        }
+        {},
+        {scale = 0.22, shift = {9, -8}}
       }
     }
   },
@@ -1055,11 +1043,8 @@ data:extend({
       subgroup = "boxed-titanium",
 
       icon_override = {
-        false,
-        {
-          scale = 0.22,
-          shift = {9, -8},
-        }
+        {},
+        {scale = 0.22, shift = {9, -8}}
       }
     }
   },
@@ -1098,10 +1083,8 @@ data:extend({
       order = "nullius-y",
 
       icon_override = {
-        false,
-        {
-          shift = {9, -8},
-        }
+        {},
+        {shift = {9, -8}}
       }
     }
   },
@@ -1209,7 +1192,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 20,
+      energy_required_multiplier = 1,
     }
   },
 
@@ -1252,12 +1235,12 @@ data:extend({
       subgroup = "boxed-iron",
 
       icon_override = {
-        false,
+        {},
         {scale = 0.22}
       },
 
       -- Balancing
-      energy_required = 25,
+      energy_required_multiplier = 25/6,
       ingredients = {
         {type="item", name="nullius-box-iron-oxide", amount = 13},
         {type="item", name="nullius-box-aluminum-ingot", amount = 10},
@@ -1340,7 +1323,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 25,
+      energy_required_multiplier = 1,
     }
   },
   {
@@ -1383,12 +1366,12 @@ data:extend({
       subgroup = "boxed-steel",
       order = "nullius-ac",
       icon_override = {
-        false,
+        {},
         {scale = 0.2, shift = {8, -10}}
       },
 
       -- Balancing
-      energy_required = 60,
+      energy_required_multiplier = 1,
     }
   },
   {
@@ -1542,7 +1525,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 5,
+      energy_required_multiplier = 1,
     }
   },
   {
@@ -1582,7 +1565,7 @@ data:extend({
       subgroup = "boxed-calcium",
       order = "nullius-cd",
       icon_override = {
-        false,
+        {},
         {scale = 0.36, shift = {-10, -10}}
       }
     }
@@ -1622,12 +1605,12 @@ data:extend({
       subgroup = "boxed-calcium",
       order = "nullius-dc",
       icon_override = {
-        false,
+        {},
         {scale = 0.14, shift = {11, 12}}
       },
 
       -- Balancing
-      energy_required = 3,
+      energy_required_multiplier = 1,
       ingredients = {{type="item", name="nullius-box-gypsum", amount = 2}},
       results = {
         {type="item", name="nullius-box-lime", amount=1},
@@ -1678,7 +1661,7 @@ data:extend({
       order = "nullius-ef",
       
       icon_override = {
-        false,
+        {},
         {scale = 0.2, shift = {-8, -10}}
       },
     }
@@ -1725,7 +1708,7 @@ data:extend({
       order = "nullius-eg",
       
       icon_override = {
-        false,
+        {},
         {scale = 0.5, shift = {-8, -8}}
       },
     }
@@ -1807,11 +1790,11 @@ data:extend({
       subgroup = "boxed-fluid",
       order = "nullius-ccc",
 
-      scale_existing_icons = 1.0,
+      existing_icons_scale = 1.0,
       icon_override = {
-        false,
-        false,
-        false,
+        {},
+        {},
+        {},
         {scale = 0.36, shift = {-10, -11}},
       },
     }
@@ -1912,11 +1895,11 @@ data:extend({
       subgroup = "boxed-fluid",
       order = "nullius-cd",
 
-      scale_existing_icons = 1.0,
+      existing_icons_scale = 1.0,
       icon_override = {
-        false,
-        false,
-        false,
+        {},
+        {},
+        {},
         {scale = 0.36, shift = {-10, -11}}
       }
     }
@@ -1959,12 +1942,12 @@ data:extend({
       order = "nullius-dd",
 
       icon_override = {
-        false,
+        {},
         {scale = 0.13, shift = {11, 11}}
       },
 
       -- Balancing
-      energy_required = 2,
+      energy_required_multiplier = 1,
     }
   },
   {
@@ -2069,7 +2052,7 @@ data:extend({
       subgroup = "boxed-silicon",
 
       icon_override = {
-        false,
+        {},
         {scale = 0.23, shift = {8, 8}}
       }
     }
@@ -2240,7 +2223,7 @@ data:extend({
       subgroup = "boxed-glass",
 
       -- Balancing
-      energy_required = 50,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -2323,7 +2306,7 @@ data:extend({
       subgroup = "boxed-glass",
 
       -- Balancing
-      energy_required = 10,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -3383,7 +3366,7 @@ data:extend({
       category = "large-assembly",
       subgroup = "boxed-electrical",
       icon_override = {
-        false,
+        {},
         {scale = 0.22, shift = {11, -9}},
       }
     },
@@ -3476,7 +3459,7 @@ data:extend({
       order = "nullius-cb",
 
       -- Balancing
-      energy_required = 30,
+      energy_required_multiplier = 30/8,
       ingredients = {
         {type = "item", name = "nullius-box-insulated-wire", amount = 1},
         {type = "item", name = "nullius-box-iron-plate", amount = 1},
@@ -3613,7 +3596,7 @@ data:extend({
       icons = false,
     
       -- Balancing
-      energy_required = 8,
+      energy_required_multiplier = 1,
     },
   },
   {
@@ -3764,7 +3747,7 @@ data:extend({
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-aluminum-hydroxide"}}, " ", tostring(2)},
       subgroup = "boxed-aluminum-1",
       icon_override = {
-        false,
+        {},
         {scale = 0.17, shift = {9, -10}},
       }
     },
@@ -3828,7 +3811,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 2,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -3908,7 +3891,7 @@ data:extend({
       main_product = "nullius-box-aluminum-carbide",
 
       -- Balancing
-      energy_required = 10,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -3951,7 +3934,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 25,
+      energy_required_multiplier = 1,
     },
   },
   {
@@ -3996,12 +3979,12 @@ data:extend({
       category = "bulk-smelting",
       subgroup = "boxed-aluminum-2",
       icon_override = {
-        false,
+        {},
         {scale = 0.4, shift = {8, -8}}
       },
 
       -- Balancing
-      energy_required = 12,
+      energy_required_multiplier = 1,
     },
   },
   {
@@ -4080,7 +4063,7 @@ data:extend({
       },
 
       -- Balancing
-      energy_required = 2,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -4142,7 +4125,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 12,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -4242,7 +4225,7 @@ data:extend({
       localised_name = {"", {"item-name.nullius-box", {"item-name.nullius-polycrystalline-silicon"}}, " ", tostring(2)},
       subgroup = "boxed-silicon",
       icon_override = {
-        false,
+        {},
         {scale = 0.18, shift = {-10, -10}}
       }
     },
@@ -4404,7 +4387,7 @@ data:extend({
       subgroup = "boxed-mechanical",
       order = "nullius-bc",
       icon_override = {
-        false,
+        {},
         {scale = 0.25, shift = {10, -9}}
       }
     },
@@ -4528,7 +4511,7 @@ data:extend({
       icons = false,
 
       -- Balancing
-      energy_required = 35,
+      energy_required_multiplier = 1,
     },
   },
 
@@ -5181,7 +5164,7 @@ data:extend({
       subgroup = "boxed-glass",
 
       -- Balancing
-      energy_required = 40,
+      energy_required_multiplier = 1,
     }
   },
 
@@ -5284,7 +5267,7 @@ data:extend({
       order = "nullius-g",
 
       -- Balancing
-      energy_required = 10,
+      energy_required_multiplier = 1,
     }
   },
   {
@@ -5322,9 +5305,12 @@ data:extend({
     auto_boxed = {
       subgroup = "boxed-organic-2",
       order = "nullius-gc",
-      add_box_icon = ICONPATH .. "boxing.png",
+      box_icon = {
+        icon = ICONPATH .. "boxing.png",
+        icon_size = 64,
+      },
       icon_override = {
-        false,
+        {},
         {scale = 0.36, shift={4, -7}},
       }
     }
@@ -5453,7 +5439,7 @@ data:extend({
       },
 
       -- Balancing
-      energy_required = 10,
+      energy_required_multiplier = 1,
     }
   },
 
@@ -5522,12 +5508,12 @@ data:extend({
       subgroup = "boxed-titanium",
       order = "nullius-dc",
       icon_override = {
-        false,
+        {},
         {scale = 0.2, shift = {8, -10}},
       },
 
       -- Balancing
-      energy_required = 20,
+      energy_required_multiplier = 1,
     }
   },
 

@@ -1,22 +1,54 @@
 -- Automatic creation of boxed recipes
 
 ---@class AutoBoxedRecipe
+---When set, overrides the name of the boxed recipe. Defaults to replacing the prefix with `nullius-boxed-`
 ---@field name? string
----@field localised_name? string
----@field scale_existing_icons? double
----@field add_box_icon? boolean|string
----@field icons? boolean
----@field icon_override? (table<string, any>)[]
+---When set, overrides the localised name of the boxed recipe.
+---When set to `false`, forces no localised name.
+---Otherwise if the recipe has a localised name, prepends "Boxed" to it.
+---@field localised_name? data.LocalisedString|false
+---When set, overrides the category of the boxed recipe.
+---Defaults to the same as the original recipe.
 ---@field category? string
+---When set, overrides the subgroup of the boxed recipe.
+---Errors when not set.
 ---@field subgroup? string
----Multiply all ingredients, results and energy_required by this factor. Applied on top of the box ratio.
+---When set, overrides the order of the boxed recipe. Set to `false` to remove the order.
+---Defaults to the same as the original recipe.
+---@field order? string|false
+---Multiply all ingredients and results by this factor. Applied on top of the box ratio of the given item.
+---Defaults to 5.
 ---@field multiplier? double
----@field energy_required? double
+---Multiplies the energy required for the boxed recipe.
+---Defaults to the multiplier.
+---@field energy_required_multiplier? double
+---When set, overrides the ingredients of the boxed recipe ignoring the multiplier.
+---Default is the ingredients of the original recipe, converted to boxes and amounts adjusted.
 ---@field ingredients? (data.IngredientPrototype)[]
+---When set, overrides the results of the boxed recipe ignoring the multiplier.
+---Default is the results of the original recipe, converted to boxes and amounts adjusted.
 ---@field results? (data.ProductPrototype)[]
+---When set, overrides the main product of the boxed recipe.
+---Defaults to the main product of the original recipe, converted to boxed.
 ---@field main_product? string
+---When set, overrides the icons of the boxed recipe.
+---When set to `false`, forces no icons and uses the game's defaults.
+---When not set, uses the recipe's icons scaled based on `existing_icons_scale`.
+---@field icons? (data.IconData)[]|false
+---By how much the existing icons's size and shift are scaled, when `icons` isn't set.
+---Defaults to 0.9.
+---@field existing_icons_scale? double
+---The box icon to add to the recipe. Defaults to the default box icon.
+---@field box_icon? data.IconData
+---Array of tables to override arbitrary fields of the icon.
+---Useful to adjust size and shift of automatically scaled icons.
+---@field icon_override? (table<string, any>)[]
+---Arbitrary fields to override in the boxed recipe itself.
+---@field override? table<string, any>
 
-local box_ratio = 5
+---Recipes opt into automatic boxing by carrying this field
+---@class data.RecipePrototype
+---@field auto_boxed? AutoBoxedRecipe
 
 ---@param item_name string
 ---@return string
@@ -24,6 +56,7 @@ local function boxed_recipe_name_for(item_name)
   return "nullius-boxed-" .. item_name:sub(9, -1)
 end
 
+---Adjusts the item to the boxed variant, adjusting the amount as well.
 ---@param entry data.IngredientPrototype|data.ProductPrototype
 ---@param multiplier double
 local function adjust_ingredient_or_product(entry, multiplier)
@@ -45,19 +78,20 @@ end
 local new_recipes = {}
 
 for name, recipe in pairs(data.raw.recipe) do
-  local auto_boxed = recipe.auto_boxed --[[@as AutoBoxedRecipe]]
+  local auto_boxed = recipe.auto_boxed
   if auto_boxed then
     recipe.auto_boxed = nil
     local boxed = table.deepcopy(recipe)
 
     local boxed_multiplier = auto_boxed.multiplier or 5
+    local energy_required_multiplier = auto_boxed.energy_required_multiplier or boxed_multiplier
 
     if auto_boxed.name then
       boxed.name = auto_boxed.name
     else
       boxed.name = boxed_recipe_name_for(recipe.name)
     end
-    
+
     if auto_boxed.localised_name then
       boxed.localised_name = auto_boxed.localised_name
     elseif auto_boxed.localised_name == false then
@@ -67,11 +101,14 @@ for name, recipe in pairs(data.raw.recipe) do
     end
 
     if auto_boxed.icons then
+      -- When provided icons, use these directly
+      boxed.icons = auto_boxed.icons
+
+      -- Remove any existing single icon 
       if boxed.icon then
         boxed.icon = nil
         boxed.icon_size = nil
       end
-      boxed.icons = auto_boxed.icons
 
     elseif auto_boxed.icons == false then
       -- Remove all icons, to let the game fallback to the default icon for the recipe
@@ -80,10 +117,10 @@ for name, recipe in pairs(data.raw.recipe) do
       boxed.icons = nil
 
     elseif recipe.icons then
-      -- Scale all existing icons by the provided factor
-      -- The original icon inside the box is slightly smaller.
+      -- No icons set, but the reference recipe has icons.
+      -- So we copy and then scale to fit inside the box.
 
-      local icon_scale = auto_boxed.scale_existing_icons or 0.9
+      local icon_scale = auto_boxed.existing_icons_scale or 0.9
       for _, icon in pairs(boxed.icons) do
         local icon_size = icon.icon_size or 64
         local default_scale = 32 / icon_size
@@ -96,24 +133,19 @@ for name, recipe in pairs(data.raw.recipe) do
     end
 
     -- When the boxed recipe wants small details of certain icons changed.
-    -- Usually scale or shift that weren't calculated properly via scale_existing_icons
+    -- Usually scale or shift that weren't calculated properly via existing_icons_scale
     if auto_boxed.icon_override then
       for i, override in pairs(auto_boxed.icon_override) do
-        if override then
-          for k, entry in pairs(override) do
-            boxed.icons[i][k] = entry
-          end
+        for k, entry in pairs(override) do
+          boxed.icons[i][k] = entry
         end
       end
     end
 
-    if boxed.icons and auto_boxed.add_box_icon ~= false then
-      local create_icon = "__nullius__/graphics/icons/crate.png"
-      if type(auto_boxed.add_box_icon) == "string" then
-        create_icon = auto_boxed.add_box_icon
-      end
-      table.insert(boxed.icons, 1, {
-        icon = create_icon,
+    -- Add the box icon, when the recipe isn't using the game's fallback icons
+    if boxed.icons then
+      table.insert(boxed.icons, 1, auto_boxed.box_icon or {
+        icon = "__nullius__/graphics/icons/crate.png",
         icon_size = 64,
       })
     end
@@ -127,22 +159,18 @@ for name, recipe in pairs(data.raw.recipe) do
     else
       error("automatic subgroup selection not implemented")
     end
-    
+
     if auto_boxed.order then
       boxed.order = auto_boxed.order
     elseif auto_boxed.order == false then
       boxed.order = nil
     end
 
-    if auto_boxed.energy_required then
-      boxed.energy_required = auto_boxed.energy_required
-    else
-      assert(recipe.energy_required, "recipe.energy_required is nil for " .. recipe.name)
-      boxed.energy_required = recipe.energy_required * boxed_multiplier
-    end
+    assert(recipe.energy_required, "recipe.energy_required is nil for " .. recipe.name)
+    boxed.energy_required = recipe.energy_required * energy_required_multiplier
 
     -- Use provided boxed ingredients, or calculate automatically
-    -- For solids, replace with box if possible other increase the amount
+    -- For solids, replace with box if possible otherwise increase the amount
     if auto_boxed.ingredients then
       boxed.ingredients = auto_boxed.ingredients
     else
