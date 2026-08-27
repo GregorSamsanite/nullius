@@ -5,6 +5,7 @@ Date: xx.xx.2026
     - Show dependencies that are not in the modpacks
   Bugfixes:
     - Fix Cloned achievement description.
+    - Fix Geothermal plants being placeable on petroleum patches.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 17.08.2026
