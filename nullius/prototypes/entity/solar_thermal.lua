@@ -28,6 +28,7 @@ local function solar_energy_source(effectivity)
       production_type = "input",
     },
     effectivity = 1,
+    hide_from_stats = true,
     render_no_power_icon = false,
     render_no_network_icon = false,
     fluid_usage_per_tick = effectivity
