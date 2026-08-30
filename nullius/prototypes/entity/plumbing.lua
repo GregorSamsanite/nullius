@@ -2938,19 +2938,21 @@ data:extend({
     icon = ENTICONPATH .. "pump-yellow.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
-    localised_description = {"",
-          {"entity-description.nullius-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.6, result = "nullius-pump-1"},
     max_health = 150,
     fast_replaceable_group = "pump",
@@ -2971,7 +2973,7 @@ data:extend({
       pipe_connections =
       {
         { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south, hide_connection_info = true }
       }
     },
     energy_source = {
@@ -3002,7 +3004,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.46}
+            shift = {0, -1.46}
           },
           {
             filename = BASEENTITY .. "pump/pump-north.png",
@@ -3060,7 +3062,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.5}
+            shift = {0, -1.5}
           },
           {
             filename = BASEENTITY .. "pump/pump-south.png",
@@ -3117,19 +3119,21 @@ data:extend({
     icon = ENTICONPATH .. "pump-blue.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
-    localised_description = {"",
-          {"entity-description.nullius-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.8, result = "nullius-pump-2"},
     max_health = 200,
     fast_replaceable_group = "pump",
@@ -3150,7 +3154,7 @@ data:extend({
       pipe_connections =
       {
         { position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+        { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south, hide_connection_info = true }
       }
     },
     energy_source = {
@@ -3181,7 +3185,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.46}
+            shift = {0, -1.46}
           },
           {
             filename = BASEENTITY .. "pump/pump-north.png",
@@ -3239,7 +3243,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.5}
+            shift = {0, -1.5}
           },
           {
             filename = BASEENTITY .. "pump/pump-south.png",
@@ -3298,19 +3302,21 @@ data:extend({
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     localised_name = {"entity-name.nullius-pump-1"},
-    localised_description = {"",
-          {"entity-description.nullius-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.6, result = "nullius-pump-1"},
     max_health = 150,
     fast_replaceable_group = "pump",
@@ -3327,16 +3333,15 @@ data:extend({
       { type = "fire", decrease = 20, percent = 50 }
     },
   
-    fluid_box =
-        {
-          volume = 500,
-          pipe_covers = pipecoverspictures(),
-          pipe_connections =
-          {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
-          },
-        },
+    fluid_box = {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
+      },
+    },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -3365,7 +3370,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.46}
+            shift = {0, -1.46}
           },
           {
             filename = BASEENTITY .. "pump/pump-north.png",
@@ -3481,19 +3486,21 @@ data:extend({
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     localised_name = {"entity-name.nullius-pump-2"},
-    localised_description = {"",
-          {"entity-description.nullius-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.8, result = "nullius-pump-2"},
     max_health = 200,
     fast_replaceable_group = "pump",
@@ -3547,7 +3554,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.46}
+            shift = {0, -1.46}
           },
           {
             filename = BASEENTITY .. "pump/pump-north.png",
@@ -3605,7 +3612,7 @@ data:extend({
             frame_count = 1,
             repeat_count = 32,
             animation_speed = 0.5,
-			shift = {0, -1.5}
+            shift = {0, -1.5}
           },
           {
             filename = BASEENTITY .. "pump/pump-south.png",
@@ -3663,19 +3670,21 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     hidden_in_factoriopedia = true,
     localised_name = {"entity-name.nullius-pump-3"},
-    localised_description = {"",
-          {"entity-description.nullius-pump-3"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-pump-3"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-pump-3"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-pump-3"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     subgroup = "pumping",
     order = "nullius-bd",
     energy_usage = "30kW",
@@ -3727,19 +3736,21 @@ data:extend({
     name = "nullius-small-pump-1",
     icons = data.raw.item["nullius-small-pump-1"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    localised_description = {"",
-          {"entity-description.nullius-small-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-small-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-small-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-small-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.5, result = "nullius-small-pump-1"},
     max_health = 100,
     fast_replaceable_group = "pipe",
@@ -3758,7 +3769,7 @@ data:extend({
       volume = 500,
       pipe_connections = {
         { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
-        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
+        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north, hide_connection_info = true }
       },
 	  pipe_covers = pipecoverspictures()
     },
@@ -3851,19 +3862,21 @@ data:extend({
     name = "nullius-small-pump-2",
     icons = data.raw.item["nullius-small-pump-2"].icons,
     flags = {"placeable-neutral", "player-creation"},
-    localised_description = {"",
-          {"entity-description.nullius-small-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-small-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-small-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-small-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.7, result = "nullius-small-pump-2"},
     max_health = 150,
     fast_replaceable_group = "pipe",
@@ -3881,7 +3894,7 @@ data:extend({
       volume = 500,
       pipe_connections = {
         { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
-        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
+        { position = {0, 0}, flow_direction = "input", direction = defines.direction.north, hide_connection_info = true }
       },
     pipe_covers = pipecoverspictures()
     },
@@ -3975,19 +3988,21 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     hidden_in_factoriopedia = true,
     localised_name = {"entity-name.nullius-small-pump-1"},
-    localised_description = {"",
-          {"entity-description.nullius-small-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"},"\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-small-pump-1"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-small-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"},"\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-small-pump-1"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.5, result = "nullius-small-pump-1"},
     placeable_by = {item = "nullius-small-pump-1", count = 1},
     max_health = 100,
@@ -4003,24 +4018,15 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 20, percent = 50 }
     },
-    -- fluid_box = {
-    --   volume = 500,
-    --   pipe_connections = {
-    --     { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
-    --     { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
-    --   },
-	  -- pipe_covers = pipecoverspictures()
-    -- },
-    fluid_box =
-        {
-          volume = 500,
-          pipe_covers = pipecoverspictures(),
-          pipe_connections =
-          {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
-          },
-        },
+    fluid_box = {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
+      },
+    },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -4112,19 +4118,21 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     hidden_in_factoriopedia = true,
     localised_name = {"entity-name.nullius-small-pump-2"},
-    localised_description = {"",
-          {"entity-description.nullius-small-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          " ",
-          {"configurable-valves.more-in-factoriopedia"}, "\n",
-          {"entity-description.nullius-togglable-pump"}
-        },
-    factoriopedia_description = {"",
-          {"entity-description.nullius-small-pump-2"},
-          {"entity-description.nullius-configurable-pump"},
-          {"configurable-valves.valve-examples"},
-          {"configurable-valves.valve-shortcuts"},
-        },
+    localised_description = {
+      "",
+      {"entity-description.nullius-small-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      " ",
+      {"configurable-valves.more-in-factoriopedia"}, "\n",
+      {"entity-description.nullius-togglable-pump"}
+    },
+    factoriopedia_description = {
+      "",
+      {"entity-description.nullius-small-pump-2"},
+      {"entity-description.nullius-configurable-pump"},
+      {"configurable-valves.valve-examples"},
+      {"configurable-valves.valve-shortcuts"},
+    },
     minable = {mining_time = 0.7, result = "nullius-small-pump-2"},
     placeable_by = {item = "nullius-small-pump-2", count = 1},
     max_health = 150,
@@ -4139,16 +4147,15 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 20, percent = 50 }
     },
-      fluid_box =
-        {
-          volume = 500,
-          pipe_covers = pipecoverspictures(),
-          pipe_connections =
-          {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
-          },
-        },
+    fluid_box = {
+      volume = 500,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
+      },
+    },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
