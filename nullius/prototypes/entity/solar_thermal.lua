@@ -150,14 +150,16 @@ data:extend({
     type = "fluid",
     name = "nullius-solar-flux",
     icon = "__base__/graphics/icons/signal/signal-sun.png",
-    subgroup = "solar",
+    subgroup = "compressed-air",
+    order = "nullius-y",
     default_temperature = constants.SOLAR_FLUX_BASELINE,
     base_color = {255, 240, 160},
     flow_color = {255, 240, 160},
     max_temperature = constants.SOLAR_FLUX_MAX,
     heat_capacity = tostring(SOLAR_FLUX_HEAT_CAPACITY) .. "J",
     auto_barrel = false,
-    hidden_in_factoriopedia = true
+    hidden = true,
+    hidden_in_factoriopedia = true,
   },
   solar_collector{
     maxlevel=3, level=1, peak_power=240, effectivity=0.25, max_temperature=250, specific_heat = "150kJ", max_transfer = "3MW",
