@@ -6,21 +6,51 @@ Date: xx.xx.2026
   Changes:
     - Asteroid Miner 1 is guaranteed to produce exactly one guide drone, while Asteroid Miner 2 is guaranteed to produce at least one.
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.10
+Version: 2.0.12
 Date: xx.xx.2026
+  Changes:
+    - Solar Flux is now hidden from most UI screens, and displayed next to other fluids when not hidden.
+  Info:
+    - Show dependencies that are not in the modpacks
+  Bugfixes:
+    - Fix Cloned achievement description.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.11
+Date: 17.08.2026
+  Features:
+    - Changed implementation of solar thermal power.  The UI now shows the true peak power output.  Daily variation in power is greater, with 7% higher production at midday and lower production in morning and evening.
+  Changes:
+    - Compressors and large furnaces can now be flipped, mirroring their diagonal pipes.
+    - Added requirement to store hydrogen for the energy storage checkpoint
+    - Drone launchers now have a single drone slot with a larger capacity, instead of several slots that could mislead into loading multiple drone types (only one type can ever be fired).
+  Modding:
+    - Support for Display Plates Forked mod
+    - Support for companion-drones-mjlfix mod
+    - Patched GCKI support (probable bug when used with Renai Transportation mod)
+    - Added support for ShuttleTrainRefresh mod
+---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 15.08.2026
   Features:
     - Added Small Tank 3 and Medium Tank 4.
     - Added a checkpoint for toggling pumps
     - Added German translation
     - Deconstructing an entity with a partly consumed canister or battery will now return an empty canister or discharged battery
     - Improve YAFC compatibility with collecting the crashed landing lab and extra milestones
+  Graphics:
+    - New icon for cellulose.
   Changes:
     - Update the icons of a few technologies to better match their intent.
     - Large Tank 3 recipe now uses Medium Tank 4 as an ingredient, instead of Underground Pipe 4 box.
+    - Use SI prefixes for large numbers in checkpoint descriptions.
+    - Auto refueler now only recharges to 5 items of fuel instead of a full stack.
   Bugfixes:
     - Fixed which recipes enable biology drone remotes
     - Fix inadvertently disabled recipes from Factorissimo and AAI Signal Transmission
+    - Researching Robotic construction 1 now properly unlocks destroyed entities becoming ghosts.
     - Hydrothermal vents, when using Cargo Ships, now have the correct map color and are infinite.
+  Optimizations:
+    - Improved performance of arboriculture drones.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.9
 Date: 09.06.2026

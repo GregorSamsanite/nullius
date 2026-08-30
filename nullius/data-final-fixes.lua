@@ -6,11 +6,14 @@ require("prototypes.item.box_icons")
 require("prototypes.custom_tooltip_fields")
 require("legacyMirror")
 
-for _, recipe in pairs(data.raw.recipe) do
-    if recipe.GCKI_ignore ~= nil then
-        recipe.GCKI_ignore = nil
+if mods["GCKI"] == nil then
+    for _, recipe in pairs(data.raw.recipe) do
+        if recipe.GCKI_ignore ~= nil then
+            recipe.GCKI_ignore = nil
+        end
     end
 end
+
 
 require("clutterpedia")
 

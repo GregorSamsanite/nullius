@@ -94,8 +94,8 @@ function update_mission_panel(player)
 				  {"objective-description.nullius-suffix-"..suffix},
 				  "[/color]"},
 			  tooltip = {"objective-description.nullius-vented"}})
-		end
-	  end
+        end
+      end
     end
   end
 end
@@ -122,7 +122,9 @@ end
 
 local function update_mission_global()
   for _, player in pairs(game.players) do
-    update_mission_player(player)
+    if player.connected then
+      update_mission_player(player)
+    end
   end
 end
 
@@ -135,6 +137,18 @@ function init_mission_global()
     end
   end
   update_mission_global()
+end
+
+function update_and_check_victory(force)
+  update_mission_global()
+  if (storage.nullius_mission_complete) then
+    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
+      remote.call("better-victory-screen", "trigger_victory", force)
+    else
+      game.set_game_state{game_finished=true, player_won=true,
+	    can_continue=true, victorious_force=force}
+    end
+  end
 end
 
 function set_mission_goal(goal, amount, force)
@@ -178,17 +192,8 @@ function set_mission_goal(goal, amount, force)
   if (finished and (force ~= nil)) then
     storage.nullius_mission_complete = true
   end
-  update_mission_global()
-  if (storage.nullius_mission_complete) then
 
-    if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
-      remote.call("better-victory-screen", "trigger_victory", force)
-    else
-      game.set_game_state{game_finished=true, player_won=true,
-	    can_continue=true, victorious_force=force}
-    end
-
-  end
+  update_and_check_victory(force)
 end
 
 function bump_mission_goal(goal, amount, force)

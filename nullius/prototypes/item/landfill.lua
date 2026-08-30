@@ -664,9 +664,8 @@ data:extend({
         icon_size = 64
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.41,
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.32,
         shift = {-7, -7}
       }
     },
@@ -702,12 +701,11 @@ data:extend({
       {
         icon = ENTICONPATH .. "landfill-brown.png",
         icon_size = 64,
-		scale = 0.45
+        scale = 0.45
       },
       {
-        icon = "__base__/graphics/decorative/brown-asterisk/brown-asterisk-11.png",
-        icon_size = 54,
-        scale = 0.37,
+        icon = "__nullius__/graphics/icons/cellulose.png",
+        scale = 0.3,
         shift = {-6, -6}
       }
     },

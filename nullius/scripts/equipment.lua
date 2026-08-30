@@ -123,64 +123,74 @@ local function scale_multiple(mult, powered)
   return mult
 end
 
+function detect_generator_type(equipment)
+  if equipment.name == "nullius-portable-reactor" then
+    return "reactor"
+  elseif string_starts_with(equipment.name, "nullius-portable-generator-") then
+    return "generator"
+  else
+    return nil
+  end
+end
+
+function string_starts_with(value, prefix)
+  return prefix == string.sub(value, 1, #prefix)
+end
+
 function update_player_upgrades(player)
   if (player.character == nil) then return end
   if (storage.nullius_in_update_equipment) then return end
+
+  if (storage.nullius_generator_equipment == nil) then
+    storage.nullius_generator_equipment = { }
+  end
 
   local bonuses = { 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0 }
   local drain = 0
   local production = 0
   local costnum = 0
   local costlist = nil
-  local generatornum = 0
-  local generators = nil
+  local generators = { }
   local refueler = false
   local armorinv = player.get_inventory(defines.inventory.character_armor)
 
   if (armorinv ~= nil) then
-  	for i = 1, #armorinv do
-	  local armor = armorinv[i]
-	  if (armor.valid_for_read and (armor.grid ~= nil)) then
-	    for _,equip in pairs(armor.grid.equipment) do
-	        if equip.type ~= "equipment-ghost" then
-	            local name = equip.name
-		        if (string.sub(name, 1, 8) == "nullius-") then
-		            local midfix = string.sub(name, 9, 16)
-                    if (midfix == "upgrade-") then
-		                local suffix = string.sub(name, 17, -1)
-		                local upgrade = upgrade_data[suffix]
-		                if (upgrade ~= nil) then
-		                    for _,bonus in pairs(upgrade) do
-		                        local ind = bonus[1]
-			                    bonuses[ind] = bonuses[ind] + bonus[2]
-				                if (ind == UPG_COST) then
-									costnum = costnum + 1
-				                    if (costlist == nil) then costlist = { } end
-				                    costlist[costnum] = equip
-								end
-							end
-			            end
-					elseif (midfix == "refueler") then
-			            refueler = true
-					end
-		        end
+    for i = 1, #armorinv do
+      local armor = armorinv[i]
+      if (armor.valid_for_read and (armor.grid ~= nil)) then
+        for _,equip in pairs(armor.grid.equipment) do
+          if equip.type ~= "equipment-ghost" then
+            local name = equip.name
+            if string_starts_with(name, "nullius-upgrade-") then
+              local suffix = string.sub(name, 17, -1)
+              local upgrade = upgrade_data[suffix]
+              if (upgrade ~= nil) then
+                for _,bonus in pairs(upgrade) do
+                  local ind = bonus[1]
+                  bonuses[ind] = bonuses[ind] + bonus[2]
+                  if (ind == UPG_COST) then
+                    costnum = costnum + 1
+                    if (costlist == nil) then costlist = { } end
+                    costlist[costnum] = equip
+                  end
+                end
+              end
+            elseif name == "nullius-refueler" then
+              refueler = true
+            end
 
-		        drain = drain + equip.prototype.energy_source.drain
-		        if (equip.prototype.energy_production > 0) then
-		            production = production + equip.prototype.energy_production
-					if (equip.burner ~= nil) then
-			            local burninv = equip.burner.inventory
-			            if ((burninv ~= nil) and burninv.valid) then
-			                generatornum = generatornum + 1
-							if (generators == nil) then generators = { } end
-							generators[generatornum] = equip
-			            end
-					end
-		        end
-			end
-		end
-	  end
-	end
+            drain = drain + equip.prototype.energy_source.drain
+
+            if (equip.prototype.energy_production > 0) then
+              production = production + equip.prototype.energy_production
+              if detect_generator_type(equip) ~= nil then
+                table.insert(generators, equip)
+              end
+            end
+          end
+        end
+      end
+    end
 
     local quantum = (((bonuses[UPG_CO_QUANTUM] > 0) and 2) or 1)
     if (check_coprocessor_tier(bonuses, armorinv, 1, 2) or
@@ -264,14 +274,20 @@ function update_player_upgrades(player)
     storage.nullius_crafting_equipment[unit] = nil
   end
 
-  if (refueler and (generators ~= nil)) then
-    if (storage.nullius_generator_equipment == nil) then
-	  storage.nullius_generator_equipment = { }
-	end
-	storage.nullius_generator_equipment[unit] = {
-	  character = player.character, lst = generators
-	}
-  elseif (storage.nullius_generator_equipment ~= nil) then
+  if (refueler and (next(generators) ~= nil)) then
+    new_entry = {
+      type = "character",
+      character = player.character,
+      unit = unit,
+      lst = generators,
+      last_fuels = { },
+    }
+    local old_entry = storage.nullius_generator_equipment[unit]
+    if old_entry ~= nil and old_entry.last_fuels ~= nil then
+      new_entry.last_fuels = old_entry.last_fuels
+    end
+    storage.nullius_generator_equipment[unit] = new_entry
+  else
     storage.nullius_generator_equipment[unit] = nil
   end
 end
@@ -503,100 +519,120 @@ script.on_event(defines.events.on_player_crafted_item,
   end
 )
 
+-- Refuel a generator burner inventory with fuel from the entity inventory
+--
+-- Parameters
+-- ----------
+-- entity : LuaEntity
+--   The player character or mecha
+-- burner_inventory : LuaInventory
+--   The inventory of the burner equipment to refuel
+-- fuel : string
+--   The name of the fuel to insert
+-- current_count : unit32
+--   The current amount of that fuel in the generator
+function refuel_generator(entity, burner_inventory, fuel, current_count)
+  local fuel_limit = 5
+  if current_count >= fuel_limit then
+    return
+  end
+
+  local to_insert = math.min(
+    fuel_limit - current_count,
+    burner_inventory.get_insertable_count(fuel),
+    entity.get_item_count(fuel)
+  )
+  if to_insert == 0 then
+    return nil
+  end
+
+  local inserted = burner_inventory.insert({name = fuel, count = to_insert})
+  entity.remove_item({ name = fuel, count = inserted })
+end
+
+-- Update an equipment grid with generators
+--
+-- Parameters
+-- ----------
+-- e : table
+--    A table with a type = "character" or "mech", a character or mech key,
+--    and a lst of equiped generators to refuel.
+function update_generator(e)
+  local c = nil
+  if e.type == "character" then
+    c = e.character
+  elseif e.type == "mech" then
+    c = e.mech.entity
+  end
+
+  if c == nil then return end
+  if not c.valid then
+    storage.nullius_generator_equipment[e.unit] = nil
+    return
+  end
+
+  local invalid = false
+
+  for _, g in pairs(e.lst) do
+    if (g.valid and (g.burner ~= nil)) then
+      local generator_type = detect_generator_type(g)
+
+      local burninv = g.burner.inventory
+      if ((burninv ~= nil) and burninv.valid) then
+        local content = burninv.get_contents()
+        local last_fuel = nil
+
+        -- Refuel all the fuels currently in the generator
+        for _, fuel in pairs(content) do
+          refuel_generator(c, burninv, fuel.name, fuel.count)
+          last_fuel = fuel.name
+        end
+
+        -- If the generator is out of fuel, try refueling it with any previous
+        -- fuels in the inventory
+        if last_fuel == nil then
+          last_fuel = e.last_fuels[generator_type]
+          if last_fuel ~= nil then
+            refuel_generator(c, burninv, last_fuel, 0)
+          end
+        else
+          e.last_fuels[generator_type] = last_fuel
+        end
+
+        local spentinv = g.burner.burnt_result_inventory
+        if ((spentinv ~= nil) and spentinv.valid and
+          (not spentinv.is_empty())) then
+          local spent = spentinv.get_contents()
+          for _,item in pairs(spent) do
+            if (c.can_insert({name=item.name, count=item.count})) then
+              local diff = c.insert({name=item.name, count=item.count})
+              if (diff > 0) then
+                spentinv.remove({name=item.name, count=diff})
+              end
+            end
+          end
+        end
+      else
+        invalid = true
+      end
+    else
+      invalid = true
+    end
+  end
+
+  if invalid then
+    if e.type == "character" then
+      update_player_upgrades(c.player)
+    elseif e.type == "mech" then
+      check_mecha_equipment(e.mech)
+    end
+  end
+end
+
 function update_generators()
   if (storage.nullius_generator_equipment == nil) then return end
-  for i,e in pairs(storage.nullius_generator_equipment) do
-    local c = e.character
-	if ((c == nil) and (e.mech ~= nil)) then
-	  c = e.mech.entity
-	end
-
-    if ((c ~= nil) and c.valid) then
-	  local invalid = false
-	  for _,g in pairs(e.lst) do
-	    if (g.valid and (g.burner ~= nil)) then
-	      local burninv = g.burner.inventory
-		  if ((burninv ~= nil) and burninv.valid) then
-		    local content = burninv.get_contents()
-			local lastfuel = nil
-			for _,fuel in pairs(content) do
-			  lastfuel = fuel.name
-			  local fuelnum = burninv.get_insertable_count(fuel.name)
-			  if (fuelnum > 0) then
-			    fuelnum = c.remove_item({name=fuel.name, count=fuelnum})
-				if (fuelnum > 0) then
-				  local actual = burninv.insert({name=fuel.name, count=fuelnum})
-				  if (actual < fuelnum) then
-					c.insert({name=fuel.name, count=(fuelnum - actual)})
-				  end
-				end
-			  end
-			end
-
-            if (string.sub(g.name, 1, 17) == "nullius-portable-") then
-			  local midfix = string.sub(g.name, 18, 24)
-			  local isreactor = (midfix == "reactor")
-			  if (isreactor or (midfix == "generat")) then
-			    if (lastfuel ~= nil) then  
-				  if (isreactor) then
-				    e.last_reactor_fuel = lastfuel
-				  else
-				    e.last_generator_fuel = lastfuel
-				  end
-				else
-				  if (isreactor) then
-				    lastfuel = e.last_reactor_fuel
-				  else
-				    lastfuel = e.last_generator_fuel
-				  end
-				  if (lastfuel ~= nil) then
-					local fuelnum = burninv.get_insertable_count(lastfuel)
-					if (fuelnum > 0) then
-					  fuelnum = c.remove_item({name=lastfuel, count=fuelnum})
-					  if (fuelnum > 0) then
-					    local actual = burninv.insert({name=lastfuel, count=fuelnum})
-						if (actual < fuelnum) then
-						  c.insert({name=lastfuel, count=(fuelnum - actual)})
-					    end
-					  end
-					end				    
-				  end
-				end
-			  end
-			end
-
-			local spentinv = g.burner.burnt_result_inventory
-			if ((spentinv ~= nil) and spentinv.valid and
-			    (not spentinv.is_empty())) then
-		      local spent = spentinv.get_contents()
-			  for _,item in pairs(spent) do
-			    if (c.can_insert({name=item.name, count=item.count})) then
-			      local diff = c.insert({name=item.name, count=item.count})
-				  if (diff > 0) then
-				    spentinv.remove({name=item.name, count=diff})
-				  end
-				end
-			  end
-			end
-		  else
-		    invalid = true
-		  end
-		else
-		  invalid = true
-		end
-	  end
-
-	  if (invalid) then
-	    if ((e.character ~= nil) and (c.player ~= nil)) then
-	      update_player_upgrades(c.player)
-		elseif (e.mech ~= nil) then
-		  e.mech.tick = -1
-		end
-	    return
-	  end
-	else
-      storage.nullius_generator_equipment[i] = nil
-	end
+  for _, e in pairs(storage.nullius_generator_equipment) do
+    update_generator(e)
   end
 end
 
@@ -644,40 +680,42 @@ function find_all_mechas()
 end
 
 function check_mecha_equipment(node)
-  local generatornum = 0
-  local generators = nil
+  if storage.nullius_generator_equipment == nil then
+    storage.nullius_generator_equipment = { }
+  end
+  local generators = { }
   local refueler = false
+  if not node.entity.valid then
+    remove_mecha_node(node)
+    return
+  end
+
   local g = node.entity.grid
   if ((g ~= nil) and g.valid) then
     for _,equip in pairs(g.equipment) do
-	  if (equip.prototype.energy_production > 0) then
-		if (equip.burner ~= nil) then
-		  local burninv = equip.burner.inventory
-		  if ((burninv ~= nil) and burninv.valid) then
-		    generatornum = generatornum + 1
-			if (generators == nil) then generators = { } end
-			generators[generatornum] = equip
-		  end
-		end
-	  elseif (equip.name == "nullius-refueler") then
-		refueler = true
-	  end
-	end
+      if detect_generator_type(equip) ~= nil then
+        table.insert(generators, equip)
+      elseif (equip.name == "nullius-refueler") then
+        refueler = true
+      end
+    end
   end
 
-  if (refueler and (generators ~= nil)) then
-	local new_entry = { mech = node, lst = generators }
-    if (storage.nullius_generator_equipment == nil) then
-	  storage.nullius_generator_equipment = { }
-	else
-	  local old_entry = storage.nullius_generator_equipment[node.unit]
-	  if (old_entry ~= nil) then
-	    new_entry.last_reactor_fuel = old_entry.last_reactor_fuel
-		new_entry.last_generator_fuel = old_entry.last_generator_fuel
-	  end
-	end
+  if refueler and next(generators) ~= nil then
+    local new_entry = {
+      type = "mech",
+      mech = node,
+      unit = node.unit,
+      lst = generators,
+      last_fuels = { },
+    }
+
+    local old_entry = storage.nullius_generator_equipment[node.unit]
+    if old_entry ~= nil and old_entry.last_fuels ~= nil then
+      new_entry.last_fuels = old_entry.last_fuels
+    end
 	storage.nullius_generator_equipment[node.unit] = new_entry
-  elseif (storage.nullius_generator_equipment ~= nil) then
+  else
     storage.nullius_generator_equipment[node.unit] = nil
   end
 end
@@ -687,20 +725,27 @@ function update_mechas()
   if (storage.nullius_refueler_inserted_tick == nil) then return end
   local node = storage.nullius_mecha_head.next
   if (not node.entity.valid) then
-    storage.nullius_mecha_list[node.unit] = nil
-    if (node == storage.nullius_mecha_head) then
-	  storage.nullius_mecha_list = nil
-	  storage.nullius_mecha_head = nil
-	else
-	  node.next.prev = node.prev
-	  node.prev.next = node.next
-	end
+    remove_mecha_node(node)
     return
   end
 
   storage.nullius_mecha_head = node
   if (node.tick <= storage.nullius_refueler_inserted_tick) then
     node.tick = game.tick
-	check_mecha_equipment(node)
+    check_mecha_equipment(node)
+  end
+end
+
+function remove_mecha_node(node)
+  storage.nullius_mecha_list[node.unit] = nil
+  if node == node.next and node == node.prev then
+    storage.nullius_mecha_list = nil
+    storage.nullius_mecha_head = nil
+  else
+    node.next.prev = node.prev
+    node.prev.next = node.next
+    if storage.nullius_mecha_head == node then
+      storage.nullius_mecha_head = node.next
+    end
   end
 end
