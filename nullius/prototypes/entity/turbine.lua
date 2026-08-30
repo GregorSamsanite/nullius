@@ -255,10 +255,10 @@ local furnace1cb = {
 	    filter = "nullius-energy",
       production_type = "output",
 	    pipe_connections = {
-	      { flow_direction = "output", position = {1, -1.1}, direction = defines.direction.north },
-	      { flow_direction = "output", position = {-1, 1.1}, direction = defines.direction.south }},
+	      { flow_direction = "output", position = {1, -1.1}, direction = defines.direction.north, hide_connection_info = true },
+	      { flow_direction = "output", position = {-1, 1.1}, direction = defines.direction.south, hide_connection_info = true },
+      },
       volume = 500,
-	    hide_connection_info = true
     },
     {
       production_type = "output",
@@ -322,11 +322,10 @@ local generator1ob = {
     filter = "nullius-energy",
     production_type = "input",
 	  pipe_connections = {
-	    { flow_direction = "input-output", position = {-1, -1.1}, direction = defines.direction.north },
-	    { flow_direction = "input-output", position = {1, 1.1}, direction = defines.direction.south }
+	    { flow_direction = "input-output", position = {-1, -1.1}, direction = defines.direction.north, hide_connection_info = true },
+	    { flow_direction = "input-output", position = {1, 1.1}, direction = defines.direction.south, hide_connection_info = true },
 	  },
     volume = 500,
-	  hide_connection_info = true
   }
 }
 
@@ -373,10 +372,9 @@ local connector = {
   fluid_box = {
     filter = "nullius-energy",
     volume = 500,
-	  hide_connection_info = true,
     pipe_connections = {
-      { position = {1, 0.04}, direction = defines.direction.south },
-      { position = {-1, 0.04}, direction = defines.direction.south }
+      { position = {1, 0.04}, hide_connection_info = true, direction = defines.direction.south },
+      { position = {-1, 0.04}, hide_connection_info = true, direction = defines.direction.south }
     }
   }
 }
@@ -402,8 +400,9 @@ local vent1 = {
 	  filter = "nullius-energy",
     production_type = "input",
     volume = 500,
-	  hide_connection_info = true,
-    pipe_connections = {{ flow_direction ="input-output", position = {-1, 0.04}, direction = defines.direction.south }}
+    pipe_connections = {
+      { flow_direction = "input-output", position = {-1, 0.04}, direction = defines.direction.south, hide_connection_info = true },
+    }
   }},
   energy_source = {type = "void"},
   energy_usage = "1W"

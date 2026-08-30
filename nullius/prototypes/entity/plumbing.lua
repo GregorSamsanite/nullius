@@ -1367,10 +1367,9 @@ data:extend({
                 volume = 100,
                 pipe_covers = pipecoverspictures(),
                 pipe_connections = {
-                    { direction = defines.direction.south, position = {0, 0.5}, flow_direction = "input-output" },
-                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 }
+                    { direction = defines.direction.south, position = {0, 0.5}, flow_direction = "input-output", hide_connection_info = true },
+                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113, hide_connection_info = true }
                 },
-                hide_connection_info = true,
                 max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
             },
             show_fluid_icon = false,
@@ -1407,13 +1406,9 @@ data:extend({
                 volume = 100,
                 pipe_covers = pipecoverspictures(),
                 pipe_connections = {
-                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 },
-                    { direction = defines.direction.north, position = {0, -0.5}, flow_direction = "input-output" }
-                    
-                    --{ position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-                    --{ position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
+                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113, hide_connection_info = true },
+                    { direction = defines.direction.north, position = {0, -0.5}, flow_direction = "input-output", hide_connection_info = true }
                 },
-                hide_connection_info = true,
                 max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
             },
             show_fluid_icon = false,
@@ -2979,17 +2974,6 @@ data:extend({
         { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
       }
     },
-    -- fluid_box =
-    --     {
-    --       volume = 500,
-    --       pipe_covers = pipecoverspictures(),
-    --       pipe_connections =
-    --       {
-    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
-    --       },
-    --       hide_connection_info = true,
-    --     },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -3169,17 +3153,6 @@ data:extend({
         { position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
       }
     },
-    -- fluid_box =
-    --     {
-    --       volume = 500,
-    --       pipe_covers = pipecoverspictures(),
-    --       pipe_connections =
-    --       {
-    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
-    --       },
-    --       hide_connection_info = true,
-    --     },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -3360,10 +3333,9 @@ data:extend({
           pipe_covers = pipecoverspictures(),
           pipe_connections =
           {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
           },
-          hide_connection_info = true,
         },
     energy_source = {
       type = "electric",
@@ -3543,10 +3515,9 @@ data:extend({
           pipe_covers = pipecoverspictures(),
           pipe_connections =
           {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
           },
-          hide_connection_info = true,
         },
     energy_source = {
       type = "electric",
@@ -3728,10 +3699,9 @@ data:extend({
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
-        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+        {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+        {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
       },
-      hide_connection_info = true,
     },
     energy_source = {
       type = "electric",
@@ -3792,17 +3762,6 @@ data:extend({
       },
 	  pipe_covers = pipecoverspictures()
     },
-    -- fluid_box =
-    --     {
-    --       volume = 500,
-    --       pipe_covers = pipecoverspictures(),
-    --       pipe_connections =
-    --       {
-    --         {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-    --         {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
-    --       },
-    --       hide_connection_info = true,
-    --     },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -3926,17 +3885,6 @@ data:extend({
       },
     pipe_covers = pipecoverspictures()
     },
-      -- fluid_box =
-      --   {
-      --     volume = 500,
-      --     pipe_covers = pipecoverspictures(),
-      --     pipe_connections =
-      --     {
-      --       {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-      --       {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
-      --     },
-      --     hide_connection_info = true,
-      --   },
     energy_source = {
       type = "electric",
       usage_priority = "primary-input"
@@ -4069,10 +4017,9 @@ data:extend({
           pipe_covers = pipecoverspictures(),
           pipe_connections =
           {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
           },
-          hide_connection_info = true,
         },
     energy_source = {
       type = "electric",
@@ -4192,24 +4139,15 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", decrease = 20, percent = 50 }
     },
-    -- fluid_box = {
-    --   volume = 500,
-    --   pipe_connections = {
-    --     { position = {0, 0}, flow_direction = "output", direction = defines.direction.south },
-    --     { position = {0, 0}, flow_direction = "input", direction = defines.direction.north }
-    --   },
-    -- pipe_covers = pipecoverspictures()
-    -- },
       fluid_box =
         {
           volume = 500,
           pipe_covers = pipecoverspictures(),
           pipe_connections =
           {
-            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1 },
-            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1 }
+            {connection_type = "linked", flow_direction = "output", linked_connection_id=31113 + 1, hide_connection_info = true },
+            {connection_type = "linked", flow_direction = "input", linked_connection_id=31113 - 1, hide_connection_info = true }
           },
-          hide_connection_info = true,
         },
     energy_source = {
       type = "electric",
@@ -4320,12 +4258,11 @@ data:extend({
       pipe_covers = pipecoverspictures(), -- in case a real pipe is connected to a ghost
       max_pipeline_extent = 144,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
-        { position = {0, 0},  direction = defines.direction.east },
-        { position = {0, 0},  direction = defines.direction.south },
-        { position = {0, 0}, direction = defines.direction.west }
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.east, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.south, hide_connection_info = true },
+        { position = {0, 0}, direction = defines.direction.west, hide_connection_info = true }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
@@ -4362,12 +4299,11 @@ data:extend({
       pipe_covers = pipecoverspictures(), -- in case a real pipe is connected to a ghost
       max_pipeline_extent = 320,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
-        { position = {0, 0},  direction = defines.direction.east },
-        { position = {0, 0},  direction = defines.direction.south },
-        { position = {0, 0}, direction = defines.direction.west }
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.east, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.south, hide_connection_info = true },
+        { position = {0, 0}, direction = defines.direction.west, hide_connection_info = true }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
@@ -4403,12 +4339,11 @@ data:extend({
       pipe_covers = pipecoverspictures(), -- in case a real pipe is connected to a ghost
       max_pipeline_extent = 672,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
-        { position = {0, 0},  direction = defines.direction.east },
-        { position = {0, 0},  direction = defines.direction.south },
-        { position = {0, 0}, direction = defines.direction.west }
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.east, hide_connection_info = true },
+        { position = {0, 0},  direction = defines.direction.south, hide_connection_info = true },
+        { position = {0, 0}, direction = defines.direction.west, hide_connection_info = true }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe"]["pipe"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe"]["pipe"]["circuit_wire_max_distance"],
@@ -4445,15 +4380,15 @@ data:extend({
       pipe_covers = pipecoverspictures(),
       max_pipeline_extent = 144,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
         {
           connection_type = "underground",
           position = {0, 0},
           max_underground_distance = 15,
-          direction = defines.direction.south
+          direction = defines.direction.south,
+          hide_connection_info = true
         }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
@@ -4489,15 +4424,15 @@ data:extend({
       pipe_covers = pipecoverspictures(),
       max_pipeline_extent = 320,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
         {
           connection_type = "underground",
           position = {0, 0},
           max_underground_distance = 19,
-          direction = defines.direction.south
+          direction = defines.direction.south,
+          hide_connection_info = true
         }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
@@ -4532,15 +4467,15 @@ data:extend({
       pipe_covers = pipecoverspictures(),
       max_pipeline_extent = 672,
       pipe_connections = {
-        { position = {0, 0}, direction = defines.direction.north },
+        { position = {0, 0}, direction = defines.direction.north, hide_connection_info = true },
         {
           position = {0, 0},
           connection_type = "underground",
           max_underground_distance = 23,
-          direction = defines.direction.south
+          direction = defines.direction.south,
+          hide_connection_info = true
         }
       },
-      hide_connection_info = true
     },
     circuit_connector                = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_connector"],
     circuit_wire_max_distance        = data.raw["pipe-to-ground"]["pipe-to-ground"]["circuit_wire_max_distance"],
