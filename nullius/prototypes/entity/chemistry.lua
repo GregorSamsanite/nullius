@@ -43,9 +43,9 @@ local function hydro_animation(newtint)
 
   return {
     north = vertical,
-	east = baselayer,
-	south = vertical,
-	west = baselayer
+    east = baselayer,
+    south = vertical,
+    west = baselayer
   }
 end
 

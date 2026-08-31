@@ -1338,96 +1338,92 @@ data:extend({
   
   ---------------------------------------- VALVES -----------------------------------------------
   {
-            type = "storage-tank",
-            name = "nullius-pump-gauge-input",
-            localised_name = {"", {"entity-name.configurable-valve"}, " input gauge"},
-            icon = "__base__/graphics/icons/storage-tank.png",
-            flags = {
-                "not-repairable",
-                "not-on-map",
-                "not-deconstructable",
-                "not-blueprintable",
-                "not-flammable",
-                "not-upgradable",
-                "not-in-kill-statistics",
-                "placeable-off-grid", -- To be directly above pump position
-                "hide-alt-info",
-            },
-            selectable_in_game = false,
-            selection_priority = 1,
-            hidden = true,
-            max_health = 500,
-            --collision_box = {{-0.29, -0.45}, {0.29, 0.45}},
-            collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
-            collision_mask = { layers = { } }, -- collide with nothing
-            selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-            fluid_box = {
-                volume = 100,
-                pipe_covers = pipecoverspictures(),
-                pipe_connections = {
-                    { direction = defines.direction.south, position = {0, 0.5}, flow_direction = "input-output" },
-                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 }
-                },
-                hide_connection_info = true,
-                max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
-            },
-            show_fluid_icon = false,
-            window_bounding_box = {{0,0}, {0,0}},
-            flow_length_in_ticks = 360,
-            circuit_connector = circuit_connector_definitions["storage-tank"],
-            circuit_wire_max_distance = default_circuit_wire_max_distance,
-        },
-        {
-            type = "storage-tank",
-            name = "nullius-pump-gauge-output",
-            localised_name = {"", {"entity-name.configurable-valve"}, " output gauge"},
-            icon = "__base__/graphics/icons/storage-tank.png",
-            flags = {
-                "not-repairable",
-                "not-on-map",
-                "not-deconstructable",
-                "not-blueprintable",
-                "not-flammable",
-                "not-upgradable",
-                "not-in-kill-statistics",
-                "placeable-off-grid", -- To be directly above pump position
-                "hide-alt-info",
-            },
-            selectable_in_game = false,
-            selection_priority = 1,
-            hidden = true,
-            max_health = 500,
-            --collision_box = {{-0.29, -0.45}, {0.29, 0.45}},
-            collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
-            collision_mask = { layers = { } }, -- collide with nothing
-            selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-            fluid_box = {
-                volume = 100,
-                pipe_covers = pipecoverspictures(),
-                pipe_connections = {
-                    { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 },
-                    { direction = defines.direction.north, position = {0, -0.5}, flow_direction = "input-output" }
-                    
-                    --{ position = {0, -0.5}, flow_direction = "output", direction = defines.direction.north },
-                    --{ position = {0, 0.5}, flow_direction = "input", direction = defines.direction.south }
-                },
-                hide_connection_info = true,
-                max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
-            },
-            show_fluid_icon = false,
-            window_bounding_box = {{0,0}, {0,0}},
-            flow_length_in_ticks = 360,
-            circuit_connector = circuit_connector_definitions["storage-tank"],
-            circuit_wire_max_distance = default_circuit_wire_max_distance,
-        },
-    {
+    type = "storage-tank",
+    name = "nullius-pump-gauge-input",
+    localised_name = {"", {"entity-name.configurable-valve"}, " input gauge"},
+    icon = "__base__/graphics/icons/storage-tank.png",
+    flags = {
+      "not-repairable",
+      "not-on-map",
+      "not-deconstructable",
+      "not-blueprintable",
+      "not-flammable",
+      "not-upgradable",
+      "not-in-kill-statistics",
+      "placeable-off-grid", -- To be directly above pump position
+      "hide-alt-info",
+    },
+    selectable_in_game = false,
+    selection_priority = 1,
+    hidden = true,
+    max_health = 500,
+    collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
+    collision_mask = { layers = { } }, -- collide with nothing
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    fluid_box = {
+      volume = 100,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections = {
+        { direction = defines.direction.south, position = {0, 0.5}, flow_direction = "input-output" },
+        { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113 }
+      },
+      hide_connection_info = true,
+      max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
+    },
+    show_fluid_icon = false,
+    window_bounding_box = {{0,0}, {0,0}},
+    flow_length_in_ticks = 360,
+    circuit_connector = circuit_connector_definitions["storage-tank"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+  },
+  {
+    type = "storage-tank",
+    name = "nullius-pump-gauge-output",
+    localised_name = {"", {"entity-name.configurable-valve"}, " output gauge"},
+    icon = "__base__/graphics/icons/storage-tank.png",
+    flags = {
+      "not-repairable",
+      "not-on-map",
+      "not-deconstructable",
+      "not-blueprintable",
+      "not-flammable",
+      "not-upgradable",
+      "not-in-kill-statistics",
+      "placeable-off-grid", -- To be directly above pump position
+      -- "hide-alt-info", -- Don't hide connection info, in order to display the pipe connector
+    },
+    selectable_in_game = false,
+    selection_priority = 1,
+    hidden = true,
+    max_health = 500,
+    collision_box = {{-0.29, -0.9}, {0.29, 0.9}}, --from pump
+    collision_mask = { layers = { } }, -- collide with nothing
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    fluid_box = {
+      volume = 100,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections = {
+        { connection_type = "linked", flow_direction = "input-output", linked_connection_id=31113, hide_connection_info = true },
+        { direction = defines.direction.north, position = {0, -0.5}, flow_direction = "input-output", hide_connection_info = false, }
+      },
+      hide_connection_info = false,
+      max_pipeline_extent = 1000000, -- Big number, nobody would build this big right?
+    },
+    show_fluid_icon = false,
+    window_bounding_box = {{0,0}, {0,0}},
+    flow_length_in_ticks = 360,
+    circuit_connector = circuit_connector_definitions["storage-tank"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+  },
+
+  -- Legacy priority valve. Can't be placed, migrated 
+  {
     type = "valve",
     name = "nullius-priority-valve",
     icon = "__angelspetrochemgraphics__/graphics/icons/valve-inspector.png",
     icon_size = 32,
     flags = {"placeable-player", "player-creation"},
     hidden = true,
-    --minable = {mining_time = 0.2, result = "nullius-priority-valve"},
     max_health = 80,
     corpse = "small-remnants",
     resistances = {
@@ -1447,11 +1443,11 @@ data:extend({
     },
 
     impact_category = "metal",
-    
+
     mode = "overflow",
     threshold = 0.25,
     flow_rate = 50,
-    
+
     animations = {
       north = {
 		    layers = {
@@ -1794,6 +1790,16 @@ data:extend({
     }
   }
 })
+
+local gauge_output = data.raw["storage-tank"]["configurable-valve-guage-output"]
+for i, flag in ipairs(gauge_output.flags) do
+  if flag == "hide-alt-info" then
+    table.remove(gauge_output.flags, i)
+    break
+  end
+end
+gauge_output.fluid_box.hide_connection_info = false
+-- gauge_output.fluid_box.pipe_connections[2].hide_connection_info = false TODO: 2.1 support
 
 circuit_connector_definitions["nullius-small-tank"] = circuit_connector_definitions.create_vector(universal_connector_template, {
   { variation = 25, main_offset = util.by_pixel(-25.125, -23), shadow_offset = util.by_pixel(-25.125, -23), show_shadow = true },
