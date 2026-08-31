@@ -1547,16 +1547,19 @@ end
 
 if mods["companion-drones-mjlfix"] then
   data.raw["item-subgroup"]["companion"].group = "drones"
-  data.raw["item-subgroup"]["companion"].order = "d"
-  -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"
+  data.raw["item-subgroup"]["companion"].order = "nullius-f"
   table.insert(data.raw["technology"]["nullius-hydrocarbon-combustion-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-companion-fuel"})
   data.raw["item"]["rocket-booster"].subgroup = "companion"
-  data.raw["item"]["rocket-booster"].order = "r"
   data.raw["item"]["rocket-booster"].localised_name = {"item-name.nullius-companion-fuel"}
   data.raw["item"]["rocket-booster"].localised_description = {"item-description.nullius-companion-fuel"}
   data.raw["projectile"]["companion-projectile"].hidden_in_factoriopedia = true
   data.raw["item-with-entity-data"]["companion"].order = "nullius-a"
+  data.raw["item"]["companion-reactor-equipment"].order = "nullius-b"
+  data.raw["item"]["companion-roboport-equipment"].order = "nullius-c"
+  data.raw["item"]["companion-defense-equipment"].order = "nullius-d"
+  data.raw["item"]["companion-shield-equipment"].order = "nullius-e"
+  data.raw["item"]["rocket-booster"].order = "nullius-f"
 end
 
 

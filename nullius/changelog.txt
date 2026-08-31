@@ -7,6 +7,7 @@ Date: xx.xx.2026
     - Show dependencies that are not in the modpacks
   Bugfixes:
     - Fix Cloned achievement description.
+    - Companion drones now properly start with Drone fuel and the fuel can be properly created.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 17.08.2026
