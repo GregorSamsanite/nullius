@@ -982,6 +982,7 @@ function husbandry_effect(event)
 end
 
 
+---@param event EventData.on_script_trigger_effect
 function trigger_effect(event)
   if (string.sub(event.effect_id, 1, 8) ~= "nullius-") then return end
   local midfix = string.sub(event.effect_id, 9, 14)
