@@ -10,7 +10,23 @@ local box_stack_size = {
   [500] = 100
 }
 
+--- Maps unboxed item names to the corresponding boxed item names.
+--- BOXED_ITEM_MAPPING[unboxed_item_name] = boxed_item_name
+--- @type table<string, string>
+BOXED_ITEM_MAPPING = {}
 
+--- Set of unboxed item names that use a double ratio for boxing, such as concrete.
+--- DOUBLE_RATIO_BOX[unboxed_item_name] = true
+--- @type table<string, boolean>
+DOUBLE_RATIO_BOX = {}
+
+
+---@param base_name string The base name of the item, used to construct the boxed item name.
+---@param group? string The group of the boxed item. Defaults to "misc" if not provided.
+---@param box_order string The order of the boxed item and recipe.
+---@param full_name? string The name of the unboxed item. Defaults to "nullius-"..base_name if not provided.
+---@param category? string The prototype category of the item. Defaults to "item" if not provided.
+---@param stack_size? number The stack size of the boxed item. Defaults to the stack size of the original item if not provided.
 local function create_boxed_item(base_name, group, box_order,
         full_name, category, stack_size)
   if (full_name == nil) then
@@ -22,13 +38,15 @@ local function create_boxed_item(base_name, group, box_order,
   if (group == nil) then
     group = "misc"
   end
-  local item = data.raw[category][full_name]
+
+  local item = data.raw[category][full_name] --[[@as data.ItemPrototype]]
   if (stack_size == nil) then
     stack_size = item.stack_size
   end
   local ratio = 5
   if (stack_size > 300) then
     ratio = 10
+    DOUBLE_RATIO_BOX[full_name] = true
   end
   local box_stack = box_stack_size[stack_size]
   if (box_stack == nil) then
@@ -37,6 +55,7 @@ local function create_boxed_item(base_name, group, box_order,
     box_stack = box_stack * 2
   end
 
+  ---@type data.LocalisedString
   local localname = {"item-name."..full_name}
   if (item.localised_name ~= nil) then
     localname = item.localised_name
@@ -46,6 +65,7 @@ local function create_boxed_item(base_name, group, box_order,
     localname = {"equipment-name."..item.place_as_equipment_result}
   end
 
+  BOXED_ITEM_MAPPING[full_name] = "nullius-box-"..base_name
   data:extend({
     {
       type = "item",
