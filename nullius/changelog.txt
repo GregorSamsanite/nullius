@@ -8,6 +8,7 @@ Date: xx.xx.2026
   Bugfixes:
     - Fix Cloned achievement description.
     - Companion drones now properly start with Drone fuel and the fuel can be properly created.
+    - Partly fixed pumps not showing an output fluid indicator when in valve mode.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 17.08.2026
