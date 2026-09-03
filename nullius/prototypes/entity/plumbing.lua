@@ -547,8 +547,89 @@ data:extend({
       { type = "impact", decrease = 100, percent = 90 },
       { type = "fire", percent = 75 }
     }
-  },
+  }
+})
 
+local function well_animation(tint, scale)
+  return
+  {
+    north =
+    {
+      layers =
+      {
+        {
+          priority = "high",
+          filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
+          animation_speed = 0.5,
+          line_length = 8,
+          width = 206,
+          height = 172,
+          frame_count = 40,
+          scale = scale,
+          shift = util.by_pixel(-4.5, -29),
+          tint = tint
+        },
+        {
+          priority = "high",
+          filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+          animation_speed = 0.5,
+          draw_as_shadow = true,
+          line_length = 8,
+          width = 292,
+          height = 78,
+          frame_count = 40,
+          scale = scale,
+          shift = util.by_pixel(17.75, 14.5)
+        }
+      }
+    }
+  }
+end
+
+local function well_visualisations(flipped, scale)
+  local base_sheets = {
+    {
+      filename = "__base__/graphics/entity/pumpjack/pumpjack-base" .. (flipped and "-flipped" or "") .. ".png",
+      priority = "extra-high",
+      width = 261,
+      height = 273,
+      shift = util.by_pixel(-2.25, -4.75),
+      scale = scale
+    },
+    {
+      filename = "__base__/graphics/entity/pumpjack/pumpjack-base" .. (flipped and "-flipped" or "") .. "-shadow.png",
+      width = 261,
+      height = 273,
+      scale = scale,
+      draw_as_shadow = true,
+      shift = util.by_pixel(-2, -5)
+    }
+  }
+  -- Create filenames of flipped and unflipped spritesheets
+  local filenames = {{}, {}}
+  local flipped_names = {[true] = "-flipped", [false] = ""}
+  for _, f in pairs{true, false} do
+    filenames[1][f] = "__base__/graphics/entity/pumpjack/pumpjack-base" .. flipped_names[f] .. ".png"
+    filenames[2][f] = "__base__/graphics/entity/pumpjack/pumpjack-base" .. flipped_names[f] .. "-shadow.png"
+  end
+
+  local base_visualisation = {always_draw = true, secondary_draw_order = -1}
+  for i, name in pairs{"north_animation", "east_animation", "south_animation", "west_animation"} do
+    local layers = {}
+    -- Flip value must be reversed for east and west sprite sheets
+    local flip_direction = flipped == (name == "north_animation" or name == "south_animation")
+    for j, sheet in pairs(base_sheets) do
+      sheet = table.deepcopy(sheet)
+      sheet.filename = filenames[j][flip_direction]
+      sheet.x = sheet.width * (i - 1)
+      table.insert(layers, sheet)
+    end
+    base_visualisation[name] = {layers = layers}
+  end
+  return {base_visualisation}
+end
+
+data:extend({
   {
     type = "assembling-machine",
     name = "nullius-well-1",
@@ -598,210 +679,12 @@ data:extend({
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
     graphics_set = {
-      animation = {
-        north = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.4,
-              scale = 0.5,
-              tint = {0.48, 0.84, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.4,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        east = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 261,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 220,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.4,
-              scale = 0.5,
-              tint = {0.48, 0.84, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.4,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        south = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 522,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 440,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.4,
-              scale = 0.5,
-              tint = {0.48, 0.84, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.4,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        west = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 783,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 660,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.4,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.4,
-              scale = 0.5,
-              tint = {0.48, 0.84, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.4,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        }
-      }
+      animation = well_animation({0.48, 0.84, 1}, 0.5),
+      working_visualisations = well_visualisations(false, 0.5)
+    },
+    graphics_set_flipped = {
+      animation = well_animation({0.48, 0.84, 1}, 0.5),
+      working_visualisations = well_visualisations(true, 0.5)
     },
     use_mirroring = true,
   },
@@ -854,210 +737,12 @@ data:extend({
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     
     graphics_set = {
-      animation = {
-        north = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.6,
-              tint = {0.45, 0.45, 1},
-              scale = 0.5,
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.6,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        east = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 261,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 220,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.6,
-              scale = 0.5,
-              tint = {0.45, 0.45, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.6,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        south = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 522,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 440,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.6,
-              scale = 0.5,
-              tint = {0.45, 0.45, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.6,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        },
-        west = {
-          layers = {
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base.png",
-              priority = "extra-high",
-              width = 261,
-              height = 273,
-              x = 783,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(-2.25, -4.75),
-              scale = 0.5
-            },
-            {
-              filename = BASEENTITY .. "pumpjack/pumpjack-base-shadow.png",
-              priority = "extra-high",
-              width = 220,
-              height = 220,
-              x = 660,
-              scale = 0.5,
-              draw_as_shadow = true,
-              repeat_count = 40,
-              animation_speed = 0.6,
-              shift = util.by_pixel(6, 0.5)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.6,
-              scale = 0.5,
-              tint = {0.45, 0.45, 1},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.6,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5,
-              shift = util.by_pixel(17.75, 14.5)
-            }
-          }
-        }
-      }
+      animation = well_animation({0.45, 0.45, 1}, 0.5),
+      working_visualisations = well_visualisations(false, 0.5)
+    },
+    graphics_set_flipped = {
+      animation = well_animation({0.45, 0.45, 1}, 0.5),
+      working_visualisations = well_visualisations(true, 0.5)
     },
     use_mirroring = true,
   }
@@ -2572,36 +2257,12 @@ data:extend({
       }
     },
     graphics_set = {
-      animation = {
-        north = {
-          layers = {
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.4,
-              scale = 0.66667,
-              tint = {0.98, 0.58, 0.24},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-6.66667, -40)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.66667,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.4,
-              shift = util.by_pixel(29.5833, 24.1666)
-            }
-          }
-        }
-      }
+      animation = well_animation({0.98, 0.58, 0.24}, 0.5 * 1.333),
+      working_visualisations = well_visualisations(false, 0.5 * 1.333)
+    },
+    graphics_set_flipped = {
+      animation = well_animation({0.98, 0.58, 0.24}, 0.5 * 1.333),
+      working_visualisations = well_visualisations(true, 0.5 * 1.333)
     }
   },
 
@@ -2679,36 +2340,12 @@ data:extend({
       }
     },
     graphics_set = {
-      animation = {
-        north = {
-          layers = {
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-decolorized.png",
-              animation_speed = 0.6,
-              scale = 0.66667,
-              tint = {0.99,0.25,0.39},
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-6.66667, -40)
-            },
-            {
-              priority = "high",
-              filename = ENTITYPATH .. "wells/pumpjack-horsehead-shadow.png",
-              animation_speed = 0.66667,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.6,
-              shift = util.by_pixel(29.5833, 24.1666)
-            }
-          }
-        }
-      }
+      animation = well_animation({0.95, 0.3, 0.37}, 0.5 * 1.333),
+      working_visualisations = well_visualisations(false, 0.5 * 1.333)
+    },
+    graphics_set_flipped = {
+      animation = well_animation({0.95, 0.3, 0.37}, 0.5 * 1.333),
+      working_visualisations = well_visualisations(true, 0.5 * 1.333)
     }
   },
 
