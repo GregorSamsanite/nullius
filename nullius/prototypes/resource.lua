@@ -319,7 +319,7 @@ data:extend({
     map_grid = false,
 
     flags = {"placeable-neutral"},
-    category = "basic-fluid",
+    category = "nullius-fumarole",
     subgroup = "mineable-fluids",
     infinite = true,
     highlight = true,
