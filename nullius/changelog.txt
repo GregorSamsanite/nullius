@@ -1,11 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.12
 Date: xx.xx.2026
+  Changes:
+    - Solar Flux is now hidden from most UI screens, and displayed next to other fluids when not hidden.
   Info:
     - Show dependencies that are not in the modpacks
   Bugfixes:
     - Fix Cloned achievement description.
     - Fix Geothermal plants being placeable on petroleum patches.
+    - Companion drones now properly start with Drone fuel and the fuel can be properly created.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: 17.08.2026
