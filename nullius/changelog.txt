@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.12
 Date: xx.xx.2026
+  Features:
+    - Added tips and tricks
   Changes:
     - Solar Flux is now hidden from most UI screens, and displayed next to other fluids when not hidden.
     - Updated German translation
