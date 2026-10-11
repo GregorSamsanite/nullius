@@ -1,14 +1,26 @@
 
 artillery_remote = require("scripts.artillery_remote")
 
-function fuel_companion_drones(surface)
+---Companion drones created when a new player joins the game are automatically fueled with wood.
+---This replaces that with rocket boosters.
+---@param surface LuaSurface
+---@param force LuaForce
+function fuel_companion_drones(surface, force)
+  storage.fixed_companion_drones = storage.fixed_companion_drones or {}
+
   local entities = surface.find_entities_filtered{
-      name="companion", type="spider-vehicle"}
+    name="companion",
+    type="spider-vehicle",
+    force=force,
+  }
   for _,drone in pairs(entities) do
-    local num = drone.remove_item({name="coal", count=500})
-	if (num > 0) then
-	  drone.insert({name="rocket-booster", count=num})
-	end
+    if not storage.fixed_companion_drones[drone.unit_number] then
+      local num = drone.remove_item({name="wood", count=500})
+      if num > 0 then
+        drone.insert({name="rocket-booster", count=num})
+      end
+      storage.fixed_companion_drones[drone.unit_number] = true
+    end
   end
 end
 
@@ -77,12 +89,6 @@ function broken_finished(name)
   
   -- for _, force in pairs(game.forces) do
   --   force.recipes[name].enabled = false
-  -- end
-
-  -- if (script.active_mods["companion-drones-mjlfix"] and
-  --     (storage.nullius_companion_fix == nil)) then
-  --   fuel_companion_drones(game.surfaces[1])
-	-- storage.nullius_companion_fix = true
   -- end
 end
 
@@ -300,6 +306,10 @@ script.on_event(defines.events.on_player_created,
 	  init_tech(player.force)
     update_mission_player(player)
 	  update_player_upgrades(player)
+
+    if script.active_mods["companion-drones-mjlfix"] then
+      fuel_companion_drones(game.surfaces[1], player.force --[[@as LuaForce]])
+    end
   end
 )
 

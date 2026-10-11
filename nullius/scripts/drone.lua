@@ -117,6 +117,9 @@ function terraform_score(name)
   elseif (string.sub(name, 1, 9) == "volcanic-") then
     return 2
   end
+  if script.active_mods["blockius"] and (string.sub(name, 1, 9) == "deepwater") then
+	return 0.25 
+  end
   return 0
 end
 
@@ -982,6 +985,7 @@ function husbandry_effect(event)
 end
 
 
+---@param event EventData.on_script_trigger_effect
 function trigger_effect(event)
   if (string.sub(event.effect_id, 1, 8) ~= "nullius-") then return end
   local midfix = string.sub(event.effect_id, 9, 14)
