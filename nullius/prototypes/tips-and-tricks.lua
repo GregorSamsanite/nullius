@@ -1,4 +1,4 @@
-local simulations = require("./tips-and-tricks-simulations")
+local simulations = require("tips-and-tricks-simulations")
 
 data.extend{
     {
