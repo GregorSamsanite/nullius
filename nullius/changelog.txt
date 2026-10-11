@@ -16,7 +16,7 @@ Date: 11.10.2026
   Info:
     - Show dependencies that are not in the modpacks
   Bugfixes:
-    - Fixed inconsistencies between boxed and unboxed recipes
+    - Fixed inconsistencies between boxed and unboxed recipes (Chemistry research, Chemistry research (boxed),Iron ingot box (thermite),Motor 2 (boxed), Heat pipe 2 (boxed), Heat pipe 2 box (copper))
     - Fix Cloned achievement description.
     - Fix Geothermal plants being placeable on petroleum patches.
     - Companion drones now properly start with Drone fuel and the fuel can be properly created.
