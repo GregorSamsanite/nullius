@@ -132,7 +132,7 @@ data.raw["projectile"]["cliff-explosives"].action[1].action_delivery.target_effe
 
 data.raw.item["rocket-fuel"].subgroup = "canisters"
 data.raw.item["rocket-fuel"].order = "nullius-g"
-data.raw.item["rocket-fuel"].fuel_category = "vehicle"
+data.raw.item["rocket-fuel"].fuel_categories = {"vehicle"}
 data.raw.item["rocket-fuel"].fuel_value = "60MJ"
 data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = 2
 data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = 1.5

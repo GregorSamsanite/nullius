@@ -54,7 +54,7 @@ data:extend({
     subgroup = "biology-material",
     order = "nullius-g",
     stack_size = 200,
-	fuel_category = "vehicle",
+	  fuel_categories = {"vehicle"},
     fuel_value = "4MJ",
     fuel_acceleration_multiplier = 1,
     fuel_top_speed_multiplier = 1

@@ -1999,7 +1999,7 @@ data:extend({
     icon_size = 32,
     subgroup = "petrochem-fuel",
     order = "c[rocket-booster]",
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "10MJ",
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.15,

@@ -1548,7 +1548,7 @@ end
 if mods["companion-drones-mjlfix"] then
   data.raw["item-subgroup"]["companion"].group = "drones"
   data.raw["item-subgroup"]["companion"].order = "d"
-  -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_category = "vehicle"
+  -- data.raw["spider-vehicle"]["companion"].energy_source.fuel_categories = {"vehicle"}
   table.insert(data.raw["technology"]["nullius-hydrocarbon-combustion-2"].effects,
     {type = "unlock-recipe", recipe = "nullius-companion-fuel"})
   data.raw["item"]["rocket-booster"].subgroup = "companion"
