@@ -2004,7 +2004,7 @@ data:extend({
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.15,
     stack_size = 200,
-    },
+  },
   {
     type = "technology",
     name = "nullius-companionship",

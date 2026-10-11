@@ -25,13 +25,29 @@ supplier.picture = { layers = {
     scale = 0.5
   }
 }}
+supplier.radius_visualisation_specification = {
+  sprite = {
+    filename = "__base__/graphics/entity/beacon/beacon-radius-visualization.png",
+    size = 10,
+  },
+  distance = 2,
+}
 
 local receiver = util.table.deepcopy(supplier)
 receiver.name = "tu-receiver"
 receiver.icons = data.raw.item["tu-receiver"].icons
+assert(receiver.minable)
 receiver.minable.result = "tu-receiver"
 receiver.inventory_size = 40
-receiver.picture.layers[1].filename =
+---@diagnostic disable-next-line: need-check-nil
+receiver.picture.layers[1].filename = 
     "__train-upgrader__/graphics/entity/receiver.png"
-
+receiver.radius_visualisation_specification = {
+  sprite = {
+    filename = "__base__/graphics/entity/beacon/beacon-radius-visualization.png",
+    size = 10,
+  },
+  distance = 2.4,
+}
+    
 data:extend({ supplier, receiver })

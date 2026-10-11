@@ -2,14 +2,16 @@ local mod_gui = require("mod-gui")
 local artillery_remote = require("scripts.artillery_remote")
 
 local objective_name = {
-    "probe", "oxygen", "algae", "grass", "tree",
-	"worm", "fish", "arthropod", "terraform", "copper",
-	"uranium", "coal", "petroleum", "overall"
+  "probe", "oxygen", "algae", "grass", "tree",
+  "worm", "fish", "arthropod", "terraform", "copper",
+  "uranium", "coal", "petroleum", "overall"
 }
 
 local function objective_locale(goal)
-  local group = {"item", "fluid", "item", "item", "item", "item", "item",
-      "item", "technology", "ore", "ore", "item", "fluid", "objective"}
+  local group = {
+    "item", "fluid", "item", "item", "item", "item", "item",
+    "item", "technology", "ore", "ore", "item", "fluid", "objective"
+  }
   local labname = nil
   if (group[goal] == "ore") then
     labname = "item-name."..objective_name[goal].."-ore"
@@ -19,6 +21,7 @@ local function objective_locale(goal)
   return { labname }
 end
 
+---@param player LuaPlayer
 function update_mission_panel(player)
   if (player.gui.left.nullius_mission_panel) then
     player.gui.left.nullius_mission_panel.destroy()
@@ -32,74 +35,89 @@ function update_mission_panel(player)
     gui.style.horizontally_stretchable = false
 
     gui.add({type = "table", name = "table", column_count = 1})
-    gui.table.add({type = "label", name = "mission_overall",
-        caption = {"", objective_locale(14), ": ",
-            storage.nullius_mission_status[14], "%"},
-		tooltip = {"objective-description.nullius-overall"}})
+    gui.table.add({
+      type = "label", name = "mission_overall",
+      caption = {"", objective_locale(14), ": ", storage.nullius_mission_status[14], "%"},
+      tooltip = {"objective-description.nullius-overall"}
+    })
 
     local oxygen = storage.nullius_mission_status[2]
     for i = 1, 13 do
-	  local str = nil
+      local str = nil
       if (storage.nullius_mission_status[i] < 100) then
-        str = {"", objective_locale(i), ": ",
-            storage.nullius_mission_status[i], "%"}
-	  elseif ((i >= 3) and (i <= 5) and
-	      (oxygen < 100) and (oxygen >= (i * 8))) then
-		local s = math.floor(storage.nullius_mission_status[i] + 0.5)
-		local m = s - 100
-		if (i == 3) then
-		  m = (m / 100)
-		elseif (i == 5) then
-		  m = (m / 80)
-		else
-		  m = (m / 60)
-		end
-		
-		m = math.min(1, (0.3 + (m * 0.7)))
-		local a = math.max(0, ((m * (1 - m)) - 0.05))
-		local r = 0.96 - (0.7 * m) + a
-		local g = 0.96 - (0.7 * (1 - m)) + a
-		str = {"", "[color="..r..","..g..",0.4]", objective_locale(i), ": ",
-		    math.floor(storage.nullius_mission_status[i] + 0.5), "%[/color]"}
+        str = {"", objective_locale(i), ": ", storage.nullius_mission_status[i], "%"}
+      elseif (
+        (i >= 3) and (i <= 5) and
+	      (oxygen < 100) and (oxygen >= (i * 8))
+      ) then
+        local s = math.floor(storage.nullius_mission_status[i] + 0.5)
+        local m = s - 100
+        if (i == 3) then
+          m = (m / 100)
+        elseif (i == 5) then
+          m = (m / 80)
+        else
+          m = (m / 60)
+        end
+        m = math.min(1, (0.3 + (m * 0.7)))
+        local a = math.max(0, ((m * (1 - m)) - 0.05))
+        local r = 0.96 - (0.7 * m) + a
+        local g = 0.96 - (0.7 * (1 - m)) + a
+        str = {
+          "",
+          "[color="..r..","..g..",0.4]",
+          objective_locale(i),
+          ": ",
+          math.floor(storage.nullius_mission_status[i] + 0.5),
+          "%[/color]"
+        }
       end
+	    if (str ~= nil) then
+	      gui.table.add({
+          type = "label",
+          name = "mission_"..objective_name[i], caption = str,
+          tooltip = {"objective-description.nullius-"..objective_name[i]}
+        })
+        if (
+          (i == 2) and (oxygen >= 16) and (storage.nullius_vent_total ~= nil)
+        ) then
+          local total = math.floor(storage.nullius_vent_total / 1000)
+          local m = total
+          local suffix = "kilo"
+          local scale = math.abs(total)
+          if (scale >= 25000000) then
+            suffix = "giga"
+            total = math.floor(total / 1000000)
+          elseif (scale >= 25000) then
+            suffix = "mega"
+            total = math.floor(total / 1000)
+          end
 
-	  if (str ~= nil) then
-	    gui.table.add({type = "label",
-		    name = "mission_"..objective_name[i], caption = str,
-			tooltip = {"objective-description.nullius-"..objective_name[i]}})
-		if ((i == 2) and (oxygen >= 16) and
-		    (storage.nullius_vent_total ~= nil)) then
-		  local total = math.floor(storage.nullius_vent_total / 1000)
-		  local m = total
-		  local suffix = "kilo"
-		  local scale = math.abs(total)
-		  if (scale >= 25000000) then
-		    suffix = "giga"
-			total = math.floor(total / 1000000)
-		  elseif (scale >= 25000) then
-		    suffix = "mega"
-			total = math.floor(total / 1000)
-		  end
+          m = math.sqrt(math.max(0, (m - 400000)))
+          m = math.max(0, math.min(1, ((m - 775) / 2324)))
+          local a = math.max(0, ((m * (1 - m)) - 0.05))
+          local r = 1 - (0.7 * m) + a
+          local g = 1 - (0.7 * (1 - m)) + a
 
-		  m = math.sqrt(math.max(0, (m - 400000)))
-		  m = math.max(0, math.min(1, ((m - 775) / 2324)))
-		  local a = math.max(0, ((m * (1 - m)) - 0.05))
-		  local r = 1 - (0.7 * m) + a
-		  local g = 1 - (0.7 * (1 - m)) + a
-
-	      gui.table.add({type = "label",
-		      name = "mission_vented", caption = {"",
-				  "[color="..r..","..g..",0.4]",
-			      {"objective-name.nullius-vented"}, ": ", total,
-				  {"objective-description.nullius-suffix-"..suffix},
-				  "[/color]"},
-			  tooltip = {"objective-description.nullius-vented"}})
+          gui.table.add({
+            type = "label",
+            name = "mission_vented",
+            caption = {
+              "",
+              "[color="..r..","..g..",0.4]",
+              {"objective-name.nullius-vented"}, ": ", total,
+              {"objective-description.nullius-suffix-"..suffix},
+              "[/color]"
+            },
+            tooltip = {"objective-description.nullius-vented"}
+          })
         end
       end
     end
   end
 end
 
+---@param player LuaPlayer
 function update_mission_player(player)
   if (storage.nullius_mission_status ~= nil) then
     if (storage.nullius_mission_complete) then
@@ -139,18 +157,26 @@ function init_mission_global()
   update_mission_global()
 end
 
+---@param force LuaForce
 function update_and_check_victory(force)
   update_mission_global()
   if (storage.nullius_mission_complete) then
     if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
       remote.call("better-victory-screen", "trigger_victory", force)
     else
-      game.set_game_state{game_finished=true, player_won=true,
-	    can_continue=true, victorious_force=force}
+      game.set_game_state{
+        game_finished=true,
+        player_won=true,
+        can_continue=true,
+        victorious_force=force
+      }
     end
   end
 end
 
+---@param goal integer
+---@param amount integer
+---@param force LuaForce
 function set_mission_goal(goal, amount, force)
   if (storage.nullius_mission_complete) then return end
 
@@ -196,6 +222,9 @@ function set_mission_goal(goal, amount, force)
   update_and_check_victory(force)
 end
 
+---@param goal integer
+---@param amount integer
+---@param force LuaForce
 function bump_mission_goal(goal, amount, force)
   if (amount ~= 0) then
     create_mission(force)
@@ -232,23 +261,24 @@ function update_oxygen()
   local vent_force = nil
   local vent_total = storage.nullius_oxygen_legacy
   for _, force in pairs(game.forces) do
-	  if (force.research_enabled) then
-	    local stats = force.get_fluid_production_statistics("nauvis")
-	    local vent_score = 0
-	    for gasname,multiplier in pairs(oxygen_equivalent) do
-	      vent_score = (vent_score + ((stats.get_input_count(gasname) -
-	          stats.get_output_count(gasname)) * multiplier))
-	    end
-	    vent_total = vent_total + vent_score
-	    if ((vent_force == nil) or (vent_score > vent_best)) then
-	      vent_best = vent_score
-	  	  vent_force = force
-	    end
+    if (force.research_enabled) then
+      local stats = force.get_fluid_production_statistics("nauvis")
+      local vent_score = 0
+      for gasname, multiplier in pairs(oxygen_equivalent) do
+        vent_score = vent_score + (
+          (stats.get_input_count(gasname) - stats.get_output_count(gasname)) * multiplier
+        )
+      end
+      vent_total = vent_total + vent_score
+      if ((vent_force == nil) or (vent_score > vent_best)) then
+        vent_best = vent_score
+        vent_force = force
+      end
     end
   end
 
   if (vent_force == nil) then return end
-  storage.nullius_vent_total = vent_total
+    storage.nullius_vent_total = vent_total
   if (vent_total > 0) then
     vent_total = math.sqrt(vent_total) / 1600
   else
@@ -256,8 +286,7 @@ function update_oxygen()
   end
 
   local score = (current + vent_total)
-  if ((prev_status + 0.001) < (math.floor(100 *
-      math.min(100, (score / 1.25))) / 100)) then
+  if prev_status + 0.001 < math.floor(100 * math.min(100, (score / 1.25))) / 100 then
     set_mission_goal(2, score, vent_force)
   end
 end
@@ -266,12 +295,12 @@ function migrate_oxygen()
   local produced = 0
   local consumed = 0
   for _, force in pairs(game.forces) do
-	if (force.research_enabled) then
-	  local stats = force.get_fluid_production_statistics("nauvis")
-	  for gasname,multiplier in pairs(oxygen_equivalent) do
-	    produced = produced + stats.get_input_count(gasname)
-	    consumed = consumed + stats.get_output_count(gasname)
-	  end
+    if (force.research_enabled) then
+      local stats = force.get_fluid_production_statistics("nauvis")
+      for gasname,multiplier in pairs(oxygen_equivalent) do
+        produced = produced + stats.get_input_count(gasname)
+        consumed = consumed + stats.get_output_count(gasname)
+      end
     end
   end
 
@@ -282,25 +311,28 @@ function migrate_oxygen()
 
   if (storage.nullius_mission_complete) then return end
   if (storage.nullius_mission_status[2] >= 100) then return end
-  local score = (storage.nullius_oxygen_bio_current +
-      (math.sqrt(storage.nullius_oxygen_legacy) / 1800))
+  local score = (
+    storage.nullius_oxygen_bio_current + (math.sqrt(storage.nullius_oxygen_legacy) / 1800)
+  )
   storage.nullius_mission_count[2] = math.min(score, 150)
-  storage.nullius_mission_status[2] = (math.floor(100 *
-      math.min(99, (score / 1.8))) / 100)
+  storage.nullius_mission_status[2] = (
+    math.floor(100 * math.min(99, (score / 1.8))) / 100
+  )
 end
 
 
+---@param force LuaForce
 function create_mission(force)
   if (storage.nullius_mission_status == nil) then
     storage.nullius_mission_status = {}
     storage.nullius_mission_count = {}
     storage.nullius_mission_show = {}
     storage.nullius_mission_complete = false
-	storage.nullius_oxygen_bio_current = 0
-	storage.nullius_oxygen_bio_target = 0
-	if (storage.nullius_oxygen_legacy == nil) then
-	  storage.nullius_oxygen_legacy = 0
-	end
+    storage.nullius_oxygen_bio_current = 0
+    storage.nullius_oxygen_bio_target = 0
+    if (storage.nullius_oxygen_legacy == nil) then
+      storage.nullius_oxygen_legacy = 0
+    end
 
     for i = 1, 14 do
       storage.nullius_mission_count[i] = 0
@@ -308,23 +340,25 @@ function create_mission(force)
     end
     update_mission_global()
 
-	if (not game.is_multiplayer()) then
+    if not game.is_multiplayer() then
       game.show_message_dialog{text = {"nullius-mission"}}
-	elseif (force ~= nil) then
-	  force.print({"nullius-mission"})
+    elseif force ~= nil then
+      force.print({"nullius-mission"})
     end
   end
 end
 
+---@param event EventData.on_cargo_pod_finished_ascending
 function cargo_pod_finished(event)
   local pod = event.cargo_pod
   if (pod and pod.valid) then
+    local force = pod.force --[[@as LuaForce]] -- Reading is always LuaForce
     create_mission(force)
     local inv = pod.get_inventory(defines.inventory.item_main)
-    local payload = inv.get_contents()
+    local payload = inv and inv.get_contents() or {}
     for _, slot in pairs(payload) do
       if slot.name == "nullius-probe" then
-        bump_mission_goal(1, 1, pod.force)
+        bump_mission_goal(1, 1, force)
         break
       elseif slot.name == "nullius-align-concordance-satellite" then
         align_satellite_launch(pod)
@@ -334,6 +368,7 @@ function cargo_pod_finished(event)
   end
 end
 
+---@param event EventData.on_gui_click
 function gui_clicked(event)
   if not event.element.valid then return end
   if event.element.name == "nullius_mission_button" then
@@ -344,8 +379,10 @@ function gui_clicked(event)
       storage.nullius_mission_show[event.player_index] = true
     end
     update_mission_player(player)
+  
   elseif event.element.name == "nullius-remote-gui-close" then
     artillery_remote.handle_remote_gui_close(event.player_index)
+
   elseif string.sub(event.element.name, 1, 20) == "nullius-make-remote-" then
     artillery_remote.handle_make_remote(
       event.player_index,

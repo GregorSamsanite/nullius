@@ -151,8 +151,8 @@ local function is_nullius_name(name)
 end
 
 -- For all non-nullius not-hidden items, mark them as "temphidden"
-for _,type in pairs(item_types_list) do
-  for _,item in pairs(data.raw[type] or {}) do
+for _, type in pairs(item_types_list) do
+  for _, item in pairs(data.raw[type] or {}) do
     if not is_nullius_name(item.name) and not is_nullius_name(item.order) then
       if item.hidden then
         item.subgroup = "hidden"
@@ -160,13 +160,11 @@ for _,type in pairs(item_types_list) do
         if (item.flags == nil) then
           item.flags = {}
         end
-        table.insert(item.flags,"temphidden")
+        table.insert(item.flags, "temphidden")
 	    end
     end
   end
 end
-
-
 
 -- For all recipes
 --  * non-nullius recipes are hidden and disabled
@@ -256,7 +254,6 @@ end
 
 data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters =
      data.raw["active-defense-equipment"]["discharge-defense-equipment"].attack_parameters
-
 
 for _, tech in pairs(data.raw.technology) do
   if not is_nullius_name(tech.name) and not is_nullius_name(tech.order) then

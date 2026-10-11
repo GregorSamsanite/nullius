@@ -7,7 +7,10 @@ data:extend({
     type = "resource-category",
     name = "unused-resource"
   },
-
+  {
+    type = "resource-category",
+    name = "nullius-fumarole"
+  },
   {
     type = "recipe-category",
     name = "hand-crafting",
