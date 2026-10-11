@@ -1223,7 +1223,7 @@ data:extend({
     energy_required = 15,
     ingredients = {
       {type="item", name="nullius-glass", amount=3},
-      {type="item", name="concrete", amount=5},
+      {type="item", name="concrete", amount=6},
       {type="item", name="nullius-ammonia-barrel", amount=1},
       {type="item", name="nullius-sodium-hydroxide", amount=2},
       {type="fluid", name="nullius-acid-sulfuric", amount=20},
@@ -1249,7 +1249,7 @@ data:extend({
     energy_required = 75,
     ingredients = {
       {type="item", name="nullius-box-glass", amount=3},
-      {type="item", name="nullius-box-concrete", amount=5},
+      {type="item", name="nullius-box-concrete", amount=3},
       {type="item", name="nullius-ammonia-barrel", amount=5},
       {type="item", name="nullius-box-sodium-hydroxide", amount=2},
       {type="fluid", name="nullius-acid-sulfuric", amount=100},

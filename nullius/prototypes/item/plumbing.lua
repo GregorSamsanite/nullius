@@ -2762,7 +2762,7 @@ data:extend({
       {type="item", name="nullius-box-eutectic-salt", amount=5}
     },
 	  results = {
-      {type = "item", name = "nullius-box-heat-pipe-2", amount = 3}
+      {type = "item", name = "nullius-box-heat-pipe-2", amount = 2}
     }
   },
   {
@@ -2816,7 +2816,7 @@ data:extend({
     energy_required = 25,
     ingredients = {
       {type="item", name="nullius-box-copper-sheet", amount=1},
-      {type="item", name="nullius-box-pipe-3", amount=2},
+      {type="item", name="nullius-box-pipe-3", amount=1},
       {type="item", name="nullius-box-ceramic-powder", amount=2},
       {type="item", name="nullius-box-insulation", amount=2},
       {type="item", name="nullius-box-eutectic-salt", amount=5}

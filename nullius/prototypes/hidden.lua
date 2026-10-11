@@ -1,7 +1,7 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
-building_types_list = {
+local building_types_list = {
   "furnace",
   "transport-belt",
   "boiler",
@@ -49,7 +49,7 @@ building_types_list = {
   "valve"
 }
 
-hide_entity_list = {
+local hide_entity_list = {
   "inserter",
   "mining-drill",
   "locomotive",
@@ -63,7 +63,7 @@ hide_entity_list = {
   "electric-turret"
 }
 
-item_types_list = {
+local item_types_list = {
   "item",
   "gun",
   "ammo",
@@ -104,30 +104,92 @@ local function remove_table(lst, target)
   return false
 end
 
-for _,type in pairs(item_types_list) do
-  for _,item in pairs(data.raw[type] or {}) do
-    if ((string.sub(item.name, 1, 8) ~= "nullius-") and
-		((item.order == nil) or
-		    (string.sub(item.order, 1, 8) ~= "nullius-"))) then
-	  if item.hidden then
-	    item.subgroup = "hidden"
-	  else
+--- Looks for the various item tables for the item with given name
+--- @param name string
+--- @return data.ItemPrototype|nil
+local function get_item_with_name(name)
+  for type in pairs(defines.prototypes.item) do
+    local type_table = data.raw[type]
+    local item = type_table and type_table[name]
+    if item then
+      return item --[[@as data.ItemPrototype]]
+    end
+  end
+  return nil
+end
+
+--- Checks if the given prototype mines into a hidden item
+---@param entity data.EntityPrototype
+local function is_mineable_result_hidden(entity)
+  if not entity.minable then
+    return false
+  end
+
+  if entity.minable.results then
+    for _, product in pairs(entity.minable.results) do
+      if product.type ~= "fluid" then
+        local item = get_item_with_name(product.name)
+        if (item ~= nil) and item.hidden then
+          return true
+        end
+      end
+    end
+    return false
+  else
+    local item = get_item_with_name(entity.minable.result)
+    return item and item.hidden
+  end
+end
+
+---Checks if the given recipe has the given category
+---@param recipe data.RecipePrototype
+---@param category string
+---@return boolean
+local function recipe_has_category(recipe, category)
+  if recipe.additional_categories then
+    if table_contains(recipe.additional_categories, category) then
+      return true
+    end
+  end
+  return recipe.category == category
+end
+
+--- @param name string?
+local function is_nullius_name(name)
+  if name then
+    return string.sub(name, 1, 8) == "nullius-"
+  else
+    return false
+  end
+end
+
+-- For all non-nullius not-hidden items, mark them as "temphidden"
+for _, type in pairs(item_types_list) do
+  for _, item in pairs(data.raw[type] or {}) do
+    if not is_nullius_name(item.name) and not is_nullius_name(item.order) then
+      if item.hidden then
+        item.subgroup = "hidden"
+      else
         if (item.flags == nil) then
           item.flags = {}
         end
-        table.insert(item.flags,"temphidden")
-	  end
+        table.insert(item.flags, "temphidden")
+	    end
     end
   end
 end
 
+
+-- For all recipes
+--  * non-nullius recipes are hidden and disabled
+--  * recipes that produce non-nullius items have the "temphidden" flag removed
 for _, recipe in pairs(data.raw.recipe) do
-  if ((string.sub(recipe.name, 1, 8) ~= "nullius-") and
-      ((recipe.order == nil) or (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
+  if ((not is_nullius_name(recipe.name)) and
+      (not is_nullius_name(recipe.order)) and
       (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
       (string.sub(recipe.name, 1, 14) ~= "empty-nullius-") and
-	  (recipe.category ~= "ee-testing-tool") and
-	  (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
+      (not recipe_has_category(recipe, "ee-testing-tool")) and
+      (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
     recipe.hidden = true
     recipe.enabled = false
   else
@@ -135,7 +197,7 @@ for _, recipe in pairs(data.raw.recipe) do
       for _, product in pairs(recipe.results) do
         if (product.name ~= nil) then
           if (product.type ~= "fluid") then
-            local item = data.raw[product.type][product.name]
+            local item = get_item_with_name(product.name)
             if (item ~= nil) then
               remove_table(item.flags, "temphidden")
             end
@@ -146,6 +208,7 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
+-- For all items, if they still have "temphidden" flag, then make it actually hidden
 for _,type in pairs(item_types_list) do
   for _,item in pairs(data.raw[type] or {}) do
     if remove_table(item.flags, "temphidden") then
@@ -155,41 +218,38 @@ for _,type in pairs(item_types_list) do
     end
   end
 end
+
+-- Hide all non-nullius fluids
 for _,fluid in pairs(data.raw.fluid) do
-  if ((string.sub(fluid.name, 1, 8) ~= "nullius-") and
-      ((fluid.order == nil) or
-	  (string.sub(fluid.order, 1, 8) ~= "nullius-"))) then
+  if not is_nullius_name(fluid.name) and not is_nullius_name(fluid.order) then
     fluid.subgroup = "unused-fluid"
     fluid.hidden = true
   end
 end
 
+-- For all entities, check if their mining results is hidden and if so, hide the entity
+-- Also check the same logic for their `next_upgrade` and remove the upgrade in that case.
 for _,type in pairs(building_types_list) do
-  for _,entity in pairs(data.raw[type]) do
-    if entity.next_upgrade ~= nil then
-      local next_entity = data.raw[type][entity.next_upgrade]
-      if (next_entity ~= nil) and next_entity.minable ~= nil then
-        local item = data.raw.item[next_entity.minable.result]
-        if (item ~= nil) and item.hidden then
-          entity.next_upgrade = nil
-        end
+  for _, entity in pairs(data.raw[type]) do
+    entity = entity --[[@as data.EntityPrototype]]
+    if entity.next_upgrade then
+      local next_entity = data.raw[type][entity.next_upgrade] --[[@as data.EntityPrototype?]]
+      if next_entity and is_mineable_result_hidden(next_entity) then
+        entity.next_upgrade = nil
       end
     end
-    if entity.minable ~= nil then
-      local item = data.raw.item[entity.minable.result]
-      if (item ~= nil) and item.hidden then
-        entity.next_upgrade = nil
-        entity.hidden = true
-      end
+    if is_mineable_result_hidden(entity) then
+      entity.next_upgrade = nil
+      entity.hidden = true
     end
   end
 end
 
+-- For some set of entity types, hide them if they're not nullius related.
 for _,type in pairs(hide_entity_list) do
   for _,entity in pairs(data.raw[type]) do
-    if ((string.sub(entity.name, 1, 8) ~= "nullius-") and
-        ((entity.order == nil) or
-	        (string.sub(entity.order, 1, 8) ~= "nullius-"))) then
+    entity = entity --[[@as data.EntityPrototype]]
+    if not is_nullius_name(entity.name) and not is_nullius_name(entity.order) then
       if (entity.flags == nil) then
         entity.flags = {}
       end
@@ -203,36 +263,37 @@ data.raw.item["copper-ore"].hidden = false
 data.raw.item["uranium-ore"].hidden = false
 
 if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
-data.raw.item["construction-robot"].hidden = false
+  data.raw.item["construction-robot"].hidden = false
 end
 
 data.raw["active-defense-equipment"]["personal-laser-defense-equipment"].attack_parameters =
      data.raw["active-defense-equipment"]["discharge-defense-equipment"].attack_parameters
 
-
 for _, tech in pairs(data.raw.technology) do
-  if ((string.sub(tech.name, 1, 8) ~= "nullius-") and
-      ((tech.order == nil) or
-      (string.sub(tech.order, 1, 8) ~= "nullius-"))) then
+  if not is_nullius_name(tech.name) and not is_nullius_name(tech.order) then
     tech.enabled = false
     tech.hidden = true
   end
 end
 
 for _, recipe in pairs(data.raw.recipe) do
-  if (string.sub(recipe.name, 1, 8) ~= "nullius-") then
-    if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or 
+  if not is_nullius_name(recipe.name) then
+    if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or
         (string.sub(recipe.name, 1, 14) == "empty-nullius-")) then
-	  recipe.GCKI_ignore = true
-	elseif (((recipe.order == nil) or
-	    (string.sub(recipe.order, 1, 8) ~= "nullius-")) and
-        (recipe.category ~= "ee-testing-tool") and
-	    (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
+      recipe.GCKI_ignore = true
+
+    elseif (
+      not is_nullius_name(recipe.order) and
+      not recipe_has_category(recipe, "ee-testing-tool") and
+      (string.sub(recipe.name, 1, 5) ~= "bpsb-")
+    ) then
       recipe.enabled = false
-	  recipe.allow_as_intermediate = false
-	  recipe.allow_decomposition = false
-	  if (recipe.order == nil) then recipe.order = "zzz-hidden" end
-	end
+      recipe.allow_as_intermediate = false
+      recipe.allow_decomposition = false
+      if recipe.order == nil then
+        recipe.order = "zzz-hidden"
+      end
+    end
   end
 end
 
