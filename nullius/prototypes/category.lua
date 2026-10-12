@@ -41,10 +41,6 @@ data:extend({
   },
   {
     type = "recipe-category",
-    name = "hand-crushing",
-  },
-  {
-    type = "recipe-category",
     name = "bio-harvesting",
   },
   {
@@ -106,10 +102,6 @@ data:extend({
   {
     type = "recipe-category",
     name = "distillation",
-  },
-  {
-    type = "recipe-category",
-    name = "hand-casting",
   },
   {
     type = "recipe-category",

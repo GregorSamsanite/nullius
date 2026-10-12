@@ -271,7 +271,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     no_productivity = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     subgroup = "alignment",
     order = "nullius-dc",
     energy_required = 3,
@@ -290,7 +290,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "tiny-crafting",
+    categories = {"tiny-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "nullius-steel-sheet", amount = 1},
@@ -306,7 +306,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "tiny-crafting",
+    categories = {"tiny-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-align-identification-card", amount = 1},
@@ -323,7 +323,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 12,
     ingredients = {
 	  {type = "item", name = "nullius-align-identification-card", amount = 1},
@@ -342,7 +342,7 @@ data:extend({
     no_productivity = true,
     show_amount_in_title = false,
     always_show_products = true,
-    category = "nullius-electrolysis",
+    categories = {"nullius-electrolysis"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-align-invitation-card", amount = 1},
@@ -359,7 +359,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 20,
     ingredients = {
       {type = "item", name = "power-switch", amount = 1},
@@ -376,7 +376,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 30,
     ingredients = {
       {type = "item", name = "nullius-align-conscription-ray", amount = 2},
@@ -396,7 +396,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 60,
     ingredients = {
       {type = "item", name = "nullius-align-conscription-turret", amount = 3},
@@ -413,7 +413,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 300,
     ingredients = {
       {type = "item", name = "nullius-align-concordance-transmitter", amount = 3},

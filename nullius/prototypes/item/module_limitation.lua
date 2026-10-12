@@ -1,7 +1,7 @@
 local ICONPATH = "__nullius__/graphics/icons/"
 local ENTITYPATH = "__nullius__/graphics/entity/"
 
-nullius_non_productivity_categories = {
+local nullius_non_productivity_categories = {
   ["nullius-electrolysis"] = true,
   ["nullius-gas-void"] = true,
   ["nullius-liquid-void"] = true,
@@ -20,6 +20,7 @@ nullius_non_productivity_categories = {
   ["turbine-closed"] = true
 }
 
+-- FIXME!
 for _,recipe in pairs(data.raw.recipe) do
   if (((string.sub(recipe.name, 1, 8) == "nullius-") or ((recipe.order ~= nil) and
         (string.sub(recipe.order, 1, 8) == "nullius-"))) and

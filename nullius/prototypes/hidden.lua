@@ -141,19 +141,6 @@ local function is_mineable_result_hidden(entity)
   end
 end
 
----Checks if the given recipe has the given category
----@param recipe data.RecipePrototype
----@param category string
----@return boolean
-local function recipe_has_category(recipe, category)
-  if recipe.additional_categories then
-    if table_contains(recipe.additional_categories, category) then
-      return true
-    end
-  end
-  return recipe.category == category
-end
-
 --- @param name string?
 local function is_nullius_name(name)
   if name then
@@ -179,16 +166,15 @@ for _, type in pairs(item_types_list) do
   end
 end
 
-
 -- For all recipes
 --  * non-nullius recipes are hidden and disabled
 --  * recipes that produce non-nullius items have the "temphidden" flag removed
 for _, recipe in pairs(data.raw.recipe) do
   if ((not is_nullius_name(recipe.name)) and
-      (not is_nullius_name(recipe.order)) and
+      ((recipe.order == nil) or (not is_nullius_name(recipe.order))) and
       (string.sub(recipe.name, 1, 13) ~= "fill-nullius-") and
       (string.sub(recipe.name, 1, 14) ~= "empty-nullius-") and
-      (not recipe_has_category(recipe, "ee-testing-tool")) and
+      (not table_contains(recipe.categories, "ee-testing-tool")) and
       (string.sub(recipe.name, 1, 5) ~= "bpsb-")) then
     recipe.hidden = true
     recipe.enabled = false
@@ -233,7 +219,7 @@ for _,type in pairs(building_types_list) do
   for _, entity in pairs(data.raw[type]) do
     entity = entity --[[@as data.EntityPrototype]]
     if entity.next_upgrade then
-      local next_entity = data.raw[type][entity.next_upgrade] --[[@as data.EntityPrototype?]]
+      local next_entity = data.raw[type][entity.next_upgrade]
       if next_entity and is_mineable_result_hidden(next_entity) then
         entity.next_upgrade = nil
       end
@@ -280,20 +266,19 @@ for _, recipe in pairs(data.raw.recipe) do
   if not is_nullius_name(recipe.name) then
     if ((string.sub(recipe.name, 1, 13) == "fill-nullius-") or
         (string.sub(recipe.name, 1, 14) == "empty-nullius-")) then
-      recipe.GCKI_ignore = true
+	  recipe.GCKI_ignore = true
 
-    elseif (
-      not is_nullius_name(recipe.order) and
-      not recipe_has_category(recipe, "ee-testing-tool") and
-      (string.sub(recipe.name, 1, 5) ~= "bpsb-")
+	elseif (
+    (
+      not is_nullius_name(recipe.order)) and
+      table_contains(recipe.categories, "ee-testing-tool") and
+	    (string.sub(recipe.name, 1, 5) ~= "bpsb-")
     ) then
       recipe.enabled = false
-      recipe.allow_as_intermediate = false
-      recipe.allow_decomposition = false
-      if recipe.order == nil then
-        recipe.order = "zzz-hidden"
-      end
-    end
+	    recipe.allow_as_intermediate = false
+	    recipe.allow_decomposition = false
+	    if (recipe.order == nil) then recipe.order = "zzz-hidden" end
+	  end
   end
 end
 

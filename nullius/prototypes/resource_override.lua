@@ -138,7 +138,7 @@ data.raw["map-gen-presets"]["default"]["ribbon-world"].basic_settings = {
 }
 
 
-if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
+if mods["cargo-ships-oil-rig"] then
 
   resource_autoplace.initialize_patch_set("offshore-oil", false)
 
@@ -172,7 +172,6 @@ if (mods["cargo-ships"] and settings.startup["offshore_oil_enabled"].value) then
       name = "nullius-volcanic-gas",
       amount_min = 10,
       amount_max = 10,
-      probability = 1,
       temperature = 200
     }}
   }

@@ -284,8 +284,8 @@ data:extend({
       }
     },
     loot = {
-      {item = "nullius-silica", probability = 1, count_min = 4, count_max = 12},
-      {item = "nullius-alumina", probability = 1, count_min = 2, count_max = 6}
+      {type = "item", name = "nullius-silica", independent_probability = 1, amount_min = 4, amount_max = 12},
+      {type = "item", name = "nullius-alumina", independent_probability = 1, amount_min = 2, amount_max = 6}
     },
     count_as_rock_for_filtered_deconstruction = true,
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },

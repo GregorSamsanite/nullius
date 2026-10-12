@@ -15,11 +15,11 @@ function update_small_beacon(entity)
   for _,field in pairs(fields) do
     if (field.valid) then
       local unit = storage.nullius_interference_fields[field.unit_number]
-	  if ((unit ~= nil) and (unique[unit] == nil)) then
-	    unique[unit] = true
-		count = count + 1
-	  end
-	end
+      if ((unit ~= nil) and (unique[unit] == nil)) then
+        unique[unit] = true
+        count = count + 1
+      end
+    end
   end
 
   local lvl = 0
@@ -29,11 +29,9 @@ function update_small_beacon(entity)
   if (lvl == count) then return end
 
   local modrequest = nil
-  local proxies = entity.surface.find_entities_filtered{area=bound,
-      type = "item-request-proxy"}
+  local proxies = entity.surface.find_entities_filtered{area=bound, type = "item-request-proxy"}
   for _,proxy in pairs(proxies) do
-	  if (proxy.valid and (proxy.proxy_target == entity) and
-	       (proxy.item_requests ~= nil)) then
+	  if (proxy.valid and (proxy.proxy_target == entity) and (proxy.item_requests ~= nil)) then
 	    local found = false
 	    modrequest = {}
 	    for _, req in pairs(proxy.insert_plan) do
@@ -75,10 +73,12 @@ function update_small_beacon(entity)
   end
 
   if (modrequest ~= nil) then
-    newentity.surface.create_entity{name = "item-request-proxy",
-        force = newentity.force, position = newentity.position,
+    newentity.surface.create_entity{
+      name = "item-request-proxy",
+      force = newentity.force, position = newentity.position,
 	    create_build_effect_smoke = false, target = newentity,
-	    modules = modrequest}
+	    modules = modrequest
+    }
   end
 end
 
@@ -94,10 +94,11 @@ end
 function create_collision_box(surface, pos, force, box_name, 
     xoffs, yoffs, xsz, ysz, layer)
   local pos = {x = (pos.x + xoffs), y = (pos.y + yoffs)}
-  local collision = surface.create_entity{name = box_name, force = force,
-      position = pos, create_build_effect_smoke = false}
+  local collision = surface.create_entity{
+    name = box_name, force = force,
+    position = pos, create_build_effect_smoke = false
+  }
   collision.destructible = false
-  collision.minable = false
   return collision
 end
 

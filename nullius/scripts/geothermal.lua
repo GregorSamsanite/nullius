@@ -124,7 +124,7 @@ function build_stirling_engine(entity, level)
       name = "nullius-stirling-"..orientation.."-heat-"..level,
       position = position, force = force}
   heat.destructible = false
-  heat.minable = false
+  heat.minable_flag = false
   entity.energy = 0
   entity.power_production = 0
   
