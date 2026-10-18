@@ -2629,11 +2629,17 @@ data:extend({
     impact_category = data.raw.pump["pump"].impact_category,
     open_sound = data.raw.pump["pump"].open_sound,
     close_sound = data.raw.pump["pump"].close_sound,
-    fluid_wagon_connector_frame_count = 35,
-    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
-    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+
+    wagon_connection_graphics = table.deepcopy(data.raw.pump["pump"].wagon_connection_graphics),
+    fluid_wagon_tank_valve_max_distance = 2.22,
+
+    base_lifting_sound = data.raw.pump["pump"].base_lifting_sound,
+    arm_orienting_sound = data.raw.pump["pump"].arm_orienting_sound,
+    clamp_sound = data.raw.pump["pump"].clamp_sound,
+
     fluid_animation = data.raw.pump["pump"].fluid_animation,
     glass_pictures = data.raw.pump["pump"].glass_pictures,
+
     circuit_connector = circuit_connector_definitions["pump"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
@@ -2810,11 +2816,17 @@ data:extend({
     impact_category = data.raw.pump["pump"].impact_category,
     open_sound = data.raw.pump["pump"].open_sound,
     close_sound = data.raw.pump["pump"].close_sound,
-    fluid_wagon_connector_frame_count = 35,
-    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
-    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+
+    wagon_connection_graphics = table.deepcopy(data.raw.pump["pump"].wagon_connection_graphics),
+    fluid_wagon_tank_valve_max_distance = 2.22,
+
+    base_lifting_sound = data.raw.pump["pump"].base_lifting_sound,
+    arm_orienting_sound = data.raw.pump["pump"].arm_orienting_sound,
+    clamp_sound = data.raw.pump["pump"].clamp_sound,
+
     fluid_animation = data.raw.pump["pump"].fluid_animation,
     glass_pictures = data.raw.pump["pump"].glass_pictures,
+
     circuit_connector = circuit_connector_definitions["pump"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
@@ -2995,11 +3007,10 @@ data:extend({
     impact_category = data.raw.pump["pump"].impact_category,
     open_sound = data.raw.pump["pump"].open_sound,
     close_sound = data.raw.pump["pump"].close_sound,
-    fluid_wagon_connector_frame_count = 35,
-    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
-    fluid_wagon_connector_graphics = data.raw.pump["pump"].fluid_wagon_connector_graphics,
+
     fluid_animation = data.raw.pump["pump"].fluid_animation,
     glass_pictures = data.raw.pump["pump"].glass_pictures,
+
     circuit_connector = circuit_connector_definitions["pump"],
     circuit_wire_max_distance = default_circuit_wire_max_distance,
 
