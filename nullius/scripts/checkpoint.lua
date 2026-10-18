@@ -313,11 +313,18 @@ local function get_stored_fluid(force, fluid)
   local measured = {}  -- measured[id] if fluid segment id was scanned
   local total = 0
   for _, tank in pairs(tanks) do
-    local fluidbox = tank.fluidbox
-    local segment_id = fluidbox.get_fluid_segment_id(1)
-    if segment_id ~= nil and not measured[segment_id] then
-      measured[segment_id] = true
-      total = total + (fluidbox.get_fluid_segment_contents(1)[fluid] or 0)
+    if tank.has_fluid_segment(1) then
+      local segment_id = tank.get_fluid_segment_id(1)
+
+      if not measured[segment_id] then
+        measured[segment_id] = true
+
+        local segment_fluid = tank.get_fluid_segment_fluid(1)
+
+        if segment_fluid and segment_fluid.name == fluid then
+          total = total + segment_fluid.amount
+        end
+      end
     end
   end
 
