@@ -2418,7 +2418,7 @@ data:extend({
     enabled = false,
     order = "nullius-b",
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-sensor-1", amount = 2}, 
@@ -4698,7 +4698,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 			},
@@ -4714,7 +4714,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 1 },
@@ -4731,7 +4731,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 1 },
@@ -4748,7 +4748,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 1 },
@@ -4765,7 +4765,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 1 },
@@ -4782,7 +4782,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 1 },
@@ -4799,7 +4799,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 				{ type = "item", name = "nullius-steel-beam", amount = 100 },
@@ -4816,7 +4816,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 2 },
@@ -4833,7 +4833,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 2 },
@@ -4850,7 +4850,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 2 },
@@ -4867,7 +4867,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 2 },
@@ -4884,7 +4884,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 2 },
@@ -4902,7 +4902,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 				{ type = "item", name = "nullius-steel-beam", amount = 100 },
@@ -4920,7 +4920,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 3 },
@@ -4937,7 +4937,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 3 },
@@ -4954,7 +4954,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 3 },
@@ -4971,7 +4971,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 3 },
@@ -4988,7 +4988,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 3 },
@@ -5005,7 +5005,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-strongbox-base" },
 			localised_description = { "technology-description.aai-strongbox-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-2-base.png",
 			effects = {
 				{
@@ -5059,7 +5059,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-storehouse-base" },
 			localised_description = { "technology-description.aai-storehouse-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-4-base.png",
 			effects = {
 				{
@@ -5114,7 +5114,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-warehouse-base" },
 			localised_description = { "technology-description.aai-warehouse-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-6-base.png",
 			effects = {
 				{
@@ -5199,7 +5199,7 @@ if mods["stack-inserters"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 10,
-			category = "small-crafting",
+			categories = {"small-crafting"},
 			ingredients = {
 				{ type = "item", name = "bulk-inserter", amount = 3 },
 				{ type = "item", name = "nullius-processor-1", amount = 5 },

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: xx.10.2026
+  Bugfixes:
+    - Fixed crash due to fluidbox api changes
+    - Fixed recipe categories for compatible mods
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 17.10.2026
   Features:
