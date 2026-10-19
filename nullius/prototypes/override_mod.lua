@@ -1342,7 +1342,7 @@ data.raw.recipe["transport-drone"].ingredients = {
   {type = "item", name = "nullius-car-1", amount = 1},
   {type = "item", name = "arithmetic-combinator", amount = 5},
   {type = "item", name = "programmable-speaker", amount = 2},
-  {type = "item", name = "turbo-filter-inserter", amount = 3}
+  {type = "item", name = "bob-turbo-inserter", amount = 3}
 }
 
 data.raw.item["supply-depot"].order = "nullius-d"
@@ -1411,26 +1411,26 @@ data.raw.recipe["road-network-reader"].ingredients = {
   {type = "item", name = "nullius-sensor-1", amount = 1},
   {type = "item", name = "programmable-speaker", amount = 1}
 }
-data.raw.item["transport-depot-reader"].order = "nullius-j"
-data.raw.item["transport-depot-reader"].stack_size = 50
-data.raw.recipe["transport-depot-reader"].order = "nullius-j"
-data.raw.recipe["transport-depot-reader"].always_show_made_in = true
-data.raw.recipe["transport-depot-reader"].categories = {"small-crafting"}
-data.raw.recipe["transport-depot-reader"].energy_required = 2
-data.raw.recipe["transport-depot-reader"].ingredients = {
-  {type = "item", name = "road-network-reader", amount = 1},
-  {type = "item", name = "nullius-red-wire", amount = 2}
-}
-data.raw.item["transport-depot-writer"].order = "nullius-k"
-data.raw.item["transport-depot-writer"].stack_size = 50
-data.raw.recipe["transport-depot-writer"].order = "nullius-k"
-data.raw.recipe["transport-depot-writer"].always_show_made_in = true
-data.raw.recipe["transport-depot-writer"].categories = {"small-crafting"}
-data.raw.recipe["transport-depot-writer"].energy_required = 3
-data.raw.recipe["transport-depot-writer"].ingredients = {
-  {type = "item", name = "road-network-reader", amount = 1},
-  {type = "item", name = "nullius-green-wire", amount = 3}
-}
+-- data.raw.item["transport-depot-reader"].order = "nullius-j"
+-- data.raw.item["transport-depot-reader"].stack_size = 50
+-- data.raw.recipe["transport-depot-reader"].order = "nullius-j"
+-- data.raw.recipe["transport-depot-reader"].always_show_made_in = true
+-- data.raw.recipe["transport-depot-reader"].categories = {"small-crafting"}
+-- data.raw.recipe["transport-depot-reader"].energy_required = 2
+-- data.raw.recipe["transport-depot-reader"].ingredients = {
+--   {type = "item", name = "road-network-reader", amount = 1},
+--   {type = "item", name = "nullius-red-wire", amount = 2}
+-- }
+-- data.raw.item["transport-depot-writer"].order = "nullius-k"
+-- data.raw.item["transport-depot-writer"].stack_size = 50
+-- data.raw.recipe["transport-depot-writer"].order = "nullius-k"
+-- data.raw.recipe["transport-depot-writer"].always_show_made_in = true
+-- data.raw.recipe["transport-depot-writer"].categories = {"small-crafting"}
+-- data.raw.recipe["transport-depot-writer"].energy_required = 3
+-- data.raw.recipe["transport-depot-writer"].ingredients = {
+--   {type = "item", name = "road-network-reader", amount = 1},
+--   {type = "item", name = "nullius-green-wire", amount = 3}
+-- }
 
 data.raw["assembling-machine"]["request-depot"].fluid_boxes[2].base_level = 6
 data.raw["assembling-machine"]["buffer-depot"].fluid_boxes[2].base_level = 6
