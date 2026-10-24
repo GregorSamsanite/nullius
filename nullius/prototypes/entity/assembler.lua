@@ -20,6 +20,7 @@ local function assembler1_graphics(scale)
             frame_count = 1,
             repeat_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -28,6 +29,7 @@ local function assembler1_graphics(scale)
             priority = "high",
             frame_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -37,6 +39,7 @@ local function assembler1_graphics(scale)
             frame_count = 1,
             repeat_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale,
             draw_as_shadow = true,
           }
         ),
@@ -52,6 +55,7 @@ local function assembler1_graphics(scale)
             draw_as_glow = true,
             blend_mode = "additive",
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
       }
@@ -68,6 +72,7 @@ local function assembler2_graphics(scale)
             priority = "high",
             repeat_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -76,6 +81,7 @@ local function assembler2_graphics(scale)
             priority = "high",
             frame_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -84,6 +90,7 @@ local function assembler2_graphics(scale)
             priority = "high",
             repeat_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale,
             draw_as_shadow = true,
           }
         ),
@@ -99,6 +106,7 @@ local function assembler2_graphics(scale)
             draw_as_glow = true,
             blend_mode = "additive",
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
       }
@@ -116,6 +124,7 @@ local function assembler3_graphics(scale)
             priority = "high",
             repeat_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -124,6 +133,7 @@ local function assembler3_graphics(scale)
             priority = "high",
             frame_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
         util.sprite_load(
@@ -132,6 +142,7 @@ local function assembler3_graphics(scale)
             priority = "high",
             frame_count = 64,
             scale = 0.5 * scale,
+            multiply_shift = scale,
             draw_as_shadow = true,
           }
         ),
@@ -147,6 +158,7 @@ local function assembler3_graphics(scale)
             draw_as_glow = true,
             blend_mode = "additive",
             scale = 0.5 * scale,
+            multiply_shift = scale
           }
         ),
       }
@@ -183,7 +195,7 @@ data:extend({
     fast_replaceable_group = "small-assembler",
     next_upgrade = "nullius-small-assembler-2",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = assembler1_graphics(0.5),
+    graphics_set = assembler1_graphics(0.66667),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
@@ -369,7 +381,7 @@ data:extend({
     fast_replaceable_group = "small-assembler",
     next_upgrade = "nullius-small-assembler-3",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = assembler2_graphics(0.5),
+    graphics_set = assembler2_graphics(0.66667),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
@@ -415,7 +427,7 @@ data:extend({
     selection_box = {{-1.0, -1.0}, {1.0, 1.0}},
     fast_replaceable_group = "small-assembler",
     alert_icon_shift = util.by_pixel(-3, -12),
-    graphics_set = assembler3_graphics(0.5),
+    graphics_set = assembler3_graphics(0.66667),
     crafting_categories = {
       "tiny-crafting", "small-crafting", "medium-crafting",
       "tiny-assembly", "small-assembly", "medium-assembly",
