@@ -13,6 +13,15 @@ local carriage_inventories = {
   defines.inventory.artillery_wagon_ammo,
 }
 
+local function burner_accepts_fuel(burner, item_proto)
+  for _, category in pairs(item_proto.fuel_categories or {}) do
+    if burner.fuel_categories[category] == true then
+      return true
+    end
+  end
+  return false
+end
+
 local function normalize_distance(distance)
   return (math.ceil(2 * distance))
 end
@@ -375,8 +384,7 @@ local function do_upgrade_one_carriage(train, station, car, proto, item_grid)
     newcar.burner ~= nil
     and newcar.burner.valid
     and burner_current ~= nil
-    and burner_current.name.fuel_category ~= nil
-    and newcar.burner.fuel_categories[burner_current.name.fuel_category] == true
+    and burner_accepts_fuel(newcar.burner, burner_current.name)
   then
     newcar.burner.currently_burning = burner_current
     if burner_remaining ~= nil then
@@ -561,9 +569,8 @@ local function try_upgrade_one_carriage(carriage, train, station, doit)
 
           if
             (burner ~= nil)
-            and (item_proto.fuel_category ~= nil)
             and (item_proto.fuel_value > 0)
-            and (burner.fuel_categories[item_proto.fuel_category] == true)
+            and burner_accepts_fuel(burner, item_proto)
           then
             if fuel_supply == nil then
               fuel_supply = {}
