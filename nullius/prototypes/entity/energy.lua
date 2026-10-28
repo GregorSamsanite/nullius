@@ -3541,6 +3541,7 @@ data:extend({
     dying_explosion = "nuclear-reactor-explosion",
     consumption = "50MW",
     neighbour_bonus = 0.5,
+    neighbour_connectable = data.raw["reactor"]["nuclear-reactor"].neighbour_connectable,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     damaged_trigger_effect = data.raw.reactor["nuclear-reactor"].damaged_trigger_effect,
