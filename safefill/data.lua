@@ -59,8 +59,8 @@ function create_waterfill(suffix, tilename, suborder, active, layer)
     order = "nullius-w"..suborder,
     enabled = false,
     show_amount_in_title = false,
-	always_show_products = true,
-	always_show_made_in = true,
+	  always_show_products = true,
+	  always_show_made_in = true,
     results = {
       {type = "item", name = safename, amount = 1}
     }
@@ -68,15 +68,15 @@ function create_waterfill(suffix, tilename, suborder, active, layer)
 
   if (settings.startup["safefill-cost"].value == "expensive") then
     if mods["nullius"] then
-      recipe.category = "large-crafting"
+      recipe.categories = {"large-crafting"}
     else
-      recipe.category = "crafting"
+      recipe.categories = {"crafting"}
     end
   else
     if mods["nullius"] then
-      recipe.category = "large-fluid-assembly"
+      recipe.categories = {"large-fluid-assembly"}
     else
-      recipe.category = "crafting-with-fluid"
+      recipe.categories = {"crafting-with-fluid"}
     end
   end
   if ((expected < 3) and not mods["nullius"]) then
