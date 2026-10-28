@@ -1,12 +1,12 @@
 {
   "name": "train-upgrader",
-  "version": "2.0.1",
-  "factorio_version": "2.0",
+  "version": "2.1.0",
+  "factorio_version": "2.1",
   "title": "Train Upgrader",
   "author": "Anachrony",
   "description": "Easily automate the replacement of large numbers of active locomotives and wagons in your rail system.  Useful in combination with mods that add multiple tiers of locomotives or wagons.",
   "homepage": "https://discord.gg/tZY2Rkte8Y",
   "dependencies": [
-    "base >= 2.0.72"
+    "base >= 2.1.20"
   ]
 }
