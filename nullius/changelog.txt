@@ -4,6 +4,7 @@ Date: xx.xx.2026
   Bugfixes:
     - Fixed solar collector and nuclear reactor neighbor bonus
     - Added circuit connection for labs
+    - Fixed small assembler graphics
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
 Date: 18.10.2026
