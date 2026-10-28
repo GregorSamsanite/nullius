@@ -1,10 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.3
-Date: xx.xx.2026
+Date: 28.10.2026
   Bugfixes:
     - Fixed solar collector and nuclear reactor neighbor bonus
     - Added circuit connection for labs
     - Fixed small assembler graphics
+    - Fixed crash when switching priorities on some entities
+    - Fixed some German translation issues
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.2
 Date: 18.10.2026
