@@ -81,6 +81,16 @@ local function solar_collector(args)
     consumption = tostring(args.peak_power) .. "kW",
     energy_source = solar_energy_source(args.effectivity),
     neighbour_bonus = 0.1,
+    neighbour_connectable =
+    {
+      connections =
+      {
+        { location = { position = {  0,  -2 }, direction = defines.direction.north }, category = "nullius-solar-collector", neighbour_category = {"nullius-solar-collector"} },
+        { location = { position = {  2.5, 0 }, direction = defines.direction.east  }, category = "nullius-solar-collector", neighbour_category = {"nullius-solar-collector"} },
+        { location = { position = {  0,   2 }, direction = defines.direction.south }, category = "nullius-solar-collector", neighbour_category = {"nullius-solar-collector"} },
+        { location = { position = { -2.5, 0 }, direction = defines.direction.west  }, category = "nullius-solar-collector", neighbour_category = {"nullius-solar-collector"} },
+      }
+    },
     -- We decided not to have circuit connections for this building
     resistances = {
       { type = "fire", decrease = 25, percent = 60 },
