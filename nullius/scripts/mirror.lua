@@ -13,9 +13,9 @@ end
 
 function save_fluid_contents(entity)
   local ret = { }
-  if ((entity ~= nil) and entity.valid and (entity.fluidbox ~= nil)) then
-    for i = 1, #entity.fluidbox do
-	  ret[i] = entity.fluidbox[i]
+  if (entity ~= nil) and entity.valid then
+    for i = 1, entity.fluids_count do
+	  ret[i] = entity.get_fluid(i)
     end
   end
   return ret
@@ -23,8 +23,11 @@ end
 
 function restore_fluid_contents(entity, contents)
   if ((entity ~= nil) and entity.valid and (contents ~= nil)) then
-    for i = 1, #contents do
-      entity.fluidbox[i] = contents[i]
+    entity.clear_fluids()
+    for i = 1, entity.fluids_count do
+      if (contents[i] ~= nil) then
+        entity.set_fluid(i, contents[i])
+      end
     end
   end
 end

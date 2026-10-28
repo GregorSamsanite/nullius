@@ -12,8 +12,8 @@ item_receiver.order = "nullius-tc"
 
 local recipe_supplier = data.raw.recipe["tu-supplier"]
 local recipe_receiver = data.raw.recipe["tu-receiver"]
-recipe_supplier.category = "medium-crafting"
-recipe_receiver.category = "medium-crafting"
+recipe_supplier.categories = {"medium-crafting"}
+recipe_receiver.categories = {"medium-crafting"}
 recipe_supplier.order = item_supplier.order
 recipe_receiver.order = item_receiver.order
 recipe_supplier.always_show_made_in = true

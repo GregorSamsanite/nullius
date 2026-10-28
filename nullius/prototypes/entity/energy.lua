@@ -679,7 +679,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -843,7 +844,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -972,7 +974,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -1132,7 +1135,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -1270,7 +1274,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   },
 
   {
@@ -1421,7 +1426,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -1525,7 +1531,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   },
 
   {
@@ -1672,7 +1679,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   }
 })
 
@@ -1789,7 +1797,8 @@ data:extend({
           }
         }
       }
-    }
+    },
+    use_mirroring = true,
   },
 
   {
@@ -3532,6 +3541,7 @@ data:extend({
     dying_explosion = "nuclear-reactor-explosion",
     consumption = "50MW",
     neighbour_bonus = 0.5,
+    neighbour_connectable = data.raw["reactor"]["nuclear-reactor"].neighbour_connectable,
     collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     damaged_trigger_effect = data.raw.reactor["nuclear-reactor"].damaged_trigger_effect,
@@ -3639,6 +3649,7 @@ data:extend({
         west = util.table.deepcopy(data.raw.boiler["heat-exchanger"].pictures.west.structure),
       }
     },
+    use_mirroring = true,
     corpse = data.raw.boiler["heat-exchanger"].corpse,
     impact_category = data.raw.boiler["heat-exchanger"].impact_category,
     working_sound = data.raw.boiler["heat-exchanger"].working_sound,

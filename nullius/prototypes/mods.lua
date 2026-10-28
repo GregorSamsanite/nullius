@@ -41,7 +41,7 @@ data:extend({
     name = "nullius-rail-support",
     localised_name = {"entity-name.nullius-rail-pylon"},
     enabled = false,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
@@ -57,7 +57,7 @@ data:extend({
     name = "nullius-rail-ramp",
     localised_name = {"entity-name.rail-ramp"},
     enabled = false,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
@@ -105,7 +105,7 @@ data:extend({
     name = "nullius-logistic-train-stop",
     localised_name = {"entity-name.logistic-train-stop"},
     enabled = false,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     always_show_made_in = true,
     energy_required = 3,
     ingredients = {
@@ -129,7 +129,7 @@ if mods["LTN_Combinator_Modernized"] then
       localised_name = {"entity-name.ltn-combinator"},
       enabled = false,
       always_show_made_in = true,
-      category = "tiny-crafting",
+      categories = {"tiny-crafting"},
       energy_required = 2,
       ingredients = {
         {type = "item", name = "constant-combinator", amount = 1},
@@ -156,7 +156,7 @@ data:extend({
     type = "recipe",
     name = "nullius-aai-signal-sender",
     localised_name = {"entity-name.aai-signal-sender"},
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 12,
     ingredients = {
@@ -172,7 +172,7 @@ data:extend({
     type = "recipe",
     name = "nullius-aai-signal-receiver",
     localised_name = {"entity-name.aai-signal-receiver"},
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 15,
     ingredients = {
@@ -227,7 +227,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-1",
     localised_name = {"entity-name.factory-1"},
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 40,
     ingredients = {
@@ -246,7 +246,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-2",
     localised_name = {"entity-name.factory-2"},
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 60,
     ingredients = {
@@ -265,7 +265,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-3",
     localised_name = {"entity-name.factory-3"},
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     always_show_made_in = true,
     energy_required = 90,
     ingredients = {
@@ -298,7 +298,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-circuit-connector",
     localised_name = {"entity-name.factory-circuit-connector"},
-    category = "small-crafting",
+    categories = {"small-crafting"},
     always_show_made_in = true,
     energy_required = 2,
     ingredients = {
@@ -317,7 +317,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-requester-chest",
     localised_name = {"entity-name.factory-requester-chest"},
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     always_show_made_in = true,
     energy_required = 10,
     ingredients = {
@@ -332,7 +332,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-input-pipe",
     localised_name = {"entity-name.factory-input-pipe"},
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     always_show_made_in = true,
     energy_required = 2,
     ingredients = {
@@ -348,7 +348,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-output-pipe",
     localised_name = {"entity-name.factory-output-pipe"},
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     always_show_made_in = true,
     energy_required = 0.5,
     no_productivity = true,
@@ -364,7 +364,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-circuit-input",
     localised_name = {"entity-name.factory-circuit-input"},
-    category = "small-crafting",
+    categories = {"small-crafting"},
     always_show_made_in = true,
     energy_required = 2,
     ingredients = {
@@ -380,7 +380,7 @@ data:extend({
     type = "recipe",
     name = "nullius-factory-circuit-output",
     localised_name = {"entity-name.factory-circuit-output"},
-    category = "small-crafting",
+    categories = {"small-crafting"},
     always_show_made_in = true,
     no_productivity = true,
     energy_required = 0.5,
@@ -480,7 +480,7 @@ data:extend({
     name = "nullius-miniloader-chute",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type="item", name="wooden-chest", amount=1},
@@ -507,7 +507,7 @@ data:extend({
     name = "nullius-miniloader-1",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type="item", name="chute-miniloader", amount=1},
@@ -523,7 +523,7 @@ data:extend({
     name = "nullius-miniloader-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type="item", name="miniloader", amount=1},
@@ -540,7 +540,7 @@ data:extend({
     name = "nullius-miniloader-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 6,
     ingredients = {
       {type="item", name="fast-miniloader", amount=1},
@@ -557,7 +557,7 @@ data:extend({
     name = "nullius-miniloader-4",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 8,
     ingredients = {
       {type="item", name="express-miniloader", amount=1},
@@ -584,7 +584,7 @@ data:extend({
     name = "nullius-filter-miniloader-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type="item", name="miniloader", amount=1},
@@ -601,7 +601,7 @@ data:extend({
     name = "nullius-filter-miniloader-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 6,
     ingredients = {
       {type="item", name="fast-filter-miniloader", amount=1},
@@ -618,7 +618,7 @@ data:extend({
     name = "nullius-filter-miniloader-4",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 8,
     ingredients = {
       {type="item", name="express-filter-miniloader", amount=1},
@@ -730,7 +730,7 @@ data:extend({
     localised_name = {"entity-name.aai-basic-loader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type="item", name="wooden-chest", amount=1},
@@ -746,7 +746,7 @@ data:extend({
     localised_name = {"entity-name.aai-loader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type="item", name="aai-basic-loader", amount=1},
@@ -764,7 +764,7 @@ data:extend({
     localised_name = {"entity-name.aai-fast-loader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 8,
     ingredients = {
       {type="item", name="aai-loader", amount=2},
@@ -782,7 +782,7 @@ data:extend({
     localised_name = {"entity-name.aai-express-loader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 12,
     ingredients = {
       {type="item", name="aai-fast-loader", amount=1},
@@ -800,7 +800,7 @@ data:extend({
     localised_name = {"entity-name.aai-ultimate-loader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 20,
     ingredients = {
       {type="item", name="aai-express-loader", amount=2},
@@ -824,7 +824,7 @@ data:extend({
     localised_name = {"entity-name.train-publisher"},
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 3,
     ingredients = {
         {type = "item", name = "small-lamp", amount = 1},
@@ -840,7 +840,7 @@ data:extend({
     localised_name = {"entity-name.subscriber-train-stop"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "train-stop", amount = 1},
@@ -857,7 +857,7 @@ data:extend({
     localised_name = {"entity-name.publisher-train-stop"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "train-stop", amount = 1},
@@ -874,7 +874,7 @@ data:extend({
     localised_name = {"entity-name.train-config"},
     enabled = false,
     always_show_made_in = true,
-    category = "tiny-crafting",
+    categories = {"tiny-crafting"},
     energy_required = 2,
     ingredients = {
         {type = "item", name = "constant-combinator", amount = 1},
@@ -895,7 +895,7 @@ data:extend({
     name = "nullius-teleporter",
     localised_name = {"teleporter"},
     enabled = false,
-    category = "nanotechnology",
+    categories = {"nanotechnology"},
     energy_required = 60,
     ingredients = {
       {type = "item", name = "nullius-productivity-module-2", amount = 4},
@@ -1022,7 +1022,7 @@ data:extend({
     localised_name = {"item-name.jetpack-1"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-robot-frame-1", amount = 1},
@@ -1041,7 +1041,7 @@ data:extend({
     localised_name = {"item-name.jetpack-2"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 15,
     ingredients = {
       {type = "item", name = "jetpack-1", amount = 1},
@@ -1061,7 +1061,7 @@ data:extend({
     localised_name = {"item-name.jetpack-3"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 20,
     ingredients = {
       {type = "item", name = "jetpack-2", amount = 1},
@@ -1081,7 +1081,7 @@ data:extend({
     localised_name = {"item-name.jetpack-4"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 30,
     ingredients = {
       {type = "item", name = "jetpack-3", amount = 2},
@@ -1105,7 +1105,7 @@ data:extend({
     --localised_name = {"entity-name.one-to-one-forward-t2-pipe"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "nullius-underground-pipe-2", amount = 2},
@@ -1122,7 +1122,7 @@ data:extend({
     --localised_name = {"entity-name.one-to-two-perpendicular-t2-pipe"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "one-to-one-forward-t2-pipe", amount = 1},
@@ -1138,7 +1138,7 @@ data:extend({
     --localised_name = {"entity-name.one-to-three-forward-t2-pipe"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "one-to-two-perpendicular-t2-pipe", amount = 1},
@@ -1154,7 +1154,7 @@ data:extend({
     --localised_name = {"entity-name.underground-i-t2-pipe"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "one-to-one-forward-t2-pipe", amount = 1},
@@ -1171,7 +1171,7 @@ data:extend({
     --localised_name = {"entity-name.underground-L-t2-pipe"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "underground-i-t2-pipe", amount = 1},
@@ -1186,7 +1186,7 @@ data:extend({
     name = "nullius-underground-three-way-junction-1",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "underground-L-t2-pipe", amount = 1},
@@ -1202,7 +1202,7 @@ data:extend({
   --   localised_name = {"item-name.nullius-adjustable-relief-valve"},
   --   enabled = false,
   --   always_show_made_in = true,
-  --   category = "tiny-crafting",
+  --   categories = {"tiny-crafting"},
   --   energy_required = 3,
   --   ingredients = {
   --     {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves with underground pipe pack
@@ -1218,7 +1218,7 @@ data:extend({
     name = "nullius-surface-two-way-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "one-to-one-forward-t2-pipe", amount = 1},
@@ -1234,7 +1234,7 @@ data:extend({
     name = "nullius-surface-three-way-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "one-to-two-perpendicular-t2-pipe", amount = 1},
@@ -1250,7 +1250,7 @@ data:extend({
     name = "nullius-surface-four-way-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "one-to-three-forward-t2-pipe", amount = 1},
@@ -1266,7 +1266,7 @@ data:extend({
     name = "nullius-underground-straight-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "underground-i-t2-pipe", amount = 1},
@@ -1281,7 +1281,7 @@ data:extend({
     name = "nullius-underground-elbow-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "underground-L-t2-pipe", amount = 1},
@@ -1296,7 +1296,7 @@ data:extend({
     name = "nullius-underground-three-way-junction-2",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "underground-t-t2-pipe", amount = 1},
@@ -1312,7 +1312,7 @@ data:extend({
   --   localised_name = {"item-name.nullius-adjustable-top-up-valve"},
   --   enabled = false,
   --   always_show_made_in = true,
-  --   category = "tiny-crafting",
+  --   categories = {"tiny-crafting"},
   --   energy_required = 3,
   --   ingredients = {
   --     {type = "item", name = "nullius-one-way-valve", amount = 2}, --todo: rework valves
@@ -1328,7 +1328,7 @@ data:extend({
     name = "nullius-surface-two-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "one-to-one-forward-t3-pipe", amount = 1},
@@ -1343,7 +1343,7 @@ data:extend({
     name = "nullius-surface-three-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "one-to-two-perpendicular-t3-pipe", amount = 1},
@@ -1358,7 +1358,7 @@ data:extend({
     name = "nullius-surface-four-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "one-to-three-forward-t3-pipe", amount = 1},
@@ -1373,7 +1373,7 @@ data:extend({
     name = "nullius-surface-five-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "one-to-two-perpendicular-pipe", amount = 1},
@@ -1388,7 +1388,7 @@ data:extend({
     name = "nullius-underground-straight-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "underground-i-t3-pipe", amount = 1},
@@ -1404,7 +1404,7 @@ data:extend({
     name = "nullius-underground-elbow-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "underground-L-t3-pipe", amount = 1},
@@ -1420,7 +1420,7 @@ data:extend({
     name = "nullius-underground-three-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "underground-t-t3-pipe", amount = 1},
@@ -1436,7 +1436,7 @@ data:extend({
     name = "nullius-underground-four-way-junction-3",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "underground-L-pipe", amount = 2},
@@ -1452,7 +1452,7 @@ data:extend({
     localised_name = {"item-name.nullius-underground-pump"},
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 12,
     ingredients = {
       {type = "item", name = "nullius-small-pump-2", amount = 3},
@@ -1603,7 +1603,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-basic"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "nullius-large-chest-1", amount = 3},
@@ -1620,7 +1620,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-basic"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 4},
@@ -1638,7 +1638,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-storage"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 1},
@@ -1654,7 +1654,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-storage"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "warehouse-basic", amount = 1},
@@ -1670,7 +1670,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-passive-provider"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 1},
@@ -1686,7 +1686,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-passive-provider"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "warehouse-basic", amount = 1},
@@ -1702,7 +1702,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-requester"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 1},
@@ -1718,7 +1718,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-requester"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "warehouse-basic", amount = 1},
@@ -1734,7 +1734,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-buffer"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 1},
@@ -1750,7 +1750,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-buffer"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "warehouse-basic", amount = 1},
@@ -1766,7 +1766,7 @@ data:extend({
     localised_name = {"entity-name.storehouse-active-provider"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "storehouse-basic", amount = 1},
@@ -1782,7 +1782,7 @@ data:extend({
     localised_name = {"entity-name.warehouse-active-provider"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "warehouse-basic", amount = 1},
@@ -1953,7 +1953,7 @@ data:extend({
     localised_name = {"entity-name.logistic-chest-botUpgrader"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "nullius-small-demand-chest-1", amount = 1},
@@ -1976,7 +1976,7 @@ data:extend({
     enabled = false,
 	  always_show_made_in = true,
 	  no_productivity = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "train-stop", amount = 1},
@@ -1998,7 +1998,8 @@ data:extend({
     icon = "__angelspetrochemgraphics__/graphics/icons/rocket-booster.png",
     icon_size = 32,
     subgroup = "petrochem-fuel",
-    fuel_category = "chemical",
+    order = "c[rocket-booster]",
+    fuel_categories = {"chemical"},
     fuel_value = "10MJ",
     fuel_acceleration_multiplier = 1.8,
     fuel_top_speed_multiplier = 1.15,
@@ -2048,7 +2049,7 @@ data:extend({
     name = "nullius-companion",
     enabled = false,
 	  always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 90,
     ingredients = {
       {type = "item", name = "nullius-android-2", amount = 1},
@@ -2063,7 +2064,7 @@ data:extend({
     name = "nullius-companion-reactor-equipment",
     enabled = false,
 	  always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 30,
     ingredients = {
       {type = "item", name = "nullius-reactor", amount = 1},
@@ -2078,8 +2079,8 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-shield-equipment",
     enabled = false,
-	  always_show_made_in = true,
-    category = "medium-crafting",
+	always_show_made_in = true,
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "nullius-shield", amount = 1},
@@ -2093,8 +2094,8 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-roboport-equipment",
     enabled = false,
-	  always_show_made_in = true,
-    category = "medium-crafting",
+	always_show_made_in = true,
+    categories = {"medium-crafting"},
     energy_required = 40,
     ingredients = {
       {type = "item", name = "nullius-drone-carrier-2", amount = 1},
@@ -2109,8 +2110,8 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-defense-equipment",
     enabled = false,
-	  always_show_made_in = true,
-    category = "medium-crafting",
+	always_show_made_in = true,
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-turret", amount = 5},
@@ -2124,8 +2125,8 @@ data:extend({
     type = "recipe",
     name = "nullius-companion-fuel",
     enabled = false,
-	  always_show_made_in = true,
-    category = "medium-crafting",
+	always_show_made_in = true,
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-hydrogen-canister", amount = 3},
@@ -2149,7 +2150,7 @@ data:extend({
     localised_name = {"entity-name.railway-motor-car-base"},
     enabled = false,
 	  always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 15,
     ingredients = {
       {type = "item", name = "nullius-locomotive-1", amount = 1},
@@ -2166,7 +2167,7 @@ data:extend({
     localised_name = {"entity-name.railway-motor-car-nuclear"},
     enabled = false,
 	  always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 25,
     ingredients = {
       {type = "item", name = "railway-motor-car-base", amount = 1},
@@ -2189,7 +2190,7 @@ data:extend({
     localised_name = {"entity-name.item-sensor"},
     enabled = false,
 	  always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "nullius-sensor-1", amount = 1},
@@ -2210,7 +2211,7 @@ if (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) then
       name = "nullius-crafting-combinator",
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 2,
       ingredients = {
         {type = "item", name = "constant-combinator", amount = 1},
@@ -2225,7 +2226,7 @@ if (mods["crafting_combinator"] or mods["crafting_combinator_xeraph"]) then
       name = "nullius-recipe-combinator",
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 2,
       ingredients = {
         {type = "item", name = "arithmetic-combinator", amount = 1},
@@ -2247,7 +2248,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       localised_name = {"entity-name.classic-nixie-tube"},
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 4,
       ingredients = {
         {type = "item", name = "constant-combinator", amount = 2},
@@ -2265,7 +2266,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       localised_name = {"entity-name.reinforced-nixie-tube"},
       enabled = false,
       always_show_made_in = true,
-      category = "medium-crafting",
+      categories = {"medium-crafting"},
       energy_required = 5,
       ingredients = {
         {type = "item", name = "classic-nixie-tube", amount = 1},
@@ -2281,7 +2282,7 @@ if mods["UPSFriendlyNixieTubeDisplay"] then
       localised_name = {"entity-name.small-reinforced-nixie-tube"},
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 3,
       ingredients = {
         {type = "item", name = "classic-nixie-tube", amount = 1},
@@ -2354,7 +2355,7 @@ data:extend({
     localised_name = {"entity-name.hs_holo_sign"},
     enabled = false,
     always_show_made_in = true,
-    category = "small-crafting",
+    categories = {"small-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "constant-combinator", amount = 2},
@@ -2400,7 +2401,7 @@ data:extend({
     enabled = false,
     order = "nullius-a",
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "programmable-speaker", amount = 1}, 
@@ -2417,7 +2418,7 @@ data:extend({
     enabled = false,
     order = "nullius-b",
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 10,
     ingredients = {
       {type = "item", name = "nullius-sensor-1", amount = 2}, 
@@ -2425,7 +2426,7 @@ data:extend({
     },
     results = {
 			{type = "item", name = "shuttle-train-manual", amount = 1}
-		}
+  }
   }
 })
 end
@@ -2445,7 +2446,7 @@ data:extend({
     localised_name = {"entity-name.duct-small"},
     enabled = false,
     always_show_made_in = true,
-    category = "hand-casting",
+    categories = {"machine-casting", "hand-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-box-steel-plate", amount = 1},
@@ -2461,7 +2462,7 @@ data:extend({
     localised_name = {"entity-name.duct-curve"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "duct-small", amount = 2},
@@ -2477,7 +2478,7 @@ data:extend({
     localised_name = {"entity-name.duct-t-junction"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "duct-small", amount = 3},
@@ -2493,7 +2494,7 @@ data:extend({
     localised_name = {"entity-name.duct-cross"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "duct-small", amount = 4},
@@ -2509,7 +2510,7 @@ data:extend({
     localised_name = {"entity-name.duct-exhaust"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "duct-cross", amount = 1},
@@ -2525,7 +2526,7 @@ data:extend({
     localised_name = {"entity-name.duct-intake"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "duct-exhaust", amount = 1},
@@ -2603,7 +2604,7 @@ data:extend({
     localised_name = {"entity-name.duct"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "duct-small", amount = 2},
@@ -2619,7 +2620,7 @@ data:extend({
     localised_name = {"entity-name.duct-long"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "duct", amount = 2},
@@ -2635,7 +2636,7 @@ data:extend({
     localised_name = {"entity-name.duct-underground"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "duct-long", amount = 3},
@@ -2651,7 +2652,7 @@ data:extend({
     localised_name = {"entity-name.non-return-duct"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "duct", amount = 1},
@@ -2670,7 +2671,7 @@ data:extend({
     localised_name = {"entity-name.duct-underground"},
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "duct-small", amount = 12},
@@ -2686,7 +2687,7 @@ data:extend({
     localised_name = {"entity-name.non-return-duct"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "duct-small", amount = 2},
@@ -2718,7 +2719,7 @@ data:extend({
     name = "nullius-rail-loader",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "rail", amount = 3},
@@ -2737,7 +2738,7 @@ data:extend({
     name = "nullius-rail-unloader",
     enabled = false,
     always_show_made_in = true,
-    category = "huge-crafting",
+    categories = {"huge-crafting"},
     energy_required = 8,
     ingredients = {
       {type = "item", name = "rail", amount = 3},
@@ -2805,7 +2806,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
 	  GCKI_ignore = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "inserter", amount = 2},
@@ -2822,7 +2823,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
 	  GCKI_ignore = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "RTThrower-inserter-Item", amount = 1},
@@ -2840,7 +2841,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
 	  GCKI_ignore = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "RTThrower-bob-turbo-inserter-Item", amount = 1},
@@ -2857,7 +2858,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
 	  GCKI_ignore = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "RTThrower-bulk-inserter-Item", amount = 1},
@@ -2874,7 +2875,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     no_productivity = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 0.5,
     ingredients = {
       {type = "item", name = "wooden-chest", amount = 1}
@@ -2892,7 +2893,7 @@ data:extend({
     allow_as_intermediate = false,
     allow_intermediates = false,
     no_productivity = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
 	  subgroup = "nullius-renai-bounce",
 	  order = "nullius-dc",
     energy_required = 0.5,
@@ -2909,7 +2910,7 @@ data:extend({
     localised_name = {"entity-name.HatchRT"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-underground-pipe-2", amount = 1},
@@ -2926,7 +2927,7 @@ data:extend({
     localised_name = {"entity-name.RTThrower-EjectorHatchRT"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "HatchRT", amount = 1},
@@ -2943,7 +2944,7 @@ data:extend({
     localised_name = {"entity-name.PlayerLauncher"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type="item", name="RTThrower-inserter-Item", amount=1},
@@ -2959,7 +2960,7 @@ data:extend({
     localised_name = {"entity-name.RTBouncePlate"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "nullius-rubber", amount = 4},
@@ -2976,7 +2977,7 @@ data:extend({
     localised_name = {"entity-name.DirectedBouncePlate"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 1,
     ingredients = {
       {type = "item", name = "RTBouncePlate", amount = 1},
@@ -2991,7 +2992,7 @@ data:extend({
   --   name = "nullius-signal-bounce-plate", -- Recently removed by the original mod
   --   enabled = false,
   --   always_show_made_in = true,
-  --   category = "small-crafting",
+  --   categories = {"small-crafting"},
   --   energy_required = 1,
   --   ingredients = {
   --     {type = "item", name = "RTBouncePlate", amount = 1},
@@ -3007,13 +3008,13 @@ data:extend({
     localised_name = {"entity-name.DirectorBouncePlate"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "DirectedBouncePlate", amount = 1},
-	  {type = "item", name = "nullius-motor-2", amount = 1},
+      {type = "item", name = "nullius-motor-2", amount = 1},
       {type = "item", name = "nullius-iron-gear", amount = 3},
-	  {type = "item", name = "nullius-sensor-1", amount = 1}
+      {type = "item", name = "nullius-sensor-1", amount = 1}
     },
     results = {
 			{type = "item", name = "DirectorBouncePlate", amount = 1}
@@ -3036,7 +3037,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineTrolley"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 3,
     ingredients = {
       {type = "item", name = "nullius-locomotive-1", amount = 1},
@@ -3052,7 +3053,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineTrolley2"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "RTZiplineTrolley", amount = 2},
@@ -3069,7 +3070,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineTrolley3"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 12,
     ingredients = {
       {type = "item", name = "RTZiplineTrolley2", amount = 1},
@@ -3087,7 +3088,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineTrolley4"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 25,
     ingredients = {
       {type = "item", name = "RTZiplineTrolley3", amount = 1},
@@ -3106,7 +3107,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineTrolley5"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 50,
     ingredients = {
       {type = "item", name = "RTZiplineTrolley4", amount = 2},
@@ -3125,7 +3126,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineControls"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "power-switch", amount = 1},
@@ -3141,7 +3142,7 @@ data:extend({
     localised_name = {"item-name.RTZiplineCrankControls"},
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 1,
     ingredients = {
       {type = "item", name = "RTZiplineControls", amount = 1},
@@ -3158,7 +3159,7 @@ data:extend({
     localised_name = {"item-name.RTProgrammableZiplineControls"},
     enabled = false,
     always_show_made_in = true,
-    category = "tiny-crafting",
+    categories = {"tiny-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "RTZiplineControls", amount = 1},
@@ -3176,7 +3177,7 @@ data:extend({
     localised_name = {"entity-name.RTZiplineTerminal"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 15,
     ingredients = {
       {type = "item", name = "RTProgrammableZiplineControls", amount = 1},
@@ -3205,7 +3206,7 @@ data:extend({
     localised_name = {"entity-name.RTTrainRamp"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "rail", amount = 2},
@@ -3222,7 +3223,7 @@ data:extend({
     localised_name = {"entity-name.RTMagnetTrainRamp"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 6,
     ingredients = {
       {type = "item", name = "RTTrainRamp", amount = 1},
@@ -3240,7 +3241,7 @@ data:extend({
     localised_name = {"entity-name.RTImpactUnloader"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "stone-wall", amount = 6},
@@ -3258,7 +3259,7 @@ data:extend({
     localised_name = {"entity-name.RTImpactWagon"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 4,
     ingredients = {
       {type = "item", name = "nullius-cargo-wagon-2", amount = 1},
@@ -3279,7 +3280,7 @@ data:extend({
     localised_name = {"entity-name.RTTrainBouncePlate"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "RTBouncePlate", amount = 6},
@@ -3296,7 +3297,7 @@ data:extend({
     localised_name = {"entity-name.RTTrainDirectedBouncePlate"},
     enabled = false,
     always_show_made_in = true,
-    category = "large-crafting",
+    categories = {"large-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "RTTrainBouncePlate", amount = 1},
@@ -3437,7 +3438,7 @@ data:extend({
     name = "nullius-logistic-ballistics-6",
     order = "nullius-dl",
 	  icon = "__RenaiTransportation__/graphics/icons/DirectorPlateIcon.png",
-	  icon_size = 256,
+	  icon_size = 64,
     effects = {
       -- {
       --   type = "unlock-recipe",
@@ -3784,7 +3785,7 @@ data:extend({
     name = "nullius-display-plate-small-steel",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-rubber", amount = 1},
@@ -3800,7 +3801,7 @@ data:extend({
     name = "nullius-display-plate-medium-steel",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "iron-display-small", amount = 4},
@@ -3815,7 +3816,7 @@ data:extend({
     name = "nullius-display-plate-large-steel",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "iron-display-small", amount = 9},
@@ -3830,7 +3831,7 @@ data:extend({
     name = "nullius-display-plate-small-aluminum",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-rubber", amount = 1},
@@ -3846,7 +3847,7 @@ data:extend({
     name = "nullius-display-plate-medium-aluminum",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "steel-display-small", amount = 4},
@@ -3861,7 +3862,7 @@ data:extend({
     name = "nullius-display-plate-large-aluminum",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "steel-display-small", amount = 9},
@@ -3876,7 +3877,7 @@ data:extend({
     name = "nullius-display-plate-small-plastic",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "nullius-rubber", amount = 1},
@@ -3892,7 +3893,7 @@ data:extend({
     name = "nullius-display-plate-medium-plastic",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 2,
     ingredients = {
       {type = "item", name = "copper-display-small", amount = 4},
@@ -3907,7 +3908,7 @@ data:extend({
     name = "nullius-display-plate-large-plastic",
     enabled = false,
     always_show_made_in = true,
-    category = "medium-crafting",
+    categories = {"medium-crafting"},
     energy_required = 5,
     ingredients = {
       {type = "item", name = "copper-display-small", amount = 9},
@@ -3987,7 +3988,7 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       localised_name = {"entity-name.blueprint-deployer"},
       enabled = false,
       always_show_made_in = true,
-      category = "small-crafting",
+      categories = {"small-crafting"},
       energy_required = 12,
       ingredients = {
         {type = "item", name = "nullius-small-storage-chest-1", amount = 1},
@@ -4004,7 +4005,7 @@ if (mods["rec-blue-plus"] or mods["recursive-blueprints"]) then
       localised_name = {"entity-name.recursive-blueprints-scanner"},
       enabled = false,
       always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 20,
       ingredients = {
         {type = "item", name = "radar", amount = 1},
@@ -4027,7 +4028,7 @@ if mods["ch-concentrated-solar"] then
       localised_name = {"entity-name.chcs-heliostat-mirror"},
       enabled = false,
       always_show_made_in = true,
-      category = "hand-casting",
+      categories = {"machine-casting", "hand-crafting"},
       energy_required = 10,
       ingredients = {
 	    {type = "item", name = "nullius-aluminum-sheet", amount = 8},
@@ -4045,7 +4046,7 @@ if mods["ch-concentrated-solar"] then
       name = "nullius-boxed-heliostat-mirror",
       enabled = false,
       always_show_made_in = true,
-      category = "machine-casting",
+      categories = {"machine-casting"},
 	    subgroup = "boxed-heat-energy",
       energy_required = 50,
       ingredients = {
@@ -4065,7 +4066,7 @@ if mods["ch-concentrated-solar"] then
       localised_name = {"entity-name.chcs-solar-power-tower"},
       enabled = false,
       always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 60,
       ingredients = {
 	      {type = "item", name = "nullius-thermal-tank-2", amount = 3},
@@ -4133,7 +4134,7 @@ if (mods["beautiful_bridge_railway"] or
       name = "nullius-rail-bridge-iron",
       enabled = false,
 	  always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 6,
       ingredients = {
         {type = "item", name = "rail", amount = 2},
@@ -4150,7 +4151,7 @@ if (mods["beautiful_bridge_railway"] or
       name = "nullius-rail-bridge-brick",
       enabled = false,
 	  always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 8,
       ingredients = {
         {type = "item", name = "rail", amount = 2},
@@ -4168,7 +4169,7 @@ if (mods["beautiful_bridge_railway"] or
       name = "nullius-rail-bridge-wood",
       enabled = false,
 	  always_show_made_in = true,
-      category = "huge-crafting",
+      categories = {"huge-crafting"},
       energy_required = 5,
       ingredients = {
         {type = "item", name = "rail", amount = 2},
@@ -4353,7 +4354,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 8,
       ingredients = {
         {type = "item", name = "nullius-locomotive-1", amount = 1},
@@ -4370,7 +4371,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 15,
       ingredients = {
         {type = "item", name = "nullius-locomotive-2", amount = 1},
@@ -4388,7 +4389,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 30,
       ingredients = {
         {type = "item", name = "nullius-locomotive-3", amount = 1},
@@ -4405,7 +4406,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 30,
       ingredients = {
         {type = "item", name = "nullius-solar-locomotive", amount = 1},
@@ -4422,7 +4423,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 5,
       ingredients = {
         {type = "item", name = "nullius-cargo-wagon-1", amount = 1},
@@ -4439,7 +4440,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 10,
       ingredients = {
 	    {type = "item", name = "nullius-cargo-wagon-2", amount = 1},
@@ -4457,7 +4458,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 20,
       ingredients = {
 	    {type = "item", name = "nullius-cargo-wagon-3", amount = 1},
@@ -4474,7 +4475,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 6,
       ingredients = {
         {type = "item", name = "nullius-fluid-wagon-1", amount = 1},
@@ -4491,7 +4492,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 12,
       ingredients = {
 	    {type = "item", name = "nullius-fluid-wagon-2", amount = 1},
@@ -4509,7 +4510,7 @@ if mods["Mini_Trains"] then
       show_amount_in_title = false,
       always_show_products = true,
 	    always_show_made_in = true,
-      category = "large-crafting",
+      categories = {"large-crafting"},
       energy_required = 25,
       ingredients = {
 	    {type = "item", name = "nullius-fluid-wagon-3", amount = 1},
@@ -4554,7 +4555,7 @@ if mods["fcpu"] then
       localised_name = {"entity-name.fcpu"},
       enabled = false,
       always_show_made_in = true,
-      category = "tiny-crafting",
+      categories = {"tiny-crafting"},
       energy_required = 2,
       ingredients = {
         {type = "item", name = "decider-combinator", amount = 10},
@@ -4697,7 +4698,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 			},
@@ -4713,7 +4714,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 1 },
@@ -4730,7 +4731,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 1 },
@@ -4747,7 +4748,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 1 },
@@ -4764,7 +4765,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 1 },
@@ -4781,7 +4782,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-strongbox", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 1 },
@@ -4798,7 +4799,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 				{ type = "item", name = "nullius-steel-beam", amount = 100 },
@@ -4815,7 +4816,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 2 },
@@ -4832,7 +4833,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 2 },
@@ -4849,7 +4850,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 2 },
@@ -4866,7 +4867,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 2 },
@@ -4883,7 +4884,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-storehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 2 },
@@ -4901,7 +4902,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "nullius-steel-plate", amount = 100 },
 				{ type = "item", name = "nullius-steel-beam", amount = 100 },
@@ -4919,7 +4920,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-supply-chest-1", amount = 3 },
@@ -4936,7 +4937,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-dispatch-chest-1", amount = 3 },
@@ -4953,7 +4954,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-buffer-chest-1", amount = 3 },
@@ -4970,7 +4971,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-storage-chest-1", amount = 3 },
@@ -4987,7 +4988,7 @@ if mods["aai-containers"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 5,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			ingredients = {
 				{ type = "item", name = "aai-warehouse", amount = 1 },
 				{ type = "item", name = "nullius-large-demand-chest-1", amount = 3 },
@@ -5004,7 +5005,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-strongbox-base" },
 			localised_description = { "technology-description.aai-strongbox-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-2-base.png",
 			effects = {
 				{
@@ -5058,7 +5059,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-storehouse-base" },
 			localised_description = { "technology-description.aai-storehouse-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-4-base.png",
 			effects = {
 				{
@@ -5113,7 +5114,7 @@ if mods["aai-containers"] then
 			localised_name = { "technology-name.aai-warehouse-base" },
 			localised_description = { "technology-description.aai-warehouse-base" },
 			icon_size = 128,
-			category = "large-crafting",
+			categories = {"large-crafting"},
 			icon = "__aai-containers__/graphics/technology/container-6-base.png",
 			effects = {
 				{
@@ -5198,7 +5199,7 @@ if mods["stack-inserters"] then
 			enabled = false,
 			always_show_made_in = true,
 			energy_required = 10,
-			category = "small-crafting",
+			categories = {"small-crafting"},
 			ingredients = {
 				{ type = "item", name = "bulk-inserter", amount = 3 },
 				{ type = "item", name = "nullius-processor-1", amount = 5 },

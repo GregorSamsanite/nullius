@@ -23,6 +23,7 @@ data:extend({
     max_health = 500,
     corpse = "locomotive-remnants",
     dying_explosion = "locomotive-explosion",
+    next_upgrade = "nullius-locomotive-2",
     fast_replaceable_group = "locomotive",
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
@@ -140,6 +141,7 @@ data:extend({
     max_health = 1000,
     corpse = "locomotive-remnants",
     dying_explosion = "locomotive-explosion",
+    next_upgrade = "nullius-locomotive-3",
     fast_replaceable_group = "locomotive",
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
@@ -389,6 +391,7 @@ data:extend({
     max_health = 400,
     corpse = "cargo-wagon-remnants",
     dying_explosion = "cargo-wagon-explosion",
+    next_upgrade = "nullius-cargo-wagon-2",
     fast_replaceable_group = "cargo-wagon",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
@@ -440,6 +443,7 @@ data:extend({
     max_health = 600,
     corpse = "cargo-wagon-remnants",
     dying_explosion = "cargo-wagon-explosion",
+    next_upgrade = "nullius-cargo-wagon-3",
     fast_replaceable_group = "cargo-wagon",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
@@ -542,6 +546,7 @@ data:extend({
     capacity = 25000,
     corpse = "fluid-wagon-remnants",
     dying_explosion = "fluid-wagon-explosion",
+    next_upgrade = "nullius-fluid-wagon-2",
     fast_replaceable_group = "fluid-wagon",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
@@ -611,7 +616,14 @@ data:extend({
         sprites.layers[1].apply_runtime_tint = true
         return sprites
       end)
-    }
+    },
+
+    valve_to_valve_offset_when_horizontal = { 2, 0 },
+    valve_to_valve_offset_when_vertical = { 0, 1.775 },
+    base_valve_z_offset_projected_when_horizontal = -1.4,
+    base_valve_z_offset_projected_when_vertical = -1.55,
+    base_valve_xy_offset_when_horizontal = { 0, 0 },
+    base_valve_xy_offset_when_vertical = { 0, 0 },
   }
 })
 
@@ -627,13 +639,14 @@ data:extend({
     capacity = 80000,
     corpse = "fluid-wagon-remnants",
     dying_explosion = "fluid-wagon-explosion",
+    next_upgrade = "nullius-fluid-wagon-3",
     fast_replaceable_group = "fluid-wagon",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
     damaged_trigger_effect = data.raw["fluid-wagon"]["fluid-wagon"].damaged_trigger_effect,
     vertical_selection_shift = -0.796875,
     weight = 1200,
-	max_speed = 2.037037,
+	  max_speed = 2.037037,
     braking_force = 2,
     friction_force = 0.4,
     air_resistance = 0.012,
@@ -660,7 +673,14 @@ data:extend({
     impact_category = data.raw["fluid-wagon"]["fluid-wagon"].impact_category,
     water_reflection = data.raw["fluid-wagon"]["fluid-wagon"].water_reflection,
     --sound_minimum_speed = 0.1,
-    pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures
+    pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures,
+
+    valve_to_valve_offset_when_horizontal = { 2, 0 },
+    valve_to_valve_offset_when_vertical = { 0, 1.775 },
+    base_valve_z_offset_projected_when_horizontal = -1.4,
+    base_valve_z_offset_projected_when_vertical = -1.55,
+    base_valve_xy_offset_when_horizontal = { 0, 0 },
+    base_valve_xy_offset_when_vertical = { 0, 0 },
   },
 
   {
@@ -707,7 +727,14 @@ data:extend({
     impact_category = data.raw["fluid-wagon"]["fluid-wagon"].impact_category,
     water_reflection = data.raw["fluid-wagon"]["fluid-wagon"].water_reflection,
     --sound_minimum_speed = 0.1,
-    pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures
+    pictures = data.raw["fluid-wagon"]["nullius-fluid-wagon-1"].pictures,
+
+    valve_to_valve_offset_when_horizontal = { 2, 0 },
+    valve_to_valve_offset_when_vertical = { 0, 1.775 },
+    base_valve_z_offset_projected_when_horizontal = -1.4,
+    base_valve_z_offset_projected_when_vertical = -1.55,
+    base_valve_xy_offset_when_horizontal = { 0, 0 },
+    base_valve_xy_offset_when_vertical = { 0, 0 },
   },
 
   {
@@ -722,6 +749,8 @@ data:extend({
     max_health = 800,
     corpse = "artillery-wagon-remnants",
     dying_explosion = "artillery-wagon-explosion",
+    next_upgrade = "nullius-drone-carrier-2",
+    fast_replaceable_group = "drone-carrier",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
     damaged_trigger_effect = data.raw["artillery-wagon"]["artillery-wagon"].damaged_trigger_effect,
@@ -824,6 +853,7 @@ data:extend({
     max_health = 1000,
     corpse = "artillery-wagon-remnants",
     dying_explosion = "artillery-wagon-explosion",
+    fast_replaceable_group = "drone-carrier",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
     damaged_trigger_effect = data.raw["artillery-wagon"]["artillery-wagon"].damaged_trigger_effect,

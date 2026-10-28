@@ -309,6 +309,7 @@ data:extend({
         }
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -601,6 +602,7 @@ data:extend({
         }
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -890,6 +892,7 @@ data:extend({
         },
       }, 0.725),
 	  },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = {
       sound = { filename = "__angelsrefininggraphics__/sound/ore-leaching-plant.ogg", volume = 0.65 },
@@ -936,6 +939,18 @@ data.raw["assembling-machine"]["nullius-hydro-plant-2"].graphics_set.working_vis
 data.raw["assembling-machine"]["nullius-hydro-plant-2"].graphics_set.working_visualisations[5] = nil
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].graphics_set.working_visualisations[4] = nil
 data.raw["assembling-machine"]["nullius-hydro-plant-3"].graphics_set.working_visualisations[5] = nil
+
+local function oil_refinery_graphics_set(tint)
+  -- FIXME: don't tint the shadow
+  local base_set = require("__base__/prototypes/entity/oil-refinery-animation")
+  return {
+    animation = util.recursive_tint(
+      table.deepcopy(base_set.animation),
+      tint
+    ),
+    working_visualisations = base_set.working_visualisations,
+  }
+end
 
 data:extend({
   {
@@ -1009,52 +1024,8 @@ data:extend({
     fast_replaceable_group = "distillery",
     next_upgrade = "nullius-distillery-2",
 
-    graphics_set = {
-      working_visualisations = {
-        {
-          apply_recipe_tint = "primary",
-          constant_speed = true,
-          north_position = {1, -3.85},
-          east_position = {-1.7, -3.8},
-          south_position = {-1.85, -4.4},
-          west_position = {1.7, -3.65},
-          render_layer = "wires",
-          animation = {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant-smoke-outer.png",
-            frame_count = 47,
-            line_length = 16,
-            width = 90,
-            height = 188,
-            animation_speed = 0.25,
-            scale = 0.7
-          }
-        },
-      },
-  
-      animation = make_4way_animation_from_spritesheet({
-        layers = {
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
-              width = 386,
-              height = 430,
-              frame_count = 1,
-              shift = util.by_pixel(0, -7.5),
-              scale = 0.5,
-              tint = {0.77, 0.77, 0.66, 1}
-          },
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
-              width = 674,
-              height = 426,
-              frame_count = 1,
-              shift = util.by_pixel(82.5, 26.5),
-              draw_as_shadow = true,
-              force_hr_shadow = true,
-              scale = 0.5
-          }
-        }
-      })
-    }
+    graphics_set = oil_refinery_graphics_set({0.77, 0.77, 0.66, 1}),
+    use_mirroring = true,
   }
 })
 
@@ -1129,32 +1100,8 @@ data:extend({
       }
     },
 
-    graphics_set = {
-      animation = make_4way_animation_from_spritesheet({
-        layers = {
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery.png",
-              width = 386,
-              height = 430,
-              frame_count = 1,
-              shift = util.by_pixel(0, -7.5),
-              scale = 0.5,
-              tint = {0.8, 0.8, 1, 1}
-          },
-          {
-              filename = BASEENTITY .. "oil-refinery/oil-refinery-shadow.png",
-              width = 674,
-              height = 426,
-              frame_count = 1,
-              shift = util.by_pixel(82.5, 26.5),
-              draw_as_shadow = true,
-              force_hr_shadow = true,
-              scale = 0.5
-          }
-        }
-      }),
-      working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].graphics_set.working_visualisations,
-    }
+    graphics_set = oil_refinery_graphics_set({0.8, 0.8, 1, 1}),
+    use_mirroring = true,
   },
 
   {
@@ -1192,10 +1139,8 @@ data:extend({
     fast_replaceable_group = "distillery",
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["oil-refinery"],
-    graphics_set = {
-      animation = data.raw["assembling-machine"]["oil-refinery"].graphics_set.animation,
-      working_visualisations = data.raw["assembling-machine"]["nullius-distillery-1"].graphics_set.working_visualisations,
-    },
+    graphics_set = data.raw["assembling-machine"]["oil-refinery"].graphics_set,
+    use_mirroring = true,
 
     fluid_boxes = {
       {
@@ -1327,6 +1272,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
 	impact_category = "metal",
 	working_sound = {
       sound = { filename = "__angelspetrochemgraphics__/sound/electrolyser.ogg", volume = 0.15, audible_distance_modifier = 0.75 },
@@ -1448,6 +1394,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
 	  impact_category = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].impact_category,
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1541,6 +1488,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1658,6 +1606,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1745,6 +1694,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
@@ -1857,12 +1807,148 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     impact_category = "metal",
     working_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].working_sound,
     open_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].open_sound,
     close_sound = data.raw["assembling-machine"]["nullius-surge-electrolyzer-1"].close_sound
   }
 })
+
+local function chemical_plant_animation(tint)
+  local function sprite_load(path, table)
+    local ret = util.sprite_load(path, table)
+    if tint then
+      ret.tint = tint
+    end
+    return ret
+  end
+  return {
+    north = {
+      layers = {
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-north-base", {
+          scale = 0.5,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-north-anim-1", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-north-anim-2", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        {
+          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+          width = 312,
+          height = 222,
+          x = 0,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(27, 6),
+          draw_as_shadow = true,
+          scale = 0.5
+        }
+      }
+    },
+    east = {
+      layers = {
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-east-base", {
+          scale = 0.5,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-east-anim-1", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-east-anim-2", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        {
+          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+          width = 312,
+          height = 222,
+          x = 312,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(27, 6),
+          draw_as_shadow = true,
+          scale = 0.5
+        }
+      }
+    },
+    south = {
+      layers = {
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-south-base", {
+          scale = 0.5,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-south-anim-1", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-south-anim-2", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        {
+          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+          width = 312,
+          height = 222,
+          x = 312 * 2,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(27, 6),
+          draw_as_shadow = true,
+          scale = 0.5
+        }
+      }
+    },
+    west = {
+      layers = {
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-west-base", {
+          scale = 0.5,
+          frame_count = 1,
+          repeat_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-west-anim-1", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        sprite_load("__base__/graphics/entity/chemical-plant/chemical-plant-west-anim-2", {
+          scale = 0.5,
+          frame_count = 24,
+          shift = util.by_pixel(0, -9)
+        }),
+        {
+          filename = "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+          width = 312,
+          height = 222,
+          x = 312 * 3,
+          repeat_count = 24,
+          shift = util.by_pixel(27, 6),
+          draw_as_shadow = true,
+          scale = 0.5
+        }
+      }
+    }
+  }
+end
 
 data:extend({
   {
@@ -1886,29 +1972,7 @@ data:extend({
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["chemical-plant"],
     graphics_set = {
-      animation = make_4way_animation_from_spritesheet({ layers =
-      {
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
-            width = 220,
-            height = 292,
-            frame_count = 24,
-            line_length = 12,
-            shift = util.by_pixel(1.5, -9),
-            scale = 0.52,
-            tint = {0.75, 0.75, 0.6, 1}
-        },
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
-            width = 312,
-            height = 222,
-            repeat_count = 24,
-            frame_count = 1,
-            shift = util.by_pixel(27, 6),
-            draw_as_shadow = true,
-            scale = 0.52
-        }
-      }}),
+      animation = chemical_plant_animation({0.75, 0.75, 0.6, 1}),
       working_visualisations = {
         {
           apply_recipe_tint = "primary",
@@ -2038,6 +2102,7 @@ data:extend({
         }
       }
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2115,31 +2180,10 @@ data:extend({
     circuit_connector = circuit_connector_definitions["chemical-plant"],
 
     graphics_set = {
-      animation = make_4way_animation_from_spritesheet({ layers =
-      {
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
-            width = 220,
-            height = 292,
-            frame_count = 24,
-            line_length = 12,
-            shift = util.by_pixel(1.5, -9),
-            scale = 0.52,
-            tint = {0.8, 0.8, 1, 1}
-        },
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
-            width = 312,
-            height = 222,
-            repeat_count = 24,
-            frame_count = 1,
-            shift = util.by_pixel(27, 6),
-            draw_as_shadow = true,
-            scale = 0.52
-        }
-      }}),
+      animation = chemical_plant_animation({0.8, 0.8, 1, 1}),
       working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].graphics_set.working_visualisations,
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },
@@ -2216,30 +2260,10 @@ data:extend({
     circuit_connector = circuit_connector_definitions["chemical-plant"],
     
     graphics_set = {
-      animation = make_4way_animation_from_spritesheet({ layers =
-      {
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant.png",
-            width = 220,
-            height = 292,
-            frame_count = 24,
-            line_length = 12,
-            shift = util.by_pixel(1.5, -9),
-            scale = 0.52,
-        },
-        {
-            filename = BASEENTITY .. "chemical-plant/chemical-plant-shadow.png",
-            width = 312,
-            height = 222,
-            repeat_count = 24,
-            frame_count = 1,
-            shift = util.by_pixel(27, 6),
-            draw_as_shadow = true,
-            scale = 0.52
-        }
-      }}),
+      animation = chemical_plant_animation(false),
       working_visualisations = data.raw["assembling-machine"]["nullius-chemical-plant-1"].graphics_set.working_visualisations,
     },
+    use_mirroring = true,
     resistances = {
       { type = "impact", decrease = 100, percent = 90 }
     },

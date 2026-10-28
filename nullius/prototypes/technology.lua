@@ -19,7 +19,7 @@ data:extend({
     
     research_trigger = {
       type = "mine-entity",
-      entity = "nullius-landing-lab"
+      entities = {"nullius-landing-lab"}
     },
     
     ignore_tech_cost_multiplier = true,
