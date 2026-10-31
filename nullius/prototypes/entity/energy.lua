@@ -3915,11 +3915,11 @@ data.raw["accumulator"]["nullius-grid-battery-1"].chargable_graphics.charge_anim
   filename = BASEENTITY .. "accumulator/accumulator-charge.png",
   priority = "high",
   width = 178,
-  height = 206,
+  height = 210,
   line_length = 6,
   frame_count = 24,
   draw_as_glow = true,
-  shift = util.by_pixel(0, -22*1.5),
+  shift = util.by_pixel(1, -20),
   scale = 0.75
 }
 
@@ -3928,12 +3928,12 @@ data.raw["accumulator"]["nullius-grid-battery-1"].chargable_graphics.discharge_a
 data.raw["accumulator"]["nullius-grid-battery-1"].chargable_graphics.discharge_animation.layers[5] = {
   filename = BASEENTITY .. "accumulator/accumulator-discharge.png",
   priority = "high",
-  width = 170,
-  height = 210,
+  width = 174,
+  height = 214,
   line_length = 6,
   frame_count = 24,
   draw_as_glow = true,
-  shift = util.by_pixel(-1*1.5, -23*1.5),
+  shift = util.by_pixel(-1, -21),
   scale = 0.75
 }
 
