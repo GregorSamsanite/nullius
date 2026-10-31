@@ -2301,7 +2301,11 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-antenna"
-      }
+      },
+      {
+        type = "unlock-circuit-network",
+        modifier = true
+      },
     },
     unit = {
       count = 12,
@@ -2667,6 +2671,11 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "nullius-robot-frame-1"
+      },
+      {
+        type = "unlock-logistic-network",
+        modifier = true,
+        hidden = true
       }
     },
     unit = {
