@@ -6,6 +6,10 @@
 local multiplier = (settings.startup["nullius-wind-turbine-energy-multiplier"].value / 60)
 local base_wind_power = {1500000*multiplier, 4000000*multiplier, 12000000*multiplier}
 
+-- Animation speeds and offsets are calculated for a cycle of 24 frames, then scaled
+-- to the actual length of the animations, which other mods may have replaced.
+local frame_scale = (prototypes.mod_data["nullius-wind-animation"].data.frame_count / 24)
+
 -- wind_mod_offsets :: dictionary(str -> {int, int, int, int})
 -- Adjustment {top, bottom, left, right} to bounding box of modded entities.
 -- Adjustment is relative to the bounding box of a wind turbine.
@@ -167,10 +171,10 @@ function update_turbines(ind, level)
     if (t.base.valid) then
       t.base.power_production = power
       
-      t.blade.animation_speed = aspeed
-      t.shadow.animation_speed = aspeed
-      t.blade.animation_offset = offs
-      t.shadow.animation_offset = offs
+      t.blade.animation_speed = aspeed * frame_scale
+      t.shadow.animation_speed = aspeed * frame_scale
+      t.blade.animation_offset = offs * frame_scale
+      t.shadow.animation_offset = offs * frame_scale
   else
     destroy_turbine(t)
     bucket.turbines[i] = nil
@@ -221,15 +225,15 @@ function build_wind_turbine(entity, level)
       animation = "nullius-wind-blade-"..level.."-"..bucket.orientation,
       target = {position.x, (position.y - (10*scale))},
       surface = surface,
-      animation_speed = bucket.last_speed,
-      animation_offset = bucket.last_offset,
+      animation_speed = bucket.last_speed * frame_scale,
+      animation_offset = bucket.last_offset * frame_scale,
       render_layer = "wires-above"},
     shadow = rendering.draw_animation{
       animation = "nullius-wind-shadow-"..level.."-"..bucket.orientation,
       target = {(position.x + (6*scale)), (position.y - scale)},
       surface = surface,
-      animation_speed = bucket.last_speed,
-      animation_offset = bucket.last_offset}
+      animation_speed = bucket.last_speed * frame_scale,
+      animation_offset = bucket.last_offset * frame_scale}
   }
   build_turbine_collision_boxes(entry, surface, position, force)
   bucket.turbines[newentity.unit_number] = entry

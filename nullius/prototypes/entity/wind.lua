@@ -42,6 +42,14 @@ for i=0,7 do
   end
 end
 
+-- The number of frames in each of the animations above, for the script that plays them.
+-- A mod that replaces the animations with ones of a different length must update this.
+data:extend({{
+  type = "mod-data",
+  name = "nullius-wind-animation",
+  data = { frame_count = 24 }
+}})
+
 local multiplier = settings.startup["nullius-wind-turbine-energy-multiplier"].value
 local power_value = {1500*multiplier, 4000*multiplier, 12000*multiplier}
 for i=1,3 do
