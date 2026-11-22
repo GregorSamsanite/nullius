@@ -267,10 +267,6 @@ end
 if mods["fcpu"] then
     clutterpedia["nullius-fcpu"] =                              {name = "fcpu",                             tech = "nullius-fcpu"}
 end
-if mods["cranes"] then
-    clutterpedia["nullius-crane-1"] =                           {name = "crane-short",                      tech = "nullius-short-crane"}
-    clutterpedia["nullius-crane-2"] =                           {name = "crane",                            tech = "nullius-crane"}
-end
 
 if mods["aai-containers"] then
     clutterpedia["nullius-aai-strongbox"] =                     {name = "aai-strongbox",                    tech = "nullius-aai-strongbox-containers"}
