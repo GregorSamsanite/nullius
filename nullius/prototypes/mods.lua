@@ -4605,6 +4605,7 @@ end
       localised_name = {"entity-name.crane-short"},
       enabled = false,
       always_show_made_in = true,
+	  categories = {"large-crafting"},
       energy_required = 5,
       ingredients = {
         {type = "item", name = "bulk-inserter", amount = 3},
@@ -4646,6 +4647,7 @@ end
       localised_name = {"entity-name.crane"},
       enabled = false,
       always_show_made_in = true,
+	  categories = {"large-crafting"},
       energy_required = 10,
       ingredients = {
         {type = "item", name = "bob-express-bulk-inserter", amount = 3},
