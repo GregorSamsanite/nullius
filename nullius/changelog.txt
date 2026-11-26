@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: ?
+Date: ?
+  Features:
+    - New difficulty options.  When the technology multiplier is increased, some mission goals and late-game checkpoints require more drone launches or more production.
+    - New setting for custom difficulty control of drone launches.  When it is not used, difficulty scales based on the technology multiplier.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.3
 Date: 28.10.2026
   Bugfixes:

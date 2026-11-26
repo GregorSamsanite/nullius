@@ -1,5 +1,6 @@
 local mod_gui = require("mod-gui")
 local artillery_remote = require("scripts.artillery_remote")
+local difficulty = require("difficulty")
 
 local objective_name = {
   "probe", "oxygen", "algae", "grass", "tree",
@@ -19,6 +20,34 @@ local function objective_locale(goal)
     labname = group[goal].."-name.nullius-"..objective_name[goal]
   end
   return { labname }
+end
+
+local function scale_mission_target(base, scale_factor)
+  return math.floor(base * scale_factor)
+end
+
+local function update_mission_difficulty_display(drone_d, nondrone_d, checkpoint_d)
+  -- Record the mission difficulty text to be displayed to user; nil for normal difficulty.
+
+  -- At normal difficulty, save nil.  drone_d may not be exactly 1 due to floating-point approximation.
+  if math.abs(drone_d - 1) < 0.001 and nondrone_d == 1 and checkpoint_d == 1 then
+    storage.mission_difficulty_display = nil
+    return
+  end
+  local function format_difficulty(n)
+    -- Format difficulty multiplier with 1 decimal digit "123.4" or "123"
+    if n == math.floor(n) then
+      return tostring(n)
+    elseif n < 1 then
+      return string.format("%f", n)
+    else
+      return string.format("%.1f", n)
+    end
+  end
+  local drone_s = {"", "[color=0.55,0.8,1]", {"objective-name.nullius-difficulty-drone"}, ": ", string.format("%2.1f", drone_d), "×[/color]"}
+  local production_s = {"", "[color=0.55,0.8,1]", {"objective-name.nullius-difficulty-production"}, ": ", format_difficulty(nondrone_d), "×[/color]"}
+  local checkpoint_s = {"", "[color=0.55,0.8,1]", {"objective-name.nullius-difficulty-checkpoint"}, ": ", format_difficulty(checkpoint_d), "×[/color]"}
+  storage.mission_difficulty_display = {drone_s, production_s, checkpoint_s}
 end
 
 ---@param player LuaPlayer
@@ -93,7 +122,9 @@ function update_mission_panel(player)
             total = math.floor(total / 1000)
           end
 
-          m = math.sqrt(math.max(0, (m - 400000)))
+          -- Color based on the amount expected for the mission goal
+          local vented_goal = math.floor(400000 * difficulty.get_nondrone_difficulty_scale())
+          m = math.sqrt(math.max(0, (m - vented_goal)))
           m = math.max(0, math.min(1, ((m - 775) / 2324)))
           local a = math.max(0, ((m * (1 - m)) - 0.05))
           local r = 1 - (0.7 * m) + a
@@ -113,6 +144,24 @@ function update_mission_panel(player)
           })
         end
       end
+    end
+    if storage.mission_difficulty_display ~= nil then
+      local drone_s, production_s, checkpoint_s = unpack(storage.mission_difficulty_display)
+      gui.table.add({
+          type = "label", name = "mission_drone_difficulty",
+          caption = drone_s,
+          tooltip = {"objective-description.nullius-difficulty-drone"}
+      })
+      gui.table.add({
+          type = "label", name = "mission_production_difficulty",
+          caption = production_s,
+          tooltip = {"objective-description.nullius-difficulty-production"}
+      })
+      gui.table.add({
+          type = "label", name = "mission_checkpoint_difficulty",
+          caption = checkpoint_s,
+          tooltip = {"objective-description.nullius-difficulty-checkpoint"}
+      })
     end
   end
 end
@@ -180,8 +229,28 @@ end
 function set_mission_goal(goal, amount, force)
   if (storage.nullius_mission_complete) then return end
 
+  -- Base mission targets
   local mission_target = {10, 125, 1800, 12000000,
       32000, 750, 320, 60, 2500000, 20, 12, 3000000, 12000000}
+
+  -- Apply difficulty multipliers
+  local drone_difficulty = difficulty.get_drone_difficulty_scale()
+  local nondrone_difficulty = difficulty.get_nondrone_difficulty_scale()
+  local checkpoint_difficulty = difficulty.get_production_difficulty_scale()
+  update_mission_difficulty_display(drone_difficulty, nondrone_difficulty, checkpoint_difficulty)
+  for i, x in ipairs(mission_target) do
+    local d
+    if i > 2 then
+      d = drone_difficulty
+    elseif i == 1 then
+      -- Probes follow non-drone scaling
+      d = nondrone_difficulty
+    else  -- i == 2
+      -- Oxygen is scaled by reducing 'amount' instead of increasing 'target'
+      d = 1
+    end
+    mission_target[i] = scale_mission_target(x, d)
+  end
   local count = storage.nullius_mission_count
   local status = storage.nullius_mission_status
   local oldstatus = status[goal]
@@ -253,6 +322,7 @@ function update_oxygen()
   local prev_status = storage.nullius_mission_status[2]
   if (prev_status >= 100) then return end
 
+  local nondrone_difficulty = difficulty.get_nondrone_difficulty_scale()
   local current = (((storage.nullius_oxygen_bio_current * 8191) +
       storage.nullius_oxygen_bio_target) / 8192)
   storage.nullius_oxygen_bio_current = current
@@ -278,9 +348,11 @@ function update_oxygen()
   end
 
   if (vent_force == nil) then return end
-    storage.nullius_vent_total = vent_total
+
+  -- storage.nullius_vent_total: Total oxygen-equivalent gases vented by all forces
+  storage.nullius_vent_total = vent_total
   if (vent_total > 0) then
-    vent_total = math.sqrt(vent_total) / 1600
+    vent_total = math.sqrt(vent_total / nondrone_difficulty) / 1600
   else
     vent_total = 0
   end
@@ -393,3 +465,4 @@ end
 
 script.on_event(defines.events.on_cargo_pod_finished_ascending, cargo_pod_finished)
 script.on_event(defines.events.on_gui_click, gui_clicked)
+

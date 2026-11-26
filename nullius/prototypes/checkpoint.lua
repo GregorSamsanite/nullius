@@ -2430,9 +2430,11 @@ data:extend({
     name = "nullius-checkpoint-wood",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"item-name.nullius-wood"}}},
-    localised_description = {"technology-description.nullius-consume",
-	    {"technology-description.nullius-item-boxable", si_string(500000), "nullius-wood",
-		    "nullius-box-wood", {"item-name.nullius-wood"}}},
+    localised_description =
+      {"technology-description.nullius-has-difficulty",
+       {"technology-description.nullius-consume",
+        {"technology-description.nullius-item-boxable", si_string(500000), "nullius-wood",
+         "nullius-box-wood", {"item-name.nullius-wood"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2459,8 +2461,11 @@ data:extend({
     name = "nullius-checkpoint-logistic-robot-3",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-analysis",
 	    {"technology-name.nullius-logistic-robot"}}},
-    localised_description = {"technology-description.nullius-produce", {"technology-description.nullius-item-boxable",
-		    tostring(1000),"nullius-logistic-bot-4", "nullius-box-logistic-bot-4", {"entity-name.nullius-logistic-bot-4"}}},
+    localised_description =
+      {"technology-description.nullius-has-difficulty",
+       {"technology-description.nullius-produce",
+        {"technology-description.nullius-item-boxable",
+         tostring(1000),"nullius-logistic-bot-4", "nullius-box-logistic-bot-4", {"entity-name.nullius-logistic-bot-4"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2510,8 +2515,11 @@ data:extend({
     name = "nullius-checkpoint-asteroid-mining",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-utilization",
 	    {"technology-name.nullius-asteroid-mining"}}},
-    localised_description = {"technology-description.nullius-consume", {"technology-description.nullius-item",
-		    tostring(20),"nullius-asteroid-miner-2", {"item-name.nullius-asteroid-miner-2"}}},
+    localised_description =
+      {"technology-description.nullius-has-difficulty",
+       {"technology-description.nullius-consume",
+        {"technology-description.nullius-item",
+         tostring(20),"nullius-asteroid-miner-2", {"item-name.nullius-asteroid-miner-2"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2565,8 +2573,11 @@ data:extend({
     name = "nullius-checkpoint-solar-panel",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-solar-power"}}},
-    localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    tostring(1000),"nullius-solar-panel-3", {"entity-name.nullius-solar-panel-3"}}},
+    localised_description =
+      {"technology-description.nullius-has-difficulty",
+       {"technology-description.nullius-build",
+        {"technology-description.nullius-item",
+         tostring(1000),"nullius-solar-panel-3", {"entity-name.nullius-solar-panel-3"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2594,8 +2605,11 @@ data:extend({
     name = "nullius-checkpoint-grid-battery",
     localised_name = {"technology-name.nullius-checkpoint", {"technology-name.nullius-deployment",
 	    {"technology-name.nullius-battery-storage"}}},
-    localised_description = {"technology-description.nullius-build", {"technology-description.nullius-item",
-		    tostring(500), "nullius-grid-battery-3", {"entity-name.nullius-grid-battery-3"}}},
+    localised_description =
+      {"technology-description.nullius-has-difficulty",
+       {"technology-description.nullius-build",
+        {"technology-description.nullius-item",
+         tostring(500), "nullius-grid-battery-3", {"entity-name.nullius-grid-battery-3"}}}},
     order = "nullius-yg",
     icons = {
       {
@@ -2652,8 +2666,9 @@ data:extend({
 		    {"technology-description.nullius-fluid-sequestration",
 		        si_string(1500000000),"nullius-carbon-dioxide", "nullius-compressed-carbon-dioxide",
 			        {"fluid-name.nullius-carbon-dioxide"}}},"\n",
-	    {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
-		    si_string(2000000000),"nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}},
+            {"technology-description.nullius-has-difficulty",
+             {"technology-description.nullius-produce", {"technology-description.nullius-fluid-compressible",
+		    si_string(2000000000),"nullius-oxygen", "nullius-compressed-oxygen", {"fluid-name.nullius-oxygen"}}}}},
     order = "nullius-yg",
     icons = {
       {

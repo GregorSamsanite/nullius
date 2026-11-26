@@ -1,3 +1,14 @@
+
+-- Maximum number of entities to count toward mission goal.
+-- Must be at least 10 * mission_target[i] (see mission.lua)
+-- so that the mission can be completed at higher difficulty.
+-- Algae has a higher limit because amounts over 100%
+-- contribute to the oxygen goal.
+local ALGAE_LIMIT = 24000
+local WORM_LIMIT = 8000
+local FISH_LIMIT = 3250
+local ARTHROPOD_LIMIT = 750
+
 function scout_effect(event, range, halt)
   local source = event.source_entity
   if ((source ~= nil) and source.valid) then
@@ -430,7 +441,7 @@ function algaculture_effect(event)
   end
 
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
-    local new_count = count_decoratives(s, nil, 10000, "nullius-algae")
+    local new_count = count_decoratives(s, nil, ALGAE_LIMIT, "nullius-algae")
 	if (new_count > 0) then
 	  create_mission(force)
       set_mission_goal(3, new_count, event.source_entity.force)
@@ -722,8 +733,8 @@ function entomology_effect(event)
   end
 
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
-    local decals = count_decoratives(s, nil, 1000, "worms-decal")
-	local turrets = s.count_entities_filtered{limit=1000,
+    local decals = count_decoratives(s, nil, WORM_LIMIT, "worms-decal")
+	local turrets = s.count_entities_filtered{limit=WORM_LIMIT,
 	    name = {"small-worm-turret", "medium-worm-turret",
 		    "big-worm-turret", "behemoth-worm-turret"}}
     set_mission_goal(6, (decals + turrets), event.source_entity.force)
@@ -756,7 +767,7 @@ function aquaculture_effect(event)
   end
 
   if ((event.source_entity ~= nil) and event.source_entity.valid) then
-    local new_count = s.count_entities_filtered{name="fish", limit=800}
+    local new_count = s.count_entities_filtered{name="fish", limit=FISH_LIMIT}
     set_mission_goal(7, new_count, event.source_entity.force)
   end
 end
@@ -822,7 +833,7 @@ function husbandry_effect(event)
   if (force == nil) then return end
   local new_status = 100
   if (not storage.nullius_mission_complete) then
-    local new_count = s.count_entities_filtered{name="biter-spawner", limit=500}
+    local new_count = s.count_entities_filtered{name="biter-spawner", limit=ARTHROPOD_LIMIT}
     set_mission_goal(8, new_count, force)
     new_status = storage.nullius_mission_status[8]
   end
@@ -1084,4 +1095,17 @@ function trigger_effect(event)
   end
 end
 
+function biter_base_built(event)
+  -- New biter nest built.  Update mission status.
+  if not storage.nullius_mission_complete then
+    local s = event.entity.surface
+    create_mission(nil)
+    local new_count = s.count_entities_filtered{name="biter-spawner", limit=ARTHROPOD_LIMIT}
+    for _, force in pairs(game.forces) do
+      set_mission_goal(8, new_count, force)
+    end
+  end
+end
+
 script.on_event(defines.events.on_script_trigger_effect, trigger_effect)
+script.on_event(defines.events.on_biter_base_built, biter_base_built)
