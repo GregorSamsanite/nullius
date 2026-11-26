@@ -1,5 +1,4 @@
--- Code for reading settings that is shared by
--- prototype and runtime stages.
+-- Code for reading difficulty settings.
 
 local function get_technology_price_multiplier()
   if game then
