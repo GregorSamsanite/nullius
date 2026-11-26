@@ -1,3 +1,5 @@
+local difficulty = require("difficulty")
+
 local CHK_ITEM = 1
 local CHK_FLUID = 2
 local CHK_BUILD = 3
@@ -10,6 +12,11 @@ local STT_NET = 3
 
 local CAT_TECH = 1
 local CAT_BROKEN = 2
+
+-- Difficulty scaling factors
+local cseq_factor = difficulty.get_nondrone_difficulty_scale()
+local prod_factor = difficulty.get_production_difficulty_scale()
+local scale_target = difficulty.scale_checkpoint_target
 
 local checkpoint_data = {
   ["iron-ingot"] = {{ CHK_ITEM, STT_PRODUCE, 16, {{"nullius-iron-ingot"}} }},
@@ -121,10 +128,17 @@ local checkpoint_data = {
   ["mecha"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-mecha"}} }},
   ["excavation-drone"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-excavation-drone"}} }},
 
-  ["carbon-sequestration"] = {{ CHK_SPECIAL, 2, 1500000000, {
-				{{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}},
-				{{"nullius-algae",100}, {"nullius-grass",200}, {"nullius-tree",500}} } },
-			{ CHK_FLUID, STT_PRODUCE, 2000000000, {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}} }},			
+  ["carbon-sequestration"] = {
+    { CHK_SPECIAL, 2, scale_target(cseq_factor, 1500000000),
+      {
+        {{"nullius-carbon-dioxide"},{"nullius-compressed-carbon-dioxide",4}},
+        {{"nullius-algae",100},{"nullius-grass",200}, {"nullius-tree",500}}
+      }
+    },
+    { CHK_FLUID, STT_PRODUCE, scale_target(cseq_factor, 2000000000),
+      {{"nullius-oxygen"},{"nullius-compressed-oxygen",4}}
+    }
+  },
   ["cybernetics"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-4"}} }},
   ["uranium-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-uranium-1"}} }},
   ["copper-ore"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-guide-drone-copper-1"}} }},
@@ -136,14 +150,14 @@ local checkpoint_data = {
 			{{"nullius-copper-ingot"},{"nullius-box-copper-ingot",5}} }},
   ["processor-3"] = {{ CHK_ITEM, STT_CONSUME, 2000,
 			{{"nullius-processor-3"},{"nullius-box-processor-3",5}} }},
-  ["wood"] = {{ CHK_ITEM, STT_CONSUME, 500000, {{"nullius-wood"},{"nullius-box-wood",5}} }},
-  ["logistic-robot-3"] = {{ CHK_ITEM, STT_PRODUCE, 1000,
+  ["wood"] = {{ CHK_ITEM, STT_CONSUME, scale_target(prod_factor, 500000), {{"nullius-wood"},{"nullius-box-wood",5}} }},
+  ["logistic-robot-3"] = {{ CHK_ITEM, STT_PRODUCE, scale_target(prod_factor, 1000),
 			{{"nullius-logistic-bot-4"},{"nullius-box-logistic-bot-4",5}} }},
   ["android-2"] = {{ CHK_BUILD, STT_NET, 1, {{"nullius-android-2"}} }},
-  ["asteroid-mining"] = {{ CHK_ITEM, STT_CONSUME, 20, {{"nullius-asteroid-miner-2"}} }},
+  ["asteroid-mining"] = {{ CHK_ITEM, STT_CONSUME, scale_target(prod_factor, 20), {{"nullius-asteroid-miner-2"}} }},
   ["probe"] = {{ CHK_ITEM, STT_CONSUME, 1, {{"nullius-probe"}} }},
-  ["solar-panel"] = {{ CHK_BUILD, STT_NET, 1000, {{"nullius-solar-panel-3"}} }},
-  ["grid-battery"] = {{ CHK_BUILD, STT_NET, 500, {{"nullius-grid-battery-3"}} }},
+  ["solar-panel"] = {{ CHK_BUILD, STT_NET, scale_target(prod_factor, 1000), {{"nullius-solar-panel-3"}} }},
+  ["grid-battery"] = {{ CHK_BUILD, STT_NET, scale_target(prod_factor, 500), {{"nullius-grid-battery-3"}} }},
   ["cybernetics-2"] = {{ CHK_ITEM, STT_PRODUCE, 1, {{"nullius-chassis-6"}} }},
   ["algae"] = {{ CHK_OBJECTIVE, 3, 30, {} }},
   ["worm"] = {{ CHK_OBJECTIVE, 6, 30, {} }},

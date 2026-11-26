@@ -47,5 +47,19 @@ data:extend({
         default_value = 10,
         minimum_value = 0.1,
         maximum_value = 1000
+    },
+    {
+        type = "bool-setting",
+        name = "nullius-mission-drone-multiplier-enable",
+        setting_type = "startup",
+        default_value = false
+    },
+    {
+        type = "double-setting",
+        name = "nullius-mission-drone-multiplier",
+        setting_type = "startup",
+        default_value = 1,
+        minimum_value = 0.5,
+        maximum_value = 10
     }
 })
